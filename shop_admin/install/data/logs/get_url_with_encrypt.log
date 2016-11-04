@@ -1,0 +1,31 @@
+17:57:31 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/install/index.php [info] $url:http://localhost/mall/ucenter/index.php
+17:57:31 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/install/index.php [info] array (
+  'user_name' => 'admin',
+  'password' => 'admin',
+  'app_id' => '103',
+  'server_id' => '421aa90e079fa326b6494f812ad13e79',
+  'is_install' => 1,
+  'ctl' => 'Api',
+  'met' => 'addUserAndBindAppServer',
+  'typ' => 'json',
+  'rtime' => 1478080651,
+  'token' => '23970bf0430100c34473b1dd4131ad31',
+)
+17:57:32 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/install/index.php [info] $res : {"cmd_id":100,"status":200,"msg":"success","data":{"user_name":"admin","server_id":"421aa90e079fa326b6494f812ad13e79","user_id":10001},"d":[-999,"<br \/>\n<b>Notice<\/b>:  Undefined index: company_phone in <b>D:\\phpStudy\\WWW\\mall\\ucenter\\ucenter\\controllers\\ApiCtl.php<\/b> on line <b>296<\/b><br \/>"]}
+17:57:32 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/install/index.php [info] array (
+  'cmd_id' => 100,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'user_name' => 'admin',
+    'server_id' => '421aa90e079fa326b6494f812ad13e79',
+    'user_id' => 10001,
+  ),
+  'd' => 
+  array (
+    0 => -999,
+    1 => '<br />
+<b>Notice</b>:  Undefined index: company_phone in <b>D:\\phpStudy\\WWW\\mall\\ucenter\\ucenter\\controllers\\ApiCtl.php</b> on line <b>296</b><br />',
+  ),
+)

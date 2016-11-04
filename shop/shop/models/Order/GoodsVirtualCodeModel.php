@@ -1,0 +1,39 @@
+<?php if (!defined('ROOT_PATH'))
+{
+	exit('No Permission');
+}
+
+/**
+ * @author     Xinze <xinze@live.cn>
+ */
+class Order_GoodsVirtualCodeModel extends Order_GoodsVirtualCode
+{
+	const SHOP_STATUS_OPEN  = 3;  //ï¿½ï¿½ï¿½ï¿½
+	const VIRTUAL_CODE_NEW  = 0;    //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Î´Ê¹ï¿½ï¿?
+	const VIRTUAL_CODE_USED = 1;    //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿?
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->codeUse = array(
+			'0' => _('ÒÑÊ¹ÓÃ'),
+			'1' => _('Î´Ê¹ÓÃ'),
+		);
+	}
+
+
+	public function getVirtualCode($cond_row = array())
+	{
+		$data = $this->getByWhere($cond_row);
+
+		foreach ($data as $key => $val)
+		{
+			$data[$key]['code_status'] = $this->codeUse[$val['virtual_code_status']];
+		}
+
+		return $data;
+	}
+
+}
+
+?>

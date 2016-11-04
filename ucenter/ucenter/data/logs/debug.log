@@ -1,0 +1,9 @@
+[02-Nov-2016 17:50:42 Asia/Shanghai] PHP Notice:  Undefined index: key in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\IndexCtl.php on line 14
+[02-Nov-2016 17:50:42 Asia/Shanghai] PHP Notice:  Undefined index: id in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\IndexCtl.php on line 15
+[02-Nov-2016 17:53:17 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[02-Nov-2016 17:55:55 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[02-Nov-2016 17:57:32 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[04-Nov-2016 09:11:54 Asia/Shanghai] PHP Notice:  Undefined index: key in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\IndexCtl.php on line 14
+[04-Nov-2016 09:11:54 Asia/Shanghai] PHP Notice:  Undefined index: id in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\IndexCtl.php on line 15
+[04-Nov-2016 09:12:03 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\LoginCtl.php on line 683
+[04-Nov-2016 09:16:53 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\LoginCtl.php on line 683

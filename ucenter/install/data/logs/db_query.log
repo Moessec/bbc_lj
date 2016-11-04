@@ -1,0 +1,2 @@
+17:51:52 11/02/16 FILE=D:/phpStudy/WWW/mall/ucenter/install/index.php [debug] SELECT 1;
+17:51:52 11/02/16 FILE=D:/phpStudy/WWW/mall/ucenter/install/index.php [debug] SELECT table_name FROM information_schema.tables WHERE table_schema="mall_ucenter" AND table_type="BASE TABLE"

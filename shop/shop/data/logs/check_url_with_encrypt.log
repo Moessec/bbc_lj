@@ -1,0 +1,213 @@
+17:30:58 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'shop_app_id_new' => '102',
+  'shop_api_key_new' => 'aaaaaabbb',
+  'shop_api_url_new' => 'http://localhost/mall/shop/index.php',
+  'shop_wap_url' => 'http://wap.bbc-builder.com/',
+  'rtime' => '1478136658',
+  'token' => '43796b3a2568480e0ddbc6687c0b113c',
+)
+17:30:58 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:app_id=102&rtime=1478136658&shop_api_key_new=aaaaaabbb&shop_api_url_new=http%3A%2F%2Flocalhost%2Fmall%2Fshop%2Findex.php&shop_app_id_new=102&shop_wap_url=http%3A%2F%2Fwap.bbc-builder.com%2F&key=aaaaaabbb
+17:30:58 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:43796b3a2568480e0ddbc6687c0b113c
+17:31:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478136661',
+  'token' => '5b7230029a428598ec115d09cf6b6dbb',
+)
+17:31:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=api&rtime=1478136661&key=aaaaaabbb
+17:31:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:5b7230029a428598ec115d09cf6b6dbb
+17:31:02 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478136662',
+  'token' => '599d8f681083feb95673e775c4a4661b',
+)
+17:31:02 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=api&rtime=1478136662&key=aaaaaabbb
+17:31:02 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:599d8f681083feb95673e775c4a4661b
+17:31:16 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'config_type' => 
+  array (
+    0 => 'paycenter_api',
+  ),
+  'paycenter_api' => 
+  array (
+    'paycenter_api_name' => '网付宝',
+    'paycenter_api_url' => 'http://paycenter.yuanfeng021.com/index.php',
+    'paycenter_api_key' => 'aaaaaabbb',
+  ),
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'rtime' => '1478136676',
+  'token' => 'b1186ddaa24acc61fcf2b7857b015e76',
+)
+17:31:16 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=paycenter_api&paycenter_api%5Bpaycenter_api_key%5D=aaaaaabbb&paycenter_api%5Bpaycenter_api_name%5D=%E7%BD%91%E4%BB%98%E5%AE%9D&paycenter_api%5Bpaycenter_api_url%5D=http%3A%2F%2Fpaycenter.yuanfeng021.com%2Findex.php&rtime=1478136676&key=aaaaaabbb
+17:31:16 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:b1186ddaa24acc61fcf2b7857b015e76
+17:31:28 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'config_type' => 
+  array (
+    0 => 'paycenter_api',
+  ),
+  'paycenter_api' => 
+  array (
+    'paycenter_api_name' => '网付宝',
+    'paycenter_api_url' => 'http://localhost/mall/paycenter/index.php',
+    'paycenter_api_key' => 'aaaaaabbb',
+  ),
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'rtime' => '1478136688',
+  'token' => '6e4007b681585de72084b4381fec566e',
+)
+17:31:28 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=paycenter_api&paycenter_api%5Bpaycenter_api_key%5D=aaaaaabbb&paycenter_api%5Bpaycenter_api_name%5D=%E7%BD%91%E4%BB%98%E5%AE%9D&paycenter_api%5Bpaycenter_api_url%5D=http%3A%2F%2Flocalhost%2Fmall%2Fpaycenter%2Findex.php&rtime=1478136688&key=aaaaaabbb
+17:31:28 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:6e4007b681585de72084b4381fec566e
+17:31:30 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478136690',
+  'token' => 'ce0ee123f6abacbb33acbdfd362567b2',
+)
+17:31:30 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=api&rtime=1478136690&key=aaaaaabbb
+17:31:30 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:ce0ee123f6abacbb33acbdfd362567b2
+17:31:33 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478136693',
+  'token' => 'b716a57069cccf329dd471b2216d24bc',
+)
+17:31:33 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=api&rtime=1478136693&key=aaaaaabbb
+17:31:33 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:b716a57069cccf329dd471b2216d24bc
+17:31:35 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478136695',
+  'token' => '239bc5f22ff53fec2e59de06e3cd5c30',
+)
+17:31:35 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=api&rtime=1478136695&key=aaaaaabbb
+17:31:35 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:239bc5f22ff53fec2e59de06e3cd5c30
+17:31:36 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478136696',
+  'token' => '6348f3a1a2764f704fb809dec22e60ba',
+)
+17:31:36 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=api&rtime=1478136696&key=aaaaaabbb
+17:31:36 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:6348f3a1a2764f704fb809dec22e60ba
+17:31:36 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478136696',
+  'token' => '6348f3a1a2764f704fb809dec22e60ba',
+)
+17:31:36 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=api&rtime=1478136696&key=aaaaaabbb
+17:31:36 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:6348f3a1a2764f704fb809dec22e60ba
+17:32:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'plugin',
+  ),
+  'rtime' => '1478136721',
+  'token' => '45f830b9bf1b267cbb019523c7b8a144',
+)
+17:32:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=plugin&rtime=1478136721&key=aaaaaabbb
+17:32:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:45f830b9bf1b267cbb019523c7b8a144
+17:32:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'rtime' => '1478136723',
+  'token' => 'e0836ef78e46d35c50a35da3334e8307',
+)
+17:32:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&rtime=1478136723&key=aaaaaabbb
+17:32:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:e0836ef78e46d35c50a35da3334e8307
+17:32:19 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'typ' => 'json',
+  'type_number' => 'goods_state',
+  'rtime' => '1478136737',
+  'token' => 'd9c7b4a57e440da8c7058ad44cce3848',
+)
+17:32:19 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:app_id=102&rtime=1478136737&typ=json&type_number=goods_state&key=aaaaaabbb
+17:32:19 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:d9c7b4a57e440da8c7058ad44cce3848
+17:32:20 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478136738',
+  'token' => 'fc341769de01c4ab04a9860d93d89b2e',
+)
+17:32:20 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=site&rtime=1478136738&key=aaaaaabbb
+17:32:20 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:fc341769de01c4ab04a9860d93d89b2e
+17:32:20 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'typ' => 'json',
+  'type_number' => 'goods_cat',
+  'is_delete' => '2',
+  'rtime' => '1478136738',
+  'token' => 'f61b982a5de660bf95fcdacdc0e498ae',
+)
+17:32:20 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:app_id=102&is_delete=2&rtime=1478136738&typ=json&type_number=goods_cat&key=aaaaaabbb
+17:32:20 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:f61b982a5de660bf95fcdacdc0e498ae
+17:18:55 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'typ' => 'json',
+  'type_number' => 'goods_state',
+  'rtime' => '1478222334',
+  'token' => '55c4af689b08bfd3784897957a807738',
+)
+17:18:55 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:app_id=102&rtime=1478222334&typ=json&type_number=goods_state&key=aaaaaabbb
+17:18:55 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:55c4af689b08bfd3784897957a807738
+17:18:55 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478222334',
+  'token' => '0f0658271286db70265732b5e8d91473',
+)
+17:18:55 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:admin_account=admin&app_id=102&config_type%5B0%5D=site&rtime=1478222334&key=aaaaaabbb
+17:18:55 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:0f0658271286db70265732b5e8d91473
+17:18:56 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] array (
+  'app_id' => '102',
+  'typ' => 'json',
+  'type_number' => 'goods_cat',
+  'is_delete' => '2',
+  'rtime' => '1478222335',
+  'token' => '6fd4798df6d766b59fa3544d8433a6df',
+)
+17:18:56 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] $tmp_str:app_id=102&is_delete=2&rtime=1478222335&typ=json&type_number=goods_cat&key=aaaaaabbb
+17:18:56 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [info] md5-key:6fd4798df6d766b59fa3544d8433a6df

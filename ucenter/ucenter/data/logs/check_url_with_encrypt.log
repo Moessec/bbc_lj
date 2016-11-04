@@ -1,0 +1,12 @@
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478222352',
+  'token' => 'c105f391c6ad4d9c0ad9451da3cc1d77',
+)
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478222352&key=aaaaaabbb
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter/index.php [info] md5-key:c105f391c6ad4d9c0ad9451da3cc1d77

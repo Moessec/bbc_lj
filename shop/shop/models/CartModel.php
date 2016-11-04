@@ -1,0 +1,841 @@
+<?php if (!defined('ROOT_PATH'))
+{
+	exit('No Permission');
+}
+
+/**
+ * @author     Xinze <xinze@live.cn>
+ */
+class CartModel extends Cart
+{
+	/**
+	 * 读取分页列表
+	 *
+	 * @param  int $config_key 主键值
+	 * @return array $rows 返回的查询内容
+	 * @access public
+	 */
+	public function getCatGoodsList($cond_row = array(), $order_row = array(), $page = 1, $rows = 100)
+	{
+		return $this->listByWhere($cond_row, $order_row, $page, $rows);
+	}
+
+	/**
+	 * 虚拟商品确认订单
+	 *
+	 * @param  int $config_key 主键值
+	 * @return array $rows 返回的查询内容
+	 * @access public
+	 */
+	public function getVirtualCart($goods_id = null, $num = null)
+	{
+
+		$Goods_BaseModel = new Goods_BaseModel();
+
+		//验证商品信息
+		$res = $Goods_BaseModel->checkGoods($goods_id);
+		if (!$res)
+		{
+			return null;
+		}
+
+		$goods_base = $Goods_BaseModel->getGoodsInfo($goods_id);
+		fb($goods_base);
+		fb("商品信息 goods_base");
+
+
+		//计算商品价格
+		if (isset($goods_base['goods_base']['promotion_price']) && !empty($goods_base['goods_base']['promotion_price']) && $goods_base['goods_base']['promotion_price'] < $goods_base['goods_base']['goods_price'])
+		{
+			$goods_base['goods_base']['old_price']  = $goods_base['goods_base']['goods_price'];
+			$goods_base['goods_base']['now_price']  = $goods_base['goods_base']['promotion_price'];
+			$goods_base['goods_base']['down_price'] = $goods_base['goods_base']['down_price'];
+		}
+		else
+		{
+			$goods_base['goods_base']['old_price']  = 0;
+			$goods_base['goods_base']['now_price']  = $goods_base['goods_base']['goods_price'];
+			$goods_base['goods_base']['down_price'] = 0;
+		}
+
+		//商品总价格
+		$goods_base['goods_base']['sumprice'] = number_format($goods_base['goods_base']['now_price'] * $num, 2, '.', '');
+		//商品的交易佣金
+		$Goods_CatModel = new Goods_CatModel();
+		$cat_base       = $Goods_CatModel->getOne($goods_base['goods_base']['cat_id']);
+		if ($cat_base)
+		{
+			$cat_commission = $cat_base['cat_commission'];
+		}
+		else
+		{
+			$cat_commission = 0;
+		}
+		$goods_base['goods_base']['commission'] = number_format(($goods_base['goods_base']['sumprice'] * $cat_commission / 100), 2, '.', '');
+
+		$Promotion = new Promotion();
+		//店铺满送活动
+		$mansong_info = $Promotion->getShopOrderGift($goods_base['goods_base']['shop_id'], $goods_base['goods_base']['sumprice']);
+		fb($mansong_info);
+		fb("满送1");
+
+		if ($mansong_info)
+		{
+			if (isset($mansong_info['gift_goods_id']))
+			{
+				$man_goods_base = $Goods_BaseModel->checkGoods($mansong_info['gift_goods_id']);
+				if (!$man_goods_base)
+				{
+					$mansong_info['gift_goods_id'] = 0;
+				}
+				else
+				{
+					$mansong_info['goods_name']  = $man_goods_base['goods_base']['goods_name'];
+					$mansong_info['goods_image'] = $man_goods_base['goods_base']['goods_image'];
+				}
+			}
+
+			if (!$mansong_info['gift_goods_id'] && !$mansong_info['rule_discount'])
+			{
+				$mansong_info = array();
+			}
+		}
+
+		if (isset($mansong_info['rule_discount']) && $mansong_info['rule_discount'])
+		{
+			$goods_base['goods_base']['sumprice'] = $goods_base['goods_base']['sumprice'] - $mansong_info['rule_discount'];
+		}
+		$goods_base['mansong_info'] = $mansong_info;
+		fb($mansong_info);
+		fb('满送');
+
+		//加价购
+		$increase                              = array();
+		$goods_base['goods_base']['goods_num'] = $num;
+		$increase['shop_id']                   = $goods_base['goods_base']['shop_id'];
+		$increase['goods'][]                   = $goods_base['goods_base'];
+		$increase_info                         = $Promotion->getOrderIncreaseInfo($increase);
+
+		//去除加价购商品中没有库存和不存在的商品，若是改活动下没有有效商品则去除该活动
+		foreach ($increase_info as $inckey => $incval)
+		{
+			if (!empty($incval['exc_goods']))
+			{
+				foreach ($incval['exc_goods'] as $excgkey => $excgval)
+				{
+					$goods_basel = $Goods_BaseModel->checkGoods($excgval['goods_id']);
+					if (!$goods_basel)
+					{
+						unset($incval['exc_goods'][$excgkey]);
+						unset($increase_info[$inckey]['exc_goods'][$excgkey]);
+					}
+					else
+					{
+						$increase_info[$inckey]['exc_goods'][$excgkey]['goods_name']  = $goods_basel['goods_base']['goods_name'];
+						$increase_info[$inckey]['exc_goods'][$excgkey]['goods_image'] = $goods_basel['goods_base']['goods_image'];
+					}
+				}
+
+				if (empty($incval['exc_goods']))
+				{
+					unset($increase_info[$inckey]);
+				}
+			}
+			else
+			{
+				unset($increase_info[$inckey]);
+			}
+		}
+
+		$goods_base['increase_info'] = $increase_info;
+		fb($increase_info);
+		fb("加价购信息");
+
+		//店铺代金券
+		$Voucher_BaseModel = new Voucher_BaseModel();
+		$voucher_base      = $Voucher_BaseModel->getUserOrderVoucherByWhere(Perm::$userId, $goods_base['goods_base']['shop_id'], $goods_base['goods_base']['sumprice']);
+		fb($voucher_base);
+		fb("代金券信息");
+		$goods_base['voucher_base'] = $voucher_base;
+
+		return $goods_base;
+	}
+
+	/**
+	 * 购物车数据
+	 *
+	 * @param  int $config_key 主键值
+	 * @return array $rows 返回的查询内容
+	 * @access public
+	 */
+	public function getCardList($cond_row = array(), $order_row = array())
+	{
+		$user_id  = Perm::$row['user_id'];
+		$cart_row = $this->getByWhere($cond_row, $order_row);
+
+		$Goods_BaseModel   = new Goods_BaseModel();
+		$Shop_BaseModel    = new Shop_BaseModel();
+		$Goods_CommonModel = new Goods_CommonModel();
+		$Promotion         = new Promotion();
+		$Order_GoodsModel  = new Order_GoodsModel();
+		$Goods_CatModel    = new Goods_CatModel();
+
+
+		$data = array();
+
+		//判断商品库存，商品状态，商品审核，店铺状态。 将无效的商品从购物车中删除
+		foreach ($cart_row as $key => $val)
+		{
+
+			$goods_base = $Goods_BaseModel->checkGoods($val['goods_id']);
+
+			if (!$goods_base)
+			{
+				//若该商品状态为无效，则删除该购物车商品
+				$this->removeCart($cart_row[$key]);
+
+				unset($cart_row[$key]);
+			}
+
+		}
+
+		//$data['count'] = count($cart_row);
+		$count = count($cart_row);
+
+		foreach ($cart_row as $key => $val)
+		{
+			$shop_base  = array();
+			$goods_base = array();
+			//获取商品信息
+			$goods_base = $Goods_BaseModel->getGoodsInfo($val['goods_id']);
+
+			//商品重量
+			$val['cubage'] = $goods_base['common_base']['common_cubage'];
+
+			//计算商品库存
+			if ($goods_base['goods_base']['goods_stock'] < $val['goods_num'])
+			{
+				$val['goods_num'] = $goods_base['goods_base']['goods_stock'];
+			}
+
+
+			//计算商品价格
+			if (isset($goods_base['goods_base']['promotion_price']) && !empty($goods_base['goods_base']['promotion_price']) && $goods_base['goods_base']['promotion_price'] < $goods_base['goods_base']['goods_price'])
+			{
+				$val['old_price']  = $goods_base['goods_base']['goods_price'];
+				$val['now_price']  = $goods_base['goods_base']['promotion_price'];
+				$val['down_price'] = $goods_base['goods_base']['down_price'];
+			}
+			else
+			{
+				$val['old_price']  = 0;
+				$val['now_price']  = $goods_base['goods_base']['goods_price'];
+				$val['down_price'] = 0;
+			}
+
+			$IsHaveBuy = 0;
+			if ($user_id)
+			{
+				//团购商品是否已经开始
+				//查询该用户是否已购买过该商品
+				$order_goods_cond['common_id']             = $goods_base['goods_base']['common_id'];
+				$order_goods_cond['buyer_user_id']         = $user_id;
+				$order_goods_cond['order_goods_status:!='] = Order_StateModel::ORDER_REFUND_FINISH;
+				$order_list                                = $Order_GoodsModel->getByWhere($order_goods_cond);
+
+				$order_goods_count        = count($order_list);
+				$val['order_goods_count'] = $order_goods_count;
+
+				if (isset($goods_base['goods_base']['promotion_type']))
+				{
+					$promotion_type = $goods_base['goods_base']['promotion_type'];
+
+					if ($promotion_type == 'groupbuy')
+					{
+						//检测是否限购数量
+						$upper_limit = $goods_base['goods_base']['upper_limit'];
+						if ($upper_limit > 0 && $order_goods_count >= $upper_limit)
+						{
+							$IsHaveBuy = 1;
+						}
+					}
+				}
+
+
+				//商品限购数量判断
+				if ($goods_base['common_base']['common_limit'] > 0 && $order_goods_count >= $goods_base['common_base']['common_limit'])
+				{
+					$IsHaveBuy = 1;
+				}
+
+				$val['IsHaveBuy'] = $IsHaveBuy;
+			}
+
+			//计算商品购买数量
+			//计算限购数量
+			if (isset($goods_base['goods_base']['upper_limit']))
+			{
+				if ($goods_base['goods_base']['upper_limit'] && $goods_base['common_base']['common_limit'])
+				{
+					if ($goods_base['goods_base']['upper_limit'] >= $goods_base['common_base']['common_limit'])
+					{
+						$val['buy_limit'] = $goods_base['common_base']['common_limit'];
+					}
+					else
+					{
+						$val['buy_limit'] = $goods_base['goods_base']['upper_limit'];
+					}
+				}
+				elseif ($goods_base['goods_base']['upper_limit'] && !$goods_base['common_base']['common_limit'])
+				{
+					$val['buy_limit'] = $goods_base['goods_base']['upper_limit'];
+				}
+				elseif (!$goods_base['goods_base']['upper_limit'] && $goods_base['common_base']['common_limit'])
+				{
+					$val['buy_limit'] = $goods_base['common_base']['common_limit'];
+				}
+				else
+				{
+					$val['buy_limit'] = 0;
+				}
+			}
+			else
+			{
+				$val['buy_limit'] = $goods_base['common_base']['common_limit'];
+			}
+
+			//有限购数量且仍可以购买，计算还可购买的数量
+			if ($val['buy_limit'] && !$IsHaveBuy)
+			{
+				$val['buy_residue'] = $val['buy_limit'] - $order_goods_count;
+			}
+
+			//商品总价格
+			$val['sumprice'] = number_format($val['now_price'] * $val['goods_num'], 2, '.', '');
+			//该商品的交易佣金计算
+			$goods_cat = $Goods_CatModel->getOne($goods_base['goods_base']['cat_id']);
+			if ($goods_cat)
+			{
+				$cat_commission = $goods_cat['cat_commission'];
+			}
+			else
+			{
+				$cat_commission = 0;
+			}
+			$val['commission'] = number_format(($val['sumprice'] * $cat_commission / 100), 2, '.', '');
+
+
+			$val['goods_base']  = $goods_base['goods_base'];
+			$val['common_base'] = $goods_base['common_base'];
+			if (!array_key_exists($val['shop_id'], $data))
+			{
+				//获取店铺信息
+				$shop_base = $Shop_BaseModel->getOne($val['shop_id']);
+
+				$data[$val['shop_id']]['shop_id']        = $shop_base['shop_id'];
+				$data[$val['shop_id']]['shop_name']      = $shop_base['shop_name'];
+				$data[$val['shop_id']]['shop_user_id']   = $shop_base['user_id'];
+				$data[$val['shop_id']]['shop_user_name'] = $shop_base['user_name'];
+				$data[$val['shop_id']]['goods'][]        = $val;
+			}
+			else
+			{
+				$data[$val['shop_id']]['goods'][] = $val;
+			}
+
+
+			if (isset($data[$val['shop_id']]['sprice']))
+			{
+				//店铺总价
+				$data[$val['shop_id']]['sprice'] = str_replace(',', '', $data[$val['shop_id']]['sprice']) * 1;
+				$val['sumprice']                 = str_replace(',', '', $val['sumprice']) * 1;
+
+				$data[$val['shop_id']]['sprice'] += $val['sumprice'];
+
+				//店铺佣金
+				$data[$val['shop_id']]['commission'] = str_replace(',', '', $data[$val['shop_id']]['commission']) * 1;
+				$val['commission']                   = str_replace(',', '', $val['commission']) * 1;
+
+				$data[$val['shop_id']]['commission'] += $val['commission'];
+			}
+			else
+			{
+				$data[$val['shop_id']]['sprice']     = $val['sumprice'];
+				$data[$val['shop_id']]['commission'] = $val['commission'];
+			}
+
+			$data[$val['shop_id']]['sprice']     = number_format($data[$val['shop_id']]['sprice'] * 1, 2, '.', '');
+			$data[$val['shop_id']]['commission'] = number_format($data[$val['shop_id']]['commission'] * 1, 2, '.', '');
+		}
+
+		$Voucher_BaseModel = new Voucher_BaseModel();
+		$Promotion         = new Promotion();
+		foreach ($data as $key => $val)
+		{
+			//店铺满送活动
+			$mansong_info = $Promotion->getShopOrderGift($val['shop_id'], $val['sprice']);
+
+			fb($mansong_info);
+			fb("满送1");
+			if ($mansong_info)
+			{
+				if (isset($mansong_info['gift_goods_id']))
+				{
+					$goods_base = $Goods_BaseModel->checkGoods($mansong_info['gift_goods_id']);
+					if (!$goods_base)
+					{
+						$mansong_info['gift_goods_id'] = 0;
+					}
+					else
+					{
+						$mansong_info['goods_name']  = $goods_base['goods_base']['goods_name'];
+						$mansong_info['goods_image'] = $goods_base['goods_base']['goods_image'];
+						$mansong_info['common_id']   = $goods_base['goods_base']['common_id'];
+					}
+				}
+
+				if (!$mansong_info['gift_goods_id'] && !$mansong_info['rule_discount'])
+				{
+					$mansong_info = array();
+				}
+			}
+
+			if (isset($mansong_info['rule_discount']) && $mansong_info['rule_discount'])
+			{
+				$data[$val['shop_id']]['sprice'] = $data[$val['shop_id']]['sprice'] - $mansong_info['rule_discount'];
+			}
+			$data[$val['shop_id']]['mansong_info'] = $mansong_info;
+			fb($mansong_info);
+			fb('满送');
+
+			$increase_info = $Promotion->getOrderIncreaseInfo($val);
+
+			//去除加价购商品中没有库存和不存在的商品，若是改活动下没有有效商品则去除该活动
+			foreach ($increase_info as $inckey => $incval)
+			{
+				if (!empty($incval['exc_goods']))
+				{
+					foreach ($incval['exc_goods'] as $excgkey => $excgval)
+					{
+						$goods_base = $Goods_BaseModel->checkGoods($excgval['goods_id']);
+						if (!$goods_base)
+						{
+							unset($incval['exc_goods'][$excgkey]);
+							unset($increase_info[$inckey]['exc_goods'][$excgkey]);
+						}
+						else
+						{
+							$increase_info[$inckey]['exc_goods'][$excgkey]['goods_name']  = $goods_base['goods_base']['goods_name'];
+							$increase_info[$inckey]['exc_goods'][$excgkey]['goods_image'] = $goods_base['goods_base']['goods_image'];
+						}
+					}
+
+					if (empty($incval['exc_goods']))
+					{
+						unset($increase_info[$inckey]);
+					}
+				}
+				else
+				{
+					unset($increase_info[$inckey]);
+				}
+			}
+
+			$data[$key]['increase_info'] = $increase_info;
+			fb($increase_info);
+			fb("加价购信息");
+
+
+			//店铺代金券
+			$voucher_base               = $Voucher_BaseModel->getUserOrderVoucherByWhere(Perm::$userId, $val['shop_id'], $val['sprice']);
+			$data[$key]['voucher_base'] = array_values($voucher_base);
+
+			//获取该店铺可领取的代金券
+			$Voucher_TemplateModel = new Voucher_TempModel();
+			$shop_voucher  = $Voucher_TemplateModel->getByWhere(array('voucher_t_access_method'=>Voucher_TempModel::GETFREE ,
+																		'shop_id'=>$val['shop_id'] ,
+																		'voucher_t_state' => Voucher_TempModel::VALID ,
+																		'voucher_t_end_date:>=' => get_date_time()));
+			$data[$key]['shop_voucher'] = array_values($shop_voucher);
+		}
+
+		$data['count'] = count($cart_row);
+
+		fb($data);
+		fb("购物详细列表");
+		return $data;
+	}
+
+
+	/**
+	 * 首页侧边栏中获取购物车中的数据
+	 *
+	 * @param  int $config_key 主键值
+	 * @return array $rows 返回的查询内容
+	 * @access public
+	 */
+	public function getCardListInIndex($cond_row = array(), $order_row = array())
+	{
+		$user_id  = Perm::$row['user_id'];
+		$cart_row = $this->getByWhere($cond_row, $order_row);
+
+		$Goods_BaseModel   = new Goods_BaseModel();
+		$Shop_BaseModel    = new Shop_BaseModel();
+		$Goods_CommonModel = new Goods_CommonModel();
+		$Promotion         = new Promotion();
+		$Order_GoodsModel  = new Order_GoodsModel();
+		$Goods_CatModel    = new Goods_CatModel();
+
+
+		$data = array();
+
+		//判断商品库存，商品状态，商品审核，店铺状态。 将无效的商品从购物车中删除
+		foreach ($cart_row as $key => $val)
+		{
+
+			$goods_base = $Goods_BaseModel->checkGoods($val['goods_id']);
+
+			if (!$goods_base)
+			{
+				unset($cart_row[$key]);
+			}
+
+		}
+
+		//$data['count'] = count($cart_row);
+		$count = count($cart_row);
+
+		foreach ($cart_row as $key => $val)
+		{
+			$shop_base  = array();
+			$goods_base = array();
+			//获取商品信息
+			$goods_base = $Goods_BaseModel->getGoodsInfo($val['goods_id']);
+			fb($goods_base);
+
+			//商品重量
+			$val['cubage'] = $goods_base['common_base']['common_cubage'];
+
+			//计算商品库存
+			if ($goods_base['goods_base']['goods_stock'] < $val['goods_num'])
+			{
+				$val['goods_num'] = $goods_base['goods_base']['goods_stock'];
+			}
+
+
+			//计算商品价格
+			if (isset($goods_base['goods_base']['promotion_price']) && !empty($goods_base['goods_base']['promotion_price']) && $goods_base['goods_base']['promotion_price'] < $goods_base['goods_base']['goods_price'])
+			{
+				$val['old_price']  = $goods_base['goods_base']['goods_price'];
+				$val['now_price']  = $goods_base['goods_base']['promotion_price'];
+				$val['down_price'] = $goods_base['goods_base']['down_price'];
+			}
+			else
+			{
+				$val['old_price']  = 0;
+				$val['now_price']  = $goods_base['goods_base']['goods_price'];
+				$val['down_price'] = 0;
+			}
+
+			$IsHaveBuy = 0;
+			if ($user_id)
+			{
+				//团购商品是否已经开始
+				//查询该用户是否已购买过该商品
+				$order_goods_cond['common_id']             = $goods_base['goods_base']['common_id'];
+				$order_goods_cond['buyer_user_id']         = $user_id;
+				$order_goods_cond['order_goods_status:!='] = Order_StateModel::ORDER_REFUND_FINISH;
+				$order_list                                = $Order_GoodsModel->getByWhere($order_goods_cond);
+
+				$order_goods_count        = count($order_list);
+				$val['order_goods_count'] = $order_goods_count;
+
+				if (isset($goods_base['goods_base']['promotion_type']))
+				{
+					$promotion_type = $goods_base['goods_base']['promotion_type'];
+
+					if ($promotion_type == 'groupbuy')
+					{
+						//检测是否限购数量
+						$upper_limit = $goods_base['goods_base']['upper_limit'];
+						if ($upper_limit > 0 && $order_goods_count >= $upper_limit)
+						{
+							$IsHaveBuy = 1;
+						}
+					}
+				}
+
+
+				//商品限购数量判断
+				if ($goods_base['common_base']['common_limit'] > 0 && $order_goods_count >= $goods_base['common_base']['common_limit'])
+				{
+					$IsHaveBuy = 1;
+				}
+
+				fb($IsHaveBuy);
+				$val['IsHaveBuy'] = $IsHaveBuy;
+			}
+			fb($IsHaveBuy);
+			fb('购买权限');
+
+			//计算商品购买数量
+			//计算限购数量
+			if (isset($goods_base['goods_base']['upper_limit']))
+			{
+				if ($goods_base['goods_base']['upper_limit'] && $goods_base['common_base']['common_limit'])
+				{
+					if ($goods_base['goods_base']['upper_limit'] >= $goods_base['common_base']['common_limit'])
+					{
+						$val['buy_limit'] = $goods_base['common_base']['common_limit'];
+					}
+					else
+					{
+						$val['buy_limit'] = $goods_base['goods_base']['upper_limit'];
+					}
+				}
+				elseif ($goods_base['goods_base']['upper_limit'] && !$goods_base['common_base']['common_limit'])
+				{
+					$val['buy_limit'] = $goods_base['goods_base']['upper_limit'];
+				}
+				elseif (!$goods_base['goods_base']['upper_limit'] && $goods_base['common_base']['common_limit'])
+				{
+					$val['buy_limit'] = $goods_base['common_base']['common_limit'];
+				}
+				else
+				{
+					$val['buy_limit'] = 0;
+				}
+			}
+			else
+			{
+				$val['buy_limit'] = $goods_base['common_base']['common_limit'];
+			}
+
+			//有限购数量且仍可以购买，计算还可购买的数量
+			if ($val['buy_limit'] && !$IsHaveBuy)
+			{
+				$val['buy_residue'] = $val['buy_limit'] - $order_goods_count;
+			}
+
+			//商品总价格
+			$val['sumprice'] = number_format($val['now_price'] * $val['goods_num'], 2, '.', '');
+			//该商品的交易佣金计算
+			$goods_cat = $Goods_CatModel->getOne($goods_base['goods_base']['cat_id']);
+			if ($goods_cat)
+			{
+				$cat_commission = $goods_cat['cat_commission'];
+			}
+			else
+			{
+				$cat_commission = 0;
+			}
+			$val['commission'] = number_format(($val['sumprice'] * $cat_commission / 100), 2, '.', '');
+
+
+			$val['goods_base']  = $goods_base['goods_base'];
+			$val['common_base'] = $goods_base['common_base'];
+			if (!array_key_exists($val['shop_id'], $data))
+			{
+				//获取店铺信息
+				$shop_base = $Shop_BaseModel->getOne($val['shop_id']);
+
+				$data[$val['shop_id']]['shop_id']        = $shop_base['shop_id'];
+				$data[$val['shop_id']]['shop_name']      = $shop_base['shop_name'];
+				$data[$val['shop_id']]['shop_user_id']   = $shop_base['user_id'];
+				$data[$val['shop_id']]['shop_user_name'] = $shop_base['user_name'];
+				$data[$val['shop_id']]['goods'][]        = $val;
+			}
+			else
+			{
+				$data[$val['shop_id']]['goods'][] = $val;
+			}
+
+			fb($val);
+			fb("商品信息");
+
+			if (isset($data[$val['shop_id']]['sprice']))
+			{
+				//店铺总价
+				$data[$val['shop_id']]['sprice'] = str_replace(',', '', $data[$val['shop_id']]['sprice']) * 1;
+				$val['sumprice']                 = str_replace(',', '', $val['sumprice']) * 1;
+
+				$data[$val['shop_id']]['sprice'] += $val['sumprice'];
+
+				//店铺佣金
+				$data[$val['shop_id']]['commission'] = str_replace(',', '', $data[$val['shop_id']]['commission']) * 1;
+				$val['commission']                   = str_replace(',', '', $val['commission']) * 1;
+
+				$data[$val['shop_id']]['commission'] += $val['commission'];
+			}
+			else
+			{
+				$data[$val['shop_id']]['sprice']     = $val['sumprice'];
+				$data[$val['shop_id']]['commission'] = $val['commission'];
+			}
+
+			$data[$val['shop_id']]['sprice']     = number_format($data[$val['shop_id']]['sprice'] * 1, 2, '.', '');
+			$data[$val['shop_id']]['commission'] = number_format($data[$val['shop_id']]['commission'] * 1, 2, '.', '');
+		}
+
+
+		foreach ($data as $key => $val)
+		{
+			$Promotion = new Promotion();
+
+			//店铺满送活动
+			$mansong_info = $Promotion->getShopOrderGift($val['shop_id'], $val['sprice']);
+
+			fb($mansong_info);
+			fb("满送1");
+			if ($mansong_info)
+			{
+				if (isset($mansong_info['gift_goods_id']))
+				{
+					$goods_base = $Goods_BaseModel->checkGoods($mansong_info['gift_goods_id']);
+					if (!$goods_base)
+					{
+						$mansong_info['gift_goods_id'] = 0;
+					}
+					else
+					{
+						$mansong_info['goods_name']  = $goods_base['goods_base']['goods_name'];
+						$mansong_info['goods_image'] = $goods_base['goods_base']['goods_image'];
+						$mansong_info['common_id']   = $goods_base['goods_base']['common_id'];
+					}
+				}
+
+				if (!$mansong_info['gift_goods_id'] && !$mansong_info['rule_discount'])
+				{
+					$mansong_info = array();
+				}
+			}
+
+			if (isset($mansong_info['rule_discount']) && $mansong_info['rule_discount'])
+			{
+				$data[$val['shop_id']]['sprice'] = $data[$val['shop_id']]['sprice'] - $mansong_info['rule_discount'];
+			}
+			$data[$val['shop_id']]['mansong_info'] = $mansong_info;
+			fb($mansong_info);
+			fb('满送');
+
+			$increase_info = $Promotion->getOrderIncreaseInfo($val);
+
+			//去除加价购商品中没有库存和不存在的商品，若是改活动下没有有效商品则去除该活动
+			foreach ($increase_info as $inckey => $incval)
+			{
+				if (!empty($incval['exc_goods']))
+				{
+					foreach ($incval['exc_goods'] as $excgkey => $excgval)
+					{
+						$goods_base = $Goods_BaseModel->checkGoods($excgval['goods_id']);
+						if (!$goods_base)
+						{
+							unset($incval['exc_goods'][$excgkey]);
+							unset($increase_info[$inckey]['exc_goods'][$excgkey]);
+						}
+						else
+						{
+							$increase_info[$inckey]['exc_goods'][$excgkey]['goods_name']  = $goods_base['goods_base']['goods_name'];
+							$increase_info[$inckey]['exc_goods'][$excgkey]['goods_image'] = $goods_base['goods_base']['goods_image'];
+						}
+					}
+
+					if (empty($incval['exc_goods']))
+					{
+						unset($increase_info[$inckey]);
+					}
+				}
+				else
+				{
+					unset($increase_info[$inckey]);
+				}
+			}
+
+			$data[$key]['increase_info'] = $increase_info;
+			fb($increase_info);
+			fb("加价购信息");
+		}
+
+		$data['count'] = count($cart_row);
+
+		fb($data);
+		fb("购物详细列表");
+		return $data;
+	}
+
+	public function getCartGoodPrice($cart_id = null)
+	{
+		$cart_base = $this->getOne($cart_id);
+
+		$Goods_BaseModel = new Goods_BaseModel();
+
+		$goods_base = $Goods_BaseModel->getOne($cart_base['goods_id']);
+
+		//计算商品的活动价格
+		if (false)
+		{
+
+		}
+		else
+		{
+			$price = $cart_base['goods_num'] * $goods_base['goods_price'];
+		}
+
+		return $price;
+	}
+
+
+	//计算购物车中的商品数量
+	public function getCartGoodsNum($cond_row = array(), $order_row = array())
+	{
+
+		/*
+		$cart_row = $this->getByWhere($cond_row, $order_row);
+
+		fb($cart_row);
+		fb("购物车列表");
+
+		$Goods_BaseModel = new Goods_BaseModel();
+
+
+		$count = 0;
+
+		//判断商品库存，商品状态，商品审核，店铺状态。 将无效的商品从购物车中删除
+		foreach ($cart_row as $key => $val)
+		{
+
+			$goods_base = $Goods_BaseModel->checkGoods($val['goods_id']);
+
+			if (!$goods_base)
+			{
+				unset($cart_row[$key]);
+			}
+
+		}
+
+		$count = count($cart_row);
+		*/
+
+		$user_id = $cond_row['user_id'];
+
+		/*$sql = '
+			SELECT
+				SUM(goods_num) num
+			FROM ' . $this->_tableName . '
+			WHERE 1 AND user_id = ' . $user_id . '
+		';*/
+		$sql = '
+			SELECT
+				COUNT( ' .$this->_tablePrimaryKey. ') num
+			FROM ' . $this->_tableName . '
+			WHERE 1 AND user_id = ' . $user_id . '
+		';
+
+		$data = $this->sql->getRow($sql);
+
+		return isset($data['num']) ? $data['num'] : 0;
+	}
+
+}
+
+?>

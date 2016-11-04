@@ -1,0 +1,262 @@
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="setting_logo" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="site_name" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="setting_buyer_logo" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="setting_seller_logo" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="photo_goods_logo" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="photo_shop_head_logo" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="photo_shop_logo" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="photo_user_logo" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS cat_id FROM yf_goods_cat WHERE 1   AND cat_parent_id=0 ORDER BY cat_displayorder ASC LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS article_group_id FROM yf_article_group WHERE 1   AND article_group_parent_id=0 LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (1,2) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (0,1) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS search_id FROM yf_search_word WHERE 1   ORDER BY search_nums DESC LIMIT 0, 12
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS groupbuy_id FROM yf_groupbuy_base WHERE 1   AND groupbuy_starttime<="2016-11-02 01:58:03" AND groupbuy_endtime>="2016-11-02 01:58:03" AND groupbuy_state=2 ORDER BY groupbuy_recommend DESC LIMIT 0, 15
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS page_id FROM yf_adv_page_settings WHERE 1   AND page_status=1 ORDER BY page_order ASC LIMIT 0, 100
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="title" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="keyword" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="description" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="search_words" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_live_link1" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_slider1_image" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_live_link2" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_slider2_image" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_live_link3" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_slider3_image" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_live_link4" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_slider4_image" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_live_link5" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_slider5_image" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_liandong_url1" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_liandong1_image" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_liandong_url2" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_liandong2_image" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="groupbuy_allow" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="copyright" LIMIT 500 
+01:58:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="statistics_code" LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=0 ORDER BY district_displayorder ASC LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_base_district WHERE 1   AND district_id IN (1,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,19,18,17,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,35) ORDER BY district_displayorder ASC LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=1 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=20 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=21 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=22 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=23 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=24 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=25 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=26 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=27 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=28 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=29 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=30 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=31 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=32 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=33 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=34 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=19 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=18 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=17 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=2 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=3 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=4 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=5 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=6 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=7 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=8 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=9 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=10 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=11 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=12 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=13 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=14 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=15 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=16 LIMIT 500 
+01:58:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=35 LIMIT 500 
+01:58:05 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS cat_id FROM yf_goods_cat WHERE 1   AND cat_parent_id=0 ORDER BY cat_displayorder ASC LIMIT 500 
+01:58:05 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS article_group_id FROM yf_article_group WHERE 1   AND article_group_parent_id=0 LIMIT 500 
+01:58:05 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (1,2) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+01:58:06 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+01:58:06 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (0,1) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+01:58:06 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+01:58:06 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS search_id FROM yf_search_word WHERE 1   ORDER BY search_nums DESC LIMIT 0, 12
+01:58:06 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+01:58:06 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS article_id FROM yf_article_base WHERE 1   AND article_type=1 AND article_status=1 ORDER BY article_add_time DESC LIMIT 0, 20
+01:58:06 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:14:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS cat_id FROM yf_goods_cat WHERE 1   AND cat_parent_id=0 ORDER BY cat_displayorder ASC LIMIT 500 
+17:14:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS article_group_id FROM yf_article_group WHERE 1   AND article_group_parent_id=0 LIMIT 500 
+17:14:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (1,2) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+17:14:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:14:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (0,1) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+17:14:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:14:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS search_id FROM yf_search_word WHERE 1   ORDER BY search_nums DESC LIMIT 0, 12
+17:14:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:14:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS article_id FROM yf_article_base WHERE 1   AND article_type=1 AND article_status=1 ORDER BY article_add_time DESC LIMIT 0, 20
+17:14:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:31:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS config_key FROM yf_web_config WHERE 1   AND config_type="api" LIMIT 500 
+17:31:02 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS config_key FROM yf_web_config WHERE 1   AND config_type="api" LIMIT 500 
+17:31:30 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS config_key FROM yf_web_config WHERE 1   AND config_type="api" LIMIT 500 
+17:31:33 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS config_key FROM yf_web_config WHERE 1   AND config_type="api" LIMIT 500 
+17:31:35 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS config_key FROM yf_web_config WHERE 1   AND config_type="api" LIMIT 500 
+17:31:36 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS config_key FROM yf_web_config WHERE 1   AND config_type="api" LIMIT 500 
+17:31:36 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS config_key FROM yf_web_config WHERE 1   AND config_type="api" LIMIT 500 
+17:32:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS config_key FROM yf_web_config WHERE 1   AND config_type="plugin" LIMIT 500 
+17:32:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key IN ("Plugin_Cron","Plugin_Log","Plugin_Perm","Plugin_Xhprof") LIMIT 500 
+17:32:19 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS type_id FROM yf_goods_type WHERE 1   LIMIT 500 
+17:32:20 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS config_key FROM yf_web_config WHERE 1   AND config_type="site" LIMIT 500 
+17:32:20 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS cat_id FROM yf_goods_cat WHERE 1   AND cat_parent_id=0 ORDER BY cat_displayorder ASC LIMIT 500 
+17:32:20 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key IN ("closed_reason","copyright","date_format","icp_number","language_id","monetary_unit","site_name","site_status","statistics_code","theme_id","time_format","time_zone_id") LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="setting_logo" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="setting_buyer_logo" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="setting_seller_logo" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="photo_goods_logo" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="photo_shop_head_logo" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="photo_shop_logo" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="photo_user_logo" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS cat_id FROM yf_goods_cat WHERE 1   AND cat_parent_id=0 ORDER BY cat_displayorder ASC LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS article_group_id FROM yf_article_group WHERE 1   AND article_group_parent_id=0 LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (1,2) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (0,1) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS search_id FROM yf_search_word WHERE 1   ORDER BY search_nums DESC LIMIT 0, 12
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS groupbuy_id FROM yf_groupbuy_base WHERE 1   AND groupbuy_starttime<="2016-11-02 17:32:23" AND groupbuy_endtime>="2016-11-02 17:32:23" AND groupbuy_state=2 ORDER BY groupbuy_recommend DESC LIMIT 0, 15
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS page_id FROM yf_adv_page_settings WHERE 1   AND page_status=1 ORDER BY page_order ASC LIMIT 0, 100
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="title" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="keyword" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="description" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="search_words" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_live_link1" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_slider1_image" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_live_link2" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_slider2_image" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_live_link3" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_slider3_image" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_live_link4" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_slider4_image" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_live_link5" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_slider5_image" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_liandong_url1" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_liandong1_image" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_liandong_url2" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="index_liandong2_image" LIMIT 500 
+17:32:23 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_web_config WHERE 1   AND config_key="groupbuy_allow" LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=0 ORDER BY district_displayorder ASC LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_base_district WHERE 1   AND district_id=1 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM yf_base_district WHERE 1   AND district_id IN (1,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,19,18,17,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,35) ORDER BY district_displayorder ASC LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS cat_id FROM yf_goods_cat WHERE 1   AND cat_parent_id=0 ORDER BY cat_displayorder ASC LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS article_group_id FROM yf_article_group WHERE 1   AND article_group_parent_id=0 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (1,2) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (0,1) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS search_id FROM yf_search_word WHERE 1   ORDER BY search_nums DESC LIMIT 0, 12
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS article_id FROM yf_article_base WHERE 1   AND article_type=1 AND article_status=1 ORDER BY article_add_time DESC LIMIT 0, 20
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=1 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=20 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=21 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=22 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=23 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=24 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=25 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=26 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=27 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=28 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=29 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=30 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=31 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=32 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=33 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=34 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=19 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=18 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=17 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=2 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=3 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=4 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=5 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=6 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=7 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=8 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=9 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=10 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=11 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=12 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=13 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=14 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=15 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=16 LIMIT 500 
+17:32:24 11/02/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS district_id FROM yf_base_district WHERE 1   AND district_parent_id=35 LIMIT 500 
+17:17:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS cat_id FROM yf_goods_cat WHERE 1   AND cat_parent_id=0 ORDER BY cat_displayorder ASC LIMIT 500 
+17:17:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS article_group_id FROM yf_article_group WHERE 1   AND article_group_parent_id=0 LIMIT 500 
+17:17:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (1,2) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+17:17:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:17:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS nav_id FROM yf_platform_nav WHERE 1   AND nav_location NOT IN (0,1) AND nav_active=1 ORDER BY nav_displayorder ASC LIMIT 0, 100
+17:17:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:17:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS search_id FROM yf_search_word WHERE 1   ORDER BY search_nums DESC LIMIT 0, 12
+17:17:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:17:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS article_id FROM yf_article_base WHERE 1   AND article_type=1 AND article_status=1 ORDER BY article_add_time DESC LIMIT 0, 20
+17:17:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] 
+                SELECT
+                    FOUND_ROWS() total
+17:18:55 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS config_key FROM yf_web_config WHERE 1   AND config_type="site" LIMIT 500 
+17:18:55 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS type_id FROM yf_goods_type WHERE 1   LIMIT 500 
+17:18:56 11/03/16 FILE=D:/phpStudy/WWW/mall/shop/index.php [debug] SELECT  SQL_CALC_FOUND_ROWS cat_id FROM yf_goods_cat WHERE 1   AND cat_parent_id=0 ORDER BY cat_displayorder ASC LIMIT 500 

@@ -1,0 +1,2207 @@
+<?php if (!defined('ROOT_PATH'))
+{
+	exit('No Permission');
+}
+
+/**
+ * @author     Xinze <xinze@live.cn>
+ */
+class InfoCtl extends Controller
+{
+	public function __construct(&$ctl, $met, $typ)
+	{
+		parent::__construct($ctl, $met, $typ);
+		$this->User_InfoModel  = new User_InfoModel();
+		$this->User_BaseModel  = new User_BaseModel();
+		$this->User_ResourceModel = new User_ResourceModel();
+		$this->Consume_WithdrawModel = new Consume_WithdrawModel();
+		$this->Consume_DepositModel = new Consume_DepositModel(); 
+		$this->messageTemplateModel = new Message_TemplateModel();
+		$this->Consume_RecordModel = new Consume_RecordModel();
+		$this->Service_FeeModel = new Service_FeeModel();
+	}
+	
+	//默认设置
+	public function webConfig()
+	{
+		$web['site_logo']       = Web_ConfigModel::value("site_logo");//首页logo
+		$web['web_name']       = Web_ConfigModel::value("site_name");//首页名称
+		$web['buyer_logo']     = Web_ConfigModel::value("setting_buyer_logo");//会员中心logo
+		$web['seller_logo']    = Web_ConfigModel::value("setting_seller_logo");//卖家中心logo
+		$web['goods_image']    = Web_ConfigModel::value("photo_goods_logo");//商品图片
+		$web['shop_head_logo'] = Web_ConfigModel::value("photo_shop_head_logo");//店铺头像
+		$web['shop_logo']      = Web_ConfigModel::value("photo_shop_logo");//店铺标志
+		$web['user_avatar']    = Web_ConfigModel::value("photo_user_avatar");//默认头像
+
+		return $web;
+	}
+
+
+	//首页
+	public function index()
+	{
+       //获取用户信息
+		$user_id = Perm::$userId;
+
+		$User_InfoModel = new User_InfoModel();
+		$user_info      = $User_InfoModel->getUserInfo($user_id);
+
+		fb($user_info);
+
+		$User_BaseModel = new User_BaseModel();
+		$user_base      = $User_BaseModel->getOne($user_id);
+
+		//获取用户资产
+		$User_ResourceModel = new User_ResourceModel();
+
+		$user_resource = $User_ResourceModel->getResource($user_id);
+		$user_resource = current($user_resource);
+
+
+		//查找交易记录（3条）
+		$Consume_RecordModel = new Consume_RecordModel();
+		$consume_record_list = $Consume_RecordModel->getRecordList($user_id, null, null, 1, 10);
+
+		fb($consume_record_list);
+		$this->view->setMet('main');
+		include $this->view->getView();
+	}
+  
+	//首页
+	public function main()
+	{
+		//获取用户信息
+		$user_id = Perm::$userId;
+		fb($user_id);
+
+
+		$User_InfoModel = new User_InfoModel();
+		$user_info      = $User_InfoModel->getOne($user_id);
+		
+		$User_BaseModel = new User_BaseModel();
+		$user_base      = $User_BaseModel->getOne($user_id);
+		
+		//获取用户资产
+		$User_ResourceModel = new User_ResourceModel();
+
+		$user_resource = $User_ResourceModel->getResource($user_id);
+		$user_resource = current($user_resource);
+	
+
+		//查找交易记录（3条）
+		$Consume_RecordModel = new Consume_RecordModel();
+		$consume_record_list = $Consume_RecordModel->getRecordList($user_id, null, null, 1, 10);
+
+		include $this->view->getView();
+	}
+	//交易记录页面 
+	public function recordlist()
+	{
+		$user_id = Perm::$userId;
+		//$user_id = 1;
+		//获取用户资产
+		$User_ResourceModel = new User_ResourceModel();
+
+		$user_resource = $User_ResourceModel->getResource($user_id);
+		$user_resource = current($user_resource);
+		
+		$start_date         = request_string("start_date");
+		$end_date           = request_string("end_date");
+		$time               = request_string("time");
+		$status             = request_int("status");
+		$type               = request_int("type");
+		$record_delete      = request_int("record_delete");
+		if ($record_delete)
+		{
+			$cond_row['record_delete'] = 1;
+		}else{
+			$cond_row['record_delete'] = 0;
+		}
+		
+		if ($time)
+		{
+			$cond_row['record_time:>='] = $time;
+		}
+		
+		if ($start_date)
+		{
+			$cond_row['record_time:>='] = $start_date;
+		}
+		if ($end_date)
+		{
+			$cond_row['record_time:<='] = $end_date;
+		}
+		if ($status)
+		{
+			$cond_row['record_status'] = $status;
+		}
+		if ($type)
+		{
+			$cond_row['trade_type_id'] = $type;
+		}
+		
+		$Yf_Page           = new Yf_Page();
+		$Yf_Page->listRows = request_int('listRows')?request_int('listRows'):10;
+		$rows              = $Yf_Page->listRows;
+		$offset            = request_int('firstRow', 0);
+		$page              = ceil_r($offset / $rows);
+	
+		$cond_row['user_id'] = $user_id;
+		$consume_record_list = $this->Consume_RecordModel->getRecordList1($cond_row,array("record_time"=>"DESC"), $page, $rows);
+
+		$Yf_Page->totalRows = $consume_record_list['totalsize'];
+		$page_nav           = $Yf_Page->prompt();
+		include $this->view->getView();
+	}
+	//删除记录
+	public function delRecordlist()
+	{
+		//获取用户信息
+		$user_id = Perm::$userId;
+		//$user_id = '1';
+		$consume_record_id = request_string('id');
+		$record_delete = request_string('record_delete');
+		$edit['user_id'] = $user_id;
+		
+		$re =$this->Consume_RecordModel->getRecord($consume_record_id,$edit);
+		
+		if($re){
+			if($record_delete){
+				$edit['record_delete'] = 0;
+			}else{
+				$edit['record_delete'] = 1;
+			}
+			
+			$flag     =$this->Consume_RecordModel->editRecord($consume_record_id,$edit);
+			if ($flag)
+			{
+				$msg    = 'success';
+				$status = 200;
+			}
+			else
+			{
+				$msg    = 'failure';
+				$status = 250;
+			}
+		}	
+		$data = array();
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+	//交易详情记录页面 
+	public function recorddetail()
+	{
+		$consume_record_id = request_string('id');
+		$re =$this->Consume_RecordModel->getOne($consume_record_id);
+
+		if($re['trade_type_id'] == 4){
+		   $data=$this->Consume_WithdrawModel->getWithdrawByOid($re['order_id']);
+		   foreach($data as $k=>$v){
+			   $id = $v['supportTime'];
+			   $de=$this->Service_FeeModel->getOne($id);
+			  $data[$k]['time_con'] = $de['name'];
+		   }
+
+		}
+		include $this->view->getView();
+	}
+	//充值页面 DEPOSIT
+	public function deposit()
+	{
+		$user_id = Perm::$userId;
+		//查找账户的余额和充值卡信息
+		$User_ResourceModel = new User_ResourceModel();
+		$user_resource = $User_ResourceModel->getOne($user_id);
+		fb($user_resource);
+
+		//获取用户所有的充值卡信息
+		$Card_InfoModel = new Card_InfoModel();
+		$card_list = $Card_InfoModel->getUserCard($user_id);
+		fb($card_list);
+		
+		include $this->view->getView();
+	}
+	//充值记录页面 DEPOSIT
+	public function depositlist()
+	{
+		$user_id = Perm::$userId;
+		//$user_id = 1;
+		//获取用户资产
+		$User_ResourceModel = new User_ResourceModel();
+
+		$user_resource = $User_ResourceModel->getResource($user_id);
+		$user_resource = current($user_resource);
+		
+		$Yf_Page           = new Yf_Page();
+		$Yf_Page->listRows = request_int('listRows')?request_int('listRows'):10;
+		$rows              = $Yf_Page->listRows;
+		$offset            = request_int('firstRow', 0);
+		$page              = ceil_r($offset / $rows);
+		
+		
+		$cond_row['server_id'] = $user_id;
+		$consume_Deposit_list = $this->Consume_DepositModel->getDepositList1($cond_row,array("deposit_gmt_create"=>"DESC"), $page, $rows);
+		
+		$Yf_Page->totalRows = $consume_Deposit_list['totalsize'];
+		$page_nav           = $Yf_Page->prompt();
+
+		include $this->view->getView();
+	}
+
+	//提现页面 Withdraw
+	public function withdraw()
+	{
+		//获取服务费用
+		$Service_FeeModel = new Service_FeeModel();
+		$service_fee_list = array_values($Service_FeeModel->getFee("*"));
+		fb($service_fee_list);
+
+		include $this->view->getView();
+	}
+	
+	//提现记录页面 Withdrawlist
+	public function withdrawlist()
+	{
+		$Yf_Page           = new Yf_Page();
+		$Yf_Page->listRows = request_int('listRows')?request_int('listRows'):10;
+		$rows              = $Yf_Page->listRows;
+		$offset            = request_int('firstRow', 0);
+		$page              = ceil_r($offset / $rows);
+		
+		//$user_id = 1;
+		$user_id = Perm::$userId;
+		$cond_row['pay_uid'] = $user_id;
+		$consume_withdraw_list = $this->Consume_WithdrawModel->getWithdrawList($cond_row,array("add_time"=>"DESC"), $page, $rows);
+		
+		$Yf_Page->totalRows = $consume_withdraw_list['totalsize'];
+		$page_nav           = $Yf_Page->prompt();
+
+		include $this->view->getView();
+	}
+
+	//转账页面 Transfer
+	public function transfer()
+	{
+		include $this->view->getView();
+	}
+	//转账记录页面 
+	public function transferlist()
+	{
+		//$user_id = 1;
+		//获取用户资产
+		$user_id = Perm::$userId;
+		$user_resource = $this->User_ResourceModel->getResource($user_id);
+		$user_resource = current($user_resource);
+		
+		$Yf_Page           = new Yf_Page();
+		$Yf_Page->listRows = request_int('listRows')?request_int('listRows'):10;
+		$rows              = $Yf_Page->listRows;
+		$offset            = request_int('firstRow', 0);
+		$page              = ceil_r($offset / $rows);
+
+		$cond_row['user_id'] = $user_id;
+		$cond_row['trade_type_id'] = 2;
+		$consume_record_list = $this->Consume_RecordModel->getRecordList1($cond_row,array("record_time"=>"DESC"), $page, $rows);
+		
+		$Yf_Page->totalRows = $consume_record_list['totalsize'];
+		$page_nav           = $Yf_Page->prompt();
+
+		include $this->view->getView();
+	}
+	public function pay()
+	{
+		$user_id = Perm::$userId;
+
+		fb(Yf_Registry::get('from_app_id'));
+
+		$uorder = request_string('uorder');
+		$act = request_string('act');
+		$op = request_string('op','pc');
+
+		fb($op);
+
+		//获取需要支付的订单信息
+		$Union_OrderModel = new Union_OrderModel();
+		$uorder_base = $Union_OrderModel->getOne($uorder);
+		fb($uorder_base);
+
+		//查询可使用的支付方式
+		$Payment_ChannelModel = new Payment_ChannelModel();
+		$payment_channel = $Payment_ChannelModel->getByWhere(array('payment_channel_enable' => Payment_ChannelModel::ENABLE_YES ));
+		$payment_channel = array_values($payment_channel);
+		fb($payment_channel);
+
+		//获取当前用户的资金
+		$User_ResourceModel = new User_ResourceModel();
+		$user_resource = $User_ResourceModel->getOne($user_id);
+		fb($user_resource);
+
+		foreach($payment_channel as $key => $val)
+		{
+			if($val['payment_channel_code'] == 'cards' || $val['payment_channel_code'] == 'money')
+			{
+				unset($payment_channel[$key]);
+			}
+		}
+
+		include $this->view->getView();
+	}
+
+	public function checkPayWay()
+	{
+		$card_payway = request_string('card_payway');
+		$money_payway = request_string('money_payway');
+		$online_payway = request_string('online_payway');
+
+		$uorder_id = request_string('uorder_id');
+
+		//查找订单的支付信息
+		$Union_OrderModel = new Union_OrderModel();
+
+		//开启事物
+		$Union_OrderModel->sql->startTransactionDb();
+
+		$uorder_base = $Union_OrderModel->getOne($uorder_id);
+
+		$urow = $Union_OrderModel->getByWhere(array('inorder'=>$uorder_base['inorder']));
+		$uorder_id_row = array_column($urow,'union_order_id');
+
+		//订单支付的总金额
+		$payment_amount = $uorder_base['trade_payment_amount'];
+
+		$user_card_pay = 0;
+		$user_money_pay = 0;
+		$user_online_pay = 0;
+
+		//使用充值卡或账户余额支付时，查找账户的资源资源信息
+		if($card_payway == 'true' || $money_payway == 'true')
+		{
+			$User_ResourceModel = new User_ResourceModel();
+			$user_resource = $User_ResourceModel->getOne(Perm::$userId);
+
+			$user_money = $user_resource['user_money'];
+			$user_card = $user_resource['user_recharge_card'];
+
+			//使用充值卡支付
+			if($card_payway == 'true')
+			{
+				if($user_card <= $payment_amount)
+				{
+					$user_card_pay = $user_card;
+					$payment_amount = $payment_amount - $user_card;
+				}
+				else
+				{
+					$user_card_pay = $payment_amount;
+				}
+			}
+
+			//使用账户余额支付
+			if($money_payway == 'true')
+			{
+				if($user_money <= $payment_amount)
+				{
+					$user_money_pay = $user_money;
+					$payment_amount = $payment_amount - $user_money_pay;
+				}
+				else
+				{
+					$user_money_pay = $payment_amount;
+				}
+			}
+
+
+		}
+
+		if($online_payway)
+		{
+			$user_online_pay = $payment_amount;
+		}
+
+		//将用户的付款信息插入表中
+		$edit_union_order_row['union_cards_pay_amount'] = $user_card_pay;
+		$edit_union_order_row['union_money_pay_amount'] = $user_money_pay;
+		$edit_union_order_row['union_online_pay_amount'] = $user_online_pay;
+
+		$Union_OrderModel = new Union_OrderModel();
+		$flag = $Union_OrderModel->editUnionOrder($uorder_id_row,$edit_union_order_row);
+
+		fb($flag);
+		if($flag !== false && $Union_OrderModel->sql->commitDb() )
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$Union_OrderModel->sql->rollBackDb();
+			$m      = $Union_OrderModel->msg->getMessages();
+			$msg    = $m ? $m[0] : _('failure');
+			$status = 250;
+		}
+		$data = array();
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+	//添加充值记录
+	public function addDeposit()
+	{
+		$deposit_amount = request_float('deposit_amount');
+
+		$Union_OrderModel = new Union_OrderModel();
+		//开启事务
+		$Union_OrderModel->sql->startTransactionDb();
+
+		//生成合并支付订单
+		$uorder      = "U" . date("Ymdhis", time()) . rand(100, 999);  //18位
+
+		$trade_title = $uorder;
+		$uprice      = $deposit_amount;
+		$buyer       = Perm::$userId;
+		$buyer_name = Perm::$row['user_account'];
+
+		$add_row = array(
+			'union_order_id' => $uorder,
+			'trade_title' => $trade_title,
+			'trade_payment_amount' => $uprice,
+			'create_time' => date("Y-m-d H:i:s"),
+			'buyer_id' => $buyer,
+			'order_state_id' => Union_OrderModel::WAIT_PAY,
+			'union_online_pay_amount' => $uprice,
+			'trade_type_id' => Trade_TypeModel::DEPOSIT,
+			'app_id' => Yf_Registry::get('paycenter_app_id'),
+		);
+
+		$flag            = $Union_OrderModel->addUnionOrder($add_row);
+
+		//添加充值表
+		$Consume_DepositModel = new Consume_DepositModel();
+		$add_deposit_row = array();
+		$add_deposit_row['deposit_trade_no'] = $uorder;
+		$add_deposit_row['deposit_buyer_id'] = $buyer;
+		$add_deposit_row['deposit_total_fee'] = $deposit_amount;
+		$add_deposit_row['deposit_gmt_create'] = date('Y-m-d H:i:s');
+		$add_deposit_row['deposit_trade_status'] = RecordStatusModel::IN_HAND;
+		$Consume_DepositModel->addDeposit($add_deposit_row);
+
+		//添加交易明细
+		$Consume_RecordModel = new Consume_RecordModel();
+		$Trade_TypeModel = new Trade_TypeModel();
+		$record_add_buy_row                  = array();
+		$record_add_buy_row['order_id']      = $uorder;
+		$record_add_buy_row['user_id']       = $buyer;
+		$record_add_buy_row['user_nickname'] = $buyer_name;
+		$record_add_buy_row['record_money']  = $deposit_amount;
+		$record_add_buy_row['record_date']   = date('Y-m-d');
+		$record_add_buy_row['record_year']	   = date('Y');
+		$record_add_buy_row['record_month']	= date('m');
+		$record_add_buy_row['record_day']		=date('d');
+		$record_add_buy_row['record_title']  = $Trade_TypeModel->trade_type[Trade_TypeModel::DEPOSIT];
+		$record_add_buy_row['record_time']   = date('Y-m-d H:i:s');
+		$record_add_buy_row['trade_type_id'] = Trade_TypeModel::DEPOSIT;
+		$record_add_buy_row['user_type']     = 1;	//收款方
+		$record_add_buy_row['record_status'] = RecordStatusModel::IN_HAND;
+
+		$Consume_RecordModel->addRecord($record_add_buy_row);
+
+		if ($flag && $Union_OrderModel->sql->commitDb())
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$Union_OrderModel->sql->rollBackDb();
+			$m      = $Union_OrderModel->msg->getMessages();
+			$msg    = $m ? $m[0] : _('failure');
+			$status = 250;
+		}
+
+		$data = array('uorder' => $uorder);
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+	public function checkCardPasswor()
+	{
+		$card_code = request_string('card_code');
+		$card_password = request_string('card_password');
+
+        $Card_InfoModel = new Card_InfoModel();
+        $card_info = $Card_InfoModel->getOne($card_code);
+
+        if($card_info)
+        {
+            if($card_info['card_password'] == $card_password)
+            {
+                $flag = true;
+            }
+            else
+            {
+                $m = '支付卡密码错误';
+                $flag = false;
+            }
+        }
+        else
+        {
+            $m = '支付卡不存在';
+            $flag = false;
+        }
+
+        if($flag)
+        {
+            $msg    = 'success';
+            $status = 200;
+        }
+        else
+        {
+            $msg    =  $m ? $m : 'failure';
+            $status = 250;
+        }
+
+        $data = array();
+        $this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+	public function depositCard()
+    {
+        $card_code = request_string('card_code');
+        $user_id = Perm::$userId;
+
+        //1.改变支付卡的使用情况
+        $Card_InfoModel = new Card_InfoModel();
+
+        //开启事务
+        $Card_InfoModel->sql->startTransactionDb();
+        $card_info = $Card_InfoModel->getOne($card_code);
+
+        $Card_BaseModel = new Card_BaseModel();
+        $card_base = $Card_BaseModel->getOne($card_info['card_id']);
+
+        $card_prize = json_decode($card_base['card_prize'], true);
+        $money = isset($card_prize['m'])?$card_prize['m']:0;
+
+        $edit_card_row = array();
+        $edit_card_row['card_fetch_time'] = date('Y-m-d H:i:s');
+        $edit_card_row['user_id'] = $user_id;
+        $edit_card_row['user_account'] = Perm::$row['user_accout'];
+        $edit_card_row['server_id'] = get_ip();
+
+        $Card_InfoModel->editInfo($card_code,$edit_card_row);
+
+
+        //2.添加充值表
+        $Consume_DepositModel = new Consume_DepositModel();
+        $add_deposit_row = array();
+        $add_deposit_row['deposit_trade_no'] = $card_code;
+        $add_deposit_row['deposit_buyer_id'] = $user_id;
+        $add_deposit_row['deposit_total_fee'] = $money;
+        $add_deposit_row['deposit_gmt_create'] = date('Y-m-d H:i:s');
+        $add_deposit_row['deposit_trade_status'] = RecordStatusModel::RECORD_CANCEL;
+        $Consume_DepositModel->addDeposit($add_deposit_row);
+
+        //3.添加交易明细
+        $Consume_RecordModel = new Consume_RecordModel();
+        $Trade_TypeModel = new Trade_TypeModel();
+        $record_add_buy_row                  = array();
+        $record_add_buy_row['order_id']      = $card_code;
+        $record_add_buy_row['user_id']       = $user_id;
+        $record_add_buy_row['user_nickname'] = Perm::$row['user_account'];
+        $record_add_buy_row['record_money']  = $money;
+        $record_add_buy_row['record_date']   = date('Y-m-d');
+        $record_add_buy_row['record_year']	   = date('Y');
+        $record_add_buy_row['record_month']	= date('m');
+        $record_add_buy_row['record_day']		=date('d');
+        $record_add_buy_row['record_title']  = $Trade_TypeModel->trade_type[Trade_TypeModel::DEPOSIT];
+        $record_add_buy_row['record_time']   = date('Y-m-d H:i:s');
+        $record_add_buy_row['trade_type_id'] = Trade_TypeModel::DEPOSIT;
+        $record_add_buy_row['user_type']     = 1;	//收款方
+        $record_add_buy_row['record_status'] = RecordStatusModel::RECORD_CANCEL;
+
+        $Consume_RecordModel->addRecord($record_add_buy_row);
+
+
+        //4.修改用户的充值卡金额
+        $User_ResourceModel = new User_ResourceModel();
+        $flag = $User_ResourceModel->editResource($user_id,array('user_recharge_card'=>$money));
+
+
+       if ($flag && $Card_InfoModel->sql->commitDb())
+       {
+           $msg    = 'success';
+           $status = 200;
+       }
+       else
+       {
+           $Card_InfoModel->sql->rollBackDb();
+           $m      = $Card_InfoModel->msg->getMessages();
+           $msg    = $m ? $m[0] : _('failure');
+           $status = 250;
+       }
+
+		$data = array();
+		$this->data->addBody(-140, $data, $msg, $status);
+
+    }
+
+	public function security()
+	{
+		include $this->view->getView();
+	}
+
+	public function account()
+	{
+		$key    = Yf_Registry::get('ucenter_api_key');;
+		$url    = Yf_Registry::get('ucenter_api_url');
+		fb($url);
+		$app_id = Yf_Registry::get('ucenter_app_id');
+		$data              = array();
+		$data['app_id']    = $app_id;
+		$data['ctl'] = 'Api';
+		$data['met'] = 'getUserInfo';
+		$data['typ'] = 'json';
+		$data['user_id'] = Perm::$userId;
+		//$data['user_id'] = 1;
+		$init_rs         = get_url_with_encrypt($key, $url, $data);
+		$listarr = $init_rs['data'];
+		
+		//$user_id = 1;
+		$user_id = Perm::$userId;
+		$User_InfoModel = new User_InfoModel();
+		$user_info      = $User_InfoModel->getOne($user_id);
+		include $this->view->getView();
+	}
+	//修改支付密码
+	public function passwd()
+	{
+		//获取用户信息
+		$user_id = Perm::$userId;
+		//$user_id = '1';
+		$data      = $this->User_InfoModel->getOne($user_id);
+		//print_r($data);
+		include $this->view->getView();
+	}
+	//实名认证
+	public function certification()
+	{
+		//获取用户信息
+		$user_id = Perm::$userId;
+		//$user_id = '1';
+
+		$User_InfoModel = new User_InfoModel();
+		$data      = $User_InfoModel->getOne($user_id);
+		include $this->view->getView();
+	}
+	//实名认证插入资料
+	public function editCertification()
+	{
+		//获取用户信息
+		$user_id = Perm::$userId;
+		//$user_id = '1';
+		$edit['user_realname'] = request_string('user_realname');
+		$edit['user_identity_card'] = request_string('user_identity_card');
+		$edit['user_identity_type'] = request_string('user_identity_type');
+		$edit['user_identity_font_logo'] = request_string('user_identity_font_logo');
+		$edit['user_identity_face_logo'] = request_string('user_identity_face_logo');
+		$edit['user_identity_statu'] = 1;
+
+		$User_InfoModel = new User_InfoModel();
+		$flag     = $User_InfoModel->editInfo($user_id,$edit);
+		if ($flag)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+
+		$data = array();
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+	//支付宝支付
+	public function alipay()
+	{
+		$trade_id = request_string('trade_id');
+
+		//如果订单号为合并订单号，则获取合并订单号的信息
+		$Union_OrderModel = new Union_OrderModel();
+		$trade_row        = $Union_OrderModel->getOne($trade_id);
+
+		if ($trade_row)
+		{
+			$Payment = PaymentModel::create('alipay');
+			$Payment->pay($trade_row);
+		}
+		else
+		{
+
+		}
+	}
+
+	public function wx()
+	{
+		$Consume_TradeModel = new Consume_TradeModel();
+		$trade_row          = $Consume_TradeModel->getOne('11321322');
+
+		if ($trade_row)
+		{
+			$Payment = PaymentModel::create('wx_native');
+			$Payment->pay($trade_row);
+		}
+		else
+		{
+
+		}
+	}
+
+
+	public function tenpay()
+	{
+		$trade_id = request_string('trade_id');
+
+		//如果订单号为合并订单号，则获取合并订单号的信息
+		$Union_OrderModel = new Union_OrderModel();
+		$trade_row        = $Union_OrderModel->getOne($trade_id);
+
+		$trade_row['trade_mode'] = '1';  //交易模式 1即时到账（默认） 2中介担保 3后台选择（买家进支付中心列表选择�?
+
+		if ($trade_row)
+		{
+			$Payment = PaymentModel::create('tenpay');
+			$Payment->pay($trade_row);
+		}
+		else
+		{
+
+		}
+	}
+
+
+	public function tenpayWap()
+	{
+		$trade_id           = request_string('trade_id');
+		$Consume_TradeModel = new Consume_TradeModel();
+		$trade_row          = $Consume_TradeModel->getOne('11321322');
+
+		if ($trade_row)
+		{
+			$Payment = PaymentModel::create('tenpay_wap');
+			$Payment->pay($trade_row);
+		}
+		else
+		{
+
+		}
+	}
+	//添加合并支付订单信息pay_union_order
+	public function addUnionOrder()
+	{
+		//生成合并支付订单号
+		$uorder      = "U" . date("Ymdhis", time()) . rand(100, 999);  //18位
+		$inorder     = request_string('inorder');
+
+		fb($inorder);
+		exit;
+
+
+
+		$inorder     = substr($inorder, 0, -1);
+		$trade_title = request_string('trade_title');
+		$uprice      = request_float('uprice');
+		$buyer       = request_int('buyer');
+		$buyer_name  = request_string('buyer_name');
+
+		$add_row = array(
+			'union_order_id' => $uorder,
+			'inorder' => $inorder,
+			'trade_payment_amount' => $uprice,
+			'create_time' => time(),
+			'buyer_id' => $buyer,
+			'order_state_id' => Union_OrderModel::WAIT_PAY,
+		);
+
+		$Union_OrderModel = new Union_OrderModel();
+		$flag1            = $Union_OrderModel->addUnionOrder($add_row);
+
+		if ($flag1)
+		{
+			//插入交易明细表
+			$record_add_row                  = array();
+			$record_add_row['order_id']      = $uorder;
+			$record_add_row['user_id']       = $buyer;
+			$record_add_row['user_nickname'] = $buyer_name;
+			$record_add_row['record_money']  = $uprice;
+			$record_add_row['record_date']   = date('Y-m-d');
+			$record_add_row['record_title']  = '购物';
+			$record_add_row['record_time']   = date('Y-m-d H:i:s');
+			$record_add_row['trade_type_id'] = Trade_TypeModel::SHOPPING;
+			$record_add_row['user_type']     = 2;
+			$record_add_row['record_status'] = RecordStatusModel::IN_HAND;
+
+			$Consume_RecordModel = new Consume_RecordModel();
+			$flag                = $Consume_RecordModel->addRecord($record_add_row);
+		}
+		else
+		{
+			$flag = false;
+		}
+
+		if ($flag)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+
+		$data = array('uorder' => $uorder);
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+	//添加交易订单信息
+	public function addConsumeTrade()
+	{
+		$consume_trade_id     = request_string('consume_trade_id');
+		$order_id             = request_string('order_id');
+		$buy_id               = request_int('buy_id');
+		$buyer_name			  = request_string('buyer_name');
+		$seller_id            = request_int('seller_id');
+		$seller_name		  = request_string('seller_name');
+		$order_state_id       = request_int('order_state_id');
+		$order_payment_amount = request_float('order_payment_amount');
+		$trade_remark         = request_string('trade_remark');
+		$trade_create_time    = request_string('trade_create_time');
+		$trade_title		  = request_string('trade_title');
+
+		$add_row                         = array();
+		$add_row['consume_trade_id']     = $consume_trade_id;
+		$add_row['order_id']             = $order_id;
+		$add_row['buyer_id']             = $buy_id;
+		$add_row['seller_id']            = $seller_id;
+		$add_row['order_state_id']       = $order_state_id;
+		$add_row['order_payment_amount'] = $order_payment_amount;
+		$add_row['trade_type_id']        = Trade_TypeModel::SHOPPING;
+		$add_row['trade_remark']         = $trade_remark;
+		$add_row['trade_create_time']    = $trade_create_time;
+		$add_row['trade_amount']         = $order_payment_amount;
+		$add_row['trade_payment_amount'] = $order_payment_amount;
+
+		//1.生成交易订单
+		$Consume_TradeModel = new Consume_TradeModel();
+		$flag               = $Consume_TradeModel->addTrade($add_row);
+
+		//2.生成合并支付订单
+		$uorder      = "U" . date("Ymdhis", time()) . rand(100, 999);  //18位
+		$union_add_row = array(
+			'union_order_id' => $uorder,
+			'inorder' => $order_id,
+			'trade_payment_amount' => $order_payment_amount,
+			'create_time' => time(),
+			'buyer_id' => $buy_id,
+			'order_state_id' => Union_OrderModel::WAIT_PAY,
+		);
+
+		$Union_OrderModel = new Union_OrderModel();
+		$Union_OrderModel->addUnionOrder($union_add_row);
+
+		//3.生成交易明细（付款方，收款方）
+		$Consume_RecordModel = new Consume_RecordModel();
+
+		$record_add_buy_row                  = array();
+		$record_add_buy_row['order_id']      = $order_id;
+		$record_add_buy_row['user_id']       = $buy_id;
+		$record_add_buy_row['user_nickname'] = $buyer_name;
+		$record_add_buy_row['record_money']  = $order_payment_amount;
+		$record_add_buy_row['record_date']   = date('Y-m-d');
+		$record_add_buy_row['record_year']	   = date('Y');
+		$record_add_buy_row['record_month']	= date('m');
+		$record_add_buy_row['record_day']		=date('d');
+		$record_add_buy_row['record_title']  = '购物';
+		$record_add_buy_row['record_time']   = date('Y-m-d H:i:s');
+		$record_add_buy_row['trade_type_id'] = Trade_TypeModel::SHOPPING;
+		$record_add_buy_row['user_type']     = 2;	//付款方
+		$record_add_buy_row['record_status'] = RecordStatusModel::IN_HAND;
+
+		$Consume_RecordModel->addRecord($record_add_buy_row);
+
+
+		$record_add_seller_row                  = array();
+		$record_add_seller_row['order_id']      = $order_id;
+		$record_add_seller_row['user_id']       = $seller_id;
+		$record_add_seller_row['user_nickname'] = $seller_name;
+		$record_add_seller_row['record_money']  = $order_payment_amount;
+		$record_add_seller_row['record_date']   = date('Y-m-d');
+		$record_add_seller_row['record_year']	   = date('Y');
+		$record_add_seller_row['record_month']	= date('m');
+		$record_add_seller_row['record_day']		=date('d');
+		$record_add_seller_row['record_title']  = '购物';
+		$record_add_seller_row['record_time']   = date('Y-m-d H:i:s');
+		$record_add_seller_row['trade_type_id'] = Trade_TypeModel::SHOPPING;
+		$record_add_seller_row['user_type']     = 1;	//收款方
+		$record_add_seller_row['record_status'] = 1;
+
+		$Consume_RecordModel->addRecord($record_add_seller_row);
+
+
+
+		if ($flag)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+
+		$data = array();
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+	//交易明细(待修改)
+	public function getConsumeRecord()
+	{
+		$page   = request_int('page', 1);
+		$rows   = request_int('rows', 20);
+		$type   = request_string('type');   //交易分类  1收款方  2付款方
+		$status = request_string('status'); //交易状态 1未付款 2等待发货 3未确认发货 4成功 5失败
+
+		$user_id = Perm::$userId;
+		$user_id = $user_id ? $user_id : request_int('user_id');
+		//$user_id = 10001;
+		$Consume_RecordModel = new Consume_RecordModel();
+		$row                 = $Consume_RecordModel->getRecordList($user_id, $type, $status, $page, $rows);
+
+		$this->data->addBody(-140, $row);
+	}
+
+	//提现记录   转账记录(1)
+	public function getConsumeRecordByType()
+	{
+		$page = request_int('page', 1);
+		$rows = request_int('rows', 20);
+		//$user_id = Perm::$userId;
+		$user_id = 1;
+		//const SHOPPING = 1;  //购物
+		//const TRANSFER = 2;  //转账
+		//const DEPOSIT  = 3; //充值
+		//const WITHDRAW = 4;  //提现
+		//const RECEIPT  = 5;  //收款
+		//const PAY		= 6;   //付款
+		$type = request_string('type');
+
+		$Consume_RecordModel = new Consume_RecordModel();
+		$row                 = $Consume_RecordModel->getRecordListByType($user_id, $type, $page, $rows);
+		fb($row);
+		$this->data->addBody(-140, $row);
+	}
+
+	//获取用户资源信息
+	public function getUserResourceInfo()
+	{
+		//$user_id = Perm::$userId;
+		//$user_id = $user_id ? $user_id : request_int('user_id');
+		$user_id = 1;
+
+		$User_ResourceModel = new User_ResourceModel();
+
+		$data = $User_ResourceModel->getOne($user_id);
+
+		if ($data)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+
+
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+	//获取用户基础信息
+	public function getUserBase()
+	{
+		//$user_id = Perm::$userId;
+		$cond_row['user_nickname'] = request_string("user_name");
+		$data = $this->User_InfoModel->getOneByWhere($cond_row);
+
+		if ($data)
+		{
+			$data['user_realname_mask'] = mb_substr($data['user_realname'],0,1,'utf-8').'***'.mb_substr($data['user_realname'],-1,1,'utf-8');
+			$data['user_mobile_mask'] = substr($data['user_mobile'],0,3).'***'.substr($data['user_mobile'],-3,3);
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+
+
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+	//获取用户信息（1）
+	public function getUserInfo()
+	{
+		//$user_id = Perm::$userId;
+		$user_id = 1;
+
+		$User_InfoModel = new User_InfoModel();
+
+		$data = $User_InfoModel->getInfo($user_id);
+
+		if ($data)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+
+
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+	//修改用户信息(1)
+	public function editUserInfo()
+	{
+		//$user_id = Perm::$userId;
+		$user_id = 1;
+
+		$user_info_row = array();
+		//真实姓名
+		$user_realname = request_string('user_realname');
+		if ($user_realname)
+		{
+			$user_info_row['user_realname'] = $user_realname;
+		}
+
+		//用户昵称
+		$user_nickname = request_string('user_nickname');
+		if ($user_nickname)
+		{
+			$user_info_row['user_nickname'] = $user_nickname;
+		}
+
+		//手机号码
+		$user_mobile = request_int('uer_mobile');
+		if ($user_mobile)
+		{
+			$user_info_row['user_mobile'] = $user_mobile;
+		}
+
+		//用户邮箱
+		$user_email = request_string('user_email');
+		if ($user_email)
+		{
+			$user_info_row['user_email'] = $user_email;
+		}
+
+
+		$User_InfoModel = new User_InfoModel();
+
+		$data = $User_InfoModel->editInfo($user_id, $user_info_row);
+
+		if ($data)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+
+		$this->data->addBody(-140, $user_info_row, $msg, $status);
+
+	}
+
+	//修改用户支付密码(1)
+	public function  editUserPayPassword()
+	{
+		//$user_id = Perm::$userId;
+		$user_id = 1;
+
+		$user_base_row = array();
+
+		$old_password = request_string('old_password');
+		$set_password = request_string('set_password');
+
+		$User_BaseModel = new User_BaseModel();
+		$user_base      = current($User_BaseModel->getBase($user_id));
+
+		if (md5($old_password) == $user_base['user_pay_passwd'])
+		{
+			$user_base_row['user_pay_passwd'] = md5($set_password);
+			$flag                             = $User_BaseModel->editBase($user_id, $user_base_row);
+		}
+		else
+		{
+			$flag = false;
+		}
+
+		if ($flag)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		$data = array();
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+	//提交提现申请(1)
+	public function addWithdraw()
+	{
+		//$user_id = Perm::$userId;
+		//$user_name = Perm::$userName;
+		//获取用户信息
+		$user_id = '1';
+		$edit['pay_uid'] = $user_id;
+		$edit['bank_user'] = request_string('bank_name');//开户人姓名
+		$edit['cardno'] = request_string('cardno');//银行卡号
+		$edit['bank'] = request_string('bank');//银行
+		$edit['amount'] = request_string('withdraw_money');//提现金额
+		$edit['con'] = request_string('con');//提款说明
+
+		$edit['service_fee_id'] = request_int('id');  //到账时间 1-2小时内到账  2-次日24点 3-次日48点
+
+		$paypasswd = request_string('paypasswd');  //支付密码
+
+		//获取用户信息
+		$user_base      = current($this->User_BaseModel->getBase($user_id));
+
+		$user_resource      = current($this->User_ResourceModel->getResource($user_id));
+
+		$mobile = request_string('mobile');  //手机
+		$yzm = request_string('yzm');  //验证码
+		
+		if (!VerifyCode::checkCode($mobile, $yzm))
+		{
+			$msg    = _('failure');
+			$status = 260;   //验证码错误
+		}
+		else
+		{
+			if ($user_base['user_pay_passwd'] != MD5($paypasswd))
+			{
+				$flag = false;
+				$res  = '支付密码错误';
+				$status = 230;
+			}
+			else
+			{
+				$Service_FeeModel = new Service_FeeModel();
+				$fee              = current($Service_FeeModel->getFeeById($edit['service_fee_id']));
+				
+				$amount = $edit['amount'];//提现金额
+
+				$num   = 0; 
+				$price = $amount * ($fee['fee_rates']*1);//手续费
+
+				if ($price > 0)
+				{
+					if ($price <= $fee['fee_min']*1)
+					{
+						$num = $fee['fee_min']*1;
+					}
+					elseif ($price >= $fee['fee_max']*1)
+					{
+						$num = $fee['fee_max']*1;
+					}
+					else
+					{
+						$num = $price;
+					}
+				}
+				
+				
+				
+				if ($amount + $num <= $user_resource['user_money'])
+				{
+					$m = $amount + $num ;
+
+					//减少费用
+					$resource_edit_row['user_money']        = $user_resource['user_money'] - $m;
+					$resource_edit_row['user_money_frozen'] = $user_resource['user_money_frozen'] + $m;
+					$this->User_ResourceModel->editResource($user_id, $resource_edit_row);
+
+
+					//插入交易明细表
+					$flow_id    = date("Ymdhis") . rand(0, 9);
+					$add_time   = date('Y-m-d h:i:s',time());
+					$record_row = array(
+						'order_id' => $flow_id,
+						'user_id' => $user_id,
+						//'user_nickname'=>$user_name,
+						'record_money' => -$m,
+						'record_date' => date("Y-m-d"),
+						'record_year' => date("Y"),
+						'record_month' => date("m"),
+						'record_day' => date("d"),
+						'record_title' => _('提现'),
+						'record_time' => date('Y-m-d h:i:s'),
+						'trade_type_id' => '4',
+						'user_type' => '2',
+					);
+					$record_id  = $this->Consume_RecordModel->addRecord($record_row, true);
+
+					//插入提现申请表
+					$widthdraw_row = array(
+						'pay_uid' => $user_id,
+						'orderid' => $flow_id,
+						'amount' => $amount,
+						'add_time' => $add_time,
+						'con' => $edit['con'],
+						'bank' => $edit['bank'],
+						'cardno' => $edit['cardno'],
+						'cardname' => $edit['bank_user'],
+						'supportTime' => $edit['service_fee_id'],
+						'fee' => $num,
+					);
+					$flag          = $this->Consume_WithdrawModel->addWithdraw($widthdraw_row);
+
+				}
+				else
+				{
+					$flag = false;
+					$res  = '余款不足';
+					$status = 240;
+				}
+			}
+
+			if ($flag)
+			{
+				$msg    = 'success';
+				$status = 200;
+				$data   = $widthdraw_row;
+			}
+			else
+			{
+				$msg    = 'failure';
+				$status = 250;
+				$data[] = $res;
+			}
+		}
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+	//转账(1)
+	public function addTransfer()
+	{
+		//$user_id = Perm::$userId;
+		$user_id = 1;
+		//$user_name = Perm::$userName;
+		$date = array();
+
+		$requirer  = request_string('user_nickname');  //收款人
+		$amount    = request_int('record_money');        //付款金额
+		$reason    = request_string('record_desc', '转账');  //付款说明
+		$paypasswd = request_string('password');  //支付密码
+		$mobile = request_string('mobile');  //支付密码
+		$yzm = request_string('yzm');  //支付密码
+		
+		if (!VerifyCode::checkCode($mobile, $yzm))
+		{
+			$msg    = _('failure');
+			$status = 260;   //验证码错误
+		}
+		else
+		{
+			//确认支付密码
+			$user_base      = current($this->User_BaseModel->getBase($user_id));
+
+			$user_resource      = current($this->User_ResourceModel->getResource($user_id));
+
+			if ($user_base['user_pay_passwd'] != MD5($paypasswd))
+			{
+				$flag   = false;
+				$date[] = '支付密码错误';
+				$status = 230;
+				
+			}
+			else
+			{
+				if ($requirer && is_numeric($amount))
+				{
+					if ($amount <= $user_resource['user_money'])
+					{
+						//获取收款人的支付id
+						$requirer_id = current($this->User_BaseModel->getBaseIdByAccount($requirer));
+						if ($requirer_id)
+						{
+							$requirer_resource = current($this->User_ResourceModel->getResource($requirer_id));
+
+							$time    = time();
+							$flow_id = time();
+
+							//插入付款方的交易记录
+							$record_row1 = array(
+								'order_id' => $flow_id,
+								'user_id' => $user_id,
+								'record_money' => -$amount,
+								'record_date' => date("Y-m-d"),
+								'record_year' => date("Y"),
+								'record_month' => date("m"),
+								'record_day' => date("d"),
+								'record_title' => $reason,
+								'record_time' => date('Y-m-d h:i:s'),
+								'trade_type_id' => '2',
+								'user_type' => '2',
+								'record_status' => '2',
+							);
+							$this->Consume_RecordModel->addRecord($record_row1, true);
+
+							//插入收款方的交易记录
+							$record_row2 = array(
+								'order_id' => $flow_id,
+								'user_id' => $requirer_id,
+								'record_money' => $amount,
+								'record_date' => date("Y-m-d"),
+								'record_year' => date("Y"),
+								'record_month' => date("m"),
+								'record_day' => date("d"),
+								'record_title' => $reason,
+								'record_time' => date('Y-m-d h:i:s'),
+								'trade_type_id' => '2',
+								'user_type' => '1',
+								'record_status' => '2',
+							);
+							$this->Consume_RecordModel->addRecord($record_row2, true);
+
+							//修改付款方的金额
+							$user_resource_row['user_money'] = $user_resource['user_money'] - $amount;
+							$flag1  = $this->User_ResourceModel->editResource($user_id, $user_resource_row);
+
+							if ($flag1)
+							{
+								//修改收款方的金额
+								$requirer_resource_row['user_money'] = $requirer_resource['user_money'] + $amount;
+								$flag2  = $this->User_ResourceModel->editResource($requirer_id, $requirer_resource_row);
+
+								if ($flag2)
+								{
+									$msg    = 'success';
+									$status = 200;
+								}
+								else
+								{
+									//返回付款方的钱
+									$user_resource_row['user_money'] = $user_resource['user_money'] + $amount;
+									$this->User_ResourceModel->editResource($user_id, $user_resource_row);
+
+									$msg    = 'failure';
+									$status = 250;
+								}
+							}
+							else
+							{
+								$msg    = 'failure';
+								$status = 250;
+							}
+						}
+						else
+						{
+							$msg    = 'failure';
+							$status = 240;
+						}
+					}
+					else
+					{
+						$msg    = 'failure';
+						$status = 210;//余额不足
+					}
+				}
+				else
+				{
+					$msg    = 'failure';
+					$status = 250;
+				}
+			}
+		}
+		
+		$this->data->addBody(-140, $date, $msg, $status);
+	}
+
+
+	//退款
+	public function refundTransfer()
+	{
+		$date = array();
+
+		$user_id  = request_int('user_id');  //收款人
+		$user_name = request_string('user_account');
+		$seller_id = request_int('seller_id');		//付款人
+		$seller_name = request_string('seller_account');
+		$amount   = request_float('amount');        //付款金额
+		$reason   = request_string('reason', '退款');  //付款说明
+		$order_id = request_string('order_id');
+		$goods_id = request_int('goods_id');
+		$uorder_id = request_string('uorder_id');
+
+		//交易明细表
+		$Consume_RecordModel = new Consume_RecordModel();
+		//开启事务
+		$Consume_RecordModel->sql->startTransactionDb();
+
+		//用户资源表
+		$User_ResourceModel = new User_ResourceModel();
+
+		//合并支付表
+		$Union_OrderModel = new Union_OrderModel();
+
+		if ($amount < 0)
+		{
+			$flag   = false;
+			$date[] = '退款金额错误';
+		}
+		else
+		{
+			$time    = time();
+			$flow_id = time();
+
+			//插入收款方的交易记录
+			$record_add_buy_row                  = array();
+			$record_add_buy_row['order_id']      = $flow_id;
+			$record_add_buy_row['user_id']       = $user_id;
+			$record_add_buy_row['user_nickname'] = $user_name;
+			$record_add_buy_row['record_money']  = $amount;
+			$record_add_buy_row['record_date']   = date('Y-m-d');
+			$record_add_buy_row['record_year']	   = date('Y');
+			$record_add_buy_row['record_month']	= date('m');
+			$record_add_buy_row['record_day']		=date('d');
+			$record_add_buy_row['record_title']  = $reason;
+			$record_add_buy_row['record_desc']  = "订单号:" . $order_id . "，商品id:" . $goods_id;
+			$record_add_buy_row['record_time']   = date('Y-m-d H:i:s');
+			$record_add_buy_row['trade_type_id'] = Trade_TypeModel::REFUND;
+			$record_add_buy_row['user_type']     = 1;	//收款方
+			$record_add_buy_row['record_status'] = RecordStatusModel::RECORD_FINISH;
+
+			$Consume_RecordModel->addRecord($record_add_buy_row);
+
+
+			$record_add_seller_row                  = array();
+			$record_add_seller_row['order_id']      = $flow_id;
+			$record_add_seller_row['user_id']       = $seller_id;
+			$record_add_seller_row['user_nickname'] = $seller_name;
+			$record_add_seller_row['record_money']  = $amount;
+			$record_add_seller_row['record_date']   = date('Y-m-d');
+			$record_add_seller_row['record_year']	   = date('Y');
+			$record_add_seller_row['record_month']	= date('m');
+			$record_add_seller_row['record_day']		=date('d');
+			$record_add_seller_row['record_title']  = $reason;
+			$record_add_seller_row['record_desc']  = "订单号:" . $order_id . "，商品id:" . $goods_id;
+			$record_add_seller_row['record_time']   = date('Y-m-d H:i:s');
+			$record_add_seller_row['trade_type_id'] = Trade_TypeModel::REFUND;
+			$record_add_seller_row['user_type']     = 2;	//付款方
+			$record_add_seller_row['record_status'] = RecordStatusModel::RECORD_FINISH;
+
+			$Consume_RecordModel->addRecord($record_add_seller_row);
+
+			//查找合并单中的付款情况，购物卡优先退款
+			$uorder_base = $Union_OrderModel->getOne($uorder_id);
+
+			$card_return_amount = 0;
+
+			//使用购物卡支付并且购物卡的退款金额小于支付金额时
+			if(($uorder_base['union_cards_pay_amount'] > 0) && ($uorder_base['union_cards_return_amount'] < $uorder_base['union_cards_pay_amount']))
+			{
+				$card_can_return_amount = $uorder_base['union_cards_pay_amount'] - $uorder_base['union_cards_return_amount'];
+				//购物卡中可退款金额小于退款金额
+				if($card_can_return_amount <= $amount)
+				{
+					$card_return_amount = $card_can_return_amount;
+				}else
+				{
+					$card_return_amount = $amount;
+				}
+
+				$amount = $amount - $card_return_amount;
+			}
+
+			//扣除购物卡的退款之后全部退还到账户余额中
+			$edit_union_row = array();
+			$edit_union_row['union_cards_return_amount'] = $card_return_amount;
+			$edit_union_row['union_money_return_amount'] = $amount;
+			$flag1 = $Union_OrderModel->editUnionOrder($uorder_id,$edit_union_row,true);
+
+			$user_resource = current($User_ResourceModel->getResource($user_id));
+
+			if ($flag1)
+			{
+				//修改收款方的金额
+				$user_resource_row['user_recharge_card'] = $user_resource['user_recharge_card'] + $card_return_amount;
+				$user_resource_row['user_money'] = $user_resource['user_money'] + $amount;
+				$flag                            = $User_ResourceModel->editResource($user_id, $user_resource_row);
+			}
+			else
+			{
+				$flag = false;
+			}
+
+		}
+
+		if ($flag && $Consume_RecordModel->sql->commitDb())
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$Consume_RecordModel->sql->rollBackDb();
+			$m      = $Consume_RecordModel->msg->getMessages();
+			$msg    = $m ? $m[0] : 'failure';
+			$status = 250;
+		}
+		$this->data->addBody(-140, $date, $msg, $status);
+	}
+
+	//获取订单信息（1）
+	public function getOrderInfo()
+	{
+		$order_id = request_string('order_id');
+
+		$Consume_TradeModel = new Consume_TradeModel();
+		$date               = $Consume_TradeModel->getConsumeTradeByOid($order_id);
+
+		if ($date)
+		{
+			$msg    = 'success';
+			$status = 250;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		$this->data->addBody(-140, $date, $msg, $status);
+
+	}
+
+	//提现详情(1)
+	public function getWithdrawInfo()
+	{
+		$order_id = request_string('order_id');
+
+		$Consume_RecordModel   = new Consume_RecordModel();
+		$Consume_WithdrawModel = new Consume_WithdrawModel();
+
+		$record_row = current($Consume_RecordModel->getRecordByOid($order_id));
+
+		$widthraw_row = current($Consume_WithdrawModel->getWithdrawByOid($order_id));
+
+		$data['record']   = $record_row;
+		$data['widthraw'] = $widthraw_row;
+
+		if ($data)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+	/*==========================================================================================================*/
+	//获取提现记录
+	public function getWidthrawList()
+	{
+		$skey           = $_REQUEST['skey'];
+		$user_account   = request_string('user_account');
+		$page           = request_string('page', 1);
+		$rows           = request_string('rows', 20);
+		$User_BaseModel = new User_BaseModel();
+		$User_InfoModel = new User_InfoModel();
+		$user_id        = '';
+
+		if ($user_account)
+		{
+			$user_id = $User_BaseModel->getBaseIdByAccount($user_account);
+		}
+
+		$Consume_WithdrawModel = new Consume_WithdrawModel();
+		if ($skey)
+		{
+			$Consume_WithdrawModel->sql->setWhere('pay_uid', '%' . $skey . '%', 'LIKE');
+		}
+		$data = $Consume_WithdrawModel->getWithdrawListByPid($user_id, $page, $rows);
+		
+		foreach ($data['items'] as $key => $val)
+		{
+			$user_info                        = $User_InfoModel->getInfo($val['pay_uid']);
+			$data['items'][$key]['user_info'] = current($user_info);
+		}
+		
+		if ($data)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		fb($data);
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+	public function editWith()
+	{
+		$id                    = $_REQUEST['id'];
+		$Consume_WithdrawModel = new Consume_WithdrawModel();
+		$data                  = $Consume_WithdrawModel->getWithdraw($id);
+		//fb($data);
+
+		$this->data->addBody(-140, $data);
+	}
+
+	public function getWith()
+	{
+
+		$Consume_WithdrawModel = new Consume_WithdrawModel();
+		$datas                 = $Consume_WithdrawModel->get("*");
+		foreach ($datas as $k => $v)
+		{
+			$data[$k]['is_succeed'] = $v['is_succeed'];
+		}
+		fb($data);
+		$this->data->addBody(-140, $data);
+	}
+
+	public function edit()
+	{
+		$id                 = $_REQUEST['id'];
+		$data['is_succeed'] = $_REQUEST['is_succeed'];
+		$data['con']        = $_REQUEST['con'];
+
+		$Consume_WithdrawModel = new Consume_WithdrawModel();
+
+		$flag = $Consume_WithdrawModel->editWithdraw($id, $data);
+		fb($flag);
+		if ($flag)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+
+	//获取支付卡列表
+	public function getCardBaseList()
+	{
+		$cardname  = request_string('cardName');   //卡片名称
+		$beginDate = request_string('beginDate');
+		$endDate   = request_string('endDate');
+		$appid     = request_int('appid');
+
+		$page = request_string('page', 1);
+		$rows = request_string('rows', 20);
+
+		$Card_BaseModel = new Card_BaseModel();
+		$data           = $Card_BaseModel->getBaseList($cardname, $appid, $beginDate, $endDate, $page, $rows);
+
+
+		$Card_InfoModel = new Card_InfoModel();
+		foreach ($data['items'] as $key => $val)
+		{
+			$card_used_num                        = $Card_InfoModel->getCardusednumBy($val['card_id']);
+			$data['items'][$key]['card_used_num'] = $card_used_num;
+
+			$card_new_num                        = $Card_InfoModel->getCardnewnumBy($val['card_id']);
+			$data['items'][$key]['card_new_num'] = $card_new_num;
+		}
+
+		if ($data)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		fb($data);
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+	//获取支付卡基本信息
+	public function getCardBase()
+	{
+		$id = request_int('id');
+
+		$Card_BaseModel = new Card_BaseModel();
+		$data           = $Card_BaseModel->getBaseById($id);
+
+		$Card_InfoModel        = new Card_InfoModel();
+		$card_used_num         = $Card_InfoModel->getCardusednumBy($id);
+		$data['card_used_num'] = $card_used_num;
+
+		$card_new_num         = $Card_InfoModel->getCardnewnumBy($id);
+		$data['card_new_num'] = $card_new_num;
+
+		if ($data)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		fb($data);
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+	//修改支付卡信息
+	public function editCardBase()
+	{
+		$id         = request_int('id');  //卡号
+		$card_name  = request_string('card_name'); //卡名称
+		$card_num   = request_int('card_num');  //数量
+		$source     = request_int('source');   //适用平台
+		$start_time = request_string('start_time');   //开始时间
+		$end_time   = request_string('end_time');    //结束时间
+		$card_desc  = request_string('card_desc');
+		$card_image = request_string('card_image');
+		$money      = request_int('money');    //金额
+		$point      = request_int('point');    //积分
+
+		//获取充值卡信息
+		$Card_BaseModel = new Card_BaseModel();
+		$card_base_row  = current($Card_BaseModel->getBase($id));
+
+		$flag = true;
+
+
+		//判断充值卡数量是否改变
+		$diff_num = $card_num - $card_base_row['card_num'];
+
+		$Card_InfoModel = new Card_InfoModel();
+		if ($diff_num > 0)
+		{
+			//查找最后一张充值卡
+			$last_card_code = $Card_InfoModel->getListCardcodeByCid($id);
+
+			for ($i = 1; $i <= $diff_num; $i++)
+			{
+				$filed = array(
+					'card_code' => $last_card_code + $i,
+					'card_password' => rand(100000, 999999),
+					'card_id' => $id,
+					'card_fetch_time' => date('Y-m-d H:i:s'),
+				);
+				$Card_InfoModel->addInfo($filed);
+			}
+		}
+		elseif ($diff_num < 0)
+		{
+			$num = abs($diff_num);
+			//删除充值卡
+			$Card_InfoModel->delCardByCid($id, $num);
+		}
+
+		$prize = array();
+		if ($money)
+		{
+			$prize['m'] = $money;
+		}
+		if ($point)
+		{
+			$prize['p'] = $point;
+		}
+
+		$card_prize = json_encode($prize);
+		fb($card_prize);
+		$filed_array = array(
+			'card_name' => $card_name,
+			'card_num' => $card_num,
+			'app_id' => $source,
+			'card_prize' => $card_prize,
+			'card_start_time' => $start_time,
+			'card_end_time' => $end_time,
+			'card_desc' => $card_desc,
+			'card_image' => $card_image,
+		);
+
+		$flag = $Card_BaseModel->editBase($id, $filed_array);
+
+		if ($flag === false)
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		else
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		fb($filed_array);
+		$this->data->addBody(-140, $filed_array, $msg, $status);
+
+
+	}
+
+	//添加支付卡信息
+	public function addCardBase()
+	{
+		$card_id    = request_int('id');
+		$source     = request_int('source');
+		$card_name  = request_string('card_name');
+		$money      = request_string('money');
+		$point      = request_string('point');
+		$card_desc  = request_string('card_desc');
+		$card_image = request_string('card_image');
+		$card_num   = request_int('card_num');
+		$start_time = request_string('start_time');
+		$end_time   = request_string('end_time');
+
+		$Card_BaseModel = new Card_BaseModel();
+		$Card_InfoModel = new Card_InfoModel();
+
+		$card_data = $Card_BaseModel->getBase($card_id);
+		if ($card_data)
+		{
+			$flag = false;
+			$msg  = '此卡号已存在，请重新填写';
+		}
+		else
+		{
+			for ($i = 1; $i <= $card_num; $i++)
+			{
+				$add_row = array();
+				$add_row = array(
+					'card_code' => $card_id . str_pad($i, 4, "0", STR_PAD_LEFT),
+					'card_password' => rand(100000, 999999),
+					'card_id' => $card_id,
+					'card_time' => date("Y-m-d H:i:s"),
+				);
+				$Card_InfoModel->addInfo($add_row);
+			}
+
+			$prize = array();
+			if ($money)
+			{
+				$prize['m'] = $money;
+			}
+			if ($point)
+			{
+				$prize['p'] = $point;
+			}
+
+			$card_prize = json_encode($prize);
+
+			$card_add_array = array(
+				'card_id' => $card_id,
+				'card_name' => $card_name,
+				'card_num' => $card_num,
+				'app_id' => $source,
+				'card_prize' => $card_prize,
+				'card_start_time' => $start_time,
+				'card_end_time' => $end_time,
+				'card_desc' => $card_desc,
+				'card_image' => $card_image,
+			);
+
+			$flag = $Card_BaseModel->addBase($card_add_array);
+			
+			if ($flag)
+			{
+				$msg    = 'success';
+				$status = 200;
+			}
+			else
+			{
+				$msg    = 'failure';
+				$status = 250;
+			}
+		}
+		$data = array();
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+	//删除支付卡（只可删除还未使用的支付卡）
+	public function delCardBase()
+	{
+		$card_id = request_int('id');
+
+		$Card_InfoModel = new Card_InfoModel();
+		$Card_BaseModel = new Card_BaseModel();
+		$used_num       = $Card_InfoModel->getCardusednumBy($card_id);
+		if ($used_num)
+		{
+			$flag = false;
+		}
+		else
+		{
+			//删除充值卡card_info
+			$Card_InfoModel->delCardByCid($card_id);
+
+			$flag = $Card_BaseModel->removeBase($card_id);
+		}
+
+		if ($flag)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		$data = array();
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+	//根据card_id获取支付卡(card_info)列表
+	public function getCardInfoList()
+	{
+		$card_id = request_int('card_id');
+		$page    = request_int('page', 1);
+		$rows    = request_int('rows', 20);
+
+		$Card_InfoModel = new Card_InfoModel();
+		$card_info      = $Card_InfoModel->getInfoList($card_id, $page, $rows);
+		fb($card_info);
+		$this->data->addBody(-140, $card_info);
+	}
+
+	//根据card_code获取支付卡信息
+	public function getCardInfo()
+	{
+		$card_code = request_int('card_code');
+
+		$Card_InfoModel = new Card_InfoModel();
+		$data           = $Card_InfoModel->getInfo($card_code);
+		fb($data);
+		$this->data->addBody(-140, $data);
+	}
+
+	public function  payfinish()
+	{
+		$order_id = request_string('order_id');
+
+		$Consume_DepositModel = new Consume_DepositModel();
+		$data                 = $Consume_DepositModel->notifyShop($order_id);
+
+		$this->data->addBody(-140, $data);
+	}
+
+	//解除绑定,生成验证码,并且发送验证码
+	public function getYzm()
+	{
+
+		$type = request_string('type');
+		$val  = request_string('val');
+
+		$cond_row['code'] = 'Lift verification';
+
+		$de = $this->messageTemplateModel->getTemplateDetail($cond_row);
+		if ($type == 'mobile')
+		{
+			$me = $de['content_phone'];
+
+			$code_key = $val;
+			$code     = VerifyCode::getCode($code_key);
+			$me       = str_replace("[weburl_name]", Web_ConfigModel::value("site_name"), $me);
+			$me       = str_replace("[yzm]", $code, $me);
+
+			$str = Sms::send($val, $me);
+		}
+		else
+		{
+			$me    = $de['content_email'];
+			$title = $de['title'];
+
+			$code_key = $val;
+			$VerifyCode = new VerifyCode();
+			$code     = $VerifyCode->getCode($code_key);
+			$me       = str_replace("[weburl_name]", Web_ConfigModel::value("site_name"), $me);
+			$me       = str_replace("[yzm]", $code, $me);
+			$title    = str_replace("[weburl_name]", Web_ConfigModel::value("site_name"), $title);
+			$Email = new Email();
+			$str = $Email->send_mail($val, Perm::$row['user_account'], $title, $me);
+		}
+		$status = $code;
+		$data   = array($code);
+		$msg    = "success";
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+	//检测解除验证码
+	public function checkYzm()
+	{
+
+		$yzm  = request_string('yzm');
+		$type = request_string('type');
+		$val  = request_string('val');
+
+		if (VerifyCode::checkCode($val, $yzm))
+		{
+
+			$status = 200;
+			$msg    = _('success');
+		}
+		else
+		{
+			$msg    = _('failure');
+			$status = 250;
+
+		}
+		$data = array();
+
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+	//解除绑定
+	public function editAllInfo()
+	{
+		$type      = request_string('type');
+		$yzm       = request_string('yzm');
+		$val       = request_string('val');
+		$user_id   = Perm::$userId;
+		$user_name = Perm::$row['user_name'];
+
+		$flag = false;
+
+		if (!VerifyCode::checkCode($val, $yzm))
+		{
+			$msg    = _('failure');
+			$status = 240;
+		}
+		else
+		{
+			if ($type == 'passwd')
+			{
+				$password       = request_string('password');
+
+				if ($password)
+				{
+					$edit_user_row['user_pay_passwd'] = md5($password);
+
+
+					$de = $this->User_BaseModel->getOne($user_id);
+					$flag = $this->User_BaseModel->editBase($user_id, $edit_user_row);
+				}
+				else
+				{
+					$msg    = _('密码不能为空');
+					$status = 250;
+				}
+			}
+			else
+			{
+				if ($type == 'mobile')
+				{
+					$edit_user_row['user_mobile']        = '';
+					$edit_user_row['user_mobile_verify'] = 0;
+				}
+				else if ($type == 'email')
+				{
+					$edit_user_row['user_email']        = '';
+					$edit_user_row['user_email_verify'] = 0;
+				}
+				else
+				{
+					$edit_user_row['user_email']        = '';
+					$edit_user_row['user_email_verify'] = 0;
+				}
+
+
+				$de = $this->userInfoModel->getOne($user_name);
+				$flag = $this->userInfoModel->editInfoDetail($user_name, $edit_user_row);
+			}
+
+
+			if ($flag == false)
+			{
+				$msg    = _('failure');
+				$status = 250;
+
+			}
+			else
+			{
+
+				$status = 200;
+				$msg    = _('success');
+			}
+		}
+		$data = array();
+
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+	//验证用户的支付密码
+	public function checkPassword()
+	{
+		$password = request_string('password');
+
+		$user_id = Perm::$userId;
+
+		$User_BaseModel = new User_BaseModel();
+		$user_base = $User_BaseModel->getOne($user_id);
+
+		fb($user_base);
+
+		if(md5($password) != $user_base['user_pay_passwd'])
+		{
+			$msg    = _('failure');
+			$status = 250;
+		}
+		else
+		{
+			$status = 200;
+			$msg    = _('success');
+		}
+
+		$data = array();
+
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+}
+
+?>

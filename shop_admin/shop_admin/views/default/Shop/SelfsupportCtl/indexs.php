@@ -1,0 +1,79 @@
+<?php if (!defined('ROOT_PATH')) {exit('No Permission');}?>
+<?php
+include $this->view->getTplPath() . '/'  . 'header.php';
+?>
+<link href="<?=$this->view->css?>/index.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="<?=$this->view->css_com?>/jquery/plugins/validator/jquery.validator.css">
+<script type="text/javascript" src="<?=$this->view->js_com?>/plugins/validator/jquery.validator.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?=$this->view->js_com?>/plugins/validator/local/zh_CN.js" charset="utf-8"></script>
+</head>
+<body>
+<style>
+
+.ui-jqgrid tr.jqgrow .img_flied{padding: 1px; line-height: 0px;}
+.img_flied img{width: 100px; height: 30px;}
+
+</style>
+<div class="wrapper page">
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>自营店铺</h3>
+                <h5>商城自营店铺相关设置与管理</h5>
+            </div>
+             <ul class="tab-base nc-row">
+                    <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Shop_Selfsupport&met=indexs" class="current" ><span>自营店铺管理</span></a></li>
+                </ul>
+        </div>
+       </div>
+          <!-- 操作说明 -->
+    <p class="warn_xiaoma"><span></span><em></em></p><div class="explanation" id="explanation">
+        <div class="title" id="checkZoom"><i class="iconfont icon-lamp"></i>
+            <h4 title="提示相关设置操作时应注意的要点">操作提示</h4>
+            <span id="explanationZoom" title="收起提示"></span><em class="close_warn">X</em></div>
+        <ul>
+            <li>平台在此处统一管理自营店铺，可以新增、编辑、删除平台自营店铺</li>
+            <li>  可以设置未绑定全部商品类目的平台自营店铺的经营类目</li>
+            <li>  已经发布商品的自营店铺不能被删除</li>
+            <li>  删除平台自营店铺将会同时删除店铺的相关图片以及相关商家中心账户，请谨慎操作！</li>
+
+        </ul>
+    </div>
+          
+  
+    <div class="mod-toolbar-top cf">
+		<div class="left">
+			<div id="assisting-category-select" class="ui-tab-select">
+				<ul class="ul-inline">
+                  <li>
+                      <span id="source"></span>
+                  </li>
+                  <li>
+                    <input type="text" id="searchName" class="ui-input ui-input-ph con" value="请输入相关数据...">
+                  </li>
+                  <li><a class="ui-btn" id="search">查询<i class="iconfont icon-btn02"></i></a></li>
+                </ul>
+			</div>
+		</div>
+	<div class="fr">
+            <a href="#" class="ui-btn ui-btn-sp mrb" id="btn-add">新增<i class="iconfont icon-btn03"></i></a>
+            <a class="ui-btn" id="btn-refresh">刷新<i class="iconfont icon-btn01"></i></a>
+        </div>
+	</div>
+
+  
+    <div class="grid-wrap">
+        <table id="grid">
+        </table>
+        <div id="page"></div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="<?=$this->view->js?>/controllers/shop/selfsupport/shop_selfsupport_list.js" charset="utf-8"></script>
+
+<?php
+include $this->view->getTplPath() . '/' . 'footer.php';
+?>

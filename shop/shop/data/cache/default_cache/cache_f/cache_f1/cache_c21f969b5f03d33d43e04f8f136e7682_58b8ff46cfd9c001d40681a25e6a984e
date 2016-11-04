@@ -1,0 +1,261 @@
+                     -1775690318s:13113:"<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8">
+	<meta name="description" content="网上超市，最经济实惠的网上购物商城，用鼠标逛超市，不用排队，方便实惠送上门，网上购物新生活。" />
+    <meta name="Keywords" content="网上超市，网上商城，网络购物，进口食品，美容护理，母婴玩具，厨房清洁用品，家用电器，手机数码，电脑软件办公用品，家居生活，服饰内衣，营养保健，钟表珠宝，饰品箱包，汽车生活，图书音像，礼品卡，药品，医疗器械，隐形眼镜等，1号店。" />
+	<title>BBCbuilder1331BBCbuilder</title>
+	<link rel="stylesheet" type="text/css" href="http://localhost/mall/shop/shop/static/default/css/headfoot.css"/>
+	<link rel="stylesheet" type="text/css" href="http://localhost/mall/shop/shop/static/default/css/sidebar.css"/>
+	<link rel="stylesheet" type="text/css" href="http://localhost/mall/shop/shop/static/default/css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="http://localhost/mall/shop/shop/static/default/css/nav.css"/>
+    <link rel="stylesheet" type="text/css" href="http://localhost/mall/shop/shop/static/default/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="http://localhost/mall/shop/shop/static/default/css/swiper.css"/>
+	<link href="http://localhost/mall/shop/shop/static/default/css/iconfont/iconfont.css?ver=1.02" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="http://localhost/mall/shop/shop/static/default/js/swiper.min.js"></script>
+	<script type="text/javascript" src="http://localhost/mall/shop/shop/static/common/js/jquery.js"></script>
+	<script type="text/javascript" src="http://localhost/mall/shop/shop/static/default/js/common.js"></script>
+	<script type="text/javascript" src="http://localhost/mall/shop/shop/static/default/js/index.js"></script>
+	<script type="text/javascript" src="http://localhost/mall/shop/shop/static/common/js/plugins/jquery.cookie.js"></script>
+	<script type="text/javascript" src="http://localhost/mall/shop/shop/static/default/js/nav.js"></script>
+	<script type="text/javascript" src="http://localhost/mall/shop/shop/static/common/js/jquery.nicescroll.js"></script>
+	<script type="text/javascript" src="http://localhost/mall/shop/shop/static/default/js/base.js"></script>
+	<script type="text/javascript">
+		var BASE_URL = "http://localhost/mall/shop";
+		var SITE_URL = "http://localhost/mall/shop/index.php";
+		var INDEX_PAGE = "index.php";
+		var STATIC_URL = "http://localhost/mall/shop/shop/static/default";
+		var PAYCENTER_URL = "http://localhost/mall/paycenter/index.php";
+		var UCENTER_URL = "http://ucenter.yuanfeng021.com/index.php";
+
+		var DOMAIN = document.domain;
+		var WDURL = "";
+		var SCHEME = "default";
+		try
+		{
+			//document.domain = 'ttt.com';
+		} catch (e)
+		{
+		}
+	</script>
+</head>
+<body>
+<div class="head">
+	<div class="wrapper clearfix">
+		<div class="head_left">
+			<div id="login_top">
+				<dl class="header_select_province">
+					<dt><b class="iconfont icon-dingwei2"></b><span id="area">北京</span></dt>
+					<dd>
+					</dd>
+				</dl>
+			</div>
+
+		</div>
+		<div class="head_right">
+			<dl>
+                                <p></p>
+				<dt><a href="http://localhost/mall/shop/index.php?ctl=Buyer_Order&met=physical">我的订单</a></dt>
+				<dd class="rel_nav">
+					<a href="http://localhost/mall/shop/index.php?ctl=Buyer_Order&met=physical">实物订单</a>
+					<a href="http://localhost/mall/shop/index.php?ctl=Buyer_Order&met=virtual">虚拟订单</a>
+				</dd>
+			</dl>
+
+			<dl>
+				<p></p>
+				<dt><a href="http://localhost/mall/paycenter/index.php" target="_blank"><span class="iconfont icon-paycenter bbc_color"></span>网付宝</a></dt>
+			</dl>
+
+			<dl>
+                             <p></p>
+				<dt><a href="http://localhost/mall/shop/index.php?ctl=Buyer_Favorites&met=favoritesGoods" target="_blank"><span class="iconfont icon-taoxinshi bbc_color"></span>我的收藏</a></dt>
+				<dd class="rel_nav">
+					<a href="http://localhost/mall/shop/index.php?ctl=Buyer_Favorites&met=favoritesShop">店铺收藏</a>
+					<a href="http://localhost/mall/shop/index.php?ctl=Buyer_Favorites&met=favoritesGoods">商品收藏</a>
+					<a href="http://localhost/mall/shop/index.php?ctl=Buyer_Favorites&met=footprint">我的足迹</a>
+				</dd>
+			</dl>
+			<dl>
+                             <p></p>
+				<dt>
+					<a href="http://localhost/mall/shop/index.php?ctl=Buyer_Cart&met=cart"><span class="iconfont icon-zaiqigoumai bbc_color"></span>购物车</a>
+				</dt>
+			</dl>
+			<dl>
+                             <p></p>
+				<dt><a href="#">客户服务</a></dt>
+				<dd class="rel_nav">
+					<a href="http://localhost/mall/shop/index.php?ctl=Article_Base&met=index&article_id=2">帮助中心</a>
+					<a href="http://localhost/mall/shop/index.php?ctl=Buyer_Service_Return&met=index">售后服务</a>
+					<a href="http://localhost/mall/shop/index.php?ctl=Buyer_Service_Custom&met=index" target="_blank">客服中心</a></dd>
+			</dl>
+			<dl>
+                             <p></p>
+				<dt><a href="#">站点导航</a></dt>
+				<dd class="rel_nav"><a href="#">咨询频道</a><a href="index.php">商城首页</a></dd>
+			</dl>
+			<dl>
+				<dt><span class="iconfont icon-shoujibangding bbc_color"></span><a href="">手机版</a></dt>
+				<dd class="rel_nav">
+					<img src="http://localhost/mall/shop/shop/api/qrcode.php?data=http%3A%2F%2Fwap.bbc-builder.com%2F" width="150" height="150"/></dd>
+			</dl>
+<!--			<dl>
+				<dt><a href="#">商家支持</a></dt>
+				<dd class="rel_nav"><a href="#">代付款订单</a><a href="#">代付款订单</a><a href="#">代付款订单</a></dd>
+			</dl>-->
+		</div>
+	</div>
+</div><script type="text/javascript" src="http://localhost/mall/shop/shop/static/common/js/jquery.blueberry.js"></script>
+<script src="http://localhost/mall/shop/shop/static/common/js/plugins/jquery.timeCountDown.js" ></script>
+		<div class="wrap">
+		<div class="head_cont">
+			<div style="clear:both;"></div>
+			<div class="nav_left">
+                <a href="index.php" class="logo"><img src="http://127.0.0.1/yf_shop/image.php/shop/data/upload/media/1/1/image/20160803/1470217293114679.jpg!240x60.jpg"/></a>
+				<a href="#" class="download iconfont"></a>
+			</div>
+			<div class="nav_right clearfix">
+
+				<div class="clearfix">
+                                    <form name="form_search" id="form_search" action="">
+                                        <input type="hidden" name="ctl" value="Goods_Goods">
+                                        <input type="hidden" name="met" value="goodslist">
+                                        <input type="hidden" name="typ" value="e">
+                                        <input name="keywords" id="site_keywords" value="茶杯,衣服,美食,电脑,电视,12,67,76,99"  type="text" class="bbc_border" onclick="this.value = '';" >
+                                        <input type="submit" style="display: none;" >
+                                    </form>
+                                    <a href="#" class="ser bbc_bg_col" id="site_search">搜索</a>
+                                        <!-- 购物车 -->
+                                        <div class="bbuyer_cart">
+                                                <div class="bbc_buyer_icon bbc_buyer_icon2">
+                                                        <i class="ci_left iconfont icon-zaiqigoumai bbc_color rel_top2"></i>
+                                                        <a href="http://localhost/mall/shop/index.php?ctl=Buyer_Cart&met=cart" target="_blank">我的购物车</a>
+                                                        <i class="ci_right iconfont icon-iconjiantouyou"></i>
+                                                        <i class="ci-count bbc_bg" id="cart_num">0</i>
+                                                </div>
+                                        </div>
+				</div>
+				<div class="nav clearfix">
+                                                                    </div>
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div>
+			<div class="thead clearfix">
+				<div class="classic clearfix">
+					<div  class="class_title bbc_bg"><span>&equiv;</span><a href="index.php?ctl=Goods_Cat&met=goodsCatList" class="ta1">全部分类</a></div>
+                                        <div class="tleft" id="show" style="display:block;">
+						<ul>
+                                                    						</ul>
+					</div>
+				</div>
+				<nav class="tnav">
+                                                    </nav>
+				<p class="high_gou"><!--<img src="">--></p>
+			</div>
+		</div>
+	</div>
+	<div class="hr bbc_bg">
+	</div>
+<div class="J-global-toolbar">
+</div>
+<div style="height:500px;">
+	<div class="banner swiper-container">
+		<ul class="banimg swiper-wrapper">
+			<li class="swiper-slide">
+				<a href="http://localhost/shop/yf_shop/index.php"><img src="http://127.0.0.1/newshop/yf_shop/image.php/shop/data/upload/media/173662/66/image/20160718/1468826459105453.png"/></a>
+			</li>
+			<li class="swiper-slide">
+				<a href="http://localhost/shop/yf_shop/index.php"><img src="http://127.0.0.1/newshop/yf_shop/image.php/shop/data/upload/media/173662/66/image/20160718/1468826471680590.jpg"/></a>
+			</li>
+                        <li class="swiper-slide">
+				<a href="http://localhost/shop/yf_shop/index.php"><img src="http://127.0.0.1/newshop/yf_shop/image.php/shop/data/upload/media/173662/66/image/20160718/1468826478677750.jpg"/></a>
+			</li>
+                        <li class="swiper-slide">
+				<a href="http://localhost/shop/yf_shop/index.php"><img src="http://127.0.0.1/newshop/yf_shop/image.php/shop/data/upload/media/173662/66/image/20160718/1468826482121676.png"/></a>
+			</li>
+                        <li class="swiper-slide">
+				<a href="http://localhost/shop/yf_shop/index.php11"><img src="http://127.0.0.1/newshop/yf_shop/image.php/shop/data/upload/media/173662/66/image/20160718/1468826488485484.jpg"/></a>
+			</li>
+			
+		</ul>
+		 <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <script type="text/javascript">
+			$(document).ready(function () {
+				var swiper = new Swiper('.swiper-container', {
+					pagination: '.swiper-pagination',
+					paginationClickable: true,
+					autoplayDisableOnInteraction: false,
+					autoplay: 3000,
+					speed: 300,
+					loop: true, 
+					grabCursor: true,
+					paginationClickable: true,
+					mousewheelControl: true,
+					lazyLoading: true,
+				});
+			});
+		</script>
+		<div class="wrap t_cont clearfix">
+			<ul class="tcenter">
+				<li><a href="http：shouye.com1"><img src="http://127.0.0.1/newshop/yf_shop/image.php/shop/data/upload/media/plantform/image/20160718/1468825145755207.png"></a></li>
+				<li><a href="http://localhost/shop/yf_shop/index.php"><img src="http://127.0.0.1/yf_shop/image.php/shop/data/upload/media/1/1/image/20160803/1470221116664496.jpg!236x236.jpg"></a></li>
+
+			</ul>
+			<div class="tright" id="login_tright">
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="wrap">
+
+		<!-- 团购风暴 -->
+            		<div class="section">
+			<h3>
+				<img src="http://localhost/mall/shop/shop/static/default/images/gpad.png"/>
+				<a href="index.php?ctl=GroupBuy&met=index">更多<span class="iconfont icon-btnrightarrow"></span></a>
+			</h3>
+			<div class="wrap2 h_goods_cont">
+				 <a class="lrwh btn1 iconfont icon-btnreturnarrow" data-numb="0"></a>
+                                    
+                                <ul class="goodsUl clearfix">
+				
+                                     					
+				</ul>
+				  <a class="lrwh btn2 iconfont icon-btnrightarrow " data-num="0"></a>
+			</div>
+		</div>
+                <!--		<div class="ban2">
+			<a href="#"><img src="<--?= $this->view->img ?>/gpad6.png"/></a>
+		</div>-->
+               <div class="wrap floor fn-clear">
+                                     </div>
+	
+
+		</div>
+	</div>
+<div class="footer">
+	<div class="wrapper">
+            		<ul class="services clearfix">
+					</ul>
+		<p class="about">
+            		</p>
+
+		<p class="copyright">BBCBuilder版权所有,正版购买地址:  <a href="http://www.bbc-builder.com">http://www.bbc-builder.com</a>  
+<br />Powered by BBCbuilder V2.6.1
+</p>
+	</div>
+	</div>
+</div>
+<script type="text/javascript" src="http://localhost/mall/shop/shop/static/common/js/plugins/jquery.ui.js"></script>
+<link href="http://localhost/mall/shop/shop/static/common/css/jquery/plugins/dialog/green.css" rel="stylesheet">
+<script type="text/javascript" src="http://localhost/mall/shop/shop/static/common/js/plugins/jquery.dialog.js"></script>
+<script type="text/javascript" src="http://localhost/mall/shop/shop/static/common/js/respond.js"></script>
+
+<p class="statistics_code">第三方流量统计代码78</p>
+
+</body>
+</html>";

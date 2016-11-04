@@ -1,0 +1,8 @@
+09:32:29 11/03/16 FILE=D:/phpStudy/WWW/mall/paycenter/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM pay_user_info WHERE 1   LIMIT 500 
+09:32:29 11/03/16 FILE=D:/phpStudy/WWW/mall/paycenter/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM pay_web_config WHERE 1   AND config_key="description" LIMIT 500 
+09:32:29 11/03/16 FILE=D:/phpStudy/WWW/mall/paycenter/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM pay_web_config WHERE 1   AND config_key="keyword" LIMIT 500 
+09:32:29 11/03/16 FILE=D:/phpStudy/WWW/mall/paycenter/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM pay_web_config WHERE 1   AND config_key="site_name" LIMIT 500 
+09:32:29 11/03/16 FILE=D:/phpStudy/WWW/mall/paycenter/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM pay_web_config WHERE 1   AND config_key="title" LIMIT 500 
+09:32:29 11/03/16 FILE=D:/phpStudy/WWW/mall/paycenter/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM pay_web_config WHERE 1   AND config_key="copyright" LIMIT 500 
+09:32:29 11/03/16 FILE=D:/phpStudy/WWW/mall/paycenter/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM pay_web_config WHERE 1   AND config_key="icp_number" LIMIT 500 
+09:32:29 11/03/16 FILE=D:/phpStudy/WWW/mall/paycenter/index.php [debug] SELECT SQL_CALC_FOUND_ROWS * FROM pay_web_config WHERE 1   AND config_key="statistics_code" LIMIT 500 

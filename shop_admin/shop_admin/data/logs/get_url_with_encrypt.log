@@ -1,0 +1,1233 @@
+17:58:17 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/ucenter/index.php
+17:58:17 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'user_account' => 'admin',
+  'user_password' => 'admin',
+  'app_id' => 103,
+  'ctl' => 'Api',
+  'met' => 'login',
+  'typ' => 'json',
+  'rtime' => 1478080697,
+  'token' => 'b270c7675446bc115159e0dca96872dc',
+)
+17:58:17 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":100,"status":200,"msg":"success","data":{"user_id":10001,"user_name":"admin","password":"21232f297a57a5a743894a0e4a801fc3","user_state":1,"action_time":0,"action_ip":null,"session_id":"t","id":10001,"result":1,"k":"V3RXKQNlBSINU19lD2NQaVYwBmIHZAMxBWA="}}
+17:58:17 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => 100,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'user_id' => 10001,
+    'user_name' => 'admin',
+    'password' => '21232f297a57a5a743894a0e4a801fc3',
+    'user_state' => 1,
+    'action_time' => 0,
+    'action_ip' => NULL,
+    'session_id' => 't',
+    'id' => 10001,
+    'result' => 1,
+    'k' => 'V3RXKQNlBSINU19lD2NQaVYwBmIHZAMxBWA=',
+  ),
+)
+17:58:18 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Goods_Goods&met=getStateCombo&typ=json
+17:58:18 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'typ' => 'json',
+  'type_number' => 'goods_state',
+  'rtime' => 1478080698,
+  'token' => '7f75728d049a8bd46d63498d025bbf30',
+)
+17:58:19 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=site&typ=json
+17:58:19 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => 1478080699,
+  'token' => '768ad3dde70cbf3ce0c6a238058cb1a7',
+)
+17:58:19 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Goods_Cat&met=cat&typ=json
+17:58:19 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'typ' => 'json',
+  'type_number' => 'goods_cat',
+  'is_delete' => '2',
+  'rtime' => 1478080699,
+  'token' => '43d3b0f12149a396ebfc1540a5fe03b6',
+)
+17:58:27 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <html><head><title>Document Moved</title>
+<META URL=http://www.shop.com/404+260.xhtml">
+</head>
+<body><h1>Object Moved</h1>This document may be found <a href="http://www.shop.com/404+260.xhtml">here</a>
+</body></html>
+
+17:58:27 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+17:58:28 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;5a3e5dcc&#46;1478080711&#46;55e88c5
+</BODY></HTML>
+
+17:58:28 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+17:58:29 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;533e5dcc&#46;1478080712&#46;447cd24
+</BODY></HTML>
+
+17:58:29 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+17:58:40 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=ucenterApi&typ=json
+17:58:40 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478080720,
+  'token' => 'ad46a0171024730df57a34a746467112',
+)
+17:58:43 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=ucenterApi&typ=json
+17:58:43 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478080723,
+  'token' => '0c99c4edd158844fb66a4bcdc65e5ecc',
+)
+17:58:49 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;533e5dcc&#46;1478080732&#46;447cac2
+</BODY></HTML>
+
+17:58:49 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+17:58:53 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;5a3e5dcc&#46;1478080736&#46;55e977a
+</BODY></HTML>
+
+17:58:54 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+17:59:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/ucenter/index.php?ctl=Api&met=checkApi&typ=json
+17:59:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 103,
+  'rtime' => 1478080743,
+  'token' => 'd054c9ca7340c2d2e65874b3d8507eb4',
+)
+17:59:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":[]}
+17:59:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+  ),
+)
+17:59:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=editUcenterApi&typ=json
+17:59:03 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'config_type' => 
+  array (
+    0 => 'ucenter_api',
+  ),
+  'ucenter_api' => 
+  array (
+    'ucenter_api_url' => 'http://localhost/mall/ucenter/index.php',
+    'ucenter_api_key' => 'aaaaaabbb',
+  ),
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'rtime' => 1478080743,
+  'token' => '1d60d6a02f5bb80692d8f6253e8fe998',
+)
+17:59:12 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=paycenterApi&typ=json
+17:59:12 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478080752,
+  'token' => '7bf609f57f05c8dd64525326f58ba9e0',
+)
+17:59:14 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <html><head><title>Document Moved</title>
+<META URL=http://www.shop.com/404+260.xhtml">
+</head>
+<body><h1>Object Moved</h1>This document may be found <a href="http://www.shop.com/404+260.xhtml">here</a>
+</body></html>
+
+17:59:14 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+17:59:16 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=paycenterApi&typ=json
+17:59:16 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478080756,
+  'token' => 'b797cb33d995fa27da47c8309b584de6',
+)
+17:59:26 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;533e5dcc&#46;1478080769&#46;4480117
+</BODY></HTML>
+
+17:59:26 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+17:59:27 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;533e5dcc&#46;1478080770&#46;4480f95
+</BODY></HTML>
+
+17:59:27 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+17:59:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=ucenterApi&typ=json
+17:59:44 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478080784,
+  'token' => '1af533a08ab73ffbc657972b4687e284',
+)
+17:59:49 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Goods_Goods&met=getStateCombo&typ=json
+17:59:49 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'typ' => 'json',
+  'type_number' => 'goods_state',
+  'rtime' => 1478080789,
+  'token' => 'b8dff29e8eb225ee3241762f169c8c49',
+)
+17:59:50 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=site&typ=json
+17:59:50 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => 1478080790,
+  'token' => 'a30dc9ffc02ebc5c22131649c84287a8',
+)
+17:59:50 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Goods_Cat&met=cat&typ=json
+17:59:50 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'typ' => 'json',
+  'type_number' => 'goods_cat',
+  'is_delete' => '2',
+  'rtime' => 1478080790,
+  'token' => '91e67a953a054dc8398a9dfdf0d306f9',
+)
+17:59:55 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <html><head><title>Document Moved</title>
+<META URL=http://www.shop.com/404+260.xhtml">
+</head>
+<body><h1>Object Moved</h1>This document may be found <a href="http://www.shop.com/404+260.xhtml">here</a>
+</body></html>
+
+17:59:55 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+18:00:00 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;5a3e5dcc&#46;1478080803&#46;55e96e5
+</BODY></HTML>
+
+18:00:00 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+18:00:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;533e5dcc&#46;1478080804&#46;448338e
+</BODY></HTML>
+
+18:00:01 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+18:00:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;5a3e5dcc&#46;1478080807&#46;55eb288
+</BODY></HTML>
+
+18:00:04 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+18:00:09 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=ucenterApi&typ=json
+18:00:09 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478080809,
+  'token' => '84926d3d3d3a159206daf02d2268c55e',
+)
+18:00:18 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;533e5dcc&#46;1478080820&#46;44841fd
+</BODY></HTML>
+
+18:00:18 11/02/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+09:30:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/ucenter/index.php
+09:30:10 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'user_account' => 'admin',
+  'user_password' => 'admin',
+  'app_id' => 103,
+  'ctl' => 'Api',
+  'met' => 'login',
+  'typ' => 'json',
+  'rtime' => 1478136610,
+  'token' => 'bd39d338f58ad28092fe3e30b8a6f558',
+)
+09:30:11 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":100,"status":200,"msg":"success","data":{"user_id":10001,"user_name":"admin","password":"21232f297a57a5a743894a0e4a801fc3","user_state":1,"action_time":0,"action_ip":null,"session_id":"t","id":10001,"result":1,"k":"AyABf1cxWX5dAwI4AGwEPVYwCW0FZgMxAmc="}}
+09:30:11 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => 100,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'user_id' => 10001,
+    'user_name' => 'admin',
+    'password' => '21232f297a57a5a743894a0e4a801fc3',
+    'user_state' => 1,
+    'action_time' => 0,
+    'action_ip' => NULL,
+    'session_id' => 't',
+    'id' => 10001,
+    'result' => 1,
+    'k' => 'AyABf1cxWX5dAwI4AGwEPVYwCW0FZgMxAmc=',
+  ),
+)
+09:30:12 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=site&typ=json
+09:30:12 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => 1478136612,
+  'token' => 'a14923f094e099f6ef4a91f4b404d90f',
+)
+09:30:12 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Goods_Cat&met=cat&typ=json
+09:30:12 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'typ' => 'json',
+  'type_number' => 'goods_cat',
+  'is_delete' => '2',
+  'rtime' => 1478136612,
+  'token' => 'ee8ddce25be85756e9bee178502ad8f0',
+)
+09:30:12 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Goods_Goods&met=getStateCombo&typ=json
+09:30:12 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'typ' => 'json',
+  'type_number' => 'goods_state',
+  'rtime' => 1478136612,
+  'token' => '876e66008bc85fa031c98dd9436bd8b2',
+)
+09:30:20 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;5ea91d26&#46;1478136620&#46;fd7b961
+</BODY></HTML>
+
+09:30:20 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+09:30:21 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;5ea91d26&#46;1478136621&#46;fd80983
+</BODY></HTML>
+
+09:30:21 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+09:30:24 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;5ea91d26&#46;1478136623&#46;fd95c4f
+</BODY></HTML>
+
+09:30:24 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+09:30:25 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://www.shop.com/index.php?ctl=Api_Config&met=ucenterApi&typ=json
+09:30:25 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478136625,
+  'token' => 'fea048c2fa3dc649ac125dd8f10efa87',
+)
+09:30:35 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : <HTML><HEAD>
+<TITLE>Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>Internal Server Error - Read</H1>
+The server encountered an internal error or misconfiguration and was unable to
+complete your request.<P>
+Reference&#32;&#35;3&#46;5ea91d26&#46;1478136635&#46;fd95ec5
+</BODY></HTML>
+
+09:30:35 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] NULL
+09:30:58 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=editApi&typ=json
+09:30:58 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'shop_app_id_new' => 102,
+  'shop_api_key_new' => 'aaaaaabbb',
+  'shop_api_url_new' => 'http://localhost/mall/shop/index.php',
+  'shop_wap_url' => 'http://wap.bbc-builder.com/',
+  'rtime' => 1478136658,
+  'token' => '43796b3a2568480e0ddbc6687c0b113c',
+)
+09:30:58 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success!","data":[]}
+09:30:58 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success!',
+  'data' => 
+  array (
+  ),
+)
+09:31:01 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=ucenterApi&typ=json
+09:31:01 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478136661,
+  'token' => '5b7230029a428598ec115d09cf6b6dbb',
+)
+09:31:01 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":[]}
+09:31:01 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+  ),
+)
+09:31:02 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=paycenterApi&typ=json
+09:31:02 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478136662,
+  'token' => '599d8f681083feb95673e775c4a4661b',
+)
+09:31:02 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":[]}
+09:31:02 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+  ),
+)
+09:31:16 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=editPaycenterApi&typ=json
+09:31:16 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'config_type' => 
+  array (
+    0 => 'paycenter_api',
+  ),
+  'paycenter_api' => 
+  array (
+    'paycenter_api_name' => '网付宝',
+    'paycenter_api_url' => 'http://paycenter.yuanfeng021.com/index.php',
+    'paycenter_api_key' => 'aaaaaabbb',
+  ),
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'rtime' => 1478136676,
+  'token' => 'b1186ddaa24acc61fcf2b7857b015e76',
+)
+09:31:16 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"\u751f\u6210\u914d\u7f6e\u6587\u4ef6\u6210\u529f!","data":[]}
+09:31:16 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => '生成配置文件成功!',
+  'data' => 
+  array (
+  ),
+)
+09:31:28 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=editPaycenterApi&typ=json
+09:31:28 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'config_type' => 
+  array (
+    0 => 'paycenter_api',
+  ),
+  'paycenter_api' => 
+  array (
+    'paycenter_api_name' => '网付宝',
+    'paycenter_api_url' => 'http://localhost/mall/paycenter/index.php',
+    'paycenter_api_key' => 'aaaaaabbb',
+  ),
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'rtime' => 1478136688,
+  'token' => '6e4007b681585de72084b4381fec566e',
+)
+09:31:28 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"\u751f\u6210\u914d\u7f6e\u6587\u4ef6\u6210\u529f!","data":[]}
+09:31:28 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => '生成配置文件成功!',
+  'data' => 
+  array (
+  ),
+)
+09:31:30 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=ucenterApi&typ=json
+09:31:30 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478136690,
+  'token' => 'ce0ee123f6abacbb33acbdfd362567b2',
+)
+09:31:30 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":[]}
+09:31:30 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+  ),
+)
+09:31:33 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=paycenterApi&typ=json
+09:31:33 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478136693,
+  'token' => 'b716a57069cccf329dd471b2216d24bc',
+)
+09:31:33 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":[]}
+09:31:33 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+  ),
+)
+09:31:35 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=imApi&typ=json
+09:31:35 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478136695,
+  'token' => '239bc5f22ff53fec2e59de06e3cd5c30',
+)
+09:31:35 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":[]}
+09:31:35 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+  ),
+)
+09:31:36 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=paycenterApi&typ=json
+09:31:36 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478136696,
+  'token' => '6348f3a1a2764f704fb809dec22e60ba',
+)
+09:31:36 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":[]}
+09:31:36 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+  ),
+)
+09:31:36 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=ucenterApi&typ=json
+09:31:36 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => 1478136696,
+  'token' => '6348f3a1a2764f704fb809dec22e60ba',
+)
+09:31:36 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":[]}
+09:31:36 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+  ),
+)
+09:32:01 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=plugin&typ=json
+09:32:01 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'plugin',
+  ),
+  'rtime' => 1478136721,
+  'token' => '45f830b9bf1b267cbb019523c7b8a144',
+)
+09:32:01 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":{"Plugin_Cron":{"config_key":"Plugin_Cron","config_value":0,"config_type":"plugin","config_enable":1,"config_comment":"","config_datatype":"string","id":"Plugin_Cron"},"Plugin_Log":{"config_key":"Plugin_Log","config_value":1,"config_type":"plugin","config_enable":1,"config_comment":"","config_datatype":"string","id":"Plugin_Log"},"Plugin_Perm":{"config_key":"Plugin_Perm","config_value":1,"config_type":"plugin","config_enable":1,"config_comment":"","config_datatype":"string","id":"Plugin_Perm"},"Plugin_Xhprof":{"config_key":"Plugin_Xhprof","config_value":0,"config_type":"plugin","config_enable":1,"config_comment":"","config_datatype":"string","id":"Plugin_Xhprof"},"plugin_rows":[{"plugin_id":"Plugin_Cron","plugin_name":"Plugin_Cron","plugin_desc":"\u8ba1\u5212\u4efb\u52a1\u529f\u80fd, \u7528\u6cd5\u53c2\u8003Linux crontab."},{"plugin_id":"Plugin_Directseller","plugin_name":"Plugin_Directseller","plugin_desc":null},{"plugin_id":"Plugin_Distribution","plugin_name":"Plugin_Distribution","plugin_desc":null},{"plugin_id":"Plugin_Log","plugin_name":"Plugin_Log","plugin_desc":"this is a log plugin! \u5f00\u542f\u65e5\u5fd7,\u5219\u4f1a\u8bb0\u5f55\u767b\u5f55\u7528\u6237\u7684\u64cd\u4f5c\u8bb0\u5f55,\u4f46\u4f1a\u8f7b\u5fae\u52a0\u91cd\u7cfb\u7edf\u8d1f\u62c5."},{"plugin_id":"Plugin_Xhprof","plugin_name":"Plugin_Xhprof","plugin_desc":"XHProf\u662ffacebook \u5f00\u53d1\u7684\u4e00\u4e2a\u6d4b\u8bd5php\u6027\u80fd\u7684\u6269\u5c55\uff0c\u672c\u6587\u8bb0\u5f55\u4e86\u5728PHP\u5e94\u7528\u4e2d\u4f7f\u7528XHProf\u5bf9PHP\u8fdb\u884c\u6027\u80fd\u4f18\u5316\uff0c\u67e5\u627e\u6027\u80fd\u74f6\u9888\u7684\u65b9\u6cd5\u3002"}]}}
+09:32:01 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'Plugin_Cron' => 
+    array (
+      'config_key' => 'Plugin_Cron',
+      'config_value' => 0,
+      'config_type' => 'plugin',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'Plugin_Cron',
+    ),
+    'Plugin_Log' => 
+    array (
+      'config_key' => 'Plugin_Log',
+      'config_value' => 1,
+      'config_type' => 'plugin',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'Plugin_Log',
+    ),
+    'Plugin_Perm' => 
+    array (
+      'config_key' => 'Plugin_Perm',
+      'config_value' => 1,
+      'config_type' => 'plugin',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'Plugin_Perm',
+    ),
+    'Plugin_Xhprof' => 
+    array (
+      'config_key' => 'Plugin_Xhprof',
+      'config_value' => 0,
+      'config_type' => 'plugin',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'Plugin_Xhprof',
+    ),
+    'plugin_rows' => 
+    array (
+      0 => 
+      array (
+        'plugin_id' => 'Plugin_Cron',
+        'plugin_name' => 'Plugin_Cron',
+        'plugin_desc' => '计划任务功能, 用法参考Linux crontab.',
+      ),
+      1 => 
+      array (
+        'plugin_id' => 'Plugin_Directseller',
+        'plugin_name' => 'Plugin_Directseller',
+        'plugin_desc' => NULL,
+      ),
+      2 => 
+      array (
+        'plugin_id' => 'Plugin_Distribution',
+        'plugin_name' => 'Plugin_Distribution',
+        'plugin_desc' => NULL,
+      ),
+      3 => 
+      array (
+        'plugin_id' => 'Plugin_Log',
+        'plugin_name' => 'Plugin_Log',
+        'plugin_desc' => 'this is a log plugin! 开启日志,则会记录登录用户的操作记录,但会轻微加重系统负担.',
+      ),
+      4 => 
+      array (
+        'plugin_id' => 'Plugin_Xhprof',
+        'plugin_name' => 'Plugin_Xhprof',
+        'plugin_desc' => 'XHProf是facebook 开发的一个测试php性能的扩展，本文记录了在PHP应用中使用XHProf对PHP进行性能优化，查找性能瓶颈的方法。',
+      ),
+    ),
+  ),
+)
+09:32:04 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=cache&typ=json
+09:32:04 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'rtime' => 1478136723,
+  'token' => 'e0836ef78e46d35c50a35da3334e8307',
+)
+09:32:04 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":["D:\/phpStudy\/WWW\/mall\/shop\/shop\/data\/cache\/default_cache\/","null","D:\/phpStudy\/WWW\/mall\/shop\/shop\/data\/cache\/base_cache\/","[{\"127.0.0.1\":\"11211\"}]","[{\"127.0.0.1\":\"11211\"}]","null"]}
+09:32:04 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    0 => 'D:/phpStudy/WWW/mall/shop/shop/data/cache/default_cache/',
+    1 => 'null',
+    2 => 'D:/phpStudy/WWW/mall/shop/shop/data/cache/base_cache/',
+    3 => '[{"127.0.0.1":"11211"}]',
+    4 => '[{"127.0.0.1":"11211"}]',
+    5 => 'null',
+  ),
+)
+09:32:17 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Goods_Goods&met=getStateCombo&typ=json
+09:32:17 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'typ' => 'json',
+  'type_number' => 'goods_state',
+  'rtime' => 1478136737,
+  'token' => 'd9c7b4a57e440da8c7058ad44cce3848',
+)
+09:32:19 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Goods_Cat&met=cat&typ=json
+09:32:19 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'typ' => 'json',
+  'type_number' => 'goods_cat',
+  'is_delete' => '2',
+  'rtime' => 1478136738,
+  'token' => 'f61b982a5de660bf95fcdacdc0e498ae',
+)
+09:32:19 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=site&typ=json
+09:32:19 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => 1478136738,
+  'token' => 'fc341769de01c4ab04a9860d93d89b2e',
+)
+09:32:19 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":{"goods_state":[{"id":0,"name":"\u4e0b\u67b6"},{"id":1,"name":"\u6b63\u5e38"},{"id":10,"name":"\u8fdd\u89c4\uff08\u7981\u552e\uff09"}],"goods_verify":[{"id":0,"name":"\u672a\u901a\u8fc7"},{"id":1,"name":"\u901a\u8fc7"},{"id":10,"name":"\u5f85\u5ba1\u6838"}]}}
+09:32:19 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'goods_state' => 
+    array (
+      0 => 
+      array (
+        'id' => 0,
+        'name' => '下架',
+      ),
+      1 => 
+      array (
+        'id' => 1,
+        'name' => '正常',
+      ),
+      2 => 
+      array (
+        'id' => 10,
+        'name' => '违规（禁售）',
+      ),
+    ),
+    'goods_verify' => 
+    array (
+      0 => 
+      array (
+        'id' => 0,
+        'name' => '未通过',
+      ),
+      1 => 
+      array (
+        'id' => 1,
+        'name' => '通过',
+      ),
+      2 => 
+      array (
+        'id' => 10,
+        'name' => '待审核',
+      ),
+    ),
+  ),
+)
+09:32:20 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":{"items":[]}}
+09:32:20 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'items' => 
+    array (
+    ),
+  ),
+)
+09:32:20 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":{"closed_reason":{"config_key":"closed_reason","config_value":11111,"config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"closed_reason"},"copyright":{"config_key":"copyright","config_value":"BBCBuilder\u7248\u6743\u6240\u6709,\u6b63\u7248\u8d2d\u4e70\u5730\u5740:\u00a0\u00a0<a href=\"http:\/\/www.bbc-builder.com\">http:\/\/www.bbc-builder.com<\/a>  \r\n<br \/>Powered by BBCbuilder V2.6.1\r\n","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"copyright"},"date_format":{"config_key":"date_format","config_value":"Y-m-d","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"date_format"},"icp_number":{"config_key":"icp_number","config_value":5.4435234534253,"config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"icp_number"},"language_id":{"config_key":"language_id","config_value":"zh_CN","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"language_id"},"monetary_unit":{"config_key":"monetary_unit","config_value":"\uffe5","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"monetary_unit"},"site_name":{"config_key":"site_name","config_value":"BBCbuilder","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"site_name"},"site_status":{"config_key":"site_status","config_value":1,"config_type":"site","config_enable":1,"config_comment":"","config_datatype":"number","id":"site_status"},"statistics_code":{"config_key":"statistics_code","config_value":"\u7b2c\u4e09\u65b9\u6d41\u91cf\u7edf\u8ba1\u4ee3\u780178","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"statistics_code"},"theme_id":{"config_key":"theme_id","config_value":"default","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"theme_id"},"time_format":{"config_key":"time_format","config_value":"H:i:s","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"time_format"},"time_zone_id":{"config_key":"time_zone_id","config_value":"Asia\/Shanghai","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"number","id":"time_zone_id"},"language_row":[{"id":"zh_CN","name":"zh_CN"}],"theme_row":[{"id":"default","name":"default"}]}}
+09:32:20 11/03/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'closed_reason' => 
+    array (
+      'config_key' => 'closed_reason',
+      'config_value' => 11111,
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'closed_reason',
+    ),
+    'copyright' => 
+    array (
+      'config_key' => 'copyright',
+      'config_value' => 'BBCBuilder版权所有,正版购买地址:  <a href="http://www.bbc-builder.com">http://www.bbc-builder.com</a>  
+<br />Powered by BBCbuilder V2.6.1
+',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'copyright',
+    ),
+    'date_format' => 
+    array (
+      'config_key' => 'date_format',
+      'config_value' => 'Y-m-d',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'date_format',
+    ),
+    'icp_number' => 
+    array (
+      'config_key' => 'icp_number',
+      'config_value' => 5.4435234534252999,
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'icp_number',
+    ),
+    'language_id' => 
+    array (
+      'config_key' => 'language_id',
+      'config_value' => 'zh_CN',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'language_id',
+    ),
+    'monetary_unit' => 
+    array (
+      'config_key' => 'monetary_unit',
+      'config_value' => '￥',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'monetary_unit',
+    ),
+    'site_name' => 
+    array (
+      'config_key' => 'site_name',
+      'config_value' => 'BBCbuilder',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'site_name',
+    ),
+    'site_status' => 
+    array (
+      'config_key' => 'site_status',
+      'config_value' => 1,
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'number',
+      'id' => 'site_status',
+    ),
+    'statistics_code' => 
+    array (
+      'config_key' => 'statistics_code',
+      'config_value' => '第三方流量统计代码78',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'statistics_code',
+    ),
+    'theme_id' => 
+    array (
+      'config_key' => 'theme_id',
+      'config_value' => 'default',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'theme_id',
+    ),
+    'time_format' => 
+    array (
+      'config_key' => 'time_format',
+      'config_value' => 'H:i:s',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'time_format',
+    ),
+    'time_zone_id' => 
+    array (
+      'config_key' => 'time_zone_id',
+      'config_value' => 'Asia/Shanghai',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'number',
+      'id' => 'time_zone_id',
+    ),
+    'language_row' => 
+    array (
+      0 => 
+      array (
+        'id' => 'zh_CN',
+        'name' => 'zh_CN',
+      ),
+    ),
+    'theme_row' => 
+    array (
+      0 => 
+      array (
+        'id' => 'default',
+        'name' => 'default',
+      ),
+    ),
+  ),
+)
+09:18:53 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/ucenter/index.php
+09:18:53 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'user_account' => 'admin',
+  'user_password' => 'admin',
+  'app_id' => 103,
+  'ctl' => 'Api',
+  'met' => 'login',
+  'typ' => 'json',
+  'rtime' => 1478222333,
+  'token' => '4aa2b9d828fe60795a11e26c6e12c812',
+)
+09:18:54 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":100,"status":200,"msg":"success","data":{"user_id":10001,"user_name":"admin","password":"21232f297a57a5a743894a0e4a801fc3","user_state":1,"action_time":0,"action_ip":null,"session_id":"t","id":10001,"result":1,"k":"ByRUKl07VHMNU19lCWUHPgNlVTFRMgIwVTA="}}
+09:18:54 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => 100,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'user_id' => 10001,
+    'user_name' => 'admin',
+    'password' => '21232f297a57a5a743894a0e4a801fc3',
+    'user_state' => 1,
+    'action_time' => 0,
+    'action_ip' => NULL,
+    'session_id' => 't',
+    'id' => 10001,
+    'result' => 1,
+    'k' => 'ByRUKl07VHMNU19lCWUHPgNlVTFRMgIwVTA=',
+  ),
+)
+09:18:54 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Goods_Goods&met=getStateCombo&typ=json
+09:18:54 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'typ' => 'json',
+  'type_number' => 'goods_state',
+  'rtime' => 1478222334,
+  'token' => '55c4af689b08bfd3784897957a807738',
+)
+09:18:54 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Config&met=site&typ=json
+09:18:54 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => 1478222334,
+  'token' => '0f0658271286db70265732b5e8d91473',
+)
+09:18:55 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $url:http://localhost/mall/shop/index.php?ctl=Api_Goods_Cat&met=cat&typ=json
+09:18:55 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'app_id' => 102,
+  'typ' => 'json',
+  'type_number' => 'goods_cat',
+  'is_delete' => '2',
+  'rtime' => 1478222335,
+  'token' => '6fd4798df6d766b59fa3544d8433a6df',
+)
+09:18:55 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":{"closed_reason":{"config_key":"closed_reason","config_value":11111,"config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"closed_reason"},"copyright":{"config_key":"copyright","config_value":"BBCBuilder\u7248\u6743\u6240\u6709,\u6b63\u7248\u8d2d\u4e70\u5730\u5740:\u00a0\u00a0<a href=\"http:\/\/www.bbc-builder.com\">http:\/\/www.bbc-builder.com<\/a>  \r\n<br \/>Powered by BBCbuilder V2.6.1\r\n","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"copyright"},"date_format":{"config_key":"date_format","config_value":"Y-m-d","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"date_format"},"icp_number":{"config_key":"icp_number","config_value":5.4435234534253,"config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"icp_number"},"language_id":{"config_key":"language_id","config_value":"zh_CN","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"language_id"},"monetary_unit":{"config_key":"monetary_unit","config_value":"\uffe5","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"monetary_unit"},"site_name":{"config_key":"site_name","config_value":"BBCbuilder","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"site_name"},"site_status":{"config_key":"site_status","config_value":1,"config_type":"site","config_enable":1,"config_comment":"","config_datatype":"number","id":"site_status"},"statistics_code":{"config_key":"statistics_code","config_value":"\u7b2c\u4e09\u65b9\u6d41\u91cf\u7edf\u8ba1\u4ee3\u780178","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"statistics_code"},"theme_id":{"config_key":"theme_id","config_value":"default","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"theme_id"},"time_format":{"config_key":"time_format","config_value":"H:i:s","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"time_format"},"time_zone_id":{"config_key":"time_zone_id","config_value":"Asia\/Shanghai","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"number","id":"time_zone_id"},"language_row":[{"id":"zh_CN","name":"zh_CN"}],"theme_row":[{"id":"default","name":"default"}]}}
+09:18:55 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'closed_reason' => 
+    array (
+      'config_key' => 'closed_reason',
+      'config_value' => 11111,
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'closed_reason',
+    ),
+    'copyright' => 
+    array (
+      'config_key' => 'copyright',
+      'config_value' => 'BBCBuilder版权所有,正版购买地址:  <a href="http://www.bbc-builder.com">http://www.bbc-builder.com</a>  
+<br />Powered by BBCbuilder V2.6.1
+',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'copyright',
+    ),
+    'date_format' => 
+    array (
+      'config_key' => 'date_format',
+      'config_value' => 'Y-m-d',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'date_format',
+    ),
+    'icp_number' => 
+    array (
+      'config_key' => 'icp_number',
+      'config_value' => 5.4435234534252999,
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'icp_number',
+    ),
+    'language_id' => 
+    array (
+      'config_key' => 'language_id',
+      'config_value' => 'zh_CN',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'language_id',
+    ),
+    'monetary_unit' => 
+    array (
+      'config_key' => 'monetary_unit',
+      'config_value' => '￥',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'monetary_unit',
+    ),
+    'site_name' => 
+    array (
+      'config_key' => 'site_name',
+      'config_value' => 'BBCbuilder',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'site_name',
+    ),
+    'site_status' => 
+    array (
+      'config_key' => 'site_status',
+      'config_value' => 1,
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'number',
+      'id' => 'site_status',
+    ),
+    'statistics_code' => 
+    array (
+      'config_key' => 'statistics_code',
+      'config_value' => '第三方流量统计代码78',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'statistics_code',
+    ),
+    'theme_id' => 
+    array (
+      'config_key' => 'theme_id',
+      'config_value' => 'default',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'theme_id',
+    ),
+    'time_format' => 
+    array (
+      'config_key' => 'time_format',
+      'config_value' => 'H:i:s',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'time_format',
+    ),
+    'time_zone_id' => 
+    array (
+      'config_key' => 'time_zone_id',
+      'config_value' => 'Asia/Shanghai',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'number',
+      'id' => 'time_zone_id',
+    ),
+    'language_row' => 
+    array (
+      0 => 
+      array (
+        'id' => 'zh_CN',
+        'name' => 'zh_CN',
+      ),
+    ),
+    'theme_row' => 
+    array (
+      0 => 
+      array (
+        'id' => 'default',
+        'name' => 'default',
+      ),
+    ),
+  ),
+)
+09:18:55 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":{"goods_state":[{"id":0,"name":"\u4e0b\u67b6"},{"id":1,"name":"\u6b63\u5e38"},{"id":10,"name":"\u8fdd\u89c4\uff08\u7981\u552e\uff09"}],"goods_verify":[{"id":0,"name":"\u672a\u901a\u8fc7"},{"id":1,"name":"\u901a\u8fc7"},{"id":10,"name":"\u5f85\u5ba1\u6838"}]}}
+09:18:55 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'goods_state' => 
+    array (
+      0 => 
+      array (
+        'id' => 0,
+        'name' => '下架',
+      ),
+      1 => 
+      array (
+        'id' => 1,
+        'name' => '正常',
+      ),
+      2 => 
+      array (
+        'id' => 10,
+        'name' => '违规（禁售）',
+      ),
+    ),
+    'goods_verify' => 
+    array (
+      0 => 
+      array (
+        'id' => 0,
+        'name' => '未通过',
+      ),
+      1 => 
+      array (
+        'id' => 1,
+        'name' => '通过',
+      ),
+      2 => 
+      array (
+        'id' => 10,
+        'name' => '待审核',
+      ),
+    ),
+  ),
+)
+09:18:57 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":{"items":[]}}
+09:18:57 11/04/16 FILE=D:/phpStudy/WWW/mall/shop_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'items' => 
+    array (
+    ),
+  ),
+)

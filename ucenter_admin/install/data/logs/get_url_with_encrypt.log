@@ -1,0 +1,44 @@
+17:53:16 11/02/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/install/index.php [info] $tmp_str:app_id=103&ctl=Api&is_install=1&met=addUserAndBindAppServer&password=admin&rtime=1478080396&server_id=421aa90e079fa326b6494f812ad13e79&typ=json&user_name=admin&key=aaaaaabbb
+17:53:16 11/02/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/install/index.php [info] $url:http://localhost/mall/ucenter/index.php
+17:53:16 11/02/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/install/index.php [info] array (
+  'app_id' => '103',
+  'ctl' => 'Api',
+  'is_install' => 1,
+  'met' => 'addUserAndBindAppServer',
+  'password' => 'admin',
+  'rtime' => 1478080396,
+  'server_id' => '421aa90e079fa326b6494f812ad13e79',
+  'typ' => 'json',
+  'user_name' => 'admin',
+  'key' => 'aaaaaabbb',
+)
+17:53:16 11/02/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/install/index.php [info] array (
+  'user_name' => 'admin',
+  'password' => 'admin',
+  'app_id' => '103',
+  'server_id' => '421aa90e079fa326b6494f812ad13e79',
+  'is_install' => 1,
+  'ctl' => 'Api',
+  'met' => 'addUserAndBindAppServer',
+  'typ' => 'json',
+  'rtime' => 1478080396,
+  'token' => '4f814376e59b7f77e17bf7e20eaed2f2',
+)
+17:53:17 11/02/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/install/index.php [info] $res : {"cmd_id":100,"status":200,"msg":"success","data":{"user_name":"admin","server_id":"421aa90e079fa326b6494f812ad13e79","user_id":10001},"d":[-999,"<br \/>\n<b>Notice<\/b>:  Undefined index: company_phone in <b>D:\\phpStudy\\WWW\\mall\\ucenter\\ucenter\\controllers\\ApiCtl.php<\/b> on line <b>296<\/b><br \/>"]}
+17:53:17 11/02/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/install/index.php [info] array (
+  'cmd_id' => 100,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'user_name' => 'admin',
+    'server_id' => '421aa90e079fa326b6494f812ad13e79',
+    'user_id' => 10001,
+  ),
+  'd' => 
+  array (
+    0 => -999,
+    1 => '<br />
+<b>Notice</b>:  Undefined index: company_phone in <b>D:\\phpStudy\\WWW\\mall\\ucenter\\ucenter\\controllers\\ApiCtl.php</b> on line <b>296</b><br />',
+  ),
+)

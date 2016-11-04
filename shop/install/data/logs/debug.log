@@ -1,0 +1,1 @@
+[02-Nov-2016 17:56:39 Asia/Shanghai] PHP Warning:  file_put_contents(D:/phpStudy/WWW/mall/shop/shop_admin/configs/db.ini.php): failed to open stream: No such file or directory in D:\phpStudy\WWW\mall\shop\libraries\Yf\Utils\File.php on line 75

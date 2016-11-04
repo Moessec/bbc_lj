@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<!-- saved from url=(0103)http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_edit&decoration_id=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>商家中心</title>
+<link href="./商家中心_files/base.css" rel="stylesheet" type="text/css">
+<link href="./商家中心_files/seller_center.css" rel="stylesheet" type="text/css">
+<link href="./商家中心_files/font-awesome.min.css" rel="stylesheet">
+<!--[if IE 7]>
+  <link rel="stylesheet" href="http://b2b2c.shopnctest.com/tesa/shop/resource/font/font-awesome/css/font-awesome-ie7.min.css">
+<![endif]-->
+<script>
+var COOKIE_PRE = '9204_';var _CHARSET = 'utf-8';var SITEURL = 'http://b2b2c.shopnctest.com/tesa/shop';var MEMBER_SITE_URL = 'http://b2b2c.shopnctest.com/tesa/member';var RESOURCE_SITE_URL = 'http://b2b2c.shopnctest.com/tesa/data/resource';var SHOP_RESOURCE_SITE_URL = 'http://b2b2c.shopnctest.com/tesa/shop/resource';var SHOP_TEMPLATES_URL = 'http://b2b2c.shopnctest.com/tesa/shop/templates/default';</script>
+<script type="text/javascript" src="./商家中心_files/jquery.js"></script>
+<script type="text/javascript" src="./商家中心_files/seller.js"></script>
+<script type="text/javascript" src="./商家中心_files/waypoints.js"></script>
+<script type="text/javascript" src="./商家中心_files/jquery.ui.js"></script>
+<script type="text/javascript" src="./商家中心_files/jquery.validation.min.js"></script>
+<script type="text/javascript" src="./商家中心_files/common.js"></script>
+<script type="text/javascript" src="./商家中心_files/member.js" charset="utf-8"></script>
+<script type="text/javascript" src="./商家中心_files/dialog.js" id="dialog_js" charset="utf-8"></script><link href="./商家中心_files/dialog.css" rel="stylesheet" type="text/css">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="http://b2b2c.shopnctest.com/tesa/data/resource/js/html5shiv.js"></script>
+      <script src="http://b2b2c.shopnctest.com/tesa/data/resource/js/respond.min.js"></script>
+<![endif]-->
+<style id="poshytip-css-tip-yellowsimple" type="text/css">div.tip-yellowsimple{visibility:hidden;position:absolute;top:0;left:0;}div.tip-yellowsimple table, div.tip-yellowsimple td{margin:0;font-family:inherit;font-size:inherit;font-weight:inherit;font-style:inherit;font-variant:inherit;}div.tip-yellowsimple td.tip-bg-image span{display:block;font:1px/1px sans-serif;height:10px;width:10px;overflow:hidden;}div.tip-yellowsimple td.tip-right{background-position:100% 0;}div.tip-yellowsimple td.tip-bottom{background-position:100% 100%;}div.tip-yellowsimple td.tip-left{background-position:0 100%;}div.tip-yellowsimple div.tip-inner{background-position:-10px -10px;}div.tip-yellowsimple div.tip-arrow{visibility:hidden;position:absolute;overflow:hidden;font:1px/1px sans-serif;}</style><style id="style_nav">.ncs-nav { background-color: transparent; border: none; height: 38px; overflow: hidden; width: 998px; }.ncs-nav ul { white-space: nowrap; display: block; width: 999px; height: 38px; margin-left: -1px; overflow: hidden;}.ncs-nav li a span { font-size: 14px; font-weight: 600; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; max-width:160px; color: #FFF; float: left; height: 20px; padding: 9px 15px; margin-left: 4px; overflow:hidden; cursor:pointer;}</style></head>
+
+<body>
+<script type="text/javascript" src="./商家中心_files/ToolTip.js"></script><div id="toolTipLayer" style="position: absolute; z-index: 999; display: none; visibility: visible; left: 259px; top: 815px;"></div>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<header class="ncsc-head-layout w">
+  <div class="wrapper">
+    <div class="ncsc-admin">
+      <dl class="ncsc-admin-info">
+        <dt class="admin-avatar"><img src="./商家中心_files/avatar_2.jpg" width="32" class="pngFix" alt=""></dt>
+        <dd class="admin-permission">当前用户</dd>
+        <dd class="admin-name">feng</dd>
+      </dl>
+      <div class="ncsc-admin-function"><a href="http://b2b2c.shopnctest.com/tesa/shop/shop-2.html" title="前往店铺"><i class="icon-home"></i></a><a href="http://b2b2c.shopnctest.com/tesa/member/index.php?act=member_security&op=auth&type=modify_pwd" title="修改密码" target="_blank"><i class="icon-wrench"></i></a><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=seller_logout&op=logout" title="安全退出"><i class="icon-signout"></i></a></div>
+    </div>
+    <div class="center-logo"> <a href="http://b2b2c.shopnctest.com/tesa/shop" target="_blank"><img src="./商家中心_files/seller_center_logo.png" class="pngFix" alt=""></a>
+      <h1>商家中心</h1>
+    </div>
+    <div class="index-search-container">
+      <div class="index-sitemap"><a href="javascript:void(0);">导航管理 <i class="icon-angle-down"></i></a>
+        <div class="sitemap-menu-arrow"></div>
+        <div class="sitemap-menu">
+          <div class="title-bar">
+            <h2> <i class="icon-sitemap"></i>管理导航<em>小提示：添加您经常使用的功能到首页侧边栏，方便操作。</em> </h2>
+            <span id="closeSitemap" class="close">X</span></div>
+          <div id="quicklink_list" class="content">
+                                    <dl>
+              <dt>商品</dt>
+                                          <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_goods_add" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_goods_add&op=index"> 商品发布 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_goods_online" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_goods_online&op=index"> 出售中的商品 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_goods_offline" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_goods_offline&op=index"> 仓库中的商品 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_appoint" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_appoint&op=index"> 预约/到货通知 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_plate" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_plate&op=index"> 关联版式 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_spec" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_spec&op=index"> 商品规格 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_album" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_album&op=album_cate"> 图片空间 </a></dd>
+                                        </dl>
+                        <dl>
+              <dt>订单物流</dt>
+                                          <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_order" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_order&op=index"> 实物交易订单 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_vr_order" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_vr_order&op=index"> 虚拟兑码订单 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_deliver" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_deliver&op=index"> 发货 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_deliver_set" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_deliver_set&op=daddress_list"> 发货设置 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_waybill" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_waybill&op=waybill_manage"> 运单模板 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_evaluate" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_evaluate&op=list"> 评价管理 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_transport" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_transport&op=index"> 物流工具 </a></dd>
+                                        </dl>
+                        <dl class="double">
+              <dt>促销</dt>
+                                          <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_groupbuy" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_groupbuy&op=index"> 团购管理 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_promotion_cou" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_cou&op=cou_list"> 加价购 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_promotion_xianshi" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_xianshi&op=xianshi_list"> 限时折扣 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_promotion_mansong" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_mansong&op=mansong_list"> 满即送 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_promotion_bundling" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_bundling&op=bundling_list"> 优惠套装 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_promotion_booth" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_booth&op=booth_goods_list"> 推荐展位 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_promotion_book" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_book&op=index"> 预售商品 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_promotion_fcode" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_fcode&op=index"> F码商品 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_promotion_combo" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_combo&op=index"> 推荐组合 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_promotion_sole" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_sole&op=index"> 手机专享 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_voucher" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_voucher&op=templatelist"> 代金券管理 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_activity" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_activity&op=store_activity"> 活动管理 </a></dd>
+                                        </dl>
+                        <dl>
+              <dt>店铺</dt>
+                                          <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_setting" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_setting&op=store_setting"> 店铺设置 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_decoration" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_setting"> 店铺装修 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_navigation" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_navigation&op=navigation_list"> 店铺导航 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_sns" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_sns&op=index"> 店铺动态 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_info" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_info&op=bind_class"> 店铺信息 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_goods_class" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_goods_class&op=index"> 店铺分类 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_brand" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_brand&op=brand_list"> 品牌申请 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_supplier" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_supplier&op=sup_list"> 供货商 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_map" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_map&op=index"> 实体店铺 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_contract" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_contract&op=index"> 消费者保障服务 </a></dd>
+                                        </dl>
+                        <dl>
+              <dt>售后服务</dt>
+                                          <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_consult" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_consult&op=consult_list"> 咨询管理 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_complain" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_complain&op=list"> 投诉管理 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_refund" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_refund&op=index"> 退款记录 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_return" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_return&op=index"> 退货记录 </a></dd>
+                                        </dl>
+                        <dl>
+              <dt>统计结算</dt>
+                                          <dd><i nctype="btn_add_quicklink" data-quicklink-act="statistics_general" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_general&op=general"> 店铺概况 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="statistics_goods" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_goods&op=goodslist"> 商品分析 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="statistics_sale" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_sale&op=sale"> 运营报告 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="statistics_industry" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_industry&op=hot"> 行业分析 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="statistics_flow" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_flow&op=storeflow"> 流量统计 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_bill" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_bill&op=index"> 实物结算 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_vr_bill" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_vr_bill&op=index"> 虚拟结算 </a></dd>
+                                        </dl>
+                        <dl>
+              <dt>客服消息</dt>
+                                          <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_callcenter" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_callcenter&op=index"> 客服设置 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_msg" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_msg&op=index"> 系统消息 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_im" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_im&op=index"> 聊天记录查询 </a></dd>
+                                        </dl>
+                        <dl>
+              <dt>账号</dt>
+                                          <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_account" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_account&op=account_list"> 账号列表 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_account_group" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_account_group&op=group_list"> 账号组 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="seller_log" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=seller_log&op=log_list"> 账号日志 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_cost" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_cost&op=cost_list"> 店铺消费 </a></dd>
+                            <dd><i nctype="btn_add_quicklink" data-quicklink-act="store_chain" class="icon-check" title="添加为常用功能菜单"></i><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_chain&op=index"> 门店账号 </a></dd>
+                                        </dl>
+                                  </div>
+        </div>
+      </div>
+      <div class="search-bar">
+        <form method="get" target="_blank">
+          <input type="hidden" name="act" value="search">
+          <input type="text" nctype="search_text" name="keyword" placeholder="商城商品搜索" class="search-input-text">
+          <input type="submit" nctype="search_submit" class="search-input-btn pngFix" value="">
+        </form>
+      </div>
+    </div>
+    <nav class="ncsc-nav">
+      <dl class="">
+        <dt><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=seller_center&op=index">首页</a></dt>
+        <dd class="arrow"></dd>
+      </dl>
+                  <dl class="">
+        <dt><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_goods_add&op=index">商品</a></dt>
+        <dd>
+          <ul>
+                                    <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_goods_add&op=index"> 商品发布 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_goods_online&op=index"> 出售中的商品 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_goods_offline&op=index"> 仓库中的商品 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_appoint&op=index"> 预约/到货通知 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_plate&op=index"> 关联版式 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_spec&op=index"> 商品规格 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_album&op=album_cate"> 图片空间 </a> </li>
+                                  </ul>
+        </dd>
+        <dd class="arrow"></dd>
+      </dl>
+            <dl class="">
+        <dt><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_order&op=index">订单物流</a></dt>
+        <dd>
+          <ul>
+                                    <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_order&op=index"> 实物交易订单 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_vr_order&op=index"> 虚拟兑码订单 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_deliver&op=index"> 发货 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_deliver_set&op=daddress_list"> 发货设置 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_waybill&op=waybill_manage"> 运单模板 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_evaluate&op=list"> 评价管理 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_transport&op=index"> 物流工具 </a> </li>
+                                  </ul>
+        </dd>
+        <dd class="arrow"></dd>
+      </dl>
+            <dl class="">
+        <dt><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_groupbuy&op=index">促销</a></dt>
+        <dd>
+          <ul>
+                                    <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_groupbuy&op=index"> 团购管理 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_cou&op=cou_list"> 加价购 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_xianshi&op=xianshi_list"> 限时折扣 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_mansong&op=mansong_list"> 满即送 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_bundling&op=bundling_list"> 优惠套装 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_booth&op=booth_goods_list"> 推荐展位 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_book&op=index"> 预售商品 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_fcode&op=index"> F码商品 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_combo&op=index"> 推荐组合 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_promotion_sole&op=index"> 手机专享 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_voucher&op=templatelist"> 代金券管理 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_activity&op=store_activity"> 活动管理 </a> </li>
+                                  </ul>
+        </dd>
+        <dd class="arrow"></dd>
+      </dl>
+            <dl class="current">
+        <dt><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_setting&op=store_setting">店铺</a></dt>
+        <dd>
+          <ul>
+                                    <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_setting&op=store_setting"> 店铺设置 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_setting"> 店铺装修 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_navigation&op=navigation_list"> 店铺导航 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_sns&op=index"> 店铺动态 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_info&op=bind_class"> 店铺信息 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_goods_class&op=index"> 店铺分类 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_brand&op=brand_list"> 品牌申请 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_supplier&op=sup_list"> 供货商 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_map&op=index"> 实体店铺 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_contract&op=index"> 消费者保障服务 </a> </li>
+                                  </ul>
+        </dd>
+        <dd class="arrow"></dd>
+      </dl>
+            <dl class="">
+        <dt><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_consult&op=consult_list">售后服务</a></dt>
+        <dd>
+          <ul>
+                                    <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_consult&op=consult_list"> 咨询管理 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_complain&op=list"> 投诉管理 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_refund&op=index"> 退款记录 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_return&op=index"> 退货记录 </a> </li>
+                                  </ul>
+        </dd>
+        <dd class="arrow"></dd>
+      </dl>
+            <dl class="">
+        <dt><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_general&op=general">统计结算</a></dt>
+        <dd>
+          <ul>
+                                    <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_general&op=general"> 店铺概况 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_goods&op=goodslist"> 商品分析 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_sale&op=sale"> 运营报告 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_industry&op=hot"> 行业分析 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=statistics_flow&op=storeflow"> 流量统计 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_bill&op=index"> 实物结算 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_vr_bill&op=index"> 虚拟结算 </a> </li>
+                                  </ul>
+        </dd>
+        <dd class="arrow"></dd>
+      </dl>
+            <dl class="">
+        <dt><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_callcenter&op=index">客服消息</a></dt>
+        <dd>
+          <ul>
+                                    <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_callcenter&op=index"> 客服设置 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_msg&op=index"> 系统消息 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_im&op=index"> 聊天记录查询 </a> </li>
+                                  </ul>
+        </dd>
+        <dd class="arrow"></dd>
+      </dl>
+            <dl class="">
+        <dt><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_account&op=account_list">账号</a></dt>
+        <dd>
+          <ul>
+                                    <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_account&op=account_list"> 账号列表 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_account_group&op=group_list"> 账号组 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=seller_log&op=log_list"> 账号日志 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_cost&op=cost_list"> 店铺消费 </a> </li>
+                        <li> <a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_chain&op=index"> 门店账号 </a> </li>
+                                  </ul>
+        </dd>
+        <dd class="arrow"></dd>
+      </dl>
+                </nav>
+  </div>
+</header>
+<div class="wrapper">
+  <link href="./商家中心_files/shop_custom.css" rel="stylesheet" type="text/css">
+<div class="ncsc-path"><i class="icon-desktop"></i>商家管理中心<i class="icon-angle-right"></i>店铺<i class="icon-angle-right"></i>店铺装修<i class="icon-angle-right"></i>页面设计</div>
+<div class="ncsc-decoration-layout">
+  <div class="ncsc-decoration-menu" id="waypoints">
+    <div class="title"><i class="icon"></i>
+      <h3>店铺装修选项</h3>
+      <h5>店铺首页模板设计操作</h5>
+    </div>
+    <ul class="menu">
+      <li><a id="btn_edit_background" href="javascript:void(0);"><i class="background"></i>编辑背景</a></li>
+      <li><a id="btn_edit_head" href="javascript:void(0);"><i class="head"></i>编辑头部</a></li>
+      <li><a id="btn_add_block" href="javascript:void(0);"><i class="block"></i>添加布局块</a></li>
+      <li><a id="btn_preview" href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_preview&decoration_id=1" target="_blank"><i class="preview"></i>设计预览</a></li>
+      <li><a id="btn_close" href="javascript:void(0);"><i class="close"></i>完成退出</a></li>
+    </ul>
+    <div class="faq">下方区域为1180像素宽度即时编辑区域；“添加布局块”后选择模块类型进行详细设置；“设计预览”可查看生成后效果；内容将实时保存，设置完成后直接选择“完成退出”。</div>
+  </div>
+  <div id="store_decoration_content" style="background-color: 213;background-image: url(http://b2b2c.shopnctest.com/tesa/data/upload/shop/store/decoration/2/2_04624735051164689.jpg);background-repeat: no-repeat;background-position: 50% -39px;">
+    <div id="decoration_banner" class="ncsl-nav" style="display: none;"><img src="" alt=""></div>
+    <div id="decoration_nav" class="ncsl-nav" style="display: none;">
+      <div class="ncs-nav">
+        <ul>
+          <li class="active"><a href="javascript:void(0);"><span>店铺首页<i></i></span></a></li>
+          <li><a href="javascript:void(0);"><span>店铺动态<i></i></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="store_decoration_area" class="store-decoration-page ui-sortable">
+                  <div id="block_4" data-block-id="4" nctype="store_decoration_block" class="ncsc-decration-block store-decoration-block-1  tip" title="上下拖拽布局块位置可改变排列顺序，无效的可删除。&lt;br/&gt;编辑布局块内容请点击“编辑模块”并选择操作。">
+    <div nctype="store_decoration_block_content" class="ncsc-decration-block-content store-decoration-block-1-content">
+        <div nctype="store_decoration_block_module" class="store-decoration-block-1-module">
+                        <div>
+            <img data-image-name="2_04624739378899813.jpg" usemap="#2_04624739378899813jpg" src="./商家中心_files/2_04624739378899813.jpg" alt="2_04624739378899813.jpg">
+    <map name="2_04624739378899813jpg" id="2_04624739378899813jpg">
+            </map>
+</div>
+
+                    </div>
+                <a class="edit" nctype="btn_edit_module" data-module-type="hot_area" href="javascript:;" data-block-id="4"><i class="icon-edit"></i>编辑模块</a>
+            </div>
+        <a class="delete" nctype="btn_del_block" href="javascript:;" data-block-id="4" title="删除该布局块"><i class="icon-trash"></i>删除布局块</a>    
+    </div>
+            <div id="block_5" data-block-id="5" nctype="store_decoration_block" class="ncsc-decration-block store-decoration-block-1  tip" title="上下拖拽布局块位置可改变排列顺序，无效的可删除。&lt;br/&gt;编辑布局块内容请点击“编辑模块”并选择操作。">
+    <div nctype="store_decoration_block_content" class="ncsc-decration-block-content store-decoration-block-1-content">
+        <div nctype="store_decoration_block_module" class="store-decoration-block-1-module">
+                        <div>
+            <img data-image-name="2_04624735982114840.jpg" usemap="#2_04624735982114840jpg" src="./商家中心_files/2_04624735982114840.jpg" alt="2_04624735982114840.jpg">
+    <map name="2_04624735982114840jpg" id="2_04624735982114840jpg">
+            </map>
+</div>
+
+                    </div>
+                <a class="edit" nctype="btn_edit_module" data-module-type="hot_area" href="javascript:;" data-block-id="5"><i class="icon-edit"></i>编辑模块</a>
+            </div>
+        <a class="delete" nctype="btn_del_block" href="javascript:;" data-block-id="5" title="删除该布局块"><i class="icon-trash"></i>删除布局块</a>    
+    </div>
+            <div id="block_10" data-block-id="10" nctype="store_decoration_block" class="ncsc-decration-block store-decoration-block-1  tip" title="上下拖拽布局块位置可改变排列顺序，无效的可删除。&lt;br/&gt;编辑布局块内容请点击“编辑模块”并选择操作。">
+    <div nctype="store_decoration_block_content" class="ncsc-decration-block-content store-decoration-block-1-content">
+        <div nctype="store_decoration_block_module" class="store-decoration-block-1-module">
+                        <div>
+            <img data-image-name="2_04624762102345208.jpg" usemap="#2_04624762102345208jpg" src="./商家中心_files/2_04624762102345208.jpg" alt="2_04624762102345208.jpg">
+    <map name="2_04624762102345208jpg" id="2_04624762102345208jpg">
+            </map>
+</div>
+
+                    </div>
+                <a class="edit" nctype="btn_edit_module" data-module-type="hot_area" href="javascript:;" data-block-id="10"><i class="icon-edit"></i>编辑模块</a>
+            </div>
+        <a class="delete" nctype="btn_del_block" href="javascript:;" data-block-id="10" title="删除该布局块"><i class="icon-trash"></i>删除布局块</a>    
+    </div>
+            <div id="block_11" data-block-id="11" nctype="store_decoration_block" class="ncsc-decration-block store-decoration-block-1  tip" title="上下拖拽布局块位置可改变排列顺序，无效的可删除。&lt;br/&gt;编辑布局块内容请点击“编辑模块”并选择操作。">
+    <div nctype="store_decoration_block_content" class="ncsc-decration-block-content store-decoration-block-1-content">
+        <div nctype="store_decoration_block_module" class="store-decoration-block-1-module">
+                        <div>
+            <img data-image-name="2_04624762452798515.jpg" usemap="#2_04624762452798515jpg" src="./商家中心_files/2_04624762452798515.jpg" alt="2_04624762452798515.jpg">
+    <map name="2_04624762452798515jpg" id="2_04624762452798515jpg">
+            </map>
+</div>
+
+                    </div>
+                <a class="edit" nctype="btn_edit_module" data-module-type="hot_area" href="javascript:;" data-block-id="11"><i class="icon-edit"></i>编辑模块</a>
+            </div>
+        <a class="delete" nctype="btn_del_block" href="javascript:;" data-block-id="11" title="删除该布局块"><i class="icon-trash"></i>删除布局块</a>    
+    </div>
+            <div id="block_12" data-block-id="12" nctype="store_decoration_block" class="ncsc-decration-block store-decoration-block-1  tip" title="上下拖拽布局块位置可改变排列顺序，无效的可删除。&lt;br/&gt;编辑布局块内容请点击“编辑模块”并选择操作。">
+    <div nctype="store_decoration_block_content" class="ncsc-decration-block-content store-decoration-block-1-content">
+        <div nctype="store_decoration_block_module" class="store-decoration-block-1-module">
+                        <div>
+            <img data-image-name="2_04624762844528588.jpg" usemap="#2_04624762844528588jpg" src="./商家中心_files/2_04624762844528588.jpg" alt="2_04624762844528588.jpg">
+    <map name="2_04624762844528588jpg" id="2_04624762844528588jpg">
+            </map>
+</div>
+
+                    </div>
+                <a class="edit" nctype="btn_edit_module" data-module-type="hot_area" href="javascript:;" data-block-id="12"><i class="icon-edit"></i>编辑模块</a>
+            </div>
+        <a class="delete" nctype="btn_del_block" href="javascript:;" data-block-id="12" title="删除该布局块"><i class="icon-trash"></i>删除布局块</a>    
+    </div>
+            <div id="block_7" data-block-id="7" nctype="store_decoration_block" class="ncsc-decration-block store-decoration-block-1  tip" title="上下拖拽布局块位置可改变排列顺序，无效的可删除。&lt;br/&gt;编辑布局块内容请点击“编辑模块”并选择操作。">
+    <div nctype="store_decoration_block_content" class="ncsc-decration-block-content store-decoration-block-1-content">
+        <div nctype="store_decoration_block_module" class="store-decoration-block-1-module">
+                        <div>
+            <img data-image-name="2_04624736698814218.jpg" usemap="#2_04624736698814218jpg" src="./商家中心_files/2_04624736698814218.jpg" alt="2_04624736698814218.jpg">
+    <map name="2_04624736698814218jpg" id="2_04624736698814218jpg">
+            </map>
+</div>
+
+                    </div>
+                <a class="edit" nctype="btn_edit_module" data-module-type="hot_area" href="javascript:;" data-block-id="7"><i class="icon-edit"></i>编辑模块</a>
+            </div>
+        <a class="delete" nctype="btn_del_block" href="javascript:;" data-block-id="7" title="删除该布局块"><i class="icon-trash"></i>删除布局块</a>    
+    </div>
+            <div id="block_8" data-block-id="8" nctype="store_decoration_block" class="ncsc-decration-block store-decoration-block-1  tip" title="上下拖拽布局块位置可改变排列顺序，无效的可删除。&lt;br/&gt;编辑布局块内容请点击“编辑模块”并选择操作。">
+    <div nctype="store_decoration_block_content" class="ncsc-decration-block-content store-decoration-block-1-content">
+        <div nctype="store_decoration_block_module" class="store-decoration-block-1-module">
+                        <div>
+            <img data-image-name="2_04624736851179897.jpg" usemap="#2_04624736851179897jpg" src="./商家中心_files/2_04624736851179897.jpg" alt="2_04624736851179897.jpg">
+    <map name="2_04624736851179897jpg" id="2_04624736851179897jpg">
+            </map>
+</div>
+
+                    </div>
+                <a class="edit" nctype="btn_edit_module" data-module-type="hot_area" href="javascript:;" data-block-id="8"><i class="icon-edit"></i>编辑模块</a>
+            </div>
+        <a class="delete" nctype="btn_del_block" href="javascript:;" data-block-id="8" title="删除该布局块"><i class="icon-trash"></i>删除布局块</a>    
+    </div>
+            <div id="block_9" data-block-id="9" nctype="store_decoration_block" class="ncsc-decration-block store-decoration-block-1  tip" title="上下拖拽布局块位置可改变排列顺序，无效的可删除。&lt;br/&gt;编辑布局块内容请点击“编辑模块”并选择操作。">
+    <div nctype="store_decoration_block_content" class="ncsc-decration-block-content store-decoration-block-1-content">
+        <div nctype="store_decoration_block_module" class="store-decoration-block-1-module">
+                        <div>
+            <img data-image-name="2_04624737029479216.jpg" usemap="#2_04624737029479216jpg" src="./商家中心_files/2_04624737029479216.jpg" alt="2_04624737029479216.jpg">
+    <map name="2_04624737029479216jpg" id="2_04624737029479216jpg">
+            </map>
+</div>
+
+                    </div>
+                <a class="edit" nctype="btn_edit_module" data-module-type="hot_area" href="javascript:;" data-block-id="9"><i class="icon-edit"></i>编辑模块</a>
+            </div>
+        <a class="delete" nctype="btn_del_block" href="javascript:;" data-block-id="9" title="删除该布局块"><i class="icon-trash"></i>删除布局块</a>    
+    </div>
+            <div id="block_119" data-block-id="119" nctype="store_decoration_block" class="ncsc-decration-block store-decoration-block-1  tip" title="上下拖拽布局块位置可改变排列顺序，无效的可删除。&lt;br/&gt;编辑布局块内容请点击“编辑模块”并选择操作。">
+    <div nctype="store_decoration_block_content" class="ncsc-decration-block-content store-decoration-block-1-content">
+        <div nctype="store_decoration_block_module" class="store-decoration-block-1-module">
+                    </div>
+                <a class="edit" nctype="btn_edit_module" data-module-type="" href="javascript:;" data-block-id="119"><i class="icon-edit"></i>编辑模块</a>
+            </div>
+        <a class="delete" nctype="btn_del_block" href="javascript:;" data-block-id="119" title="删除该布局块"><i class="icon-trash"></i>删除布局块</a>    
+    </div>
+                </div>
+  </div>
+</div>
+<!-- 背景编辑对话框 -->
+<div id="dialog_edit_background" class="eject_con dialog-decoration-edit" style="display:none;">
+  <dl>
+    <dt>背景颜色：</dt>
+    <dd>
+      <input id="txt_background_color" class="text w80" type="text" name="" value="213" maxlength="7">
+      <p class="hint">设置背景颜色请使用十六进制形式(#XXXXXX)，默认留空为白色背景。</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt>背景图：</dt>
+    <dd>
+      <div class="ncsc-upload-btn"> <a href="javascript:void(0);"><span>
+        <input type="file" hidefocus="true" size="1" class="input-file" id="file_background_image" name="file">
+        </span>
+        <p><i class="icon-upload-alt"></i>图片上传</p>
+        </a> </div>
+      <div id="div_background_image" class="background-image-thumb"> <img id="img_background_image" src="./商家中心_files/2_04624735051164689.jpg" alt="">
+        <input id="txt_background_image" type="hidden" name="" value="2_04624735051164689.jpg">
+        <a id="btn_del_background_image" class="del" href="javascript:void(0);" title="移除背景图">X</a></div>
+    </dd>
+  </dl>
+  <dl>
+    <dt>背景图定位：</dt>
+    <dd>
+      <input id="txt_background_position_x" class="text w40" type="text" value="50%"><label class="add-on">X</label>
+      　　
+      <input id="txt_background_position_y" class="text w40" type="text" value="-39px"><label class="add-on">Y</label>
+      <p class="hint">设置背景图像的起始位置。</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt>背景图填充方式：</dt>
+    <dd>
+            <input id="input_no_repeat" type="radio" value="no-repeat" name="background_repeat" checked="">
+      <label for="input_no_repeat">不重复</label>
+      <input id="input_repeat" type="radio" value="repeat" name="background_repeat">
+      <label for="input_repeat">平铺</label>
+      <input id="input_repeat_x" type="radio" value="repeat-x" name="background_repeat">
+      <label for="input_repeat_x">x轴平铺</label>
+      <input id="input_repeat_y" type="radio" value="repeat-y" name="background_repeat">
+      <label for="input_repeat_y">y轴平铺</label>
+    </dd>
+  </dl>
+  <dl>
+    <dt>背景滚动模式：</dt>
+    <dd>
+      <input id="txt_background_attachment" class="text w80" type="text" value="">
+      <p class="hint">设置背景随屏幕滚动或固定，例如："scroll"或"fixed"。 </p>
+    </dd>
+  </dl>
+  <div class="bottom">
+    <label class="submit-border"><a id="btn_save_background" class="submit" href="javascript:void(0);">保存</a></label>
+  </div>
+</div>
+<!-- 头部编辑对话框 -->
+<div id="dialog_edit_head" class="eject_con dialog-decoration-edit" style="display:none;">
+  <div id="dialog_edit_head_tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+      <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_edit&decoration_id=1#dialog_edit_head_tabs_1">头部导航</a></li>
+      <li class="ui-state-default ui-corner-top"><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_edit&decoration_id=1#dialog_edit_head_tabs_2">头部图片</a></li>
+    </ul>
+    <div id="dialog_edit_head_tabs_1" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+      <dl>
+        <dt>是否显示：</dt>
+        <dd>
+          <label for="decoration_nav_display_true">
+            <input id="decoration_nav_display_true" type="radio" class="radio" value="true" name="decoration_nav_display">
+            显示</label>
+          <label for="decoration_nav_display_false">
+            <input id="decoration_nav_display_false" type="radio" class="radio" value="false" name="decoration_nav_display" checked="">
+            不显示</label>
+          <p class="hint">“头部导航”为店铺首页店铺导航条，可设置是否显示， 默认为显示。</p>
+        </dd>
+      </dl>
+      <dl>
+        <dt>导航样式：</dt>
+        <dd>
+          <textarea id="decoration_nav_style" class="w400 h100">.ncs-nav { background-color: transparent; border: none; height: 38px; overflow: hidden; width: 998px; }.ncs-nav ul { white-space: nowrap; display: block; width: 999px; height: 38px; margin-left: -1px; overflow: hidden;}.ncs-nav li a span { font-size: 14px; font-weight: 600; line-height: 20px; text-overflow: ellipsis; white-space: nowrap; max-width:160px; color: #FFF; float: left; height: 20px; padding: 9px 15px; margin-left: 4px; overflow:hidden; cursor:pointer;}</textarea>
+          <p> <a id="btn_default_nav_style" class="ncbtn-mini" href="javascript:void(0);"><i class="icon-refresh"></i>恢复默认</a> </p>
+          <p class="hint">导航条对应CSS文件，如修改后显示效果不符可恢复默认值。</p>
+        </dd>
+      </dl>
+      <div class="bottom">
+        <label class="submit-border"><a id="btn_save_decoration_nav" class="submit" href="javascript:void(0);">保存</a></label>
+      </div>
+    </div>
+    <div id="dialog_edit_head_tabs_2" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+      <dl>
+        <dt>是否显示：</dt>
+        <dd>
+          <label for="decoration_banner_display_true">
+            <input id="decoration_banner_display_true" type="radio" class="radio" value="true" name="decoration_banner_display" checked="">
+            显示</label>
+          <label for="decoration_banner_display_false">
+            <input id="decoration_banner_display_false" type="radio" class="radio" value="false" name="decoration_banner_display">
+            不显示</label>
+          <p class="hint">“头部图片”为店铺首页最上方图片，可设置是否显示。</p>
+        </dd>
+      </dl>
+      <dl>
+        <dt>图片：</dt>
+        <dd>
+          <div id="div_banner_image" style="display:none;" class="background-image-thumb"> <img id="img_banner_image" src="" alt="">
+            <input id="txt_banner_image" type="hidden" name="" value="">
+            <a id="btn_del_banner_image" class="del" href="javascript:void(0);" title="移除">X</a> </div>
+          <div class="ncsc-upload-btn"> <a href="javascript:void(0);"> <span>
+            <input type="file" hidefocus="true" size="1" class="input-file" id="file_decoration_banner" name="file">
+            </span>
+            <p><i class="icon-upload-alt"></i>图片上传</p>
+            </a> </div>
+          <p class="hint">选择上传头部图片，建议使用宽度为1000像素，大小不超过1M的gif\jpg\png格式图片。</p>
+        </dd>
+      </dl>
+      <div class="bottom">
+        <label class="submit-border"><a id="btn_save_decoration_banner" class="submit" href="javascript:void(0);">保存设置</a></label>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 选择模块对话框 -->
+<div id="dialog_select_module" class="dialog-decoration-module" style="display:none;">
+  <ul>
+    <li><a nctype="btn_show_module_dialog" data-module-type="slide" href="javascript:void(0);"><i class="slide"></i>
+      <dl>
+        <dt>图片和幻灯</dt>
+        <dd>添加图片和可切换幻灯</dd>
+      </dl>
+      </a></li>
+    <li><a nctype="btn_show_module_dialog" data-module-type="hot_area" href="javascript:void(0);"><i class="hotarea"></i>
+      <dl>
+        <dt>图片热点</dt>
+        <dd>添加图片并设置热点区域链接</dd>
+      </dl>
+      </a></li>
+    <li> <a nctype="btn_show_module_dialog" data-module-type="goods" href="javascript:void(0);"><i class="goods"></i>
+      <dl>
+        <dt>店铺商品</dt>
+        <dd>选择添加店铺内的在售商品</dd>
+      </dl>
+      </a> </li>
+    <li> <a nctype="btn_show_module_dialog" data-module-type="html" href="javascript:void(0);"><i class="html"></i>
+      <dl>
+        <dt>自定义</dt>
+        <dd>使用编辑器自定义编辑html</dd>
+      </dl>
+      </a> </li>
+  </ul>
+</div>
+<!-- 自定义模块编辑对话框 -->
+<div id="dialog_module_html" class="eject_con dialog-decoration-edit" style="display:none;">
+  <div class="alert">
+    <ul>
+      <li>1. 可将预先设置好的网页文件内容复制粘贴到文本编辑器内，或直接在工作窗口内进行编辑操作。</li>
+      <li>2. 默认为可视化编辑，选择第一个按钮切换到html代码编辑。css文件可以Style=“...”形式直接写在对应的html标签内。</li>
+    </ul>
+  </div>
+  <textarea id="module_html_editor" name="module_html_editor" style=" width:1016px; height:400px; visibility:hidden;"></textarea>
+  <div class="bottom">
+    <label class="submit-border"><a id="btn_save_module_html" class="submit" href="javascript:void(0);">保存设置</a></label>
+  </div>
+</div>
+<!-- 幻灯模块编辑对话框 -->
+<div id="dialog_module_slide" class="eject_con dialog-decoration-edit" style="display:none;">
+  <div class="alert">
+    <ul>
+      <li>1. 可选择图片以全屏或非全屏形式显示，<strong class="orange">且必须设定图片的高度</strong>，否则将无法正常浏览。</li>
+      <li>2. 上传单张图片时系统默认显示为<strong>“图片链接”</strong>形式显示，如一次上传多图将以<strong>“幻灯片”</strong>形式显示。</li>
+    </ul>
+  </div>
+  <div id="module_slide_html" class="slide-upload-thumb">
+    <ul class="module-slide-content">
+    </ul>
+  </div>
+  <h4>相关设置：</h4>
+  <dl class="display-set">
+    <dt>显示设置：</dt>
+    <dd><span>全屏显示
+      <input id="txt_slide_full_width" type="checkbox" class="checkobx" name="">
+      </span><span><strong class="orange">*</strong> 显示高度
+      <input id="txt_slide_height" type="text" class="text w40" value=""><em class="add-on">像素</em></span>
+      <p><a id="btn_add_slide_image" class="ncbtn mt5" href="javascript:void(0);"><i class="icon-plus"></i>添加图片</a></p>
+    </dd>
+  </dl>
+  <div id="div_module_slide_upload" style="display:none;">
+    <form action="">
+      <dl>
+        <dt>图片上传：</dt>
+        <dd>
+          <div id="div_module_slide_image" class="module-upload-image-preview"></div>
+          <div class="ncsc-upload-btn"> <a href="javascript:void(0);"> <span>
+            <input type="file" hidefocus="true" size="1" class="input-file" name="file" id="file" nctype="btn_module_slide_upload">
+            </span>
+            <p><i class="icon-upload-alt"></i>图片上传</p>
+            </a> </div>
+          <p class="hint">请上传宽度为1000像素的jpg/gif/png格式图片。</p>
+        </dd>
+      </dl>
+      <dl>
+        <dt>图片链接：</dt>
+        <dd>
+          <input id="module_slide_url" class="text w400" type="text">
+          <p class="hint">请输入以http://为开头的图片链接地址，仅作为图片使用时请留空此选项</p>
+          <p class="mt5"><a id="btn_save_add_slide_image" class="ncbtn ncbtn-aqua" href="javascript:void(0);">添加</a> <a id="btn_cancel_add_slide_image" class="ncbtn ncbtn-bittersweet" href="javascript:void(0);">取消</a></p>
+        </dd>
+      </dl>
+    </form>
+  </div>
+  <div class="bottom">
+    <label class="submit-border"><a id="btn_save_module_slide" class="submit" href="javascript:void(0);">保存设置</a></label>
+  </div>
+</div>
+<!-- 图片热点模块编辑对话框 -->
+<div id="dialog_module_hot_area" class="eject_con dialog-decoration-edit" style="display:none;">
+  <div class="alert">
+    <ul>
+      <li>1. 在已上传的图片范围拖动鼠标形成选择区域，对该区域添加以http://格式开头的链接地址并点击“添加网址”按钮生效。</li>
+      <li>2. 对已添加的热点可做编辑链接地址修改，如需调整位置，请删除该热点区域并保存，之后重新选择添加。</li>
+    </ul>
+  </div>
+  <div id="div_module_hot_area_image" class="hot-area-image" style="position: relative;"></div>
+  <ul id="module_hot_area_select_list" class="hot-area-select-list">
+  </ul>
+  <h4>相关设置：</h4>
+  <form action="">
+    <dl>
+      <dt>图片上传：</dt>
+      <dd>
+        <div class="ncsc-upload-btn"> <a href="javascript:void(0);"> <span>
+          <input type="file" hidefocus="true" size="1" class="input-file" name="file" id="file" nctype="btn_module_hot_area_upload">
+          </span>
+          <p><i class="icon-upload-alt"></i>图片上传</p>
+          </a> </div>
+        <p class="hint">选择上传jpg/gif/png格式图片，建议宽度不超过1000像素，高度不超过400像素，如超出此范围，请先自行对图片进行裁切调整。</p>
+      </dd>
+    </dl>
+  </form>
+  <dl>
+    <dt>热点链接设置：</dt>
+    <dd>
+      <input id="module_hot_area_url" class="text w400" type="text">
+      <a id="btn_module_hot_area_add" class="ncbtn ml5" href="javascript:void(0);"><i class="icon-anchor"></i>添加网址</a>
+      <p class="hint">在输入框中添加以“http://”格式开头的热点区域跳转网址。</p>
+    </dd>
+  </dl>
+  <div class="bottom">
+    <label class="submit-border"><a id="btn_save_module_hot_area" class="submit" href="javascript:void(0);">保存设置</a></label>
+  </div>
+</div>
+<!-- 商品模块编辑对话框 -->
+<div id="dialog_module_goods" class="eject_con dialog-decoration-edit" style="display:none;">
+  <div class="alert">
+    <ul>
+      <li>1. 搜索店铺内在售商品并“选择添加”，设置窗口上部将出现已选择的商品列表，也可对其进行“取消选择”操作，点击保存设置后生效。</li>
+      <li>2. 当已选择的商品超过10个时，系统默认未全部显示，可通过在已选区域滚动鼠标或拉动侧边条进行查看及操作。</li>
+    </ul>
+  </div>
+  <div id="decorationGoods" class="ps-container">
+    <ul id="div_module_goods_list" class="goods-list">
+    </ul>
+  <div class="ps-scrollbar-x-rail" style="width: 100px; display: none; left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; display: none; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
+  <h4 class="mt10">店铺在售商品选择</h4>
+  <div class="decoration-search-goods">
+    <div class="search-bar">输入商品关键字：
+      <input id="txt_goods_search_keyword" type="text" class="text w200 vm" name="">
+      <a id="btn_module_goods_search" class="ncbtn" href="javascript:void(0);">搜索</a><span class="ml10 orange">小提示： 留空搜索显示店铺全部在售商品，每页显示10个。</span></div>
+    <div id="div_module_goods_search_list"></div>
+  </div>
+  <div class="bottom"><label class="submit-border"><a id="btn_save_module_goods" class="submit" href="javascript:void(0);">保存设置</a></label></div>
+</div>
+<!-- 幻灯模板 --> 
+<script id="template_module_slide_image_list" type="text/html">
+<li data-image-name="<%=image_name%>" data-image-url="<%=image_url%>" data-image-link="<%=image_link%>">
+<span><img src="<%=image_url%>"></span>
+<a nctype="btn_del_slide_image" href="javascript:void(0);" title="删除">X</a>
+</li>
+</script> 
+<!-- 热点块控制模板 --> 
+<script id="template_module_hot_area_list" type="text/html">
+<li data-hot-area-link="<%=link%>" data-hot-area-position="<%=position%>">
+<i></i>
+<p>热点区域<%=index%></p>
+<p><a nctype="btn_module_hot_area_select" data-hot-area-position="<%=position%>" class="ncbtn-mini ncbtn-aqua" href="javascript:void(0);">选择</a>
+<a data-index="<%=index%>" nctype="btn_module_hot_area_del" class="ncbtn-mini ncbtn-grapefruit" href="javascript:void(0);">删除</a></p>
+</li>
+</script> 
+<!-- 热点块标识模板 --> 
+<script id="template_module_hot_area_display" type="text/html">
+<div class="store-decoration-hot-area-display" style="width:<%=width%>px;height:<%=height%>px;position:absolute;left:<%=left%>px;top:<%=top%>px;border:1px solid #cccccc;" id="hot_area_display_<%=index%>">热点区域<%=index%></div>
+</li>
+</script> 
+<script type="text/javascript" src="./商家中心_files/template.min.js" charset="utf-8"></script> 
+<script type="text/javascript" src="./商家中心_files/jquery.iframe-transport.js" charset="utf-8"></script> 
+<script type="text/javascript" src="./商家中心_files/jquery.ui.widget.js" charset="utf-8"></script> 
+<script type="text/javascript" src="./商家中心_files/jquery.fileupload.js" charset="utf-8"></script> 
+<script type="text/javascript" src="./商家中心_files/kindeditor-min.js" charset="utf-8"></script> 
+<script type="text/javascript" src="./商家中心_files/zh_CN.js" charset="utf-8"></script>
+<link media="all" rel="stylesheet" href="./商家中心_files/imgareaselect-animated.css" type="text/css">
+<script type="text/javascript" src="./商家中心_files/jquery.imgareaselect.min.js"></script> 
+<script src="./商家中心_files/jquery.poshytip.min.js"></script> 
+<script type="text/javascript"> 
+    //定义api常量
+    var DECORATION_ID = 1;
+    var URL_DECORATION_ALBUM_UPLOAD = 'http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_album_upload';
+    var URL_DECORATION_BACKGROUND_SETTING_SAVE = 'http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_background_setting_save';
+    var URL_DECORATION_NAV_SAVE = 'http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_nav_save';
+    var URL_DECORATION_BANNER_SAVE = 'http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_banner_save';
+    var URL_DECORATION_BLOCK_ADD = 'http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_block_add';
+    var URL_DECORATION_BLOCK_DEL = 'http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_block_del';
+    var URL_DECORATION_BLOCK_SAVE = 'http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_block_save';
+    var URL_DECORATION_BLOCK_SORT = 'http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=decoration_block_sort';
+    var URL_DECORATION_GOODS_SEARCH = 'http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_decoration&op=goods_search';
+    var LOADING_IMAGE = 'http://b2b2c.shopnctest.com/tesa/shop/templates/default/images/loading.gif';
+    var POSHYTIP = {
+        className: 'tip-yellowsimple',
+        showTimeout: 1,
+        alignTo: 'target',
+        alignX: 'top',
+        alignY: 'left',
+        offsetX: -300,
+        offsetY: -5,
+        allowTipHover: false
+    };
+
+
+    $(document).ready(function(){
+        //浮动导航  waypoints.js
+        $("#waypoints").waypoint(function(event, direction) {
+            $(this).parent().toggleClass('sticky', direction === "down");
+            event.stopPropagation();
+        });
+
+        //商品模块已选商品滚动条
+        $('#decorationGoods').perfectScrollbar();
+
+		//title提示
+    	$('.tip').poshytip(POSHYTIP);
+    });		
+
+</script> 
+<script type="text/javascript" src="./商家中心_files/store_decoration.js" charset="utf-8"></script> 
+</div>
+<script type="text/javascript">
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    //添加删除快捷操作
+    $('[nctype="btn_add_quicklink"]').on('click', function() {
+        var $quicklink_item = $(this).parent();
+        var item = $(this).attr('data-quicklink-act');
+        if($quicklink_item.hasClass('selected')) {
+            $.post("http://b2b2c.shopnctest.com/tesa/shop/index.php?act=seller_center&op=quicklink_del", { item: item }, function(data) {
+                $quicklink_item.removeClass('selected');
+                $('#quicklink_' + item).remove();
+            }, "json");
+        } else {
+            var count = $('#quicklink_list').find('dd.selected').length;
+            if(count >= 8) {
+                showError('快捷操作最多添加8个');
+            } else {
+                $.post("http://b2b2c.shopnctest.com/tesa/shop/index.php?act=seller_center&op=quicklink_add", { item: item }, function(data) {
+                    $quicklink_item.addClass('selected');
+                                    }, "json");
+            }
+        }
+    });
+    //浮动导航  waypoints.js
+    $("#sidebar,#mainContent").waypoint(function(event, direction) {
+        $(this).parent().toggleClass('sticky', direction === "down");
+        event.stopPropagation();
+        });
+    });
+    // 搜索商品不能为空
+    $('input[nctype="search_submit"]').click(function(){
+        if ($('input[nctype="search_text"]').val() == '') {
+            return false;
+        }
+    });
+</script>
+
+<div id="cti">
+  <div class="wrapper">
+    <ul>
+          </ul>
+  </div>
+</div>
+<div id="faq">
+  <div class="wrapper">
+      </div>
+</div>
+<div id="footer" class="wrapper">
+  <p><a href="http://b2b2c.shopnctest.com/tesa/shop">首页</a>
+                | <a href="http://b2b2c.shopnctest.com/tesa/member/index.php?act=article&article_id=24">招聘英才</a>
+                | <a href="http://b2b2c.shopnctest.com/tesa/member/index.php?act=article&article_id=25">合作及洽谈</a>
+                | <a href="http://b2b2c.shopnctest.com/tesa/member/index.php?act=article&article_id=23">联系我们</a>
+                                        | <a href="http://b2b2c.shopnctest.com/tesa/member/index.php?act=article&article_id=22">关于ShopNC</a>
+                                                              </p>
+  Copyright 2007-2015 ShopNC Inc.,All rights reserved.<br>
+  Powered by <span class="vol"><font class="b">Shop</font><font class="o">NC</font></span> <br>
+   </div>
+<script type="text/javascript" src="./商家中心_files/jquery.cookie.js"></script>
+<link href="./商家中心_files/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./商家中心_files/perfect-scrollbar.min.js"></script> 
+<script type="text/javascript" src="./商家中心_files/jquery.qtip.min.js"></script>
+<link href="./商家中心_files/jquery.qtip.min.css" rel="stylesheet" type="text/css">
+<!-- 对比 --> 
+<script src="./商家中心_files/compare.js"></script> 
+<script type="text/javascript">
+$(function(){
+	// Membership card
+	$('[nctype="mcard"]').membershipCard({type:'shop'});
+});
+</script><div id="tbox">
+  <div class="btn" id="msg"><a href="http://b2b2c.shopnctest.com/tesa/shop/index.php?act=store_msg&op=index"><i class="msg"><em>6</em></i>站内消息</a></div>
+  <div class="btn" id="im"><i class="im"><em id="new_msg" style="display:none;"></em></i><a href="javascript:void(0);">在线联系</a></div>
+  <div class="btn" id="gotop" style="display:none;"><i class="top"></i><a href="javascript:void(0);">返回顶部</a></div>
+</div>
+
+
+<div class="tip-yellowsimple"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellowsimple"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellowsimple"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellowsimple"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellowsimple"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellowsimple"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellowsimple"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellowsimple"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div style="position: static; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png);"></div><div id="tip-top" style="background: url(chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png) repeat-x;"></div><div id="tip-right-top" style="background: url(chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png);"></div><div id="tip-right" style="background: url(chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png) repeat-y;"></div><div id="tip-right-bottom" style="background: url(chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png);"></div><div id="tip-bottom" style="background: url(chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png) repeat-x;"></div><div id="tip-left-bottom" style="background: url(chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png);"></div><div id="tip-left" style="background: url(chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png);"></div><div id="tip-arrow-top" style="background: url(chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png);"></div></div></body></html>

@@ -1,0 +1,230 @@
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] $tmp_str:app_id=103&ctl=Api&met=login&rtime=1478222352&typ=json&user_account=admin&user_password=admin&key=aaaaaabbb
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] $url:http://localhost/mall/ucenter/index.php
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] array (
+  'app_id' => 103,
+  'ctl' => 'Api',
+  'met' => 'login',
+  'rtime' => 1478222352,
+  'typ' => 'json',
+  'user_account' => 'admin',
+  'user_password' => 'admin',
+  'key' => 'aaaaaabbb',
+)
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] array (
+  'user_account' => 'admin',
+  'user_password' => 'admin',
+  'app_id' => 103,
+  'ctl' => 'Api',
+  'met' => 'login',
+  'typ' => 'json',
+  'rtime' => 1478222352,
+  'token' => '3fc4a5c5cf38644f67e61188989c6e3c',
+)
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] $res : {"cmd_id":100,"status":200,"msg":"success","data":{"user_id":10001,"user_name":"admin","password":"21232f297a57a5a743894a0e4a801fc3","user_state":1,"action_time":0,"action_ip":null,"session_id":"t","id":10001,"result":1,"k":"ACMAfgFnVHNcAgA6C2dQaVcxB2NXNAo4BmM="}}
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] array (
+  'cmd_id' => 100,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'user_id' => 10001,
+    'user_name' => 'admin',
+    'password' => '21232f297a57a5a743894a0e4a801fc3',
+    'user_state' => 1,
+    'action_time' => 0,
+    'action_ip' => NULL,
+    'session_id' => 't',
+    'id' => 10001,
+    'result' => 1,
+    'k' => 'ACMAfgFnVHNcAgA6C2dQaVcxB2NXNAo4BmM=',
+  ),
+)
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478222352&key=aaaaaabbb
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] $url:http://localhost/mall/ucenter/index.php?ctl=Api_Config&met=site&typ=json
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] array (
+  'admin_account' => 'admin',
+  'app_id' => 103,
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => 1478222352,
+  'key' => 'aaaaaabbb',
+)
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] array (
+  'app_id' => 103,
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => 1478222352,
+  'token' => 'c105f391c6ad4d9c0ad9451da3cc1d77',
+)
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] $res : {"cmd_id":-140,"status":200,"msg":"success","data":{"closed_reason":{"config_key":"closed_reason","config_value":11111,"config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"closed_reason"},"copyright":{"config_key":"copyright","config_value":"BBCBuilder\u7248\u6743\u6240\u6709,\u6b63\u7248\u8d2d\u4e70\u5730\u5740:\u00a0\u00a0<a href=\"http:\/\/www.bbc-builder.com\">http:\/\/www.bbc-builder.com<\/a>  \r\n<br \/>Powered by BBCbuilder V2.6.1\r\n","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"copyright"},"date_format":{"config_key":"date_format","config_value":"Y-m-d","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"date_format"},"icp_number":{"config_key":"icp_number","config_value":5.4435234534253,"config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"icp_number"},"language_id":{"config_key":"language_id","config_value":"zh_CN","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"language_id"},"monetary_unit":{"config_key":"monetary_unit","config_value":"\uffe5","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"monetary_unit"},"site_logo":{"config_key":"site_logo","config_value":"http:\/\/ucenter.yuanfeng021.com\/image.php\/ucenter\/data\/upload\/media\/plantform\/image\/20160825\/1472092645887800.jpg!240x60.jpg","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"site_logo"},"site_name":{"config_key":"site_name","config_value":"asdfafasdfasdf","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"site_name"},"site_status":{"config_key":"site_status","config_value":1,"config_type":"site","config_enable":1,"config_comment":"","config_datatype":"number","id":"site_status"},"statistics_code":{"config_key":"statistics_code","config_value":"\u7b2c\u4e09\u65b9\u6d41\u91cf\u7edf\u8ba1\u4ee3\u780178","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"statistics_code"},"theme_id":{"config_key":"theme_id","config_value":"default","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"theme_id"},"time_format":{"config_key":"time_format","config_value":"H:i:s","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"time_format"},"time_zone_id":{"config_key":"time_zone_id","config_value":"Asia\/Shanghai","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"number","id":"time_zone_id"},"user_default_avatar":{"config_key":"user_default_avatar","config_value":"http:\/\/ucenter.yuanfeng021.com\/image.php\/ucenter\/data\/upload\/media\/plantform\/image\/20160825\/1472116715774854.jpeg!120x120.jpg","config_type":"site","config_enable":1,"config_comment":"","config_datatype":"string","id":"user_default_avatar"},"language_row":[{"id":"zh_CN","name":"zh_CN"}],"theme_row":[{"id":"default","name":"default"}]}}
+09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter_admin/index.php [info] array (
+  'cmd_id' => -140,
+  'status' => 200,
+  'msg' => 'success',
+  'data' => 
+  array (
+    'closed_reason' => 
+    array (
+      'config_key' => 'closed_reason',
+      'config_value' => 11111,
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'closed_reason',
+    ),
+    'copyright' => 
+    array (
+      'config_key' => 'copyright',
+      'config_value' => 'BBCBuilder版权所有,正版购买地址:  <a href="http://www.bbc-builder.com">http://www.bbc-builder.com</a>  
+<br />Powered by BBCbuilder V2.6.1
+',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'copyright',
+    ),
+    'date_format' => 
+    array (
+      'config_key' => 'date_format',
+      'config_value' => 'Y-m-d',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'date_format',
+    ),
+    'icp_number' => 
+    array (
+      'config_key' => 'icp_number',
+      'config_value' => 5.4435234534252999,
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'icp_number',
+    ),
+    'language_id' => 
+    array (
+      'config_key' => 'language_id',
+      'config_value' => 'zh_CN',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'language_id',
+    ),
+    'monetary_unit' => 
+    array (
+      'config_key' => 'monetary_unit',
+      'config_value' => '￥',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'monetary_unit',
+    ),
+    'site_logo' => 
+    array (
+      'config_key' => 'site_logo',
+      'config_value' => 'http://ucenter.yuanfeng021.com/image.php/ucenter/data/upload/media/plantform/image/20160825/1472092645887800.jpg!240x60.jpg',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'site_logo',
+    ),
+    'site_name' => 
+    array (
+      'config_key' => 'site_name',
+      'config_value' => 'asdfafasdfasdf',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'site_name',
+    ),
+    'site_status' => 
+    array (
+      'config_key' => 'site_status',
+      'config_value' => 1,
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'number',
+      'id' => 'site_status',
+    ),
+    'statistics_code' => 
+    array (
+      'config_key' => 'statistics_code',
+      'config_value' => '第三方流量统计代码78',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'statistics_code',
+    ),
+    'theme_id' => 
+    array (
+      'config_key' => 'theme_id',
+      'config_value' => 'default',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'theme_id',
+    ),
+    'time_format' => 
+    array (
+      'config_key' => 'time_format',
+      'config_value' => 'H:i:s',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'time_format',
+    ),
+    'time_zone_id' => 
+    array (
+      'config_key' => 'time_zone_id',
+      'config_value' => 'Asia/Shanghai',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'number',
+      'id' => 'time_zone_id',
+    ),
+    'user_default_avatar' => 
+    array (
+      'config_key' => 'user_default_avatar',
+      'config_value' => 'http://ucenter.yuanfeng021.com/image.php/ucenter/data/upload/media/plantform/image/20160825/1472116715774854.jpeg!120x120.jpg',
+      'config_type' => 'site',
+      'config_enable' => 1,
+      'config_comment' => '',
+      'config_datatype' => 'string',
+      'id' => 'user_default_avatar',
+    ),
+    'language_row' => 
+    array (
+      0 => 
+      array (
+        'id' => 'zh_CN',
+        'name' => 'zh_CN',
+      ),
+    ),
+    'theme_row' => 
+    array (
+      0 => 
+      array (
+        'id' => 'default',
+        'name' => 'default',
+      ),
+    ),
+  ),
+)
