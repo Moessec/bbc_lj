@@ -173,14 +173,15 @@ class ConfigCtl extends AdminController
 		$shop_app_id  = Yf_Registry::get('shop_app_id');
 
 		//先检测API是否正确
-		$key = Yf_Registry::get('shop_api_key');
-		$url = $shop_api_url;
+		$key = Yf_Registry::get('paycenter_api_key');
+		$url = Yf_Registry::get('paycenter_api_url');
+		$app_id = Yf_Registry::get('paycenter_app_id');
 
 		$formvars                     = array();
-		$formvars['app_id']           = $shop_app_id;
-		$formvars['shop_app_id_new']  = $shop_app_id;
-		$formvars['shop_api_key_new'] = $shop_api_key;
-		$formvars['shop_api_url_new'] = $shop_api_url;
+		$formvars['app_id']       = $app_id;
+		$formvars['shop_app_id']  = $shop_app_id;
+		$formvars['shop_api_key'] = $shop_api_key;
+		$formvars['shop_api_url'] = $shop_api_url;
 		//$formvars['shop_wap_url']     = $shop_wap_url;
 
 		//自己调用,直接生成

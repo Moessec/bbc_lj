@@ -95,15 +95,21 @@ input:-webkit-autofill {
     background-size:cover;
     transition:1s;
 }
-.item1{background:url(../images/bg1.jpg) no-repeat;background-size:cover;opacity:1;}
-.item2{background:url(../images/bg2.jpg) no-repeat;background-size:cover;opacity:0;}
-.item3{background:url(../images/bg3.jpg) no-repeat;background-size:cover;opacity:0;}
+.item1{background:url(../images/bg1.jpg) no-repeat;background-size:cover;opacity:1;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='http://admin.shop.bbc-builder.com/shop_admin/static/default/images/bg1.jpg',sizingMethod='scale');}
+    
+.item2{background:url(../images/bg2.jpg) no-repeat;background-size:cover;opacity:0;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='http://admin.shop.bbc-builder.com/shop_admin/static/default/images/bg2.jpg',sizingMethod='scale');}
+    
+.item3{background:url(../images/bg3.jpg) no-repeat;background-size:cover;opacity:0;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='http://admin.shop.bbc-builder.com/shop_admin/static/default/images/bg3.jpg',sizingMethod='scale');}
+    
 .slogan {
-    width: 600px;
+    width: 700px;
     height: 200px;
     background: url(../images/center.png) no-repeat 0 0;
     display: inline-block;
-    background-size: 600px;
+    background-size: 700px;
      vertical-align:middle;
 }
 .mid {

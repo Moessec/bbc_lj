@@ -139,31 +139,26 @@ include $this->view->getTplPath() . '/' . 'header.php';
 		<div class="left"><a class="company" id="companyName" href="javascript:;" title=""></a></div>
 		<div class="right cf">
 			<?php
-			//$ucenter_api_url_row = parse_url(Yf_Registry::get('ucenter_api_url'));
-			//$ucenter_admin_url   = '//admin.' . $ucenter_api_url_row['host'];
+			$ucenter_api_url_row = parse_url(Yf_Registry::get('ucenter_api_url'));
+			$ucenter_admin_url   = '//admin.' . $ucenter_api_url_row['host'];
 
-			//$shop_api_url_row = parse_url(Yf_Registry::get('shop_api_url'));
-			//$shop_api_url     = '//admin.' . $shop_api_url_row['host'];
+			$shop_api_url_row = parse_url(Yf_Registry::get('shop_api_url'));
+			$shop_api_url     = '//admin.' . $shop_api_url_row['host'];
 
-			$paycenter_admin_url = Yf_Registry::get('url');
-			$shop_admin_url 	 = str_replace('paycenter_admin','shop_admin',$paycenter_admin_url);
-			$ucenter_admin_url   = str_replace('paycenter_admin','ucenter_admin',$paycenter_admin_url);
+
 			?>
 			<ol>
 				<li><a href="<?= $ucenter_admin_url ?>" target="_blank"><i class="nav_href">UCenter</i></a></li>
-				<li><a href="<?= $shop_admin_url ?>" target="_blank"><i class="nav_href">商城系统</i></a></li>
-				<!--<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">广告系统</i></a></li>
-				<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">大数据</i></a></li>
-				<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">备份系统</i></a></li>
-				<li><a href="<?= $im_api_url ?>" target="_blank"><i class="nav_href">IM系统</i></a></li>-->
+				<li><a href="<?= $shop_api_url ?>" target="_blank"><i class="nav_href">商城系统</i></a></li>
+
 				<li><img src="<?= Yf_Registry::get('ucenter_api_url') ?>?ctl=Index&met=img&user_id=<?= Perm::$userId ?>">
 
 					<div><span><?= Perm::$row['user_account'] ?></span>
 
 						<div>
 				</li>
-				<!--<li><a href="#"><i class="iconfont icon-top01"></i></a></li>
-				<li><a href="#"><i class="iconfont icon-top02"></i></a></li>-->
+				<li><a href="#"><i class="iconfont icon-top01"></i></a></li>
+				<li><a href="#"><i class="iconfont icon-top02"></i></a></li>
 				<li><a href="index.php?ctl=Login&met=loginout"><i class="iconfont icon-top03"></i></a></li>
 			</ol>
 		</div>

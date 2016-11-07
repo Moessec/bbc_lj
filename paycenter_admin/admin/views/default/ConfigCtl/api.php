@@ -18,6 +18,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             <ul class="tab-base nc-row">
                 <li><a class="current" href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=api&config_type%5B%5D=api"><span>本系统 API设置</span></a></li>
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=ucenterApi&config_type%5B%5D=api"><span>UCenter API设置</span></a></li>
+				<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=shopApi&config_type%5B%5D=api"><span>Shop API设置</span></a></li>
             </ul>
         </div>
     </div>
