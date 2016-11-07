@@ -1048,7 +1048,7 @@ class UserCtl extends Yf_AppController
 		$user_id                 = Perm::$userId;
 		$user_name               = Perm::$row['user_name'];
 		$cond_row['user_mobile'] = request_string('verify_field');
-		$cond_row['user_id:!=']  = $user_id;
+		$cond_row['user_name:!=']  = $user_name;
 		
 		$de = $this->userInfoModel->getByWhere($cond_row);
 
@@ -1141,6 +1141,7 @@ class UserCtl extends Yf_AppController
 		{
 			//判断手机是否绑定
 			$cond_row['user_mobile'] = $user_mobile;
+			$cond_row['user_name:!='] = $user_name;
 			$de = $this->userInfoModel->getByWhere($cond_row);
 			if ($de)
 			{
@@ -1156,7 +1157,7 @@ class UserCtl extends Yf_AppController
 				$de = $this->userInfoModel->getOne($user_name);
 				if (!$de)
 				{
-					$msg    = _('failure11');
+					$msg    = _('failure');
 					$status = 250;
 				}
 				else

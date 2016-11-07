@@ -33,13 +33,16 @@ class Api_ServerCtl extends Api_Controller
 		$shop_url = request_string('plantform_url');
 		$paycenter_url = request_string('paycenter_url');
 		$ucenter_url   = request_string('ucenter_url');
-
-
+		
+		$paycenter_api_key = Yf_Registry::get('paycenter_api_key');
+		$shop_api_key = Yf_Registry::get('shop_api_key');
+		$ucenter_api_key = Yf_Registry::get('ucenter_api_key');
+		
 		//ucenter
 		$ucenter_url_row = parse_url($ucenter_url);
 		$ucenter_config_contents = <<<EOF
 <?php
-\$ucenter_api_key = "HANZaFR0Aw08PV1U02RzCW114UWXa26AUiIO";
+\$ucenter_api_key = "HANZaFR0Aw08PV1U";
 \$ucenter_api_url = "{$ucenter_url}";
 \$ucenter_app_id = 104;
 \$ucenter_wap_url = "http://m.{$ucenter_url_row['host']}/";
@@ -49,7 +52,7 @@ EOF;
 		$paycenter_url_row = parse_url($paycenter_url);
 		$paycenter_config_contents = <<<EOF
 <?php
-\$paycenter_api_key = "HANZaFR0Aw08PV1U20RzCW411UWXa26AUiIO";
+\$paycenter_api_key = "HANZaFR0Aw08PV1U";
 \$paycenter_api_url = "{$paycenter_url}";
 \$paycenter_app_id = 105;
 \$paycenter_wap_url = "http://m.{$paycenter_url_row['host']}/";
@@ -59,7 +62,7 @@ EOF;
 		$shop_url_row = parse_url($shop_url);
 		$shop_config_contents = <<<EOF
 <?php
-\$shop_api_key = "HANZaFR0Aw08PV1U02RzCW114UWXa26AUiIO";
+\$shop_api_key = "HANZaFR0Aw08PV1U";
 \$shop_api_url = "{$shop_url}";
 \$shop_app_id = 103;
 \$shop_wap_url = "http://m.{$shop_url_row['host']}/";
@@ -220,7 +223,7 @@ EOF;
 
 						$db_config_contents = <<<EOF
 <?php
-\$ucenter_api_key = "HANZaFR0Aw08PV1U02RzCW114UWXa26AUiIO";
+\$ucenter_api_key = "HANZaFR0Aw08PV1U";
 \$ucenter_api_url = "http://{$url_row['host']}/index.php";
 \$ucenter_app_id = 104;
 \$ucenter_wap_url = "http://m.{$url_row['host']}/";

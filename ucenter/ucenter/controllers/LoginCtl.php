@@ -609,6 +609,120 @@ class LoginCtl extends Yf_AppController
 		}
 	}
 
+	public function loginex()
+	{
+		$token = request_string('t');
+		fb($token);
+		$user_name = strtolower($_REQUEST['user_account']);
+
+		if (!$user_name)
+		{
+			$user_name = strtolower($_REQUEST['user_name']);
+		}
+
+		$password = $_REQUEST['user_password'];
+
+		$md5_password = $_REQUEST['md5_password'];
+
+		if (!$password)
+		{
+			$password = $_REQUEST['password'];
+		}
+
+		if (!strlen($user_name))
+		{
+			$this->data->setError('请输入账号');
+			return false;
+		}
+		
+
+		if (!strlen($password)  && !strlen($md5_password))
+		{
+			$this->data->setError('请输入密码');
+		}
+		else
+		{
+			$User_InfoModel  = new User_InfoModel();
+			$User_InfoDetail = new User_InfoDetailModel();
+			$user_info_row   = $User_InfoModel->getInfoByName($user_name);
+
+			if (!$user_info_row)
+			{
+				$this->data->setError('账号不存在');
+				return false;
+			}
+
+			if($password)
+			{
+				$pswd =  md5($password);
+			}
+			if($md5_password)
+			{
+				$pswd = $md5_password;
+			}
+			if ($pswd != $user_info_row['password'])
+			{
+				$this->data->setError('密码错误');
+			}
+			else
+			{
+				//$session_id = uniqid();
+				$session_id = $user_info_row['session_id'];
+
+				$arr_field               = array();
+				$arr_field['session_id'] = $session_id;
+
+				//if ($User_InfoModel->editInfo($user_info_row['user_id'], $arr_field) > 0)
+				if (true)
+				{
+					//$arr_body = array("result"=>1,"user_name"=>$user_info_row['user_name'],"session_id"=>$session_id);
+					$arr_body           = $user_info_row;
+					$arr_body['result'] = 1;
+					//$arr_body['session_id'] = $session_id;
+
+					$data            = array();
+					$data['user_id'] = $user_info_row['user_id'];
+					
+					//$data['session_id'] = $session_id;
+					$encrypt_str = Perm::encryptUserInfo($data, $session_id);
+
+					$arr_body['k'] = $encrypt_str;
+
+					//插入绑定表
+					if($token)
+					{
+						//查找bind绑定表
+						$User_BindConnectModel = new User_BindConnectModel();
+						$bind_info = $User_BindConnectModel->getBindConnectByToken($token);
+						
+						$bind_info = $bind_info[0];
+
+						//插入绑定表
+						$time = date('Y-m-d H:i:s',time());
+						$User_BindConnectModel = new User_BindConnectModel();
+						$bind_array = array(
+										'user_id'	=>$user_info_row['user_id'],
+										'bind_time'	=>$time,
+										'bind_token'=>$token,
+										);
+						$User_BindConnectModel->editBindConnect($bind_info['bind_id'],$bind_array);
+						
+					}
+
+					$this->data->addBody(100, $arr_body);
+					
+				}
+				else
+				{
+					$this->data->setError('登录失败');
+				}
+			}
+
+		}
+
+
+	}
+	
 	public function login()
 	{
 		$token = request_string('t');
@@ -661,7 +775,6 @@ class LoginCtl extends Yf_AppController
 				elseif (Yf_Utils_String::isMobile($user_name))
 				{
 					//手机号登录
-
 					$bind_id = sprintf('mobile_%s', $user_name);
 				}
 
@@ -877,8 +990,20 @@ class LoginCtl extends Yf_AppController
 		$User_InfoModel = new User_InfoModel();
 
 		$user_id_row = $User_InfoModel->getInfoByName($user_name);
-		fb($user_id_row);
-		$this->data->addBody(100, $user_id_row);
+
+		$data = array();
+		if($user_id_row)
+		{
+			$data = $user_id_row;
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = '用户不存在';
+			$status = 250;
+		}
+		$this->data->addBody(-1, $data, $msg, $status);
 
 	}
 

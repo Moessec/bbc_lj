@@ -456,9 +456,17 @@ Yf_Registry::set('paycenter_api_url', $paycenter_api_url);
 
 
 
+//
+if (is_file(INI_PATH . '/connect_' . $server_id . '.ini.php'))
+{
+	$connect_rows = include_once INI_PATH . '/connect_' . $server_id . '.ini.php';
+}
+else
+{
+	$connect_rows = include_once INI_PATH . '/connect.ini.php';
+}
 
-
-
+Yf_Registry::set('connect_rows', $connect_rows);
 
 
 ?>

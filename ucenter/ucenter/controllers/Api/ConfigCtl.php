@@ -331,8 +331,17 @@ return $connect_rows;
 		$data['ucenter_app_id']  = $ucenter_app_id;
 
 		//$file = INI_PATH . '/ucenter_api.ini.php';
-		$file = INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php';
-
+		//$file = INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php';
+		
+		if (is_file(INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php'))
+		{
+			$file = INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php';
+		}
+		else
+		{
+			$file = INI_PATH . '/ucenter_api.ini.php';
+		}
+		
 		if (!Yf_Utils_File::generatePhpFile($file, $data))
 		{
 			$status = 250;

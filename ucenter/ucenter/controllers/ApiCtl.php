@@ -29,7 +29,7 @@ class ApiCtl extends Yf_AppController
 		$app_id = isset($_REQUEST['app_id']) ?  $_REQUEST['app_id'] : 0;
 		$Base_App = new Base_AppModel();
 
-		if($app_id && !($base_app_rows = $Base_App->getApp($app_id)))
+		/*if($app_id && !($base_app_rows = $Base_App->getApp($app_id)))
 		{
 			$this->data->setError('App id 不存在');
 
@@ -39,7 +39,7 @@ class ApiCtl extends Yf_AppController
 			echo $protocol_data;
 
 			exit();
-		}
+		}*/
 
 		/*
 		$base_app_row = array_pop($base_app_rows);
@@ -738,13 +738,14 @@ class ApiCtl extends Yf_AppController
 	public function virifyUserAppServer()
 	{
 		$app_id = $_REQUEST['app_id'];
+		$request_app_id = $_REQUEST['request_app_id'];
 		$server_id = $_REQUEST['server_id'];
 		$user_name = $_REQUEST['user_name'];
 		$server_state = $_REQUEST['server_state'];
 
 
 		$Base_App = new Base_AppModel();
-		$base_app_rows = $Base_App->getApp($app_id);
+		$base_app_rows = $Base_App->getApp($request_app_id);
 		if(!$base_app_rows)
 		{
 			$this->data->setError('App id 不存在');
@@ -838,10 +839,24 @@ class ApiCtl extends Yf_AppController
 
 				//权限加密数据处理
 				//$key = $base_app_row['app_key'];
-				$key    = Yf_Registry::get('shop_api_key');
 
-				$init_rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_%s&met=%s&typ=json', $url, 'Server', 'create'), $formvars);
+				if (103 == $request_app_id)
+				{
+					$key    = Yf_Registry::get('shop_api_key');
 
+					$init_rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_%s&met=%s&typ=json', $url, 'Server', 'create'), $formvars);
+				}
+				else
+				{
+					$url = $base_app_server_row['server_url'];
+					$formvars = $base_app_server_row;
+
+					$url = sprintf('%s?ctl=%s&met=%s&typ=%s', $url, 'Api', 'create', 'json');
+
+					//权限加密数据处理
+					$key = $base_app_row['app_key'];
+					$init_rs = get_url_with_encrypt($key, $url, $formvars);
+				}
 
 				if (200 == $init_rs['status'] && $init_rs['data'])
 				{

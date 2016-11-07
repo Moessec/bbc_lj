@@ -17,7 +17,7 @@
     $wb_url = sprintf('%s?ctl=Connect_Weibo&met=login&callback=%s&from=%s', Yf_Registry::get('url'), $callback ,$from);
 
 
-    $connect_config = include_once APP_PATH  . '/configs/connect.ini.php';
+    $connect_config = Yf_Registry::get('connect_rows');
     if($connect_config)
     {
       $qq = $connect_config['qq']['status'];
@@ -94,9 +94,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							 <div class="login">
 							
 							<!-- <form> -->
-								<input type="text" class="text lo_user_account" value="请输入用户名/Email/手机号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名/Email/手机号';}" ><a href="#" class=" icon email"></a>
+								<input type="text" class="text lo_user_account" placeholder="请输入用户名/Email/手机号"><a href="#" class=" icon email"></a>
 
-								<input class="lo_user_password" id="password" type="text" value="请输入您的账户密码" ><a href="#" class=" icon lock"></a>
+								<input class="lo_user_password" id="password" type="password" placeholder="请输入您的账户密码" ><a href="#" class=" icon lock"></a>
 
 								<div class="p-container">
 									<div class="submit three">
@@ -144,11 +144,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<!--login1-->
 							 <div class="login">
 							<!-- <form> -->
-								<input type="text" class="text re_user_account" value="请输入用户账号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户账号';}" ><a href="#" class=" icon email"></a>
+								<input type="text" class="text re_user_account" placeholder="请输入用户账号" ><a href="#" class=" icon email"></a>
 
-								<input type="text" id="password" class="re_user_password" value="请输入您的账户密码" ><a href="#" class=" icon lock"></a>
-								<input type="phone" class="text re_mobile" value="请输入手机号码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入手机号码';}" ><a href="#" class=" icon phone"></a>
-								<input type="identify" class="text re_user_code" value="输入验证码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '输入验证码';}" ><div class="id_get id_get_de" onclick="get_randfunc(this)" style="cursor:pointer;">获取验证码</div>
+								<input type="password" id="password" class="re_user_password" placeholder="请输入您的账户密码" ><a href="#" class=" icon lock"></a>
+								<input type="phone" class="text re_mobile" placeholder="请输入手机号码" ><a href="#" class=" icon phone"></a>
+								<input type="identify" class="text re_user_code" placeholder="输入验证码"><div class="id_get id_get_de" onclick="get_randfunc(this)" style="cursor:pointer;">获取验证码</div>
 									<div class="submit three">
 									<input type="submit" onclick="registclick()" value="注         册" >
 									</div>
@@ -165,9 +165,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<!-- <form> -->
 								<!-- <input type="text" class="text ps_user_account" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}" ><a href="#" class=" icon email"></a> -->
 
-								<input type="text" id="password" class="ps_user_password" value="重置账户密码"><a href="#" class=" icon lock"></a>
-								<input type="phone" class="text ps_mobile" value="请输入手机号码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入手机号码';}" ><a href="#" class=" icon phone"></a>
-								<input type="identify" class="text ps_user_code" value="输入验证码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '输入验证码';}" ><div class="id_get id_get_ps" onclick="get_ps_randfunc(this)" style="cursor:pointer;">获取验证码</div>
+								<input type="password" id="password" class="ps_user_password" placeholder="重置账户密码"><a href="#" class=" icon lock"></a>
+								<input type="phone" class="text ps_mobile" placeholder="请输入手机号码"><a href="#" class=" icon phone"></a>
+								<input type="identify" class="text ps_user_code" placeholder="输入验证码" ><div class="id_get id_get_ps" onclick="get_ps_randfunc(this)" style="cursor:pointer;">获取验证码</div>
 									<div class="submit three">
 									<input type="submit" onclick="resetPasswdClick()" value="确         认" >
 									</div>
@@ -202,19 +202,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         $('#resetpassword').trigger('click');
     }
 
-    });
-
-
-    $('.lo_user_password').focus(function (){
-        $(this).attr('type','password');
-        $(this).val('');
-    });
-    $('.lo_user_password').blur(function (){
-        if($(this).val() == '')
-        {
-            $(this).attr('type','text');
-            $(this).val('请输入您的账户密码');
-        }
     });
 
 	//登录按钮
@@ -260,7 +247,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     	var mobile = $('.re_mobile').val();
 
-        if(!isNaN(mobile))
+        if(!isNaN(mobile) && mobile.length == 11)
         {
             var ajaxurl = './index.php?ctl=Login&met=regCode&typ=json&mobile='+mobile;
             $.ajax({
@@ -336,18 +323,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		}
 	}
 
-    $('.re_user_password').focus(function (){
-        $(this).attr('type','password');
-        $(this).val('');
-    });
-    $('.re_user_password').blur(function (){
-        if($(this).val() == '')
-        {
-            $(this).attr('type','text');
-            $(this).val('请输入您的账户密码');
-        }
-        
-    });
+
     //注册按钮
     function registclick(){
     	var user_account = $('.re_user_account').val();
@@ -392,7 +368,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		}
 
     	var mobile = $('.ps_mobile').val();
-        if(!isNaN(mobile))
+        if(!isNaN(mobile) && mobile.length == 11)
         {
             //var user_name = $('.ps_user_account').val();
             var ajaxurl = './index.php?ctl=Login&met=findPasswdCode&typ=json&mobile='+mobile;
@@ -424,18 +400,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         }
     	
     }
-
-    $('.ps_user_password').focus(function (){
-        $(this).attr('type','password');
-        $(this).val('');
-    });
-    $('.ps_user_password').blur(function (){
-        if($(this).val() == '')
-        {
-            $(this).attr('type','text');
-            $(this).val('重置账户密码');
-        }
-    });
 
     //重置密码
     function resetPasswdClick(){

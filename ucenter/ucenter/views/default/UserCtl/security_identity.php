@@ -187,7 +187,15 @@ $(".submit").click(function(){
 						}
                         else
                         {
-                            Public.tips.error("<?=_('操作失败')?>");
+                            if(a.msg !== 'failure')
+                            {
+                                Public.tips.error(a.msg);
+                            }
+                            else
+                            {
+                                Public.tips.error("<?=_('操作失败')?>");
+                            }
+
                         }
                     }
                 });

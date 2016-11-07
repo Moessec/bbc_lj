@@ -99,6 +99,7 @@ class User_InfoDetailModel extends User_InfoDetail
 			}
 		}
 
+		fb($edit_user_row);
 		if ($edit_user_row)
 		{
 			//同步
