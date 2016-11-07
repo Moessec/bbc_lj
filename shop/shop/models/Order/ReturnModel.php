@@ -100,6 +100,28 @@ class Order_ReturnModel extends Order_Return
 		return $data;
 	}
 
+	public function settleReturn($cond_row = array())
+	{
+		//退款金额
+		$return_amount = 0;
+		//退款佣金
+		$commission_return_amount = 0;
+
+		$data = $this->getByWhere($cond_row);
+
+		foreach($data as $key => $val)
+		{
+			$return_amount += $val['return_cash'];
+			$commission_return_amount += $val['return_commision_fee'];
+		}
+
+		$res = array(
+			'return_amount' => $return_amount,
+			'commission_return_amount' => $commission_return_amount,
+		);
+		return $res;
+	}
+
 
 }
 

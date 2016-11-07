@@ -20,7 +20,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
             <li><a class="xs" href="index.php?ctl=Goods_Goods&met=goodslist"><?=_('全部商品'); ?></a></li>
         </ul>
     </div>
-    <div style="background:#ebebeb; width: 1110px;   padding-bottom: 60px; ">
+    <div style="background:#ebebeb; padding-bottom: 60px; ">
     <?php if(!empty($data)){
         $i=1;
         foreach($data as $key=>$value):

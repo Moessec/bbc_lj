@@ -33,6 +33,9 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 		$data            = $Order_BaseModel->getPhysicalList($condition);
 		$condition       = $data['condi'];
 
+		fb($data);
+		fb("卖家订单");
+
 		include $this->view->getView();
 	}
 
@@ -532,6 +535,17 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 				//发送站内信
 				$message = new MessageModel();
 				$message->sendMessage('ordor_complete_shipping', $order_base['buyer_user_id'], $order_base['buyer_user_name'], $order_id, $order_base['shop_name'], 0, 3);
+
+				//远程修改paycenter中的订单信息
+				$key      = Yf_Registry::get('shop_api_key');
+				$url         = Yf_Registry::get('paycenter_api_url');
+				$shop_app_id = Yf_Registry::get('shop_app_id');
+				$formvars = array();
+
+				$formvars['order_id']    = $order_id;
+				$formvars['app_id']        = $shop_app_id;
+
+				$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=sendOrderGoods&typ=json', $url), $formvars);
 
 				$msg    = _('success');
 				$status = 200;

@@ -16,7 +16,7 @@
 </div>
 </div>
 </div>
-<div>
+<div style="margin-top:80px;border-top:1px solid #e1e1e1;">
 	<div class="wrapper">
 		<p class="about">
             <?php if($this->bnav){
@@ -42,6 +42,10 @@
 <script type="text/javascript" src="<?= $this->view->js_com ?>/plugins/jquery.dialog.js"></script>
 
 <p class="statistics_code"><?php echo Web_ConfigModel::value('statistics_code') ?></p>
-
+<script>
+	$(function(){
+		ucenterLogin(UCENTER_URL, SITE_URL, true);
+	});
+</script>
 </body>
 </html>

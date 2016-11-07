@@ -1,5 +1,4 @@
 <?php
-
 class LoginCtl extends Yf_AppController
 {
 	public function index()
@@ -24,6 +23,7 @@ class LoginCtl extends Yf_AppController
 
 
 			$login_url = $login_url . '&from=shop&callback=' . urlencode($callback);
+            setcookie('comeUrl',getenv("HTTP_REFERER"));
 			header('location:' . $login_url);
 			exit();
 		}
@@ -70,6 +70,8 @@ class LoginCtl extends Yf_AppController
 		$key = Yf_Registry::get('ucenter_api_key');;
 		$url    = Yf_Registry::get('ucenter_api_url');
 		$app_id = Yf_Registry::get('ucenter_app_id');
+
+		$redirect = request_string('redirect');
 
 
 		$formvars            = array();
@@ -273,15 +275,37 @@ class LoginCtl extends Yf_AppController
 
 				$encrypt_str = Perm::encryptUserInfo($data);
 
+				//更新购物车
+				$cartlist = $_COOKIE['goods_cart'];
+
+				if($cartlist)
+				{
+					$CartModel = new CartModel();
+					$CartModel->updateCookieCart($data['user_id']);
+				}
+
+				if(isset($_COOKIE['goods_cart']))
+				{
+					setcookie("goods_cart",null,time() - 1,'/');
+				}
+
 				if ('e' == $this->typ)
 				{
-					location_to(Yf_Registry::get('base_url'));
+					if($redirect)
+					{
+						location_to(urldecode($redirect));
+					}
+					else
+					{
+						location_to($_COOKIE['comeUrl']);
+					}
+
 				}
 				else
 				{
 					$data            = array();
 					$data['user_id'] = $user_row['user_id'];
-					$data['user_account'] = $formvars['user_account'];
+					$data['user_account'] = $user_row['user_account'];
 					$data['key'] = $encrypt_str;
 					$this->data->addBody(100, $data);
 				}
@@ -325,6 +349,252 @@ class LoginCtl extends Yf_AppController
 	 * @access public
 	 */
 	public function doLogin()
+	{
+		$Points_LogModel = new Points_LogModel();
+		$User_BaseModel = new User_BaseModel();
+		$User_InfoModel = new User_InfoModel();
+		$user_account = $_REQUEST['user_account'];
+
+
+		//本地读取远程信息
+		$key = Yf_Registry::get('ucenter_api_key');
+
+		$url                       = Yf_Registry::get('ucenter_api_url');
+		$ucenter_app_id            = Yf_Registry::get('ucenter_app_id');
+		$formvars                  = array();
+		$formvars['user_account']  = $_REQUEST['user_account'];
+		$formvars['user_password'] = $_REQUEST['user_password'];
+		$formvars['app_id']        = $ucenter_app_id;
+
+		$formvars['ctl'] = 'Login';
+		$formvars['met'] = 'login';
+		$formvars['typ'] = 'json';
+		$init_rs         = get_url_with_encrypt($key, $url, $formvars);
+
+
+		if (200 == $init_rs['status'])
+		{
+			//读取服务列表
+		}
+		else
+		{
+			$msg = _('登录信息有误');
+			if ('e' == $this->typ)
+			{
+				location_go_back($msg);
+			}
+			else
+			{
+				return $this->data->setError($msg, array());
+			}
+		}
+
+
+		$userBaseModel = new User_BaseModel();
+
+		//本地数据校验登录
+		$user_id_row = $userBaseModel->getUserIdByAccount($user_account);
+
+		if ($user_id_row)
+		{
+			$user_rows = $userBaseModel->getBase($user_id_row);
+			$user_row  = array_pop($user_rows);
+			//判断状态是否开启
+			if ($user_row['user_delete'] == 1)
+			{
+
+				$msg = _('该账户未启用，请启用后登录！');
+				if ('e' == $this->typ)
+				{
+					location_go_back($msg);
+				}
+				else
+				{
+					return $this->data->setError($msg, array());
+				}
+			}
+			//fb($user_row);
+		}
+		else
+		{
+			$user_row = $init_rs['data'];
+
+			//添加用户
+			$data['user_id']       = $user_row['user_id']; // 用户id
+			$data['user_account']  = $user_row['user_name']; // 用户帐号
+			$data['user_passwd'] = $user_row['password']; // 密码：使用用户中心-此处废弃
+
+			$data['user_delete'] = 0; // 用户状态
+			$user_id             = $userBaseModel->addBase($data, true);
+
+			//初始化用户信息
+			$user_info_row                  = array();
+			$user_info_row['user_id']       = $user_id;
+			$user_info_row['user_realname'] = @$init_rs['data']['user_truename'];
+			$user_info_row['user_name']     = isset($init_rs['data']['nickname']) ? $init_rs['data']['nickname'] : $data['user_account'];
+			$user_info_row['user_mobile']   = @$init_rs['data']['user_mobile'];
+			$user_info_row['user_logo']   = @$init_rs['data']['user_avatar'];
+			$user_info_row['user_regtime']  = get_date_time();
+			$info_flag                      = $User_InfoModel->addInfo($user_info_row);
+
+			$user_resource_row                = array();
+			$user_resource_row['user_id']     = $user_id;
+			$user_resource_row['user_points'] = Web_ConfigModel::value("points_reg");//注册获取积分;
+
+			$User_ResourceModel = new User_ResourceModel();
+			$res_flag           = $User_ResourceModel->addResource($user_resource_row);
+
+			$User_PrivacyModel           = new User_PrivacyModel();
+			$user_privacy_row['user_id'] = $user_id;
+			$privacy_flag                = $User_PrivacyModel->addPrivacy($user_privacy_row);
+			//积分
+			$user_points_row['user_id']           = $user_id;
+			$user_points_row['user_name']         = $data['user_account'];
+			$user_points_row['class_id']          = Points_LogModel::ONREG;
+			$user_points_row['points_log_points'] = $user_resource_row['user_points'];
+			$user_points_row['points_log_time']   = get_date_time();
+			$user_points_row['points_log_desc']   = _('会员注册');
+			$user_points_row['points_log_flag']   = 'reg';
+			$Points_LogModel->addLog($user_points_row);
+			//发送站内信
+			$message = new MessageModel();
+			$message->sendMessage('welcome', $user_id, $data['user_account'], '', '', 0, 5);
+
+
+			//判断状态是否开启
+			if (!$user_id)
+			{
+
+				$msg = _('初始化用户出错！');
+				if ('e' == $this->typ)
+				{
+					location_go_back($msg);
+				}
+				else
+				{
+					return $this->data->setError($msg, array());
+				}
+
+			}
+		}
+
+		//if ($user_id_row && ($user_row['user_password'] == md5($_REQUEST['user_password'])))
+		if ($user_row)
+		{
+			$data            = array();
+			$data['user_id'] = $user_row['user_id'];
+			srand((double)microtime() * 1000000);
+			//$user_key = md5(rand(0, 32000));
+			$user_key = 'ttt';
+
+			$time     = get_date_time();
+			//获取上次登录的时间
+			$info = $User_BaseModel->getBase($user_row['user_id']);
+
+			$lotime   = strtotime($info[$user_row['user_id']]['user_login_time']);
+			$last_day = date("d ", $lotime);
+			$now_day  = date("d ");
+			$now      = time();
+
+			$login_info_row                     = array();
+			$login_info_row['user_key']         = $user_key;
+			$login_info_row['user_login_time']  = $time;
+			$login_info_row['user_login_times'] = $user_row['user_login_times'] + 1;
+			$login_info_row['user_login_ip']    = get_ip();
+
+			$flag = $User_BaseModel->editBase($user_row['user_id'], $login_info_row, false);
+
+			$login_row['user_logintime'] = $time;
+			$login_row['lastlogintime']  = $info[$user_row['user_id']]['user_login_time'];
+			$login_row['user_ip']        = get_ip();
+			$login_row['user_lastip']    = $info[$user_row['user_id']]['user_login_ip'];
+			$flag                        = $User_InfoModel->editInfo($user_row['user_id'], $login_row, false);
+			//当天没有登录过执行
+
+			if ($last_day != $now_day && $now > $lotime)
+			{
+
+				$user_points = Web_ConfigModel::value("points_login");
+				$user_grade  = Web_ConfigModel::value("grade_login");
+
+				$User_ResourceModel = new User_ResourceModel();
+				//获取当前登录的积分经验值
+				$ce = $User_ResourceModel->getResource($user_row['user_id']);
+
+				$resource_row['user_points'] = $ce[$user_row['user_id']]['user_points'] * 1 + $user_points * 1;
+				$resource_row['user_growth'] = $ce[$user_row['user_id']]['user_growth'] * 1 + $user_grade * 1;
+
+				$res_flag = $User_ResourceModel->editResource($user_row['user_id'], $resource_row);
+
+				$User_GradeModel = new User_GradeModel;
+				//升级判断
+				$res_flag = $User_GradeModel->upGrade($user_row['user_id'], $resource_row['user_growth']);
+				//积分
+				$points_row['user_id']           = $user_id;
+				$points_row['user_name']         = $user_row['user_account'];
+				$points_row['class_id']          = Points_LogModel::ONLOGIN;
+				$points_row['points_log_points'] = $user_points;
+				$points_row['points_log_time']   = $time;
+				$points_row['points_log_desc']   = _('会员登录');
+				$points_row['points_log_flag']   = 'login';
+
+				$Points_LogModel = new Points_LogModel();
+
+				$Points_LogModel->addLog($points_row);
+
+				//成长值
+				$grade_row['user_id']         = $user_id;
+				$grade_row['user_name']       = $user_row['user_account'];
+				$grade_row['class_id']        = Grade_LogModel::ONLOGIN;
+				$grade_row['grade_log_grade'] = $user_grade;
+				$grade_row['grade_log_time']  = $time;
+				$grade_row['grade_log_desc']  = _('会员登录');
+				$grade_row['grade_log_flag']  = 'login';
+
+				$Grade_LogModel = new Grade_LogModel;
+				$Grade_LogModel->addLog($grade_row);
+			}
+
+			//$flag     = $userBaseModel->editBaseSingleField($user_row['user_id'], 'user_key', $user_key, $user_row['user_key']);
+			Yf_Hash::setKey($user_key);
+			$encrypt_str = Perm::encryptUserInfo($data);
+
+			if ('e' == $this->typ)
+			{
+				location_to(Yf_Registry::get('base_url'));
+			}
+			else
+			{
+				$data['user_account'] = $formvars['user_account'];
+				$data['key'] = $encrypt_str;
+				$this->data->addBody(100, $data);
+			}
+
+		}
+		else
+		{
+			$msg = _('输入密码有误！');
+			if ('e' == $this->typ)
+			{
+				location_go_back($msg);
+			}
+			else
+			{
+				return $this->data->setError($msg, array());
+			}
+		}
+
+		//权限设置
+
+	}
+
+
+	/**
+	 * 用户登录,通过本站输入用户名密码登录
+	 *
+	 * @access public
+	 */
+	public function doRegister()
 	{
 		$Points_LogModel = new Points_LogModel();
 		$User_BaseModel = new User_BaseModel();
@@ -563,6 +833,27 @@ class LoginCtl extends Yf_AppController
 
 	}
 
+
+	//获取注册密码
+	public function regCode1()
+	{
+		//本地读取远程信息
+		$key = Yf_Registry::get('ucenter_api_key');
+
+		$url                       = Yf_Registry::get('ucenter_api_url');
+		$ucenter_app_id            = Yf_Registry::get('ucenter_app_id');
+		$formvars                  = array();
+		$formvars['user_account']  = $_REQUEST['user_account'];
+		$formvars['user_password'] = $_REQUEST['user_password'];
+		$formvars['app_id']        = $ucenter_app_id;
+
+		$formvars['ctl'] = 'Api';
+		$formvars['met'] = 'login';
+		$formvars['typ'] = 'json';
+		$init_rs         = get_url_with_encrypt($key, $url, $formvars);
+	}
+
+
 	/*
 	 * 用户退出
 	 *
@@ -577,7 +868,6 @@ class LoginCtl extends Yf_AppController
 				echo "<script>parent.location.href='index.php';</script>";
 				setcookie("key", null, time() - 3600 * 24 * 365);
 				setcookie("id", null, time() - 3600 * 24 * 365);
-
 			}
 
 
@@ -589,6 +879,36 @@ class LoginCtl extends Yf_AppController
 			header('location:' . $login_url);
 			exit();
 		}
+	}
+
+
+	public function doLoginOut()
+	{
+		if (isset($_COOKIE['key']) || isset($_COOKIE['id']))
+		{
+			echo "<script>parent.location.href='index.php';</script>";
+			setcookie("key", null, time() - 3600 * 24 * 365);
+			setcookie("id", null, time() - 3600 * 24 * 365);
+		}
+
+
+		//本地读取远程信息
+		$key = Yf_Registry::get('ucenter_api_key');
+
+		$url                       = Yf_Registry::get('ucenter_api_url');
+		$ucenter_app_id            = Yf_Registry::get('ucenter_app_id');
+		$formvars                  = array();
+		$formvars['user_account']  = $_REQUEST['user_account'];
+		$formvars['user_password'] = $_REQUEST['user_password'];
+		$formvars['app_id']        = $ucenter_app_id;
+
+		$formvars['ctl'] = 'Api';
+		$formvars['met'] = 'loginout';
+		$formvars['typ'] = 'json';
+		$init_rs         = get_url_with_encrypt($key, $url, $formvars);
+
+		$this->data->addBody(100, $init_rs);
+
 	}
 }
 

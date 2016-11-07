@@ -113,6 +113,69 @@ class Api_User_InfoCtl extends Yf_AppController
 	}
 
 	/**
+	 * 远程通过Ucenter修改会员信息
+	 *
+	 * @access public
+	 */
+	public function editUserInfoByUcenter()
+	{
+		$user_id = request_int('user_id');
+		$user_name = request_string('user_name');
+		//$user_passwd = request_string('user_passwd');
+		$user_email    = request_string('user_email');
+		$user_realname = request_string('user_realname');
+		$user_sex      = request_int('user_sex');
+		$user_qq       = request_string('user_qq');
+		$user_logo     = request_string('user_logo', request_string('user_avatar'));
+		$user_delete   = request_int('user_delete');
+		$user_birthday = request_string('user_birthday');
+		$user_provinceid = request_int('user_provinceid');
+		$user_cityid = request_int('user_cityid');
+		$user_areaid = request_int('user_areaid');
+		$user_area = request_string('user_area');
+
+
+		$key = Yf_Registry::get('ucenter_api_key');;
+		$url       = Yf_Registry::get('ucenter_api_url');
+		$app_id    = Yf_Registry::get('ucenter_app_id');
+		$server_id = Yf_Registry::get('server_id');
+		//开通ucenter
+		//本地读取远程信息
+		$formvars              = array();
+		$formvars['app_id']    = $app_id;
+		$formvars['server_id'] = $server_id;
+
+		$formvars['ctl'] = 'Api_User';
+		$formvars['met'] = 'editUserInfo';
+		$formvars['typ'] = 'json';
+
+		isset($_REQUEST['user_mobile']) ? $formvars['user_mobile']=request_string('user_mobile') : '';
+
+		$formvars['user_id']    = $user_id;
+		$formvars['user_name']    = $user_name;
+		$formvars['user_gender']    = $user_sex;
+		$formvars['user_logo']     = $user_logo;
+		$formvars['user_delete'] = $user_delete;
+
+		$init_rs = get_url_with_encrypt($key, $url, $formvars);
+		if ($init_rs['status'] == 200)
+		{
+			$status = 200;
+			$msg    = _('success');
+		}
+		else
+		{
+			$status = 250;
+			$msg    = _('failure');
+		}
+
+		$data = array();
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+
+	/**
 	 * 修改会员信息
 	 *
 	 * @access public
@@ -127,6 +190,11 @@ class Api_User_InfoCtl extends Yf_AppController
 		$user_qq       = request_string('user_qq');
 		$user_logo     = request_string('user_logo', request_string('user_avatar'));
 		$user_delete   = request_int('user_delete');
+		$user_birthday = request_string('user_birthday');
+		$user_provinceid = request_int('user_provinceid');
+		$user_cityid = request_int('user_cityid');
+		$user_areaid = request_int('user_areaid');
+		$user_area = request_string('user_area');
 		//$user_report = request_int('user_report');
 		//$user_buy = request_int('user_buy');
 		//$user_talk = request_int('user_talk');
@@ -139,6 +207,11 @@ class Api_User_InfoCtl extends Yf_AppController
 		$edit_user_row['user_realname'] = $user_realname;
 		$edit_user_row['user_qq']       = $user_qq;
 		$edit_user_row['user_logo']     = $user_logo;
+		$edit_user_row['user_birthday']     = $user_birthday;
+		$edit_user_row['user_provinceid']     = $user_provinceid;
+		$edit_user_row['user_cityid']     = $user_cityid;
+		$edit_user_row['user_areaid']     = $user_areaid;
+		$edit_user_row['user_area']     = $user_area;
 		//$edit_user_row['user_report'] = $user_report;
 		//$edit_user_row['user_buy'] = $user_buy;
 		//$edit_user_row['user_talk'] = $user_talk;

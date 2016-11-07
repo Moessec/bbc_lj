@@ -67,8 +67,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
                             loop: true, 
                             grabCursor: true,
                             paginationClickable: true,
-                            mousewheelControl: true,
-                            lazyLoading: true,
+                           lazyLoading: true,
                         });
                     });
                 </script>

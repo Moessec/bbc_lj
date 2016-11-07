@@ -121,40 +121,40 @@ class Goods_GoodsCtl extends Controller
 
 		$searchkey = request_string('searkeywords');
 
-
+        $sear_row=array();
 		if($searchkey)
 		{
 			$sear_row[] = '%'.$searchkey.'%';
 		}
 
 		if ($search)
-		{
-			$sear_row[] = '%'.$search.'%';
+        {
+            $sear_row[] = '%' . $search . '%';
+            //记录搜索关键词
+            $Search_WordModel                  = new Search_WordModel();
+            $search_cond_row['search_keyword'] = $search;
 
-			$cond_row['common_name:LIKE'] = $sear_row;
+            $search_row = $Search_WordModel->getSearchWordInfo($search_cond_row);
 
-			//记录搜索关键词
-			$Search_WordModel                  = new Search_WordModel();
-			$search_cond_row['search_keyword'] = $search;
+            if ($search_row)
+            {
+                $search_data                = array();
+                $search_data['search_nums'] = $search_row['search_nums'] + 1;
 
-			$search_row = $Search_WordModel->getSearchWordInfo($search_cond_row);
-
-			if ($search_row)
-			{
-				$search_data                = array();
-				$search_data['search_nums'] = $search_row['search_nums'] + 1;
-
-				$flag = $Search_WordModel->editSearchWord($search_row['search_id'], $search_data);
-			}
-			else
-			{
-				$search_data                      = array();
-				$search_data['search_keyword']    = $search;
-				$search_data['search_char_index'] = Text_Pinyin::pinyin($search, '');
-				$search_data['search_nums']       = 1;
-				$flag                             = $Search_WordModel->addSearchWord($search_data);
-			}
-		}
+                $flag = $Search_WordModel->editSearchWord($search_row['search_id'], $search_data);
+            }
+            else
+            {
+                $search_data                      = array();
+                $search_data['search_keyword']    = $search;
+                $search_data['search_char_index'] = Text_Pinyin::pinyin($search, '');
+                $search_data['search_nums']       = 1;
+                $flag                             = $Search_WordModel->addSearchWord($search_data);
+            }
+        }
+        if($sear_row){
+            $cond_row['common_name:LIKE'] = $sear_row;
+        }
 
 		$cond_row['shop_status'] = Shop_BaseModel::SHOP_STATUS_OPEN;
 
@@ -818,7 +818,7 @@ class Goods_GoodsCtl extends Controller
 
 			//商品详情
 			$goods_info = array_merge($goods_detail['common_base'], $goods_detail['goods_base']);
-//var_dump($goods_detail);die;
+
 			//配送信息
 			$goods_hair_info['content'] 	= $goods_detail['shop_base']['shipping'];
 			$goods_hair_info['if_store_cn'] = empty($goods_detail['goods_base']['goods_stock']) ? '无货' : '有货';
@@ -881,6 +881,8 @@ class Goods_GoodsCtl extends Controller
 
 			$data['goods_info'] 			= $goods_info; 				//商品详情
 
+
+
 			$data['goods_commend_list'] 	= $data_salle; 				//推荐商品（销量）
 			$data['goods_eval_list'] 		= $goods_eval_list; 		//商品评论
 			$data['goods_evaluate_info'] 	= $goods_evaluate_info; 	//商品评论
@@ -896,7 +898,8 @@ class Goods_GoodsCtl extends Controller
 			$data['shop_owner']			= $shop_owner;				//是否为店主
 			$data['isBuyHave']				= $IsHaveBuy;				//是否已达限购数量
 
-			$this->data->addBody(-140, $data);
+
+			$this->data->addBody(-140,$data);
 		}
 		else
 		{

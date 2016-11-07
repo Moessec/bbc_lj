@@ -118,8 +118,8 @@ class Seller_Order_SettlementCtl extends Seller_Controller
 		{
 			$Order_SettlementModel = new Order_SettlementModel();
 
-			//$shop_id = Perm::$shopId;
-			$shop_id   = 1;
+			$shop_id = Perm::$shopId;
+			//$shop_id   = 1;
 			$cond_row  = array();
 			$order_row = array();
 
@@ -143,8 +143,8 @@ class Seller_Order_SettlementCtl extends Seller_Controller
 	{
 		$Order_SettlementModel = new Order_SettlementModel();
 
-		//$shop_id = Perm::$shopId;
-		$shop_id   = 1;
+		$shop_id = Perm::$shopId;
+		//$shop_id   = 1;
 		$cond_row  = array();
 		$order_row = array();
 
@@ -177,8 +177,8 @@ class Seller_Order_SettlementCtl extends Seller_Controller
 	{
 		$Order_SettlementModel = new Order_SettlementModel();
 
-		//$shop_id = Perm::$shopId;
-		$shop_id   = 1;
+		$shop_id = Perm::$shopId;
+		//$shop_id   = 1;
 		$cond_row  = array();
 		$order_row = array();
 
@@ -268,8 +268,8 @@ class Seller_Order_SettlementCtl extends Seller_Controller
 		{
 			$Order_SettlementModel = new Order_SettlementModel();
 
-			//$shop_id = Perm::$shopId;
-			$shop_id   = 1;
+			$shop_id = Perm::$shopId;
+			//$shop_id   = 1;
 			$cond_row  = array();
 			$order_row = array();
 
@@ -307,6 +307,9 @@ class Seller_Order_SettlementCtl extends Seller_Controller
 		}
 		$this->data->addBody(-140, array(), $msg, $status);
 	}
+
+
+
 }
 
 ?>

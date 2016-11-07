@@ -33,13 +33,13 @@ include $this->view->getTplPath() . '/' . 'join_header.php';
         <div class="swiper-container">
           <ul class="clearfix swiper-wrapper">
               <a href="<?=Web_ConfigModel::value('join_live_link1')?>" class="swiper-slide">
-              <li style="width:100%;">
-                  <img src="<?=Web_ConfigModel::value('join_slider1_image')?>" style="width:100%;">
+              <li>
+                  <img src="<?=Web_ConfigModel::value('join_slider1_image')?>">
               </li>
               </a>
               <a href="<?=Web_ConfigModel::value('join_live_link2')?>" class="swiper-slide">
-              <li style="width:100%;">
-                  <img src="<?=Web_ConfigModel::value('join_slider2_image')?>" style="width:100%;">
+              <li>
+                  <img src="<?=Web_ConfigModel::value('join_slider2_image')?>">
               </li>
               </a>
           </ul>
@@ -53,10 +53,8 @@ include $this->view->getTplPath() . '/' . 'join_header.php';
                 autoplayDisableOnInteraction: false,
                 autoplay: 3000,
                 speed: 300,
-                loop: true, 
                 grabCursor: true,
                 paginationClickable: true,
-                mousewheelControl: true,
                 lazyLoading: true,
               });
             });

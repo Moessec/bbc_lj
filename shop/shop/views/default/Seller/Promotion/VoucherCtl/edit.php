@@ -187,7 +187,7 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
                 'voucher_t_end_date': 'required;',
                 'voucher_t_price': 'required;',
                 'voucher_t_total': 'required;integer[+]',
-                'voucher_t_eachlimit': 'required;integer[+];range[1~<?=Web_ConfigModel::value('promotion_voucher_buyertimes_limit')?>]',
+                //'voucher_t_eachlimit': 'required;integer[+];range[0~<?=Web_ConfigModel::value('promotion_voucher_buyertimes_limit')?>]',
                 'voucher_t_limit': 'required;digit',
                 'voucher_t_user_grade_limit': 'required;integer[+]',
                 'voucher_t_desc': 'required;',

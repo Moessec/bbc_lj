@@ -213,7 +213,7 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                     <?php }?>
                 <?php }?>
 
-                    <?php if($val['order_status'] == Order_StateModel::ORDER_WAIT_CONFIRM_GOODS ): ?>
+                    <?php if($val['order_refund_status'] !== Order_StateModel::ORDER_REFUND_IN && $val['order_return_status'] !== Order_StateModel::ORDER_GOODS_RETURN_IN  &&  $val['order_status'] == Order_StateModel::ORDER_WAIT_CONFIRM_GOODS ): ?>
                         <p class="rest">
 							<span class="iconfont icon-shijian2"></span>
 							<span class="fnTimeCountDown" data-end="<?=$val['order_receiver_date']?>">

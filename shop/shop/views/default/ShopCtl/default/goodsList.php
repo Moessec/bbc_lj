@@ -185,7 +185,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			  <?php if(!empty($service['pre'])){?>
 			   <?php foreach($service['pre'] as $key=>$val){ ?>
 			   <?php if(!empty($val['number'])){?>
-               <dd><span><?=$val['name']?></span><span>
+               <dd><span>
                   <span c_name="<?=$val['name']?>" member_id="9"><?=$val['tool']?></span>
                   </span></dd>
 				<?php }?>
@@ -199,7 +199,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			  <?php if(!empty($service['after'])){?> 
 			  <?php foreach($service['after'] as $key=>$val){ ?>
 			  <?php if(!empty($val['number'])){?>
-                <dd><span><?=$val['name']?></span><span>
+                <dd><span>
                   <span c_name="<?=$val['name']?>" member_id="9"><?=$val['tool']?></span>
                   </span></dd>  
 				<?php }?>

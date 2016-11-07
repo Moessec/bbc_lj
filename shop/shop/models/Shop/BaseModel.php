@@ -186,14 +186,27 @@ class Shop_BaseModel extends Shop_Base
 
 		$Shop_ContractTypeModel = new Shop_ContractTypeModel();
 
+		$Shop_ContractLogModel = new Shop_ContractLogModel();
 		if($contract)
 		{
 			foreach($contract as $ckey => $cval)
 			{
 				$contract_type =  $Shop_ContractTypeModel->getOne($cval['contract_type_id']);
+				$contract_log = $Shop_ContractLogModel->getOne($cval['contract_log_id']);
 
-				$contract[$ckey]['contract_type_logo'] = $contract_type['contract_type_logo'];
-				$contract[$ckey]['contract_type_url'] = $contract_type['contract_type_url'];
+				fb($contract_log);
+				if($contract_type && $contract_type['contract_type_state'] == Shop_ContractTypeModel::CONTRACT_OPEN && $cval['contract_state'] == Shop_ContractModel::CONTRACT_INUSE && $cval['contract_use_state'] == Shop_ContractModel::CONTRACT_JOIN  && $contract_log['contract_log_state'] == Shop_ContractLogModel::LOG_STATE_PASS)
+				{
+					$contract[$ckey]['contract_type_logo'] = $contract_type['contract_type_logo'];
+					$contract[$ckey]['contract_type_url'] = $contract_type['contract_type_url'];
+				}
+				else
+				{
+					unset($contract[$ckey]);
+				}
+
+
+
 			}
 		}
 

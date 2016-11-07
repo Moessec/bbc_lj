@@ -442,9 +442,10 @@ class Api_Trade_ReturnCtl extends Api_Controller
 		$order_return_id         = request_int("order_return_id");
 		$return_platform_message = request_string("return_platform_message");
 		$return                  = $this->Order_ReturnModel->getOne($order_return_id);
+		fb($return);
 
 		//根据order_id查找订单信息
-		$order_base = $this->Order_BaseModel->getOne($return['order_id']);
+		$order_base = $this->Order_BaseModel->getOne($return['order_number']);
 
 		$data['return_platform_message'] = $return_platform_message;
 		$data['return_state']            = Order_ReturnModel::RETURN_PLAT_PASS;
@@ -456,8 +457,10 @@ class Api_Trade_ReturnCtl extends Api_Controller
 
 		if ($return['order_goods_id'])
 		{
+			//商品退换情况为完成2
 			$goods_data['goods_refund_status'] = Order_GoodsModel::REFUND_COM;
 			$edit_flag                         = $this->Order_GoodsModel->editGoods($return['order_goods_id'], $goods_data);
+
 			check_rs($edit_flag, $rs_row);
 		}
 		else
@@ -467,30 +470,43 @@ class Api_Trade_ReturnCtl extends Api_Controller
 			check_rs($edit_flag, $rs_row);
 		}
 		$sum_data['order_refund_amount']         = $return['return_cash'];
-		$sum_data['order_commission_return_fee'] = $edit_flag = $this->Order_BaseModel->editBase($return['order_number'], $sum_data, true);
+		$sum_data['order_commission_return_fee'] = $return['return_commision_fee'];
+		$edit_flag = $this->Order_BaseModel->editBase($return['order_number'], $sum_data, true);
 		check_rs($edit_flag, $rs_row);
 
-		$key                  = Yf_Registry::get('paycenter_api_key');
-		$formvars             = array();
-		$formvars['user_id']  = $return['buyer_user_id'];
-		$formvars['user_account'] = $return['buyer_user_account'];
-		$formvars['seller_id'] = $return['seller_user_id'];
-		$formvars['seller_account'] = $return['seller_user_account'];
-		$formvars['amount']   = $return['return_cash'];
-		$formvars['order_id'] = $return['order_number'];
-		$formvars['goods_id'] = $return['order_goods_id'];
-		$formvars['uorder_id'] = $order_base['payment_other_number'];
-		$rs                   = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Info&met=refundTransfer&typ=json', Yf_Registry::get('paycenter_api_url')), $formvars);
+		if($edit_flag)
+		{
+			$key      = Yf_Registry::get('shop_api_key');
+			$url         = Yf_Registry::get('paycenter_api_url');
+			$shop_app_id = Yf_Registry::get('shop_app_id');
 
-		if ($rs['status'] == 200)
-		{
-			check_rs(true, $rs_row);
+			$formvars             = array();
+			$formvars['app_id']        = $shop_app_id;
+			$formvars['user_id']  = $return['buyer_user_id'];
+			$formvars['user_account'] = $return['buyer_user_account'];
+			$formvars['seller_id'] = $return['seller_user_id'];
+			$formvars['seller_account'] = $return['seller_user_account'];
+			$formvars['amount']   = $return['return_cash'];
+			$formvars['order_id'] = $return['order_number'];
+			$formvars['goods_id'] = $return['order_goods_id'];
+			$formvars['uorder_id'] = $order_base['payment_other_number'];
+
+
+			$rs                   = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=refundTransfer&typ=json', $url), $formvars);
+
+			if ($rs['status'] == 200)
+			{
+				check_rs(true, $rs_row);
+			}
+			else
+			{
+				check_rs(false, $rs_row);
+			}
+			$edit_flag = is_ok($rs_row);
 		}
-		else
-		{
-			check_rs(false, $rs_row);
-		}
-		$flag = is_ok($rs_row);
+
+
+
 		if ($edit_flag && $this->Order_ReturnModel->sql->commitDb())
 		{
 			$status = 200;

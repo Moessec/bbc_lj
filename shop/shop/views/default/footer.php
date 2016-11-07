@@ -51,6 +51,7 @@
 		</p>
 
 		<p class="copyright"><?=Web_ConfigModel::value('copyright')?></p>
+		<p class="statistics_code"><?php echo Web_ConfigModel::value('icp_number') ?></p>
 	</div>
 	</div>
 </div>

@@ -22,7 +22,7 @@ if(!empty($shop_base['is_renovation'])) {
                        <em><?=$shop_scores_count?></em><em>分</em></span>
                 </div>
                 <div class="sub">
-                    <div class="store-logo"><img src="<?=$shop_base['shop_logo']?>" alt="<?=$shop_base['shop_name']?>" title="<?=$shop_base['shop_name']?>"></div>
+                    <div class="store-logo"><img src="<?php if(empty($shop_base['shop_logo'])){ echo $this->web['shop_head_logo']; }else{echo $shop_base['shop_logo']; } ?>" alt="<?=$shop_base['shop_name']?>" title="<?=$shop_base['shop_name']?>"></div>
                     <!--店铺基本信息 S-->
                     <div class="bbc-info_reset">
                         <div class="title">
@@ -126,7 +126,7 @@ if(!empty($shop_base['is_renovation'])) {
                        <em><?=$shop_scores_count?></em><em>分</em></span>
                 </div>
                 <div class="sub">
-                    <div class="store-logo"><img src="<?=$shop_base['shop_logo']?>" alt="<?=$shop_base['shop_name']?>" title="<?=$shop_base['shop_name']?>"></div>
+                    <div class="store-logo"><img src="<?php if(empty($shop_base['shop_logo'])){ echo $this->web['shop_head_logo']; }else{echo $shop_base['shop_logo']; } ?>" alt="<?=$shop_base['shop_name']?>" title="<?=$shop_base['shop_name']?>"></div>
                     <!--店铺基本信息 S-->
                     <div class="bbc-info_reset">
                         <div class="title">
@@ -225,7 +225,6 @@ if(!empty($shop_base['is_renovation'])) {
               loop: true, 
               grabCursor: true,
               paginationClickable: true,
-              mousewheelControl: true,
               lazyLoading: true,
             });
           });
@@ -433,8 +432,18 @@ if(!empty($shop_base['is_renovation'])) {
 		}
 		else
 		{
-		    Public.tips.warning('<?=_('请先登录！')?>');
-            //$.dialog.alert('请先登录!');
+		    //Public.tips.warning('<?=_('请先登录！')?>');
+
+            login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+            callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+            login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+            window.location.href = login_url;
+
         }
 	}
 </script>
@@ -450,7 +459,7 @@ if(!empty($shop_base['is_renovation'])) {
 			  <?php if(!empty($service['pre'])){?>
 			   <?php foreach($service['pre'] as $key=>$val){ ?>
 			   <?php if(!empty($val['number'])){?>
-               <dd><span><?=$val['name']?></span><span>
+               <dd><span>
                   <span c_name="<?=$val['name']?>" member_id="9"><?=$val['tool']?></span>
                   </span></dd>
 				<?php }?>
@@ -464,7 +473,7 @@ if(!empty($shop_base['is_renovation'])) {
 			  <?php if(!empty($service['after'])){?> 
 			  <?php foreach($service['after'] as $key=>$val){ ?>
 			  <?php if(!empty($val['number'])){?>
-                <dd><span><?=$val['name']?></span><span>
+                <dd><span>
                   <span c_name="<?=$val['name']?>" member_id="9"><?=$val['tool']?></span>
                   </span></dd>  
 				<?php }?>

@@ -93,6 +93,32 @@ EOF;
 \$shop_wap_url = "http://m.{$shop_url_row['host']}/";
 ?>
 EOF;
+		
+		$shop_wap_api_url = str_replace('/index.php', '', $shop_url);
+		$shop_wap_host = 'm.' . $shop_url_row['host'];
+		
+		
+		$shop_wap_host = str_replace('.shop.', '.m.', $shop_url_row['host']);
+		$shop_wap_host = str_replace('.www.', '.m.', $shop_wap_host);
+
+		$wap_config_contents = <<<EOF
+var SiteUrl = "{$shop_url}";
+var ApiUrl  = "{$shop_wap_api_url}";
+var pagesize = 10;
+var WapSiteUrl = "http://{$shop_wap_host}";
+
+var IOSSiteUrl = "https://itunes.apple.com/us/app/yuanfeng021-b2b2c/id879996267?l=zh&ls=1&mt=8";
+var AndroidSiteUrl = "http://www.yuanfeng021.net/download/app/AndroidYfShop2014Moblie.apk";
+
+var UCenterApiUrl = "{$ucenter_url}";
+
+var ShopWapUrl = "http://{$shop_wap_host}";
+var PayCenterWapUrl = "{$paycenter_url}";
+var UCenterWapUrl = "{$ucenter_url}";
+
+var app_id = 102;
+EOF;
+		
 
 		if (!$plantform_url)
 		{
@@ -290,6 +316,10 @@ EOF;
 						file_put_contents($shop_config_file, $shop_config_contents);
 
 
+						//$wap_config_contents
+						$shop_wap_config_file = ROOT_PATH . '/../dev_shop_wap/js/config_' . $shop_wap_host . '.js';
+						file_put_contents($shop_wap_config_file, $wap_config_contents);
+						
 						$this->data->addBody(100, $db_config_row);
 					}
 					else

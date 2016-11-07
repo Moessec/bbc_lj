@@ -923,6 +923,41 @@ function delCookie(name){
                 document.cookie=name+"="+cval+";expires="+exp.toGMTString();
         }
 }
+function addCookie(name,value,expireHours){
+    var cookieString=name+"="+escape(value)+"; path=/";
+    //判断是否设置过期时间
+    if(expireHours>0){
+        var date=new Date();
+        date.setTime(date.getTime()+expireHours*3600*1000);
+        cookieString=cookieString+";expires="+date.toGMTString();
+    }
+    document.cookie=cookieString;
+}
+
+function getCookie(name){
+    var strcookie=document.cookie;
+    var arrcookie=strcookie.split("; ");
+    for(var i=0;i<arrcookie.length;i++){
+        var arr=arrcookie[i].split("=");
+        if(arr[0]==name)return unescape(arr[1]);
+    }
+    return null;
+}
+
+// 登陆后更新购物车
+function updateCookieCart(key) {
+    var cartlist = decodeURIComponent(getCookie('goods_cart'));
+    if (cartlist) {
+        $.ajax({
+            type:'post',
+            url:SITE_URL + '?ctl=Buyer_Cart&met=addCartRow&typ=json',
+            data:{cartlist:cartlist},
+            dataType:'json',
+            async:false
+        });
+        delCookie('goods_cart');
+    }
+}
 
 function loadSeccode() {
     $("#register_sms_captcha").val("");

@@ -836,6 +836,118 @@ class CartModel extends Cart
 		return isset($data['num']) ? $data['num'] : 0;
 	}
 
+	//将cookie中的购物车信息插入用户中
+	public function updateCookieCart($user_id = null)
+	{
+		$cart_list = $_COOKIE['goods_cart'];
+
+		$cart_list = explode('|',$cart_list);
+
+		foreach($cart_list as $key => $val)
+		{
+			$val = explode(',',$val);
+			if(count($val) > 1)
+			{
+				//将商品id与数量添加到购物车表中
+				$this->updateCart($user_id,$val[0],$val[1]);
+			}
+		}
+	}
+
+
+	public function updateCart($user_id=null, $goods_id=null, $goods_num=null)
+	{
+		if ($goods_id)
+		{
+			//查找商品的shop_id
+			$Goods_BaseModel = new Goods_BaseModel();
+			$goods_base      = $Goods_BaseModel->getOne($goods_id);
+
+			//查找店铺主人
+			$Shop_BaseModel = new Shop_BaseModel();
+			$shop = $Shop_BaseModel->getOne($goods_base['shop_id']);
+			if($shop['user_id'] == $user_id)
+			{
+				return false;
+			}
+
+			//判断该件商品是否为虚拟商品，若为虚拟商品则加入购物车失败
+			$Goods_CommonModel = new Goods_CommonModel();
+			$common_base = $Goods_CommonModel->getOne($goods_base['common_id']);
+			if($common_base['common_is_virtual'] != $Goods_CommonModel::GOODS_VIRTUAL)
+			{
+				$shop_id = $goods_base['shop_id'];
+
+				//判断购物车中是否存在该商品
+				$cart_cond             = array();
+				$cart_cond['user_id']  = $user_id;
+				$cart_cond['shop_id']  = $shop_id;
+				$cart_cond['goods_id'] = $goods_id;
+				$cart_row              = current($this->getByWhere($cart_cond));
+				$msg                   = '';
+
+
+				//查询该用户是否已购买过该商品
+				$Order_GoodsModel = new Order_GoodsModel();
+				$order_goods_cond['common_id']             = $goods_base['common_id'];
+				$order_goods_cond['buyer_user_id']         = $user_id;
+				$order_goods_cond['order_goods_status:!='] = Order_StateModel::ORDER_REFUND_FINISH;
+				$order_list                                = $Order_GoodsModel->getByWhere($order_goods_cond);
+
+				$order_goods_count         = count($order_list);
+
+				//如果有限购数量就计算还剩多少可购买的商品数量
+
+				$limit_num = $goods_base['goods_max_sale'];
+				if($goods_base['goods_max_sale'])
+				{
+					$limit_num = $goods_base['goods_max_sale'] - $order_goods_count;
+					$limit_num = $limit_num < 0 ? 0:$limit_num;
+				}
+
+				if ($cart_row)
+				{
+					//判断商品的个人购买数
+					//if (($cart_row['goods_num'] >= $goods_base['goods_max_sale'] || $cart_row['goods_num'] + $goods_num > $goods_base['goods_max_sale']) && $goods_base['goods_max_sale'] != 0)
+					if (($cart_row['goods_num'] >= $limit_num || $cart_row['goods_num'] + $goods_num > $limit_num) && $goods_base['goods_max_sale'] != 0)
+					{
+						return false;
+					}
+					else
+					{
+						$edit_row = array('goods_num' => $goods_num);
+						$flag     = $this->editCart($cart_row['cart_id'], $edit_row, true);
+					}
+					$cart_id = $cart_row['cart_id'];
+				}
+				else
+				{
+					$add_row              = array();
+					$add_row['user_id']   = $user_id;
+					$add_row['shop_id']   = $shop_id;
+					$add_row['goods_id']  = $goods_id;
+					$add_row['goods_num'] = $goods_num;
+
+					$flag    = $this->addCart($add_row, true);
+					$cart_id = $flag;
+				}
+			}
+			else
+			{
+				return false;
+			}
+
+
+		}
+		else
+		{
+			return false;
+		}
+
+
+		return true;
+	}
+
 }
 
 ?>

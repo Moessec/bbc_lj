@@ -12,7 +12,7 @@ include $this->view->getTplPath() . '/' . 'site_nav.php';
 <div class="wrap">
 	<div class="head_cont clearfix">
 		<div class="nav_left">
-			<a href="<?=Yf_Registry::get('url')?>" class="logo"><img src="<?=$this->view->img?>/logo.png"/></a>
+			<a href="<?=Yf_Registry::get('url')?>" class="logo"><img src="<?=$this->web['web_logo']?>"/></a>
 			<a href="#" class="download iconfont"></a>
 		</div>
 	</div>

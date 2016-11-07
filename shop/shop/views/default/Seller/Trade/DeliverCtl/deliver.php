@@ -222,7 +222,11 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
                     <?= $val['shipping_info']; ?>
                     <span>
                         <?php if ( $val['order_status'] == Order_StateModel::ORDER_PAYED ) { ?>
-                        <a href="<?= $val['send_url']; ?>" class="ncbtn-mini ncbtn-mint fr bbc_seller_btns"><i class="icon-truck"></i>设置发货</a>
+                            <?php if($val['order_refund_status'] == Order_StateModel::ORDER_REFUND_IN){ ?>
+                                <a href="<?= $val['retund_url']; ?>" class="ncbtn-mini ncbtn-mint fr bbc_seller_btns"><i class="icon-truck"></i>处理退款</a>
+                            <?php }else{ ?>
+                                <a href="<?= $val['send_url']; ?>" class="ncbtn-mini ncbtn-mint fr bbc_seller_btns"><i class="icon-truck"></i>设置发货</a>
+                            <?php }?>
                         <?php }elseif ( $val['order_status'] == Order_StateModel::ORDER_WAIT_CONFIRM_GOODS ) { ?>
                             <a href="javascript:void(0)" class="ncbtn-mini ncbtn-bittersweet ml5 fr bbc_seller_btns" dialog_id="seller_order_delay_receive"
                                data-order_id="<?= $val['order_id'] ?>"

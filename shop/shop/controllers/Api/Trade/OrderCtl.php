@@ -372,6 +372,126 @@ class Api_Trade_OrderCtl extends Api_Controller
 
 		$this->data->addBody(-140, array('re'=>$id.'1111'));
 	}
+    //erp下载订单
+    public function downOrder()
+    {
+
+//        if (!empty($action) && $action == 'virtual')
+//        {
+//            $cond_row['order_is_virtual'] = Order_BaseModel::ORDER_IS_VIRTUAL;
+//        }
+        if (request_string('end_created'))
+        {
+            $this->Order_BaseModel->sql->setWhere('order_create_time',request_string('end_created'),'<=');
+        }
+        if (request_string('start_created'))
+        {
+            $this->Order_BaseModel->sql->setWhere('order_create_time',request_string('start_created'),'>=');
+        }
+        $this->Order_BaseModel->sql->setWhere('order_status',array(8,9),'NOT IN');
+        $this->Order_BaseModel->sql->setLimit(0,999999999);
+        $Order_Base = $this->Order_BaseModel->getBase('*');
+        $Order_GoodsModel=new Order_GoodsModel();
+        $Order_GoodsModel->sql->setLimit(0,999999999);
+        $Order_Goods = $Order_GoodsModel->getGoods('*');
+        $Shop_BaseModel = new Shop_BaseModel();
+        $Shop_BaseModel->sql->setLimit(0,999999999);
+        $Shop_Base  = $Shop_BaseModel->getBase('*');
+        $User_InfoModel = new User_InfoModel();
+        $User_InfoModel->sql->setLimit(0,999999999);
+        $User_Info  = $User_InfoModel->getInfo('*');
+        $data=array();
+        if($Order_Base){
+            foreach($Order_Base as $key=>$value){
+                $data['items'][$key]['order_id']=$value['order_id'];
+                $data['items'][$key]['shop_id']=$value['shop_id'];
+                $data['items'][$key]['store_account']=$Shop_Base[$value['shop_id']]['shop_account'];
+                $data['items'][$key]['shop_name']=$value['shop_name'];
+                $data['items'][$key]['shop_mobile']=$Shop_Base[$value['shop_id']]['shop_tel'];
+                $data['items'][$key]['user_id']=$value['buyer_user_id'];
+                $data['items'][$key]['user_account']=$value['buyer_user_name'];
+                $data['items'][$key]['user_sex']=$User_Info[$value['buyer_user_id']]['user_sex'];
+                $data['items'][$key]['user_mobile']=$User_Info[$value['buyer_user_id']]['user_mobile'];
+                $data['items'][$key]['user_email']=$User_Info[$value['buyer_user_id']]['user_email'];
+                $data['items'][$key]['user_qq']=$User_Info[$value['buyer_user_id']]['user_qq'];
+                $data['items'][$key]['user_ww']=$User_Info[$value['buyer_user_id']]['user_ww'];
+                $data['items'][$key]['create_time']=strtotime($value['order_create_time']);
+                $data['items'][$key]['consignee_mobile']=$value['order_receiver_contact'];
+                $data['items'][$key]['consignee_tel']='';
+                $data['items'][$key]['consignee']=$value['order_receiver_name'];
+                $data['items'][$key]['order_delivery_address_province']='';
+                $data['items'][$key]['order_delivery_address_city']='';
+                $data['items'][$key]['order_delivery_address_county']='';
+                $data['items'][$key]['order_delivery_address_address']='';
+                if($value['order_receiver_address']){
+                    $order_delivery_address=explode(' ',$value['order_receiver_address']);
+                    if($order_delivery_address[0]=='北京' ||$order_delivery_address[0]=='天津' ||$order_delivery_address[0]=='上海' ||$order_delivery_address[0]=='重庆'){
+                        $data['items'][$key]['order_delivery_address_province']=$order_delivery_address[0];
+                        $data['items'][$key]['order_delivery_address_city']=$order_delivery_address[0];
+                        $data['items'][$key]['order_delivery_address_county']=$order_delivery_address[1];
+                        for($i=2;$i<count($order_delivery_address);$i++){
+                            $data['items'][$key]['order_delivery_address_address'].=$order_delivery_address[$i];
+                        }
+                    }else{
+                        $data['items'][$key]['order_delivery_address_province']=$order_delivery_address[0];
+                        $data['items'][$key]['order_delivery_address_city']=$order_delivery_address[1];
+                        $data['items'][$key]['order_delivery_address_county']=$order_delivery_address[2];
+                        for($i=3;$i<count($order_delivery_address);$i++){
+                            $data['items'][$key]['order_delivery_address_address'].=$order_delivery_address[$i];
+                        }
+                    }
+                }
+                $data['items'][$key]['des']=$value['order_message'];
+                $data['items'][$key]['payment_id']=$value['payment_id'];
+                $data['items'][$key]['payment_name']=$value['payment_name'];
+                $data['items'][$key]['order_goods_amount']=$value['order_goods_amount'];
+                $data['items'][$key]['order_discount_amount']=$value['order_discount_fee'];
+                $data['items'][$key]['order_payment']=$value['order_payment_amount'];
+                $data['items'][$key]['order_shipping_fee_amount']=$value['order_shipping_fee'];
+                $data['items'][$key]['order_shipping_fee']=$value['order_shipping_fee'];
+                $data['items'][$key]['voucher_id']=$value['voucher_id'];
+                $data['items'][$key]['voucher_number']=$value['voucher_code'];
+                $data['items'][$key]['voucher_price']=$value['voucher_price'];
+                $data['items'][$key]['order_point_add']=$value['order_points_add'];
+                $data['items'][$key]['payment_time']=strtotime($value['payment_time']);
+                if($value['order_status']==1){
+                    $data['items'][$key]['status']=1;
+                }else if($value['order_status']==2){
+                    $data['items'][$key]['status']=2;
+                }else if($value['order_status']==3){
+                    $data['items'][$key]['status']=2;
+                }else if($value['order_status']==4){
+                    $data['items'][$key]['status']=3;
+                }else if($value['order_status']==5){
+                    $data['items'][$key]['status']=4;
+                }else if($value['order_status']==6){
+                    $data['items'][$key]['status']=4;
+                }else if($value['order_status']==7){
+                    $data['items'][$key]['status']=0;
+                }
+                $data['items'][$key]['order_finished_time']=strtotime($value['order_finished_time']);
+                $data['items'][$key]['discounts']=$value['order_discount_fee'];
+                $data['items'][$key]['order_type']=$value['order_is_virtual'];
+                $goods_msg=array();
+                foreach($Order_Goods as $k=>$v){
+                    if($v['order_id']==$value['order_id']){
+                        $goods_msg[$k]['id']=$v['order_goods_id'];
+                        $goods_msg[$k]['order_id']=$v['order_id'];
+                        $goods_msg[$k]['setmeal']=$v['spec_id'];
+                        $goods_msg[$k]['pid']=$v['goods_id'];
+                        $goods_msg[$k]['name']=$v['goods_name'];
+                        $goods_msg[$k]['pcatid']=$v['goods_class_id'];
+                        $goods_msg[$k]['price']=$v['goods_price'];
+                        $goods_msg[$k]['num']=$v['order_goods_num'];
+                        $goods_msg[$k]['pic']=$v['goods_image'];
+                        $goods_msg[$k]['status']=$data['items'][$key]['status'];
+                    }
+                }
+                $data['items'][$key]['goods_msg']=$goods_msg;
+            }
+        }
+        $this->data->addBody(-140, $data);
+    }
 }
 
 ?>

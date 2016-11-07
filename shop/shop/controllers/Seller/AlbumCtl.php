@@ -27,22 +27,23 @@ class Seller_AlbumCtl extends Seller_Controller
 		}
 
 		parent::__construct($ctl, $met, $typ);
-
+		
 		if (!request_string('plantform') && Perm::$login && Perm::$shopId)
 		{
 			if (Perm::$shopId && Perm::$userId)
 			{
-				$dir_path = sprintf('/media/%d/%d', Perm::$userId, Perm::$shopId);
+				$dir_path = sprintf('/media/%s/%d/%d', Yf_Registry::get('server_id'), Perm::$userId, Perm::$shopId);
 			}
 			else
 			{
-				$dir_path = sprintf('/media/%d', Perm::$userId);
+				$dir_path = sprintf('/media/%s/%d', Yf_Registry::get('server_id'), Perm::$userId);
 			}
 		}
 		else
 		{
-			$dir_path = '/media/plantform';
+			$dir_path = '/media/plantform/' . Yf_Registry::get('server_id');
 		}
+		
 
 		$Web_ConfigModel    = new Web_ConfigModel();
 		$image_allow_ext    = $Web_ConfigModel->getConfigValue('image_allow_ext');

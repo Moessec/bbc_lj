@@ -112,6 +112,21 @@ class Transport_TypeModel extends Transport_Type
 		unset($cart['count']);
 		$data           = array();
 		$Shop_BaseModel = new Shop_BaseModel();
+
+		if(!$city)
+		{
+			foreach ($cart as $key => $val)
+			{
+
+						$data[$key]['cost'] = 0;
+						$data[$key]['con']  = '';
+			}
+
+			return $data;
+		}
+
+
+
 		foreach ($cart as $key => $val)
 		{
 			//获取店铺的免运费设置

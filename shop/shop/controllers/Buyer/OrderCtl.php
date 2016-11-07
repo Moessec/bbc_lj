@@ -195,7 +195,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$user_points        = Web_ConfigModel::value("points_recharge");//订单每多少获取多少积分
 			$user_points_amount = Web_ConfigModel::value("points_order");//订单每多少获取多少积分
 
-			if ($order_payment_amount / $user_points > $user_points_amount)
+			if ($order_payment_amount / $user_points < $user_points_amount)
 			{
 				$user_points = floor($order_payment_amount / $user_points);
 			}
@@ -1042,6 +1042,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$formvars['seller_name']		   = $order_row['seller_user_name'];
 			$formvars['order_state_id']       = $order_row['order_status'];
 			$formvars['order_payment_amount'] = $order_row['order_payment_amount'];
+			$formvars['order_commission_fee']  = $order_row['order_commission_fee'];
 			$formvars['trade_remark']         = $order_row['order_message'];
 			$formvars['trade_create_time']    = $order_row['order_create_time'];
 			$formvars['trade_title']			= $trade_title;		//商品名称 - 标题
@@ -1053,6 +1054,12 @@ class Buyer_OrderCtl extends Buyer_Controller
 			if($rs['status'] == 200)
 			{
 				$Order_BaseModel->editBase($order_id,array('payment_number' => $rs['data']['union_order']));
+
+				$flag = $flag && true;
+			}
+			else
+			{
+				$flag = $flag && false;
 			}
 
 			$uprice += $order_row['order_payment_amount'];
@@ -1087,16 +1094,22 @@ class Buyer_OrderCtl extends Buyer_Controller
 		if ($rs['status'] == 200)
 		{
 			$uorder = $rs['data']['uorder'];
+
+			$flag = $flag && true;
 		}
 		else
 		{
 			$uorder = '';
+
+			$flag = $flag && false;
 		}
 
 		if ($flag && $this->tradeOrderModel->sql->commitDb())
 		{
 			$status = 200;
 			$msg    = _('success');
+
+			$data = array('uorder' => $uorder);
 		}
 		else
 		{
@@ -1104,8 +1117,25 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$m      = $this->tradeOrderModel->msg->getMessages();
 			$msg    = $m ? $m[0] : _('failure');
 			$status = 250;
+
+			//订单提交失败，将paycenter中生成的订单删除
+			if($uorder)
+			{
+				$key      = Yf_Registry::get('shop_api_key');
+				$url         = Yf_Registry::get('paycenter_api_url');
+				$shop_app_id = Yf_Registry::get('shop_app_id');
+				$formvars = array();
+
+				$formvars['uorder']    = $uorder;
+				$formvars['app_id']        = $shop_app_id;
+
+				$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=delUnionOrder&typ=json', $url), $formvars);
+			}
+
+			$data = array();
 		}
-		$data = array('uorder' => $uorder);
+
+		fb($flag);
 		$this->data->addBody(-140, $data, $msg, $status);
 
 	}
@@ -1839,7 +1869,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 				$user_points        = Web_ConfigModel::value("points_recharge");//订单每多少获取多少积分
 				$user_points_amount = Web_ConfigModel::value("points_order");//订单每多少获取多少积分
 
-				if ($order_payment_amount / $user_points > $user_points_amount)
+				if ($order_payment_amount / $user_points < $user_points_amount)
 				{
 					$user_points = floor($order_payment_amount / $user_points);
 				}

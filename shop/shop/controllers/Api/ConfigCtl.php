@@ -396,7 +396,8 @@ class Api_ConfigCtl extends Api_Controller
 
 		//其它全局变量
 		$config_rows = array();
-		if (is_file(INI_PATH . '/global_' . Yf_Registry::get('server_id') . '.ini.php'))
+
+		if (true || is_file(INI_PATH . '/global_' . Yf_Registry::get('server_id') . '.ini.php'))
 		{
 			$file = INI_PATH . '/global_' . Yf_Registry::get('server_id') . '.ini.php';
 		}

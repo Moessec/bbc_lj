@@ -8,7 +8,7 @@ if (!defined('ROOT_PATH'))
 /**
  * @author     Xinze <xinze@live.cn>
  */
-class Seller_Service_GeneralCtl extends Seller_Controller
+class Seller_Statics_GeneralCtl extends Seller_Controller
 {
 
 	public $orderBaseModel  = null;

@@ -438,6 +438,7 @@ class Order_BaseModel extends Order_Base
 	 *  zhuyt
 	 *
 	 * 结算订单表
+	 * 10/22  修改订单中不再计算退款金额，退款金额通过退货单进行计算
 	 */
 	public function settleOrder($cond_row = array(), $order_row = array())
 	{
@@ -460,16 +461,16 @@ class Order_BaseModel extends Order_Base
 			$order_amount += $val['order_payment_amount'];
 			$shipping_amount += $val['order_shipping_fee'];
 			$commission_amount += $val['order_commission_fee'];
-			$return_amount += $val['order_refund_amount'];
-			$commission_return_amount += $val['order_commission_return_fee'];
+			//$return_amount += $val['order_refund_amount'];
+			//$commission_return_amount += $val['order_commission_return_fee'];
 		}
 
 		$res = array(
 			'order_amount' => $order_amount,
 			'shipping_amount' => $shipping_amount,
 			'commission_amount' => $commission_amount,
-			'return_amount' => $return_amount,
-			'commission_return_amount' => $commission_return_amount,
+			//'return_amount' => $return_amount,
+			//'commission_return_amount' => $commission_return_amount,
 		);
 		return $res;
 
@@ -525,6 +526,7 @@ class Order_BaseModel extends Order_Base
 			//收货人信息 名字 + 联系方式 + 地址 &nbsp
 			$data['items'][$key]['receiver_info'] = $val['order_receiver_name'] . "&nbsp" . $val['order_receiver_contact'] . "&nbsp" . $val['order_receiver_address'];
 
+
 			//发货人信息
 			if (empty($val['order_seller_name']))
 			{
@@ -561,8 +563,25 @@ class Order_BaseModel extends Order_Base
 			}
 			elseif ($val['order_status'] == Order_StateModel::ORDER_WAIT_PREPARE_GOODS || $val['order_status'] == Order_StateModel::ORDER_PAYED)
 			{
-				$send_url = $data['items'][$key]['send_url'];
-				$set_html = "<a class=\"ncbtn ncbtn-mint mt10 bbc_seller_btns\" href=\"$send_url\"><i class=\"icon-truck\"></i>设置发货</a>";
+				if($val['order_refund_status'] == Order_StateModel::ORDER_REFUND_IN)
+				{
+					//查找退款单
+					$Order_ReturnModel = new Order_ReturnModel();
+					$order_retuen_cond['order_number'] = $val['order_id'];
+					$order_retuen_cond['return_goods_return'] = Order_ReturnModel::RETURN_GOODS_ISRETURN;
+					$return_id = $Order_ReturnModel->getKeyByWhere($order_retuen_cond);
+					$return_id = $return_id['0'];
+					$data['items'][$key]['retund_url'] = $url . '?ctl=Seller_Service_Return&met=orderReturn&act=detail&id=' . $return_id;
+
+					$retund_url = $url . '?ctl=Seller_Service_Return&met=orderReturn&act=detail&id=' . $return_id;
+					$set_html = "<a class=\"ncbtn ncbtn-mint mt10 bbc_seller_btns\" href=\"$retund_url\"><i class=\"icon-truck\"></i>处理退款</a>";
+				}
+				else
+				{
+					$send_url = $data['items'][$key]['send_url'];
+					$set_html = "<a class=\"ncbtn ncbtn-mint mt10 bbc_seller_btns\" href=\"$send_url\"><i class=\"icon-truck\"></i>设置发货</a>";
+				}
+
 
 				$data['items'][$key]['set_html'] = $set_html;
 			}
@@ -578,7 +597,7 @@ class Order_BaseModel extends Order_Base
 			$goods_cat_num = 0;
 			foreach ($data['items'][$key]['goods_list'] as $k => $v)
 			{
-				$data['items'][$key]['goods_list'][$k]['goods_link'] = $url . '?ctl=Goods_Goods&met=goods&gid=' . $v['goods_id'];//商品链接
+				$data['items'][$key]['goods_list'][$k]['goods_link'] = $url . '?ctl=Goods_Goods&met=snapshot&goods_id=' . $v['goods_id'] .'&order_id=' .$val['order_id'];//商品链接
 				$goods_cat_num += 1;
 			}
 			//商品种类数
@@ -603,7 +622,7 @@ class Order_BaseModel extends Order_Base
 		{
 			$data['items'][$key]['order_stauts_text']      = $Order_StateModel->orderState[$val['order_status']];
 			$data['items'][$key]['order_from_text']        = $Order_StateModel->orderFrom[$val['order_from']];
-			$data['items'][$key]['evaluation_status_text'] = $Order_StateModel->evaluationStatus[$val['evaluation_status']];
+			$data['items'][$key]['evaluation_status_text'] = $Order_StateModel->evaluationStatus[$val['order_buyer_evaluation_status']];
 		}
 
 		return $data;
@@ -727,7 +746,7 @@ class Order_BaseModel extends Order_Base
 				$data['order_payed']              = "current";
 				$data['order_wait_confirm_goods'] = "current";
 				$data['order_received']           = "current";
-				if ($data['order_buyer_evaluation_status'] == Order_BaseModel::BUYER_EVALUATE_NO)
+				if ($data['order_buyer_evaluation_status'] != Order_BaseModel::BUYER_EVALUATE_NO)
 				{
 					$data['order_evaluate'] = "current";
 				}
@@ -978,7 +997,7 @@ class Order_BaseModel extends Order_Base
 		$user_points        = Web_ConfigModel::value("points_recharge");//订单每多少获取多少积分
 		$user_points_amount = Web_ConfigModel::value("points_order");//订单每多少获取多少积分
 
-		if ($order_payment_amount / $user_points > $user_points_amount)
+		if ($order_payment_amount / $user_points < $user_points_amount)
 		{
 			$user_points = floor($order_payment_amount / $user_points);
 		}

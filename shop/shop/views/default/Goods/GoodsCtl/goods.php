@@ -678,6 +678,15 @@ include $this->view->getTplPath() . '/' . 'header.php';
         var common_id = <?=($goods_detail['goods_base']['common_id'])?>;
         var shop_id = <?=($shop_detail['shop_id'])?>;
 
+        function contains(arr, str) {//检测goods_id是否存入
+			var i = arr.length;
+			while (i--) {
+				if (arr[i] == str) {
+					return true;
+				}
+			}
+			return false;
+		}
 
 
         $("#add_consult").bind("click", function ()
@@ -695,8 +704,17 @@ include $this->view->getTplPath() . '/' . 'header.php';
             }
             else
             {
-                Public.tips.warning('<?=_('请先登录！')?>');
-                //$.dialog.alert('请先登录!');
+                //Public.tips.warning('<?=_('请先登录！')?>');
+                login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+			    callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+			    login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+                window.location.href = login_url;
+
             }
         });
 
@@ -757,8 +775,38 @@ include $this->view->getTplPath() . '/' . 'header.php';
             }
             else
             {
-                Public.tips.warning('<?=_('请先登录！')?>');
-                //$.dialog.alert('请先登录!');
+                /*Public.tips.warning('<?=_('请先登录！')?>');
+
+                var goods_info = decodeURIComponent(getCookie('goods_cart'));
+
+				if (goods_info == null) {
+					goods_info = '';
+				}
+				if(!goods_info){
+					goods_info = goods_id+','+goods_num;
+				}else{
+					var goodsarr = goods_info.split('|');
+					console.info(goodsarr);
+					for (var i=0; i<goodsarr.length; i++) {
+						var arr = goodsarr[i].split(',');
+						if(contains(arr,goods_id)){
+							return false;
+						}
+					}
+					goods_info+='|'+goods_id+','+goods_num;
+				}
+				// 加入cookie
+				addCookie('goods_cart',goods_info);*/
+
+				login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+			    callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+			    login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+                window.location.href = login_url;
             }
         });
 
@@ -785,8 +833,17 @@ include $this->view->getTplPath() . '/' . 'header.php';
 
 	        }else
 	        {
-	            Public.tips.warning('<?=_('请先登录！')?>');
-                //$.dialog.alert('请先登录!');
+	            //Public.tips.warning('<?=_('请先登录！')?>');
+
+	            login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+			    callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+			    login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+                window.location.href = login_url;
             }
 
         })
@@ -838,8 +895,44 @@ include $this->view->getTplPath() . '/' . 'header.php';
 	            });
 	        }else
 	        {
-	             Public.tips.warning('<?=_('请先登录！')?>');
-                //$.dialog.alert('请先登录!');
+	             /*Public.tips.warning('<?=_('请先登录！')?>');
+
+                var goods_info = decodeURIComponent(getCookie('goods_cart'));
+
+				if (goods_info == null) {
+					goods_info = '';
+				}
+				if(!goods_info){
+					goods_info = goods_id+','+$("#nums").val();
+				}else{
+					var goodsarr = goods_info.split('|');
+					console.info(goodsarr);
+					for (var i=0; i<goodsarr.length; i++) {
+						var arr = goodsarr[i].split(',');
+						if(contains(arr,goods_id)){
+							return false;
+						}
+					}
+					goods_info+='|'+goods_id+','+$("#nums").val();
+				}
+				// 加入cookie
+				addCookie('goods_cart',goods_info);*/
+
+
+
+				//直接跳转到登录页面
+                //alert(encodeURIComponent(window.location.href));
+
+
+                login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+			    callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+			    login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+                window.location.href = login_url;
             }
 
         })
@@ -877,8 +970,17 @@ include $this->view->getTplPath() . '/' . 'header.php';
 		}
 		else
 		{
-		       Public.tips.warning('<?=_('请先登录！')?>');
-            //$.dialog.alert('请先登录!');
+		       //Public.tips.warning('<?=_('请先登录！')?>');
+		       login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+			    callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+			    login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+                window.location.href = login_url;
+
         }
 
 	}
@@ -903,8 +1005,18 @@ include $this->view->getTplPath() . '/' . 'header.php';
 		}
 		else
 		{
-		    Public.tips.warning('<?=_('请先登录！')?>');
-            //$.dialog.alert('请先登录!');
+		    //Public.tips.warning('<?=_('请先登录！')?>');
+
+		    login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+			callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+			login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+            window.location.href = login_url;
+
         }
 	}
 

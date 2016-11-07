@@ -262,7 +262,14 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
                             }
                             else
                             {
-                                Public.tips.error('<?=_('操作失败！')?>');
+                                if(a.msg == 'failure')
+                                {
+                                    Public.tips.error('<?=_('操作失败！')?>');
+                                }
+                                else
+                                {
+                                    Public.tips.error(a.msg);
+                                }
                             }
                         }
                     });

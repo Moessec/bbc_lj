@@ -32,18 +32,17 @@ class UploadCtl extends Yf_AppController
 		{
 			if (Perm::$shopId && Perm::$userId)
 			{
-				$dir_path = sprintf('/media/%d/%d', Perm::$userId, Perm::$shopId);
+				$dir_path = sprintf('/media/%s/%d/%d', Yf_Registry::get('server_id'), Perm::$userId, Perm::$shopId);
 			}
 			else
 			{
-				$dir_path = sprintf('/media/%d', Perm::$userId);
+				$dir_path = sprintf('/media/%s/%d', Yf_Registry::get('server_id'), Perm::$userId);
 			}
 		}
 		else
 		{
-			$dir_path = '/media/plantform';
+			$dir_path = '/media/plantform/' . Yf_Registry::get('server_id');
 		}
-
 
 		$Web_ConfigModel    = new Web_ConfigModel();
 		$image_allow_ext    = $Web_ConfigModel->getConfigValue('image_allow_ext');
@@ -544,6 +543,54 @@ class UploadCtl extends Yf_AppController
 		$data['page_nav']   = $page_nav;
 
 		$this->data->addBody(-140, $data, 'success', 200);
+	}
+
+	public function uploadGoodsExcel()
+	{
+		$config = array(
+			"pathFormat" => $this->config['filePathFormat'],
+			"maxSize" => $this->config['fileMaxSize'],
+			"allowFiles" => array(".xls", ".xlsx")
+		);
+
+		$field_name = $this->config['imageFieldName'];
+
+		$up = new Yf_Uploader($field_name, $config, "upload");
+
+		$info = $up->getFileInfo();
+		
+		$this->data->addBody(-140, $info, 'success', 200);
+	}
+
+	/**
+	 * catch image by excel
+	 * @param $image_url
+	 * @return array
+	 */
+	public static function catchImageByExcel( $image_url )
+	{
+		set_time_limit(0);
+
+		/* 上传配置 */
+		$dir_path = sprintf('/media/%s/%d/%d', Yf_Registry::get('server_id'), Perm::$userId, Perm::$shopId);
+
+		$config = array(
+			"pathFormat" => $dir_path . '/image/{yyyy}{mm}{dd}/{time}{rand:6}',
+			"maxSize" => 2048000,
+			"allowFiles" => array(
+				'.png',
+				'.jpg',
+				'.jpeg',
+				'.gif',
+				'.bmp',
+			),
+			"oriName" => "remote.png"
+		);
+		
+		$item = new Yf_Uploader($image_url, $config, "remote");
+		$info = $item->getFileInfo();
+
+		return $info;
 	}
 }
 

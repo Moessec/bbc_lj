@@ -55,10 +55,12 @@ $(document).ready(function(){
 
 	}
 
-	var ww=$(document).height()-560;
+	var ww=$(document).height()-375;
+	var top;
+	top=$(window).scrollTop()+$(window).height();
+	top>=ww ? $(".pay_fix").css("position","relative") : $(".pay_fix").css("position","fixed");
 	$(window).scroll(function (){
-		var top=$(window).scrollTop()+$(window).height();
-		// console.log(top,ww);
+		top=$(window).scrollTop()+$(window).height();
 		if(top>=ww){
 			$(".pay_fix").css("position","relative");
 		}else{
@@ -361,15 +363,17 @@ $(document).ready(function(){
 			address_phone   = $(".add_choose").find(".phone").find("span").html();
 
 		//3.获取商品信息（商品id，商品备注）
-			var cart_id =[];//定义一个数组
+			var point_cart_id =[];//定义一个数组
 			$("input[name='cart_id']").each(function(){
-				cart_id.push($(this).val());//将值添加到数组中
+				point_cart_id.push($(this).val());//将值添加到数组中
 			});
             remark = $("input[name='remarks']").val();
 
+
 		$.ajax({
+			type:'POST',
 			url: SITE_URL  + '?ctl=Points&met=addPointsOrder&typ=json',
-			data:{receiver_name:address_contact,receiver_address:address_address,receiver_phone:address_phone,cart_id:cart_id,remark:remark},
+			data:{receiver_name:address_contact,receiver_address:address_address,receiver_phone:address_phone,point_cart_id:point_cart_id,remark:remark},
 			dataType: "json",
 			contentType: "application/json;charset=utf-8",
 			async:false,

@@ -37,7 +37,7 @@ $.extend($.fn,{
                             sec: "0",
                             mini: "0",
                             hour: "0",
-                            day: "0",
+                            day: "0"
                         };
                         if(mss > 0)
 						{

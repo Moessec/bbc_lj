@@ -170,8 +170,18 @@ include $this->view->getTplPath() . '/' . 'site_nav.php';
 		}
 		else
 		{
-			Public.tips.warning('<?=_('请先登录！')?>');
-			//$.dialog.alert('请先登录!');
+			//Public.tips.warning('<?=_('请先登录！')?>');
+
+			login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+			callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+			login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+			window.location.href = login_url;
+
 		}
 
 	}

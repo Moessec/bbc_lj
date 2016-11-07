@@ -340,6 +340,7 @@ class Buyer_Service_ReturnCtl extends Buyer_Controller
 		$field['buyer_user_id']       = $order['buyer_user_id'];
 		$field['buyer_user_account']  = $order['buyer_user_name'];
 		$field['return_add_time']     = get_date_time();
+		$field['order_is_virtual']    = $order['order_is_virtual'];
 
 
 		$return_limit = $this->orderReturnModel->getByWhere(array(
@@ -398,7 +399,29 @@ class Buyer_Service_ReturnCtl extends Buyer_Controller
 			}
 			if ($order['order_commission_fee'] && $goods['order_goods_commission'])
 			{
-				$field['return_commision_fee'] = floor(($field['return_cash'] / $price) * (($order['order_commission_fee'] - $commission_cash) / $order['order_commission_fee']) * $goods['order_goods_commission'] * 100) / 100;
+				/*echo $field['return_cash'] . '---' ;//47.88
+				echo $price .'----';//58
+				echo $order['order_commission_fee'] .'---';//0.00
+				echo $commission_cash.'-----';//0
+				echo $order['order_commission_fee'].'-----';//0.00
+				echo $goods['order_goods_commission'].'----';//0.00*/
+				fb($field['return_cash']);
+				fb($price);
+				fb($order['order_commission_fee']);
+				fb($commission_cash);
+
+
+				if($order['order_commission_fee'] > 0 )
+				{
+					$field['return_commision_fee'] = floor(($field['return_cash'] / $price) * (($order['order_commission_fee'] - $commission_cash) / $order['order_commission_fee']) * $goods['order_goods_commission'] * 100) / 100;
+				}
+				else
+				{
+					$field['return_commision_fee'] = floor(($field['return_cash'] / $price) * (($order['order_commission_fee'] - $commission_cash) / 1) * $goods['order_goods_commission'] * 100) / 100;
+				}
+
+				fb($field['return_commision_fee']);
+
 			}
 		}
 		else
@@ -408,7 +431,8 @@ class Buyer_Service_ReturnCtl extends Buyer_Controller
 				$field['return_commision_fee'] = floor(($field['return_cash'] / $order['order_payment_amount']) * $order['order_commission_fee'] * 100) / 100;
 			}
 		}
-		if (empty($return) && ($cash_limit >= $field['return_cash']) && ($field['return_cash'] > 0) && $return_flag)
+
+		if (empty($return) && (bccomp($cash_limit,$field['return_cash'] < 0)) && ($field['return_cash'] > 0) && $return_flag)
 		{
 			if ($order['buyer_user_id'] == Perm::$userId && $flag2)
 			{
@@ -435,7 +459,7 @@ class Buyer_Service_ReturnCtl extends Buyer_Controller
 
 				$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=returnMoney&typ=json', $url), $formvars);*/
 
-
+				fb($goods_id);
 				if ($goods_id)
 				{
 					$goods_field['goods_refund_status'] = Order_GoodsModel::REFUND_IN;
@@ -536,12 +560,23 @@ class Buyer_Service_ReturnCtl extends Buyer_Controller
 		$edit_flag                               = $this->orderBaseModel->editBase($order_id, $sum_data, true);
 		check_rs($edit_flag, $rs_row);
 
-		$key                  = Yf_Registry::get('paycenter_api_key');
+		$key      = Yf_Registry::get('shop_api_key');
+		$url         = Yf_Registry::get('paycenter_api_url');
+		$shop_app_id = Yf_Registry::get('shop_app_id');
+
 		$formvars             = array();
+		$formvars['app_id']        = $shop_app_id;
 		$formvars['user_id']  = $order['buyer_user_id'];
+		$formvars['user_account'] = $order['buyer_user_name'];
+		$formvars['seller_id'] = $order['seller_user_id'];
+		$formvars['seller_account'] = $order['seller_user_name'];
 		$formvars['amount']   = $order['order_payment_amount'];
 		$formvars['order_id'] = $order_id;
-		$rs                   = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=refundTransfer&typ=json', Yf_Registry::get('paycenter_api_url')), $formvars);
+		//$formvars['goods_id'] = $return['order_goods_id'];
+		$formvars['uorder_id'] = $order['payment_number'];
+
+
+		$rs                   = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=refundTransfer&typ=json', $url), $formvars);
 
 		if ($rs['status'] == 200)
 		{

@@ -19,7 +19,7 @@ class Yf_Page
 		foreach($a_url as $key=>$v)
 		{
 			if(!empty($v)&&!is_array($v))
-				$a_url[$key]=urlencode($v);
+				$a_url[$key]=urlencode(htmlspecialchars($v));
 		}
 
 		if (isset($a_url['totalRows']))

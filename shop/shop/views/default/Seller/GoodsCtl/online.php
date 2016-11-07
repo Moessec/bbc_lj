@@ -7,6 +7,7 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
 ?>
 <script type='text/jade' id='thrid_opt'>
 				<a class="bbc_seller_btns button add button_blue" href="<?= Yf_Registry::get('index_page') ?>?ctl=Seller_Goods&met=add&typ=e"><i class="iconfont icon-jia"></i>发布新商品</a>
+				<a class="bbc_seller_btns button add button_blue" id="import_goods" style="margin-right: 111px;" href="javascript:void(0)"><i class="iconfont icon-jia"></i>商品导入</a>
 
 </script>
 <script type="text/javascript">
@@ -17,7 +18,7 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
 </script>
 <div class="search fn-clear">
     <form id="search_form" class="search_form_reset" method="get" action="<?= Yf_Registry::get('url') ?>">
-        <input class="text w150" type="text" name="key" value="<?=($key?$key:'');?>" placeholder="请输入商品名称"/>
+        <input class="text w150" type="text" name="goods_key" value="<?=($key?$key:'');?>" placeholder="请输入商品名称"/>
         <input type="hidden" name="ctl" value="Seller_Goods">
         <input type="hidden" name="met" value="<?= $met ? $met : 'online'; ?>">
         <a class="button refresh" href="index.php?ctl=Seller_Goods&met=<?= $met ? $met : 'online'; ?>&typ=e"><i
@@ -270,6 +271,22 @@ if (!empty($goods)){
     {
         $(this).removeClass("hover");
     });
+</script>
+
+<script type="text/javascript">
+
+    $(function (){
+        $('#import_goods').on('click', function (){
+            $.dialog({
+                width: 560,
+                height: 300,
+                title: "批量导入",
+                content: "url:" + SITE_URL + '?ctl=Seller_Goods&met=importGoods&typ=e',
+                lock: !0
+            })
+        })
+    })
+
 </script>
 <?php
 include $this->view->getTplPath() . '/' . 'seller_footer.php';

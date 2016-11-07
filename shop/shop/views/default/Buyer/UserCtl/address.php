@@ -259,7 +259,7 @@ var data    = eval(<?php echo json_encode($data);?>);
 	<td><?php if($val['user_address_default']=='1'){?><i class="iconfont icon-icoselectturn greenxue" style="font-size: 18px;"></i><?=_('默认地址')?><?php } ?></td>
         <td class="ncm-table-handle">
         <span class="edit"><a  class="btn-bluejeans" dialog_id="my_address_edit" dialog_width="550" dialog_title="<?=_('编辑地址')?>"  href="<?= Yf_Registry::get('url') ?>?ctl=Buyer_User&met=address&id=<?=$val['user_address_id'] ?>&act=edit"><i class="iconfont icon-zhifutijiao"></i><p><a><?=_('编辑')?></a></p></a></span>
-		<span class="del"><a class="btn-grapefruit" data-param="{'ctl':'Buyer_User','met':'delAddress','id':'<?=$val['user_address_id']?>'}" href="javascript:void(0)"><i class="iconfont icon-lajitong"></i><p><a><?=_('删除')?></a></p></a></span>
+		<span class="del"><a class="btn-grapefruit" data-param="{'ctl':'Buyer_User','met':'delAddress','id':'<?=$val['user_address_id']?>'}" href="javascript:void(0)"><i class="iconfont icon-lajitong"></i><p><a data-param="{'ctl':'Buyer_User','met':'delAddress','id':'<?=$val['user_address_id']?>'}" href="javascript:void(0)"><?=_('删除')?></a></p></a></span>
         </td>
     </tr>
     <?php }?>

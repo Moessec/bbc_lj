@@ -72,7 +72,7 @@ if($order_list)
 		$user_points        = Web_ConfigModel::value("points_recharge");//订单每多少获取多少积分
 		$user_points_amount = Web_ConfigModel::value("points_order");//订单每多少获取多少积分
 
-		if ($order_payment_amount / $user_points > $user_points_amount)
+		if ($order_payment_amount / $user_points < $user_points_amount)
 		{
 			$user_points = floor($order_payment_amount / $user_points);
 		}

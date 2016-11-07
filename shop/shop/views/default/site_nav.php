@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=8">
+	<meta http-equiv="X-UA-Compatible" content="IE=11">
 	<meta name="description" content="<?php if($this->description){?><?=$this->description ?><?php }?>" />
     <meta name="Keywords" content="<?php if($this->keyword){?><?=$this->keyword ?><?php }?>" />
 	<title><?php if($this->title){?><?=$this->title ?><?php }else{?><?= Web_ConfigModel::value('site_name') ?><?php }?></title>
@@ -20,6 +20,7 @@
 	<script type="text/javascript" src="<?= $this->view->js_com ?>/plugins/jquery.cookie.js"></script>
 	<script type="text/javascript" src="<?= $this->view->js ?>/nav.js"></script>
 	<script type="text/javascript" src="<?= $this->view->js_com ?>/jquery.nicescroll.js"></script>
+	<script type="text/javascript" src="<?=$this->view->js?>/decoration/common.js"></script>
 	<script type="text/javascript" src="<?= $this->view->js ?>/base.js"></script>
 	<script type="text/javascript">
 		var BASE_URL = "<?=Yf_Registry::get('base_url')?>";
@@ -38,6 +39,8 @@
 		} catch (e)
 		{
 		}
+
+		//updateCookieCart();
 	</script>
 </head>
 <body>

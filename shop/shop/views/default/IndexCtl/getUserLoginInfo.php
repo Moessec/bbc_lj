@@ -16,8 +16,8 @@ $data[] = $d;
 	<span class="iconfont icon-icondenglu"></span>请登录</a></p><p><a class="register" href="' . Yf_Registry::get('url') . '?ctl=Login&met=reg"><i class="iconfont icon-icoedit"></i>免费注册</a></p>' : '<p style="overflow:hidden;"><a href="./index.php?ctl=Buyer_Index&met=index">' . $this->userInfo['user_name'] . '</a></p>' ?>
 
 	<div class="prom">
-		<p><span class="iconfont icon-tuihuobaozhang"></span><a href=""><?=_('退货保障')?></a></p>
-		<p><span class="iconfont icon-shandiantuikuan"></span><a href=""><?=_('极速退款')?></a></p>
+		<p><span class="iconfont icon-tuihuobaozhang"></span><?=_('退货保障')?></p>
+		<p><span class="iconfont icon-shandiantuikuan"></span><?=_('极速退款')?></p>
 	</div>
 	<div class="cooperation">
 		<h3><?=_('招商入驻')?></h3>

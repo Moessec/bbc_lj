@@ -83,23 +83,31 @@ class Api_User_GradeCtl extends Yf_AppController
 	public function editGradeLog()
 	{
 		$edit_shop_row = request_row("gr");
-		
+
 		foreach ($edit_shop_row as $val)
 		{
-			$user_grade_id = $val['user_grade_id'];
-			$flag          = $this->userGradeModel->editGrade($user_grade_id, $val);
-		}
-		if ($flag === false)
-		{
-			$status = 250;
-			$msg    = _('failure');
-		}
-		else
-		{
+            if($val['user_grade_rate']){
+                $user_grade_id = $val['user_grade_id'];
+                $flag          = $this->userGradeModel->editGrade($user_grade_id, $val);
+                if ($flag === false)
+                {
+                    $status = 250;
+                    $msg    = _('failure');
+                }
+                else
+                {
 
-			$status = 200;
-			$msg    = _('success');
+                    $status = 200;
+                    $msg    = _('success');
+                }
+            }else{
+                $status = 250;
+                $msg    = _('会员折扣率不能为0');
+                break;
+            }
+
 		}
+
 		$data = array();
 		
 		$this->data->addBody(-140, $data, $msg, $status);

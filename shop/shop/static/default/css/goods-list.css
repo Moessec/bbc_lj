@@ -721,8 +721,9 @@ li .cr_xie_argue {
     position: relative;
     padding: 0 6px;
     border: 1px solid #e1e1e1;
-    line-height: 24px;
+    line-height: 25px;
     display: inline-block;
+    background:#fff;
 }
 
 .class_drap .class_drap_more {

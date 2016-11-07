@@ -20,7 +20,18 @@
             </span>
 		</div>
         <dl>
-            <dt><?=_('您正在使用')?><span class="ml5 mr5"><?=$data['voucher_t_points']?></span><?=_('积分')?>&nbsp;<?=_('兑换')?>&nbsp;1&nbsp;<?=_('张')?><br>
+            <dt>
+                <?php
+                    if($data['voucher_t_points']){
+                ?>
+                <?=_('您正在使用')?><span class="ml5 mr5"><?=$data['voucher_t_points']?></span><?=_('积分')?>&nbsp;<?=_('兑换')?>&nbsp;1&nbsp;<?=_('张')?><br>
+                <?php
+                    }else{
+                ?>
+                <?=_('您正在兑换')?>&nbsp;1&nbsp;<?=_('张')?><br>
+                <?php
+                    }
+                ?>
                 <?=$data['voucher_t_title']?>
                 （<em><?=_('满')?><?=$data['voucher_t_limit']?><?=_('减')?><?=$data['voucher_t_price']?></em>）
             </dt>

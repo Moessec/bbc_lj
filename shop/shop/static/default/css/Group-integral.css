@@ -752,8 +752,11 @@ em {
 }
 
 .bbc-exchange-list li .gift-pic {
-    display: block;
+    display:table;
     text-align:center;
+    width: 178px;
+    height: 180px;
+    overflow: hidden;
 }
 
 .bbc-exchange-list li .gift-pic a {
@@ -761,22 +764,19 @@ em {
     text-align: center;
     vertical-align: middle;
     display: table-cell;
-    display: inline-block;
-    overflow: hidden;
-    width:178px;
-    height:180px;
+   
 }
 
 .bbc-exchange-list li .gift-pic img {
-    margin-top: expression(200-this.height/2);
-    margin-top: 30px;
+   /* margin-top: expression(200-this.height/2);
+    margin-top: 30px;*/
 }
 
 .bbc-exchange-list li .gift-name {
     line-height: 18px;
     display: block;
     height: 36px;
-    margin: 10px 0;
+    margin: 0 0 10px;
     overflow: hidden;
 }
 
@@ -810,7 +810,7 @@ em {
 .bbc-exchange-list li .exchange-rule .pgoods-grade {
     display: block;
     width: 40px;
-    height: 53px;
+    height:43px;
     float: right;
     clear: left;
     margin-right: 6px;
@@ -2276,7 +2276,7 @@ a.selected_b {
     height: 30px;
     padding: 10px 10px 4px 10px;
     position: absolute;
-    z-index: 1;
+    z-index: 111;
     top: 0;
     right: 0;
 }

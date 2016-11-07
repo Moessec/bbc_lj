@@ -96,7 +96,7 @@ class Seller_GoodsCtl extends Seller_Controller
 	{
 		$met               = request_string('met');
 		$action            = request_string('action');
-		$key               = request_string('key');
+		$key               = request_string('goods_key');
 		$Goods_CommonModel = new Goods_CommonModel();
 
 		$cront_row = array('shop_id' => Perm::$shopId, 'common_state' => Goods_CommonModel::GOODS_STATE_NORMAL);
@@ -330,7 +330,7 @@ class Seller_GoodsCtl extends Seller_Controller
 				$shop_cat_id .= $val . ',';
 			}
 		}
-		
+
 		$common_data['shop_id']    	= $shop_base['shop_id'];                        //店铺id
 		$common_data['shop_name']   = $shop_base['shop_name'];                        //店铺名称
 		$common_data['shop_cat_id'] = $shop_cat_id;                                //店铺分类id
@@ -366,7 +366,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		$common_data['common_state']        = request_int('state');                            //
 		$common_data['common_is_recommend'] = request_string('is_recommend');                //商品推荐
 		$common_data['common_add_time']     = date('Y-m-d H:i:s', time());                    //商品添加时间
-		
+
 		$is_limit = request_int('is_limit');
 		if ( $is_limit )
 		{
@@ -496,7 +496,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		{
 			$common_id = $this->goodsCommonModel->addCommon($common_data, true);
 		}
-		
+
 		/*********************向映射表添加数据*********************/
 //		$this->goodsCommonModel->createMapRelation($common_id, $common_data);
 
@@ -682,7 +682,7 @@ class Seller_GoodsCtl extends Seller_Controller
 	public function goodsImageManage($common_id)
 	{
 		$data = array();
-		
+
 		$common_data         = $this->goodsCommonModel->getCommon($common_id);
 		$common_data         = pos($common_data);
 		$data['common_data'] = $common_data;
@@ -1089,6 +1089,482 @@ class Seller_GoodsCtl extends Seller_Controller
 	public function catListManage ()
 	{
 		include $this->view->getView();
+	}
+
+	/**
+	 * 商品导入页面
+	 */
+	public function importGoods ()
+	{
+		$typ = request_string('typ');
+
+		if ( $typ == 'e' )
+		{
+			include $this->view->getView();
+		}
+		else
+		{
+			set_time_limit(15);
+			$url_path = request_string('url_path'); //	/media/f528764d624db129b32c21fbca0cb8d6/1/1/file/20161101/1477965409390298.xlsx
+			$url_path = ".$url_path";
+			$objPHPExcel = PHPExcel_IOFactory::load($url_path);
+
+			$objWorksheet  = $objPHPExcel->getActiveSheet();
+			$highestRow    = $objWorksheet->getHighestRow();
+			$highestColumn = $objWorksheet->getHighestColumn();
+
+			$highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn);
+
+			$excel_data = array();
+			//getCellByColumnAndRow($col, $row)  start position :  $row : 1 , $col : 0
+			for ($row = 4; $row <= $highestRow; $row++)
+			{
+				for ($col = 0; $col < $highestColumnIndex; $col++)
+				{
+					$excel_data[$row][] = (string)$objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
+				}
+			}
+			//获取相关信息
+			$shop_data = $this->shopBaseModel->getBase(Perm::$shopId);
+			$shop_data = current($shop_data);
+
+			$goods_cat_data = $this->goodsCatModel->getByWhere();
+			$KGoodsCatName_VGoodsCatId = array_column($goods_cat_data, 'cat_id', 'cat_name');
+
+			$goodsFormatModel = new Goods_FormatModel();
+			$goods_format_rows = $goodsFormatModel->getByWhere( array('shop_id'=> Perm::$shopId) );
+			$KFormatName_VFormatId = array_column($goods_format_rows, 'id', 'name');
+
+			$baseDistrictModel = new Base_DistrictModel();
+			$district_rows = $baseDistrictModel->getByWhere();
+			$KDistrictName_VId = array_column($district_rows, 'district_id', 'district_name');
+
+			$transportTypeModel = new Transport_TypeModel();
+			$transport_type_rows = $transportTypeModel->getByWhere();
+			$KTransportTypeName_VId = array_column($transport_type_rows, 'transport_type_id', 'transport_type_name');
+
+			$import_goods_rows = array();
+
+			foreach( $excel_data as $key => $row_data )
+			{
+				$goods_class 				= $row_data[0];	//商品分类
+				$goods_name 				= $row_data[3];	//商品名称
+				$goods_price				= $row_data[5];	//商品价格
+				$market_price 				= $row_data[6];	//市场价
+				$goods_stock 				= $row_data[10];//商品库存
+				$goods_weight				= $row_data[22];//商品重量
+
+				$goods_image 				= $row_data[13];//商品图片
+
+				//验证
+
+				//商品分类、商品名称、商品价格、市场价、商品库存、商品重量不能为空
+
+				if ( empty($KGoodsCatName_VGoodsCatId[$goods_class]) || empty($goods_price) || empty($market_price) || empty($goods_stock) || empty($goods_weight) )
+				{
+					continue 1;
+				}
+
+				if ( strlen($goods_name) < 10 || strlen($goods_name) >50 )
+				{
+					continue 1;
+				}
+				if ( $goods_price > $market_price )
+				{
+					continue 1;
+				}
+
+				$result_image_info = UploadCtl::catchImageByExcel($goods_image);
+
+				if ( $result_image_info['state'] != "SUCCESS" )
+				{
+					continue 1;
+				}
+				else
+				{
+					$goods_image = $result_image_info['url'];
+				}
+
+				$goods_property 			= $row_data[1];	//商品属性组合
+				$goods_property_value 		= $row_data[2];	//商品属性值
+
+				$promotion_tips  			= $row_data[4];	//促销提示
+
+				$cost_price 				= $row_data[7];	//成本价
+
+				$goods_spec 				= $row_data[8];	//商品规格组合
+				$goods_spec_value 			= $row_data[9];	//商品规格值
+
+				$goods_alarm 				= $row_data[11];//库存预警值
+				$goods_code 				= $row_data[12];//商家货号
+
+				$goods_describe 			= $row_data[14];//商品描述
+
+				$goods_plate_top 			= $row_data[15];//关联顶部版式
+				$goods_plate_bottom 		= $row_data[16];//关联底部版式
+
+				$goods_is_virtual 			= $row_data[17];//虚拟商品
+				$goods_virtual_validity		= $row_data[18];//商品有效期至
+				$goods_validity_refund 		= $row_data[19];//支持过期退款
+
+				$goods_address 				= $row_data[20];//所在地
+				$goods_shipping_cost 		= $row_data[21];//运费
+
+				$g_vat 						= $row_data[23];//是否提供发票
+				$goods_service 				= $row_data[24];//售后服务
+
+				$goods_is_limit 			= $row_data[25];//每人限购件数
+				$goods_packing_list 		= $row_data[26];//包装清单
+
+				$store_class_rows 			= $row_data[27];//本店分类
+				$goods_publish_type 		= $row_data[28];//商品发布
+				$goods_publish_time 		= $row_data[29];//发布时间
+				$goods_recommend 			= $row_data[30];//商品推荐
+
+				$goods_cat_data = $goods_cat_data[$KGoodsCatName_VGoodsCatId[$goods_class]];
+
+				$import_goods_rows[$key]['shop_id'] 					= $shop_data['shop_id'];
+				$import_goods_rows[$key]['shop_name'] 					= $shop_data['shop_name'];
+				$import_goods_rows[$key]['shop_self_support'] 			= $shop_data['shop_self_support'] == Shop_BaseModel::SELF_SUPPORT_TRUE ? 1 : 0;;
+
+				$import_goods_rows[$key]['cat_id'] 						= $goods_cat_data['cat_id'];
+				$import_goods_rows[$key]['cat_name'] 					= $goods_cat_data['cat_name'];
+				$import_goods_rows[$key]['type_id'] 					= $goods_cat_data['type_id'];
+
+				$import_goods_rows[$key]['common_name'] 				= $goods_name;
+				$import_goods_rows[$key]['common_promotion_tips'] 		= $promotion_tips;
+
+				$import_goods_rows[$key]['common_price']        		= $goods_price;
+				$import_goods_rows[$key]['common_market_price'] 		= $market_price;
+				$import_goods_rows[$key]['common_cost_price']   		= $cost_price;
+
+				$import_goods_rows[$key]['common_stock'] 				= $goods_stock;
+				$import_goods_rows[$key]['common_alarm'] 				= $goods_alarm;
+				$import_goods_rows[$key]['common_code']  				= $goods_code;
+
+				$import_goods_rows[$key]['common_image']  				= $goods_image;
+				$import_goods_rows[$key]['common_body']  				= $goods_describe;
+
+				$import_goods_rows[$key]['common_formatid_top']    		= empty($KFormatName_VFormatId[$goods_plate_top]) ? 0 : $KFormatName_VFormatId[$goods_plate_top];
+				$import_goods_rows[$key]['common_formatid_bottom'] 		= empty($KFormatName_VFormatId[$goods_plate_bottom]) ? 0 : $KFormatName_VFormatId[$goods_plate_bottom];
+
+				$import_goods_rows[$key]['common_cubage']    			= $goods_weight;
+				$import_goods_rows[$key]['common_service']      		= $goods_service;
+
+				$import_goods_rows[$key]['common_limit']      			= $goods_is_limit;
+				$import_goods_rows[$key]['common_packing_list'] 		= $goods_packing_list;
+				$import_goods_rows[$key]['common_add_time']     		= date('Y-m-d H:i:s', time());
+
+
+
+				if ( $g_vat == "是" ) {
+					$import_goods_rows[$key]['common_invoices'] 	= 2;
+				} else {
+					$import_goods_rows[$key]['common_invoices'] 	= 1;
+				}
+
+				if ( $goods_recommend == "是" ) {
+					$import_goods_rows[$key]['common_is_recommend'] 	= 2;
+				} else {
+					$import_goods_rows[$key]['common_is_recommend'] 	= 1;
+				}
+
+				//商品所在地
+				if ( !empty($goods_address) ) {
+					$goods_address = explode('/', $goods_address);
+					$province_name = $goods_address[0];
+					$city_name = $goods_address[1];
+
+					$common_location[] = $KDistrictName_VId[$province_name];
+					$common_location[] = $KDistrictName_VId[$city_name];
+
+					$import_goods_rows[$key]['common_location'] 	= $common_location;
+				}
+
+				//售卖区域
+				if ( !empty($goods_shipping_cost) && !empty($KTransportTypeName_VId[$goods_shipping_cost]) ) {
+
+					$import_goods_rows[$key]['transport_type_id']   = $KTransportTypeName_VId[$goods_shipping_cost];
+					$import_goods_rows[$key]['transport_type_name'] = $goods_shipping_cost;
+				}
+
+				//虚拟商品
+				if ($goods_is_virtual == "是")
+				{
+					$import_goods_rows[$key]['common_is_virtual']     = 1;
+					$import_goods_rows[$key]['common_virtual_date']   = $goods_virtual_validity;
+					$import_goods_rows[$key]['common_virtual_refund'] = $goods_validity_refund == "是" ? 1 : 0;
+				}
+				
+				//发布时间
+				if ( $goods_publish_type == "立即发布" ) {
+					$import_goods_rows[$key]['common_state']        = 1;
+				} else if ( $goods_publish_type == "发布时间" && !empty($goods_publish_time) ) {
+					$import_goods_rows[$key]['common_state']        = 2;
+					$import_goods_rows[$key]['common_sell_time'] 	= date('Y-m-d H:i:s', strtotime($goods_publish_time));
+				} else {
+					$import_goods_rows[$key]['common_state']        = 3;
+				}
+			}
+
+			if ( !empty($import_goods_rows) )
+			{
+				foreach ($import_goods_rows as $import_goods_data)
+				{
+					$common_body = $import_goods_data['common_body'];
+					unset($import_goods_data['common_body']);
+
+					$common_id = $this->goodsCommonModel->addCommon($import_goods_data, true);
+
+					if ($common_id) {
+						$common_detail_data = array();
+						$common_detail_data['common_id']   = $common_id;
+						$common_detail_data['common_body'] = $common_body;
+
+						$this->goodsCommonDetailModel->addCommonDetail($common_id, $common_detail_data);
+
+						$goods_data = array();
+						$goods_data['common_id']            = $common_id;                                		//商品公共表id
+						$goods_data['cat_id']               = $import_goods_data['cat_id'];                   	//商品分类id
+						$goods_data['shop_id']              = $import_goods_data['shop_id'];                    //shop_id
+						$goods_data['shop_name']            = $import_goods_data['shop_name'];                	//shop_name
+						$goods_data['goods_name']           = $import_goods_data['common_name'];                //商品名称
+						$goods_data['goods_promotion_tips'] = $import_goods_data['common_promotion_tips'];    	//促销提示
+						$goods_data['goods_is_recommend']   = $import_goods_data['common_is_recommend'];        //商品推荐
+						$goods_data['goods_image']          = $import_goods_data['common_image'];               //商品主图
+
+						$goods_data['goods_price']        	= $import_goods_data['common_price'];               //商品价格
+						$goods_data['goods_market_price'] 	= $import_goods_data['common_market_price'];        //市场价
+						$goods_data['goods_stock']        	= $import_goods_data['common_stock'];               //商品库存
+						$goods_data['goods_alarm']        	= $import_goods_data['common_alarm'];               //库存预警值
+						$goods_data['goods_code']         	= $import_goods_data['common_code'];                //商家编号货号
+
+						$goods_id = $this->goodsBaseModel->addBase($goods_data, true);
+
+						$edit_common_data['goods_id'] = array('goods_id' => $goods_id, 'color' => 0);
+						$edit_flag = $this->goodsCommonModel->editCommon($common_id, $edit_common_data);
+					}
+				}
+			}
+		}
+		$this->data->addBody(-140, array(), '导入完成！', 200);
+		exit;
+	}
+
+	/**
+	 * 下载导入模板
+	 */
+	public function downloadTemplate()
+	{
+		header("Content-type: application/vnd.ms-excel");
+		header("Content-Disposition: attachment; filename=商品导入模板.xlsx");
+
+		$objPHPExcel = new PHPExcel();
+
+		$objPHPExcel->getActiveSheet()->getDefaultColumnDimension()->setWidth(15);
+		$objPHPExcel->getDefaultStyle()->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+		$objPHPExcel->getDefaultStyle()->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+
+		$active_sheet = $objPHPExcel->getActiveSheet();
+
+		$active_sheet->setCellValue('A1', '商品导入表');
+		$active_sheet->getStyle('A1')->getFont()->setSize(20);
+		$active_sheet->getStyle('A1')->getFont()->setBold(true);
+
+		$explanation =
+		"说明：
+			1 不能修改模版格式(包括表头名称)。
+			2 商品分类、商品名称、商品价格、市场价、商品库存、商品重量不能为空；其他为非必录项，按需录入。
+			3 商品标题名称长度至少10个字符，最长50个汉字
+			4 价格必须是0.01~9999999之间的数字，且不能高于市场价
+			5 商品图片为网络图片地址，大小不能超过1M
+			6 如果商品有属性，用/分隔属性名称和属性值
+			7 如果商品有规格，用/分隔规格名称和规格值，后续行输入规格组合值";
+
+		$active_sheet->setCellValue('A2', $explanation);
+		$active_sheet->getStyle('A2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+		$active_sheet->getStyle('A2')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_DISTRIBUTED);
+
+		$active_sheet->getRowDimension(2)->setRowHeight(150);
+
+		$objPHPExcel->getActiveSheet()->mergeCells('A1:AE1');
+		$objPHPExcel->getActiveSheet()->mergeCells('A2:AE2');
+
+
+
+		$title = array( '商品分类', 		'商品属性组合', 	'商品属性值',
+						'商品名称', 		'促销提示',
+						'商品价格', 		'市场价', 		'成本价',
+						'商品规格组合',	'商品规格值',
+						'商品库存', 		'库存预警值',	'商家货号',
+						'商品图片', 		'商品描述',
+						'关联顶部版式', 	'关联底部版式',
+						'虚拟商品', 		'商品有效期至', 	'支持过期退款',
+						'所在地', 		'运费', 			'商品重量',
+			    		'是否提供发票', 	'售后服务',
+			 			'每人限购件数',	'包装清单',		'本店分类',
+						'商品发布', 		'发布时间', 		'商品推荐'
+					);
+
+		for ($x = "A", $y = 0; $y < count($title); $x++, $y++)
+		{
+			$value = $title[$y];
+			$String_ABC = sprintf('%s3', $x);
+			$active_sheet->setCellValue($String_ABC, $value);
+			$active_sheet->getStyle($String_ABC)->getFont()->setBold(true);
+		}
+
+		//获取所有的商品分类
+		$goodsCatModel = new Goods_CatModel();
+        $cat_list_1 = $goodsCatModel->getCatTreeData(0, 0, 0, true);
+        $cat_list_2 = array_column($cat_list_1, 'cat_id');
+        $cat_list_3 = $goodsCatModel->getCatTreeData($cat_list_2, 0, 0, true);
+
+        $cat_list = array();
+
+        /*foreach ($cat_list_3 as $cat_data)
+        {
+        	$cat_list[] = $cat_data['cat_name'];
+        }*/
+		$cat_list[] = 1;
+		$cat_list[] = 2;
+
+		//关联顶部版式 关联底部版式
+		$goodsFormatModel        = new Goods_FormatModel();
+        $condi_format['shop_id'] = Perm::$shopId;
+        $format_list             = $goodsFormatModel->getByWhere($condi_format);
+
+        $format_top = array();
+        $format_bottom = array();
+
+        if ( !empty($format_list) )
+        {
+			foreach ($format_list as $key => $val)
+			{
+				if ($val['position'] == Goods_FormatModel::FORMAT_POSITION_TOP)
+				{
+					$format_top[] = $val['name'];
+				}
+				else
+				{
+					$format_bottom[] = $val['name'];
+				}
+			}
+        }
+
+		//售卖区域
+		$transportTypeModel = new Transport_TypeModel();
+		$transport_list = $transportTypeModel->getTransportList( array('shop_id'=> Perm::$shopId) );
+		$transport_list = $transport_list['items'];
+		$transport_name_row = array_column($transport_list, 'transport_type_name');
+
+		for ($i = 4; $i < 99; $i++)
+        {
+			$objValidation_A = $active_sheet->getCell("A$i")->getDataValidation();
+			$objValidation_A->setType(PHPExcel_Cell_DataValidation::TYPE_LIST);
+			$objValidation_A->setErrorStyle(PHPExcel_Cell_DataValidation::STYLE_INFORMATION);
+			$objValidation_A->setAllowBlank(true);
+			$objValidation_A->setShowInputMessage(true);
+			$objValidation_A->setShowDropDown(true);
+			$objValidation_A->setFormula1('"' . join(',', $cat_list) . '"');
+
+			$objValidation_P = $active_sheet->getCell("P$i")->getDataValidation();
+			$objValidation_P->setType(PHPExcel_Cell_DataValidation::TYPE_LIST);
+			$objValidation_P->setErrorStyle(PHPExcel_Cell_DataValidation::STYLE_INFORMATION);
+			$objValidation_P->setAllowBlank(true);
+			$objValidation_P->setShowInputMessage(true);
+			$objValidation_P->setShowErrorMessage(true);
+			$objValidation_P->setShowDropDown(true);
+			$objValidation_P->setErrorTitle('failure');
+			$objValidation_P->setError('该关联顶部版式不存在,请再次选择!');
+			$objValidation_P->setFormula1('"' . join(',', $format_top) . '"');
+
+			$objValidation_Q = $active_sheet->getCell("Q$i")->getDataValidation();
+			$objValidation_Q->setType(PHPExcel_Cell_DataValidation::TYPE_LIST);
+			$objValidation_Q->setErrorStyle(PHPExcel_Cell_DataValidation::STYLE_INFORMATION);
+			$objValidation_Q->setAllowBlank(true);
+			$objValidation_Q->setShowInputMessage(true);
+			$objValidation_Q->setShowErrorMessage(true);
+			$objValidation_Q->setShowDropDown(true);
+			$objValidation_Q->setErrorTitle('failure');
+			$objValidation_Q->setError('该关联底部版式不存在,请再次选择!');
+			$objValidation_Q->setFormula1('"' . join(',', $format_bottom) . '"');
+
+			$objValidation_Q = $active_sheet->getCell("V$i")->getDataValidation();
+			$objValidation_Q->setType(PHPExcel_Cell_DataValidation::TYPE_LIST);
+			$objValidation_Q->setErrorStyle(PHPExcel_Cell_DataValidation::STYLE_INFORMATION);
+			$objValidation_Q->setAllowBlank(true);
+			$objValidation_Q->setShowInputMessage(true);
+			$objValidation_Q->setShowErrorMessage(true);
+			$objValidation_Q->setShowDropDown(true);
+			$objValidation_Q->setErrorTitle('failure');
+			$objValidation_Q->setError('该运费不存在,请再次选择!');
+			$objValidation_Q->setFormula1('"' . join(',', $transport_name_row) . '"');
+
+			$objValidation_R = $active_sheet->getCell("R$i")->getDataValidation();	//虚拟商品
+			$objValidation_R->setType(PHPExcel_Cell_DataValidation::TYPE_LIST);
+			$objValidation_R->setErrorStyle(PHPExcel_Cell_DataValidation::STYLE_INFORMATION);
+			$objValidation_R->setAllowBlank(true);
+			$objValidation_R->setShowInputMessage(true);
+			$objValidation_R->setShowErrorMessage(true);
+			$objValidation_R->setShowDropDown(true);
+			$objValidation_R->setErrorTitle('failure');
+			$objValidation_R->setError('请按格式填写!');
+			$objValidation_R->setFormula1('"是,否"');
+
+			$objValidation_T = $active_sheet->getCell("T$i")->getDataValidation();	//支持过期退款
+			$objValidation_T->setType(PHPExcel_Cell_DataValidation::TYPE_LIST);
+			$objValidation_T->setErrorStyle(PHPExcel_Cell_DataValidation::STYLE_INFORMATION);
+			$objValidation_T->setAllowBlank(true);
+			$objValidation_T->setShowInputMessage(true);
+			$objValidation_T->setShowErrorMessage(true);
+			$objValidation_T->setShowDropDown(true);
+			$objValidation_T->setErrorTitle('failure');
+			$objValidation_T->setError('请按格式填写!');
+			$objValidation_T->setFormula1('"是,否"');
+
+			$objValidation_X = $active_sheet->getCell("X$i")->getDataValidation();	 //是否提供发票
+			$objValidation_X->setType(PHPExcel_Cell_DataValidation::TYPE_LIST);
+			$objValidation_X->setErrorStyle(PHPExcel_Cell_DataValidation::STYLE_INFORMATION);
+			$objValidation_X->setAllowBlank(true);
+			$objValidation_X->setShowInputMessage(true);
+			$objValidation_X->setShowErrorMessage(true);
+			$objValidation_X->setShowDropDown(true);
+			$objValidation_X->setErrorTitle('failure');
+			$objValidation_X->setError('请按格式填写!');
+			$objValidation_X->setFormula1('"是,否"');
+
+			$objValidation_X = $active_sheet->getCell("AC$i")->getDataValidation();	 //商品发布
+			$objValidation_X->setType(PHPExcel_Cell_DataValidation::TYPE_LIST);
+			$objValidation_X->setErrorStyle(PHPExcel_Cell_DataValidation::STYLE_INFORMATION);
+			$objValidation_X->setAllowBlank(true);
+			$objValidation_X->setShowInputMessage(true);
+			$objValidation_X->setShowErrorMessage(true);
+			$objValidation_X->setShowDropDown(true);
+			$objValidation_X->setErrorTitle('failure');
+			$objValidation_X->setError('请按格式填写!');
+			$objValidation_X->setFormula1('"立即发布,发布时间,放入仓库"');
+
+			$objValidation_X = $active_sheet->getCell("AE$i")->getDataValidation();	 //商品推荐
+			$objValidation_X->setType(PHPExcel_Cell_DataValidation::TYPE_LIST);
+			$objValidation_X->setErrorStyle(PHPExcel_Cell_DataValidation::STYLE_INFORMATION);
+			$objValidation_X->setAllowBlank(true);
+			$objValidation_X->setShowInputMessage(true);
+			$objValidation_X->setShowErrorMessage(true);
+			$objValidation_X->setShowDropDown(true);
+			$objValidation_X->setErrorTitle('failure');
+			$objValidation_X->setError('请按格式填写!');
+			$objValidation_X->setFormula1('"是,否"');
+        }
+
+		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		$objWriter->save( "php://output" );
+		exit;
+	}
+
+	public function findDataImporter()
+	{
+		$this->data->addBody(-140, array(), 'success', 200);
 	}
 }
 

@@ -508,6 +508,7 @@ function ucenterLogin(UCENTER_URL, SITE_URL, refresh_flag)
 
                 if (u && key && u==data.data.us)
                 {
+                    getUserInfoNav()
                 }
                 else
                 {
@@ -553,15 +554,16 @@ function ucenterLogin(UCENTER_URL, SITE_URL, refresh_flag)
                 //退出
                 $.cookie('id', null);
                 $.cookie('key', null);
-            }
 
-            if (refresh_flag)
-            {
-                window.location.reload();
-            }
-            else
-            {
-                getUserInfoNav()
+                //ajax 调用
+                if (refresh_flag)
+                {
+                    window.location.reload();
+                }
+                else
+                {
+                    getUserInfoNav()
+                }
             }
         },
         error: function(){

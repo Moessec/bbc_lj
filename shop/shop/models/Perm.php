@@ -97,9 +97,12 @@ class Perm
 		//setcookie(self::$cookieName, $encrypt_str, $expires);
 		//setcookie(self::$cookieId, $user_row['user_id'], $expires);
 
+		//setcookie(self::$cookieName, $encrypt_str, null, null, null, true);
+		//setcookie(self::$cookieId, $user_row['user_id'], null, null, null, true);
+		
 		setcookie(self::$cookieName, $encrypt_str);
 		setcookie(self::$cookieId, $user_row['user_id']);
-
+		
 		return $encrypt_str;
 	}
 

@@ -274,8 +274,9 @@ include $this->view->getTplPath() . '/' . 'site_nav.php';
 
 							$dian_rate = $val['sprice']*(100-$user_rate)/100;
 							?>
-							<input type="hidden" name="dian_total_val" class="dian_total_val" value="<?=number_format($dian_rate,2,'.','')?>">
+
 						</i>
+						<input type="hidden" name="dian_total_val" class="dian_total_val" value="<?=number_format($dian_rate,2,'.','')?>">
 						</input>
 					</p>
 					<p class="shop_voucher<?=($key)?>"></p>

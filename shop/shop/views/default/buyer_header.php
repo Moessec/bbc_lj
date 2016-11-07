@@ -186,7 +186,7 @@
 							 <div class="same_1">
 							 <i class="iconfont icon-iconyue ts_1"></i>
 							 <a href="<?= Yf_Registry::get('paycenter_api_url') ?>"><?= _('余额') ?></a></div>
-							 <div class="same_2" id="mons"></div>
+							 <div class="same_2" id="mons"><?=format_money(0.00)?></div>
 						 </div>
 						 <div class="same">
 							 <div class="same_1">
@@ -233,6 +233,21 @@ $(function(){
 			$('#cart_num').html(data.data.cart_count);
 		}
 	});
+
+
+
+	/*$.ajax({
+		type: "GET",
+		url: SITE_URL + "?ctl=Buyer_Cart&met=addCartRow&typ=json",
+		data: {},
+		dataType: "json",
+		success: function(data){
+			console.info(data);
+		}
+	});*/
+
+
+
 });
 </script>
 	 <!--

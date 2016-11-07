@@ -15,7 +15,7 @@ $(document).ready(function(){
                 cursorborder: "0",
                 cursorborderradius: "3px",
                 autohidemode: false,
-                nativeparentscrolling:true,
+                nativeparentscrolling:true
             });
         }
     });
@@ -63,7 +63,6 @@ $(document).ready(function()
     		data: {},
     		dataType: "json",
     		success: function(data){
-    			console.info(data);
     			$('.ci-count').html(data.data.cart_count);
     		}
     	});

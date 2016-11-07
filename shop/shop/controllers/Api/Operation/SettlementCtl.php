@@ -519,6 +519,36 @@ class Api_Operation_SettlementCtl extends Api_Controller
 			$data['os_pay_content'] = request_string("os_pay_content");
 			$data['os_pay_date']    = date("Y-m-d H:i:s");
 			$flag                   = $this->settlementModel->editSettlement($os_id, $data);
+
+			if($flag)
+			{
+				$settlement =  $this->settlementModel->getOne($os_id);
+				//根据店铺id获取用户id
+				$Shop_BaseModel = new Shop_BaseModel();
+				$shop_base = $Shop_BaseModel->getOne($settlement['shop_id']);
+
+				//paycenter中修改商家的资金
+				$key      = Yf_Registry::get('shop_api_key');
+				$url         = Yf_Registry::get('paycenter_api_url');
+				$shop_app_id = Yf_Registry::get('shop_app_id');
+				$formvars = array();
+
+				$formvars['app_id']					= $shop_app_id;
+				$formvars['user_id']     			= $shop_base['user_id'];
+				$formvars['amount']                = $settlement['os_amount'];
+				fb($formvars);
+				$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=shopSettlement&typ=json',$url), $formvars);
+
+				if($rs['status'] == 200)
+				{
+					$flag = true;
+				}
+				else
+				{
+					$flag = false;
+				}
+			}
+
 		}
 
 		if ($flag)

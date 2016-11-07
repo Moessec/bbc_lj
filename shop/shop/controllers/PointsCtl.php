@@ -582,7 +582,8 @@ class PointsCtl extends Controller
 			//获取用户等级信息
 			//用户信息，包含用户等级
 			$user_info                     = $this->userInfoModel->getUserInfo(array('user_id' => Perm::$userId));
-			$points_cart_id_row            = request_row('cart_id');//购物车id
+			$points_cart_id_row            = request_row('point_cart_id');//购物车id
+
 			$cond_row['points_cart_id:IN'] = $points_cart_id_row;
 			$cond_row['points_user_id']    = Perm::$userId;
 			$points_cart_row               = $this->pointsCartModel->getPointsCartByWhere($cond_row);

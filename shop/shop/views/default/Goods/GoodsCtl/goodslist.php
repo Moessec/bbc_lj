@@ -8,6 +8,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 	<script type="text/javascript" src="<?=$this->view->js?>/tuangou-index.js"></script>
 	<script src="<?=$this->view->js_com?>/plugins/jquery.slideBox.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="<?=$this->view->js?>/common.js"></script>
+	<script type="text/javascript" src="<?=$this->view->js?>/decoration/common.js"></script>
 	<link href="<?= $this->view->css ?>/tips.css" rel="stylesheet">
 	<script type="text/javascript" src="<?=$this->view->js_com?>/plugins/jquery.toastr.min.js" charset="utf-8"></script>
 
@@ -179,7 +180,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 									<a target="_blank" href="<?=Yf_Registry::get('url')?>?ctl=Goods_Goods&met=goods&gid=<?=($reval['goods_id'])?>" class="cr_xie_lia1">
 										<div class="goodslist_img3"><img  src="<?=image_thumb($reval['common_image'],160,160)?>"/></div>
 
-											<a class="cr_xie_span0">
+											<a class="cr_xie_span0" href="<?=Yf_Registry::get('url')?>?ctl=Goods_Goods&met=goods&gid=<?=($reval['goods_id'])?>">
 												<?php if(mb_strwidth($reval['common_name'], 'utf8')>40){
 													echo $str = mb_strimwidth($reval['common_name'], 0, 40, '...', 'utf8');
 												}else{echo $reval['common_name'];}?>
@@ -268,7 +269,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					<li>
 						<a target="_blank" href="<?=Yf_Registry::get('url')?>?ctl=Goods_Goods&met=goods&gid=<?=(@$val['goods_id'])?>" class="cr_xie_lia1">
 							<div class="goodslist_img1"><img src="<?=image_thumb($val['common_image'],220,220)?>"/></div>
-							<span class="cr_xie_mon bbc_color"><?=format_money($val['common_price'])?></span><span class="cr_xie_amon"></span></a><div class="list_padd"><a  target="_blank" class="cr_xie_name" title="<?=($val['common_name'])?>"><?php if(mb_strwidth($val['common_name'], 'utf8')>60){
+							<span class="cr_xie_mon bbc_color"><?=format_money($val['common_price'])?></span><span class="cr_xie_amon"></span></a><div class="list_padd"><a href="<?=Yf_Registry::get('url')?>?ctl=Goods_Goods&met=goods&gid=<?=(@$val['goods_id'])?>"  target="_blank" class="cr_xie_name" title="<?=($val['common_name'])?>"><?php if(mb_strwidth($val['common_name'], 'utf8')>60){
 									// 此处设定从0开始截取，取10个追加...，使用utf8编码
 									// 注意追加的...也会被计算到长度之内
 									echo $str = mb_strimwidth($val['common_name'], 0, 60, '...', 'utf8');
@@ -304,6 +305,15 @@ include $this->view->getTplPath() . '/' . 'header.php';
 		 </div>
 
 	<script>
+		function contains(arr, str) {//检测goods_id是否存入
+			var i = arr.length;
+			while (i--) {
+				if (arr[i] == str) {
+					return true;
+				}
+			}
+			return false;
+		}
 		//加入购物车
 		window.addCart = function(e,i)
 		{
@@ -350,8 +360,40 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			}
 			else
 			{
-				Public.tips.warning('<?=_('请先登录！')?>');
-				//$.dialog.alert('请先登录!');
+				/*Public.tips.warning('<?=_('请先登录！')?>');
+
+				var goods_info = decodeURIComponent(getCookie('goods_cart'));
+
+				if (goods_info == null) {
+					goods_info = '';
+				}
+				if(!goods_info){
+					goods_info = e+','+1;
+				}else{
+					var goodsarr = goods_info.split('|');
+					console.info(goodsarr);
+					for (var i=0; i<goodsarr.length; i++) {
+						var arr = goodsarr[i].split(',');
+						if(contains(arr,e)){
+							return false;
+						}
+					}
+					goods_info+='|'+e+','+1;
+				}
+				// 加入cookie
+				addCookie('goods_cart',goods_info);
+				// 更新cookie中商品数量*/
+
+				login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+				callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+				login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+				window.location.href = login_url;
+
 			}
 		}
 
@@ -371,8 +413,17 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			}
 			else
 			{
-				Public.tips.warning('<?=_('请先登录！')?>');
-				//$.dialog.alert('请先登录!');
+				//Public.tips.warning('<?=_('请先登录！')?>');
+
+				login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+				callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+				login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+				window.location.href = login_url;
 			}
 		}
 
@@ -398,8 +449,18 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			}
 			else
 			{
-				Public.tips.warning('<?=_('请先登录!')?>');
-				//$.dialog.alert('请先登录!');
+				//Public.tips.warning('<?=_('请先登录!')?>');
+
+				login_url   = UCENTER_URL + '?ctl=Login&met=index&typ=e';
+
+
+				callback = SITE_URL + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(window.location.href);
+
+
+				login_url = login_url + '&from=shop&callback=' + encodeURIComponent(callback);
+
+				window.location.href = login_url;
+
 			}
 
 		}

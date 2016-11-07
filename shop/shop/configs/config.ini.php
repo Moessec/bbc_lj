@@ -350,7 +350,7 @@ $config['db_cfg_rows'] = array(
 			array(
 				'host' => '192.168.0.88',
 				'port' => '3306',
-				'user' => '',
+				'user' => 'root',
 				'password' => '',
 				'database' => 'mysql',
 				'charset' => 'UTF8'
@@ -499,4 +499,11 @@ Yf_Registry::set('config_rewrite', $config_rewrite);
 
 Yf_Registry::set('error_url', Yf_Registry::get('base_url') . '/error.php');
 
+
+
+
+if (request_string('typ') != 'json' && Yf_Utils_Device::isMobile())
+{
+	location_to($shop_wap_url);
+}
 ?>

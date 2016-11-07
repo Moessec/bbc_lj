@@ -107,6 +107,9 @@ class Buyer_IndexCtl extends Buyer_Controller
 	}
 	public function getUserInfoMoney()
 	{
+		$this->user_money        = 0;
+		$this->user_money_frozen = 0;
+
 		//会员的钱
 		$key                 = Yf_Registry::get('shop_api_key');
 		$formvars            = array();
@@ -120,14 +123,9 @@ class Buyer_IndexCtl extends Buyer_Controller
 		{
 			$money = $money_row['data'];
 
-			$this->user_money        = $money[$user_id]['user_money'];
-			$this->user_money_frozen = $money[$user_id]['user_money_frozen'];
+			$this->user_money        = $money['user_money'] + $money['user_recharge_card'];
+			$this->user_money_frozen = $money['user_money_frozen']+ $money['user_recharge_card_frozen'];
 			
-		}
-		else
-		{
-			$this->user_money        = 0;
-			$this->user_money_frozen = 0;
 		}
 
 			$data = array();

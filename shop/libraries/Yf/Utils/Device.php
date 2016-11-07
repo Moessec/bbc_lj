@@ -158,8 +158,9 @@ class Yf_Utils_Device
 				'zte'
 			);
 
+
 			// 从HTTP_USER_AGENT中查找手机浏览器的关键字
-			if (preg_match("/(" . implode('|', $client_keywords) . ")/i", strtolower($_SERVER['HTTP_USER_AGENT'])))
+			if (preg_match("/(" . implode('|', str_replace('/', '\\/', $client_keywords)) . ")/i", strtolower($_SERVER['HTTP_USER_AGENT'])))
 			{
 				return true;
 			}

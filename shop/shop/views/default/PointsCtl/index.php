@@ -98,7 +98,11 @@ include $this->view->getTplPath() . '/' . 'header.php';
 						<a href="<?=Yf_Registry::get('url')?>?ctl=Points&met=detail&id=<?=$value['points_goods_id']?>" target="_blank" tile="<?=$value['points_goods_name']?>"><?=$value['points_goods_name']?></a>
 					</div>
 					<div class="exchange-rule">
-						<span class="pgoods-grade"><img src="<?=$this->view->img?>/V<?=$value['points_goods_limitgrade']?>.png"></span>
+                        <?php
+                        if($value['points_goods_limitgrade']-1){
+                            ?>
+                            <span class="pgoods-grade"><img src="<?=$this->view->img?>/V<?=$value['points_goods_limitgrade']-1?>.png"></span>
+                        <?php }?>
 						<span class="pgoods-price"><label><?=_('参考价格')?>：</label><em><?=format_money($value['points_goods_price'])?></em></span>
 						<span class="pgoods-points"><label><?=_('所需积分')?>：</label><strong  class="bbc_color"><?=$value['points_goods_points']?></strong></span>
 					</div>

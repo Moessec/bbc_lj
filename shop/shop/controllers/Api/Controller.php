@@ -42,7 +42,7 @@ class Api_Controller extends Yf_AppController
 			{
 				if (!check_url_with_encrypt($key, $_POST))
 				{
-					$this->data->setError(_('API接口有误,请确保APP KEY及APP ID正确'), 30);
+					$this->data->setError(_('API接口有误,请确保APP KEY及APP ID正确'), 301);
 					$d = $this->data->getDataRows();
 
 					$protocol_data = Yf_Data::encodeProtocolData($d);
@@ -53,7 +53,7 @@ class Api_Controller extends Yf_AppController
 			}
 			else
 			{
-				$this->data->setError(_('API接口有误,请确保APP KEY及APP ID正确'), 30);
+				$this->data->setError(_('API接口有误,请确保APP KEY及APP ID正确'), 302);
 				$d = $this->data->getDataRows();
 
 				$protocol_data = Yf_Data::encodeProtocolData($d);

@@ -187,6 +187,14 @@ class Seller_Service_ReturnCtl extends Seller_Controller
 		$return_shop_message = request_string("return_shop_message");
 		$return              = $this->orderReturnModel->getOne($order_return_id);
 
+		$msg = '';
+		$order_finish = false;
+		$shop_return_amount = 0;
+		$money = 0;
+
+		//开启事物
+		$this->orderReturnModel->sql->startTransactionDb();
+
 		$matche_row = array();
 		//有违禁词
 		if (Text_Filter::checkBanned($return_shop_message, $matche_row))
@@ -199,38 +207,141 @@ class Seller_Service_ReturnCtl extends Seller_Controller
 			return false;
 		}
 
-		if ($return['seller_user_id'] == Perm::$shopId)
-		{
-			$data['return_shop_message'] = $return_shop_message;
-			if ($return['return_goods_return'] == Order_ReturnModel::RETURN_GOODS_RETURN)
-			{
-				$data['return_state'] = Order_ReturnModel::RETURN_SELLER_PASS;
-			}
-			else
-			{
-				$data['return_state'] = Order_ReturnModel::RETURN_SELLER_GOODS;
-			}
-			$data['return_shop_time'] = get_date_time();
-			$flag                     = $this->orderReturnModel->editReturn($order_return_id, $data);
+		//判断该笔退款金额的订单是否已经结算
+		$Order_BaseModel = new Order_BaseModel();
+		$order_base = $Order_BaseModel->getOne($return['order_number']);
 
-			if ($flag)
+		//判断该笔订单是否已经收货，如果没有收货的话，不扣除卖家资金。已确认收货则扣除卖家资金
+		if($order_base['order_status'] == $Order_StateModel::ORDER_FINISH )
+		{
+			$order_finish = false;
+
+			//获取用户的账户资金资源
+			$key                 = Yf_Registry::get('shop_api_key');
+			$formvars            = array();
+			$user_id             = Perm::$userId;
+			$formvars['user_id'] = $user_id;
+			$formvars['app_id'] = Yf_Registry::get('shop_app_id');
+
+			$money_row = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_User_Info&met=getUserResourceInfo&typ=json', Yf_Registry::get('paycenter_api_url')), $formvars);
+			$user_money = 0;
+			$user_money_frozen = 0;
+			if ($money_row['status'] == '200')
 			{
-				$status = 200;
-				$msg    = _('success');
-				//退款退货提醒
-				$message = new MessageModel();
-				$message->sendMessage('Refund return reminder', $return['buyer_user_id'], $return['buyer_user_account'], $order_id = NULL, $shop_name = NULL, 0, 1);
+				$money = $money_row['data'];
+
+				$user_money        = $money['user_money'];
+				$user_money_frozen = $money['user_money_frozen'];
+			}
+
+			$shop_return_amount = $return['return_cash'] - $return['return_commision_fee'];
+
+			//获取该店铺最新的结算结束日期
+			$Order_SettlementModel = new Order_SettlementModel();
+			$settlement_last_info = $Order_SettlementModel->getLastSettlementByShopid(Perm::$shopId, $return['order_is_virtual']);
+
+			if($settlement_last_info)
+			{
+				$settlement_unixtime = $settlement_last_info['os_end_date'] ;
 			}
 			else
 			{
-				$status = 250;
-				$msg    = _('failure2');
+				$settlement_unixtime = '';
 			}
+
+			$settlement_unixtime = strtotime($settlement_unixtime);
+			$order_finish_time = $order_base['order_finished_time'];
+			$order_finish_unixtime = strtotime($order_finish_time);
+
+			fb($settlement_unixtime);
+			fb($order_finish_unixtime);
+			if($settlement_unixtime >= $order_finish_unixtime )
+			{
+				//结算时间大于订单完成时间。需要扣除卖家的现金账户
+				$money = $user_money;
+				$pay_type = 'cash';
+			}
+			else
+			{
+				//结算时间小于订单完成时间。需要扣除卖家的冻结资金
+				$money = $user_money_frozen;
+				$pay_type = 'frozen_cash';
+			}
+			fb($pay_type);
 		}
 		else
 		{
+			$order_finish = true;
+		}
+
+
+
+		if ($return['seller_user_id'] == Perm::$shopId)
+		{
+			if(($shop_return_amount < $money) || $order_finish)
+			{
+				$data['return_shop_message'] = $return_shop_message;
+				if ($return['return_goods_return'] == Order_ReturnModel::RETURN_GOODS_RETURN)
+				{
+					$data['return_state'] = Order_ReturnModel::RETURN_SELLER_PASS;
+				}
+				else
+				{
+					$data['return_state'] = Order_ReturnModel::RETURN_SELLER_GOODS;
+				}
+				$data['return_shop_time'] = get_date_time();
+				$flag                     = $this->orderReturnModel->editReturn($order_return_id, $data);
+
+				if($flag && !$order_finish)
+				{
+					//扣除卖家的金额
+					$key                 = Yf_Registry::get('shop_api_key');
+					$formvars            = array();
+					$user_id             = Perm::$userId;
+					$formvars['user_id'] = $user_id;
+					$formvars['app_id'] = Yf_Registry::get('shop_app_id');
+					$formvars['money'] = $shop_return_amount * (-1);
+					$formvars['pay_type'] = $pay_type;
+
+					$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_User_Info&met=editUserResourceInfo&typ=json', Yf_Registry::get('paycenter_api_url')), $formvars);
+
+					if($rs['status'] == 200)
+					{
+						$flag = true;
+					}
+					else
+					{
+						$flag = false;
+					}
+				}
+			}
+			else
+			{
+				$flag = false;
+				$msg    = _('账户余额不足');
+			}
+
+
+		}
+		else
+		{
+			$flag = false;
+			$msg    = _('failure');
+		}
+
+		if ($flag && $this->orderReturnModel->sql->commitDb())
+		{
+			$status = 200;
+			$msg    = _('success');
+			//退款退货提醒
+			$message = new MessageModel();
+			$message->sendMessage('Refund return reminder', $return['buyer_user_id'], $return['buyer_user_account'], $order_id = NULL, $shop_name = NULL, 0, 1);
+		}
+		else
+		{
+			$this->orderReturnModel->sql->rollBackDb();
 			$status = 250;
-			$msg    = _('failure3');
+			$msg    = $msg ? $msg : _('failure');
 		}
 
 		$data = array();
@@ -336,6 +447,7 @@ class Seller_Service_ReturnCtl extends Seller_Controller
 		$this->data->addBody(-140, $data, $msg, $status);
 
 	}
+
 }
 
 ?>

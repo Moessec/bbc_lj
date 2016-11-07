@@ -170,6 +170,9 @@ class Api_Promotion_PointsCtl extends Api_Controller
 		{
 			$data = array();
 		}
+		
+		$userGradeModel        = new User_GradeModel();
+        $data['user_grade']    = $userGradeModel->getGradeList();
 
 		$this->data->addBody(-140, $data);
 	}

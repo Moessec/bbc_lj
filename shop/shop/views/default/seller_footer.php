@@ -44,7 +44,7 @@
 <div class="footer">
 	<div class="wrapper">
 		<p class="about">
-            <?php if($this->bnav){
+            <?php if(isset($this->bnav) && $this->bnav){
                 foreach ($this->bnav['items'] as $key => $nav) {
                     if($key<10){
                         ?>
@@ -57,6 +57,10 @@
 		<p class="copyright"><?=Web_ConfigModel::value('copyright')?></p>
 	</div>
 </div>
-
+<script>
+	$(function(){
+		ucenterLogin(UCENTER_URL, SITE_URL, true);
+	});
+</script>
 </body>
 </html>

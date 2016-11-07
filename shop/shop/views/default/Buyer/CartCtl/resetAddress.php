@@ -4,6 +4,9 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="<?= $this->view->css ?>/resetAddr.css">
 	<script type="text/javascript" src="<?=$this->view->js_com?>/jquery.js" charset="utf-8"></script>
+    <script>
+        var SITE_URL = "<?php Yf_Registry::get('url')?>";
+    </script>
 	<link href="<?= $this->view->css_com ?>/jquery/plugins/validator/jquery.validator.css?ver=<?=VER?>" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="<?=$this->view->js_com?>/plugins/validator/jquery.validator.js" charset="utf-8"></script>
 	<script type="text/javascript" src="<?=$this->view->js_com?>/plugins/validator/local/zh_CN.js" charset="utf-8"></script>
@@ -97,7 +100,7 @@
 			'user_address_area': 'required;',
 			'user_address_address': 'required;',
 			'select_1':'required',
-			'select_2':'required',
+			'select_2':'required'
 			//'select_3':'required',
 		},
 		valid:function(form){
@@ -112,34 +115,34 @@
 			 data:$("#form").serialize(),
 			 success:function(a){
 				 console.info(a);
-			 if(a.status == 200)
-			 {
-				 //添加数据成功，关闭弹出窗之前，刷新列表页面的数据
-				 //parent.window.location.href = SITE_URL + "?ctl=Buyer_Cart&met=confirm";
-				 if(id )
-				 {
-					 parent.editAddress(a.data);
-				 }
-				 else
-				 {
-					  parent.addAddress(a.data);
-				 }
+                 if(a.status == 200)
+                 {
+                     //添加数据成功，关闭弹出窗之前，刷新列表页面的数据
+                     //parent.window.location.href = SITE_URL + "?ctl=Buyer_Cart&met=confirm";
+                     if(id )
+                     {
+                         parent.editAddress(a.data);
+                     }
+                     else
+                     {
+                          parent.addAddress(a.data);
+                     }
 
-				 //var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
-				 //parent.layer.close(index);
-				 api.close();
-			 }
-			 else
-			 {
-				 api.close();
-				 //parent.layer.close(index);
-				 //$.dialog.alert('操作失败！');
-				 Public.tips.error('<?=('操作失败！')?>');
-			 }
-			 // 提交表单成功后，释放hold，如果不释放hold，就变成了只能提交一次的表单
-             me.holdSubmit(false);
+                     //var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                     //parent.layer.close(index);
+                     api.close();
+                 }
+                 else
+                 {
+                     api.close();
+                     //parent.layer.close(index);
+                     //$.dialog.alert('操作失败！');
+                     Public.tips.error('<?=('操作失败！')?>');
+                 }
+                 // 提交表单成功后，释放hold，如果不释放hold，就变成了只能提交一次的表单
+                 me.holdSubmit(false);
 			 },
-			 function ()
+			 error:function ()
              {
                 me.holdSubmit(false);
              }

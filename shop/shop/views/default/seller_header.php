@@ -22,6 +22,7 @@ $user_info = $User_InfoModel->getOne(Perm::$userId);
     <link href="<?= $this->view->css ?>/base.css?ver=<?=VER?>" rel="stylesheet" type="text/css">
     <link href="<?= $this->view->css ?>/tips.css?ver=<?=VER?>" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="<?= $this->view->js_com ?>/jquery.js" charset="utf-8"></script>
+	<script type="text/javascript" src="<?= $this->view->js_com ?>/plugins/jquery.cookie.js"></script>
     <script type="text/javascript" src="<?=$this->view->js?>/common.js"></script>
 
     <script type="text/javascript">

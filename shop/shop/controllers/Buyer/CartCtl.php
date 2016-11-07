@@ -171,6 +171,7 @@ class Buyer_CartCtl extends Controller
 	public function confirm()
 	{
 		$user_id = Perm::$row['user_id'];
+		$address_id = request_int('address_id');
 
 
 		//获取用户的折扣信息
@@ -209,25 +210,52 @@ class Buyer_CartCtl extends Controller
 		fb($data['address']);
 		fb("用户地址");
 
-		//根据默认收货地址计算运费
-		$cond_address['user_address_default'] = User_AddressModel::DEFAULT_ADDRESS;
-		$default_address_row                  = $User_AddressModel->getOneByWhere($cond_address);
-
-		fb($default_address_row);
-
-		if ($default_address_row)
+		if($address_id)
 		{
-			//$default_address = $default_address_row['user_address_area'];
-			$city_id             = $default_address_row['user_address_city_id'];
-			$Transport_TypeModel = new Transport_TypeModel();
-			$transport_cost      = $Transport_TypeModel->countTransportCost($city_id, $cart_id);
+			//如果传递了address_id,根据address_id获取运费信息
+			$address_row = $User_AddressModel->getOne($address_id);
 
-			$data['cost'] = $transport_cost;
+			$Transport_TypeModel = new Transport_TypeModel();
+			if ($address_row)
+			{
+				$city_id             = $address_row['user_address_city_id'];
+
+				$transport_cost      = $Transport_TypeModel->countTransportCost($city_id, $cart_id);
+
+				$data['cost'] = $transport_cost;
+			}
+			else
+			{
+				$transport_cost      = $Transport_TypeModel->countTransportCost(0, $cart_id);
+				$data['cost'] = $transport_cost;
+			}
+
 		}
 		else
 		{
-			$data['cost'] = array();
+			//根据默认收货地址计算运费
+			$cond_address['user_address_default'] = User_AddressModel::DEFAULT_ADDRESS;
+			$default_address_row                  = $User_AddressModel->getOneByWhere($cond_address);
+
+			fb($default_address_row);
+
+			$Transport_TypeModel = new Transport_TypeModel();
+			if ($default_address_row)
+			{
+				//$default_address = $default_address_row['user_address_area'];
+				$city_id             = $default_address_row['user_address_city_id'];
+
+				$transport_cost      = $Transport_TypeModel->countTransportCost($city_id, $cart_id);
+
+				$data['cost'] = $transport_cost;
+			}
+			else
+			{
+				$transport_cost      = $Transport_TypeModel->countTransportCost(0, $cart_id);
+				$data['cost'] = $transport_cost;
+			}
 		}
+
 		
 		fb($data);
 		fb("购物车列表confirm");
@@ -239,6 +267,20 @@ class Buyer_CartCtl extends Controller
 		{
 			include $this->view->getView();
 		}
+	}
+
+	//根据收货地址与商品id计算出物流运费
+	public function getTransportCost()
+	{
+		$transportTypeModel = new Transport_TypeModel();
+
+		$city = request_string('city');
+
+		$cart_id = request_string('cart_id');
+
+		$data = $transportTypeModel->countTransportCost($city, $cart_id);
+
+		$this->data->addBody(-140, $data);
 	}
 
 	/**
@@ -517,6 +559,27 @@ class Buyer_CartCtl extends Controller
 	public function add()
 	{
 		include $this->view->getView();
+	}
+
+	public function addCartRow()
+	{
+		$cart_list = request_string('cartlist');
+		$user_id = request_int('u');
+
+		$cart_list = explode('|',$cart_list);
+
+
+		foreach($cart_list as $key => $val)
+		{
+			$val = explode(',',$val);
+			if(count($val) > 1)
+			{
+				//将商品id与数量添加到购物车表中
+				$this->cartModel->updateCart($user_id,$val[0],$val[1]);
+			}
+		}
+
+		$this->data->addBody(-140, array());
 	}
 
 	public function addCart()

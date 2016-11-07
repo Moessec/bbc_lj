@@ -43,11 +43,12 @@ $(document).ready(function(){
 			cart_id.push($(this).val());//将值添加到数组中
 		});
 
-		$.post(SITE_URL  + '?ctl=Seller_Transport&met=getTransportCost&typ=json',{city:city,cart_id:cart_id},function(data)
+		$.post(SITE_URL  + '?ctl=Buyer_Cart&met=getTransportCost&typ=json',{city:city,cart_id:cart_id},function(data)
 			{
 				console.info(data);
 				if(data && 200 == data.status) {
 					$.each(data.data ,function(key,val){
+						console.info(val);
 						$(".trancon"+key).html(val.con);
 						if(val.cost <= 0)
 						{
@@ -68,9 +69,11 @@ $(document).ready(function(){
 					var rate_amount = 0;
 					$(".dian_total i").each(function(){
 						total += $(this).html()*1;
-						rate_amount += $(this),find(".dian_total_val").val();
+						rate_amount += $(this).parent().find(".dian_total_val").val();
 					});
 					$(".total").html(total.toFixed(2));
+
+
 					$(".after_total").html((total - rate_amount).toFixed(2));
 
 				}
@@ -79,9 +82,12 @@ $(document).ready(function(){
 
 	}
 
-	var ww=$(document).height()-560;
+	var ww=$(document).height()-173;
+	var top;
+	top=$(window).scrollTop()+$(window).height();
+	top>=ww ? $(".pay_fix").css("position","relative") : $(".pay_fix").css("position","fixed");
 	$(window).scroll(function (){
-		var top=$(window).scrollTop()+$(window).height();
+		top=$(window).scrollTop()+$(window).height();
 		if(top>=ww){
 			$(".pay_fix").css("position","relative");
 		}else{
@@ -444,7 +450,7 @@ $(document).ready(function(){
 			height: 340,
 			width: 580,
 			lock: true,
-			drag: false,
+			drag: false
 
 		})
 	}
@@ -509,6 +515,7 @@ $(document).ready(function(){
 		$("#mask_box").show();
 
 		$.ajax({
+			type:"POST",
 			url: SITE_URL  + '?ctl=Buyer_Order&met=addOrder&typ=json',
 			data:{receiver_name:address_contact,receiver_address:address_address,receiver_phone:address_phone,invoice:invoice,invoice_id:invoice_id,cart_id:cart_id,shop_id:shop_id,remark:remark,increase_goods_id:increase_goods_id,voucher_id:voucher_id,pay_way_id:pay_way_id},
 			dataType: "json",

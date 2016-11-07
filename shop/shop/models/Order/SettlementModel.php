@@ -116,7 +116,8 @@ class Order_SettlementModel extends Order_Settlement
 		//1.查找店铺的结算周期
 		$Shop_BaseModel = new Shop_BaseModel();
 		$shop_info      = $Shop_BaseModel->getSettlementCycle();
-
+		fb($shop_info);
+		fb("单品");
 		$Order_BaseModel = new Order_BaseModel();
 		$Shop_CostModel  = new Shop_CostModel();
 		foreach ($shop_info as $key => $val)
@@ -158,7 +159,20 @@ class Order_SettlementModel extends Order_Settlement
 					'order_finished_time:<=' => $end_time
 				);
 				$settle_row     = $Order_BaseModel->settleOrder($order_cond_row);
-				fb($settle_row);
+
+				//计算某月内，某店铺实物订单的退款
+				$Order_ReturnModel = new Order_ReturnModel();
+				$return_cond_row = array();
+				$return_cond_row['seller_user_id'] = $val['shop_id'];
+				$return_cond_row['return_finish_time:>='] = $start_time;
+				$return_cond_row['return_finish_time:<='] = $end_time;
+				$return_cond_row['order_is_virtual'] = 0;
+
+				$return_row = $Order_ReturnModel->settleReturn($return_cond_row);
+				$settle_row['return_amount'] = $return_row['return_amount'];
+				$settle_row['commission_return_amount'] = $return_row['commission_return_amount'];
+				fb($return_cond_row);
+
 				//结算店铺费用
 				$shop_cond_row           = array(
 					'shop_id' => $val['shop_id'],
@@ -167,7 +181,7 @@ class Order_SettlementModel extends Order_Settlement
 					'cost_time:<=' => $end_time,
 				);
 				$settle_row['shop_cost'] = $Shop_CostModel->settleShopCost($shop_cond_row);
-				fb($settle_row);
+
 				$add_settle_row = array();
 				//结算单编号（年月日订单type店铺id）
 				$add_settle_row['os_id'] = sprintf('%s%s%s', date('Ymd'), 0, $val['shop_id']);
@@ -207,10 +221,9 @@ class Order_SettlementModel extends Order_Settlement
 				//结算单等待确认提醒
 				//[start_time][end_time][order_id]
 				$message = new MessageModel();
-				$message->sendMessage('Settlement sheet for confirmation',$shop_info['user_is'], $shop_info['user_name'], $order_id = $settlem_order_id, $shop_name = NULL, 1, 1, $end_time = $end_time,$common_id=NULL,$goods_id=NULL,$des=NULL, $start_time = $start_time);
-
+				$message->sendMessage('Settlement sheet for confirmation',$val['user_id'], $val['user_name'], $order_id = $settlem_order_id, $shop_name = NULL, 1, 1, $end_time = $end_time,$common_id=NULL,$goods_id=NULL,$des=NULL, $start_time = $start_time);
+			die();
 			}
-
 		}
 	}
 
@@ -263,6 +276,19 @@ class Order_SettlementModel extends Order_Settlement
 				);
 				$settle_row     = $Order_BaseModel->settleOrder($order_cond_row);
 
+				//计算某月内，某店铺实物订单的退款
+				$Order_ReturnModel = new Order_ReturnModel();
+				$return_cond_row = array();
+				$return_cond_row['seller_user_id'] = $val['shop_id'];
+				$return_cond_row['return_finish_time:>='] = $start_time;
+				$return_cond_row['return_finish_time:<='] = $end_time;
+				$return_cond_row['order_is_virtual'] = 1;
+
+				$return_row = $Order_ReturnModel->settleReturn($return_cond_row);
+				$settle_row['return_amount'] = $return_row['return_amount'];
+				$settle_row['commission_return_amount'] = $return_row['return_commision_fee'];
+				fb($return_cond_row);
+
 				$add_settle_row = array();
 				//结算单编号（年月日订单type店铺id）
 				$add_settle_row['os_id'] = sprintf('%s%s%s', date('Ymd'), 1, $val['shop_id']);
@@ -298,7 +324,7 @@ class Order_SettlementModel extends Order_Settlement
 				//结算单等待确认提醒
 				//[start_time][end_time][order_id]
 				$message = new MessageModel();
-				$message->sendMessage('Settlement sheet for confirmation',$shop_info['user_is'], $shop_info['user_name'], $order_id = $settlem_order_id, $shop_name = NULL, 1, 1, $end_time = $end_time,$common_id=NULL,$goods_id=NULL,$des=NULL, $start_time = $start_time);
+				$message->sendMessage('Settlement sheet for confirmation',$val['user_id'], $val['user_name'], $order_id = $settlem_order_id, $shop_name = NULL, 1, 1, $end_time = $end_time,$common_id=NULL,$goods_id=NULL,$des=NULL, $start_time = $start_time);
 			}
 
 		}

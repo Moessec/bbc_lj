@@ -482,7 +482,23 @@ class Seller_Promotion_MeetConditionGiftCtl extends Seller_Controller
 				check_rs($op_flag, $rs_row);
 			}
 
-			if (is_ok($rs_row) && $this->manSongQuotaModel->sql->commitDb())
+			if(is_ok($rs_row))
+			{
+				//在paycenter中添加交易记录
+                $key      = Yf_Registry::get('shop_api_key');
+                $url         = Yf_Registry::get('paycenter_api_url');
+                $shop_app_id = Yf_Registry::get('shop_app_id');
+
+                $formvars             = array();
+                $formvars['app_id']        = $shop_app_id;
+                $formvars['buyer_user_id'] = Perm::$userId;
+                $formvars['buyer_user_name'] = Perm::$row['user_account'];
+                $formvars['amount'] = $month_price * $month;
+
+                $rs                   = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=addCombo&typ=json', $url), $formvars);
+			}
+
+			if (is_ok($rs_row) && isset($rs) && $rs['status'] == 200 && $this->manSongQuotaModel->sql->commitDb())
 			{
 				$msg    = _('操作成功');
 				$status = 200;
