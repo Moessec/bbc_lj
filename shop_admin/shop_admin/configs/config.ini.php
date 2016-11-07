@@ -370,6 +370,7 @@ else
 Yf_Registry::set('ucenter_api_key', $ucenter_api_key);
 Yf_Registry::set('ucenter_app_id', $ucenter_app_id);
 Yf_Registry::set('ucenter_api_url', $ucenter_api_url);
+Yf_Registry::set('ucenter_admin_api_url', $ucenter_admin_api_url);
 
 //支付中心配置
 if (is_file(INI_PATH . '/paycenter_api_' . $server_id . '.ini.php'))
@@ -384,6 +385,7 @@ else
 Yf_Registry::set('paycenter_api_key', $paycenter_api_key);
 Yf_Registry::set('paycenter_app_id', $paycenter_app_id);
 Yf_Registry::set('paycenter_api_url', $paycenter_api_url);
+Yf_Registry::set('paycenter_admin_api_url', $paycenter_admin_api_url);
 Yf_Registry::set('paycenter_api_name', @$paycenter_api_name ? $paycenter_api_name : _('网付宝'));
 
 

@@ -81,7 +81,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
       <tr>
         <th>营业执照<br />
           电子版：</th>
-        <td colspan="20"> <img src="<?=$value['business_license_electronic']?>" alt="" /></td>
+        <td colspan="20"> <a href="<?=$value['business_license_electronic']?>" target="_blank"><img src="<?=$value['business_license_electronic']?>" alt="" /></a></td>
       </tr>
     </tbody>
   </table>
@@ -99,7 +99,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
       <tr>
         <th>组织机构代码证<br/>
           电子版：</th>
-        <td colspan="20"> <img src="<?=$value['organization_code_electronic']?>" alt="" /> </td>
+        <td colspan="20"> <a href="<?=$value['organization_code_electronic']?>" target="_blank"><img src="<?=$value['organization_code_electronic']?>" alt="" /> </a></td>
       </tr>
     </tbody>
   </table>
@@ -146,7 +146,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
       <tr>
         <th>开户银行许可证<br/>
           电子版：</th>
-        <td colspan="20"><img src="<?=$value['bank_licence_electronic']?>" alt="" /></td>
+        <td colspan="20"><a href="<?=$value['bank_licence_electronic']?>" target="_blank"><img src="<?=$value['bank_licence_electronic']?>" alt="" /></a></td>
       </tr>
     </tbody>
   </table>
@@ -197,7 +197,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
       <tr>
         <th>税务登记证号<br />
           电子版：</th>
-        <td><a nctype="nyroModal"  href=""> <img src="<?=$value['tax_registration_certificate_electronic']?>" alt="" /> </a></td>
+        <td><a nctype="nyroModal"  href="<?=$value['tax_registration_certificate_electronic']?>" target="_blank"> <img src="<?=$value['tax_registration_certificate_electronic']?>" alt="" /> </a></td>
       </tr>
     </tbody>
   </table>

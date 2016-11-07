@@ -47,7 +47,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 			<dl id="row_0" class="row">
 				<dt class="tit"><span>会员等级</span></dt>
 				<dd class="opt">
-				  <input type="text"  style="width:100px;height:25px;" value="<?=$val['user_grade_name'];?>" name="gr[<?=$key;?>][user_grade_name]">晋级需 <input type="text"  style="width:100px;height:25px;" value="<?=$val['user_grade_demand'];?>" name="gr[<?=$key;?>][user_grade_demand]"> 经验值; 会员折扣率 <input type="text"  style="width:50px;height:25px;" value="<?=$val['user_grade_rate'];?>" name="gr[<?=$key;?>][user_grade_rate]">
+				  <input type="text"  style="width:100px;height:25px;" value="<?=$val['user_grade_name'];?>" name="gr[<?=$key;?>][user_grade_name]">晋级需 <input type="text"  style="width:100px;height:25px;" value="<?=$val['user_grade_demand'];?>" name="gr[<?=$key;?>][user_grade_demand]"> 经验值; 会员折扣率 <input type="text"  style="width:50px;height:25px;" value="<?=$val['user_grade_rate'];?>" name="gr[<?=$key;?>][user_grade_rate]"><b>会员折扣率不能为0</b>
 				  <input type="hidden" readonly="" class="w50" value="<?=$val['user_grade_id'];?>" name="gr[<?=$key;?>][user_grade_id]">	
 				</dd>
 			 </dl>

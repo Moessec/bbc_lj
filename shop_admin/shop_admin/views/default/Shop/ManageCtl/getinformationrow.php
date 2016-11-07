@@ -40,7 +40,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             </dl>
           <dl class="row">
                 <dt class="tit">
-                  <label>所属分类</label>
+                  <label for="class_id">所属分类</label>
                  <input id="class_id" name="shop[shop_class_id]" value="<?= $data['shop_class_id']?>"  type="hidden"/>
                 </dt>
                 <dd class="opt">
@@ -140,7 +140,7 @@ $(function ()
                     }
                 });
 
-        gradeCombo.selectByValue(grade_id);
+        classCombo.selectByValue(class_id);
         
    
     }

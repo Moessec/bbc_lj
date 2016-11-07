@@ -54,7 +54,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 </dd>
             </dl>
 
-            <dl class="row">
+           <!--  <dl class="row">
                 <dt class="tit">
                     <label>默认店铺标志</label>
                 </dt>
@@ -67,7 +67,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 					<input id="photo_shop_logo" name="photo[photo_shop_logo]" value="<?=($data['photo_shop_logo']['config_value'])?>" class="ui-input w400" type="hidden"/>
                     <p class="notic">默认店铺标志，最佳显示尺寸为200*60像素</p>
                 </dd>
-            </dl>
+            </dl> -->
 
             <dl class="row">
                 <dt class="tit">

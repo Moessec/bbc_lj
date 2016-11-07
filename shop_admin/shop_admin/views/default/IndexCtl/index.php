@@ -253,25 +253,21 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			</ul>
 			-->
 			<?php
-			//$ucenter_api_url_row = parse_url(Yf_Registry::get('ucenter_api_url'));
-			//$ucenter_admin_url = '//admin.' . $ucenter_api_url_row['host'];
+			$ucenter_api_url_row = parse_url(Yf_Registry::get('ucenter_api_url'));
+			$ucenter_admin_url = Yf_Registry::get('ucenter_admin_api_url');
 
-			//$paycenter_api_url_row = parse_url(Yf_Registry::get('paycenter_api_url'));
-			//$paycenter_admin_url = '//admin.' . $paycenter_api_url_row['host'];
-
-			$shop_admin_url 	 = Yf_Registry::get('url');
-			$ucenter_admin_url   = str_replace('shop_admin','ucenter_admin',$shop_admin_url);
-			$paycenter_admin_url = str_replace('shop_admin','paycenter_admin',$shop_admin_url);
+			$paycenter_api_url_row = parse_url(Yf_Registry::get('paycenter_api_url'));
+			$paycenter_admin_api_url = Yf_Registry::get('paycenter_admin_api_url');
 			?>
 			<ol>
 				<li><a href="<?= $ucenter_admin_url ?>" target="_blank"><i class="nav_href">UCenter</i></a></li>
-				<li><a href="<?= $paycenter_admin_url ?>" target="_blank"><i class="nav_href">PayCenter</i></a></li>
-				<!--<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">广告系统</i></a></li>
-				<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">大数据</i></a></li>
-				<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">备份系统</i></a></li>
-				<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">IM系统</i></a></li>-->
+				<li><a href="<?= $paycenter_admin_api_url ?>" target="_blank"><i class="nav_href">PayCenter</i></a></li>
+				<!--<li><a href="<?/*= Yf_Registry::get('url') */?>?ctl=Login&met=loginout"><i class="nav_href">广告系统</i></a></li>
+				<li><a href="<?/*= Yf_Registry::get('url') */?>?ctl=Login&met=loginout"><i class="nav_href">大数据</i></a></li>
+				<li><a href="<?/*= Yf_Registry::get('url') */?>?ctl=Login&met=loginout"><i class="nav_href">备份系统</i></a></li>
+				<li><a href="<?/*= Yf_Registry::get('url') */?>?ctl=Login&met=loginout"><i class="nav_href">IM系统</i></a></li>-->
 				<li><img src="<?= Yf_Registry::get('ucenter_api_url') ?>?ctl=Index&met=img&user_id=<?=Perm::$userId?>"><div><span><?=Perm::$row['user_account']?></span><div></li>
-				<!--<li><a href="#"><i class="iconfont icon-top01"></i></a></li>-->
+				<li><a href="#"><i class="iconfont icon-top01"></i></a></li>
 				<li><a href="<?= Yf_Registry::get('shop_api_url') ?>" target="_blank"><i class="iconfont icon-top02"></i></a></li>
 				<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="iconfont icon-top03"></i></a></li>
 			</ol>
@@ -384,11 +380,11 @@ include $this->view->getTplPath() . '/' . 'header.php';
 						<li>
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=User_Base&met=index" rel="pageTab" tabid="shop-setting"
 													   tabtxt="权限设置">权限设置</a>
-						</li>
+						</li><!--
 						<li>
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Subsite_Config&met=index" rel="pageTab" tabid="sub-site-setting"
 													   tabtxt="分站管理">分站管理</a>
-						</li>
+						</li>-->
 					</ul>
 
 					<ul>

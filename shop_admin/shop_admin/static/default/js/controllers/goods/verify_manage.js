@@ -81,7 +81,8 @@ function postData(oper, id){
 
     Public.ajaxPost( SITE_URL + '?ctl=Goods_Goods&typ=json&met=' + (oper == 'add' ? 'add' : 'editCommonVerify'), params, function(data){
         if (data.status == 200) {
-            rowData.common_state = Goods_CommonModel.GOODS_STATE_ILLEGAL;
+            rowData.common_state = Goods_CommonModel.GOODS_STATE_NORMAL;
+            rowData.common_verify = data.data['common_verify'];
             rowData.operate = oper;
             parent.parent.Public.tips({content : msg + '成功！'});
             if(callback && typeof callback == 'function'){

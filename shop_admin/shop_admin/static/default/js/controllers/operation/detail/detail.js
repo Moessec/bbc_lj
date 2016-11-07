@@ -67,7 +67,7 @@ $(function ()
                         if (data.status == 200)
                         {
                             parent.Public.tips({content: '操作成功！'});
-                            window.location.href = URL+"?ctl=Operation_Settlement&met=detail&id="+urlParam.id;
+                            window.location.href = SITE_URL+"?ctl=Operation_Settlement&met=detail&id="+urlParam.id;
                         }
                         else
                         {

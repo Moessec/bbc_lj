@@ -166,11 +166,11 @@ include TPL_PATH . '/' . 'footer.php';
                     html = '<div nctype="special_item" class="special-item home4 '+ (item_data.mb_tpl_layout_enable == 1 ? 'usable' : 'unusable') +'" data-item-id="' + item_data.mb_tpl_layout_id + '">' +
                                 '<div class="item_type">模型版块布局D</div>' +
                                 '<div id="item_edit_content"><div class="home2"><div class="title"><span></span></div>' +
-                                '<div class="content"><div class="home2_2"><div class="home2_2_1"><div nctype="item_image" class="item"> <img nctype="image" src="' + f_img + '" alt="">' +
-                                '</div><div class="home2_2_2"><div nctype="item_image" class="item"> <img nctype="image" src="' + s_img + '" alt="">' +
+                                '<div class="content"><div class="home2_2"><div class="home2_2_1"><div nctype="item_image" class="item"> <img nctype="image" src="' + s_img + '" alt="">' +
+                                '</div><div class="home2_2_2"><div nctype="item_image" class="item"> <img nctype="image" src="' + t_img + '" alt="">' +
                                 '</div></div></div></div>' +
                                 '<div class="home2_1">' +
-                                '<div nctype="item_image" class="item"> <img nctype="image" src="' + t_img + '" alt="">' +
+                                '<div nctype="item_image" class="item"> <img nctype="image" src="' + f_img + '" alt="">' +
                                 '</div></div></div></div></div>' +
                                 '<div class="handle"><a nctype="btn_move_up" href="javascript:;">' +
                                     '<i class="fa fa-arrow-up"></i>上移</a> <a nctype="btn_move_down" href="javascript:;">' +

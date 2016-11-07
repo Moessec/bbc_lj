@@ -62,6 +62,18 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                     <p class="notic"></p>
                 </dd>
             </dl>
+
+            <dl class="row">
+                <dt class="tit">
+                    <label for="site_name">Paycenter后台 URL</label>
+                </dt>
+                <dd class="opt">
+                    <input id="paycenter_admin_api_url" name="paycenter_api[paycenter_admin_api_url]" value="<?=Yf_Registry::get('paycenter_admin_api_url')?>" class="w400 ui-input " type="text"/>
+
+                    <p class="notic"></p>
+                </dd>
+            </dl>
+
             <dl class="row">
                 <dt class="tit">
                     <label for="site_name">Paycenter key</label>

@@ -477,25 +477,28 @@ function fb()
 
 		if (!preg_match_all('/\sFirePHP\/([\.|\d]*)\s?/si', $_SERVER['HTTP_USER_AGENT'], $m) || !version_compare($m[1][0], '0.0.6', '>='))
 		{
-			//是否启用php console
-			$is_active_client = PhpConsole\Connector::getInstance()->isActiveClient();
-
-			if ($is_active_client)
+			if (DEBUG)
 			{
-				//PhpConsole\Handler::getInstance()->debug($info, $name);  //数组 autoload bug
+				//是否启用php console
+				$is_active_client = PhpConsole\Connector::getInstance()->isActiveClient();
 
-				$content = func_get_args();
-
-				$type = @$content[3];
-				$name = @$content[1];
-				$info = $content[0];
-
-				if (!$name)
+				if ($is_active_client)
 				{
-					$name = 'default';
-				}
+					//PhpConsole\Handler::getInstance()->debug($info, $name);  //数组 autoload bug
 
-				PhpConsole\Handler::getInstance()->debug($info, $name);
+					$content = func_get_args();
+
+					$type = @$content[3];
+					$name = @$content[1];
+					$info = $content[0];
+
+					if (!$name)
+					{
+						$name = 'default';
+					}
+
+					PhpConsole\Handler::getInstance()->debug($info, $name);
+				}
 			}
 		}
 		else

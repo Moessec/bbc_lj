@@ -71,7 +71,7 @@ body{background: #fff;}
                     </dd>
     			</li>
     			<li class="row-item odd">
-    			    <div class="label-wrap"><label for="brand_enable">是否审核</label></div>
+    			    <div class="label-wrap"><label for="brand_enable">审核状态</label></div>
     				<dd class="opt">
                         <div class="onoff">
                             <label for="brand_enable1" class="cb-enable  ">是</label>

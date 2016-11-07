@@ -64,6 +64,8 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     <input type="hidden" name="widget_cat" value="<?php echo $data["met"] ?>" id="widget_cat"/>
     <input type="hidden" name="widget_name" id="widget_name"value="<?php echo $data["widget_name"] ?>" />
     <input type="hidden" name="page_id" id="page_id"  value="<?php echo $data["page_id"] ?>" />
+    <div class="tips"><i class="iconfont"></i>请上传宽度<?php echo $data["width"] ?>像素、高度<?php echo $data["height"] ?>像素的图片，过大或过小的图像都将影响显示效果正常</div>
+
         <tr>
             <th colspan="2">文字标题：</th>
         </tr>
@@ -121,7 +123,8 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     
     <input type="hidden" name="item_id" value="<?php echo $data['adimgtext']['item_id'] ?>" id="item_id"/>
     <input type="hidden" name="widget_id" value="<?php echo $data['adimgtext']['widget_id'] ?>" id="widget_id"/>
-
+    
+     <div class="tips"><i class="iconfont"></i>请上传宽度<?php echo $data["width"] ?>像素、高度<?php echo $data["height"] ?>像素的图片，过大或过小的图像都将影响显示效果正常</div>
         <tr>
             <th colspan="2">文字标题：</th>
         </tr>

@@ -46,6 +46,7 @@ class ConfigCtl extends AdminController
 
 		$ucenter_api_key = $ucenter_api_row['ucenter_api_key'];
 		$ucenter_api_url = $ucenter_api_row['ucenter_api_url'];
+		$ucenter_admin_api_url = $ucenter_api_row['ucenter_admin_api_url'];
 		$ucenter_app_id  = 103;
 
 		//先检测API是否正确
@@ -71,6 +72,7 @@ class ConfigCtl extends AdminController
 			$data['ucenter_api_key'] = $ucenter_api_key;
 			$data['ucenter_api_url'] = $ucenter_api_url;
 			$data['ucenter_app_id']  = $ucenter_app_id;
+			$data['ucenter_admin_api_url'] = $ucenter_admin_api_url;
 
 			if (is_file(INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php'))
 			{
@@ -112,6 +114,7 @@ class ConfigCtl extends AdminController
 
 		$paycenter_api_key = $paycenter_api_row['paycenter_api_key'];
 		$paycenter_api_url = $paycenter_api_row['paycenter_api_url'];
+		$paycenter_admin_api_url = $paycenter_api_row['paycenter_admin_api_url'];
 		$paycenter_app_id  = 105;
 
 
@@ -140,6 +143,7 @@ class ConfigCtl extends AdminController
 			$data                    = array();
 			$data['paycenter_api_key'] = $paycenter_api_key;
 			$data['paycenter_api_url'] = $paycenter_api_url;
+			$data['paycenter_admin_api_url'] = $paycenter_admin_api_url;
 			$data['paycenter_app_id']  = $paycenter_app_id;
 			$data['paycenter_api_name']  = $paycenter_api_name;
 

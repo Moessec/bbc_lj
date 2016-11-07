@@ -114,12 +114,12 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                     <label> 限制参与兑换的会员级别 </label>
                 </dt>
                 <dd class="opt">
-                    <select name="limitgrade">
-                        <option value="1" <?=@($data['points_goods_limitgrade']==1?'selected':'')?>>V1</option>
-                        <option value="2" <?=@($data['points_goods_limitgrade']==2?'selected':'')?>>V2</option>
-                        <option value="3" <?=@($data['points_goods_limitgrade']==3?'selected':'')?>>V3</option>
-                        <option value="4" <?=@($data['points_goods_limitgrade']==4?'selected':'')?>>V4</option>
-                        <option value="5" <?=@($data['points_goods_limitgrade']==5?'selected':'')?>>V5</option>
+                    <select name="limitgrade" id="limitgrade">
+                        <?php if($data['user_grade']){
+                            foreach($data['user_grade'] as $key=>$grade){
+                                ?>
+                                <option value="<?=$grade['user_grade_id']?>" <?=@($data['points_goods_limitgrade']==$grade['user_grade_id']?'selected':'')?>><?=$grade['user_grade_name']?></option>
+                            <?php } } ?>
                     </select>
                     <span class="err"></span>
                     <p class="notic">当会员兑换积分商品时，需要达到该级别或者以上级别后才能参与兑换</p>

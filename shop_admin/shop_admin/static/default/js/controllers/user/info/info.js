@@ -26,7 +26,7 @@ function initPopBtns()
 					// 提交表单之前，hold住表单，防止重复提交
 					me.holdSubmit();
 					n = "修改";
-					Public.ajaxPost(SITE_URL + '?ctl=User_Info&met=editUserInfo&typ=json', $_form.serialize(), function (e)
+					Public.ajaxPost(SITE_URL + '?ctl=User_Info&met=editUserInfoByUcenter&typ=json', $_form.serialize(), function (e)
 					{
 						if (200 == e.status)
 						{

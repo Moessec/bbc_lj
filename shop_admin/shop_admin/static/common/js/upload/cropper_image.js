@@ -28,7 +28,7 @@ uploadaspectRatio = _data.width / _data.height,
 
         // -------setting-------
         // 如果使用原始大小，超大的图片可能会出现 Croper UI 卡顿，所以这里建议先缩小后再crop.
-        var FRAME_WIDTH = 1600;
+        var FRAME_WIDTH = 1900;
 
 
         var _ = WebUploader;
@@ -178,7 +178,7 @@ uploadaspectRatio = _data.width / _data.height,
                     y: data.y1,
                     width: data.width,
                     height: data.height,
-                    scale: data.scale
+                    scale: 1
                 };
             },
 

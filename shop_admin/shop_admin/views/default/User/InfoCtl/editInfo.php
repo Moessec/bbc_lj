@@ -24,7 +24,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                     <label>会员</label>
                 </dt>
                 <dd class="opt">
-					<input id="user_name" name="user_name" readonly value="<?=($data['user_name'])?>" class="ui-input w400" type="text"/>
+					<input id="user_name" name="user_name"  readonly value="<?=($data['user_name'])?>" class="ui-input w400" type="text"/>
                     <p class="notic"> 会员用户名不可修改。</p>
                 </dd>
             </dl>
@@ -42,7 +42,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                     <label><em>*</em>电子邮箱</label>
                 </dt>
                 <dd class="opt">
-					<input id="user_email" name="user_email" value="<?=($data['user_email'])?>" class="ui-input w400" type="text"/>
+					<input id="user_email" name="user_email" readonly value="<?=($data['user_email'])?>" class="ui-input w400" type="text"/>
                     <p class="notic"> 请输入常用的邮箱，将用来找回密码、接受订单通知等。</p>
                 </dd>
             </dl>
@@ -51,7 +51,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                     <label>真实姓名</label>
                 </dt>
                 <dd class="opt">
-					<input id="user_realname" name="user_realname" value="<?=($data['user_realname'])?>" class="ui-input w400" type="text"/>
+					<input id="user_realname" readonly name="user_realname" value="<?=($data['user_realname'])?>" class="ui-input w400" type="text"/>
                     <p class="notic"></p>
                 </dd>
             </dl>
@@ -63,9 +63,9 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 				  <input type="radio" id="user_sex2" name="user_sex" value="2" <?=($data['user_sex']==2 ? 'checked' : '')?>>
 				  <label for="user_sex2">保密</label>
 				  <input type="radio" id="user_sex0" name="user_sex" value="0" <?=($data['user_sex']==0 ? 'checked' : '')?>>
-				  <label for="user_sex0">男</label>
+				  <label for="user_sex0">女</label>
 				  <input type="radio" id="user_sex1" name="user_sex" value="1" <?=($data['user_sex']==1 ? 'checked' : '')?>>
-				  <label for="user_sex1">女</label>
+				  <label for="user_sex1">男</label>
 				  <span class="err"></span>
 				</dd>
 			</dl>
@@ -74,7 +74,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                     <label>QQ</label>
                 </dt>
                 <dd class="opt">
-					<input id="user_qq" name="user_qq" value="<?=($data['user_qq'])?>" class="ui-input w400" type="text"/>
+					<input id="user_qq" name="user_qq" readonly value="<?=($data['user_qq'])?>" class="ui-input w400" type="text"/>
                     <p class="notic"></p>
                 </dd>
             </dl>

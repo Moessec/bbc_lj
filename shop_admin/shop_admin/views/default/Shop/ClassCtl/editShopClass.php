@@ -82,7 +82,8 @@ function postData(t, e)
         {
             var shop_class_name = $.trim($("#shop_class_name").val()), 
             shop_class_deposit = $.trim($("#shop_class_deposit").val()), 
-            shop_class_displayorder = $.trim($("#shop_class_displayorder").val()), 
+            shop_class_displayorder = $.trim($("#shop_class_displayorder").val()),
+            shop_class_id = $.trim($("input[name='shop_class_id']").val()),
 
 			n = "add" == t ? "新增分类" : "修改分类";
 			params = rowData.shop_class_id ? {
@@ -92,6 +93,7 @@ function postData(t, e)
                                 shop_class_displayorder:shop_class_displayorder,
                                
 			} : {
+                shop_class_id: shop_class_id,
 				shop_class_name: shop_class_name, 
 				shop_class_deposit: shop_class_deposit,
                                 shop_class_displayorder:shop_class_displayorder,

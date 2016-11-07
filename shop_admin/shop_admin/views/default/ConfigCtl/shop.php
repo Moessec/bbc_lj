@@ -57,7 +57,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 </dd>
             </dl>
 
-			<!--
+			
             <dl class="row">
                 <dt class="tit">
                     <label>会员中心Logo</label>
@@ -73,7 +73,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                     <p class="notic">网站小尺寸LOGO，会员个人主页显示，最佳显示尺寸为160*60像素</p>
                 </dd>
             </dl>
-			-->
+			
 
             <dl class="row">
                 <dt class="tit">

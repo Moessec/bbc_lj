@@ -34,7 +34,7 @@
 				{name:'order_create_time', label:'下单时间', width:150,align:'center'},
 				{name:'order_goods_amount', label:'订单金额(元)', width:120, align:"center"},
 				{name:'order_stauts_text', label:'订单状态', width:120,align:"center"},
-				{name:'payment_id', label:'支付单号',  width:120, align:"center"},
+				{name:'payment_number', label:'支付单号',  width:120, align:"center"},
 				{name:'payment_name', label:'支付方式',  width:120, align:"center"},
 				{name:'payment_time', label:'支付时间',  width:150, align:"center"},
 				{name:'shipping_code', label:'发货物流单号',  width:100, align:"right"},
@@ -222,12 +222,14 @@
 				queryConditions.buyer_name = $('#buyer_name').val();
 				queryConditions.shop_name = $('#shop_name').val();
 				queryConditions.payment_id = $('#payment_id').val();
-				if ( !$('#filter-fromDate').val() ) {
+
+				if ( $('#filter-fromDate').val() ) {
 					queryConditions.payment_date_f = $('#filter-fromDate').val();
 				}
-				if ( !$('#filter-toDate').val() ) {
+				if ( $('#filter-toDate').val() ) {
 					queryConditions.payment_date_t = $('#filter-toDate').val();
 				}
+
 				THISPAGE.reloadData(queryConditions);
 			});
 			

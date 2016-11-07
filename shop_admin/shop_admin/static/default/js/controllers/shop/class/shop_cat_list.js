@@ -151,7 +151,7 @@ var handle = {
        
     }, del: function (t)
     {
-        $.dialog.confirm("删除的等级将不能恢复，请确认是否删除？", function ()
+        $.dialog.confirm("删除的分类将不能恢复，请确认是否删除？", function ()
         {
             Public.ajaxPost(SITE_URL + "?ctl=Shop_class&met=delShopclass&typ=json", {shop_class_id: t}, function (e)
             {

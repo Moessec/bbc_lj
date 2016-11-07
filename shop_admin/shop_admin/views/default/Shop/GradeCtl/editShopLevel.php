@@ -153,7 +153,8 @@ function postData(t, e)
                                 shop_grade_function_id:shop_grade_function_id,
                                 shop_grade_sort:shop_grade_sort,
 			} : {
-				shop_grade_name: shop_grade_name, 
+                shop_grade_id: shop_grade_id,
+                shop_grade_name: shop_grade_name,
 				shop_grade_goods_limit: shop_grade_goods_limit,
                                 shop_grade_album_limit:shop_grade_album_limit,
                                 shop_grade_fee:shop_grade_fee,

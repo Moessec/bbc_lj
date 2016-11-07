@@ -50,7 +50,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         </dt>
         <dd class="opt">
           <input type="radio" name="nav_location" id="nav_location_0" check="checked" value="0" >头部
-          <input type="radio" name="nav_location" id="nav_location_1" value="1" >中部
+			<!--<input type="radio" name="nav_location" id="nav_location_1" value="1" >中部-->
           <input type="radio" name="nav_location" id="nav_location_2" value="2" >底部
           <p class="notic"></p>
         </dd>
