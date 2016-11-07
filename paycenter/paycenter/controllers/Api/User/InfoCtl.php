@@ -52,7 +52,7 @@ class Api_User_InfoCtl extends Yf_AppController
 		'user_qq' => '15524721181',
 		'user_realname' => 'zsd12111',
 		'user_sex' => '0',
-		'key' => 'aaaaaabbb',
+		'key' => 'HANZaFR0Aw08PV1U02RzCW114UWXa26AUiIO',
 		*/
 		$user_email    = request_string('user_email');
 		$user_mobile    = request_string('user_mobile');
@@ -128,8 +128,7 @@ class Api_User_InfoCtl extends Yf_AppController
 	//获取用户资源信息
 	public function getUserResourceInfo()
 	{
-		$user_id = Perm::$userId;
-		$user_id = $user_id ? $user_id : request_int('user_id');
+		$user_id = request_int('user_id');
 
 
 		$User_ResourceModel = new User_ResourceModel();
@@ -148,6 +147,47 @@ class Api_User_InfoCtl extends Yf_AppController
 		}
 
 
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+
+	//修改用户资源信息
+	public function editUserResourceInfo()
+	{
+		$user_id = request_int('user_id');
+
+		$money = request_float('money');
+		$pay_type = request_string('pay_type');
+
+
+		$edit_row = array();
+		//修改现金账户
+		if($pay_type == 'cash')
+		{
+			$edit_row['user_money'] = $money;
+		}
+		if($pay_type == 'frozen_cash')
+		{
+			$edit_row['user_money_frozen'] = $money;
+		}
+
+		$User_ResourceModel = new User_ResourceModel();
+
+		$data = $User_ResourceModel->editResource($user_id,$edit_row,true);
+
+		if ($data)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+
+		$data = array();
 		$this->data->addBody(-140, $data, $msg, $status);
 
 	}

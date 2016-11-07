@@ -45,14 +45,18 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				<a class="acb"><?=_('状态：')?></a>
 				<div class="trade_class">
 					<span class="<?php if(empty($status)){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?><?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('全部')?></a></span>
-					<span ><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?><?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('进行中')?></a></span>
-					<span class="<?php if($status==1){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?>&status=1<?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('未付款')?></a></span>
-					<span><a><?=_('等待发货')?></a></span>
+					<span class="<?php if($status== 'doing'){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?>&status=doing<?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('进行中')?></a></span>
+					<span class="<?php if($status== 'waitpay'){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?>&status=waitpay<?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('未付款')?></a></span>
 
-					<span><a><?=_('未确认发货')?></a></span>
-					<span><a><?=_('退款')?></a></span>
-					<span class="<?php if($status==2){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?>&status=2<?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('成功')?></a></span>
-					<span class="<?php if(!empty($status)&&$status==3){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?>&status=3<?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('取消')?></a ></span>
+					<span class="<?php if($status== 'waitsend'){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?>&status=waitsend<?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('等待发货')?></a></span>
+
+					<span class="<?php if($status== 'waitconfirm'){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?>&status=waitconfirm<?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('未确认收货')?></a></span>
+
+					<span class="<?php if($status== 'retund'){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?>&status=retund<?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('退款')?></a></span>
+
+					<span class="<?php if($status== 'success'){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?>&status=success<?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('成功')?></a></span>
+
+					<span class="<?php if(!empty($status)&&$status== 'cancel'){?>btn btn_active<?php }?>"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist<?php if($time){?>&time=<?=$time?><?php }?>&status=cancel<?php if($type){?>&type=<?=$type?><?php }?><?php if($record_delete){?>&record_delete=<?=$record_delete?><?php }?>"><?=_('取消')?></a ></span>
 				</div>
 			</div>
 			<div class="first clearfix">
@@ -151,7 +155,15 @@ include $this->view->getTplPath() . '/' . 'header.php';
 						<?=(format_money($conval['record_money']))?>
 					</span></p>
 					<p class="wp20"><span><?=($conval['record_status_con'])?></span></p>
-					<p class="wp20"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recorddetail&id=<?=$conval['consume_record_id']?>" class="cb"><?=_('详情')?></a>&nbsp;|&nbsp;<a href="javascript:void(0)" data-param="{'ctl':'Info','met':'delRecordlist','id':'<?=$conval['consume_record_id']?>','record_delete':<?=$conval['record_delete']?>}" class="delete cb" title="<?=_('删除')?>"><?php if(empty($record_delete)){?><?=_('删除')?><?php }else{ ?><?=_('还原')?><?php }?></a></p>
+					<p class="wp20">
+						<?php if($conval['act'] == 'pay'){ ?>
+							<a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=pay&uorder=<?=$conval['uorder']?>" class="cb"><?=_('支付')?></a>
+
+						<?php }else{ ?>
+							<a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recorddetail&id=<?=$conval['consume_record_id']?>" class="cb"><?=_('详情')?></a>
+
+						<?php }?>
+						&nbsp;|&nbsp;<a href="javascript:void(0)" data-param="{'ctl':'Info','met':'delRecordlist','id':'<?=$conval['consume_record_id']?>','record_delete':<?=$conval['record_delete']?>}" class="delete cb" title="<?=_('删除')?>"><?php if(empty($record_delete)){?><?=_('删除')?><?php }else{ ?><?=_('还原')?><?php }?></a></p>
 				</div>
 			</div>
 			<?php }?>

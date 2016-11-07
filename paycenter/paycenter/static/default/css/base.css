@@ -23,12 +23,17 @@ i {
     font-style: normal;
 }
 table{border-collapse: collapse;}
-
+/*input, textarea {-webkit-appearance:none; }*/
+input[type="button"]{-webkit-appearance: none;}
+input:focus{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-user-modify:read-write-plaintext-only;
+}
 .wrap {
     width: 95%;
     margin: 0 auto;
     max-width: 1200px;
-    min-width: 310px;
+    /*min-width: 310px;*/
 }
 
 .clearfix {
@@ -186,10 +191,11 @@ table{border-collapse: collapse;}
     margin-top: 40px;
 }
 .btn_big{
-    padding: 10px 30px;
+    padding: 10px 0;
     display: inline-block;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 18px;
+    width: 180px;
 }
 
 

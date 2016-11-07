@@ -253,7 +253,55 @@ class Api_ConfigCtl extends Api_Controller
 
 		$this->data->addBody(-140, array());
 	}
-
+	
+	
+	/**
+	 * setStandard1
+	 *
+	 * @access public
+	 */
+	public function editUcenterApi()
+	{
+		//其它全局变量
+		$config_rows = array();
+		$file        = INI_PATH . '/ucenter_api.ini.php';
+		
+		
+		$ucenter_api_row = request_row('ucenter_api');
+		
+		$ucenter_api_key = $ucenter_api_row['ucenter_api_key'];
+		$ucenter_api_url = $ucenter_api_row['ucenter_api_url'];
+		$ucenter_app_id  = 103;
+		
+		$data                    = array();
+		$data['ucenter_api_key'] = $ucenter_api_key;
+		$data['ucenter_api_url'] = $ucenter_api_url;
+		$data['ucenter_app_id']  = $ucenter_app_id;
+		
+		if (is_file(INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php'))
+		{
+			$file = INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php';
+		}
+		else
+		{
+			$file = INI_PATH . '/ucenter_api.ini.php';
+		}
+		
+		if (!Yf_Utils_File::generatePhpFile($file, $data))
+		{
+			$status = 250;
+			$msg    = _('生成配置文件错误!');
+		}
+		else
+		{
+			$msg    = _('生成配置文件成功!');;
+			$status = 200;
+		}
+		
+		$this->data->addBody(-140, array(), $msg, $status);
+	}
+	
+	
 	/**
 	 * setStandard1
 	 *
@@ -299,7 +347,46 @@ class Api_ConfigCtl extends Api_Controller
 
 		$this->data->addBody(-140, array(), $msg, $status);
 	}
-
+	
+	
+	/**
+	 * 生成API是否正确
+	 *
+	 * @access public
+	 */
+	public function editApi()
+	{
+		$data                 = array();
+		$data['shop_api_key'] = request_string('shop_api_key');
+		$data['shop_api_url'] = request_string('shop_api_url');
+		$data['shop_app_id']  = 102;
+		
+		$server_id = Yf_Registry::get('server_id');
+		
+		if (is_file(INI_PATH . '/shop_api_' . Yf_Registry::get('server_id') . '.ini.php'))
+		{
+			$file = INI_PATH . '/shop_api_' . Yf_Registry::get('server_id') . '.ini.php';
+		}
+		else
+		{
+			$file = INI_PATH . '/shop_api.ini.php';
+		}
+		
+		if (!Yf_Utils_File::generatePhpFile($file, $data))
+		{
+			$status = 250;
+			$msg    = _('生成配置文件错误!');
+		}
+		else
+		{
+			$status = 200;
+			$msg    = _('success!');
+		}
+		
+		
+		$this->data->addBody(-140, array(), $msg, $status);
+	}
+	
 	/**
 	 * testEmail
 	 *

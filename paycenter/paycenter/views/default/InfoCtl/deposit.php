@@ -7,7 +7,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 ?>
 <?php if($this->user_info['user_email'] || $this->user_info['user_mobile']){?>
 <form>
-	<div class="wrap">
+	<div class="wrap" style="width:95%;">
 		<div class="recharge3-content-top content-public">
 			<div class="box clearfix">
 				<div class="box-public">
@@ -32,10 +32,10 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				<p class="recharge_mon">
 					<span class="spanmt"><?=_('充值金额 :')?>&nbsp;</span>
 					<input type="text" class="text text-1 deposit_amount" onKeyUp="amount(this)" />
-					
+					<span class="msg-box" style="margin-left:73px;"></span>
 				</p>
 
-				<div class="pc_trans_btn clearfix"><a id="deposit_btn" class="btn_big btn_active fl"><?=('确认信息并充值')?></a><span class="onright"><a target="_blank" href="./index.php?ctl=Info&met=recordlist&type=3&typ=e"><?=_('充值记录')?></a></span></div>
+				<div class="pc_trans_btn clearfix"><a id="deposit_btn" class="btn_big btn_active fl submit_disable"><?=('确认信息并充值')?></a><span class="onright"><a target="_blank" href="./index.php?ctl=Info&met=recordlist&type=3&typ=e"><?=_('充值记录')?></a></span></div>
 			</div>
 
 			<div class="recharge3-content-center content-public card_box" style="display: none;">
@@ -58,8 +58,8 @@ include $this->view->getTplPath() . '/' . 'header.php';
 <?php }else{?>
     <div class="security-tips">充值前必须先进行邮箱绑定或手机绑定，点击这里进行<a href="<?=Yf_Registry::get('ucenter_api_url')?>?ctl=User&met=security&op=mobile">手机绑定</a>或<a href="<?=Yf_Registry::get('ucenter_api_url')?>?ctl=User&met=security&op=email">邮箱绑定</a></div>
 <?php }?>	
-	<div class="recharge2-content-bottom content-public">
-		<div class="theme">
+	<div class="recharge2-content-bottom content-public wrap" style="width:95%;">
+		<div class="theme" style="margin-top:60px;">
 			<span class="title">充值遇到问题</span>
 		</div>
 		<div class="content">
@@ -93,18 +93,47 @@ include $this->view->getTplPath() . '/' . 'header.php';
 		}
 	}
 
-	$("#deposit_btn").click(function(){
+	function checkAmount()
+	{
 		var deposit_amount = $(".deposit_amount").val();
-		var url = SITE_URL +'?ctl=Info&met=addDeposit&typ=json';
+		if(deposit_amount <= 0)
+		{
+			$(".msg-box").html("充值金额不可小于0元");
 
-		var data = {deposit_amount:deposit_amount};
-		$.post(url,data, function (data){
-			console.info(data);
-			if(data.status == 200)
-			{
-				window.location.href = SITE_URL + "?ctl=Info&met=pay&act=deposit&uorder=" + data.data.uorder;
-			}
-		})
+			$("#deposit_btn").addClass("submit_disable");
+			$("#deposit_btn").removeClass("submit_able");
+		}
+		else
+		{
+			$(".msg-box").html("");
+
+			$("#deposit_btn").removeClass("submit_disable");
+			$("#deposit_btn").addClass("submit_able");
+		}
+	}
+
+	function depositSubmit(e)
+	{
+		if(e.hasClass("submit_able"))
+		{
+			var deposit_amount = $(".deposit_amount").val();
+			var url = SITE_URL +'?ctl=Info&met=addDeposit&typ=json';
+
+			var data = {deposit_amount:deposit_amount};
+			$.post(url,data, function (data){
+				console.info(data);
+				if(data.status == 200)
+				{
+					window.location.href = SITE_URL + "?ctl=Info&met=pay&act=deposit&uorder=" + data.data.uorder;
+				}
+			})
+		}
+
+	}
+
+	$("#deposit_btn").click(function(){
+		checkAmount();
+		depositSubmit($(this));
 	});
 
 	function checkPassword()

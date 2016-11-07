@@ -274,18 +274,17 @@ class Consume_DepositModel extends Consume_Deposit
 		$Consume_RecordModel = new Consume_RecordModel();
 		$record_row = $Consume_RecordModel->getByWhere(array('order_id:IN'=> $order_id));
 		$record_id_row = array_column($record_row,'consume_record_id');
-		$edit_consume_record['record_status'] = Order_StateModel::ORDER_PAYED;
+		$edit_consume_record['record_status'] = RecordStatusModel::RECORD_WAIT_SEND_GOODS;
 		$edit_consume_record['record_paytime'] = date('Y-m-d H:i:s');
 		$Consume_RecordModel->editRecord($record_id_row,$edit_consume_record);
 
 		//修改用户的资源状态
 		$User_ResourceModel = new User_ResourceModel();
-		//1.用户资源中订单金额冻结
-
+		//1.用户资源中订单金额冻结(现金)
 		fb($union_order['union_money_pay_amount']);
-		$User_ResourceModel->frozenUserMoney($user_id,$union_order['union_money_pay_amount']);
-		//2.用户资源中订单金额冻结
-		$User_ResourceModel->frozenUserCards($user_id,$union_order['union_cards_pay_amount']);
+		//$User_ResourceModel->frozenUserMoney($user_id,$union_order['union_money_pay_amount']);
+		//2.用户资源中订单金额冻结（卡）
+		//$User_ResourceModel->frozenUserCards($user_id,$union_order['union_cards_pay_amount']);
 
 
 		if ($flag && $Union_OrderModel->sql->commitDb())
@@ -349,7 +348,7 @@ class Consume_DepositModel extends Consume_Deposit
 		$Consume_RecordModel = new Consume_RecordModel();
 		$record_row = $Consume_RecordModel->getByWhere(array('order_id'=> $order_id));
 		$record_id_row = array_column($record_row,'consume_record_id');
-		$edit_consume_record['record_status'] = Order_StateModel::ORDER_PAYED;
+		$edit_consume_record['record_status'] = RecordStatusModel::RECORD_FINISH;
 		$edit_consume_record['record_paytime'] = date('Y-m-d H:i:s');
 		$Consume_RecordModel->editRecord($record_id_row,$edit_consume_record);
 

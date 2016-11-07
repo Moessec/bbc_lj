@@ -23,7 +23,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				<tr>
 					<td><?=($uorder_base['union_order_id'])?></td>
 					<td><?=_('在线支付')?></td>
-					<td><?=($uorder_base['trade_payment_amount'])?></td>
+					<td><?=format_money($uorder_base['trade_payment_amount'])?></td>
 					<!--  订单需要支付的金额  -->
 					<input type="hidden" name="pay_amount" value="<?=($uorder_base['trade_payment_amount'])?>">
 				</tr>
@@ -57,16 +57,16 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					<!--<span class="onright"><a target="_blank" href="./index.php?ctl=Info&met=depositlist&typ=e">充值记录</a></span>-->
 				</p>
 				<!--<div><?/*=_('（同时勾选时，系统将优先使用购物卡，不足时扣除预存款，目前还需在线支付')*/?><?/*=_('￥')*/?><em class="online_money"><?/*=($uorder_base['trade_payment_amount'])*/?></em><?/*=_('。）余额不足？')*/?><a class="btn_active btn" href="./index.php?ctl=Info&met=deposit"><?/*=_('马上充值')*/?></a></div>-->
-				<!--  最后在线支付需要支付的金额  -->
-				<input type="hidden" name="online_pay" id="online_pay" value="<?=($uorder_base['trade_payment_amount'])?>">
 			</div>
 
 			<?php }?>
+			<!--  最后在线支付需要支付的金额  -->
+			<input type="hidden" name="online_pay" id="online_pay" value="<?=($uorder_base['trade_payment_amount'])?>">
 
 			<div class="online_pay">
-				<p class="online_title"><?=_('选择在线支付')?></p>
+				<p class="online_title"><?=_('选择在线支付')?> </p>
 				<?php foreach($payment_channel as $key => $val){?>
-					<div class="box-public">
+					<div class="box-public box<?=($key)?>">
 						<div class="mallbox-public">
 							<img src="<?=($val['payment_channel_image'])?>" alt="<?=($val['payment_channel_name'])?>"/>
 							<input type="hidden" name="payway_name" class="payway_name" value="<?=($val['payment_channel_code'])?>">
@@ -75,14 +75,18 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					</div>
 				<?php }?>
 				<input type="hidden" name="online_payway" class="online_payway" id="online_payway">
+				<div class="mg clearfix" style="margin-top:14px;">
+					<p class=""><?=_('在线支付：')?><?=_('￥')?><em class="online_money"><?=($uorder_base['trade_payment_amount'])?></em></p>
+				</div>
 			</div>
 		</div>
 		<div class="recharge2-content-center content-public wrap">
 			<div class="pc_trans_btn"><a id="submit" class="btn_big btn_active submit_disable" style="float:left;"><?=_('确认付款')?></a></div>
+			<!--<div id="test">TEst</div>-->
 		</div>
 		<div class="recharge2-content-bottom content-public">
-			<div class="theme">
-				<span class="title"><?=_('充值遇到问题')?></span>
+			<div class="theme" style="margin-top:60px;">
+				<span class="title"><?=_('支付遇到问题')?></span>
 			</div>
 			<div class="content">
 				<div class="one">
@@ -106,6 +110,12 @@ include $this->view->getTplPath() . '/' . 'header.php';
 <?php } ?>
 
 	<script>
+		$(function(){
+			$(".box0").click();
+		});
+
+
+
 		$("input[type='checkbox']").prop('checked', false);
 		$(".pay_yue").click(function(){
 			var pay_type = $(this).val();
@@ -135,6 +145,13 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				{
 					online_money = 0;
 					$("#"+ pay_type +"_pay").val(online);
+
+					//如果在线支付金额为0，则取消已选择的在线支付方式
+					if($(".online_pay>.pay_method_sel").size() > 0)
+					{
+						$(".pay_method_sel").click();
+					}
+
 				}
 				else
 				{
@@ -159,7 +176,15 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					console.info(data);
 					if(data.status == 250)
 					{
-						$(".msg-box").html("支付密码错误");
+						$(".msg-box").html(data.msg);
+
+						$("#submit").addClass("submit_disable");
+						$("#submit").removeClass("submit_able");
+					}
+					else if(data.status == 230)
+					{
+						$(".msg-box").html("<a style='color:red;' href=' " + SITE_URL + "?ctl=Info&met=passwd'>请设置支付密码</a>");
+
 						$("#submit").addClass("submit_disable");
 						$("#submit").removeClass("submit_able");
 					}
@@ -192,32 +217,45 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					$("#submit").removeClass("submit_able");
 				}
 
-				$("input[type='hidden'][name='online_payway']").val();
+				$("input[type='hidden'][name='online_payway']").val("");
 			}
 			else
 			{
-				//选择在线支付方式后，判断是否有支付密码，有的话判断支付密码是否正确
-				$(".box-public").parent().find(".pay_method_sel").removeClass("pay_method_sel");
-				$(this).addClass("pay_method_sel");
-
-				$("input[type='hidden'][name='online_payway']").val($(this).find("input[type='hidden'][name='payway_name']").val());
-
-				if(document.getElementById("pay_password") && !$("#pay_password").is(":hidden"))
+				online_money = $("#online_pay").val();
+				if(online_money > 0)
 				{
-					checkPassword();
+					//选择在线支付方式后，判断是否有支付密码，有的话判断支付密码是否正确
+					$(".box-public").parent().find(".pay_method_sel").removeClass("pay_method_sel");
+					$(this).addClass("pay_method_sel");
+
+					$("input[type='hidden'][name='online_payway']").val($(this).find("input[type='hidden'][name='payway_name']").val());
+
+					if(document.getElementById("pay_password") && !$("#pay_password").is(":hidden"))
+					{
+						checkPassword();
+					}
+					else
+					{
+						$("#submit").addClass("submit_able");
+						$("#submit").removeClass("submit_disable");
+					}
 				}
-				else
-				{
-					$("#submit").addClass("submit_able");
-					$("#submit").removeClass("submit_disable");
-				}
+
 			}
 
 		});
 
 		$("#submit").click(function(){
 
-			if($(this).hasClass("submit_able"))
+			checkPassword();
+
+			paySubmit($(this));
+
+		});
+
+		function paySubmit(e)
+		{
+			if(e.hasClass("submit_able"))
 			{
 				var uorder_id = '<?=($uorder)?>';
 				data = {trade_id:uorder_id}
@@ -225,6 +263,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				var card_payway = $("input[type='checkbox'][value='cards']").is(':checked');
 				var money_payway = $("input[type='checkbox'][value='money']").is(':checked');
 				var online_payway = $("input[type='hidden'][name='online_payway']").val();
+
 
 				//将选用的付款方式保存如数据库
 				data = {card_payway:card_payway,money_payway:money_payway,online_payway:online_payway,uorder_id:uorder_id};
@@ -244,7 +283,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 									console.info(data);
 									if(data.status == 200)
 									{
-										window.location.href = data.data.return_app_url;
+										window.location.href = data.data.return_app_url + '?ctl=Buyer_Order&met=physical';
 									}
 								})
 							}
@@ -256,7 +295,15 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					}
 				);
 			}
+		}
 
+		$("#test").click(function(){
+			data = {test:'22'};
+			$.post(SITE_URL + "?ctl=Pay&met=test&typ=json" ,data,
+				function(data){
+					console.info(data);
+				}
+			);
 		});
 	</script>
 <?php

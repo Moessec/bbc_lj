@@ -88,7 +88,15 @@ if ($verify_result)
 					//查找回调地址
 					$User_AppModel = new User_AppModel();
 					$user_app = $User_AppModel->getOne($app_id);
-					$return_app_url = $user_app['app_url'];
+					if(Yf_Utils_Device::isMobile())
+					{
+						$return_app_url = Yf_Registry::get('shop_wap_api_url') . 'tmpl/member/order_list.html';
+					}
+					else
+					{
+						$return_app_url = $user_app['app_url'].'?ctl=Buyer_Order&met=physical';
+					}
+
 				}
 
 				if($trade_type == 'deposit')

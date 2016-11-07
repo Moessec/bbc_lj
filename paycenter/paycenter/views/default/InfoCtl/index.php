@@ -78,7 +78,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			<p class="pc_table_num"><span><?=($conval['record_title'])?></span><span class="jyh"><?=_('交易号:')?><?=($conval['order_id'])?></span></p>
 			<p class="wp20">
 				<span class="textcolor">
-						<?=_('￥')?><?=($conval['record_money'])?>
+						<?=money_format($conval['record_money'])?>
 				</span>
 			</p>
 			<p class="wp20"><span><?=($conval['record_status_con'])?></span></p>

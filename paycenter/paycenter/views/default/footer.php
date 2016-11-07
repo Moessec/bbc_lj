@@ -5,6 +5,12 @@
 		<p class="statistics_code"><?php echo Web_ConfigModel::value('statistics_code') ?></p>
 	</div>
 </div>
+
+<script>
+	$(function(){
+		ucenterLogin(UCENTER_URL, SITE_URL, true);
+	});
+</script>
 </body>
 
 </html>

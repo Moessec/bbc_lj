@@ -82,7 +82,13 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				</span>
 			</p>
 			<p class="wp20"><span><?=($conval['record_status_con'])?></span></p>
-			<p class="wp20"><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recorddetail&id=<?=$conval['consume_record_id']?>" class="cb"><?=_('详情')?></a><a></a></p>
+			<p class="wp20">
+				<?php if($conval['act'] == 'pay'){ ?>
+					<a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=pay&uorder=<?=$conval['uorder']?>" class="cb"><?=_('付款')?></a><a></a>
+				<?php }else{ ?>
+					<a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recorddetail&id=<?=$conval['consume_record_id']?>" class="cb"><?=_('详情')?></a><a></a>
+			<?php } ?>
+			</p>
 		</div>
 	</div>
 	<?php }?>

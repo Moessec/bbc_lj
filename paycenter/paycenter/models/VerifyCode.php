@@ -62,7 +62,7 @@ class VerifyCode
 
 		$cache = Yf_Cache::create('verify_code');
 		$code  = $cache->get($key);
-
+		fb($code);
 		if ($code == $user_code)
 		{
 			//$flag = $cache->remove($key);

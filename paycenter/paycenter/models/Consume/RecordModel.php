@@ -67,18 +67,40 @@ class Consume_RecordModel extends Consume_Record
 
 		$RecordStatusModel = new RecordStatusModel();
 		$Trade_Type = new Trade_TypeModel();
-
+		$Order_StateModel = new Order_StateModel();
+		$Union_Order = new Union_OrderModel();
 		foreach($data_rows as $key => $val)
 		{
+			//如果为购物交易明细，显示交易进度
 			if($val['trade_type_id'] == Trade_TypeModel::SHOPPING)
 			{
+				$order_row = $Consume_TradeModel->getOne($val['order_id']);
+				$data_rows[$key]['record_status_con'] = $Order_StateModel->orderState[$order_row['order_state_id']];
 
+				//查找支付单号
+				$uorder_row = $Union_Order->getByWhere(array('inorder' => $val['order_id']));
+				fb($uorder_row);
+				$uorder = current($uorder_row);
+				$data_rows[$key]['uorder'] = $uorder['union_order_id'];
+				if($order_row['order_state_id'] == Order_StateModel::ORDER_WAIT_PAY )
+				{
+					$data_rows[$key]['act'] = 'pay';
+				}
+				else
+				{
+					$data_rows[$key]['act'] = 'info';
+				}
 			}
-			$data_rows[$key]['record_status_con'] = $RecordStatusModel->recordStatus[$val['record_status']];
-                        $data_rows[$key]['user_type_con'] = $RecordStatusModel->userType[$val['user_type']];
-                        $consume_record = $Consume_TradeModel->getConsumeTradeByOid($val['order_id']);
+			else
+			{
+				$data_rows[$key]['record_status_con'] = $RecordStatusModel->recordStatus[$val['record_status']];
+				$data_rows[$key]['act'] = 'info';
+			}
+
+			$data_rows[$key]['user_type_con'] = $RecordStatusModel->userType[$val['user_type']];
+			$consume_record = $Consume_TradeModel->getConsumeTradeByOid($val['order_id']);
 			$data_rows[$key]['consume_trade'] = $consume_record;
-                        $data_rows[$key]['trade_type'] = $Trade_Type->trade_type[$val['trade_type_id']];
+			$data_rows[$key]['trade_type'] = $Trade_Type->trade_type[$val['trade_type_id']];
 		}
 
 		$data = array();
@@ -95,10 +117,37 @@ class Consume_RecordModel extends Consume_Record
 		
 		$data = $this->listByWhere($cond_row, $order_row, $page, $rows);
 		$RecordStatusModel = new RecordStatusModel();
+		$Consume_TradeModel = new Consume_TradeModel();
+		$Order_StateModel = new Order_StateModel();
+		$Union_Order = new Union_Order();
 		foreach ($data["items"] as $key => $value)
 		{
+			//如果为购物交易明细，显示交易进度
+			if($value['trade_type_id'] == Trade_TypeModel::SHOPPING)
+			{
+				$order_row = $Consume_TradeModel->getOne($value['order_id']);
+				$data["items"][$key]['record_status_con'] = $Order_StateModel->orderState[$order_row['order_state_id']];
 
-			$data["items"][$key]["record_status_con"] = $RecordStatusModel->recordStatus[$value['record_status']];
+				//查找支付单号
+				$uorder_row = $Union_Order->getByWhere(array('inorder' => $value['order_id']));
+				fb($uorder_row);
+				$uorder = current($uorder_row);
+				$data["items"][$key]['uorder'] = $uorder['union_order_id'];
+				if($order_row['order_state_id'] == Order_StateModel::ORDER_WAIT_PAY )
+				{
+					$data["items"][$key]['act'] = 'pay';
+				}
+				else
+				{
+					$data["items"][$key]['act'] = 'info';
+				}
+			}
+			else
+			{
+				$data["items"][$key]["record_status_con"] = $RecordStatusModel->recordStatus[$value['record_status']];
+			}
+
+
 		}
 		return $data;
 	}

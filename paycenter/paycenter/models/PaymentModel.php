@@ -31,7 +31,7 @@ class PaymentModel
      *
      * @access public
      */
-    public static function create($channel,$op)
+    public static function create($channel)
     {
         $Payment_ChannelModel = new Payment_ChannelModel();
 		$config_row = $Payment_ChannelModel->getChannelConfig($channel);
@@ -45,7 +45,7 @@ class PaymentModel
 
         if ('alipay' == $channel)
         {
-            if ($op == 'pc')
+            if (!Yf_Utils_Device::isMobile())
             {
                 $PaymentModel = new Payment_AlipayModel($config_row);
                 //$PaymentModel = new Payment_AlipayWapModel($config_row);

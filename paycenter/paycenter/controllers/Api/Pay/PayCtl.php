@@ -59,6 +59,7 @@ class Api_Pay_PayCtl extends Api_Controller
         $trade_create_time    = request_string('trade_create_time');
         $trade_title		  = request_string('trade_title');
         $app_id               = request_int('from_app_id');
+        $order_commission_fee = request_float('order_commission_fee');
 
         //开启事物
         $Consume_TradeModel = new Consume_TradeModel();
@@ -76,6 +77,7 @@ class Api_Pay_PayCtl extends Api_Controller
         $add_row['trade_create_time']    = $trade_create_time;
         $add_row['trade_amount']         = $order_payment_amount;
         $add_row['trade_payment_amount'] = $order_payment_amount;
+        $add_row['trade_commis_amount'] = $order_commission_fee;
 
         //1.生成交易订单
         $flag               = $Consume_TradeModel->addTrade($add_row);
@@ -199,6 +201,60 @@ class Api_Pay_PayCtl extends Api_Controller
         $this->data->addBody(-140, $data, $msg, $status);
     }
 
+    //删除无用的支付订单
+    public function delUnionOrder()
+    {
+        $uorderid = request_string('uorder');
+
+        //开启事物
+        $Union_OrderModel = new Union_OrderModel();
+        $Union_OrderModel->sql->startTransactionDb();
+
+        //删除交易交易订单
+        $Consume_TradeModel = new Consume_TradeModel();
+        $uorder = $Union_OrderModel->getOne($uorderid);
+
+        $inorder_row = explode(',',$uorder['inorder']);
+        $Consume_TradeModel->remove($inorder_row);
+        fb($inorder_row);
+
+        //删除交易明细
+        $Consume_RecordModel = new Consume_RecordModel();
+        $recorder_row = $Consume_RecordModel->getByWhere(array('order_id:IN' => $inorder_row));
+        $recorder_id_row = array_column($recorder_row,'consume_record_id');
+        $Consume_RecordModel->remove($recorder_id_row);
+        fb($recorder_id_row);
+        //删除单个订单的合并支付订单
+        $uorder_row = $Union_OrderModel->getByWhere(array('inorder:IN'=>$inorder_row));
+        $uorder_id_row = array_column($uorder_row,'union_order_id');
+
+        //防止单个订单情况下，多合并支付单与单合并支付单重复
+        if(in_array($uorderid,$uorder_id_row))
+        {
+            unset($uorder_id_row[$uorderid]);
+        }
+
+        $Union_OrderModel->remove($uorder_id_row);
+        fb($uorder_id_row);
+        //删除多个订单的合并支付订单
+        $flag = $Union_OrderModel->remove($uorderid);
+
+        if ($flag && $Union_OrderModel->sql->commitDb())
+        {
+            $msg    = 'success';
+            $status = 200;
+        }
+        else
+        {
+            $Union_OrderModel->sql->rollBackDb();
+            $m      = $Union_OrderModel->msg->getMessages();
+            $msg    = $m ? $m[0] : _('failure');
+            $status = 250;
+        }
+        $data = array();
+        $this->data->addBody(-140, $data, $msg, $status);
+    }
+
     //取消订单
     public function cancelOrder()
     {
@@ -264,13 +320,39 @@ class Api_Pay_PayCtl extends Api_Controller
         //开启事物
         $Consume_TradeModel->sql->startTransactionDb();
 
-        $Consume_TradeModel->editTrade($order_id,array('order_state_id' => Union_OrderModel::RECEIVED));
+        $Consume_TradeModel->editTrade($order_id,array('order_state_id' => Union_OrderModel::FINISH));
+
+        $consume_trade_row = $Consume_TradeModel->getOne($order_id);
 
         //2.合并支付表
         $Union_OrderModel = new Union_OrderModel();
         $union_row = $Union_OrderModel->getByWhere(array('inorder:IN' => $order_id));
         $uorder_id = array_column($union_row,'union_order_id');
-        $flag = $Union_OrderModel->editUnionOrder($uorder_id,array('order_state_id' => Union_OrderModel::RECEIVED));
+        $Union_OrderModel->editUnionOrder($uorder_id,array('order_state_id' => Union_OrderModel::FINISH));
+
+        //3.交易明细
+        $Consume_RecordModel = new Consume_RecordModel();
+        $record_row = $Consume_RecordModel->getByWhere(array('order_id:IN' => $order_id));
+        $record_id_row = array_column($record_row,'consume_record_id');
+        $Consume_RecordModel->editRecord($record_id_row,array('record_status' => RecordStatusModel::RECORD_FINISH));
+
+        //4.减少买家冻结中的资金
+        $union_row_buy = current($union_row);
+        $card_money = $union_row_buy['union_cards_pay_amount'];
+        $money = $union_row_buy['union_money_pay_amount'];
+        $user_resource_edit_row = array();
+        $user_resource_edit_row['user_money_frozen'] = $money*(-1);
+        $user_resource_edit_row['user_recharge_card_frozen'] = $card_money*(-1);
+
+        $User_ResourceModel = new User_ResourceModel();
+        //$User_ResourceModel->editResource($union_row_buy['buyer_id'],$user_resource_edit_row,true);
+
+
+        //5.增加卖家冻结中的资金（冻结金额 = 订单金额 - 佣金 - 退款金额）
+        $seller_resource_edit_row = array();
+        $seller_resource_edit_row['user_money_frozen'] = $consume_trade_row['order_payment_amount'] - $consume_trade_row['trade_commis_amount'] - $consume_trade_row['trade_refund_amount'];
+        $flag = $User_ResourceModel->editResource($consume_trade_row['seller_id'],$seller_resource_edit_row,true);
+
 
         if ($flag && $Consume_TradeModel->sql->commitDb())
         {
@@ -289,7 +371,147 @@ class Api_Pay_PayCtl extends Api_Controller
     }
 
     //退款(虚拟商品过期，直接退款)
+    //退款
     public function refundTransfer()
+    {
+        $date = array();
+
+        $user_id  = request_int('user_id');  //收款人
+        $user_name = request_string('user_account');
+        $seller_id = request_int('seller_id');		//付款人
+        $seller_name = request_string('seller_account');
+        $amount   = request_float('amount');        //付款金额
+        $reason   = request_string('reason', '退款');  //付款说明
+        $order_id = request_string('order_id');
+        $goods_id = request_int('goods_id');
+        $uorder_id = request_string('uorder_id');
+
+        //交易明细表
+        $Consume_RecordModel = new Consume_RecordModel();
+        //开启事务
+        $Consume_RecordModel->sql->startTransactionDb();
+
+        //用户资源表
+        $User_ResourceModel = new User_ResourceModel();
+
+        //合并支付表
+        $Union_OrderModel = new Union_OrderModel();
+
+        if ($amount < 0)
+        {
+            $flag   = false;
+            $date[] = '退款金额错误';
+        }
+        else
+        {
+            $time    = time();
+            $flow_id = time();
+
+            //插入收款方的交易记录
+            $record_add_buy_row                  = array();
+            $record_add_buy_row['order_id']      = $flow_id;
+            $record_add_buy_row['user_id']       = $user_id;
+            $record_add_buy_row['user_nickname'] = $user_name;
+            $record_add_buy_row['record_money']  = $amount;
+            $record_add_buy_row['record_date']   = date('Y-m-d');
+            $record_add_buy_row['record_year']	   = date('Y');
+            $record_add_buy_row['record_month']	= date('m');
+            $record_add_buy_row['record_day']		=date('d');
+            $record_add_buy_row['record_title']  = $reason;
+            $record_add_buy_row['record_desc']  = "订单号:" . $order_id . "，商品id:" . $goods_id;
+            $record_add_buy_row['record_time']   = date('Y-m-d H:i:s');
+            $record_add_buy_row['trade_type_id'] = Trade_TypeModel::REFUND;
+            $record_add_buy_row['user_type']     = 1;	//收款方
+            $record_add_buy_row['record_status'] = RecordStatusModel::RECORD_FINISH;
+
+            $Consume_RecordModel->addRecord($record_add_buy_row);
+
+
+            $record_add_seller_row                  = array();
+            $record_add_seller_row['order_id']      = $flow_id;
+            $record_add_seller_row['user_id']       = $seller_id;
+            $record_add_seller_row['user_nickname'] = $seller_name;
+            $record_add_seller_row['record_money']  = $amount;
+            $record_add_seller_row['record_date']   = date('Y-m-d');
+            $record_add_seller_row['record_year']	   = date('Y');
+            $record_add_seller_row['record_month']	= date('m');
+            $record_add_seller_row['record_day']		=date('d');
+            $record_add_seller_row['record_title']  = $reason;
+            $record_add_seller_row['record_desc']  = "订单号:" . $order_id . "，商品id:" . $goods_id;
+            $record_add_seller_row['record_time']   = date('Y-m-d H:i:s');
+            $record_add_seller_row['trade_type_id'] = Trade_TypeModel::REFUND;
+            $record_add_seller_row['user_type']     = 2;	//付款方
+            $record_add_seller_row['record_status'] = RecordStatusModel::RECORD_FINISH;
+
+            $Consume_RecordModel->addRecord($record_add_seller_row);
+
+            //在订单表中增加退款金额
+            $Consume_TradeModel = new Consume_TradeModel();
+            $edit_trade_row['trade_refund_amount'] = $amount;
+            $Consume_TradeModel->editTrade($order_id,$edit_trade_row,true);
+
+            //查找合并单中的付款情况，购物卡优先退款
+            $uorder_base = $Union_OrderModel->getOne($uorder_id);
+
+            $card_return_amount = 0;
+
+            //使用购物卡支付并且购物卡的退款金额小于支付金额时
+            if(($uorder_base['union_cards_pay_amount'] > 0) && ($uorder_base['union_cards_return_amount'] < $uorder_base['union_cards_pay_amount']))
+            {
+                $card_can_return_amount = $uorder_base['union_cards_pay_amount'] - $uorder_base['union_cards_return_amount'];
+                //购物卡中可退款金额小于退款金额
+                if($card_can_return_amount <= $amount)
+                {
+                    $card_return_amount = $card_can_return_amount;
+                }else
+                {
+                    $card_return_amount = $amount;
+                }
+
+                $amount = $amount - $card_return_amount;
+            }
+
+            //扣除购物卡的退款之后全部退还到账户余额中
+            $edit_union_row = array();
+            $edit_union_row['union_cards_return_amount'] = $card_return_amount;
+            $edit_union_row['union_money_return_amount'] = $amount;
+            $flag1 = $Union_OrderModel->editUnionOrder($uorder_id,$edit_union_row,true);
+
+            $user_resource = current($User_ResourceModel->getResource($user_id));
+
+            if ($flag1)
+            {
+                //修改收款方的金额
+                $user_resource_row['user_recharge_card'] = $user_resource['user_recharge_card'] + $card_return_amount;
+                $user_resource_row['user_money'] = $user_resource['user_money'] + $amount;
+                $flag                            = $User_ResourceModel->editResource($user_id, $user_resource_row);
+            }
+            else
+            {
+                $flag = false;
+            }
+
+        }
+
+        if ($flag && $Consume_RecordModel->sql->commitDb())
+        {
+            $msg    = 'success';
+            $status = 200;
+        }
+        else
+        {
+            $Consume_RecordModel->sql->rollBackDb();
+            $m      = $Consume_RecordModel->msg->getMessages();
+            $msg    = $m ? $m[0] : 'failure';
+            $status = 250;
+        }
+        $this->data->addBody(-140, $date, $msg, $status);
+    }
+
+
+
+
+    public function refundTransfer1()
     {
         $date = array();
 
@@ -332,7 +554,7 @@ class Api_Pay_PayCtl extends Api_Controller
                 'record_title' => $reason,
                 'record_desc' => "订单号:" . $order_id . "，商品id:" . $goods_id,
                 'record_time' => date('Y-m-d h:i:s'),
-                'trade_type_id' => '2',
+                'trade_type_id' => Trade_TypeModel::REFUND,
                 'user_type' => '1',
                 'record_status' => RecordStatusModel::RECORD_FINISH,
                 'record_paytime' => date('Y-m-d H:i:s'),
@@ -383,6 +605,13 @@ class Api_Pay_PayCtl extends Api_Controller
         $union_row = $Union_OrderModel->getByWhere(array('inorder' => $order_id));
         $uorder_id = array_column($union_row,'union_order_id');
         $flag = $Union_OrderModel->editUnionOrder($uorder_id,array('order_state_id' => Union_OrderModel::WAIT_CONFIRM_GOODS));
+
+        //3.交易明细(将订单的交易明细记录改为状态6--待收货)
+        $Consume_RecordModel = new Consume_RecordModel();
+        $record_row = $Consume_RecordModel->getByWhere(array('order_id' => $order_id));
+        $record_id = array_column($record_row,'consume_record_id');
+        $record_edit_row = array('record_status' => RecordStatusModel::RECORD_WAIT_CONFIRM_GOODS );
+        $Consume_RecordModel->editRecord($record_id,$record_edit_row);
 
         if ($flag && $Consume_TradeModel->sql->commitDb())
         {
@@ -445,6 +674,80 @@ class Api_Pay_PayCtl extends Api_Controller
 
         $Consume_RecordModel->addRecord($record_add_seller_row);
 
+    }
+
+    /*购买套餐或套餐续费*/
+    public function addCombo()
+    {
+        $buyer_id = request_int('buyer_user_id');
+        $buyer_name = request_string('buyer_user_name');
+        $amount = request_float('amount');
+
+        //生成交易明细（付款方）
+        $Consume_RecordModel = new Consume_RecordModel();
+        //开启事物
+        $Consume_RecordModel->sql->startTransactionDb();
+
+        $Trade_TypeModel = new Trade_TypeModel();
+        $record_add_buy_row                  = array();
+        $record_add_buy_row['user_id']       = $buyer_id;
+        $record_add_buy_row['user_nickname'] = $buyer_name;
+        $record_add_buy_row['record_money']  = $amount;
+        $record_add_buy_row['record_date']   = date('Y-m-d');
+        $record_add_buy_row['record_year']	   = date('Y');
+        $record_add_buy_row['record_month']	= date('m');
+        $record_add_buy_row['record_day']		=date('d');
+        $record_add_buy_row['record_title']  = $Trade_TypeModel->trade_type[Trade_TypeModel::PAY];
+        $record_add_buy_row['record_time']   = date('Y-m-d H:i:s');
+        $record_add_buy_row['trade_type_id'] = Trade_TypeModel::PAY;
+        $record_add_buy_row['user_type']     = 2;	//1-收款方 2-付款方
+        $record_add_buy_row['record_status'] = RecordStatusModel::IN_HAND;
+
+        $flag = $Consume_RecordModel->addRecord($record_add_buy_row);
+
+        if ($flag && $Consume_RecordModel->sql->commitDb())
+        {
+            $msg    = 'success';
+            $status = 200;
+        }
+        else
+        {
+            $Consume_RecordModel->sql->rollBackDb();
+            $m      = $Consume_RecordModel->msg->getMessages();
+            $msg    = $m ? $m[0] : _('failure');
+            $status = 250;
+        }
+        $data = array();
+        $this->data->addBody(-140, $data, $msg, $status);
+
+    }
+
+
+    //店铺结算
+    public function shopSettlement()
+    {
+        $user_id = request_int('user_id');
+        $amount = request_float('amount');
+
+        $edit_row['user_money'] = $amount;
+
+        $User_ResourceModel = new User_ResourceModel();
+
+        $flag = $User_ResourceModel->editResource($user_id,$edit_row,true);
+
+        if($flag)
+        {
+            $msg    = 'success';
+            $status = 200;
+        }
+        else
+        {
+            $msg    = 'failure';
+            $status = 250;
+        }
+
+        $data = array();
+        $this->data->addBody(-140, $data, $msg, $status);
     }
 
 

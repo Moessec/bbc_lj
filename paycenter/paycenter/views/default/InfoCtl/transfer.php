@@ -46,7 +46,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					</div>
 					<div>
 						 <dl class="clearfix ">
-							<dt><em class="must">*</em><?=_('验证码：')?></dt>
+							<dt><em class="must" style="color: #f00;">*</em><?=_('验证码：')?></dt>
 							<dd>
 							<input type="text" name="yzm" id="yzm" class="text" value="" onchange="javascript:checkyzm();" style="width:86px;vertical-align:top;"/>
 								<input type="button" class="send" data-type="mobile" value="获取手机验证码" />
@@ -61,6 +61,11 @@ include $this->view->getTplPath() . '/' . 'header.php';
 							</dd>
 						</dl>
 					</div>
+				</div>
+			</div>
+			<div class="wrap clearfix">
+				<div class="pc_trans_btn pc_trans_btn_lf">
+					<input class="save" type="submit" value="<?=_('提交')?>">
 				</div>
 			</div>
 		</div>
@@ -81,6 +86,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 						$(e).parent().find('.msg-box').html('用户不存在');
 						/* $(e).parent().next().find(".error_msg").html(str); */
 						 //Public.tips.error("<?=_('用户不存在')?>");
+						 $(".send_user_box").remove();
 					}
 					else
 					{
@@ -89,6 +95,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 						{
 							$(e).parent().find(".send_user_box").remove();
 						}
+						$(e).parent().find('.msg-box').html('');
 						str = "<div class='send_user_box'><div class='send_user_img'><img src='" + data.data.user_avatar + "'></div><div class='send_user_info'><span><?=_('真实姓名：')?>" + data.data.user_realname_mask + "</span><span><?=_('手机号：')?>" + data.data.user_mobile_mask + "</span></div></div>";
 						$(e).parent().append(str);
 					}
@@ -257,11 +264,11 @@ include $this->view->getTplPath() . '/' . 'header.php';
 		</div>
 	</div>
 </div>
-	<div class="wrap clearfix">
+	<!-- <div class="wrap clearfix">
 		<div class="pc_trans_btn pc_trans_btn_lf">
 			<input class="save" type="submit" value="<?=_('提交')?>">
 		</div>
-	</div>
+	</div> -->
 </form>
 <?php }else{?>
     <div class="security-tips">转账前必须先进行手机绑定，点击这里进行<a href="<?=Yf_Registry::get('ucenter_api_url')?>?ctl=User&met=security&op=mobile">手机绑定</a></div>

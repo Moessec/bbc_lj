@@ -338,7 +338,7 @@ $config['db_cfg_rows'] = array(
 			array(
 				'host' => '192.168.0.88',
 				'port' => '3306',
-				'user' => '',
+				'user' => 'root',
 				'password' => '',
 				'database' => 'dev_paycenter_admin',
 				'charset' => 'UTF8'
@@ -432,6 +432,8 @@ else
 Yf_Registry::set('shop_api_key', $shop_api_key);
 Yf_Registry::set('shop_app_id', $shop_app_id);
 Yf_Registry::set('shop_api_url', $shop_api_url);
+Yf_Registry::set('shop_wap_api_url', @$shop_wap_api_url);
+
 
 
 //支付中心配置

@@ -8,6 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="<?=$this->view->css?>/base.css">
+	<link rel="stylesheet" type="text/css" href="<?=$this->view->css?>/tips.css">
 	<link rel="stylesheet" type="text/css" href="<?=$this->view->css?>/headfoot.css">
 	<link rel="stylesheet" type="text/css" href="<?=$this->view->css?>/iconfont/iconfont.css">
 	<link rel="stylesheet" type="text/css" href="<?=$this->view->css?>/palyCenter.css">
@@ -17,6 +18,7 @@
 	<script src="<?=$this->view->js?>/common.js"></script>
 	<script src="<?=$this->view->js?>/cropper.js"></script>
 	<script src="<?=$this->view->js?>/jquery.dialog.js"></script>
+	<script src="<?=$this->view->js?>/jquery.cookie.js"></script>
 	<script src="<?=$this->view->js?>/jquery.toastr.min.js"></script>
 
 	<link href="<?= $this->view->css ?>/validator/jquery.validator.css?ver=<?=VER?>" rel="stylesheet" type="text/css">
@@ -29,6 +31,7 @@
 		var STATIC_URL = "<?=Yf_Registry::get('static_url')?>";
 		var U_URL = "<?=Yf_Registry::get('ucenter_api_url')?>";
 		var SHOP_URL = "<?=Yf_Registry::get('shop_api_url')?>";
+		var UCENTER_URL = "<?=Yf_Registry::get('ucenter_api_url')?>";
 
 		var DOMAIN = document.domain;
 		var WDURL = "";
@@ -73,7 +76,14 @@
 				<?php endif;?>
 			</div>
 			<div class="fl go_back_shop">
-				<a href="<?= Yf_Registry::get('shop_api_url') ?>?ctl=Buyer_Index&met=index"><?=_('返回商城')?></a>
+				<?php if(Yf_Utils_Device::isMobile()){
+					$shop_url = Yf_Registry::get('shop_wap_api_url');
+				}
+				else
+				{
+					$shop_url = Yf_Registry::get('shop_api_url') . '?ctl=Buyer_Index&met=index';
+				}?>
+				<a href="<?= $shop_url ?>"><?=_('返回商城')?><?=(Yf_Utils_Device::isMobile())?></a>
 			</div>
 			<div class="nav_more"><?=_('更多')?><span class="nav_menu_icon"><i class="nav_more_menu"></i></span></div>
 			<ul class="nav fr">

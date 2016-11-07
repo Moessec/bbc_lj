@@ -16,6 +16,8 @@ class IndexCtl extends Controller
 	//首页
 	public function index()
 	{
+		fb(Yf_Utils_Device::isMobile());
+		fb("sdfsadaf");
 		if (!Perm::checkUserPerm())
 		{
 			include $this->view->getView();

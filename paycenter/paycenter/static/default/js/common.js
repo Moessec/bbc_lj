@@ -491,3 +491,88 @@ Public.tips.warning = function(msg)
 {
     Public.tips({type: 2, content: msg});
 }
+
+
+function ucenterLogin(UCENTER_URL, SITE_URL, refresh_flag)
+{
+    $.ajax({
+        type: "get",
+        url: UCENTER_URL + "?ctl=Login&met=checkStatus&typ=json",
+        dataType: "jsonp",
+        jsonp: "jsonp_callback",
+        success: function(data){
+            if (200 == data.status)
+            {
+                var key = $.cookie('key');
+                var u = $.cookie('id');
+
+                if (u && key && u==data.data.us)
+                {
+                }
+                else
+                {
+                    //退出
+                    $.cookie('id', null);
+                    $.cookie('key', null);
+
+                    //本系统登录API
+                    $.ajax({
+                        type: "get",
+                        url: SITE_URL + "?ctl=Login&met=check&typ=json",
+                        data:{ks:data.data.ks, us:data.data.us},
+                        dataType: "jsonp",
+                        jsonp: "jsonp_callback",
+                        success: function(data){
+                            console.info(data);
+                            if (200 == data.status)
+                            {
+                                //本系统登录API
+                                $.cookie('id',data.data.user_id);
+                                $.cookie('key',data.data.key);
+
+                                //ajax 调用
+                                if (refresh_flag)
+                                {
+                                    window.location.reload();
+                                }
+                                else
+                                {
+                                    getUserInfoNav()
+                                }
+                                //
+                            }
+                        },
+                        error: function(){
+                            //alert('error!');
+                        }
+                    });
+                }
+            }
+            else
+            {
+                //退出
+                $.cookie('id', null);
+                $.cookie('key', null);
+
+                //ajax 调用
+                if (refresh_flag)
+                {
+                    window.location.reload();
+                }
+                else
+                {
+                    getUserInfoNav()
+                }
+            }
+        },
+        error: function(){
+            getUserInfoNav()
+        }
+    });
+}
+
+function getUserInfoNav()
+{
+
+}
+

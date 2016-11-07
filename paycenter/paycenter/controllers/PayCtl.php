@@ -186,7 +186,7 @@ class PayCtl extends Controller
 
 		if ($trade_row)
 		{
-			$Payment = PaymentModel::create('alipay',$op);
+			$Payment = PaymentModel::create('alipay');
 			$Payment->pay($trade_row);
 		}
 		else
@@ -216,6 +216,25 @@ class PayCtl extends Controller
 		{
 
 		}
+	}
+
+	public function test()
+	{
+		$test = request_string('test');
+
+		fb($test);
+		$key = Yf_Registry::get('shop_api_key');
+		$url = Yf_Registry::get('shop_api_url');
+		$paycenter_app_id = Yf_Registry::get('shop_app_id');
+
+		$formvars = array();
+		$formvars['app_id'] = $paycenter_app_id;
+		$formvars['test'] = $test;
+
+
+		$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Trade_Order&met=test&typ=json', $url), $formvars);
+
+		return $rs;
 	}
 
 

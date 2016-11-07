@@ -276,7 +276,7 @@ a.pc_btn {
     text-align:center;
 }
 .pc_trans_btn_lf{
-    width:370px;
+    width:100%;
     float:left;
 }
 .splitLine-mg a{
@@ -567,6 +567,10 @@ a.pc_btn {
         width: 232px !important;
         background-position: -266px -464px !important;
     }
+
+    .transferaccounts-top .content-top{
+        margin-top:20px;
+    }
 }
 
 @media screen and (min-width:760px) and (max-width:800px){
@@ -729,7 +733,7 @@ a.pc_btn {
 
 @media screen and (max-width:1000px) {
     .account_left {
-        width: 70%;
+        width: 100%;
         float: none;
         margin: 0 auto;
     }
@@ -739,20 +743,20 @@ a.pc_btn {
         margin: 40px auto;
     }
     .cert_instructions {
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
     }
     /*转账*/
     .transferaccounts-top,.transferaccounts-bottom{
-        width:70% !important;
+        width:100% !important;
         float:none;
         margin:40px auto;
     }
 }
 
 @media screen and (max-width:640px) {
-    .account_left {
-        width: 90%;
+    .account_left,.account_right{
+        width: 100%;
     }
     .id_photo {
         width: 90%;
@@ -905,6 +909,7 @@ a.pc_btn {
 .recharge-content-top {
     padding-bottom: 0px;
     border-bottom: 1px solid #e1e1e1;
+    padding:0 4px;
 }
 
 .recharge-content-top .left {
@@ -1026,7 +1031,7 @@ a.pc_btn {
 
 .recharge2-content-top .box {
     padding-bottom: 20px;
-    border-bottom:1px dashed #e1e1e1;
+    
 }
 .box input{
     vertical-align:middle;
@@ -1034,7 +1039,7 @@ a.pc_btn {
 }
 .recharge2-content-top .box div{
     margin-top:15px;
-    color:#76757a;
+    /*color:#76757a;*/
 }
 
 .recharge2-content-top .box .box-public {
@@ -1592,6 +1597,7 @@ a.pc_btn {
     }
     .withdrawals-content-bottom .right {
         width: 100%;
+        margin-right:0;
     }
     .withdrawals-content-bottom .right .frame {
         margin: 0 auto;
@@ -1761,6 +1767,7 @@ a.pc_btn {
     .pulibc-divcenter{margin-bottom:10px;}
     .transferaccounts-top {
         margin-top: 0px;
+        width:100%;
     }
     .transferaccounts-bottom .content-center .pulibc-divcenter h4 {
         line-height: 20px;
@@ -1952,7 +1959,7 @@ a.pc_btn {
         width: 100px;
     }
     .transferaccounts-top .content-bottom .divautos {
-        width: 245px;
+        width: 100%;
     }
     .transferaccounts-top .content-bottom .divautos {
         margin-bottom: 20px;
@@ -2085,10 +2092,12 @@ a.pc_btn {
 }
 .online_title{
     font-size:16px;
-    padding:14px 0;
+    padding:12px 0;
     text-align:left;
     font-weight:bold;
     color:#666;
+    border-bottom:1px dashed #e1e1e1;
+    margin-bottom:15px;
 }
 .recharge2-content-top .box-public{
     display:inline-block;
@@ -2101,12 +2110,13 @@ a.pc_btn {
     position:relative;
 }
 .recharge2-content-top .box-public span.sel_icon{
-    width:12px;height:14px;
+    width:20px;height:20px;
     display:none;
     position:absolute;
-    bottom:-2px;
+    bottom:-1px;
     right:0px;
     background:url(../images/selected-icon.png) no-repeat;
+    background-size:cover;
 }
 .pay_method_sel span.sel_icon{
     display:block !important;
@@ -2220,10 +2230,22 @@ a.pc_btn {
     line-height: 26px !important;
     margin-left: 4px;
     color: red !important;
-    display: block !important;
+    display: block;
 }
 .send_user_box{margin-top:6px;}
 .send_user_img,.send_user_info{display:inline-block;}
 .send_user_img img{width: 60px;height: 60px;border-radius: 50%;}
 .send_user_info{vertical-align: top;  margin-left: 8px; font-size: 12px;}
 .send_user_info span{display: block; vertical-align: top;line-height: 30px;}
+
+
+/*安全提示*/
+.security-tips{
+    line-height: 40px;
+    color: #666;
+    text-align: center;
+    margin-top: 100px;
+}
+.security-tips a{
+    color: #e45050;
+}

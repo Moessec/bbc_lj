@@ -98,7 +98,7 @@ class InfoCtl extends Controller
 	public function recordlist()
 	{
 		$user_id = Perm::$userId;
-		//$user_id = 1;
+
 		//获取用户资产
 		$User_ResourceModel = new User_ResourceModel();
 
@@ -108,7 +108,7 @@ class InfoCtl extends Controller
 		$start_date         = request_string("start_date");
 		$end_date           = request_string("end_date");
 		$time               = request_string("time");
-		$status             = request_int("status");
+		$status             = request_string("status");
 		$type               = request_int("type");
 		$record_delete      = request_int("record_delete");
 		if ($record_delete)
@@ -133,10 +133,55 @@ class InfoCtl extends Controller
 		}
 		if ($status)
 		{
-			$cond_row['record_status'] = $status;
+			//进行中 1.购物为待付款到未确认收货之间的状态 2.其他为为处理中
+			if($status == 'doing')
+			{
+				$cond_row['record_status:!='] = RecordStatusModel::RECORD_FINISH;
+				$cond_row['record_status:!='] = RecordStatusModel::RECORD_CANCEL;
+				$cond_row['record_status:!='] = RecordStatusModel::RECORD_FAIL;
+			}
+
+			//未付款
+			if($status == 'waitpay')
+			{
+				$cond_row['record_status'] = RecordStatusModel::IN_HAND;
+			}
+
+			//等待发货
+			if($status == 'waitsend')
+			{
+				$cond_row['record_status'] = RecordStatusModel::RECORD_WAIT_SEND_GOODS;
+			}
+
+			//未确认收货
+			if($status == 'waitconfirm')
+			{
+				$cond_row['record_status'] = RecordStatusModel::RECORD_WAIT_CONFIRM_GOODS;
+			}
+
+			//退款
+			if($status == 'retund')
+			{
+				$cond_row['trade_type_id'] = Trade_TypeModel::REFUND;
+			}
+
+			//成功
+			if($status == 'success')
+			{
+				$cond_row['record_status'] = RecordStatusModel::RECORD_FINISH;
+			}
+
+			//取消
+			if($status == 'cancel')
+			{
+				$cond_row['record_status'] = RecordStatusModel::RECORD_CANCEL;
+			}
+
 		}
-		if ($type)
+		if ($type && ($status != 'retund'))
 		{
+			fb($type);
+			fb("+++++++");
 			$cond_row['trade_type_id'] = $type;
 		}
 		
@@ -312,13 +357,8 @@ class InfoCtl extends Controller
 	{
 		$user_id = Perm::$userId;
 
-		fb(Yf_Registry::get('from_app_id'));
-
 		$uorder = request_string('uorder');
 		$act = request_string('act');
-		$op = request_string('op','pc');
-
-		fb($op);
 
 		//获取需要支付的订单信息
 		$Union_OrderModel = new Union_OrderModel();
@@ -989,8 +1029,8 @@ class InfoCtl extends Controller
 	{
 		$page = request_int('page', 1);
 		$rows = request_int('rows', 20);
-		//$user_id = Perm::$userId;
-		$user_id = 1;
+		$user_id = Perm::$userId;
+		//$user_id = 1;
 		//const SHOPPING = 1;  //购物
 		//const TRANSFER = 2;  //转账
 		//const DEPOSIT  = 3; //充值
@@ -1008,9 +1048,8 @@ class InfoCtl extends Controller
 	//获取用户资源信息
 	public function getUserResourceInfo()
 	{
-		//$user_id = Perm::$userId;
+		$user_id = Perm::$userId;
 		//$user_id = $user_id ? $user_id : request_int('user_id');
-		$user_id = 1;
 
 		$User_ResourceModel = new User_ResourceModel();
 
@@ -1058,8 +1097,8 @@ class InfoCtl extends Controller
 	//获取用户信息（1）
 	public function getUserInfo()
 	{
-		//$user_id = Perm::$userId;
-		$user_id = 1;
+		$user_id = Perm::$userId;
+		//$user_id = 1;
 
 		$User_InfoModel = new User_InfoModel();
 
@@ -1084,8 +1123,8 @@ class InfoCtl extends Controller
 	//修改用户信息(1)
 	public function editUserInfo()
 	{
-		//$user_id = Perm::$userId;
-		$user_id = 1;
+		$user_id = Perm::$userId;
+		//$user_id = 1;
 
 		$user_info_row = array();
 		//真实姓名
@@ -1139,8 +1178,8 @@ class InfoCtl extends Controller
 	//修改用户支付密码(1)
 	public function  editUserPayPassword()
 	{
-		//$user_id = Perm::$userId;
-		$user_id = 1;
+		$user_id = Perm::$userId;
+		//$user_id = 1;
 
 		$user_base_row = array();
 
@@ -1177,10 +1216,10 @@ class InfoCtl extends Controller
 	//提交提现申请(1)
 	public function addWithdraw()
 	{
-		//$user_id = Perm::$userId;
+		$user_id = Perm::$userId;
 		//$user_name = Perm::$userName;
 		//获取用户信息
-		$user_id = '1';
+
 		$edit['pay_uid'] = $user_id;
 		$edit['bank_user'] = request_string('bank_name');//开户人姓名
 		$edit['cardno'] = request_string('cardno');//银行卡号
@@ -1194,16 +1233,19 @@ class InfoCtl extends Controller
 
 		//获取用户信息
 		$user_base      = current($this->User_BaseModel->getBase($user_id));
+		fb($user_base);
 
 		$user_resource      = current($this->User_ResourceModel->getResource($user_id));
-
+		fb($user_resource);
 		$mobile = request_string('mobile');  //手机
 		$yzm = request_string('yzm');  //验证码
-		
-		if (!VerifyCode::checkCode($mobile, $yzm))
+		$val  = request_string('val');
+
+		if (!$val)
 		{
 			$msg    = _('failure');
 			$status = 260;   //验证码错误
+			$data = array();
 		}
 		else
 		{
@@ -1314,8 +1356,8 @@ class InfoCtl extends Controller
 	//转账(1)
 	public function addTransfer()
 	{
-		//$user_id = Perm::$userId;
-		$user_id = 1;
+		$user_id = Perm::$userId;
+
 		//$user_name = Perm::$userName;
 		$date = array();
 
@@ -2078,6 +2120,9 @@ class InfoCtl extends Controller
 		$type = request_string('type');
 		$val  = request_string('val');
 
+		fb($val);
+		fb($yzm);
+		fb(VerifyCode::checkCode($val, $yzm));
 		if (VerifyCode::checkCode($val, $yzm))
 		{
 
@@ -2156,7 +2201,7 @@ class InfoCtl extends Controller
 			}
 
 
-			if ($flag == false)
+			if ($flag === false)
 			{
 				$msg    = _('failure');
 				$status = 250;
@@ -2186,15 +2231,23 @@ class InfoCtl extends Controller
 
 		fb($user_base);
 
-		if(md5($password) != $user_base['user_pay_passwd'])
+		if($user_base['user_pay_passwd'])
 		{
-			$msg    = _('failure');
-			$status = 250;
+			if(md5($password) != $user_base['user_pay_passwd'])
+			{
+				$msg    = _('支付密码错误');
+				$status = 250;
+			}
+			else
+			{
+				$status = 200;
+				$msg    = _('success');
+			}
 		}
 		else
 		{
-			$status = 200;
-			$msg    = _('success');
+			$status = 230;
+			$msg    = _('请先设置支付密码');
 		}
 
 		$data = array();

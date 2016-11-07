@@ -104,8 +104,9 @@ include $this->view->getTplPath() . '/' . 'header.php';
         t = setTimeout(countDown,1000);
         var url = SITE_URL +'?ctl=Info&met=getYzm&typ=json';
         var sj = new Date();
-        var pars = 'shuiji=' + sj +'&type='+type +'&val='+val; 
-        $.post(url, pars, function (data){alert(data.status)})
+        var pars = 'shuiji=' + sj +'&type='+type +'&val='+val;
+
+        $.post(url, pars, function (data){console.info(data);})
     });
     var delayTime = 30;
     function countDown()
@@ -188,15 +189,35 @@ $(".submit").click(function(){
                     success:function(a){
                         if(a.status == 200)
                         {
-							Public.tips.success("<?=_('操作成功')?>");
-                            location.href= SITE_URL +"?ctl=Info&met=security";
+                            $.dialog({
+                                title: '提示',
+                                content: '密码修改成功',
+                                height: 100,
+                                width: 410,
+                                lock: true,
+                                drag: false,
+                                ok: function () {
+                                    location.href= SITE_URL;
+                                }
+                            })
                         }else if(a.status == 240){
 							obj.addClass('red');
 							$("<label class='error'>"+icon+"<?=_('验证码错误')?></label>").insertAfter(obj);
 						}
                         else
                         {
-                            Public.tips.error("<?=_('操作失败')?>");
+                            //Public.tips.error("<?=_('操作失败')?>");
+                            $.dialog({
+                                title: '提示',
+                                content: '密码修改失败',
+                                height: 100,
+                                width: 410,
+                                lock: true,
+                                drag: false,
+                                ok: function () {
+
+                                }
+                            })
                         }
                     }
                 });

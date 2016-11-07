@@ -66,9 +66,9 @@ class Consume_Trade extends Yf_Model
      * @return bool $update_flag 是否成功
      * @access public
      */
-    public function editTrade($consume_trade_id=null, $field_row)
+    public function editTrade($consume_trade_id=null, $field_row,$flag = false)
     {
-        $update_flag = $this->edit($consume_trade_id, $field_row);
+        $update_flag = $this->edit($consume_trade_id, $field_row,$flag);
 
         return $update_flag;
     }
