@@ -243,11 +243,11 @@ $(function () {
 
 
             $('#grid').on('click', '.set-status', function (a) {
-                if (a.stopPropagation(), a.preventDefault(), Business.verifyRight('INVLOCTION_UPDATE')) {
-                    var b = $(this).data('id'),
-                        c = !$(this).data('delete');
-                    h.setStatus(b, c)
-                }
+                a.preventDefault();
+
+                var b = $(this).data('id'),
+                    c = !$(this).data('delete');
+                h.setStatus(b, c);
             }),
 
             $(window).resize(function () {
@@ -320,6 +320,7 @@ $(function () {
             setStatus: function (a, b) {
                 a && Public.ajaxPost(SITE_URL + '?ctl=User_Base&met=change&typ=json', {
                     id: a,
+                    request_app_id: 101,
                     server_status: !Number(b)
                 }, function (c) {
                     c && 200 == c.status ? (parent.Public.tips({

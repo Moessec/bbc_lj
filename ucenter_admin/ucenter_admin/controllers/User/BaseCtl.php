@@ -356,6 +356,7 @@ class User_BaseCtl extends AdminController
 		$data['typ']    = 'json';
 		$data['rows']   = '999999999999';
 
+		$data['server_id']     = request_int('id', 0);
 		$data['request_app_id']     = Yf_Registry::get('erp_app_id');;
 
 		$result = get_url_with_encrypt($key, $url, $data);
@@ -392,6 +393,7 @@ class User_BaseCtl extends AdminController
 		$key            = Yf_Registry::get('ucenter_api_key');
 		$url            = Yf_Registry::get('ucenter_api_url');
 		$data['app_id'] = Yf_Registry::get('ucenter_app_id');
+		$data['request_app_id'] = request_int('request_app_id', 0);;
 		$data['ctl']    = 'Api';
 		$data['met']    = 'virifyUserAppServer';
 		$data['typ']    = 'json';

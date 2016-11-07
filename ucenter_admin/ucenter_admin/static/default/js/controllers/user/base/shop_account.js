@@ -325,6 +325,7 @@ $(function () {
             setStatus: function (a, b) {
                 a && Public.ajaxPost(SITE_URL + '?ctl=User_Base&met=change&typ=json', {
                     id: a,
+                    request_app_id: 103,
                     server_status: !Number(b)
                 }, function (c) {
                     c && 200 == c.status ? (parent.Public.tips({

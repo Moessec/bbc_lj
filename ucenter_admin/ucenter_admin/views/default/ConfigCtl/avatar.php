@@ -49,7 +49,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
             <dl class="row">
                 <dt class="tit">
-                    <label>网站Logo</label>
+                    <label>用户默认头像</label>
                 </dt>
                 <dd class="opt">
                     <img id="user_default_image" name="site[user_default_avatar]" alt="选择图片" src="<?=($data['user_default_avatar']['config_value'])?>" width="120px" height="120px" />
@@ -57,7 +57,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                     <div class="image-line upload-image"  id="user_default_avatar_upload">上传图片</div>
 
                     <input id="user_default_avatar"  name="site[user_default_avatar]" value="<?=($data['user_default_avatar']['config_value'])?>" class="ui-input w400" type="hidden"/>
-                    <div class="notic">默认网站LOGO,通用头部显示，最佳显示尺寸为240*60像素</div>
+                    <div class="notic">用户默认头像,通用与用户未设置头像时使用，最佳显示尺寸为120*120像素</div>
                 </dd>
             </dl>
           <div class="bot"> <a href="javascript:void(0);" class="ui-btn ui-btn-sp submit-btn">确认提交</a></div>

@@ -112,26 +112,19 @@ function markupVension(){
         <div class="left"><a class="company" id="companyName" href="javascript:;" title=""></a></div>
         <div class="right cf">
         	 <?php
-            //$ucenter_api_url_row = parse_url(Yf_Registry::get('ucenter_api_url'));
-            //$ucenter_admin_url = '//admin.' . $ucenter_api_url_row['host'];
+            $ucenter_api_url_row = parse_url(Yf_Registry::get('ucenter_api_url'));
+            $ucenter_admin_url = '//admin.' . $ucenter_api_url_row['host'];
 
-            //$paycenter_api_url_row = parse_url(Yf_Registry::get('paycenter_api_url'));
-            //$paycenter_admin_url = '//admin.' . $paycenter_api_url_row['host'];
-			
-			$ucenter_admin_url   = Yf_Registry::get('url');
-			$shop_admin_url 	 = str_replace('ucenter_admin','shop_admin',$ucenter_admin_url);
-			$paycenter_admin_url = str_replace('ucenter_admin','paycenter_admin',$ucenter_admin_url);
+            $paycenter_api_url_row = parse_url(Yf_Registry::get('paycenter_api_url'));
+            $paycenter_admin_url = '//admin.' . $paycenter_api_url_row['host'];
             ?>
             <ol>
-                <li><a href="<?= $shop_admin_url ?>" target="_blank"><i class="nav_href">商城系统</i></a></li>
+                <li><a href="<?= $ucenter_admin_url ?>" target="_blank"><i class="nav_href">商城系统</i></a></li>
                 <li><a href="<?= $paycenter_admin_url ?>" target="_blank"><i class="nav_href">PayCenter</i></a></li>
-                <!--<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">广告系统</i></a></li>
-                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">大数据</i></a></li>
-                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">备份系统</i></a></li>
-                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">IM系统</i></a></li>-->
+          
                 <li><img src="<?= Yf_Registry::get('ucenter_api_url') ?>?ctl=Index&met=img&user_id=<?=Perm::$userId?>"><div><span><?=Perm::$row['user_account']?></span><div></li>
-                <!--<li><a href="#"><i class="iconfont icon-top01"></i></a></li>
-                <li><a href="#"><i class="iconfont icon-top02"></i></a></li>-->
+                <li><a href="#"><i class="iconfont icon-top01"></i></a></li>
+                <li><a href="#"><i class="iconfont icon-top02"></i></a></li>
                 <li><a href="index.php?ctl=Login&met=loginout"><i class="iconfont icon-top03"></i></a></li>
             </ol>
         </div>
@@ -150,11 +143,6 @@ function markupVension(){
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-yonghu"></i><p>用户</p><s></s></a>
 					</li>
 
-					<?php
-					global $server_id;
-					if (!is_file(INI_PATH . '/db_' . $server_id . '.ini.php')):?>
-					
-					<?php endif; ?>
                 </ul>
                 <div id="sub-nav">
 					<ul class="cur cf" id="setting-base">
@@ -179,11 +167,7 @@ function markupVension(){
 
                     </ul>
 
-					<?php
-					global $server_id;
-					if (!is_file(INI_PATH . '/db_' . $server_id . '.ini.php')):?>
 					
-					<?php endif; ?>
 				</div>
             </div>
 			</div>

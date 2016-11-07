@@ -13,7 +13,7 @@
 //定义系统路径
 if (!defined('ROOT_PATH'))
 {
-	define('APP_DIR_NAME', 'root');
+	define('APP_DIR_NAME', 'pcenter');
 	define('ROOT_PATH', substr(str_replace('\\', '/', dirname(__FILE__)), 0, -16));
 	define('LIB_PATH', ROOT_PATH . '/libraries');   //ZeroPHP Framework 所在目录
 	define('APP_PATH', ROOT_PATH . '/' . APP_DIR_NAME);         //应用程序目录

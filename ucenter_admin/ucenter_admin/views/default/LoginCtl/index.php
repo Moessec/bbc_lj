@@ -3,6 +3,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=11">
+	<meta name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
 	<title>登录 - 线下下单系统 </title>
 	<link href="<?=$this->view->css?>/login.css" media="screen" rel="stylesheet" type="text/css">
 	<!-- Scripts -->
