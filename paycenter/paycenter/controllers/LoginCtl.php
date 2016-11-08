@@ -167,26 +167,30 @@ class LoginCtl extends Yf_AppController
 
 				$flag = $User_BaseModel->editBase($user_row['user_id'], $login_info_row, false);
 				
-				$login_row['user_logintime'] = $time;
-				$login_row['lastlogintime']  = $info[$user_row['user_id']]['user_login_time'];
-				$login_row['user_ip']        = get_ip();
-				$login_row['user_lastip']    = $info[$user_row['user_id']]['user_login_ip'];
-				$flag                        = $User_InfoModel->editInfo($user_row['user_id'], $login_row, false);
+				//$login_row['user_logintime'] = $time;
+				//$login_row['lastlogintime']  = $info[$user_row['user_id']]['user_login_time'];
+				//$login_row['user_ip']        = get_ip();
+				//$login_row['user_lastip']    = $info[$user_row['user_id']]['user_login_ip'];
+				//$flag                        = $User_InfoModel->editInfo($user_row['user_id'], $login_row, false);
 				//当天没有登录过执行
 
 				//$flag     = $User_BaseModel->editBaseSingleField($user_row['user_id'], 'user_key', $user_key, $user_row['user_key']);
 				Yf_Hash::setKey($user_key);
 
-				Perm::encryptUserInfo($data);
+				$encrypt_str = Perm::encryptUserInfo($data);
 
-				//判断有没有回调地址
-				if(request_string('redirect'))
+				if ('e' == $this->typ)
 				{
-					location_to(Yf_Registry::get('base_url') . '/index.php?' . request_string('redirect'));
-				}
-				else
-				{
-					location_to(Yf_Registry::get('base_url'));
+					//判断有没有回调地址
+					if(request_string('redirect'))
+					{
+						location_to(Yf_Registry::get('base_url') . '/index.php?' . request_string('redirect'));
+					}
+					else
+					{
+						location_to(Yf_Registry::get('base_url'));
+					}
+
 				}
 
 			}
