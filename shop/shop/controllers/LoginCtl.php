@@ -276,7 +276,12 @@ class LoginCtl extends Yf_AppController
 				$encrypt_str = Perm::encryptUserInfo($data);
 
 				//更新购物车
-				$cartlist = $_COOKIE['goods_cart'];
+				$cartlist = array();
+				if(isset($_COOKIE['goods_cart']))
+				{
+					$cartlist = $_COOKIE['goods_cart'];
+				}
+
 
 				if($cartlist)
 				{
@@ -891,8 +896,15 @@ class LoginCtl extends Yf_AppController
 			setcookie("id", null, time() - 3600 * 24 * 365);
 		}
 
+		$redirect = request_string('redirect');
+		if($redirect)
+		{
+			header('location:' . $redirect);
+			exit();
+		}
 
-		//本地读取远程信息
+
+		/*//本地读取远程信息
 		$key = Yf_Registry::get('ucenter_api_key');
 
 		$url                       = Yf_Registry::get('ucenter_api_url');
@@ -907,7 +919,7 @@ class LoginCtl extends Yf_AppController
 		$formvars['typ'] = 'json';
 		$init_rs         = get_url_with_encrypt($key, $url, $formvars);
 
-		$this->data->addBody(100, $init_rs);
+		$this->data->addBody(100, $init_rs);*/
 
 	}
 }
