@@ -880,7 +880,7 @@ function ucenterLogin()
                                         }
                                     },
                                     error: function(){
-                                        alert('error!');
+                                        alert('err1or!');
                                     }
                                 });
 
@@ -911,7 +911,7 @@ function ucenterLogin()
             }
         },
         error: function(){
-            alert('error!');
+            alert('err2or!');
         }
     });
 }
