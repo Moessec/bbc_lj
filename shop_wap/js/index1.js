@@ -148,12 +148,12 @@ $(document).ready(function(){
         var isChecked1 = $(this).prop("checked");
         $(this).parent().parent().siblings().find("input").prop("checked", isChecked1);
     })
+})
+
+
+$(function(){
+    ucenterLogin(UCENTER_URL, SITE_URL, false);
 });
-
-
-// $(function(){
-//     ucenterLogin(UCENTER_URL, SITE_URL, false);
-// });
 
 
 /** 省的地区选择 **/
