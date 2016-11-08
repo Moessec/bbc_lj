@@ -28,11 +28,6 @@
            /* + '<a id="regbtn" href="javascript:void(0);">注册</a>'*/
             + '<a href="' + WapSiteUrl + '/tmpl/member/login.html">反馈</a>';
     }
-
-    if (typeof copyright == 'undefined')
-    {
-        copyright = '';
-    }
     html += '<a href="javascript:void(0);" class="gotop">返回顶部</a>'
         + '</div>'
         + '<div class="nav-pic">'
@@ -41,7 +36,7 @@
         //+ '<a href="' + SiteUrl + '" class="pc"><span><i></i></span><p>电脑版</p></a>'
         + '</div>'
         + '<div class="copyright">'
-        + copyright
+        + 'Copyright&nbsp;&copy;&nbsp;2007-2015 远丰集团<a href="javascript:void(0);">yuanfeng021.com</a>版权所有'
         + '</div>';
     $("#footer").html(html);
     var key = getCookie('key');
