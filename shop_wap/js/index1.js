@@ -162,7 +162,7 @@ $(document).ready(function(){
     if($.cookie('areaId'))
     {
         //获取该地区的名字
-        $.post(SITE_URL  + '?ctl=Base_District&met=getDistrictName&id=' + $.cookie('areaId') +  '&typ=json',function(data)
+        $.post(WapSiteUrl + '?ctl=Base_District&met=getDistrictName&id=' + $.cookie('areaId') +  '&typ=json',function(data)
         {
             $("#area").html(data.data.district_name);
         });
@@ -170,7 +170,7 @@ $(document).ready(function(){
 
 
     //获取所有的一级地址
-    $.post(SITE_URL  + '?ctl=Base_District&met=district&pid=0&typ=json',function(data){
+    $.post(WapSiteUrl + '?ctl=Base_District&met=district&pid=0&typ=json',function(data){
             for (i = 0; i < data.data.items.length; i++) {
                 $(".header_select_province dd").append("<div class='dd'><a onclick='setcook(  " +  data.data.items[i]['district_id']  + " )' >" + data.data.items[i]['district_name'] + "</a></li>");
             }
