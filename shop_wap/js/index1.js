@@ -152,7 +152,7 @@ $(document).ready(function(){
 
 
 $(function(){
-    ucenterLogin(UCENTER_URL, SITE_URL, false);
+    ucenterLogin();
 });
 
 
