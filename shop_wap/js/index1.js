@@ -23,50 +23,50 @@ $(document).ready(function(){
  //    }
  //    start();
     //顶部导航栏鼠标移入效果
-    $(".floor_head nav li").bind("mouseover",function(){
-    	$(".floor_head nav li").find("a").removeClass("selected");
-    	$(this).find("a").addClass("selected");
-    	var aW=$(this).find("a").width();
-    	var pad=parseInt($(this).find("a").css("paddingLeft"));
-    	var liW=aW+pad*2+1;
-    	$(this).css("width",liW);
+    // $(".floor_head nav li").bind("mouseover",function(){
+    // 	$(".floor_head nav li").find("a").removeClass("selected");
+    // 	$(this).find("a").addClass("selected");
+    // 	var aW=$(this).find("a").width();
+    // 	var pad=parseInt($(this).find("a").css("paddingLeft"));
+    // 	var liW=aW+pad*2+1;
+    // 	$(this).css("width",liW);
     	
-    })
-    //左侧菜单栏鼠标移入效果
-     $(".tleft ul li").hover(function(){
-        $(this).addClass("hover_leave");
-        $(this).find("h3 a").css("color","red");
-        $(this).find(".hover_content").show();
-    },function(){
-        $(this).removeClass("hover_leave");
-        $(this).find("h3 a").css("color","#fff");
-        $(this).find(".hover_content").hide();
-    })
+    // })
+    // //左侧菜单栏鼠标移入效果
+    //  $(".tleft ul li").hover(function(){
+    //     $(this).addClass("hover_leave");
+    //     $(this).find("h3 a").css("color","red");
+    //     $(this).find(".hover_content").show();
+    // },function(){
+    //     $(this).removeClass("hover_leave");
+    //     $(this).find("h3 a").css("color","#fff");
+    //     $(this).find(".hover_content").hide();
+    // })
 
  	//导航栏移入显示下拉单
- 	$(".head_right dl").hover(function(){
- 		$(this).addClass("navactive");
- 		$(this).find("dd").show();
- 	},function(){
- 		$(".head_right dl").removeClass("navactive");
- 		$(".head_right dd").hide();
- 	})
+ 	// $(".head_right dl").hover(function(){
+ 	// 	$(this).addClass("navactive");
+ 	// 	$(this).find("dd").show();
+ 	// },function(){
+ 	// 	$(".head_right dl").removeClass("navactive");
+ 	// 	$(".head_right dd").hide();
+ 	// })
 
  	//遍历楼层图标背景
- 	$(".m .mt .title span").each(function(i){
- 		var str="url("+STATIC_URL+"/images/flad"+(i+1)+".png)";
-  		$(this).css("background",str);
-  	})
+ 	// $(".m .mt .title span").each(function(i){
+ 	// 	var str="url("+STATIC_URL+"/images/flad"+(i+1)+".png)";
+  // 		$(this).css("background",str);
+  // 	})
     //遍历商品背景色
-    var arr=["#fff0f0","#fdf5f2","#f1f6ef","#f9f9f9","#f2fbff"];
-    $.each($(".goodsUl li"),function(i,obj){
-         if(i>=5){
-            var thisindex=$(this).index();
-          i=thisindex-Math.floor(thisindex/5)*5;
-        }
-        $(this).css("backgroundColor",arr[i])
+    // var arr=["#fff0f0","#fdf5f2","#f1f6ef","#f9f9f9","#f2fbff"];
+    // $.each($(".goodsUl li"),function(i,obj){
+    //      if(i>=5){
+    //         var thisindex=$(this).index();
+    //       i=thisindex-Math.floor(thisindex/5)*5;
+    //     }
+    //     $(this).css("backgroundColor",arr[i])
        
-    })
+    // })
     //商品滚动
     function doMove(obj,attr,speed,target,callBack){
         if(obj.timer) return;
