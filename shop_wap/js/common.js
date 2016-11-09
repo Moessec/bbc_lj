@@ -839,7 +839,7 @@ function ucenterLogin()
 
                     var k = data.data.ks;
                     var u = data.data.id;
-                    //shop,wap登录
+                    //本系统登录
                     $.ajax({
                         type: "get",
                         url: ApiUrl + "/index.php?ctl=Login&met=check&typ=json",
@@ -865,25 +865,8 @@ function ucenterLogin()
                                 // 更新cookie购物车
                                 updateCookieCart(result.data.key);
 
-                                $.ajax({
-                                    type: "get",
-                                    url: PayCenterWapUrl + "/index.php?ctl=Login&met=check&typ=json",
-                                    data:{ks:k, us:u},
-                                    dataType: "json",
-                                    success: function(da){
-                                        console.info(da);
-
-                                        if(da.status == 200)
-                                        {
-                                            window.location.href = WapSiteUrl+'/tmpl/member/member.html';
-                                            return;
-                                        }
-                                    },
-                                    error: function(){
-                                        alert('err1or!');
-                                    }
-                                });
-
+                                location.reload();
+                                //window.location.href = WapSiteUrl+'/tmpl/member/member.html';
 
                             }
                         },
@@ -897,21 +880,24 @@ function ucenterLogin()
             }
             else  //未登录
             {
-                callback = WapSiteUrl + '/tmpl/member/login.html';
+                var key = getCookie('key');
+                var u = getCookie('id');
 
-                login_url   = UCenterApiUrl + '?ctl=Login&met=index&typ=e';
+                if (u && key)
+                {
+                    delCookie('username');
+                    delCookie('user_account');
+                    delCookie('id');
+                    delCookie('key');
+
+                    location.reload();
+                }
 
 
-                callback = ApiUrl + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(callback);
-
-
-                login_url = login_url + '&from=wap&callback=' + encodeURIComponent(callback);
-
-                window.location.href = login_url;
             }
         },
         error: function(){
-            alert('err2or!');
+            alert('error!');
         }
     });
 }
