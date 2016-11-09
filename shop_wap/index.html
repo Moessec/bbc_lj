@@ -23,7 +23,7 @@ function getLocation() {
         enableHighAccuracy : true,
         maximumAge : 1000
     }
-    alert('this is getLocation()');
+    // alert('this is getLocation()');
     if (navigator.geolocation) {
         //浏览器支持geolocation
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
