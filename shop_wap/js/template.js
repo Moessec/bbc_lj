@@ -153,3 +153,7 @@ template.helper("$image_thumb", function (image_url, w, h) {
 template.helper("sprintf", function () {
     return sprintf.apply(this, arguments);
 });
+
+$(function(){
+    ucenterLogin();
+});

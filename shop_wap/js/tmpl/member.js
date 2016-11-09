@@ -1,4 +1,7 @@
 $(function(){
+    ucenterLogin();
+});
+$(function(){
     if (getQueryString('key') != '') {
         var key = getQueryString('key');
         var username = getQueryString('username');
@@ -8,6 +11,7 @@ $(function(){
     } else {
         var key = getCookie('key');
     }
+
 	if(key){
         $.ajax({
             type:'post',

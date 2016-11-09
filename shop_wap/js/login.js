@@ -1,11 +1,25 @@
 $(function(){
-    ucenterLogin();
-
     var key = getCookie('key');
     if (key) {
         window.location.href = WapSiteUrl+'/tmpl/member/member.html';
         return;
+    }else
+    {
+        callback = WapSiteUrl + '/tmpl/member/member.html';
+
+        login_url   = UCenterApiUrl + '?ctl=Login&met=index&typ=e';
+
+
+        callback = ApiUrl + '?ctl=Login&met=check&typ=e&redirect=' + encodeURIComponent(callback);
+
+
+        login_url = login_url + '&from=wap&callback=' + encodeURIComponent(callback);
+
+        window.location.href = login_url;
     }
+
+
+
     $.getJSON(ApiUrl + '/index.php?act=connect&op=get_state', function(result){
         var ua = navigator.userAgent.toLowerCase();
         var allow_login = 0;

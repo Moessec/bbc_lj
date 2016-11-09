@@ -33,7 +33,7 @@ $(function() {
         $.ajax({
             type:'post',
             url:ApiUrl+"/index.php?ctl=Buyer_Cart&met=confirm&typ=json",
-            data:{k:key, u:getCookie('id')},
+            data:{k:key, u:getCookie('id'),product_id:cart_id},
             dataType:'json',
             async:false,
             success:function(result){
