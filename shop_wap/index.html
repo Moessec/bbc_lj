@@ -18,19 +18,11 @@
 
 </head>
 <body>
-
+		<div id='addr'>afdgfffffffffffffffffffffffffffffffffffffffffff</div>
 <div class="nctouch-home-top fixed-Width">
   <header id="header" class="transparent">
   	<div class="logo"></div>
-<!--   		<div class="head_left">
-			<div id="login_top">
-				<dl class="header_select_province">
-					<dt><b class="iconfont icon-dingwei2"></b><span id="area">'北京'</span></dt>
-					<dd>
-					</dd>
-				</dl>
-			</div>
-		</div> -->
+
     <div class="header-wrap">
      <a href="tmpl/search.html" class="header-inp"> <i class="icon"></i> <span class="search-input" id="keyword">请输入关键词</span> </a>
     </div>
@@ -153,15 +145,18 @@
 			</li>
 		<% } %>
 		</ul>
+
 	</div>
+
 </script> 
-<script type="text/javascript" src="js/jquery.js"></script> 
-<!-- <script type="text/javascript" src="js/jquery.cookie.js"></script>  -->
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GAGiz9gdoRfTpImL6A2RZYxH"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script> 
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
 <script type="text/javascript" src="js/config.php"></script>
 <script type="text/javascript" src="js/zepto.min.js"></script> 
 <script type="text/javascript" src="js/template.js"></script> 
 <script type="text/javascript" src="js/common.js"></script> 
-<!-- <script type="text/javascript" src="js/index1.js"></script> -->
 <script type="text/javascript" src="js/swipe.js"></script> 
 <script type="text/javascript" src="js/index.js"></script> 
 <script type="text/javascript" src="js/tmpl/footer.js"></script>
@@ -171,6 +166,88 @@
 	addToHomescreen({
 		message:'如要把应用程式加至主屏幕,请点击%icon, 然后<strong>加至主屏幕</strong>'
 	});
+</script>
+<script>
+function getPositionError(error) {
+      //  HTML5 定位失败时，调用百度地图定位   
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(r){
+            if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                var mk = new BMap.Marker(r.point);
+                var pt = r.point;
+
+                $.cookie("lng",pt.lng,{expires:7});
+                $.cookie("lat",pt.lat,{expires:7});
+
+                $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
+                              
+            }
+        },{enableHighAccuracy: true});
+    }
+
+    function getPositionSuccess(position){
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+
+      var ggPoint = new BMap.Point(lng,lat);
+      //转换成百度地图坐标
+      var trunback = function (point){
+           $.cookie("lng",point.lng,{expires:7});
+           $.cookie("lat",point.lat,{expires:7});
+           $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
+      }
+      BMap.Convertor.translate(ggPoint,0,trunback);     
+    }
+
+
+
+  // 先HTML5定位，定位不到再百度地图定位
+  if(!$.cookie("lng")  || !$.cookie("lat") || "$act" == "renew")
+  {
+    var position_option = {enableHighAccuracy: true,maximumAge: 30000,timeout: 20000};
+    navigator.geolocation.getCurrentPosition(getPositionSuccess, getPositionError, position_option);
+  }
+  else
+  {
+    var t_lng = getCookie('lng');
+    // alert( t_lng );
+    var t_lat = getCookie('lat');
+    if(!t_lng || !t_lat)
+    {
+      $.post("ajax_back_end.php",{"act":"reposition","lng":$.cookie("lng"),"lat":$.cookie("lat")},function(){})
+    }
+  }
+
+  // 地址定位
+  function showArea(BMap)
+  {
+    var point = new BMap.Point($.cookie("lng"),$.cookie("lat"));
+    var geoc = new BMap.Geocoder();    
+    geoc.getLocation(point, function(rs){
+      var addComp = rs.addressComponents;
+      var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
+      $("#addr").html(address)
+    });        
+   
+  }
+
+  // 首页附近的店铺异步获取信息
+  function getHtmlSecond()
+  {
+    $.post("ajax_back_end.php",{"act":"getNearInfo","limit":20},function(data){
+      if(data == 1)
+      {
+        var t = setTimeout(getHtmlSecond,1000);
+      }
+      else
+      {
+        $(".itemSearchList").html(data);
+        showArea(BMap);
+      }
+    });
+  }
+  showArea(BMap);
+  // getHtmlSecond();
 </script>
 </body>
 </html>
