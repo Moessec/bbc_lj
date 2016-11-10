@@ -55,6 +55,6 @@
     }  
       
       
-    $ipInfos = GetIpLookup('139.196.51.206'); //baidu.com IP地址  
+    $ipInfos = GetIpLookup(get_client_ip()); //baidu.com IP地址  
     var_dump($ipInfos); 
 
