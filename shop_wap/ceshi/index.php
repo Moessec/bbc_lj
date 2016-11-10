@@ -55,6 +55,6 @@
     }  
       
       
-    $ipInfos = GetIpLookup(get_client_ip()); //baidu.com IP地址  
+    $ipInfos = GetIpLookup($_SERVER['HTTP_CLIENT_IP']); //baidu.com IP地址  
     var_dump($ipInfos); 
 
