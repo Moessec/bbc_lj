@@ -385,8 +385,8 @@ class LoginCtl extends Yf_AppController
 		}
 		if (!$user_code)
 		{
-			$this->data->setError('请输入验证码');
-			return false;
+			//$this->data->setError('请输入验证码');
+			//return false;
 		}
 		if (!$mobile)
 		{
@@ -399,7 +399,7 @@ class LoginCtl extends Yf_AppController
 
 		$user_code_pre = $Cache_Lite->get($mobile);
 
-		if ($user_code == $user_code_pre)
+		if ($user_code != $user_code_pre)
 		{
 			$rs_row = array();
 
