@@ -179,7 +179,8 @@ include $this->view->getTplPath() . '/' . 'seller_footer.php';
     $(function () {
 
         //添加标签
-        $('.tabmenu').append('<a title="建立模板" class="ncbtn ncbtn-mint bbc_seller_btns" href="' + SITE_URL + '?ctl=Seller_Trade_Waybill&met=addTpl&typ=e' + '">添加模板</a>');
+        $('.tabmenu').append('<a title="建立模板" class="ncbtn ncbtn-mint bbc_seller_btns" href="' + SITE_URL + '?ctl=Seller_Trade_Waybill&met=addTpl&typ=e' + '">添加物流模板</a>');
+           $('.tabmenu').append('<a title="自配送模板" class="ncbtn ncbtn-mint bbc_seller_btns" style="right:100px" href="' + SITE_URL + '?ctl=Seller_Trade_Waybill&met=zpsIndex' + '">自配送模板</a>');
 
         $('a[nctype="btn_del"]').on('click', function () {
 
