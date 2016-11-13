@@ -58,7 +58,7 @@ class Waybill_Tpl extends Yf_Model
 	public function addTpl($field_row, $return_insert_id = false)
 	{
 		$add_flag = $this->add($field_row, $return_insert_id);
-
+	
 		return $add_flag;
 	}
 

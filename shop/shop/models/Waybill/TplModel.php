@@ -30,13 +30,14 @@ class Waybill_TplModel extends Waybill_Tpl
 	{
 		$ExpressModel = new ExpressModel();
 		$express_data = $ExpressModel->getByWhere();
-
+		
 		if ( empty($cond_row['shop_id:IN']) )
 		{
 			$cond_row['shop_id'] = Perm::$shopId;
 		}
-		$data                = $this->listByWhere($cond_row, $order_row, $page, $rows);
 		
+		$data                = $this->listByWhere($cond_row, $order_row, $page, $rows);
+		// var_dump($data["items"]);exit;
 		foreach ($data["items"] as $key => $value)
 		{
 
