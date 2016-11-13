@@ -19,6 +19,8 @@ class Seller_Trade_WaybillCtl extends Seller_Controller
 	public $logisticsWaybillModel = null;
 	public $logisticsExpressModel = null;
 	public $shopExpressModel      = null;
+	public $logisticsZpsModel      = null;
+
 
 	/**
 	 * Constructor
@@ -33,6 +35,7 @@ class Seller_Trade_WaybillCtl extends Seller_Controller
 		parent::__construct($ctl, $met, $typ);
 
 		$this->logisticsWaybillModel = new Waybill_TplModel();
+		$this->logisticsZpsModel = new Waybill_ZpsModel();
 		$this->logisticsExpressModel = new ExpressModel();
 		$this->shopExpressModel      = new Shop_ExpressModel();
 	}
@@ -54,10 +57,17 @@ class Seller_Trade_WaybillCtl extends Seller_Controller
 	 */
 
 	public function waybillIndex()
-	{
+	{	
 		$shop_express_list = $this->logisticsWaybillModel->getTplList();
 		$shop_express_list = $shop_express_list['items'];
 		include $this->view->getView();
+	}
+		public function zpsIndex()
+	{	
+		$data = $this->logisticsZpsModel->getZpsList();
+		
+		include $this->view->getView();
+
 	}
 
 	/*
@@ -239,7 +249,7 @@ class Seller_Trade_WaybillCtl extends Seller_Controller
 			$waybill_data['waybill_tpl_left']   = request_int('waybill_left');
 			$waybill_data['waybill_tpl_image']  = request_string('waybill_image');
 			$waybill_data['waybill_tpl_enable'] = request_int('waybill_usable');
-
+			var_dump($waybill_data);exit;
 			$flag = $this->logisticsWaybillModel->addTpl($waybill_data, true);
 
 			if ($flag)
@@ -256,6 +266,44 @@ class Seller_Trade_WaybillCtl extends Seller_Controller
 		}
 	}
 
+
+
+	public function zpsAdd()
+	{
+		$typ = request_string('typ');
+
+		if ($typ == 'e')
+		{
+			
+			
+
+			$this->view->setMet('zpsAdd');
+			include $this->view->getView();
+		}
+		else
+		{
+			$waybill_data['shop_id']            = Perm::$shopId;
+			$waybill_data['zps_tpl_name']   = request_string('zps_tpl_name');
+			$waybill_data['zps_range']  = request_int('zps_range');
+			$waybill_data['zps_cost'] = request_int('zps_cost');
+			$waybill_data['zps_enable']    = request_int('zps_enable');
+		
+			
+			$flag = $this->logisticsZpsModel->addTpl($waybill_data, true);
+
+			if ($flag)
+			{
+				$msg    = _('success');
+				$status = 200;
+			}
+			else
+			{
+				$msg    = _('failure');
+				$status = 250;
+			}
+			$this->data->addBody(-140, array(), $msg, $status);
+		}
+	}
 	/**
 	 * 修改模板
 	 * @access public
@@ -309,6 +357,56 @@ class Seller_Trade_WaybillCtl extends Seller_Controller
 		}
 
 	}
+
+
+
+	public function editZps()
+	{
+
+		$typ            = request_string('typ');
+		$zps_tpl_id = request_int('zps_tpl_id');
+		// var_dump($zps_tpl_id);exit;
+		if ($typ == 'e')
+		{
+			if (!empty($zps_tpl_id))
+			{
+				$zps_data = $this->logisticsZpsModel->getTpl($zps_tpl_id);
+				$zps_data = pos($zps_data);
+				// var_dump($zps_data);exit;
+			}
+
+			
+
+			$this->view->setMet('zpsAdd');
+			include $this->view->getView();
+		}
+		else
+		{
+			$waybill_data['shop_id']            = Perm::$shopId;
+			$waybill_data['zps_tpl_name']   = request_string('zps_tpl_name');
+			$waybill_data['zps_range']  = request_int('zps_range');
+			$waybill_data['zps_cost'] = request_int('zps_cost');
+			$waybill_data['zps_enable']    = request_int('zps_enable');
+			
+			// var_dump($waybill_data);exit;
+			$flag = $this->logisticsZpsModel->editZps($zps_tpl_id, $waybill_data);
+
+			if ($flag)
+			{
+				$msg    = _('success');
+				$status = 200;
+			}
+			else
+			{
+				$msg    = _('failure');
+				$status = 250;
+			}
+			$this->data->addBody(-140, array(), $msg, $status);
+		}
+
+	}
+
+
 
 	/**
 	 * 测试模板
