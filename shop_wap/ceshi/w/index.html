@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>移动端城市选择控件 | jQuery特效|手机微信网站特效| 网页特效库</title>
+	<meta name="keywords" content="SVG特效, 手机微信网站特效, css3动画, html5特效, 网页特效" />
+	<meta name="description" content="网页特效库-专注于HTML5、CSS3、js、jQuery、手机移动端等网页特效的手机与分享。特效库始终坚持：无会员、无积分、无限制的“三无原则”，所有的资源都免费提供广大童鞋下载学习和使用。" />
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-appearance: none; //去掉浏览器默认样式
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-touch-callout: none;
+        box-sizing: border-box;
+    }
+    
+    html,
+    body {
+        margin: 0 auto;
+        width: 100%;
+        min-height: 100%;
+        overflow-x: hidden;
+        -webkit-user-select: none;
+    }
+    
+    body {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        -webkit-text-size-adjust: 100%; //关闭自动调整字体
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
+    }
+    
+    input {
+        width: 90%;
+        height: 40px;
+        font-size: 18px;
+        border: 1px solid #b72f20;
+        border-radius: 5px;
+        margin: 20px 5% 0 5%;
+        padding: 5px;
+    }
+    
+    h1 {
+        background-color: #b72f20;
+        color: #fff;
+        font-size: 25px;
+        text-align: center;
+        padding: 10px;
+    }
+    </style>
+    <link rel="stylesheet" href="css/LArea.css">
+</head>
+
+<body>
+<style>
+    ul#bcty365_nav{padding-left:50px; margin-bottom:10px; border-bottom:2px solid #ccc; overflow:hidden; _zoom:1;}
+    ul#bcty365_nav li{float:left; display:inline; margin:10px;}
+    ul#bcty365_nav li a{display:block;color:#000000; font-size:16px;}
+    ul#bcty365_nav li a,#wimoban_p,#wimoban_p a{ font-family:"微软雅黑";}
+    ul#bcty365_nav li a:hover,#wimoban_p a:hover{color:red;}
+</style>
+
+<ul id="bcty365_nav">
+    <li><a target="top,_self" title="首页" href="http://www.bcty365.com/">首页</a></li>
+    <li><a target="top,_self"  title="网站开发" href="http://www.bcty365.com/list-9-1.html">网站开发</a></li>
+    <li><a target="top,_self" title="CMS教程" href="http://www.bcty365.com/list-100-1.html">CMS教程</a></li>
+    <li><a target="top,_self" title="数据库" href="http://www.bcty365.com/list-34-1.html">数据库</a></li>
+    <li><a target="top,_self" title="js特效代码" href="http://www.bcty365.com/list-12-1.html">js特效代码</a></li>
+    <li><a target="top,_self" title="网页特效" href="http://www.bcty365.com/list-61-1.html">网页特效</a></li>
+    <li><a target="top,_self" title="jQuery插件" href="http://www.bcty365.com/list-86-1.html">jQuery插件</a></li>
+    <li><a target="top,_self" title="站长学院" href="http://www.bcty365.com/list-96-1.html">站长学院</a></li>
+ </ul>
+    <div>
+        <h1>LArea</h1>
+        <div class="content-block">
+            <input id="demo1" type="text" readonly="" placeholder="城市选择特效"  value="广东省,深圳市,南山区"/>
+            <input id="value1" type="hidden" value="20,234,504"/>
+        </div>
+        <div class="content-block">
+            <input id="demo2" type="text" readonly="" placeholder="城市选择特效" />
+            <input id="value2" type="hidden" />
+        </div>
+    </div>
+    <script src="js/LAreaData1.js"></script>
+    <script src="js/LAreaData2.js"></script>
+    <script src="js/LArea.js"></script>
+    <script>
+    var area1 = new LArea();
+    area1.init({
+        'trigger': '#demo1', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+        'valueTo': '#value1', //选择完毕后id属性输出到该位置
+        'keys': {
+            id: 'id',
+            name: 'name'
+        }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+        'type': 1, //数据源类型
+        'data': LAreaData //数据源
+    });
+    area1.value=[1,13,3];//控制初始位置，注意：该方法并不会影响到input的value
+    var area2 = new LArea();
+    area2.init({
+        'trigger': '#demo2',
+        'valueTo': '#value2',
+        'keys': {
+            id: 'value',
+            name: 'text'
+        },
+        'type': 2,
+        'data': [provs_data, citys_data, dists_data]
+    });
+    </script>
+</body>
+
+</html>
