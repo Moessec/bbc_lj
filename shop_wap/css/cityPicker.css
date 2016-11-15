@@ -38,7 +38,7 @@
 	list-style: none;
 }
 .IIInsomnia-city-picker ul li{
-	display: inline-block;
+	/*display: inline-block;*/
 	position: relative;
 	margin: 4px;
 	cursor: pointer;
@@ -57,7 +57,8 @@
 }
 
 /*热门城市*/
-.IIInsomnia-city-picker .IIInsomnia-hot-wrap{
+
+/*.IIInsomnia-city-picker .IIInsomnia-hot-wrap{
 	width: 100%;
 	background: #EEEEEE;
 	padding: 9px;
@@ -72,23 +73,27 @@
 }
 .IIInsomnia-city-picker .IIInsomnia-hot-wrap ul li:hover{
 	color: #ff00ff;
-}
+}*/
 
 /*选择省份*/
 .IIInsomnia-city-picker .IIInsomnia-wrap{
 	position: relative;
 	width: 100%;
 	background: #ffffff;
+	/*align:center;*/
 	padding: 9px;
+}
+.IIInsomnia-city-picker .IIInsomnia-wrap p{
+     text-align: center;
 }
 .IIInsomnia-city-picker .IIInsomnia-province-name{
 	display: inline-block;
-	width: 50px;
-	height: 30px;
+	width: 30%;
+	height: 60px;
 	text-align: center;
-	line-height: 30px;
+	line-height: 60px;
 	position: relative;
-	background-color: #f5f5f5;
+	background-color: #EEEEEE;
 }
 .IIInsomnia-city-picker .IIInsomnia-province-name:hover{
 	color: #ff00ff;
@@ -102,23 +107,28 @@
 	border-bottom-color: #ffffff;
 	color: #ff00ff;
 	background-color: #ffffff;
+
 }
 .IIInsomnia-city-picker .IIInsomnia-city-wrap{
 	display: none;
-	border: 1px solid #D8D8D8;
+	margin-top: 0px;
+	border-top: 1px solid #D8D8D8;
 	background: #ffffff;
-	position: absolute;
-	top: 29px;
-	width: 312px;
-	padding: 10px 10px 5px 10px;
+	position: relative;
+	/*top: 49px;*/
+	width: 67%;
+	padding: 10px 20px 5px 10px;
+	float: right;
+	/*top: 0px;*/
 }
 .IIInsomnia-city-picker .IIInsomnia-city{
-	width: 50px;
-	height: 30px;
-	text-align: center;
-	line-height: 30px;
+	width: 100%;
+	height: 60px;
+	text-align: left;
+	/*margin-left: -1rem;*/
+	line-height: 60px;
 	color: #999999;
-	background-color: #f5f5f5;
+	/*background-color: #f5f5f5;*/
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
