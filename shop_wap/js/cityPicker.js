@@ -1,5 +1,4 @@
 /**
- * @title 简洁实用的城市选择插件
  * @author IIInsomnia
  *
  * var cityPicker = new IIInsomniaCityPicker({
@@ -16,8 +15,8 @@
  * cityPicker.init();
  */
 ;var IIInsomniaCityPicker = function(options){
-    this.template = $('<div class="IIInsomnia-city-picker" id="IIInsomnia_city_picker"><div class="IIInsomnia-hot-wrap"><p>热门城市</p><ul id="IIInsomnia_hot_city"></ul></div><div class="line"></div><div class="IIInsomnia-wrap"><p>选择省份</p><ul class="IIInsomnia-province-wrap" id="IIInsomnia_province_wrap"></ul></div></div>');
-    this.hot_city = $('#IIInsomnia_hot_city', this.template);
+    this.template = $('<div class="IIInsomnia-city-picker" id="IIInsomnia_city_picker"><div class="IIInsomnia-wrap"><p>选择城市</p><ul class="IIInsomnia-province-wrap" id="IIInsomnia_province_wrap"></ul></div></div>');
+    this.hot_city = $('#IIInsomnia_hot_city', '');
     this.province_wrap = $('#IIInsomnia_province_wrap', this.template);
     this.settings = {
         "data": options.data,
@@ -78,7 +77,7 @@ IIInsomniaCityPicker.prototype = {
 
         province_html += '<li class="IIInsomnia-clean"><input type="button" class="IIInsomnia-clean-btn" id="IIInsomnia_clean_btn" value="清 空"></li>'
 
-        that.province_wrap.html(province_html);
+        that.province_wrap.parent.html(province_html);
     },
 
     buildCityTpl: function(cur_province){
@@ -100,7 +99,7 @@ IIInsomniaCityPicker.prototype = {
             city_html += '<li class="IIInsomnia-city" data-id="' + city[j]['id'] + '" data-name="' + city[j]['name'] + '" title="' + city[j]['name'] + '">' + city[j]['name'] + '</li>';
         }
 
-        cur_province.find('.IIInsomnia-city-wrap').html(city_html).css('left', '-' + (poi.left - 9) + 'px').show();
+        cur_province.find('.IIInsomnia-city-wrap').html(city_html).css('left', '-' + (poi.left - 37) + 'px').show();
     },
 
     provinceEvent: function(){
@@ -116,7 +115,7 @@ IIInsomniaCityPicker.prototype = {
                 that.province_wrap.find('.IIInsomnia-province').removeClass('active');
                 that.province_wrap.find('.IIInsomnia-province-name').removeClass('active');
                 that.province_wrap.find('.IIInsomnia-city-wrap').hide().children().remove();
-
+                
                 _this.addClass('active');
                 _this.find('.IIInsomnia-province-name').addClass('active');
 
@@ -143,7 +142,7 @@ IIInsomniaCityPicker.prototype = {
 
             var cid = _this.data('id');
             var cname = _this.data('name');
-
+            
             that.settings.target.val(cname);
 
             if(that.settings.hideCityInput){
@@ -246,6 +245,8 @@ IIInsomniaCityPicker.prototype = {
 
             var offset = _this.offset();
             var top = offset.top + _this.outerHeight() + 15;
+            // var top = offset.top + _this.outerHeight() + 15;
+            // 
 
             that.template.css({
                 'left': offset.left,
