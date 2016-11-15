@@ -1,4 +1,5 @@
 /**
+ * @title 简洁实用的城市选择插件
  * @author IIInsomnia
  *
  * var cityPicker = new IIInsomniaCityPicker({
@@ -99,7 +100,7 @@ IIInsomniaCityPicker.prototype = {
             city_html += '<li class="IIInsomnia-city" data-id="' + city[j]['id'] + '" data-name="' + city[j]['name'] + '" title="' + city[j]['name'] + '">' + city[j]['name'] + '</li>';
         }
 
-        cur_province.find('.IIInsomnia-city-wrap').html(city_html).css('left', '-' + (poi.left - 37) + 'px').show();
+        cur_province.find('.IIInsomnia-city-wrap').html(city_html).css('left', '-' + (poi.left - 9) + 'px').show();
     },
 
     provinceEvent: function(){
@@ -142,7 +143,7 @@ IIInsomniaCityPicker.prototype = {
 
             var cid = _this.data('id');
             var cname = _this.data('name');
-            
+
             that.settings.target.val(cname);
 
             if(that.settings.hideCityInput){
