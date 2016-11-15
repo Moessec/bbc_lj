@@ -14,17 +14,18 @@
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <link rel="apple-touch-icon" href="images/touch-icon-iphone.png"/>
-
+<link rel="stylesheet" type="text/css" href="css/cityPicker.css">
 
 </head>
 <body>
+
 <!-- <div id='addr'>afdgfffffffffffffffffffffffffffffffffffffffffff</div> -->
 <div class="nctouch-home-top fixed-Width">
   <header id="header" class="transparent">
-  	<div class="logo"></div>
+    <div class="logo"></div>
 
     <div class="header-wrap">
-     <span class='area'>地区:</span><a href="tmpl/search.html" class="header-inp width"> <i class="icon"></i> <span class="search-input" id="keyword">请输入关键词</span> </a>
+<a href="tmpl/search.html" class="header-inp width"> <i class="icon"></i> <span class="search-input" id="keyword">请输入关键词</span> </a>
     </div>
     <div class="header-r"><a id="header-nav" href="./tmpl/member/chat_list.html"><i class="message"></i>
       <p>消息</p>
@@ -148,8 +149,15 @@
 
 	</div>
 
-</script> 
+</script>
+<input type="text" id="cityChoice" >
+<input type="hidden" id="province" value="">
+<input type="hidden" id="city" value="">
+
+
 <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/cityData.js"></script>
+<script type="text/javascript" src="js/cityPicker.js"></script>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GAGiz9gdoRfTpImL6A2RZYxH"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script> 
 <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
@@ -227,6 +235,7 @@ function getPositionError(error) {
       var addComp = rs.addressComponents;
       // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
       var address = addComp.city;
+      address = address.substr(0,2);
       $(".area").html(address);
     });        
    
@@ -250,5 +259,19 @@ function getPositionError(error) {
   showArea(BMap);
   // getHtmlSecond();
 </script>
+<script>
+    var cityPicker = new IIInsomniaCityPicker({
+        data: cityData,
+        target: '#cityChoice',
+        valType: 'k-v',
+        hideCityInput: '#city',
+        hideProvinceInput: '#province',
+        callback: function(city_id){
+            // alert(city_id);
+        }
+    });
+
+    cityPicker.init();
+</script> 
 </body>
 </html>
