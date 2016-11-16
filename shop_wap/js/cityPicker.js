@@ -15,7 +15,7 @@
  * cityPicker.init();
  */
 ;var IIInsomniaCityPicker = function(options){
-    this.template = $('<div class="IIInsomnia-city-picker" id="IIInsomnia_city_picker"><div class="IIInsomnia-wrap"><p>选择城市</p><ul class="IIInsomnia-province-wrap" id="IIInsomnia_province_wrap"></ul></div></div>');
+    this.template = $('<div class="IIInsomnia-city-picker" id="IIInsomnia_city_picker"><div class="IIInsomnia-wrap"><p>选择城市</p><ul class="IIInsomnia-province-wrap" id="IIInsomnia_province_wrap"></ul></div></div><div id="citys" class="IIInsomnia-city-wrap"></div>');
     this.hot_city = $('#IIInsomnia_hot_city', '');
     this.province_wrap = $('#IIInsomnia_province_wrap', this.template);
     this.settings = {
@@ -100,6 +100,16 @@ IIInsomniaCityPicker.prototype = {
         }
 
         cur_province.find('.IIInsomnia-city-wrap').html(city_html).css('left', '-' + (poi.left - 37) + 'px').show();
+        // $("#citys").html(city_html).css('left', '-' + (poi.left - 37) + 'px').show();
+        // cur_province.find('.IIInsomnia-city-wrap').css('top','-' + 60 + 'px')
+        var pheight = cur_province.find('.IIInsomnia-city-wrap').parent().offset().top;
+        var pheight_first = cur_province.find('.IIInsomnia-city-wrap').parent().first().siblings().first().offset().top;
+        // alert(pheight_first);
+        if(pheight>pheight_first)
+        {
+        cur_province.find('.IIInsomnia-city-wrap').css('top','-' + (pheight-pheight_first) + 'px')
+        }
+        // console.log(cur_province.find('.IIInsomnia-city-wrap').parent().offset().top);
     },
 
     provinceEvent: function(){
@@ -165,7 +175,7 @@ IIInsomniaCityPicker.prototype = {
 
             that.template.remove();
 
-            if(that.settings.callback) that.settings.callback(cid);
+            if(that.settings.callback) that.settings.callback(cname);
 
             return false;
         });
@@ -202,7 +212,7 @@ IIInsomniaCityPicker.prototype = {
 
             that.template.remove();
 
-            if(that.settings.callback) that.settings.callback(cid);
+            if(that.settings.callback) that.settings.callback(cname);
 
             return false;
         });
