@@ -15,7 +15,7 @@
  * cityPicker.init();
  */
 ;var IIInsomniaCityPicker = function(options){
-    this.template = $('<div class="IIInsomnia-city-picker" id="IIInsomnia_city_picker"><div class="IIInsomnia-wrap"><p>选择城市</p><ul class="IIInsomnia-province-wrap" id="IIInsomnia_province_wrap"></ul></div></div><div id="citys" class="IIInsomnia-city-wrap"></div>');
+    this.template = $('<div class="IIInsomnia-city-picker" id="IIInsomnia_city_picker"><div class="IIInsomnia-wrap"><a href="index.html"><img src="images/left-row.png" alt="" /></a><b>选择城市</b><ul class="IIInsomnia-province-wrap" id="IIInsomnia_province_wrap"></ul></div></div><div id="citys" class="IIInsomnia-city-wrap"></div>');
     this.hot_city = $('#IIInsomnia_hot_city', '');
     this.province_wrap = $('#IIInsomnia_province_wrap', this.template);
     this.settings = {
@@ -33,7 +33,7 @@ IIInsomniaCityPicker.prototype = {
     init: function(){
         var that = this;
 
-        $(window).click(function(event) {
+        $(window).load(function(event) {
             /* Act on the event */
             that.template.remove();
         });
