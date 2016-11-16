@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/cityPicker.css">
+</head>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/cityData.js"></script>
+<script type="text/javascript" src="js/cityPicker.js"></script>
+<body>
+<input type="hidden" id="cityChoice" value="">
+<!-- 如果热管 -->
+<input type="hidden" id="province" value="">
+<input type="hidden" id="city" value="">
+<script>
+$(function(){
+	// $("#cityChoice").focus();
+    var cityPicker = new IIInsomniaCityPicker({
+        data: cityData,
+        target: '#cityChoice',
+        valType: 'k-v',
+        hideCityInput: '#city',
+        hideProvinceInput: '#province',
+        callback: function(data){
+            alert(data);
+            $("#cityChoice").html(data);
+        }
+    });
+
+    cityPicker.init();
+
+    setTimeout(function() {
+	// IE
+	if(document.all) {
+		document.getElementById("cityChoice").click();
+	}
+	// 其它浏览器
+	else {
+		var e = document.createEvent("MouseEvents");
+		e.initEvent("click", true, true);
+		document.getElementById("cityChoice").dispatchEvent(e);
+	}
+}, 100);	
+})
+
+</script> 	
+</body>
+</html>
