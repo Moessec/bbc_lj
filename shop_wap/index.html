@@ -18,9 +18,10 @@
 
 </head>
 <body>
-
+<div id="cityChoice">111</div>
 <!-- <div id='addr'>afdgfffffffffffffffffffffffffffffffffffffffffff</div> -->
 <div class="nctouch-home-top fixed-Width">
+
   <header id="header" class="transparent">
     <div class="logo"></div>
 
@@ -150,7 +151,8 @@
 	</div>
 
 </script>
-<input type="text" id="cityChoice" >
+<!-- <input type="text" id="cityChoice" > -->
+
 <input type="hidden" id="province" value="">
 <input type="hidden" id="city" value="">
 
@@ -266,8 +268,9 @@ function getPositionError(error) {
         valType: 'k-v',
         hideCityInput: '#city',
         hideProvinceInput: '#province',
-        callback: function(city_id){
-            // alert(city_id);
+        callback: function(data){
+            alert(data);
+            $("#cityChoice").html(data);
         }
     });
 
