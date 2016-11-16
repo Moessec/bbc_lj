@@ -33,12 +33,12 @@ IIInsomniaCityPicker.prototype = {
     init: function(){
         var that = this;
 
-        $(window).load(function(event) {
+        $("window").load(function(event) {
             /* Act on the event */
             that.template.remove();
         });
 
-        that.settings.target.attr('readonly', true);
+        // that.settings.target.attr('readonly', true);
 
         that.targetEvent();
     },

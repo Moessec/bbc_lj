@@ -58,7 +58,12 @@ function getPositionError(error) {
       // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
       var address = addComp.city;
       // address = address.substr(0,2);
+      if($.cookie('trans_city'))
+      {
+        $(".area").html($.cookie('trans_city'));
+      }else{
       $(".area").html(address);
+    }
     });        
    
   }
