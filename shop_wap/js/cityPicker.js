@@ -77,7 +77,7 @@ IIInsomniaCityPicker.prototype = {
 
         province_html += '<li class="IIInsomnia-clean"><input type="button" class="IIInsomnia-clean-btn" id="IIInsomnia_clean_btn" value="清 空"></li>'
 
-        that.province_wrap.parent.html(province_html);
+        that.province_wrap.html(province_html);
     },
 
     buildCityTpl: function(cur_province){
