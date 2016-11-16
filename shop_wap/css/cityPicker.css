@@ -81,7 +81,7 @@
 	width: 100%;
 	background: #ffffff;
 	/*align:center;*/
-	padding: 9px;
+	/*padding: 9px;*/
 }
 .IIInsomnia-city-picker .IIInsomnia-wrap  a img{
     /*margin-right: 8rem;*/
@@ -104,7 +104,7 @@
 	line-height: 40px;
 	position: relative;
 	background-color: #EEEEEE;
-	font-size: 0.8rem;
+	font-size: 2rem;
 }
 .IIInsomnia-city-picker .IIInsomnia-province-name:hover{
 	color: #FE6C00;
