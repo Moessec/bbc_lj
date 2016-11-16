@@ -40,7 +40,7 @@
 .IIInsomnia-city-picker ul li{
 	/*display: inline-block;*/
 	position: relative;
-	margin: 4px;
+	/*margin: 4px;*/
 	cursor: pointer;
 }
 .IIInsomnia-city-picker p{
@@ -89,9 +89,9 @@
 .IIInsomnia-city-picker .IIInsomnia-province-name{
 	display: inline-block;
 	width: 30%;
-	height: 60px;
+	height: 40px;
 	text-align: center;
-	line-height: 60px;
+	line-height: 40px;
 	position: relative;
 	background-color: #EEEEEE;
 }
@@ -103,7 +103,7 @@
 	z-index: 999999999;
 }
 .IIInsomnia-city-picker .IIInsomnia-province-name.active{
-	border: 1px solid #D8D8D8;
+	/*border: 1px solid #D8D8D8;*/
 	border-bottom-color: #ffffff;
 	color: #ff00ff;
 	background-color: #ffffff;
@@ -115,7 +115,7 @@
 	border-top: 1px solid #D8D8D8;
 	background: #ffffff;
 	position: relative;
-	/*top: 49px;*/
+	height: 0px;
 	width: 67%;
 	padding: 10px 20px 5px 10px;
 	float: right;
@@ -123,10 +123,11 @@
 }
 .IIInsomnia-city-picker .IIInsomnia-city{
 	width: 100%;
-	height: 60px;
+	height: 55px;
 	text-align: left;
-	/*margin-left: -1rem;*/
-	line-height: 60px;
+	font-size: 0.8rem;
+	border-bottom: 1px dashed #999999;
+	line-height: 55px;
 	color: #999999;
 	/*background-color: #f5f5f5;*/
 	overflow: hidden;
@@ -137,7 +138,7 @@
 	color: #ff00ff;
 }
 .IIInsomnia-city-picker .IIInsomnia-clean-btn{
-	width: 108px;
+	width: 30%;
 	height: 30px;
     background-color: #d15b47!important;
     color: #ffffff;
