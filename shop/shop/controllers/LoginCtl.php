@@ -200,7 +200,7 @@ class LoginCtl extends Yf_AppController
 				$login_info_row                     = array();
 				$login_info_row['user_key']         = $user_key;
 				$login_info_row['user_login_time']  = $time;
-				$login_info_row['user_login_times'] = $user_row['user_login_times'] + 1;
+				$login_info_row['user_login_times'] = $info[$user_row['user_id']]['user_login_times'] + 1;
 				$login_info_row['user_login_ip']    = get_ip();
 
 				$flag = $User_BaseModel->editBase($user_row['user_id'], $login_info_row, false);
@@ -262,7 +262,17 @@ class LoginCtl extends Yf_AppController
 				//
 				$Seller_BaseModel = new Seller_BaseModel();
 				$seller_rows      = $Seller_BaseModel->getByWhere(array('user_id' => $data['user_id']));
-
+				$Chain_UserModel  = new Chain_UserModel();
+				$chain_rows 		  = $Chain_UserModel->getByWhere(array('user_id' => $data['user_id']));
+				if($chain_rows)
+				{
+					$data['chain_id_row']	 = array_column($chain_rows,'chain_id');
+					$data['chain_id']	   = current($data['chain_id_row']);
+				}
+				else
+				{
+					$data['chain_id'] = 0;
+				}
 				if ($seller_rows)
 				{
 					$data['shop_id_row'] = array_column($seller_rows, 'shop_id');
@@ -302,7 +312,14 @@ class LoginCtl extends Yf_AppController
 					}
 					else
 					{
-						location_to($_COOKIE['comeUrl']);
+                        if($_COOKIE['comeUrl']){
+                            location_to($_COOKIE['comeUrl']);
+                        }else if($chain_rows){
+                            location_to(Yf_Registry::get('url').'?ctl=Chain_Goods&met=goods&typ=e');
+                        }else{
+                            //location_to(Yf_Registry::get('base_url') . "/error.php?msg=您的帐号不是门店帐号");
+							location_to(Yf_Registry::get('base_url'));
+                        }
 					}
 
 				}
@@ -504,7 +521,7 @@ class LoginCtl extends Yf_AppController
 			$login_info_row                     = array();
 			$login_info_row['user_key']         = $user_key;
 			$login_info_row['user_login_time']  = $time;
-			$login_info_row['user_login_times'] = $user_row['user_login_times'] + 1;
+			$login_info_row['user_login_times'] = $info[$user_row['user_id']]['user_login_times'] + 1;
 			$login_info_row['user_login_ip']    = get_ip();
 
 			$flag = $User_BaseModel->editBase($user_row['user_id'], $login_info_row, false);
@@ -749,7 +766,7 @@ class LoginCtl extends Yf_AppController
 			$login_info_row                     = array();
 			$login_info_row['user_key']         = $user_key;
 			$login_info_row['user_login_time']  = $time;
-			$login_info_row['user_login_times'] = $user_row['user_login_times'] + 1;
+			$login_info_row['user_login_times'] = $info[$user_row['user_id']]['user_login_times'] + 1;
 			$login_info_row['user_login_ip']    = get_ip();
 
 			$flag = $User_BaseModel->editBase($user_row['user_id'], $login_info_row, false);
@@ -873,6 +890,9 @@ class LoginCtl extends Yf_AppController
 				echo "<script>parent.location.href='index.php';</script>";
 				setcookie("key", null, time() - 3600 * 24 * 365);
 				setcookie("id", null, time() - 3600 * 24 * 365);
+
+				setcookie("key", null, time() - 3600 * 24 * 365,'/');
+				setcookie("id", null, time() - 3600 * 24 * 365,'/');
 			}
 
 
