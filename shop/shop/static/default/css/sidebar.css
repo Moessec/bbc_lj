@@ -523,6 +523,9 @@
 .code_screen {
     position: relative;
 }
+.code_screen:hover .code_cont{
+    display: block;
+}
 
 .code_cont {
     position: absolute;

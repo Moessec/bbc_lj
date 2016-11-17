@@ -1725,4 +1725,172 @@
     font-weight: normal;
     font-size: 12px !important;
 }
+.mendian{
+    font-size:15px;
+}
+.mendian i.iconfont{
+    font-size: 23px;
+    vertical-align: middle;
+    color: #1876d1;
+}
 
+.store-mention-alert{
+    width: 100%;
+    /* height: 100%; */
+    background: rgba(0,0,0,0.2);
+    position: relative;
+    left: 0;
+    top: 0;
+}
+.store-mention{
+    background: #f5f5f5;
+    width: 800px;
+    position: relative;
+    left: 50%;
+    top: 30%;
+    margin-left: -400px;
+    border-radius: 5px;
+}
+.store-mention h3{
+    line-height: 30px;
+    font-size: 16px;
+    padding: 0 8px;
+    border-bottom: 1px solid #e1e1e1;
+}
+.store-mention h3 .dialog_close_button{
+    position: absolute;
+    right: 8px;
+    top: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+.store-mention .dialog_content{
+    padding:10px;
+    background:#fff;
+}
+.store-mention .chain-show dl,.store-mention .chain-show dt,.store-mention .chain-show dd{
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+}
+.store-mention .chain-show dl{
+    font-size: 0;
+    margin-bottom: 10px;
+}
+.store-mention .chain-show dt{
+    font-size: 14px;
+    line-height: 28px;
+    margin-right: 10px;
+}
+.store-mention .chain-show dd select{
+    margin-right: 4px;
+}
+.store-mention .chain-show dd select option{
+    line-height: 20px;
+    display: block;
+    height: 20px;
+    padding: 4px;
+}
+.store-mention .chain-list{
+    background: #F5F5F5 url(../images/ncs_chain_show.png) no-repeat 50% 40%;
+    min-height: 300px;
+    border: solid 1px #E6E6E6;
+}
+.store-mention .chain-list ul{
+    padding:10px;
+}
+.store-mention .chain-list ul li{
+    line-height: 20px;
+    background-color: #FFF;
+    padding: 5px 5px 5px 15px;
+    margin-bottom: 10px;
+    border: solid 1px #E6E6E6;
+    border-radius: 5px;
+}
+.store-mention .chain-list ul li .handle{
+    line-height: 20px;
+    height: 20px;
+    float: right;
+    padding: 10px;
+    border-left: solid 1px #E6E6E6;
+}
+.store-mention .chain-list ul li a{
+    color:#e45050;
+    font-size:12px;
+}
+.store-mention .chain-list ul li h5 i{
+    background: url(../images/public_img.png) no-repeat -30px -100px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 10px;
+    height: 12px;
+    margin-right: 5px;
+}
+.store-mention .chain-list ul li p{
+    color: #999;
+    font-size:12px;
+}
+.store-mention .chain-no-date{
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    margin: 180px auto 0 auto;
+}
+/*门店详细*/
+.chain-detail{
+    background: url(../../default/images/chain_bg.jpg) no-repeat 50% 50%;
+    width:100%;
+    padding: 20px;
+    margin: 20px auto !important;
+    overflow: hidden;
+    background-size:cover;
+}
+.chain-detail .chain-img{
+    float: left;
+    width: 360px;
+    height: 360px;
+    overflow: hidden;
+}
+.chain-detail .chain-info{
+    float: right;
+    width: 800px;
+}
+.chain-detail .chain-info .chain-name{
+    padding: 10px;
+    border-bottom: dotted 1px #CCC;
+}
+.chain-detail .chain-info h1{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    color: #333;
+    display: inline-block;
+}
+.chain-detail .chain-info a{
+    color: #fff;
+    background-color: #e45050;
+    float: right;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+.chain-detail .chain-info dl{
+        padding: 5px 5px 10px 5px;
+}
+.chain-detail .chain-info dt{
+    font-size: 14px;
+    line-height: 32px;
+    color: #555;
+}
+.chain-detail .chain-info dd{
+    font-size: 12px;
+    line-height: 24px;
+    color: #777;
+}
+.delivery-map{
+    background-color: #FFF;
+    text-align: center;
+    width: 760px;
+    margin: 0 auto;
+    border-radius: 10px;
+}

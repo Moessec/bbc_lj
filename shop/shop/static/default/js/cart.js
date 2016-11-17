@@ -360,6 +360,7 @@ $(document).ready(function(){
 
 		if(chk_value != "")
 		{
+			$("#form").attr('action','?ctl=Buyer_Cart&met=confirm&product_id='+chk_value);
 			$('#form').submit();
 		}
 		
@@ -381,6 +382,7 @@ $(document).ready(function(){
 
 		$("#address_list").append(str);
 
+		location.reload();
 	}
 
 	window.editAddress = function(val)
@@ -464,6 +466,7 @@ $(document).ready(function(){
 		}
 
 		//1.获取收货地址
+			address_id   = $(".add_choose").find("#address_id").val();
 			address_contact = $(".add_choose").find("h5").html();
 			address_address = $(".add_choose").find("p").html();
 			address_phone   = $(".add_choose").find(".phone").find("span").html();
@@ -517,7 +520,7 @@ $(document).ready(function(){
 		$.ajax({
 			type:"POST",
 			url: SITE_URL  + '?ctl=Buyer_Order&met=addOrder&typ=json',
-			data:{receiver_name:address_contact,receiver_address:address_address,receiver_phone:address_phone,invoice:invoice,invoice_id:invoice_id,cart_id:cart_id,shop_id:shop_id,remark:remark,increase_goods_id:increase_goods_id,voucher_id:voucher_id,pay_way_id:pay_way_id},
+			data:{receiver_name:address_contact,receiver_address:address_address,receiver_phone:address_phone,invoice:invoice,invoice_id:invoice_id,cart_id:cart_id,shop_id:shop_id,remark:remark,increase_goods_id:increase_goods_id,voucher_id:voucher_id,pay_way_id:pay_way_id,address_id:address_id},
 			dataType: "json",
 			contentType: "application/json;charset=utf-8",
 			async:false,
@@ -548,12 +551,14 @@ $(document).ready(function(){
 					}
 
 					//alert('订单提交失败');
+					window.location.reload(); //刷新当前页
 				}
 			},
 			failure:function(a)
 			{
 				Public.tips.error('操作失败！');
-				//$.dialog.alert("操作失败！");
+
+				window.location.reload(); //刷新当前页
 			}
 		});
 
@@ -582,7 +587,7 @@ $(document).ready(function(){
 
 			//总价减价
 			total_price = Number(Number($('.total').html())*1-good_price*1).toFixed(2);
-			total_rate = Number(Number($('.rate_total').html) - good_price_rate*1).toFixed(2);
+			total_rate = Number(Number($('.rate_total').html()) - good_price_rate*1).toFixed(2);
 			$('.total').html(total_price);
 			$('.rate_total').html(total_rate);
 			$(".after_total").html((total_price - total_rate).toFixed(2));
@@ -609,10 +614,13 @@ $(document).ready(function(){
 
 				//总价加价
 				total_price = Number(Number($('.total').html())*1+good_price*1).toFixed(2);
-				total_rate = Number(Number($('.rate_total').html) + good_price_rate*1).toFixed(2);
+				total_rate = Number(Number($('.rate_total').html()) + good_price_rate*1).toFixed(2);
+
+
 				$('.total').html(total_price);
 				$('.rate_total').html(total_rate);
-				$(".after_total").html((total_price + total_rate).toFixed(2));
+
+				$(".after_total").html(Number(total_price*1 + total_rate*1).toFixed(2));
 
 
 			}

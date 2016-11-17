@@ -375,6 +375,7 @@ em {
     position: absolute;
     top: 37px;
     right: 0;
+    z-index:11111;
 }
 
 .box_list ul {
@@ -414,6 +415,10 @@ em {
     text-align: center;
     border: 1px solid #e1e1e1;
     display: inline-block;
+}
+.quan_get.checked{
+    border-color:red;
+    color:red;
 }
 
 .quan_condition span {
@@ -6401,4 +6406,91 @@ div#browsers-thickbox .ui-dialog-close {
     display:block;
     font-weight:normal;
     color:#fff;
+}
+/*门店地址*/
+.store-receipt-info.current_box{
+    color: #534535;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#3FFFF5CC', endColorstr='#3FFFF5CC');
+    background: rgba(255,245,204,0.25);
+    padding: 7px 17px;
+    border: dotted 1px #F32613;
+    z-index: 2;
+    font-size:12px;
+}
+.store-receipt-info-title{
+    font-size: 0;
+    display: block;
+    height: 22px;
+    padding: 4px 0;
+}
+.store-candidate-items ul{
+    overflow:hidden;
+}
+.store-candidate-items ul li{
+    line-height: 20px;
+    display: block;
+    min-height: 20px;
+    padding: 5px 0 6px 0;
+    margin-top: -1px;
+    border-top: dotted 1px #E6E6E6;
+}
+.store-candidate-items input[type="radio"]{
+    margin:0 5px;
+    vertical-align:middle;
+}
+.store-candidate-items label{
+    line-height: 20px;
+    display: inline-block;
+}
+.store-candidate-items .del{
+    color:#D93600;
+}
+.store-form-default .address-text{
+    line-height:30px;
+}
+.store-form-default .input-btn{
+    padding:4px;
+    color:#888;
+    border-radius:2px;
+}
+.store-candidate-items .store-form-default dl{
+    font-size: 0;
+    line-height: 20px;
+    clear: both;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.store-candidate-items .store-form-default dl dt{
+    font-size: 12px;
+    line-height: 30px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-align: right;
+    display: inline-block;
+    width: 15%;
+    padding: 10px 1% 10px 0;
+    margin: 0;
+}
+.store-candidate-items .store-form-default dl dt i.required{
+    font: 12px/16px Tahoma;
+    color: #F30;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+.store-candidate-items .store-form-default dl dd{
+    font-size: 12px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    width: 84%;
+    padding: 10px 0 10px 0;
+}
+.hr16{
+    margin:16px 0;
+}
+.hr16 .save{
+    padding:5px 10px;
 }

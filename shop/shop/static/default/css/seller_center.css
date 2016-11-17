@@ -4074,7 +4074,7 @@ form .red {
     /*IE7*/
     ;
     *zoom: 1;
-    width: 85%;
+    width: 84%;
 }
 
 .step-title {
@@ -9320,63 +9320,6 @@ a.ncbtn {
 
 
 /* 发货 */
-
-.deliver td.goods-info dl {
-    width: 340px;
-    line-height: 20px;
-    padding: 0;
-}
-
-.deliver td.goods-info dl dt {
-    display: inline-block;
-    text-align: left;
-    width: 100%;
-    vertical-align: top !important;
-}
-
-.deliver td.goods-info dl dd {
-    display: inline-block;
-    width: 100%;
-    text-align: left;
-}
-
-.deliver td.order-info dl {
-    font-size: 0;
-    *word-spacing: -1px
-    /*IE6、7*/
-    ;
-    width: 96%;
-    margin: 0 auto 10px auto;
-}
-
-.deliver td.order-info dl dt {
-    font-size: 12px;
-    vertical-align: top;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-align: right;
-    display: inline-block;
-    *display: inline
-    /*IE7*/
-    ;
-    *zoom: 1;
-    width: 15%;
-}
-
-.deliver td.order-info dl dd {
-    font-size: 12px;
-    vertical-align: top;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-align: left;
-    display: inline-block;
-    *display: inline
-    /*IE7*/
-    ;
-    *zoom: 1;
-    width: 85%;
-}
-
 .step-title {
     margin: 12px 0;
     font-size: 14px;
