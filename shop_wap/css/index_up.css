@@ -207,17 +207,18 @@ body{
             border-bottom: 1px solid #ccc;
         }
         .shop-adv .shop-contain .shop-contain-img{
-        	width: 15%;
+        	width: 20%;
         	float: left;
         	padding: 2px;
         }
         .shop-contain-img img{
-        	width: 85px;
-        	height: 85px;
+        	width: 3.5rem;
+            height: 3.5rem;
+            margin-top: 0.5rem;
         }
         .shop-adv .shop-contain .shop-contain-info{
         	width:75%;
-        	height: 92px;
+        	height: 4.3rem;
         	float: right;
         	position: relative;
         	padding: 0.2rem;
