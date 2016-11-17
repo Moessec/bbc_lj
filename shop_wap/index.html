@@ -294,7 +294,8 @@ $(document).ready(function(){
 		
 	}
 	function show(slide){
-		// console.log("Slide shown: ", slide.find('img').attr('src'))
+		// console.log("Slide shown: ", slide.find('img').parent().attr('data-index'))
+		// alert($(".jR3DCarouselSlide").attr('data-index'));
 	}
 	$('.carousel-props input').change(function(){
 		if(isNaN(this.value))
