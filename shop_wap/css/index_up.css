@@ -256,7 +256,7 @@ body{
             position: absolute;
         }
         .shop-contain-info dl dd.shop-tel{
-        	bottom:1.75rem;
+        	bottom:1.9rem;
         }
         .shop-contain-info .shop-tel span{
 		    background-image: url(../images/iconfont/phone.png);
