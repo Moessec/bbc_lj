@@ -1,5 +1,6 @@
 <?php
 include_once("global.php");
+ini_set('display_errors','off');
 session_start();
 //===============================
 class ValidationCode
@@ -56,6 +57,7 @@ class ValidationCode
 	private function createCode()
 	{
 	   $this->checkcode = strtoupper($this->GetfourStr($this->codenum));
+	  
 	}
 	private function createImage()
 	{
@@ -91,8 +93,11 @@ class ValidationCode
 }
 //===============================
 $width=$_GET['w']?$_GET['w']:"80";
+
 $height=$_GET['h']?$_GET['h']:"33";
+
 $image = new ValidationCode($width,$height,'4'); 
+
 $image->outImg();
 $_SESSION["auth"] = $image->checkcode;
 ?>
