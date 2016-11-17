@@ -29,6 +29,7 @@ input:focus{
     -webkit-tap-highlight-color:rgba(0,0,0,0);
     -webkit-user-modify:read-write-plaintext-only;
 }
+input[disabled]{background:#fff;}
 .wrap {
     width: 95%;
     margin: 0 auto;
@@ -170,9 +171,7 @@ input:focus{
     border-color: #ff7c6d !important;
 }
 .submit_disable {
-    color: #fff !important;
-    background-color: #ccc;
-    border-color: #ccc !important;
+
 }
 
 
