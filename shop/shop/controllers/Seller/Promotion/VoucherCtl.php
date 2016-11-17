@@ -125,9 +125,9 @@ class Seller_Promotion_VoucherCtl extends Seller_Controller
 			{
 				$cond_row['voucher_t_access_method'] = request_int('method');
 			}
-			if (request_string('key'))
+			if (request_string('keyword'))
 			{
-				$cond_row['voucher_t_title:LIKE'] = request_string('key') . "%";
+				$cond_row['voucher_t_title:LIKE'] = request_string('keyword') . "%";
 			}
 
 			$data               = $this->voucherTempModel->getVoucherTempList($cond_row, array('voucher_t_id' => 'DESC'), $page, $rows);
@@ -278,7 +278,7 @@ class Seller_Promotion_VoucherCtl extends Seller_Controller
 		$field_row['voucher_t_add_date']         = get_date_time();                                 //创建时间
 		$field_row['voucher_t_start_date']       = get_date_time();                                 //開始時間
 		$field_row['voucher_t_end_date']         = request_string('voucher_t_end_date');         //有效期
-        if(!$field_row['voucher_t_end_date'] || strtotime($field_row['voucher_t_end_date']) > strtotime($combo_row['combo_end_time']))
+        if(!$field_row['voucher_t_end_date'] || (!$this->combo_flag && strtotime($field_row['voucher_t_end_date']) > strtotime($combo_row['combo_end_time'])))
         {
             $check_post_data_flag = false;
             $msg_label = _('代金券有效期不正确！');
@@ -421,7 +421,7 @@ class Seller_Promotion_VoucherCtl extends Seller_Controller
             }
 			$field_row['voucher_t_update_date']      = get_date_time();                         //最后更新时间
 			$field_row['voucher_t_end_date']         = request_string('voucher_t_end_date');        //有效期
-            if(!$field_row['voucher_t_end_date'] || strtotime($field_row['voucher_t_end_date']) > strtotime($combo_row['combo_end_time']))
+            if(!$field_row['voucher_t_end_date'] ||  (!$this->combo_flag && strtotime($field_row['voucher_t_end_date']) > strtotime($combo_row['combo_end_time'])))
             {
                 $check_post_data_flag = false;
                 $msg_label = _('代金券有效期不正确！');

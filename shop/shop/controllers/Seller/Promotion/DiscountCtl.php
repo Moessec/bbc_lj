@@ -109,9 +109,9 @@ class Seller_Promotion_DiscountCtl extends Seller_Controller
 
             $cond_row['shop_id'] = Perm::$shopId;         //店铺ID
 
-            if (request_string('key'))
+            if (request_string('keyword'))
             {
-                $cond_row['discount_name:LIKE'] = request_string('key') . "%";
+                $cond_row['discount_name:LIKE'] = request_string('keyword') . "%";
             }
             if (request_int('state'))
             {

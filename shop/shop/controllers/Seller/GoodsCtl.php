@@ -99,7 +99,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		$key               = request_string('goods_key');
 		$Goods_CommonModel = new Goods_CommonModel();
 
-		$cront_row = array('shop_id' => Perm::$shopId, 'common_state' => Goods_CommonModel::GOODS_STATE_NORMAL);
+		$cront_row = array('shop_id' => Perm::$shopId, 'common_state' => Goods_CommonModel::GOODS_STATE_NORMAL, 'common_verify' => Goods_CommonModel::GOODS_VERIFY_ALLOW);
 		if (!empty($key) && isset($key))
 		{
 			$cront_row['common_name:like'] = '%' . $key . '%';
@@ -379,7 +379,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		$this->goodsCommonModel->getShopContract($common_data);
 
 
-		$common_property = request_string('property');
+		$common_property = request_row('property');
 		$spec_name       = request_string('spec_name');
 
 		$province_id = request_string('province_id');
@@ -504,7 +504,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		{
 
 			$body      = request_string('body');
-			$spec_data = request_string('spec');
+			$spec_data = request_row('spec');
 
 			//内容详情
 			if (!empty($body))

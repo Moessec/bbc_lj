@@ -59,6 +59,21 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 		include $this->view->getView();
 	}
 
+    /**
+     * 门店自提订单
+     *
+     * @access public
+     */
+    public function chain()
+    {
+        $Order_BaseModel = new Order_BaseModel();
+        $condition['chain_id:!=']       = 0;
+        $data            = $Order_BaseModel->getPhysicalList($condition);
+        $condition       = $data['condi'];
+
+        include $this->view->getView();
+    }
+
 	/**
 	 * 虚拟交易订单--待付款订单
 	 *
@@ -519,6 +534,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$update_data['order_shipping_express_id'] = request_int('order_shipping_express_id');
 			$update_data['order_shipping_code']       = request_int('order_shipping_code');
 			$update_data['order_shipping_message']    = request_string('order_shipping_message');
+			$update_data['order_seller_message']      = request_string('order_seller_message');
 
 			//配送时间 收货时间
 			$current_time                       = time();
@@ -700,6 +716,87 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 		$this->data->addBody(-140, $data);
 
 	}
+
+    /**
+     * 门店自提订单 ==> 待付款
+     *
+     * @access public
+     */
+    public function getChainNew()
+    {
+        $Order_BaseModel       = new Order_BaseModel();
+        $condi['order_status'] = Order_StateModel::ORDER_WAIT_PAY;
+        $condi['chain_id:!=']       = 0;
+        $data                  = $Order_BaseModel->getPhysicalList($condi);
+        $condition             = $data['condi'];
+
+        $this->view->setMet('chain');
+        include $this->view->getView();
+    }
+
+    /**
+     * 门店自提订单 ==> 待自提
+     *
+     * @access public
+     */
+    public function getChainNotakes()
+    {
+        $Order_BaseModel       = new Order_BaseModel();
+        $condi['order_status'] = Order_StateModel::ORDER_SELF_PICKUP;
+        $condi['chain_id:!=']       = 0;
+        $data                  = $Order_BaseModel->getPhysicalList($condi);
+        $condition             = $data['condi'];
+
+        $this->view->setMet('chain');
+        include $this->view->getView();
+    }
+
+    /**
+     * 门店自提订单 ==> 已完成
+     *
+     * @access public
+     */
+    public function getChainSuccess()
+    {
+        $Order_BaseModel       = new Order_BaseModel();
+        $condi['order_status'] = Order_StateModel::ORDER_FINISH;
+        $condi['chain_id:!=']       = 0;
+        $data                  = $Order_BaseModel->getPhysicalList($condi);
+        $condition             = $data['condi'];
+
+        $this->view->setMet('chain');
+        include $this->view->getView();
+    }
+
+    /**
+     * 门店自提订单 ==> 已取消
+     *
+     * @access public
+     */
+    public function getChainCancel()
+    {
+        $Order_BaseModel       = new Order_BaseModel();
+        $condi['order_status'] = Order_StateModel::ORDER_CANCEL;
+        $condi['chain_id:!=']       = 0;
+        $data                  = $Order_BaseModel->getPhysicalList($condi);
+        $condition             = $data['condi'];
+
+        $this->view->setMet('chain');
+        include $this->view->getView();
+    }
+
+    /**
+     * 门店自提订单 ==> 订单详情
+     *
+     * @access public
+     */public function chainInfo()
+    {
+        $order_id        = request_string('order_id');
+        $Order_BaseModel = new Order_BaseModel();
+        $data            = $Order_BaseModel->getChainInfoData(array('order_id' => $order_id));
+
+        include $this->view->getView();
+    }
 
 
 }

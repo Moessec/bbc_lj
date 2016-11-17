@@ -113,9 +113,9 @@ class Seller_Promotion_IncreaseCtl extends Seller_Controller
 		}
 		else            //店铺下的加价购活动
 		{
-			if (request_string('key'))
+			if (request_string('keyword'))
 			{
-				$cond_row['increase_name:LIKE'] = request_string('key') . '%';
+				$cond_row['increase_name:LIKE'] = request_string('keyword') . '%';
 			}
 
 			if (request_int('state'))

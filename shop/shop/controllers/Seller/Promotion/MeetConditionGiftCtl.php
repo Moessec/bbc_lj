@@ -106,9 +106,9 @@ class Seller_Promotion_MeetConditionGiftCtl extends Seller_Controller
 			{
 				$cond_row['mansong_state'] = request_int('state');
 			}
-			if (request_string('key'))
+			if (request_string('keyword'))
 			{
-				$cond_row['mansong_name:LIKE'] = request_string('key') . '%';
+				$cond_row['mansong_name:LIKE'] = request_string('keyword') . '%';
 			}
 			$cond_row['shop_id'] = Perm::$shopId;
 			$data                = $this->manSongBaseModel->getManSongActList($cond_row, array('mansong_id' => 'ASC'), $page, $rows);

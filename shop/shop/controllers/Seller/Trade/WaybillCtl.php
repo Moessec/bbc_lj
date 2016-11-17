@@ -221,6 +221,28 @@ class Seller_Trade_WaybillCtl extends Seller_Controller
 		$this->data->addBody(-140, array(), $msg, $status);
 	}
 
+
+
+
+
+	public function removeZps()
+	{
+		$zps_tpl_id = request_int('zps_tpl_id');
+
+		$flag = $this->logisticsZpsModel->removeTpl($zps_tpl_id);
+
+		if ($flag)
+		{
+			$msg    = _('success');
+			$status = 200;
+		}
+		else
+		{
+			$msg    = _('failure');
+			$status = 250;
+		}
+		$this->data->addBody(-140, array(), $msg, $status);
+	}
 	/**
 	 * 添加模板
 	 * @access public
@@ -249,7 +271,7 @@ class Seller_Trade_WaybillCtl extends Seller_Controller
 			$waybill_data['waybill_tpl_left']   = request_int('waybill_left');
 			$waybill_data['waybill_tpl_image']  = request_string('waybill_image');
 			$waybill_data['waybill_tpl_enable'] = request_int('waybill_usable');
-			var_dump($waybill_data);exit;
+			// var_dump($waybill_data);exit;
 			$flag = $this->logisticsWaybillModel->addTpl($waybill_data, true);
 
 			if ($flag)

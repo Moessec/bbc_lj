@@ -97,9 +97,9 @@ class Seller_Promotion_GroupBuyCtl extends Seller_Controller
 		{
 			$cond_row['groupbuy_state'] = request_int('state');
 		}
-		if (request_string('key'))
+		if (request_string('keyword'))
 		{
-			$cond_row['groupbuy_name:LIKE'] = request_string('key') . '%';
+			$cond_row['groupbuy_name:LIKE'] = request_string('keyword') . '%';
 		}
 
 		$data               = $this->groupBuyBaseModel->getGroupBuyGoodsList($cond_row, array('groupbuy_id' => 'DESC'), $page, $rows);
