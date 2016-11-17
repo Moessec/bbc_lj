@@ -205,16 +205,16 @@ body{
         	padding: 0.2rem;
         }
         .shop-adv .shop-contain .shop-contain-img{
-        	width: 20%;
+        	width: 15%;
         	float: left;
-        	padding: 5px;
+        	padding: 2px;
         }
         .shop-contain-img img{
         	width: 85px;
         	height: 85px;
         }
         .shop-adv .shop-contain .shop-contain-info{
-        	width:70%;
+        	width:75%;
         	height: 92px;
         	float: right;
         	position: relative;
