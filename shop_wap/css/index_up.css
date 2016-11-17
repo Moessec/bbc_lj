@@ -203,6 +203,8 @@ body{
         }
         .shop-adv .shop-contain{
         	padding: 0.2rem;
+            border-top:1px solid #ccc;
+            border-bottom: 1px solid #ccc;
         }
         .shop-adv .shop-contain .shop-contain-img{
         	width: 15%;
