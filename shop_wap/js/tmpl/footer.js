@@ -73,6 +73,10 @@
          window.location.href = login_url;
     });
 
+    $("#logout").click(function(){
+        $("#logoutbtn").click()
+    });
+
     $('#logoutbtn').click(function ()
     {
         var username = getCookie('username');

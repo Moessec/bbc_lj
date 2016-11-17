@@ -892,8 +892,6 @@ function ucenterLogin()
 
                     location.reload();
                 }
-
-
             }
         },
         error: function(){

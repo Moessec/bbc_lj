@@ -180,7 +180,10 @@ $(function () {
 
     function c() {
         var e = $(this).attr("order_id");
-        location.href = WapSiteUrl + "/tmpl/member/order_delivery.html?order_id=" + e
+        var express_id = $(this).attr("express_id");
+        var express_name = $(this).attr("express_name");
+        var shipping_code = $(this).attr("shipping_code");
+        location.href = WapSiteUrl + "/tmpl/member/order_delivery.html?order_id=" + e + '&express_id=' + express_id + '&express_name=' + express_name + '&shipping_code=' + shipping_code;
     }
 
     $("#filtrate_ul").find("a").click(function () {

@@ -376,11 +376,12 @@ $(function() {
     // 插入地址数据到html
     var insertHtmlAddress = function (address, address_id) {
 
+        console.info(address);
         var address_info = {};
 
         for ( var i=0; i<address.length; i++ ) {
 
-            if(address_id !== 'undefined')
+            if(address_id != undefined )
             {
                 if ( address[i].user_address_id == address_id ) {
                     //address_info.address_id = address[i].user_address_area_id;
@@ -396,7 +397,7 @@ $(function() {
             }
             else
             {
-                if ( address[i].user_address_default == 1 ) {
+                if (address[i].user_address_default) {
                     //address_info.address_id = address[i].user_address_area_id;
                     address_info.address_id = address[i].user_address_id;
                     address_info.user_address_contact = address[i].user_address_contact;
@@ -406,6 +407,7 @@ $(function() {
                     address_info.user_address_phone = address[i].user_address_phone;
                     address_info.user_address_area = address[i].user_address_area;
                     address_info.user_address_address = address[i].user_address_address;
+
                 }
             }
 
@@ -571,21 +573,6 @@ $(function() {
                 if (result.data.normal.length > 0) {
                     invoice_id = result.data.normal[0].invoice_id;
                 }
-                $('.del-invoice').click(function(){
-                    var $this = $(this);
-                    var inv_id = $(this).attr('inv_id');
-                    $.ajax({
-                        type:'post',
-                        url:ApiUrl+'/index.php?act=member_invoice&op=invoice_del',
-                        data:{key:key,inv_id:inv_id},
-                        success:function(result){
-                            if(result){
-                                $this.parents('label').remove();
-                            }
-                            return false;
-                        }
-                    });
-                });
             }
         });
     })
@@ -626,7 +613,6 @@ $(function() {
             url: ApiUrl+"?ctl=Buyer_Invoice&met=addInvoice&typ=json",
             data:e,
             dataType: "json",
-            contentType: "application/json;charset=utf-8",
             async:false,
             success:function(a){
                 result = a;
@@ -767,7 +753,6 @@ $(function() {
         address_phone   = $("#mob_phone").html();
         address_id = $("#address_id").val();
 
-
         if(address_id == 'undefined')
         {
             $.sDialog({
@@ -829,13 +814,15 @@ $(function() {
         $.ajax({
             type:'post',
             url: ApiUrl  + '?ctl=Buyer_Order&met=addOrder&typ=json',
-            data:{receiver_name:address_contact,receiver_address:address_address,receiver_phone:address_phone,invoice:invoice,invoice_id:invoice_id,cart_id:cart_id,shop_id:shop_id,remark:remark,increase_goods_id:increase_goods_id,voucher_id:voucher_id,pay_way_id:pay_way_id,k:key, u:getCookie('id')},
+            data:{receiver_name:address_contact,receiver_address:address_address,receiver_phone:address_phone,invoice:invoice,invoice_id:invoice_id,cart_id:cart_id,shop_id:shop_id,remark:remark,increase_goods_id:increase_goods_id,voucher_id:voucher_id,pay_way_id:pay_way_id,address_id:address_id,k:key, u:getCookie('id')},
             dataType: "json",
             success:function(a){
                 console.info(a);
                 if(a.status == 200)
                 {
-
+                    delCookie('cart_count');
+                    //重新计算购物车的数量
+                    getCartCount();
                     //alert(PayCenterWapUrl + "?ctl=Info&met=pay&uorder=" + a.data.uorder);
                     if(pay_way_id == 1)
                     {
@@ -847,6 +834,7 @@ $(function() {
                         window.location.href = WapSiteUrl + '/tmpl/member/order_list.html';
                         return false;
                     }
+
                 }
                 else
                 {
