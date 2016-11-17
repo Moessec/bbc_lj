@@ -214,7 +214,7 @@ body{
         	height: 85px;
         }
         .shop-adv .shop-contain .shop-contain-info{
-        	width:72%;
+        	width:70%;
         	height: 92px;
         	float: right;
         	position: relative;
@@ -248,9 +248,10 @@ body{
 		    height: 1rem;
 		    background-image: url(../images/iconfont/right-row.png);
 		    background-repeat: no-repeat;
-		    background-position: 50% 100%;
+		    background-position: 50% 60%;
 		    background-size: 60%;
 		    opacity: 1;
+            position: absolute;
         }
         .shop-contain-info dl dd.shop-tel{
         	bottom:1.9rem;
