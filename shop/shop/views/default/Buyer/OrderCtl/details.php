@@ -47,6 +47,9 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                       </ul>
                     </div>
                   </a></dd>
+	
+					<dt><?=_('商家留言：')?></dt>
+					<dd><?=($data['order_seller_message'])?></dd>
                 </dl>
               </div>
             </div>
@@ -136,11 +139,15 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
               <dd class="bg"></dd>
               <dd class="date" title="订单生成时间"><?=($data['order_create_time'])?></dd>
             </dl>
+
+            <?php if($data['payment_id'] != PaymentChannlModel::PAY_CONFIRM ){ ?>
             <dl class="<?php if($data['order_status'] == Order_StateModel::ORDER_PAYED || $data['order_status'] == Order_StateModel::ORDER_WAIT_CONFIRM_GOODS || $data['order_status'] == Order_StateModel::ORDER_FINISH ){ ?>current<?php }?>">
               <dt><?=_('完成付款')?></dt>
               <dd class="bg"> </dd>
               <dd class="date" title="付款时间"><?=($data['payment_time'])?></dd>
             </dl>
+            <?php } ?>
+
             <dl class="<?php if($data['order_status'] == Order_StateModel::ORDER_WAIT_CONFIRM_GOODS || $data['order_status'] == Order_StateModel::ORDER_FINISH):?>current<?php endif;?>">
               <dt><?=_('商家发货')?></dt>
               <dd class="bg"> </dd>

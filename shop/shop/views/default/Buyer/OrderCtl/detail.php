@@ -45,6 +45,9 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                       </ul>
                     </div>
                   </a></dd>
+	
+					<dt><?=_('商家留言：')?></dt>
+					<dd><?=($data['order_seller_message'])?></dd>
                 </dl>
               </div>
             </div>
@@ -115,7 +118,7 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                 <!--<div class="mall-msg">有疑问可咨询<a href="javascript:void(0);"><i class="iconfont icon-kefu"></i>平台客服</a></div>-->
           </div>
 
-          <div class="ncm-order-step" style="text-align: center;">
+          <div class="ncm-order-step">
           <?php if($data['order_status'] != Order_StateModel::ORDER_CANCEL):?>
             <dl class="step-first current">
               <dt><?=_('生成订单')?></dt>

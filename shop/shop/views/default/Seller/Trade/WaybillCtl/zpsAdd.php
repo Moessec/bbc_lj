@@ -89,7 +89,7 @@ include $this->view->getTplPath() . '/' . 'seller_footer.php';
 
     $(function () {
 
-        var met = 'addZps';
+        var met = 'zpsAdd';
 
         upload_image = new UploadImage({
             thumbnailWidth: 500,

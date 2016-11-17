@@ -134,7 +134,7 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
                     <p>编辑</p>
                     </a></span><span><a href="javascript:;"
                                         nctype="btn_del"
-                                        data-waybill_tpl_id="<?php echo $val['zps_tpl_id']; ?>"
+                                        data-zps_tpl_id="<?php echo $val['zps_tpl_id']; ?>"
                                         class="btn-grapefruit"><i class="iconfont icon-lajitong"></i>
                     <p>删除</p>
                     </a></span></td>
@@ -169,9 +169,9 @@ include $this->view->getTplPath() . '/' . 'seller_footer.php';
         $('a[nctype="btn_del"]').on('click', function () {
 
             var _this = $(this),
-                waybill_tpl_id = _this.data('waybill_tpl_id');
+                zps_tpl_id = _this.data('zps_tpl_id');
 
-            $.post(SITE_URL + '?ctl=Seller_Trade_Waybill&met=removeTpl&typ=json', {waybill_tpl_id: waybill_tpl_id}, function (data) {
+            $.post(SITE_URL + '?ctl=Seller_Trade_Waybill&met=removeZps&typ=json', {zps_tpl_id: zps_tpl_id}, function (data) {
                 if ( data.status == 200 ) {
                     Public.tips( { content:data.msg, type:3 } );
                     _this.parents('tr').remove();

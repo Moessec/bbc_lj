@@ -47,7 +47,7 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
                  <option value="<?=Voucher_TempModel::GETBYPOINTS?>" <?=request_int('method')==Voucher_TempModel::GETBYPOINTS?'selected':''?>><?=Voucher_TempModel::$voucher_access_method_map[Voucher_TempModel::GETBYPOINTS]?></option>
                  <option value="<?=Voucher_TempModel::GETFREE?>" <?=request_int('method')==Voucher_TempModel::GETFREE?'selected':''?>><?=Voucher_TempModel::$voucher_access_method_map[Voucher_TempModel::GETFREE]?></option>
             </select>
-            <input type="text" name="key" class="text w150" placeholder="<?=_('请输入代金券名称')?>" value="<?=request_string('key')?>" />
+            <input type="text" name="keyword" class="text w150" placeholder="<?=_('请输入代金券名称')?>" value="<?=request_string('keyword')?>" />
             <label class="search" >&nbsp;&nbsp;
                 <a class="button refresh" href="<?=Yf_Registry::get('url')?>?ctl=Seller_Promotion_Voucher&met=index&typ=e"><i class="iconfont icon-huanyipi"></i></a>
 

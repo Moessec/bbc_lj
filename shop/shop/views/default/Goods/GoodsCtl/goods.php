@@ -336,6 +336,9 @@ include $this->view->getTplPath() . '/' . 'header.php';
                                 <?php }
                             } ?>
                             <!--                           <p class="purchase_type "><span class="span_w ">购买方式:</span> <a href="# ">全新未拆封</a></p>-->
+                            <p class="clearfix"><span class="mar-r _letter-spacing-2">门店服务：</span>
+                                <span class="color-1876d1 mar-b-4 "><a href="#" name="elist" class="num_style mendian"> <i class="iconfont icon-tabhome"></i>门店自提</a>· 选择有现货的门店下单，可立即提货</span>
+                            </p>
                             <?php if($goods_status){?>
                             <?php if($goods_detail['goods_base']['goods_stock']):?>
                             <p class="need_num clearfix">

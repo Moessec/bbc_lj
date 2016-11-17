@@ -36,7 +36,7 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
         <input type="hidden" name="typ" value="<?=request_string('typ')?>">
         <a class="button refresh" href="<?=Yf_Registry::get('url')?>?ctl=Seller_Promotion_Discount&met=index&typ=e"><i class="iconfont icon-huanyipi"></i></a>
         <a class="button btn_search_goods" href="javascript:void(0);"><i class="iconfont icon-btnsearch"></i><?=_('搜索')?></a>
-        <input type="text" name="key" class="text w200" placeholder="<?=_('请输入活动名称')?>" value="<?=request_string('key')?>" />
+        <input type="text" name="keyword" class="text w200" placeholder="<?=_('请输入活动名称')?>" value="<?=request_string('keyword')?>" />
         <select name="state">
             <option value="0">全部</option>
             <option value="<?=Discount_BaseModel::NORMAL?>" <?=Discount_BaseModel::NORMAL == request_int('state')?'selected':''?> ><?=Discount_BaseModel::$state_array_map[Discount_BaseModel::NORMAL]?></option>

@@ -47,7 +47,7 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
             <option value="<?=GroupBuy_BaseModel::CLOSED?>" <?=GroupBuy_BaseModel::CLOSED == request_int('state')?'selected':''?>><?=_('管理员关闭')?></option>
         </select>
 
-        <input type="text" name="key" class="text w200" placeholder="<?=_('请输入团购名称')?>" value="<?=request_string('key')?>" />
+        <input type="text" name="keyword" class="text w200" placeholder="<?=_('请输入团购名称')?>" value="<?=request_string('keyword')?>" />
 
     </form>
 	<script type="text/javascript">

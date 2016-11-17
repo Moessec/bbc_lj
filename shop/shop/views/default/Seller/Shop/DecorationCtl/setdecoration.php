@@ -229,19 +229,21 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
 		</div>
 		<!-- 自定义模块编辑对话框 -->
 		<div id="dialog_module_html" class="eject_con dialog-decoration-edit" style="display:none;">
-		  <div class="alert">
-			<ul>
-			  <li><?=_('1. 可将预先设置好的网页文件内容复制粘贴到文本编辑器内，或直接在工作窗口内进行编辑操作。')?></li>
-			  <li><?=_('2. 默认为可视化编辑，选择第一个按钮切换到html代码编辑。css文件可以Style=“...”形式直接写在对应的html标签内。')?></li>
-			</ul>
-		  </div>
-<!--		  <textarea id="module_html_editor" name="module_html_editor" style=" width:1016px; height:400px; visibility:hidden;"></textarea>-->
-                   <script id="module_html_editor" name="module_html_editor" style=" width:1016px; height:400px;" type="text/plain">
-                    </script>
-		  <div class="bottom">
-			<label class="submit-border"><a id="btn_save_module_html" class="submit bbc_seller_submit_btns" href="javascript:void(0);"><?=_('保存设置')?></a></label>
-		  </div>
+                    <div  style="max-height: 700px;overflow: auto;">
+                    <div class="alert">
+                          <ul>
+                            <li><?=_('1. 可将预先设置好的网页文件内容复制粘贴到文本编辑器内，或直接在工作窗口内进行编辑操作。')?></li>
+                            <li><?=_('2. 默认为可视化编辑，选择第一个按钮切换到html代码编辑。css文件可以Style=“...”形式直接写在对应的html标签内。')?></li>
+                          </ul>
+                    </div>
+  <!--		  <textarea id="module_html_editor" name="module_html_editor" style=" width:1016px; height:400px; visibility:hidden;"></textarea>-->
+                     <script id="module_html_editor" name="module_html_editor" style=" width:1016px; height:400px;" type="text/plain">
+                      </script>
+                    <div class="bottom">
+                          <label class="submit-border"><a id="btn_save_module_html" class="submit bbc_seller_submit_btns" href="javascript:void(0);"><?=_('保存设置')?></a></label>
+                    </div>
 		</div>
+               </div>
                 <!-- 幻灯模块编辑对话框 -->
 <div id="dialog_module_slide" class="eject_con dialog-decoration-edit" style="display:none;">
   <div class="alert">

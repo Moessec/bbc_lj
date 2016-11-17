@@ -81,7 +81,7 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
                         </dl>
                     </td>
                     <?php if ( $key == 0 ) { ?>
-                    <td class="bdl bdr order-info w500" rowspan="<?= $data['goods_cat_num']; ?>">
+                    <td class="bdl bdr order-info w500" rowspan="<?= $data['goods_cat_num']; ?>" style="border-bottom:none;">
                         <dl>
                             <dt>运费：</dt>
                             <dd><?= $data['shipping_info']; ?></dd>
@@ -90,6 +90,12 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
                             <dt>发货备忘：</dt>
                             <dd>
                                 <textarea name="deliver_explain" cols="100" rows="2" class="w320 tip-t" title="您可以输入一些发货备忘信息（仅卖家自己可见）"></textarea>
+                            </dd>
+                        </dl>
+                         <dl>
+                            <dt>给买家留言：</dt>
+                            <dd>
+                                <textarea name="order_seller_message" cols="100" rows="2" class="w320 tip-t" title="您可以输入一些给买家的留言信息"></textarea>
                             </dd>
                         </dl>
                     </td>
@@ -252,16 +258,17 @@ include $this->view->getTplPath() . '/' . 'seller_footer.php';
                     order_id: $('#order_id').val(),
                     order_shipping_code: $this.parents('tr').find('input[name="shipping_code"]').val(),
                     order_shipping_express_id: $this.attr('nc_value'),
-                    order_shipping_message: $('textarea[name="deliver_explain"]').val()
+                    order_shipping_message: $('textarea[name="deliver_explain"]').val(),
+					order_seller_message: $('textarea[name="order_seller_message"]').val()
                 };
 
             $.post(SITE_URL + '?ctl=Seller_Trade_Order&met=send&typ=json', send_data, function (data){
 
                 if ( data.status == 200 ) {
-                    Public.tips( {content: 'success', type: 3} );
+                    Public.tips( {content: '发货成功', type: 3} );
                     window.location.href = SITE_URL + '?ctl=Seller_Trade_Order&met=physical&typ=e';
                 } else {
-                    Public.tips( {content: 'failure', type: 1} );
+                    Public.tips( {content: '发货失败', type: 1} );
                 }
             })
         });

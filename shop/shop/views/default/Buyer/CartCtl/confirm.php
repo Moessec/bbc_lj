@@ -66,6 +66,7 @@ include $this->view->getTplPath() . '/' . 'site_nav.php';
 		<?php if(isset($data['address'])){$total = 0; $total_dian_rate = 0; foreach ($data['address'] as $key => $value) {
 		?>
 			<li class="<?php if($value['user_address_default'] == 1){?>add_choose<?php }?>" id="addr<?=($value['user_address_id'])?>">
+				<input type ="hidden" id="address_id" value="<?=($value['user_address_id'])?>">
 				<input type="hidden" id="user_address_province_id" value="<?=($value['user_address_province_id'])?>">
 				<input type="hidden" id="user_address_city_id" value="<?=($value['user_address_city_id'])?>">
 				<input type="hidden" id="user_address_area_id" value="<?=($value['user_address_area_id'])?>">
