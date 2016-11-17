@@ -39,9 +39,9 @@ function getPositionError(error) {
   }
   else
   {
-    var t_lng = getCookie('lng');
+    var t_lng = $.cookie("lng");
     // alert( t_lng );
-    var t_lat = getCookie('lat');
+    var t_lat = $.cookie("lat");
     if(!t_lng || !t_lat)
     {
       $.post("ajax_back_end.php",{"act":"reposition","lng":$.cookie("lng"),"lat":$.cookie("lat")},function(){})
