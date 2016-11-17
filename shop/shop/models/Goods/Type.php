@@ -182,7 +182,7 @@ class Goods_Type extends Yf_Model
 			check_rs($flag, $rs_row);
 		}
 
-
+		/*
 		//管理 property
 		$Goods_PropertyModel = new Goods_PropertyModel();
 		$property_old_rows   = $Goods_PropertyModel->getByWhere(array('type_id' => $type_id));
@@ -243,8 +243,8 @@ class Goods_Type extends Yf_Model
 				check_rs($flag, $rs_row);
 			}
 		}
-
-
+		*/
+		
 		return is_ok($rs_row);
 	}
 
