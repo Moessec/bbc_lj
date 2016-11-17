@@ -32,7 +32,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				<p class="recharge_mon">
 					<span class="spanmt"><?=_('充值金额 :')?>&nbsp;</span>
 					<input type="text" class="text text-1 deposit_amount" onKeyUp="amount(this)" />
-					<span class="msg-box" style="margin-left:73px;"></span>
+					<p class="err_msg" id="err_msg_money" style="margin-left:73px;"></p>
 				</p>
 
 				<div class="pc_trans_btn clearfix"><a id="deposit_btn" class="btn_big btn_active fl submit_disable"><?=('确认信息并充值')?></a><span class="onright"><a target="_blank" href="./index.php?ctl=Info&met=recordlist&type=3&typ=e"><?=_('充值记录')?></a></span></div>
@@ -46,7 +46,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				<p class="recharge_mon">
 					<span class="spanmt"><?=_('购物卡密码 :')?>&nbsp;</span>
 					<input type="text" class="text text-1 card_password" onblur="checkPassword()"/>
-					<span class="msg-box" style="margin-left:73px;"></span>
+					<p class="err_msg" id="err_msg_card" style="margin-left:86px;"></p>
 					
 				</p>
 
@@ -96,16 +96,24 @@ include $this->view->getTplPath() . '/' . 'header.php';
 	function checkAmount()
 	{
 		var deposit_amount = $(".deposit_amount").val();
+
 		if(deposit_amount <= 0)
 		{
-			$(".msg-box").html("充值金额不可小于0元");
+			$("#err_msg_money").html("充值金额不可小于0元");
+
+			$("#deposit_btn").addClass("submit_disable");
+			$("#deposit_btn").removeClass("submit_able");
+		}
+		else if(deposit_amount >= 10000000)
+		{
+			$("#err_msg_money").html("充值金额不可大于10000000元");
 
 			$("#deposit_btn").addClass("submit_disable");
 			$("#deposit_btn").removeClass("submit_able");
 		}
 		else
 		{
-			$(".msg-box").html("");
+			$("#err_msg_money").html("");
 
 			$("#deposit_btn").removeClass("submit_disable");
 			$("#deposit_btn").addClass("submit_able");
@@ -148,13 +156,13 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					console.info(data);
 					if(data.status == 250)
 					{
-						$(".msg-box").html(data.msg);
+						$("#err_msg_card").html(data.msg);
 						$("#deposit_card_btn").addClass("submit_disable");
 						$("#deposit_card_btn").removeClass("submit_able");
 					}
 					else
 					{
-						$(".msg-box").html("");
+						$("#err_msg_card").html("");
 
 						$("#deposit_card_btn").addClass("submit_able");
 						$("#deposit_card_btn").removeClass("submit_disable");
@@ -165,7 +173,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 		}
 		else
 		{
-			$(".msg-box").html("");
+			$("#err_msg_card").html("");
 
 			$("#deposit_card_btn").addClass("submit_disable");
 			$("#deposit_card_btn").removeClass("submit_able");
