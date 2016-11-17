@@ -98,9 +98,9 @@ class Waybill_Ps extends Yf_Model
 	 * @return bool $del_flag 是否成功
 	 * @access public
 	 */
-	public function removeTpl($waybill_tpl_id)
+	public function removeTpl($zps_tpl_id)
 	{
-		$del_flag = $this->remove($waybill_tpl_id);
+		$del_flag = $this->remove($zps_tpl_id);
 
 		return $del_flag;
 	}
