@@ -359,7 +359,7 @@ class InfoCtl extends Controller
 
 		$uorder = request_string('uorder');
 		$act = request_string('act');
-
+	
 		//获取需要支付的订单信息
 		$Union_OrderModel = new Union_OrderModel();
 		$uorder_base = $Union_OrderModel->getOne($uorder);
