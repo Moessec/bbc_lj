@@ -23,7 +23,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     <div class="ncap-form-default">
         <form id="points_goods_form" action="" method="post">
             <input type="hidden" name="points_goods_id" value="<?=@($data['points_goods_id'])?>">
-            <input type="hidden" name="operate" value="<?php if((@$data)){ ?>edit<?php }else{ ?>add<?php } ?>">
+            <input type="hidden" name="operate" value="<?php if(request_int('id')){ ?>edit<?php }else{ ?>add<?php } ?>">
             <dl class="row row-item">
                 <dt class="tit"><em>*</em><label>礼品名称</label>：</dt>
                 <dd class="opt"><input type="text" class="input-txt" name="points_goods_name" value="<?=@($data['points_goods_name'])?>"></dd>
