@@ -60,8 +60,8 @@ class Api_ServerCtl extends Api_Controller
 		$plantform_url = request_string('plantform_url');
 
 		$shop_url      = request_string('plantform_url');
-		$paycenter_url = request_string('paycenter_url');
-		$ucenter_url   = request_string('ucenter_url');
+		$paycenter_url = request_string('paycenter_url', 'http://paycenter.yuanfeng021.com/index.php');
+		$ucenter_url   = request_string('ucenter_url', 'http://ucenter.yuanfeng021.com/index.php');
 
 		//ucenter
 		$ucenter_url_row = parse_url($ucenter_url);
@@ -89,7 +89,7 @@ EOF;
 <?php
 \$shop_api_key = "HANZaFR0Aw08PV1U02RzCW114UWXa26AUiIO";
 \$shop_api_url = "{$shop_url}";
-\$shop_app_id = 103;
+\$shop_app_id = 102;
 \$shop_wap_url = "http://m.{$shop_url_row['host']}/";
 ?>
 EOF;
