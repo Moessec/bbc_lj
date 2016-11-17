@@ -1,0 +1,749 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>商城触屏版</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+<script type="text/javascript" src="js/swiper.min.js"></script> 
+<style>
+	body{
+		font-family: '微软雅黑';
+	}
+	.clearfix { 
+	  zoom: 1; 
+	} 
+    .header{
+    	height: auto;
+    }
+	.swiper-container {
+			width:100%;
+			height:auto;
+			position: relative;
+			z-index: 1;
+			overflow: hidden;
+			margin: 0 auto;
+			background: white;
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+			backface-visibility: hidden;
+			
+		}
+		
+		.swiper-wrapper {
+			position: relative;
+			-webkit-box-sizing: content-box;
+			-moz-box-sizing: content-box;
+			box-sizing: content-box;
+			width: 100%;
+			-webkit-transition-timing-function: ease;
+			-moz-transition-timing-function: ease;
+			-o-transition-timing-function: ease;
+			transition-timing-function: ease;
+			-webkit-transition-duration: 0s;
+			-moz-transition-duration: 0s;
+			-o-transition-duration: 0s;
+			transition-duration: 0s;
+			-webkit-transition-property: -webkit-transform, left, top;
+			-moz-transition-property: -moz-transform, left, top;
+			-o-transition-property: -o-transform, left, top;
+			transition-property: transform, left, top;
+			-webkit-transform: translate3d(0px, 0, 0);
+			-moz-transform: translate3d(0px, 0, 0);
+			-o-transform: translate3d(0px, 0, 0);
+			-o-transform: translate(0px, 0px);
+			transform: translate3d(0px, 0, 0);
+			-ms-transition-property: -ms-transform, left, top;
+			-ms-transition-duration: 0s;
+			-ms-transform: translate3d(0px, 0, 0);
+			-ms-transition-timing-function: ease
+		}
+		
+		.swiper-free-mode>.swiper-wrapper {
+			margin: 0 auto;
+			-webkit-transition-timing-function: ease-out;
+			-moz-transition-timing-function: ease-out;
+			-o-transition-timing-function: ease-out;
+			transition-timing-function: ease-out;
+			-ms-transition-timing-function: ease-out
+		}
+		.swiper-container-horizontal>.swiper-pagination-bullets{
+			bottom:0;
+		}
+		
+		.swiper-slide {
+			float: left;
+			-webkit-box-sizing: content-box;
+			-moz-box-sizing: content-box;
+			box-sizing: content-box
+		}
+		
+		.swiper-slide {
+			float: left
+		}
+		
+		.swiper-slide img {
+			width: 100%;
+			height: 100%;
+		}
+		
+		.swiper-slide {
+			background: #f3f3f3;
+			text-align: center;
+			font-size: 18px;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+		}
+		.nctouch-home-top{
+			width:100%;
+			position: fixed;
+			top:0;
+		    display: block;
+		    min-height: 2.2rem;
+		    z-index: 2;
+		    overflow: hidden;
+		}
+		.swiper-pagination-bullet-active {
+		    opacity: 1;
+		    background: #FF7E18;
+		}
+		.nctouch-home-top transparent {
+		    position: absolute!important;
+		    top: auto!important;
+		    bottom: 0 !important;
+        }
+        .transparent .transparent-distinct{
+        	position: absolute;
+        	left: 0.3rem;
+        }
+
+       .left_icon{
+        	display: inline-block;
+        	width: 1rem;
+		    height: 1rem;
+		    background-image: url(images/iconfont/right-row.png);
+		    background-repeat: no-repeat;
+		    background-position: 50% 100%;
+		    background-size: 50%;
+		    opacity: 1;
+
+        }
+        .transparent .transparent-search{
+        	display: block;
+		    max-width: 750px;
+		    margin: 0 auto;
+		    text-align: center;
+        }
+        .transparent-search .header-inps{
+		    background-color: rgba(251,237,238,0.9);
+		    border: none;
+		    border-radius: 8px;
+		    display: block;
+    		height: 1.6rem;
+    		margin:0.275rem auto;
+        } 
+        .width{
+        	60%;
+        }
+		
+        .icon{
+        	display: inline-block;
+        	width: 1rem;
+		    height: 0.8rem;
+		    background-image: url(images/iconfont/search.png);
+		    background-repeat: no-repeat;
+		    background-position: 50% 0;
+		    background-size: 100%;
+		    opacity: 1;
+        }
+        .transparent-search a span{
+        	font-size:0.8rem;
+        	color: white;
+        }
+
+        .transparent .transparent-chat{
+        	position: absolute;
+        	right: 0.8rem;
+        	top:0.4rem;
+        	width: 1rem;
+        	height: 1rem;
+        	background: url(images/iconfont/chat.png);
+        	background-position: 50% 50%;
+        	background-size: 100%;
+        }
+
+        .activity-contain{
+        	margin-top: 0.5rem;
+        	padding: 0.5rem;
+        	background: white;
+        }
+
+        .activity-contain ul li{
+        	display: block;
+        	width:20%;
+        	float: left;
+        	text-align: center;
+        }
+        .activity-contain ul li img{
+        	width:60px;
+        	height:60px;
+        }
+        .activity-contain ul li p{
+        	margin-top:0.2rem;
+        	font-size: 0.65rem;
+        }
+        .product-contain{
+        	margin-top: 0.5rem;
+        	display: block;
+        }
+        .shop-adv{
+        	background: white;
+        }
+        .shop-adv .shop-contain{
+        	padding: 0.2rem;
+        }
+        .shop-adv .shop-contain .shop-contain-img{
+        	width: 20%;
+        	float: left;
+        	padding: 5px;
+        }
+        .shop-contain-img img{
+        	width: 85px;
+        	height: 85px;
+        }
+        .shop-adv .shop-contain .shop-contain-info{
+        	width:72%;
+        	height: 92px;
+        	float: right;
+        	position: relative;
+        	padding: 0.2rem;
+        }
+        .shop-contain-info .shop-name{
+        	font-size: 0.7rem;
+        }
+        .shop-contain-info .shop-name span{
+        	height: 0.9rem;
+        	line-height: 0.9rem;
+        	font-size: 0.55rem;
+        	margin-left:0.3rem;
+        	color:#FF7E18;
+        	border-radius: 0.2rem;
+        }
+        .button-l{
+        	width: 2rem;
+        	text-align: center;
+        	background: #FF7E18;
+        	color:white !important;
+        }
+        .shop-contain-info dl dd{
+        	font-size: 0.55rem;
+        	color:#999;
+        	position: absolute;
+        }
+        .examine{
+        	display: inline-block;
+        	width: 1rem;
+		    height: 1rem;
+		    background-image: url(images/iconfont/right-row.png);
+		    background-repeat: no-repeat;
+		    background-position: 50% 100%;
+		    background-size: 60%;
+		    opacity: 1;
+        }
+        .shop-contain-info dl dd.shop-tel{
+        	bottom:1.9rem;
+        }
+        .shop-contain-info .shop-tel span{
+		    background-image: url(images/iconfont/phone.png);
+		    background-position: left;
+		    /* left: 56rem; */
+		    background-repeat: no-repeat;
+		    background-size: 0.9rem;
+		    padding-left: 1rem;
+        }
+        .shop-tel i{
+        	position: absolute;
+        }
+        .shop-tel i.phone{
+        	display: inline-block;
+        	width: 1rem;
+		    height: 1rem;
+		    margin: 20%;
+		    background-image: url(images/iconfont/phone.png);
+		    background-repeat: no-repeat;
+		    background-position: 50% 50%;
+		    background-size: 100%;
+		    opacity: 1;
+        }
+
+        .shop-contain-info dl dd.shop-address{
+        	bottom: 0.5rem;
+        }
+        .shop-contain-info .shop-address {
+		    background-image: url(images/iconfont/address.png);
+		    background-position: left;
+		    /* left: 56rem; */
+		    background-repeat: no-repeat;
+		    background-size: 0.9rem;
+		    padding-left: 1rem;
+        }
+        .shop-address i.address{
+        	display: inline-block;
+        	width: 1rem;
+		    height: 1rem;
+		    margin: 20%;
+		    background-image: url(images/iconfont/address.png);
+		    background-repeat: no-repeat;
+		    background-position: 50% 50%;
+		    background-size: 100%;
+		    opacity: 1;
+        }
+        .shop-adv .pic-contain{
+
+        }
+        .shop-adv .pic-contain img{
+        	height: 200px;
+        }
+        .product-recommend{
+        	margin: 0rem auto 0 auto;
+     		width: 98%;
+        }
+        .product-recommend ul{
+        	margin-top:0.15rem;
+        	padding: 0.1rem;
+        	/*width: 100%;*/
+        }
+        .product-recommend ul li{
+        	 width: 49.3%;
+    		float: left;
+    		padding: 0.05rem;
+    		background: white;
+    		margin-bottom: 0.1rem;
+        }
+        .product-recommend ul li img{
+        	width:100%;
+        }
+         .product-recommend ul li dl{
+         	margin-top: 0.1rem;
+         	padding: 0.2rem;
+         	font-size: 0.65rem;
+         	position: relative;
+         }
+         .product-recommend ul li dl dd{
+         	height: 1rem;
+         	line-height: 1rem;
+         	color:#999;
+         }
+         .price{
+         	color:#FF7E18 !important;
+         	font-size: 0.75rem !important;
+         }
+         .product-recommend-info{
+         	width: 100%;
+         }
+         .product-recommend-info i{
+         	position: absolute;
+         }
+         .product-recommend-info dl{
+         	padding: 0.5rem;
+         }
+
+         .add{
+         	display: inline-block;
+        	width: 1.2rem;
+		    height: 1.2rem;
+		    background-image: url(images/iconfont/add02.png);
+		    background-repeat: no-repeat;
+		    background-position: 50% 50%;
+		    background-size: 100%;
+		    opacity: 1;
+		     right: 0.5rem;
+    		bottom: 0.3rem
+         }
+         .product-list{
+         	margin-top: 0.2rem;
+         }
+
+         .product-list .product-list-pic img{
+         	width: 100%;
+         	
+         }
+         .product-list .product-list-info ul li{
+         	width: 33%;
+         	float: left;
+         	border-top: 1px solid rgba(204, 204, 204, 0.29);
+         	border-right: 1px solid rgba(204, 204, 204, 0.5);
+         	background: white;
+         }
+         .product-list .product-list-info ul li img{
+         	width: 100%;
+         }
+         .product-list-title{
+         	padding: 0.5rem;
+         	font-size: 0.8rem;
+         	height: 1rem;
+         	line-height: 1rem;
+         	background: white;
+         }
+         .product-list-title a span{
+         	color:#FF7E18;
+         	
+         	letter-spacing: 0.1rem;
+         }
+         .more{
+         	display: inline-block;
+        	width: 0.7rem;
+		    height: 0.7rem;
+		    background-image: url(images/iconfont/right-jt.png);
+		    background-repeat: no-repeat;
+		    background-position: 50% 100%;
+		    background-size: 80%;
+		    opacity: 1;
+         }
+
+         .product-list .product-list-info p{
+         	font-size: 0.6rem;
+         	font-weight: 400;
+         	text-align: center;
+         	height: 1rem;
+         	line-height: 1rem;
+         }
+         .product-list-info ul li a{
+         	color: inherit;
+         }
+        .pro-info-price{
+        	color: #FF7E18 !important;
+        }
+        footer{
+
+        	background: white;
+        	margin-top: 0;
+        }
+        .footer-nav{
+        	padding: 0.2rem;
+        	height: 1rem;
+        
+        }
+
+        .footer-nav ul li{
+        	text-align: center;
+        	width: 20%;
+        	float: left;
+        }
+        .footer-nav ul li img{
+        	width:40%;
+        	padding: 0.2rem;
+        	
+        }
+        .footer-nav ul li p{
+        	font-size: 0.65rem;
+        	color:#999;
+        }
+        .activity-end{
+        	font-size: 0.7rem;
+        	text-align: center;
+        	height: 2rem;
+        	line-height: 2rem;
+        	color: #999;
+        }
+
+
+</style>
+<script type="text/javascript">
+window.onload = function() {
+	var swiper = new Swiper('.swiper-container', {
+		pagination: '.swiper-pagination',
+		paginationType : 'bullets',
+		// paginationType : 'fraction',
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		autoplay: 3000,
+		speed: 300,
+		//loop: true, 
+		grabCursor: true,
+		paginationClickable: true,
+		mousewheelControl: true,
+		lazyLoading: true,
+		// nextButton: '.swiper-button-next',
+		// prevButton: '.swiper-button-prev',
+		// pagination: '.swiper-pagination',
+
+	});
+};
+
+// window.onload = function() {
+// 	var swiper = new Swiper('.swiper-container2', {
+// 		pagination: '.swiper-pagination2',
+// 		paginationType : 'fraction',
+// 		paginationClickable: true,
+// 		autoplayDisableOnInteraction: false,
+// 		autoplay: 3000,
+// 		speed: 300,
+// 		//loop: true, 
+// 		grabCursor: true,
+// 		paginationClickable: true,
+// 		mousewheelControl: true,
+// 		lazyLoading: true,
+// 		// nextButton: '.swiper-button-next',
+// 		// prevButton: '.swiper-button-prev',
+// 		// pagination: '.swiper-pagination',
+
+// 	});
+// };
+	</script>
+
+	<!-- //#F78223 -->
+
+<body>
+<headers>
+	<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide"><img src="images/iconfont/tuceng01.png"></div>
+	        <div class="swiper-slide"><img src="images/iconfont/tuceng01.png"></div>
+	        <div class="swiper-slide"><img src="images/iconfont/tuceng01.png"></div>
+	        <div class="swiper-slide"><img src="images/iconfont/tuceng01.png"></div>
+	        <div class="swiper-slide"><img src="images/iconfont/tuceng01.png"></div>
+	    </div>
+
+	    <!-- 如果需要分页器 -->
+	    <div class="swiper-pagination"></div>
+	</div>
+
+	<div class="nctouch-home-top">
+		<div class="transparent">
+			<div class="transparent-distinct"><a href="javascript:void(0)"><span style="font-size: 0.8rem;color:#FF7E18">上海</span><i class="left_icon"></i></a></div>
+			<div class="transparent-search">
+				<a href="tmpl/search.html" class="header-inps width"> <i class="icon"></i> <span class="search-input" id="keyword">输入查询内容</span> </a>
+			</div>
+			<div class="transparent-chat"></div>
+		</div>
+	</div>
+
+	<div class="activity-contain clearfix">
+		<ul>
+			<li><img src="images/iconfont/packet.png" /><p>红包</p></li>
+			<li><img src="images/iconfont/preference.png" /><p>特惠</p></li>
+			<li><img src="images/iconfont/groupbuy.png" /><p>团购</p></li>
+			<li><img src="images/iconfont/sign.png" /><p>签到</p></li>
+			<li><img src="images/iconfont/service.png" /><p>服务</p></li>
+		</ul>
+	</div>
+</headers>
+
+<div class="product-contain clearfix">
+	<div class="shop-adv clearfix">
+		<div class="shop-contain clearfix">
+			<div class="shop-contain-img"><a href="java:void(0)"><img src="images/iconfont/packet.png" /></a></div>
+			<div class="shop-contain-info clearfix">
+				<dl>
+					<dt class="shop-name">一点LIFE花园店<span class="button-l"> 营业中</span><span>(06:00-22:00)</span><i class="examine"></i></dt>
+					<dd class="shop-tel"><span>020-000000</span></dd>
+					<dd class="shop-address"><a href="javascript:void(0)" style="color:inherit;">上海市花园路136号5号楼</a></dd>
+				</dl>
+			</div>		
+		</div>
+
+		<div class="pic-contain">
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide"><img src="images/iconfont/tuceng02.png"></div>
+			        <div class="swiper-slide"><img src="images/iconfont/tuceng02.png"></div>
+			        <div class="swiper-slide"><img src="images/iconfont/tuceng02.png"></div>
+			        <div class="swiper-slide"><img src="images/iconfont/tuceng02.png"></div>
+			        <div class="swiper-slide"><img src="images/iconfont/tuceng02.png"></div>
+			    </div>
+		    	<!-- <div class="swiper-pagination swiper-pagination-fraction"></div> -->
+			</div>
+		</div>
+	</div>
+
+	<div class="product-recommend clearfix">
+		<ul class="clearfix">
+			<li>
+				 <img src="images/iconfont/lj_05.jpg" /> 
+			 	<div class="product-recommend-info">
+			 		<dl>
+			 			<dt>新鲜牛油果</dt>
+			 			<dd>剩余10盒</dd>
+			 			<dd class="price">￥60.00<a href="javascript:void(0)"><i class="add"></a></i></dd>
+			 			
+			 		</dl>
+			 	</div>
+			</li>
+			<li>
+				<img src="images/iconfont/lj_05.jpg" />
+				<div class="product-recommend-info">
+					<dl>
+			 			<dt>新鲜牛油果</dt>
+			 			<dd>剩余10盒</dd>
+			 			<dd class="price">￥60.00<a href="javascript:void(0)"><i class="add"></a></i></dd>
+			 		</dl>
+				</div>
+			</li>
+			<li>
+				<img src="images/iconfont/lj_05.jpg" />
+				<div class="product-recommend-info">
+					<dl>
+			 			<dt>新鲜牛油果</dt>
+			 			<dd>剩余10盒</dd>
+			 			<dd class="price">￥60.00<a href="javascript:void(0)"><i class="add"></a></i></dd>
+			 		</dl>
+				</div>
+			</li>
+			<li>
+				<img src="images/iconfont/lj_05.jpg" />
+				<div class="product-recommend-info">
+					<dl>
+			 			<dt>新鲜牛油果</dt>
+			 			<dd>剩余10盒</dd>
+			 			<dd class="price"> ￥60.00<a href="javascript:void(0)"><i class="add"></a></i></dd>
+			 		</dl>
+				</div>
+			</li>
+			
+		</ul>
+	</div>
+	<div class="product-list">
+		<div class="product-list-pic"><img src="images/iconfont/tuceng02.png" /></div>
+		<div class="product-list-title"><a href="javascript:void(0)"><span>一日之计在于晨</span><span class="more-con" style="float: right;color: #999">more<i class="more" ></i></span></a></div>		
+		<div class="product-list-info clearfix">
+			<ul>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="product-list">
+		<div class="product-list-pic"><img src="images/iconfont/tuceng02.png" /></div>
+		<div class="product-list-title"><a href="javascript:void(0)"><span>一日之计在于晨</span><span class="more-con" style="float: right;color: #999">more<i class="more" ></i></span></a></div>		
+		<div class="product-list-info clearfix">
+			<ul>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="images/iconfont/lj_05.jpg" />
+					<p>土鸡蛋</p>
+					<p class="pro-info-price">￥99</p>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+<div class="activity-end">活动已经加载完毕</div>
+<footer class="clearfix">
+	<div class="footer-nav clearfix">
+		<ul class="clearfix">
+			<li><a href="javascript:void(0)"><img src="images/iconfont/home.png" /><p>首页</p></a></li>
+			<li><a href="javascript:void(0)"><img src="images/iconfont/cat.png" /><p>分类</p></a></li>
+			<li><a href="javascript:void(0)"><img src="images/iconfont/door.png" /></a><p>芝麻开门</p></li>
+			<li><a href="javascript:void(0)"><img src="images/iconfont/cart.png" /><p>购物车</p/a></li>
+			<li><a href="javascript:void(0)"><img src="images/iconfont/mine.png" /><p>我的</p></a></li>
+		<ul>
+	</div>
+
+</footer>
+
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var width = $('.product-recommend').find('img').width();
+		    $('.product-recommend').find('img').height(width);
+
+		var width2 = $('.product-list').find('img').width();
+		    $('.product-list').children('product-list-info').find('img').height(width2);
+
+
+		    var width3 = $('.footer-nav').find('img').width();
+		    $('.footer-nav').find('img').height(width3);   
+	})
+</script>
+
+
+
+
+
+
+
+
+
+<!-- 
+<script type="text/javascript" src="js/config.php"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script> 
+<script type="text/javascript" src="js/template.js"></script> 
+<script type="text/javascript" src="js/common.js"></script> 
+<script type="text/javascript" src="js/swipe.js"></script> 
+<script type="text/javascript" src="js/index.js"></script> 
+<script type="text/javascript" src="js/tmpl/footer.js"></script> -->
+</body>
+</html>
