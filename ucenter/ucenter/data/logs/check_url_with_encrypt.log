@@ -10,3 +10,550 @@
 )
 09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478222352&key=aaaaaabbb
 09:19:12 11/04/16 FILE=D:/phpStudy/WWW/mall/ucenter/index.php [info] md5-key:c105f391c6ad4d9c0ad9451da3cc1d77
+17:57:42 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478685462',
+  'token' => '75644a83b1b0977cdbf1bf1373e2f277',
+)
+17:57:42 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478685462&key=aaaaaabbb
+17:57:42 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:75644a83b1b0977cdbf1bf1373e2f277
+18:08:18 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478686098',
+  'token' => '2ca0067555959f1b026c147f4ec17266',
+)
+18:08:18 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478686098&key=aaaaaabbb
+18:08:18 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:2ca0067555959f1b026c147f4ec17266
+18:11:58 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478686315',
+  'token' => '3b6d3dc1fa117302cda78f3907ab29a5',
+)
+18:11:58 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478686315&key=aaaaaabbb
+18:11:58 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:3b6d3dc1fa117302cda78f3907ab29a5
+18:12:00 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'sms',
+  ),
+  'rtime' => '1478686320',
+  'token' => '79cd9ca0b5ceee4969cb834dc094ae73',
+)
+18:12:00 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=sms&rtime=1478686320&key=aaaaaabbb
+18:12:00 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:79cd9ca0b5ceee4969cb834dc094ae73
+18:12:08 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478686328',
+  'token' => 'ded7d63fe6fb0327c9a702b953d026bf',
+)
+18:12:08 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=api&rtime=1478686328&key=aaaaaabbb
+18:12:09 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:ded7d63fe6fb0327c9a702b953d026bf
+18:12:16 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478686336',
+  'token' => 'ffe5935dca05ed794698135b1d2ccf46',
+)
+18:12:16 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478686336&key=aaaaaabbb
+18:12:16 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:ffe5935dca05ed794698135b1d2ccf46
+18:12:17 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478686337',
+  'token' => 'f49f611180f444e475db31a4cffa994c',
+)
+18:12:17 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=api&rtime=1478686337&key=aaaaaabbb
+18:12:17 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:f49f611180f444e475db31a4cffa994c
+18:13:37 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'connect',
+  ),
+  'rtime' => '1478686417',
+  'token' => 'd68b987ed445223a4382a7beb7a9bb76',
+)
+18:13:37 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=connect&rtime=1478686417&key=aaaaaabbb
+18:13:37 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:d68b987ed445223a4382a7beb7a9bb76
+18:20:51 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478686851',
+  'token' => 'e3215d5f195dba357e99f24ce3ea90b9',
+)
+18:20:51 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478686851&key=aaaaaabbb
+18:20:51 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:e3215d5f195dba357e99f24ce3ea90b9
+18:21:03 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478686863',
+  'token' => 'ebb6684a2d0b25108ecbaf9fbc8c21bd',
+)
+18:21:03 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=api&rtime=1478686863&key=aaaaaabbb
+18:21:03 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:ebb6684a2d0b25108ecbaf9fbc8c21bd
+18:21:27 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478686887',
+  'token' => 'cf6e96bde86a64814f1e8fe39c3e35a2',
+)
+18:21:27 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478686887&key=aaaaaabbb
+18:21:27 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:cf6e96bde86a64814f1e8fe39c3e35a2
+18:21:35 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478686895',
+  'token' => 'ff32fd01112bd2d195ee7a4820efc86a',
+)
+18:21:35 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478686895&key=aaaaaabbb
+18:21:35 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:ff32fd01112bd2d195ee7a4820efc86a
+18:21:39 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478686899',
+  'token' => 'f5c91a449b9a275fe878e19e3b3b856a',
+)
+18:21:39 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478686899&key=aaaaaabbb
+18:21:39 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:f5c91a449b9a275fe878e19e3b3b856a
+18:21:40 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'seo',
+  ),
+  'rtime' => '1478686900',
+  'token' => '18cc4998ed2c2dbca43a7f6adc968790',
+)
+18:21:40 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=seo&rtime=1478686900&key=aaaaaabbb
+18:21:40 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:18cc4998ed2c2dbca43a7f6adc968790
+18:21:43 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'connect',
+  ),
+  'rtime' => '1478686902',
+  'token' => '8dca93e5b108b6bdfec7283aa1b48850',
+)
+18:21:43 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=connect&rtime=1478686902&key=aaaaaabbb
+18:21:43 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:8dca93e5b108b6bdfec7283aa1b48850
+18:21:50 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'sms',
+  ),
+  'rtime' => '1478686910',
+  'token' => '79cbba16e0003a7502499bc21cea454d',
+)
+18:21:50 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=sms&rtime=1478686910&key=aaaaaabbb
+18:21:50 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:79cbba16e0003a7502499bc21cea454d
+18:22:51 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  '_search' => 'false',
+  'nd' => '1478686971295',
+  'rows' => '100',
+  'page' => '1',
+  'sidx' => '',
+  'sord' => 'asc',
+  'rtime' => '1478686971',
+  'token' => 'ba2246749ab17768a5d4bcb1eefff770',
+)
+18:22:51 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:_search=false&admin_account=admin&app_id=103&nd=1478686971295&page=1&rows=100&rtime=1478686971&sidx=&sord=asc&key=aaaaaabbb
+18:22:51 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:ba2246749ab17768a5d4bcb1eefff770
+18:47:52 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478688471',
+  'token' => '6acb4468118f90681ef99a7873cde441',
+)
+18:47:52 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478688471&key=aaaaaabbb
+18:47:52 11/09/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:6acb4468118f90681ef99a7873cde441
+10:19:09 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478830749',
+  'token' => '90726fbeda25c653b2794a7a11eacb6b',
+)
+10:19:09 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478830749&key=aaaaaabbb
+10:19:09 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:90726fbeda25c653b2794a7a11eacb6b
+10:19:12 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478830752',
+  'token' => '44952ac844b48ec3d2ffef1b6027f2ba',
+)
+10:19:12 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=api&rtime=1478830752&key=aaaaaabbb
+10:19:12 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:44952ac844b48ec3d2ffef1b6027f2ba
+10:28:07 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478831287',
+  'token' => '6de4560bcae0f5b34159874bd7e9c0c5',
+)
+10:28:07 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478831287&key=aaaaaabbb
+10:28:07 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:6de4560bcae0f5b34159874bd7e9c0c5
+10:28:12 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478831292',
+  'token' => '95e77e20fb6a9f9934c07f54a25515d6',
+)
+10:28:12 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478831292&key=aaaaaabbb
+10:28:12 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:95e77e20fb6a9f9934c07f54a25515d6
+10:28:14 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'connect',
+  ),
+  'rtime' => '1478831294',
+  'token' => 'de3ab8ab12b865e6b0ecd6b157f4ee64',
+)
+10:28:14 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=connect&rtime=1478831294&key=aaaaaabbb
+10:28:14 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:de3ab8ab12b865e6b0ecd6b157f4ee64
+10:28:17 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478831297',
+  'token' => '76a9844ea4a4c83c0bcaa9bd250c841e',
+)
+10:28:17 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=api&rtime=1478831297&key=aaaaaabbb
+10:28:17 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:76a9844ea4a4c83c0bcaa9bd250c841e
+10:28:22 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'config_type' => 
+  array (
+    0 => 'ucenter_api',
+  ),
+  'ucenter_api' => 
+  array (
+    'ucenter_api_url' => 'http://127.0.0.1/bbc_lj/ucenter/',
+    'ucenter_api_key' => 'aaaaaabbb',
+  ),
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'rtime' => '1478831302',
+  'token' => 'c938c82808f5c76b9db9739d690f6a49',
+)
+10:28:22 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=ucenter_api&rtime=1478831302&ucenter_api%5Bucenter_api_key%5D=aaaaaabbb&ucenter_api%5Bucenter_api_url%5D=http%3A%2F%2F127.0.0.1%2Fbbc_lj%2Fucenter%2F&key=aaaaaabbb
+10:28:22 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:c938c82808f5c76b9db9739d690f6a49
+10:28:24 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'sms',
+  ),
+  'rtime' => '1478831304',
+  'token' => 'd49ac613daa3215a0b69db469e789c34',
+)
+10:28:24 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=sms&rtime=1478831304&key=aaaaaabbb
+10:28:24 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:d49ac613daa3215a0b69db469e789c34
+10:28:33 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478831313',
+  'token' => 'e712953305d64eecbef4a294c9c37f1a',
+)
+10:28:33 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478831313&key=aaaaaabbb
+10:28:33 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:e712953305d64eecbef4a294c9c37f1a
+10:30:15 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478831415',
+  'token' => '0a68e7dc8bc0451ea164f2accf9ccf69',
+)
+10:30:15 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478831415&key=aaaaaabbb
+10:30:15 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:0a68e7dc8bc0451ea164f2accf9ccf69
+10:30:33 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478831432',
+  'token' => '2d3d5c7483ba6d45b06ad2f2c37b6085',
+)
+10:30:33 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478831432&key=aaaaaabbb
+10:30:33 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:2d3d5c7483ba6d45b06ad2f2c37b6085
+10:31:03 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478831463',
+  'token' => '713dca224ce750151c848098cd7cbce1',
+)
+10:31:03 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478831463&key=aaaaaabbb
+10:31:03 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:713dca224ce750151c848098cd7cbce1
+10:34:50 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478831690',
+  'token' => 'e15e3e6d5169877208aefdc5b21e3856',
+)
+10:34:50 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478831690&key=aaaaaabbb
+10:34:50 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:e15e3e6d5169877208aefdc5b21e3856
+10:34:53 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1478831693',
+  'token' => '06bdc4094484f717ec2f00fde4ae37d5',
+)
+10:34:53 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=api&rtime=1478831693&key=aaaaaabbb
+10:34:53 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:06bdc4094484f717ec2f00fde4ae37d5
+10:34:57 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478831697',
+  'token' => '73a920379756deb453e671079db28e8b',
+)
+10:34:57 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478831697&key=aaaaaabbb
+10:34:57 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:73a920379756deb453e671079db28e8b
+10:35:01 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478831701',
+  'token' => 'cb52692c341385533e770c673d67764d',
+)
+10:35:01 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478831701&key=aaaaaabbb
+10:35:01 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:cb52692c341385533e770c673d67764d
+10:35:03 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1478831703',
+  'token' => 'ddb3fbddf7b4447da96e33c082d6b865',
+)
+10:35:03 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1478831703&key=aaaaaabbb
+10:35:03 11/11/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:ddb3fbddf7b4447da96e33c082d6b865
+19:10:45 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1479294645',
+  'token' => '25cf3a5ac3749a7809664cac55fed9e2',
+)
+19:10:45 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1479294645&key=aaaaaabbb
+19:10:45 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:25cf3a5ac3749a7809664cac55fed9e2
+19:10:48 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1479294648',
+  'token' => 'af55b911f6e31d1a5e96e6d468ecd8bf',
+)
+19:10:48 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=api&rtime=1479294648&key=aaaaaabbb
+19:10:48 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:af55b911f6e31d1a5e96e6d468ecd8bf
+19:10:55 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'connect',
+  ),
+  'rtime' => '1479294654',
+  'token' => '4154f76e4ff4b643eff3b24c9882d360',
+)
+19:10:55 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=connect&rtime=1479294654&key=aaaaaabbb
+19:10:55 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:4154f76e4ff4b643eff3b24c9882d360
+19:10:55 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'sms',
+  ),
+  'rtime' => '1479294655',
+  'token' => 'c22aad288cf4c77e8165ec6c314563b2',
+)
+19:10:55 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=sms&rtime=1479294655&key=aaaaaabbb
+19:10:55 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:c22aad288cf4c77e8165ec6c314563b2
+19:23:30 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1479295410',
+  'token' => 'bd3dcef5f0144e66246ec0c2e98ebaa4',
+)
+19:23:30 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1479295410&key=aaaaaabbb
+19:23:30 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:bd3dcef5f0144e66246ec0c2e98ebaa4
+19:23:38 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1479295418',
+  'token' => '51f6c265a7bcec3c26b4b5f3b8a4f820',
+)
+19:23:38 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=api&rtime=1479295418&key=aaaaaabbb
+19:23:38 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:51f6c265a7bcec3c26b4b5f3b8a4f820
+19:23:44 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'site',
+  ),
+  'rtime' => '1479295423',
+  'token' => '33f9788e3fc7a610fae893caa502df47',
+)
+19:23:44 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=site&rtime=1479295423&key=aaaaaabbb
+19:23:44 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:33f9788e3fc7a610fae893caa502df47
+19:23:46 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'connect',
+  ),
+  'rtime' => '1479295426',
+  'token' => '3ab8e62b92cdd5b89f3c614c4499dbf4',
+)
+19:23:46 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=connect&rtime=1479295426&key=aaaaaabbb
+19:23:46 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:3ab8e62b92cdd5b89f3c614c4499dbf4
+19:23:47 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'sms',
+  ),
+  'rtime' => '1479295427',
+  'token' => '8f1796f889dfb0cb8d7fc4e973040134',
+)
+19:23:47 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=sms&rtime=1479295427&key=aaaaaabbb
+19:23:47 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:8f1796f889dfb0cb8d7fc4e973040134
+19:24:15 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] array (
+  'app_id' => '103',
+  'admin_account' => 'admin',
+  'config_type' => 
+  array (
+    0 => 'api',
+  ),
+  'rtime' => '1479295455',
+  'token' => 'd53382d9d0b7e97d7fe7ea3e5038d0e8',
+)
+19:24:15 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] $tmp_str:admin_account=admin&app_id=103&config_type%5B0%5D=api&rtime=1479295455&key=aaaaaabbb
+19:24:15 11/16/16 FILE=D:/phpStudy/WWW/bbc_lj/ucenter/index.php [info] md5-key:d53382d9d0b7e97d7fe7ea3e5038d0e8

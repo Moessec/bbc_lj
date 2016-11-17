@@ -5,7 +5,7 @@ $db_row = array (
   'port' => '3306',
   'user' => 'root',
   'password' => 'root',
-  'database' => 'mall_ucenter',
+  'database' => 'mall_shop',
   'charset' => 'UTF8',
 ); 
 return $db_row; 

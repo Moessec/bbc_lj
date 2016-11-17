@@ -7,3 +7,459 @@
 [04-Nov-2016 09:11:54 Asia/Shanghai] PHP Notice:  Undefined index: id in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\IndexCtl.php on line 15
 [04-Nov-2016 09:12:03 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\LoginCtl.php on line 683
 [04-Nov-2016 09:16:53 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\mall\ucenter\ucenter\controllers\LoginCtl.php on line 683
+[09-Nov-2016 17:35:33 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:38:12 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:38:53 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:42:10 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:42:12 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:42:19 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:42:28 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:42:52 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:43:27 Asia/Shanghai] PHP Notice:  Undefined index: key in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 14
+[09-Nov-2016 17:43:27 Asia/Shanghai] PHP Notice:  Undefined index: id in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 15
+[09-Nov-2016 17:44:55 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:46:11 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:48:16 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[09-Nov-2016 17:58:24 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 17:58:24 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 17:58:24 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 17:58:24 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 17:58:24 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 17:58:24 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 17:58:35 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 17:58:35 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 17:58:35 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 17:58:35 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 17:58:35 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 17:58:35 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 17:58:47 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 17:58:47 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 17:58:47 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 17:58:47 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 17:58:47 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 17:58:47 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 17:59:09 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 17:59:09 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 17:59:09 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 17:59:09 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 17:59:09 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 17:59:09 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 18:08:52 Asia/Shanghai] PHP Notice:  Undefined index: key in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 14
+[09-Nov-2016 18:08:52 Asia/Shanghai] PHP Notice:  Undefined index: id in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 15
+[09-Nov-2016 18:10:32 Asia/Shanghai] PHP Fatal error:  Maximum execution time of 15 seconds exceeded in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\models\Sms.php on line 32
+[09-Nov-2016 18:12:53 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 18:12:53 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 18:12:53 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 18:12:53 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 18:12:53 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 18:12:53 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 18:13:13 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 18:13:13 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 18:13:13 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 18:13:13 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 18:13:13 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 18:13:13 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 18:13:21 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 18:13:21 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 18:13:21 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 18:13:21 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 18:13:21 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 18:13:21 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 18:14:33 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[09-Nov-2016 18:15:30 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[09-Nov-2016 18:15:35 Asia/Shanghai] PHP Notice:  Undefined index: key in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 14
+[09-Nov-2016 18:15:35 Asia/Shanghai] PHP Notice:  Undefined index: id in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 15
+[09-Nov-2016 18:18:25 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[09-Nov-2016 18:22:10 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 18:22:10 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 18:22:10 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 18:22:10 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 18:22:10 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 18:22:10 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 18:22:26 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 18:22:26 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 18:22:26 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 18:22:26 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 18:22:26 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 18:22:26 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 18:22:36 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 18:22:36 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 18:22:36 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 18:22:36 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 18:22:36 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 18:22:36 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 18:22:42 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[09-Nov-2016 18:22:42 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[09-Nov-2016 18:22:42 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[09-Nov-2016 18:22:42 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[09-Nov-2016 18:22:42 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[09-Nov-2016 18:22:42 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[09-Nov-2016 18:22:51 Asia/Shanghai] PHP Notice:  Undefined index: asc in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\Api\UserCtl.php on line 36
+[09-Nov-2016 18:40:32 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[09-Nov-2016 18:48:33 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[09-Nov-2016 18:54:44 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[09-Nov-2016 19:16:57 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[09-Nov-2016 19:23:53 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[09-Nov-2016 19:27:59 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[11-Nov-2016 10:03:24 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[11-Nov-2016 10:06:00 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[11-Nov-2016 10:06:16 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[11-Nov-2016 10:08:32 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[11-Nov-2016 10:19:34 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[11-Nov-2016 10:19:34 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[11-Nov-2016 10:19:34 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[11-Nov-2016 10:19:34 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[11-Nov-2016 10:19:34 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[11-Nov-2016 10:19:34 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[11-Nov-2016 10:19:41 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[11-Nov-2016 10:19:41 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[11-Nov-2016 10:19:41 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[11-Nov-2016 10:19:41 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[11-Nov-2016 10:19:41 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[11-Nov-2016 10:19:41 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[11-Nov-2016 10:19:53 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[11-Nov-2016 10:19:53 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[11-Nov-2016 10:19:53 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[11-Nov-2016 10:19:53 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[11-Nov-2016 10:19:53 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[11-Nov-2016 10:19:53 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[11-Nov-2016 10:28:46 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[11-Nov-2016 10:28:46 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[11-Nov-2016 10:28:46 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[11-Nov-2016 10:28:46 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[11-Nov-2016 10:28:46 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[11-Nov-2016 10:28:46 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[11-Nov-2016 10:28:51 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[11-Nov-2016 10:28:51 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[11-Nov-2016 10:28:51 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[11-Nov-2016 10:28:51 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[11-Nov-2016 10:28:51 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[11-Nov-2016 10:28:51 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[11-Nov-2016 10:29:01 Asia/Shanghai] PHP Notice:  Undefined index: app_seq in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1991
+[11-Nov-2016 10:29:01 Asia/Shanghai] PHP Notice:  Undefined index: app_url_recharge in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1995
+[11-Nov-2016 10:29:01 Asia/Shanghai] PHP Notice:  Undefined index: app_url_order in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1996
+[11-Nov-2016 10:29:01 Asia/Shanghai] PHP Notice:  Undefined index: app_logo in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1997
+[11-Nov-2016 10:29:01 Asia/Shanghai] PHP Notice:  Undefined index: app_hosts in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1998
+[11-Nov-2016 10:29:01 Asia/Shanghai] PHP Notice:  Undefined index: return_fields in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 1999
+[13-Nov-2016 14:28:22 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[13-Nov-2016 14:28:23 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[13-Nov-2016 14:28:51 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[13-Nov-2016 14:31:11 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[13-Nov-2016 21:10:51 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 12:49:19 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 13:04:40 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 13:06:24 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 13:14:11 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 13:18:21 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 13:21:40 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 13:51:49 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 13:53:25 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 14:32:16 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 14:32:21 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 15:05:19 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 18:30:21 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 18:30:21 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 18:30:21 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 18:30:21 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 18:30:21 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 18:30:21 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 18:30:21 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 18:30:21 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:30:21 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:30:25 Asia/Shanghai] PHP Notice:  Undefined index: user_avatar in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 966
+[14-Nov-2016 18:30:25 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 18:30:25 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 18:30:25 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 18:30:25 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 18:30:25 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 18:30:25 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 18:30:25 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:30:25 Asia/Shanghai] PHP   7. LoginCtl->checkLogin() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:30:30 Asia/Shanghai] PHP Notice:  Undefined index: user_avatar in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 56
+[14-Nov-2016 18:30:30 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 18:30:30 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 18:30:30 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 18:30:30 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 18:30:30 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 18:30:30 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 18:30:30 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:30:30 Asia/Shanghai] PHP   7. IndexCtl->img() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:34:06 Asia/Shanghai] PHP Notice:  Undefined index: user_avatar in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 56
+[14-Nov-2016 18:34:06 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 18:34:06 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 18:34:06 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 18:34:06 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 18:34:06 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 18:34:06 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 18:34:06 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:34:06 Asia/Shanghai] PHP   7. IndexCtl->img() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:34:09 Asia/Shanghai] PHP Notice:  Undefined index: user_avatar in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 56
+[14-Nov-2016 18:34:09 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 18:34:09 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 18:34:09 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 18:34:09 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 18:34:09 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 18:34:09 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 18:34:09 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:34:09 Asia/Shanghai] PHP   7. IndexCtl->img() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:34:14 Asia/Shanghai] PHP Notice:  Undefined index: user_avatar in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 56
+[14-Nov-2016 18:34:14 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 18:34:14 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 18:34:14 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 18:34:14 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 18:34:14 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 18:34:14 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 18:34:14 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:34:14 Asia/Shanghai] PHP   7. IndexCtl->img() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:34:32 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 18:34:32 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 18:34:32 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 18:34:32 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 18:34:32 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 18:34:32 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 18:34:32 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 18:34:32 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 18:34:32 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 22:33:19 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 22:33:19 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 22:33:19 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 22:33:19 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 22:33:19 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 22:33:19 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 22:33:19 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 22:33:19 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 22:33:19 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:18:18 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 23:18:18 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 23:18:18 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 23:18:18 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 23:18:18 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 23:18:18 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 23:18:18 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 23:18:18 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:18:18 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:20:55 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 23:20:55 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 23:20:55 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 23:20:55 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 23:20:55 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 23:20:55 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 23:20:55 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 23:20:55 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:20:55 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:23:19 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 23:23:19 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 23:23:19 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 23:23:19 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 23:23:19 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 23:23:19 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 23:23:19 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 23:23:19 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:23:19 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:25:12 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 23:25:12 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 23:25:12 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 23:25:12 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 23:25:12 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 23:25:12 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 23:25:12 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 23:25:12 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:25:12 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:27:27 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 23:27:27 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 23:27:27 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 23:27:27 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 23:27:27 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 23:27:27 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 23:27:27 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 23:27:27 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:27:27 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:33:46 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[14-Nov-2016 23:33:46 Asia/Shanghai] PHP Stack trace:
+[14-Nov-2016 23:33:46 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[14-Nov-2016 23:33:46 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[14-Nov-2016 23:33:46 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[14-Nov-2016 23:33:46 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[14-Nov-2016 23:33:46 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[14-Nov-2016 23:33:46 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[14-Nov-2016 23:33:46 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 21:13:27 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[15-Nov-2016 21:13:27 Asia/Shanghai] PHP Stack trace:
+[15-Nov-2016 21:13:27 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[15-Nov-2016 21:13:27 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[15-Nov-2016 21:13:27 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[15-Nov-2016 21:13:27 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[15-Nov-2016 21:13:27 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[15-Nov-2016 21:13:27 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 21:13:27 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 21:17:04 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[15-Nov-2016 21:17:04 Asia/Shanghai] PHP Stack trace:
+[15-Nov-2016 21:17:04 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[15-Nov-2016 21:17:04 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[15-Nov-2016 21:17:04 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[15-Nov-2016 21:17:04 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[15-Nov-2016 21:17:04 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[15-Nov-2016 21:17:04 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 21:17:04 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 21:25:26 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[15-Nov-2016 21:25:26 Asia/Shanghai] PHP Stack trace:
+[15-Nov-2016 21:25:26 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[15-Nov-2016 21:25:26 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[15-Nov-2016 21:25:26 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[15-Nov-2016 21:25:26 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[15-Nov-2016 21:25:26 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[15-Nov-2016 21:25:26 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 21:25:26 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 21:25:31 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[15-Nov-2016 21:25:31 Asia/Shanghai] PHP Stack trace:
+[15-Nov-2016 21:25:31 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[15-Nov-2016 21:25:31 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[15-Nov-2016 21:25:31 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[15-Nov-2016 21:25:31 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[15-Nov-2016 21:25:31 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[15-Nov-2016 21:25:31 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 21:25:31 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 22:54:41 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[15-Nov-2016 22:54:41 Asia/Shanghai] PHP Stack trace:
+[15-Nov-2016 22:54:41 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[15-Nov-2016 22:54:41 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[15-Nov-2016 22:54:41 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[15-Nov-2016 22:54:41 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[15-Nov-2016 22:54:41 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[15-Nov-2016 22:54:41 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 22:54:41 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 22:58:00 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[15-Nov-2016 22:58:00 Asia/Shanghai] PHP Stack trace:
+[15-Nov-2016 22:58:00 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[15-Nov-2016 22:58:00 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[15-Nov-2016 22:58:00 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[15-Nov-2016 22:58:00 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[15-Nov-2016 22:58:00 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[15-Nov-2016 22:58:00 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 22:58:00 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 23:52:05 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[15-Nov-2016 23:52:05 Asia/Shanghai] PHP Stack trace:
+[15-Nov-2016 23:52:05 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[15-Nov-2016 23:52:05 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[15-Nov-2016 23:52:05 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[15-Nov-2016 23:52:05 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[15-Nov-2016 23:52:05 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[15-Nov-2016 23:52:05 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[15-Nov-2016 23:52:05 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 10:05:33 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 10:05:33 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 10:05:33 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 10:05:33 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 10:05:33 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 10:05:33 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 10:05:33 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 10:05:33 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 10:05:33 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP Notice:  Undefined index: user_avatar in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 966
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 14:34:37 Asia/Shanghai] PHP   7. LoginCtl->checkLogin() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 14:34:38 Asia/Shanghai] PHP Notice:  Undefined index: user_avatar in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\IndexCtl.php on line 56
+[16-Nov-2016 14:34:38 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 14:34:38 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 14:34:38 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 14:34:38 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 14:34:38 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 14:34:38 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 14:34:38 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 14:34:38 Asia/Shanghai] PHP   7. IndexCtl->img() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 14:35:40 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 14:35:40 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 14:35:40 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 14:35:40 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 14:35:40 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 14:35:40 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 14:35:40 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 14:35:40 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 14:35:40 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 14:54:14 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 14:54:14 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 14:54:14 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 14:54:14 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 14:54:14 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 14:54:14 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 14:54:14 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 14:54:14 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 14:54:14 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 15:21:27 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 15:21:27 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 15:21:27 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 15:21:27 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 15:21:27 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 15:21:27 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 15:21:27 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 15:21:27 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 15:21:27 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:30:46 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 19:30:46 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 19:30:46 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 19:30:46 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 19:30:46 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 19:30:46 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 19:30:46 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 19:30:46 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:30:46 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:30:52 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 19:30:52 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 19:30:52 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 19:30:52 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 19:30:52 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 19:30:52 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 19:30:52 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 19:30:52 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:30:52 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:30:57 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 19:30:57 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 19:30:57 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 19:30:57 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 19:30:57 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 19:30:57 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 19:30:57 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 19:30:57 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:30:57 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:31:09 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 19:31:09 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 19:31:09 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 19:31:09 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 19:31:09 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 19:31:09 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 19:31:09 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 19:31:09 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:31:09 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:31:20 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 19:31:20 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 19:31:20 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 19:31:20 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 19:31:20 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 19:31:20 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 19:31:20 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 19:31:20 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:31:20 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:32:11 Asia/Shanghai] PHP Notice:  Undefined variable: user_info_row in D:\phpStudy\WWW\bbc_lj\ucenter\ucenter\controllers\LoginCtl.php on line 796
+[16-Nov-2016 19:32:11 Asia/Shanghai] PHP Stack trace:
+[16-Nov-2016 19:32:11 Asia/Shanghai] PHP   1. {main}() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:0
+[16-Nov-2016 19:32:11 Asia/Shanghai] PHP   2. Yf_App::start() D:\phpStudy\WWW\bbc_lj\ucenter\index.php:188
+[16-Nov-2016 19:32:11 Asia/Shanghai] PHP   3. Yf_Router->service() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\App.php:106
+[16-Nov-2016 19:32:11 Asia/Shanghai] PHP   4. Yf_Router->getData() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:101
+[16-Nov-2016 19:32:11 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
+[16-Nov-2016 19:32:11 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[16-Nov-2016 19:32:11 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
