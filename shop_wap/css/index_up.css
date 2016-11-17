@@ -418,7 +418,7 @@ body{
         	color: #FF7E18 !important;
         }
         footer{
-
+            position: fixed;
         	background: white;
         	margin-top: 0;
         }
@@ -448,4 +448,5 @@ body{
         	height: 2rem;
         	line-height: 2rem;
         	color: #999;
+            margin-bottom: 2.5rem;
         }
