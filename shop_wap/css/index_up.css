@@ -97,7 +97,7 @@ body{
 		}
 		.nctouch-home-top{
 			width:100%;
-			position: fixed;
+			position: absolute;
 			top:0;
 		    display: block;
 		    min-height: 2.2rem;
