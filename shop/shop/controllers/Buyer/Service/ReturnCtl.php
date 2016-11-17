@@ -236,8 +236,13 @@ class Buyer_Service_ReturnCtl extends Buyer_Controller
 			{
 				return -3;
 			}
-			$data['goods'][0]['goods_price'] = floor($data['goods'][0]['goods_price'] * (($data['order']['order_payment_amount'] - $data['order']['order_shipping_fee'] - $cash) / $price) * 100) / 100;
-			$data['return_cash']             = floor($data['goods'][0]['goods_price'] * $data['goods'][0]['order_goods_num'] * 100) / 100;
+			//$data['goods'][0]['goods_price'] = floor($data['goods'][0]['goods_price'] * (($data['order']['order_payment_amount'] - $data['order']['order_shipping_fee'] - $cash) / $price) * 100) / 100;
+
+			$goods_return_price = $data['goods'][0]['goods_price'] - $data['order']['order_refund_amount']*($data['goods'][0]['goods_price']/($data['order']['order_payment_amount']-$data['order']['order_shipping_fee']));
+
+			$data['goods'][0]['goods_price'] = $goods_return_price;
+
+			$data['return_cash']   = floor($goods_return_price * $data['goods'][0]['order_goods_num'] * 100) / 100;
 			if ($data['nums'] == $data['goods'][0]['order_goods_num'])
 			{
 				$data['return_cash'] = $data['cash_limit'];
@@ -257,26 +262,26 @@ class Buyer_Service_ReturnCtl extends Buyer_Controller
 	public function addReturn()
 	{
 		$Order_StateModel = new Order_StateModel();
-		$order_id         = request_string("order_id");
-		$goods_id         = request_int("goods_id");
+		$order_id         = request_string("order_id");      //退款订单号
+		$goods_id         = request_int("goods_id");         //退货订单商品id
 		$flag2            = true;
 		$Number_SeqModel  = new Number_SeqModel();
 		$prefix           = sprintf('%s-%s-', Yf_Registry::get('shop_app_id'), date('Ymd'));
 		$return_number    = $Number_SeqModel->createSeq($prefix);
 		$return_id        = sprintf('%s-%s-%s-%s', 'TD', Perm::$userId, 0, $return_number);
 
-		$field['return_cash']      = request_float("return_cash");
-		$field['return_message']   = request_string("return_message");
-		$field['return_code']      = $return_id;
-		$field['return_reason_id'] = request_int("return_reason_id");
+		$field['return_cash']      = request_float("return_cash");         //申请退货/退款金额
+		$field['return_message']   = request_string("return_message");    //退货说明
+		$field['return_code']      = $return_id;                             //退货单号
+		$field['return_reason_id'] = request_int("return_reason_id");     //退货原因id
 		$reason                    = $this->orderReturnReasonModel->getOne($field['return_reason_id']);
-		$field['return_reason']    = $reason['order_return_reason_content'];
+		$field['return_reason']    = $reason['order_return_reason_content'];   //退货原因
 		if ($order_id)
 		{
 			$field['order_number'] = $order_id;
 			$order                 = $this->orderBaseModel->getOne($order_id);
 
-			if ($order['order_status'] >= Order_StateModel::ORDER_PAYED)
+			if ($order['order_status'] >= Order_StateModel::ORDER_PAYED)     //订单是否已经付款
 			{
 				if ($order['order_is_virtual'])
 				{
@@ -284,14 +289,14 @@ class Buyer_Service_ReturnCtl extends Buyer_Controller
 				}
 				else
 				{
-					$field['return_type'] = Order_ReturnModel::RETURN_TYPE_ORDER;
+					$field['return_type'] = Order_ReturnModel::RETURN_TYPE_ORDER;   //退款
 				}
 			}
 			else
 			{
 				$flag2 = false;
 			}
-			$field['return_goods_return'] = 0;
+			$field['return_goods_return'] = 0;      //是否需要退货  0-不需要  1-需要
 			$data['text']                 = _("退货");
 			$return                       = $this->orderReturnModel->getByWhere(array(
 																					'order_number' => $order_id,
@@ -300,55 +305,65 @@ class Buyer_Service_ReturnCtl extends Buyer_Controller
 																				));
 		}
 
+		//退货
 		if ($goods_id)
 		{
-			$nums     = request_int("nums");
-			$goods    = $this->orderGoodsModel->getOne($goods_id);
-			$order    = $this->orderBaseModel->getOne($goods['order_id']);
-			$order_id = $goods['order_id'];
-			if ($order['order_status'] >= Order_StateModel::ORDER_WAIT_CONFIRM_GOODS)
+			$nums     = request_int("nums");			//退货数量
+			$goods    = $this->orderGoodsModel->getOne($goods_id);     //退货商品id，订单商品表order_goods_id
+			$order    = $this->orderBaseModel->getOne($goods['order_id']);   //退货商品所属订单信息
+			$order_id = $goods['order_id'];              //退货商品所属订单号
+			if ($order['order_status'] >= Order_StateModel::ORDER_WAIT_CONFIRM_GOODS)   //订单商品已经发货
 			{
-				$field['order_number']      = $goods['order_id'];
-				$field['order_goods_id']    = $goods_id;
-				$field['order_goods_name']  = $goods['goods_name'];
-				$field['order_goods_price'] = $goods['goods_price'];
-				$field['order_goods_num']   = $nums;
-				$field['order_goods_pic']   = $goods['goods_image'];
-				$field['return_type']       = Order_ReturnModel::RETURN_TYPE_GOODS;
+				$field['order_number']      = $goods['order_id'];            //订单号
+				$field['order_goods_id']    = $goods_id;                      //订单商品id
+				$field['order_goods_name']  = $goods['goods_name'];         //退货商品名称
+				$field['order_goods_price'] = $goods['goods_price'];        //商品单价
+				$field['order_goods_num']   = $nums;                          //退货数量
+				$field['order_goods_pic']   = $goods['goods_image'];        //商品图片
+				$field['return_type']       = Order_ReturnModel::RETURN_TYPE_GOODS;   //退货类型 - 退货
 			}
 			else
 			{
 				$flag2 = false;
 			}
-			if ($order['order_status'] < Order_StateModel::ORDER_WAIT_CONFIRM_GOODS)
+			if ($order['order_status'] < Order_StateModel::ORDER_WAIT_CONFIRM_GOODS)   //商品未发货
 			{
-				$field['return_goods_return'] = 0;
+				$field['return_goods_return'] = 0;     //是否需要退货，商品未发货的情况下，不需要退货
 			}
 			else
 			{
-				$field['return_goods_return'] = 1;
+				$field['return_goods_return'] = 1;    //需要退货
 			}
 			$data['text'] = _("退款");
+			//查询是否存在该订单商品的退货申请信息，且该申请未被卖家拒绝，以此判断是否重新提交退货申请
+			//只有以前没有提交过该商品的退货申请，且未被卖家拒绝的情况下，才可以提交退货申请
 			$return       = $this->orderReturnModel->getByWhere(array(
 																	'order_goods_id' => $goods_id,
 																	'return_state:!=' => Order_ReturnModel::RETURN_SELLER_UNPASS
 																));
 		}
-		$field['order_amount']        = $order['order_payment_amount'];
-		$field['seller_user_id']      = $order['shop_id'];
-		$field['seller_user_account'] = $order['shop_name'];
-		$field['buyer_user_id']       = $order['buyer_user_id'];
-		$field['buyer_user_account']  = $order['buyer_user_name'];
-		$field['return_add_time']     = get_date_time();
-		$field['order_is_virtual']    = $order['order_is_virtual'];
+		$field['order_amount']        = $order['order_payment_amount'];     //订单实际支付金额
+		$field['seller_user_id']      = $order['shop_id'];               //店铺id
+		$field['seller_user_account'] = $order['shop_name'];            //店铺名称
+		$field['buyer_user_id']       = $order['buyer_user_id'];        //买家id
+		$field['buyer_user_account']  = $order['buyer_user_name'];     //买家名称
+		$field['return_add_time']     = get_date_time();                 //退款、退货申请提交时间
+		$field['order_is_virtual']    = $order['order_is_virtual'];     //该笔订单是否为虚拟订单
 
 
+		//同笔订单已经提交的退货/退款申请
+		//查找这笔订单中申请过的退款或者退货
 		$return_limit = $this->orderReturnModel->getByWhere(array(
 																'order_number' => $order_id,
 																'return_state:!=' => Order_ReturnModel::RETURN_SELLER_UNPASS
 															));
+
+		//查找该笔订单中的退货
 		$goods_ids    = array_column($return_limit, "order_goods_id");
-		$return_goods = array();
+		$return_goods = array();     //同比订单中尚未申请退货/退款的商品
+
+		//如果有已经退货的订单则，查找该笔订单中还没有退货的订单商品
+		//否则查找该笔订单所有的订单商品
 		if ($goods_ids)
 		{
 			$return_goods = $this->orderGoodsModel->getByWhere(array(
@@ -362,76 +377,111 @@ class Buyer_Service_ReturnCtl extends Buyer_Controller
 		}
 		$price = 0;
 
-		$price = array_sum(array_column($return_goods, 'order_goods_amount'));
+		//计算该笔订单可退金额
+		//$price = array_sum(array_column($return_goods, 'order_goods_amount'));    //该笔订单最多可以申请的退货，退款金额
+		$price = $order['order_payment_amount'] - $order['order_refund_amount'];  //订单实际支付金额 - 订单退款金额
 
 		$cash            = 0;
 		$nums2           = 0;
 		$commission_cash = 0;
 
-		$cash            = array_sum(array_column($return_limit, 'return_cash'));
-		$nums2           = array_sum(array_column($return_limit, 'order_goods_num'));
-		$commission_cash = array_sum(array_column($return_limit, 'return_commision_fee'));
+		$cash  = $order['order_refund_amount'];
+		//$cash            = array_sum(array_column($return_limit, 'return_cash'));         //同笔订单已经退款的总金额
+		$nums2           = array_sum(array_column($return_limit, 'order_goods_num'));     //同笔订单已经申请的退货数量
+		$commission_cash = $order['order_commission_return_fee'];
+		//$commission_cash = array_sum(array_column($return_limit, 'return_commision_fee'));    //同笔订单已经申请退还的佣金总额
 
 		$goods_nums = $this->orderGoodsModel->getByWhere(array("order_id" => $order['order_id']));
 		$nums4      = 0;
 
-		$nums4 = array_sum(array_column($goods_nums, 'order_goods_num'));
+		$nums4 = array_sum(array_column($goods_nums, 'order_goods_num'));         //该笔订单中的商品总数
 
-		$nums3       = $nums4 - $nums2;
-		$cash_limit  = $order['order_payment_amount'] - $cash - $order['order_shipping_fee'];
+		$nums3       = $nums4 - $nums2;                                           //剩余可申请退货的商品总数
+		$cash_limit  = $order['order_payment_amount'] - $cash - $order['order_shipping_fee'];   //最多可允许申请退款的总金额
 		$return_flag = true;
+
+		//如果存在商品id，即为退货
 		if ($goods_id)
 		{
-			if ($price == 0)
+			/*
+			                                       商品金额
+			商品实际退款 = 商品金额 - 已退款 X   ---------------
+			                                      订单总额-运费
+
+
+		                     商品实际退款
+			退还佣金   = ( ---------------- X 订单商品佣金 ) / 商品数量
+				  			  商品价格
+							  */
+			if ($price == 0)    //金额已经全部退完
 			{
 				return 0;
 			}
-			$goods['goods_price'] = floor($goods['goods_price'] * (($order['order_payment_amount'] - $order['order_shipping_fee'] - $cash) / $price) * 100) / 100;
-			$return_cash          = floor($nums * $goods['goods_price'] * 100) / 100;
-			if ($return_cash != $field['return_cash'])
+			//$goods['goods_price'] = floor($goods['goods_price'] * (($order['order_payment_amount'] - $order['order_shipping_fee'] - $cash) / $price) * 100) / 100;
+
+			//$goods_return_price= floor($goods['goods_price'] - $cash*($goods['goods_price']/($order['order_payment_amount']-$order['order_shipping_fee'])));
+
+			//$return_cash          = floor($nums * $goods_return_price * 100) / 100;
+
+
+			$goods_return_price = $goods['goods_price'] - $cash*($goods['goods_price']/($order['order_payment_amount']-$order['order_shipping_fee']));
+
+
+			$return_cash   = floor($nums * $goods_return_price * 100) / 100;
+
+
+
+
+
+			fb($return_cash);
+			fb("+++++++");
+			if ($return_cash != $field['return_cash'])  //如果计算出的商品退货价格和传递的退款数目不一致，则退款失败
 			{
 				$return_flag = false;
 			}
 			$e = 0.00001;
+			//如果买家申请的退货数量与最多可以申请的退货数量相同，并且退款金额=最多可申请退款金额
 			if (($nums3 == $nums) && (abs($cash_limit == $field['return_cash']) < $e))
 			{
 				$return_flag = true;
 			}
 			if ($order['order_commission_fee'] && $goods['order_goods_commission'])
 			{
-				/*echo $field['return_cash'] . '---' ;//47.88
-				echo $price .'----';//58
-				echo $order['order_commission_fee'] .'---';//0.00
-				echo $commission_cash.'-----';//0
-				echo $order['order_commission_fee'].'-----';//0.00
-				echo $goods['order_goods_commission'].'----';//0.00*/
-				fb($field['return_cash']);
-				fb($price);
-				fb($order['order_commission_fee']);
-				fb($commission_cash);
 
+				$field['return_commision_fee'] = ($goods_return_price/$goods['goods_price'])*($nums/$goods['order_goods_num'])*$nums;
 
-				if($order['order_commission_fee'] > 0 )
+				/*if($order['order_commission_fee'] > 0 )
 				{
 					$field['return_commision_fee'] = floor(($field['return_cash'] / $price) * (($order['order_commission_fee'] - $commission_cash) / $order['order_commission_fee']) * $goods['order_goods_commission'] * 100) / 100;
 				}
 				else
 				{
 					$field['return_commision_fee'] = floor(($field['return_cash'] / $price) * (($order['order_commission_fee'] - $commission_cash) / 1) * $goods['order_goods_commission'] * 100) / 100;
-				}
+				}*/
 
 				fb($field['return_commision_fee']);
 
+				fb("11111223333++++++++++");
+
 			}
 		}
-		else
+		else  //如果不存在商品id,即为退款
 		{
+			/*
+			                 退款金额
+			 退还佣金  =  ———————----- X 订单总佣金
+			                订单总金额-运费
+			*/
 			if ($order['order_commission_fee'])
 			{
-				$field['return_commision_fee'] = floor(($field['return_cash'] / $order['order_payment_amount']) * $order['order_commission_fee'] * 100) / 100;
+				$field['return_commision_fee'] = floor(($field['return_cash'] / ($order['order_payment_amount'] - $order['order_fee'])) * $order['order_commission_fee'] *100) / 100;
 			}
 		}
 
+		fb($return);
+		fb($cash_limit);
+		fb($field['return_cash']);
+		fb($return_flag);
 		if (empty($return) && (bccomp($cash_limit,$field['return_cash'] < 0)) && ($field['return_cash'] > 0) && $return_flag)
 		{
 			if ($order['buyer_user_id'] == Perm::$userId && $flag2)

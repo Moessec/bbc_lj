@@ -186,7 +186,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 			fb($formvars);
 
-			$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=confirmOrder&typ=json', $url), $formvars);
+			$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=confirmOrder&typ=json', $url), $formvars);
 
 
 			/*
@@ -589,6 +589,18 @@ class Buyer_OrderCtl extends Buyer_Controller
 		$voucher_id        = request_row('voucher_id');
 		$pay_way_id		   = request_int('pay_way_id');
 		$invoice_id		   = request_int('invoice_id');
+		$address_id        = request_int('address_id');
+
+		//判断支付方式为在线支付还是货到付款,如果是货到付款则订单状态直接为待发货状态，如果是在线支付则订单状态为待付款
+		if($pay_way_id == PaymentChannlModel::PAY_ONLINE)
+		{
+			$order_status = Order_StateModel::ORDER_WAIT_PAY;
+		}
+
+		if($pay_way_id == PaymentChannlModel::PAY_CONFIRM)
+		{
+			$order_status = Order_StateModel::ORDER_WAIT_PREPARE_GOODS;
+		}
 
 
 		$shop_remark = array_combine($shop_id, $remark);
@@ -687,8 +699,25 @@ class Buyer_OrderCtl extends Buyer_Controller
 		fb($data);
 		fb("购物车中的商品信息");
 
+
+		if(!$data['count'])
+		{
+           $flag = false;
+		}
+
+
+		//查找收货地址
+		$User_AddressModel = new User_AddressModel();
+		$city_id = 0;
+		if($address_id)
+		{
+			$user_address = $User_AddressModel->getOne($address_id);
+
+			$city_id = $user_address['user_address_city_id'];
+		}
+
 		$Transport_TypeModel = new Transport_TypeModel();
-		$transport_cost      = $Transport_TypeModel->countTransportCost($receiver_address, $cart_id);
+		$transport_cost      = $Transport_TypeModel->countTransportCost($city_id, $cart_id);
 
 		unset($data['count']);
 
@@ -788,7 +817,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$order_row['order_point_fee']        = 0;    //买家使用积分
 			$order_row['order_shipping_fee']     = $transport_cost[$key]['cost'];
 			$order_row['order_message']          = $shop_remark[$key];
-			$order_row['order_status']           = Order_StateModel::ORDER_WAIT_PAY;
+			$order_row['order_status']           = $order_status;
 			$order_row['order_points_add']       = 0;    //订单赠送的积分
 			$order_row['voucher_id']             = $voucher_id;    //代金券id
 			$order_row['voucher_price']          = $voucher_price;    //代金券面额
@@ -1047,7 +1076,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$formvars['trade_create_time']    = $order_row['order_create_time'];
 			$formvars['trade_title']			= $trade_title;		//商品名称 - 标题
 			fb($formvars);
-			$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
+			$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
 
 			fb("合并支付返回的结果");
 			//将合并支付单号插入数据库
@@ -1088,7 +1117,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 		fb($formvars);
 
-		$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=addUnionOrder&typ=json', $url), $formvars);
+		$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=addUnionOrder&typ=json', $url), $formvars);
 		fb($rs);
 
 		if ($rs['status'] == 200)
@@ -1129,7 +1158,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 				$formvars['uorder']    = $uorder;
 				$formvars['app_id']        = $shop_app_id;
 
-				$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=delUnionOrder&typ=json', $url), $formvars);
+				$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=delUnionOrder&typ=json', $url), $formvars);
 			}
 
 			$data = array();
@@ -1152,7 +1181,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 		$formvars = array();
 		$formvars['app_id'] = $shop_app_id;
 		$formvars['order_id'] = $order_id;
-		$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=getOrderInfo&typ=json', $url), $formvars);
+		$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=getOrderInfo&typ=json', $url), $formvars);
 		fb($rs);
 
 		$Order_BaseModel = new Order_BaseModel();
@@ -1199,7 +1228,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 				$formvars['trade_create_time']    = $order_row['order_create_time'];
 				$formvars['trade_title']			= $goods['goods_name'];		//商品名称 - 标题
 
-				$rss = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
+				$rss = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
 
 				if($rss['status'] == 200)
 				{
@@ -1252,7 +1281,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 		fb($formvars);
 
-		$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=addTest&typ=json', $url), $formvars);
+		$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=addTest&typ=json', $url), $formvars);
 		fb($rs);
 
 		if($rs['status'] == 200)
@@ -1674,7 +1703,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$formvars['trade_create_time']    = $order_row['order_create_time'];
 			$formvars['trade_title']			= $trade_title;		//商品名称 - 标题
 
-			$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
+			$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
 
 			fb($rs);
 
@@ -1698,7 +1727,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 				fb($formvars);
 
-				$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=addUnionOrder&typ=json', $url), $formvars);
+				$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=addUnionOrder&typ=json', $url), $formvars);
 
 				fb($rs);
 
@@ -2061,7 +2090,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 			fb($formvars);
 
-			$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=cancelOrder&typ=json', $url), $formvars);
+			$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=cancelOrder&typ=json', $url), $formvars);
 
 
 

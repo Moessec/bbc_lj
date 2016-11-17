@@ -191,6 +191,12 @@ class Buyer_CartCtl extends Controller
 		$data['user_rate'] = $user_rate;
 
 		$cart_id = request_row('product_id');
+		if(!is_array($cart_id))
+		{
+			$product_id = request_string('product_id');
+			$cart_id = explode(',',$product_id);
+		}
+		
 
 		$cord_row  = array();
 		$order_row = array();
@@ -259,6 +265,11 @@ class Buyer_CartCtl extends Controller
 		
 		fb($data);
 		fb("购物车列表confirm");
+		if(!$data['glist']['count'])
+		{
+			$this->view->setMet('error');
+		}
+
 		if ( $this->typ == 'json' )
 		{
 			$this->data->addBody(-140, $data);
