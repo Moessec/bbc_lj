@@ -1,5 +1,6 @@
 <?php
 include_once("global.php");
+ini_set('display_errors','off');
 session_start();
 //===============================
 class ValidationCode
