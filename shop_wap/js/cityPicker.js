@@ -15,8 +15,10 @@
  * cityPicker.init();
  */
 ;var IIInsomniaCityPicker = function(options){
-    this.template = $('<div class="IIInsomnia-city-picker" id="IIInsomnia_city_picker"><div class="IIInsomnia-wrap"><a href="index.html"><img src="images/left-row.png" alt="" /></a><b>选择城市</b><ul class="IIInsomnia-province-wrap" id="IIInsomnia_province_wrap"></ul></div></div><div id="citys" class="IIInsomnia-city-wrap"></div>');
-    this.hot_city = $('#IIInsomnia_hot_city', '');
+    // this.template = $('<div class="IIInsomnia-city-picker" id="IIInsomnia_city_picker"><div class="IIInsomnia-hot-wrap"><ul id="IIInsomnia_hot_city"></ul></div><div class="line"></div><div class="IIInsomnia-wrap"><p>选择省份</p><ul class="IIInsomnia-province-wrap" id="IIInsomnia_province_wrap"></ul></div></div>');
+   
+    this.template = $('<div class="IIInsomnia-city-picker" id="IIInsomnia_city_picker"><div class="IIInsomnia-hot-wrap"><ul id="IIInsomnia_hot_city"></ul></div><div class="IIInsomnia-wrap"><a href="index.html"><img src="images/left-row.png" alt="" /></a><b>选择城市</b><ul class="IIInsomnia-province-wrap" id="IIInsomnia_province_wrap"></ul></div></div><div id="citys" class="IIInsomnia-city-wrap"></div>');
+    this.hot_city = $('#IIInsomnia_hot_city', this.template);
     this.province_wrap = $('#IIInsomnia_province_wrap', this.template);
     this.settings = {
         "data": options.data,
@@ -33,12 +35,12 @@ IIInsomniaCityPicker.prototype = {
     init: function(){
         var that = this;
 
-        $("window").load(function(event) {
+        $(window).click(function(event) {
             /* Act on the event */
             that.template.remove();
         });
 
-        // that.settings.target.attr('readonly', true);
+        that.settings.target.attr('readonly', true);
 
         that.targetEvent();
     },
@@ -75,7 +77,7 @@ IIInsomniaCityPicker.prototype = {
             province_html += '<li class="IIInsomnia-province" data-id="' + province[i]['id'] + '" data-name="' + province[i]['name'] + '"><ul class="IIInsomnia-city-wrap"></ul><div class="IIInsomnia-province-name">' + province[i]['name'] + '</div></li>';
         }
 
-        province_html += '<li class="IIInsomnia-clean"><input type="button" class="IIInsomnia-clean-btn" id="IIInsomnia_clean_btn" value="清 空"></li>'
+        // province_html += '<li class="IIInsomnia-clean"><input type="button" class="IIInsomnia-clean-btn" id="IIInsomnia_clean_btn" value="清 空"></li>';
 
         that.province_wrap.html(province_html);
     },
@@ -98,7 +100,11 @@ IIInsomniaCityPicker.prototype = {
         for(var j = 0, clen = city.length; j < clen; j++){
             city_html += '<li class="IIInsomnia-city" data-id="' + city[j]['id'] + '" data-name="' + city[j]['name'] + '" title="' + city[j]['name'] + '">' + city[j]['name'] + '</li>';
         }
-
+        if($(".IIInsomnia-province-name").hasClass('active'))
+        {
+            $('.IIInsomnia-hot-wrap').css('display','none');
+            // alert(1);
+        }
         cur_province.find('.IIInsomnia-city-wrap').html(city_html).css('left', '-' + (poi.left - 37) + 'px').show();
         // $("#citys").html(city_html).css('left', '-' + (poi.left - 37) + 'px').show();
         // cur_province.find('.IIInsomnia-city-wrap').css('top','-' + 60 + 'px')
@@ -125,7 +131,7 @@ IIInsomniaCityPicker.prototype = {
                 that.province_wrap.find('.IIInsomnia-province').removeClass('active');
                 that.province_wrap.find('.IIInsomnia-province-name').removeClass('active');
                 that.province_wrap.find('.IIInsomnia-city-wrap').hide().children().remove();
-                
+
                 _this.addClass('active');
                 _this.find('.IIInsomnia-province-name').addClass('active');
 
@@ -255,8 +261,6 @@ IIInsomniaCityPicker.prototype = {
 
             var offset = _this.offset();
             var top = offset.top + _this.outerHeight() + 15;
-            // var top = offset.top + _this.outerHeight() + 15;
-            // 
 
             that.template.css({
                 'left': offset.left,
