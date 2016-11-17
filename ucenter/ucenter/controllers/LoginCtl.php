@@ -12,7 +12,7 @@ class LoginCtl extends Yf_AppController
 		include $this->view->getView();
 	}
 	public function index()
-	{
+	{	echo 233;exit;
 		//如果已经登录,则直接跳转
 		if (Perm::checkUserPerm())
 		{
