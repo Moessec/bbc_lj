@@ -225,8 +225,9 @@ window.onload = function() {
 			</ul>
 		</div>
 	</div>
+</div>
 
-	<div class="activity-end">活动已经加载完毕</div>
+<div class="activity-end">活动已经加载完毕</div>
 	<footer class="clearfix">
 	<div class="footer-nav clearfix">
 		<ul class="clearfix">
@@ -238,7 +239,6 @@ window.onload = function() {
 		<ul>
 	</div>
 	</footer>
-</div>
 
 
 <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
@@ -251,15 +251,15 @@ window.onload = function() {
 <script type="text/javascript" src="js/auto_position.js"></script>
 <script type="text/javascript">
 	$(function(){
-		var width = $('.product-recommend').find('img').width();
-		    $('.product-recommend').find('img').height(width);
+		var width = $('.product-recommend').find('li').width();
+		    $('.product-recommend').find('li').height(width);
 
-		var width2 = $('.product-list').find('img').width();
-		    $('.product-list').children('product-list-info').find('img').height(width2);
+		var width2 = $('.product-list').find('li').width();
+		    $('.product-list').children('product-list-info').find('li').height(width2);
 
 
-		    var width3 = $('.footer-nav').find('img').width();
-		    $('.footer-nav').find('img').height(width3);   
+		    var width3 = $('.footer-nav').find('li').width();
+		    $('.footer-nav').find('li').height(width3);   
 	})
 
 	addToHomescreen({
