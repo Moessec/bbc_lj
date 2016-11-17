@@ -251,15 +251,21 @@ class Goods_GoodsCtl extends Controller
 
 		//判断是否有属性
 		$property_value_row       = array();
-		$cond_row['common_state'] = $Goods_CommonModel::GOODS_STATE_NORMAL;
+		$cond_row['common_state'] = Goods_CommonModel::GOODS_STATE_NORMAL;
+		$cond_row['common_verify'] = Goods_CommonModel::GOODS_VERIFY_ALLOW;
 		$data                     = $Goods_CommonModel->getGoodsList($cond_row, $order_row, $page, $rows, $property_value_row);
 		fb($data);
+		fb("列表！！！！");
 		$data['transport_area'] = $transport_area;
 
 		$Yf_Page->totalRows = $data['totalsize'];
 		$page_nav           = $Yf_Page->prompt();
 		//推广产品
+		$recommend_cond_row['common_state'] = Goods_CommonModel::GOODS_STATE_NORMAL;
+		$recommend_cond_row['common_verify'] = Goods_CommonModel::GOODS_VERIFY_ALLOW;
+
 		$recommend_order_row['common_is_recommend'] = 'DESC';
+
 		//$recommend_list_row = $Goods_CommonModel->getGoodsIdList($cond_row,$recommend_order_row);
 		//$recommend_row = array_slice($recommend_list_row['items'],0,4);
 
@@ -279,8 +285,11 @@ class Goods_GoodsCtl extends Controller
 		$hot_sale                        = $hot_sale['items'];
 		if (!$hot_sale)
 		{
+			$hot_cond_row['common_state'] = Goods_CommonModel::GOODS_STATE_NORMAL;
+			$hot_cond_row['common_verify'] = Goods_CommonModel::GOODS_VERIFY_ALLOW;
+
 			$hot_order_row['common_salenum'] = 'DESC';
-			$hot_sale                        = $Goods_CommonModel->getGoodsList(array(), $hot_order_row, 1, 3);
+			$hot_sale                        = $Goods_CommonModel->getGoodsList($hot_cond_row, $hot_order_row, 1, 3);
 			$hot_sale                        = $hot_sale['items'];
 		}
 
@@ -303,14 +312,15 @@ class Goods_GoodsCtl extends Controller
 		if (!$recommend_row)
 		{
 			$recommond_order_row['goods_recommend_id'] = 'DESC';
-			$recommend_row                             = $Goods_RecommendModel->getRccommonGoodsInfo(array(), $recommond_order_row);
+			$recommend_row                             = $Goods_RecommendModel->getRccommonGoodsInfo($recommend_cond_row, $recommond_order_row);
 		}
 		//如果商城没有设定推广商品，则将最新发布的四件商品作为推广商品显示
 		if (!$recommend_row)
 		{
 			$recommend_order_row['common_is_recommend'] = 'DESC';
 			$recommend_order_row['common_id']           = 'DESC';
-			$recommend_row                              = $Goods_CommonModel->getGoodsList(array(), $recommend_order_row, 1, 4);
+
+			$recommend_row                              = $Goods_CommonModel->getGoodsList($recommend_cond_row, $recommend_order_row, 1, 4);
 			$recommend_row                              = $recommend_row['items'];
 		}
 		fb($recommend_row);
@@ -479,8 +489,51 @@ class Goods_GoodsCtl extends Controller
 	 *
 	 * @access public
 	 */
+	public function goodDetail()
+	{
+		$goods_id = request_int('goods_id');
+
+		$Goods_BaseModel = new Goods_BaseModel();
+		$goods_base = $Goods_BaseModel->getGoodsInfo($goods_id);
+		
+		//计算商品价格
+		if (isset($goods_base['goods_base']['promotion_price']) && !empty($goods_base['goods_base']['promotion_price']) && $goods_base['goods_base']['promotion_price'] < $goods_base['goods_base']['goods_price'])
+		{
+			$goods_base['goods_base']['old_price']  = $goods_base['goods_base']['goods_price'];
+			$goods_base['goods_base']['now_price']  = $goods_base['goods_base']['promotion_price'];
+			$goods_base['goods_base']['down_price'] = $goods_base['goods_base']['down_price'];
+		}
+		else
+		{
+			$goods_base['goods_base']['old_price']  = 0;
+			$goods_base['goods_base']['now_price']  = $goods_base['goods_base']['goods_price'];
+			$goods_base['goods_base']['down_price'] = 0;
+		}
+
+		$this->data->addBody(-140, $goods_base);
+
+	}
+
+	/**
+	 * 商品详情页  goodsdetailinfo
+	 *
+	 * @access public
+	 */
 	public function goods()
 	{
+		$cid = request_int('cid');
+		$goods_id        = request_int('gid', request_int('goods_id'));
+		//如果传递过来的是common_id，则从此common_id中的goods_id中选择一个有效的goods_id
+		if($cid && !$goods_id)
+		{
+			$Goods_CommonModel = new Goods_CommonModel();
+			$property_value_row       = array();
+			$cond_row['common_id'] = $cid;
+			$data                     = $Goods_CommonModel->getGoodsList($cond_row);
+
+			$goods_id = $data['items'][0]['goods_id'];
+		}
+
 		//区分wap pc端
 		if ( $this->typ == 'json' )
 		{
@@ -493,7 +546,6 @@ class Goods_GoodsCtl extends Controller
 		$goods_data = array();
 
 		//添加商品点击数
-		$goods_id        = request_int('gid', request_int('goods_id'));
 		$Goods_BaseModel = new Goods_BaseModel();
 		$good_click_row  = array('goods_click' => '1');
 		$Goods_BaseModel->editBase($goods_id, $good_click_row, true);
@@ -616,15 +668,11 @@ class Goods_GoodsCtl extends Controller
 			}
 			//检查是否为店主本人
 			$shop_owner = 0;
-			fb($shop_detail['shop_id']);
-			fb(Perm::$shopId);
-			fb(Perm::$userId);
+
 			if ($shop_detail['shop_id'] == Perm::$shopId  || $shop_detail['user_id'] == Perm::$userId)
 			{
 				$shop_owner = 1;
 			}
-			fb($shop_owner);
-			fb('店铺主任');
 
 			//如果使用售卖区域（现在商品表中暂时没有字段表面售卖区域）
 
@@ -664,10 +712,7 @@ class Goods_GoodsCtl extends Controller
 					$IsHaveBuy = 1;
 				}
 
-				fb($IsHaveBuy);
 			}
-			fb($IsHaveBuy);
-			fb('购买权限');
 
 
 			//计算限购数量
@@ -819,6 +864,21 @@ class Goods_GoodsCtl extends Controller
 			//商品详情
 			$goods_info = array_merge($goods_detail['common_base'], $goods_detail['goods_base']);
 
+			//好评率
+			$Goods_EvaluationModel =  new Goods_EvaluationModel();
+			$all_count    = $Goods_EvaluationModel->countEvaluation($common_id, 'all');
+			$good_count   = $Goods_EvaluationModel->countEvaluation($goods_detail['common_base']['common_id'], 'good');
+			if($all_count != 0)
+			{
+				$good_pre   = round($good_count / $all_count * 100);
+			}
+			else
+			{
+				$good_pre   = 100;
+			}
+
+
+
 			//配送信息
 			$goods_hair_info['content'] 	= $goods_detail['shop_base']['shipping'];
 			$goods_hair_info['if_store_cn'] = empty($goods_detail['goods_base']['goods_stock']) ? '无货' : '有货';
@@ -890,13 +950,14 @@ class Goods_GoodsCtl extends Controller
 			$data['goods_hair_info'] 		= $goods_hair_info; 		//售卖区域
 			$data['goods_image'] 			= $goods_image; 			//商品图片
 			$data['mansong_info'] 			= $mansong_info; 			//商品满送
-			$data['spec_list'] 				= $spec_list; 				//商品规格
+			$data['spec_list'] 			= $spec_list; 				//商品规格
 			$data['spec_image'] 			= $spec_image; 				//商品颜色
 			$data['store_info'] 			= $store_info; 				//店铺信息
 			$data['buyer_limit']           = $goods_detail['buy_limit'];  //限购数量
 			$data['is_favorate']			= $isFavoritesGoods;		//是否收藏过商品
 			$data['shop_owner']			= $shop_owner;				//是否为店主
 			$data['isBuyHave']				= $IsHaveBuy;				//是否已达限购数量
+			$data['good_pre']             = $good_pre;   				//好评率
 
 
 			$this->data->addBody(-140,$data);
@@ -1075,7 +1136,7 @@ class Goods_GoodsCtl extends Controller
 			switch($type)
 			{
 				case 1:
-					$type = 'goods';
+					$type = 'good';
 					break;
 				case 2:
 					$type = 'middle';
@@ -1085,6 +1146,9 @@ class Goods_GoodsCtl extends Controller
 					break;
 				case 4:
 					$type = 'image';
+					break;
+				default:
+					$type = 'all';
 					break;
 			}
 		}
