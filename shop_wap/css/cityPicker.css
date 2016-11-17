@@ -100,12 +100,12 @@
 .IIInsomnia-city-picker .IIInsomnia-province-name{
 	display: inline-block;
 	width: 39%;
-	height: 40px;
+	height: 6rem;
 	text-align: center;
-	line-height: 40px;
+	line-height: 6rem;
 	position: relative;
 	background-color: #EEEEEE;
-	font-size: 200%;
+	font-size: 5rem;
 }
 .IIInsomnia-city-picker .IIInsomnia-province-name:hover{
 	color: #FE6C00;
