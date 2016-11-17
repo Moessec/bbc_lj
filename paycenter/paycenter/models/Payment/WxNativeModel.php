@@ -229,7 +229,7 @@ class Payment_WxNativeModel extends  WxPayNotify implements Payment_Interface
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="{$base_url}/paycenter/static/default/js/jquery-1.9.1.js"></script>
 	<title>微信二维码登陆接口</title>
 	<style type="text/css">
 	body {
