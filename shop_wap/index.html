@@ -78,52 +78,12 @@
 		</div>
 	</div>
 
-	<div class="product-recommend clearfix">
-		<ul class="clearfix">
-			<li>
-				 <img src="images/iconfont/lj_main_07.jpg" /> 
-			 	<div class="product-recommend-info">
-			 		<dl>
-			 			<dt>新鲜牛油果</dt>
-			 			<dd>剩余10盒</dd>
-			 			<dd class="price">￥60.00<a href="javascript:void(0)"><i class="add"></a></i></dd>
-			 			
-			 		</dl>
-			 	</div>
-			</li>
-			<li>
-				<img src="images/iconfont/lj_main_07.jpg" />
-				<div class="product-recommend-info">
-					<dl>
-			 			<dt>新鲜牛油果</dt>
-			 			<dd>剩余10盒</dd>
-			 			<dd class="price">￥60.00<a href="javascript:void(0)"><i class="add"></a></i></dd>
-			 		</dl>
-				</div>
-			</li>
-			<li>
-				<img src="images/iconfont/lj_main_10.jpg" />
-				<div class="product-recommend-info">
-					<dl>
-			 			<dt>新鲜牛油果</dt>
-			 			<dd>剩余10盒</dd>
-			 			<dd class="price">￥60.00<a href="javascript:void(0)"><i class="add"></a></i></dd>
-			 		</dl>
-				</div>
-			</li>
-			<li>
-				<img src="images/iconfont/lj_main_42.jpg" />
-				<div class="product-recommend-info">
-					<dl>
-			 			<dt>新鲜牛油果</dt>
-			 			<dd>剩余10盒</dd>
-			 			<dd class="price"> ￥60.00<a href="javascript:void(0)"><i class="add"></a></i></dd>
-			 		</dl>
-				</div>
-			</li>
-			
-		</ul>
-	</div>
+	<div class="product-recommend clearfix" id="product-contain">	</div>
+
+
+	
+		
+
 	<div class="product-list">
 		<div class="product-list-pic"><img src="images/iconfont/tuceng02.png" /></div>
 		<div class="product-list-title"><a href="javascript:void(0)"><span>一日之计在于晨</span><span class="more-con" style="float: right;color: #999">more<i class="more" ></i></span></a></div>		
@@ -202,8 +162,11 @@
 		</div>
 	</div>
 </div>
-
+<div class="fix-block-r">
+	<a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a>
+</div>
 <div class="activity-end">活动已经加载完毕</div>
+
 	<footer class="clearfix">
 	<div class="footer-nav clearfix">
 		<ul class="clearfix">
@@ -216,6 +179,27 @@
 	</div>
 	</footer>
 
+
+	<script type="text/html" id="goods">
+		<ul class="clearfix">
+		<% for (var i in item) { %>
+			<li><a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+				<img class="a" src="<%= item[i].goods_image %>" alt="">
+			 	<div class="product-recommend-info">
+			 		<dl>
+			 			<dt><%= item[i].goods_name %></dt>
+			 			<dd>剩余10盒</dd>
+			 			<dd class="price">￥<%= item[i].goods_promotion_price %></a><a href="javascript:void(0)"><i class="add"></a></i></dd>
+			 			
+			 		</dl>
+			 	</div>
+
+			</li>
+			<% } %>
+
+			
+		</ul>
+	</script>
 
 <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script> 
@@ -264,9 +248,11 @@ window.onload = function() {
 
 //======================
 	$(function(){
-		var width = $('.product-recommend').find('img').width();
-		    $('.product-recommend').find('img').height(width);
+		var width = $('.product-recommend ').find('img').width;
+		    var height = $('.product-recommend img').find('img').height(width);
+		    alert(width);
 		var width2 = $('.product-list-info').find('img').width();
+		  // alert(width2);
 		    $('.product-list-info').find('img').height(width2);
 		    var width3 = $('.footer-nav').find('img').width();
 		    $('.footer-nav').find('img').height(width3);   
