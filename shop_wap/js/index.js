@@ -21,7 +21,7 @@ $(function() {
         success: function(result) {
             var data = result.data;
             var html = '';
-
+            console.info( result );
             $.each(data, function(k, v) {
                 $.each(v, function(kk, vv) {
                     switch (kk) {
