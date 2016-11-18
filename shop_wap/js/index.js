@@ -14,6 +14,7 @@ $(function() {
             headerClone.prependTo('body');
         }
     });
+    alert( ApiUrl );
     $.ajax({
         url: ApiUrl + "/index.php?ctl=Index&met=index&typ=json",
         type: 'get',
