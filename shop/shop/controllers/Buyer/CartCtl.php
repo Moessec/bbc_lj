@@ -277,12 +277,12 @@ class Buyer_CartCtl extends Controller
 			}
 
 		}
+
 		else
-		{
-			//根据默认收货地址计算运费
+		{		
+
 			$cond_address['user_address_default'] = User_AddressModel::DEFAULT_ADDRESS;
 			$default_address_row                  = $User_AddressModel->getOneByWhere($cond_address);
-
 			fb($default_address_row);
 
 			$Transport_TypeModel = new Transport_TypeModel();
@@ -292,16 +292,122 @@ class Buyer_CartCtl extends Controller
 				$city_id             = $default_address_row['user_address_city_id'];
 
 				$transport_cost      = $Transport_TypeModel->countTransportCost($city_id, $cart_id);
+				
 
 				$data['cost'] = $transport_cost;
+			
 			}
 			else
 			{
 				$transport_cost      = $Transport_TypeModel->countTransportCost(0, $cart_id);
 				$data['cost'] = $transport_cost;
 			}
-		}
 
+	//`````````````````````````````````````````````````````````````````
+			foreach($data['glist'] as $k=>&$v)
+					{	
+							//获取商家店址
+						$this->shopShippingAddressModel = new Shop_ShippingAddressModel();
+
+						$seller_address= $this->shopShippingAddressModel->getBaseList(array(
+							'shop_id'=>(int)$v['shop_id'],
+							'shipping_address_default'=>1
+							), array('shipping_address_time' => 'desc'), $page, 10);
+						
+						$seller_address=$seller_address['items'][0]['shipping_address_area'].$seller_address['items'][0]['shipping_address_address'];
+						
+						$data['glist'][$k]['shop_address']=$seller_address;
+					}
+					//查询有自配送模板的商家数组
+				$has_zps=array();
+				
+				foreach($data['glist'] as $k=>$v)
+				{	
+					//根据商家ID查询模板
+					$logisticsZpsModel=null;
+					$this->logisticsZpsModel = new Waybill_ZpsModel();
+					$zps_model = $this->logisticsZpsModel->getZpsList(array(
+						'shop_id'=>$k
+
+						));
+					
+					if(!empty($zps_model['items']))
+					{//将配送模板存入数组 店铺ID=>array('距离'=>价格)
+						$shop_model=array();
+						foreach($zps_model['items'] as $k1=>$v1)
+						{
+							$shop_model[$v1['zps_range']]=$v1['zps_cost'];
+						}
+						
+						$has_zps[$k]=$shop_model;
+
+					}
+				
+					
+				}
+
+				foreach($has_zps as $k=> $v)
+		{	
+			$shop_address=$data['glist'][$k]['shop_address'];
+
+			//有默认地址
+			if($shop_address)
+			{	
+				//商家经纬度
+				$shop_location_array=$this->addr_to_location($shop_address);
+				//买家所选地址
+				
+			
+						$buyer_address=$default_address_row['user_address_area'].$default_address_row['user_address_address'];
+				
+
+				//买家经纬度
+				$buyer_location_array=$this->addr_to_location($buyer_address);
+				//经纬度计算距离
+				$distance=$this->getDistance($shop_location_array['lng'],$shop_location_array['lat'],$buyer_location_array['lng'],$buyer_location_array['lat']);
+				$km_distance=$distance/1000;//千米距离
+			
+
+			}
+			
+			
+				//查找商家的配送距离区间,算出运费
+			
+			$seller_send_array=array_keys($v);
+			
+
+			$shop_need_change=array();
+		
+			
+			for($i=0;$i<=count($seller_send_array)-1;$i++)
+			{	
+				if($seller_send_array[$i]<$km_distance&&$km_distance<$seller_send_array[$i+1])
+				{  
+					$shop_need_change[$k]=$v[$seller_send_array[$i+1]];
+				}
+			}	
+			
+			foreach($data['cost'] as $k_1 =>  $v_1)
+			{
+				foreach($shop_need_change as $k_2 => $v_2)
+				{
+					if($k_1 ==$k_2)
+					{
+						$data['cost'][$k_1]['cost']=$v_2;
+					}
+				}
+			}
+			
+		}
+		
+
+			//根据默认收货地址计算运费
+			
+		
+
+
+		}
+		
 		
 		fb($data);
 		fb("购物车列表confirm");
@@ -411,7 +517,7 @@ class Buyer_CartCtl extends Controller
 
 		}
 		
-		
+	
 		if ( $this->typ == 'json' )
 		{ 	
 			$this->data->addBody(-140, $data);
