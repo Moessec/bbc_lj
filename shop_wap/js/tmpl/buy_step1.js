@@ -41,14 +41,19 @@ $(function() {
                 if(result.data.address==null){
                     return false;
                 }
-                //console.info(result);
+                
                 var data = result.data;
+                console.info(data);
                 data.address_id = address_id;
                 var html = template.render('list-address-add-list-script', data);
                 $("#list-address-add-list-ul").html(html);
             }
         });
     });
+ 
+
+      
+    
     $.animationLeft({
         valve : '#list-address-valve',
         wrapper : '#list-address-wrapper',
@@ -80,7 +85,11 @@ $(function() {
         wrapper : '#select-payment-wrapper',
         scroll : ''
     });
-
+       $.animationLeft({
+        valve : '#select-ps-valve',
+        wrapper : '#select-ps-wrapper',
+        scroll : ''
+    });
     // 地区选择
     $('#new-address-wrapper').on('click', '#varea_info', function(){
 
@@ -139,12 +148,13 @@ $(function() {
         // 购买第一步 提交
 
         $.ajax({//提交订单信息
+
             type:'post',
             url:ApiUrl+'/index.php?ctl=Buyer_Cart&met=confirm&typ=json',
             dataType:'json',
             data:{k:key, u:getCookie('id'),product_id:cart_id,ifcart:ifcart,address_id:address_id},
             success:function(result){
-                console.info(result);
+               
                 checkLogin(result.login);
                 if (result.status == 250) {
                     $.sDialog({
@@ -157,8 +167,10 @@ $(function() {
                 }
                 // 商品数据
                 result.data.address_id = address_id;
+                console.info(result.data);
                 result.data.WapSiteUrl = WapSiteUrl;
                 delete result.data.glist.count
+
                 var html = template.render('goods_list', result.data);
                 $("#deposit").html(html);
 
@@ -469,6 +481,48 @@ $(function() {
         $(this).addClass('sel').siblings().removeClass('sel');
     })
 
+
+    //PS···························
+      $('#ps-online').click(function(){
+        ps_name = 'online';
+        $('#select-ps-wrapper').find('.header-l > a').click();
+        $('#select-ps-valve').find('.current-con').html('配送到家');
+        $("#ps-selected").val('1');
+        $(this).addClass('sel').siblings().removeClass('sel');
+    })
+    // 上门自提
+    $('#ps-offline').click(function(){
+       ps_name = 'offline';
+        $('#select-ps-wrapper').find('.header-l > a').click();
+        $('#select-ps-valve').find('.current-con').html('上门自提');
+        // $("em[name='trans_cost']").html('0');
+        $("#ps-selected").val('2');
+         ps_type=$("#ps-selected").val();
+          $.ajax({
+            type:'post',
+            url:ApiUrl+"/index.php?ctl=Buyer_Cart&met=confirm&typ=json",
+
+            data:{k:key, u:getCookie('id'),product_id:cart_id,ps_type:ps_type},
+            dataType:'json',
+            async:false,
+            success:function(result){
+                checkLogin(result.login);
+                
+                if(result.data.address==null){
+                    return false;
+                }
+               
+                var data = result.data;
+                data.address_id = address_id;
+                var html = template.render('list-address-add-list-script', data);
+                $("#list-address-add-list-ul").html(html);
+            }
+        });
+        $("#ps-selected").val('2');
+        $(this).addClass('sel').siblings().removeClass('sel');
+    })
+
+
     // 地址保存
     $.sValid.init({
         rules:{
@@ -764,7 +818,11 @@ $(function() {
 
             return false;
         }
-
+        //获取配送方式信息
+        ps_type=[];
+        $("button[class='btn_live']").each(function(){
+            ps_type.push($(this).val());//将值添加到数组中
+        });
 
         //2.获取发票信息
         invoice = $("#invContent").html();
@@ -806,15 +864,16 @@ $(function() {
             }
         })
 
-        console.info(voucher_id);
+        
 
         //获取支付方式
         pay_way_id = $("#pay-selected").val();
+        
 
         $.ajax({
             type:'post',
             url: ApiUrl  + '?ctl=Buyer_Order&met=addOrder&typ=json',
-            data:{receiver_name:address_contact,receiver_address:address_address,receiver_phone:address_phone,invoice:invoice,invoice_id:invoice_id,cart_id:cart_id,shop_id:shop_id,remark:remark,increase_goods_id:increase_goods_id,voucher_id:voucher_id,pay_way_id:pay_way_id,address_id:address_id,k:key, u:getCookie('id')},
+            data:{receiver_name:address_contact,receiver_address:address_address,receiver_phone:address_phone,invoice:invoice,invoice_id:invoice_id,cart_id:cart_id,shop_id:shop_id,remark:remark,increase_goods_id:increase_goods_id,voucher_id:voucher_id,pay_way_id:pay_way_id,ps_type:ps_type,address_id:address_id,k:key, u:getCookie('id')},
             dataType: "json",
             success:function(a){
                 console.info(a);
