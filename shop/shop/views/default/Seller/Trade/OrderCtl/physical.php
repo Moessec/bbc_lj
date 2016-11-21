@@ -220,6 +220,15 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
 			<!-- 物流跟踪 -->
 			<p></p>
 		</td>
+		<td class="bdl bdr" rowspan="<?= $val['goods_cat_num']; ?>">
+			<?php if($val['order_ps_type']==1){?>
+			<p style="margin-top:10px">物流配送</p>
+			<?php }else{?>
+			<p style="margin-top:10px">上门自提</p>
+			<?php }?>
+			<!-- 订单查看 -->
+			
+		</td>
 
 		<!-- 取消订单 -->
 		<td class="bdl bdr" rowspan="<?= $val['goods_cat_num']; ?>">
