@@ -47,7 +47,7 @@ $(function() {
                             // case 'goods':html1 = template.render('goods1',vv);alert(kk);break;
 
                     }
-                    if (k == 2) {
+                    if (k == 6) {
                         $("#product-contain").html(template.render(kk, vv));
                     }
                     return false;
