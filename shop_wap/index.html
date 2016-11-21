@@ -248,9 +248,12 @@ window.onload = function() {
 
 //======================
 	$(function(){
-		var width = $('.product-recommend ').find('img').width;
-		    var height = $('.product-recommend img').find('img').height(width);
-		    alert(width);
+		var c = $(window).width();
+	    var height = $('.a').height(c/2-2);
+	    alert(height);
+	    // var width = $('.product-recommend').find('img').width(c/2-2)+'px';
+alert(width);
+
 		var width2 = $('.product-list-info').find('img').width();
 		  // alert(width2);
 		    $('.product-list-info').find('img').height(width2);
