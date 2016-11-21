@@ -135,6 +135,54 @@ class Buyer_OrderCtl extends Buyer_Controller
 		}
 	}
 
+
+
+
+
+
+
+
+
+	//计算距离
+	public function getDistance($lat1, $lng1, $lat2, $lng2){      
+          $earthRadius = 6378138; //近似地球半径米
+          // 转换为弧度
+          $lat1 = ($lat1 * pi()) / 180;
+          $lng1 = ($lng1 * pi()) / 180;
+          $lat2 = ($lat2 * pi()) / 180;
+          $lng2 = ($lng2 * pi()) / 180;
+          // 使用半正矢公式  用尺规来计算
+        $calcLongitude = $lng2 - $lng1;
+          $calcLatitude = $lat2 - $lat1;
+          $stepOne = pow(sin($calcLatitude / 2), 2) + cos($lat1) * cos($lat2) * pow(sin($calcLongitude / 2), 2);  
+       $stepTwo = 2 * asin(min(1, sqrt($stepOne)));
+          $calculatedDistance = $earthRadius * $stepTwo;
+          return round($calculatedDistance);
+   }
+	//地址转经纬度
+	public function addr_to_location($addr)
+	{	$location=array();
+		//去空格
+		$addr=str_replace(' ','',$addr);
+		//查出经纬度
+		$location_json = file_get_contents("http://api.map.baidu.com/geocoder/v2/?address=$addr&output=json&ak=CvQKTKQ3upsNAL7sLLFTvDqHc4g8nChG");
+		//解析出经度
+		$location_json=(string)$location_json;
+		$lng_pos=strpos($location_json,'lng"');
+		$lng_pos=$lng_pos+5;
+		$lat_pos=strpos($location_json,',"lat"');
+		$sub_len=(int)$lat_pos-(int)$lng_pos;
+		$lng=substr($location_json,$lng_pos,$sub_len);
+		//解析出纬度
+		$lat_pos=strpos($location_json,'lat"');
+		$lat_pos=$lat_pos+5;
+		$end_pos=strpos($location_json,'},"pre');
+		$sub_len=(int)$end_pos-(int)$lat_pos;
+		$lat=substr($location_json,$lat_pos,$sub_len);
+		$location['lat']=$lat;
+		$location['lng']=$lng;
+		return $location;
+	}
 	/**
 	 * 确认收货
 	 *
@@ -455,7 +503,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$Yf_Page->totalRows = $data['totalsize'];
 			$page_nav           = $Yf_Page->prompt();
 		}
-		/*var_dump($data);die;*/
+		
 		if ('json' == $this->typ)
 		{
 			$this->data->addBody(-140, $data);
@@ -575,36 +623,52 @@ class Buyer_OrderCtl extends Buyer_Controller
 	public function addOrder()
 	{
 		$user_id      = Perm::$row['user_id'];
+
 		$user_account = Perm::$row['user_account'];
+
 		$flag         = true;
 
-		$receiver_name     = request_string('receiver_name');
-		$receiver_address  = request_string('receiver_address');
-		$receiver_phone    = request_string('receiver_phone');
-		$invoice           = request_string('invoice');
-		$cart_id           = request_row("cart_id");
-		$shop_id           = request_row("shop_id");
-		$remark            = request_row("remark");
-		$increase_goods_id = request_row("increase_goods_id");
-		$voucher_id        = request_row('voucher_id');
-		$pay_way_id		   = request_int('pay_way_id');
-		$invoice_id		   = request_int('invoice_id');
-		$address_id        = request_int('address_id');
+		$receiver_name     = request_string('receiver_name');//收货人
 
+		$receiver_address  = request_string('receiver_address');//收货地址
+		
+		$receiver_phone    = request_string('receiver_phone');//收货人联系方式
+
+		$invoice           = request_string('invoice');//是否需要发票
+
+		$cart_id           = request_row("cart_id");//购物车ID
+		
+		$shop_id           = request_row("shop_id");//店铺ID
+
+		$remark            = request_row("remark");//留言备注数组
+		
+		$increase_goods_id = request_row("increase_goods_id");//加价购产品ID
+
+		$voucher_id        = request_row('voucher_id');//代金券
+
+		$pay_way_id		   = request_int('pay_way_id');//支付方式1在线支付   2 货到付款
+
+		// $ps_way_id		   = request_int('ps_way_id');//PS方式
+		$invoice_id		   = request_int('invoice_id');//发票
+
+		$address_id        = request_int('address_id');//地址ID
+		$cost_void_array   = request_row('ps_type');//免运费商家
+		
 		//判断支付方式为在线支付还是货到付款,如果是货到付款则订单状态直接为待发货状态，如果是在线支付则订单状态为待付款
-		if($pay_way_id == PaymentChannlModel::PAY_ONLINE)
-		{
-			$order_status = Order_StateModel::ORDER_WAIT_PAY;
+		
+		if($pay_way_id == PaymentChannlModel::PAY_ONLINE)//1
+		{	
+			$order_status = Order_StateModel::ORDER_WAIT_PAY;//等待付款，状态为1
+		}
+		
+		if($pay_way_id == PaymentChannlModel::PAY_CONFIRM)//2 
+		{	
+			$order_status = Order_StateModel::ORDER_WAIT_PREPARE_GOODS;// 等待发货  状态为3
 		}
 
-		if($pay_way_id == PaymentChannlModel::PAY_CONFIRM)
-		{
-			$order_status = Order_StateModel::ORDER_WAIT_PREPARE_GOODS;
-		}
 
-
-		$shop_remark = array_combine($shop_id, $remark);
-
+		$shop_remark = array_combine($shop_id, $remark);//留言数组
+		
 		//开启事物
 		$this->tradeOrderModel->sql->startTransactionDb();
 
@@ -623,6 +687,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 		//重组加价购商品
 		//活动下的所有规则下的换购商品信息
+		
 		if ($increase_goods_id)
 		{
 			$Increase_RedempGoodsModel          = new Increase_RedempGoodsModel();
@@ -691,6 +756,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 		}
 
 		$cond_row  = array('cart_id:IN' => $cart_id);
+
 		$order_row = array();
 		//购物车中的商品信息
 		$CartModel = new CartModel();
@@ -709,17 +775,170 @@ class Buyer_OrderCtl extends Buyer_Controller
 		//查找收货地址
 		$User_AddressModel = new User_AddressModel();
 		$city_id = 0;
+
 		if($address_id)
 		{
 			$user_address = $User_AddressModel->getOne($address_id);
 
 			$city_id = $user_address['user_address_city_id'];
 		}
-
+		//运费
 		$Transport_TypeModel = new Transport_TypeModel();
 		$transport_cost      = $Transport_TypeModel->countTransportCost($city_id, $cart_id);
-
 		unset($data['count']);
+		// var_dump($data);exit;	
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+			foreach($shop_id as $k =>$v)
+		{	
+				//获取商家店址
+			$this->shopShippingAddressModel = new Shop_ShippingAddressModel();
+
+			$seller_address= $this->shopShippingAddressModel->getBaseList(array(
+				'shop_id'=>(int)$v,
+				'shipping_address_default'=>1
+				), array('shipping_address_time' => 'desc'), $page, 10);
+			
+			$seller_address=$seller_address['items'][0]['shipping_address_area'].$seller_address['items'][0]['shipping_address_address'];
+			
+			$data[$v]['shop_address']=$seller_address;
+		}
+
+		//查询有自配送模板的商家数组
+		$has_zps=array();
+		
+		foreach($data as $k=>$v)
+		{	
+			//根据商家ID查询模板
+			$logisticsZpsModel=null;
+			$this->logisticsZpsModel = new Waybill_ZpsModel();
+			$zps_model = $this->logisticsZpsModel->getZpsList(array(
+				'shop_id'=>$k
+
+				));
+			
+			if(!empty($zps_model['items']))
+			{//将配送模板存入数组 店铺ID=>array('距离'=>价格)
+				$shop_model=array();
+				foreach($zps_model['items'] as $k1=>$v1)
+				{
+					$shop_model[$v1['zps_range']]=$v1['zps_cost'];
+				}
+				
+				$has_zps[$k]=$shop_model;
+
+			}
+		
+			
+		}
+		
+		//shop_address
+		foreach($has_zps as $k=> $v)
+		{	
+			$shop_address=$data[$k]['shop_address'];
+			//有默认地址
+			if($shop_address)
+			{	
+				//商家经纬度
+				$shop_location_array=$this->addr_to_location($shop_address);
+				//买家所选地址
+				// foreach($data['address'] as $k1 =>$v1)
+				// {
+				// 	if($v1['user_address_id']==$address_id)
+				// 	{
+				// 		$buyer_address=$v1['user_address_area'].$v1['user_address_address'];
+				// 	}
+
+				// }
+				//买家经纬度
+				$buyer_location_array=$this->addr_to_location($receiver_address);
+
+				//经纬度计算距离
+				$distance=$this->getDistance($shop_location_array['lng'],$shop_location_array['lat'],$buyer_location_array['lng'],$buyer_location_array['lat']);
+				$km_distance=$distance/1000;//千米距离
+				
+
+			}
+			
+			
+				//查找商家的配送距离区间,算出运费
+			
+			$seller_send_array=array_keys($v);
+			
+			
+
+			$shop_need_change=array();
+			
+			for($i=0;$i<=count($seller_send_array)-1;$i++)
+			{	
+				if($seller_send_array[$i]<$km_distance&&$km_distance<$seller_send_array[$i+1])
+				{  
+					$shop_need_change[$k]=$v[$seller_send_array[$i+1]];
+				}
+			}
+			
+		}
+
+		// 运费替换
+		foreach($transport_cost as $key2 =>$val)
+		{	
+			foreach($shop_need_change as $key1 => $val1)
+			{
+				 if($key2 == $key1)
+				 {
+				 	$transport_cost[$key2]['cost']=(float)$val1;
+				 }
+			}
+
+		}
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		foreach($transport_cost as $k =>$v)
+		{
+			if(in_array($k,$cost_void_array))
+			 {
+			 	$transport_cost[$k]['cost']=0;
+			 }
+		}
+		
+		
+		
 
 		$Number_SeqModel = new Number_SeqModel();
 
@@ -733,19 +952,22 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 		$Order_GoodsSnapshot = new Order_GoodsSnapshot();
 		//合并支付订单的价格
+			
 		$uprice  = 0;
 		$inorder = '';
 		$utrade_title = '';	//商品名称 - 标题
-		foreach ($data as $key => $val)
-		{
+		
+		foreach ($data as $key_1=> $val_1)
+			
+		{		
 			$trade_title = '';
 			//生成店铺订单
 
 			//计算加价购商品的价格
-			if (isset($increase_shop_row[$key]))
+			if (isset($increase_shop_row[$key_1]))
 			{
-				$increase_price      = $increase_shop_row[$key]['price'];
-				$increase_commission = $increase_shop_row[$key]['commission'];
+				$increase_price      = $increase_shop_row[$key_1]['price'];
+				$increase_commission = $increase_shop_row[$key_1]['commission'];
 			}
 			else
 			{
@@ -755,12 +977,12 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 			//总结店铺的优惠活动
 			$order_shop_benefit = '';
-			if ($val['mansong_info'])
+			if ($val_1['mansong_info'])
 			{
 				$order_shop_benefit = $order_shop_benefit . '店铺满送活动:';
-				if ($val['mansong_info']['rule_discount'])
+				if ($val_1['mansong_info']['rule_discount'])
 				{
-					$order_shop_benefit = $order_shop_benefit . ' 优惠' . format_money($val['mansong_info']['rule_discount']) . ' ';
+					$order_shop_benefit = $order_shop_benefit . ' 优惠' . format_money($val_1['mansong_info']['rule_discount']) . ' ';
 				}
 			}
 			if ($user_rate < 100)
@@ -770,13 +992,13 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 
 			//计算店铺的代金券
-			if (isset($shop_voucher_row[$key]))
+			if (isset($shop_voucher_row[$key_1]))
 			{
-				$voucher_price = $shop_voucher_row[$key]['voucher_price'];
-				$voucher_id    = $shop_voucher_row[$key]['voucher_id'];
-				$voucher_code  = $shop_voucher_row[$key]['voucher_code'];
+				$voucher_price = $shop_voucher_row[$key_1]['voucher_price'];
+				$voucher_id    = $shop_voucher_row[$key_1]['voucher_id'];
+				$voucher_code  = $shop_voucher_row[$key_1]['voucher_code'];
 
-				$order_shop_benefit = $order_shop_benefit . ' 代金券:' . format_money($shop_voucher_row[$key]['voucher_price']) . ' ';
+				$order_shop_benefit = $order_shop_benefit . ' 代金券:' . format_money($shop_voucher_row[$key_1]['voucher_price']) . ' ';
 			}
 			else
 			{
@@ -786,24 +1008,26 @@ class Buyer_OrderCtl extends Buyer_Controller
 			}
 
 			//计算订单价格（未打会员折扣前的价格）
-			$order_price = $val['sprice'] + $increase_price;
+			
+			$order_price = $val_1['sprice'] + $increase_price;
 
 			//计算店铺的交易佣金
-			$commission = $val['commission'] + $increase_commission;
+			$commission = $val_1['commission'] + $increase_commission;
 
 			$prefix       = sprintf('%s-%s-', Yf_Registry::get('shop_app_id'), date('Ymd'));
 			$order_number = $Number_SeqModel->createSeq($prefix);
 
-			$order_id = sprintf('%s-%s-%s-%s', 'DD', $val['shop_user_id'], $key, $order_number);
+			$order_id = sprintf('%s-%s-%s-%s', 'DD', $val_1['shop_user_id'], $key_1, $order_number);
 
 			$order_row                           = array();
 			$order_row['order_id']               = $order_id;
-			$order_row['shop_id']                = $key;
-			$order_row['shop_name']              = $val['shop_name'];
+			$order_row['shop_id']                = $key_1;
+			$order_row['shop_name']              = $val_1['shop_name'];
 			$order_row['buyer_user_id']          = $user_id;
 			$order_row['buyer_user_name']        = $user_account;
-			$order_row['seller_user_id']         = $val['shop_user_id'];
-			$order_row['seller_user_name']       = $val['shop_user_name'];
+
+			$order_row['seller_user_id']         = $val_1['shop_user_id'];
+			$order_row['seller_user_name']       = $val_1['shop_user_name'];
 			$order_row['order_date']             = date('Y-m-d');
 			$order_row['order_create_time']      = get_date_time();
 			$order_row['order_receiver_name']    = $receiver_name;
@@ -811,12 +1035,13 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$order_row['order_receiver_contact'] = $receiver_phone;
 			$order_row['order_invoice']          = $invoice;
 			$order_row['order_invoice_id']	   = $invoice_id;
-			$order_row['order_goods_amount']     = $val['sprice'] + $increase_price;
-			$order_row['order_payment_amount']   = ($order_price * $user_rate) / 100 + $transport_cost[$key]['cost'] - $voucher_price;// 店铺商品价格 + 运费价格 + 加价购商品价格   - 代金券价格
+			$order_row['order_goods_amount']     = $val_1['sprice'] + $increase_price;
+			$order_row['order_payment_amount']   = ($order_price * $user_rate) / 100 + $transport_cost[$key_1]['cost'] - $voucher_price;// 店铺商品价格 + 运费价格 + 加价购商品价格   - 代金券价格
+		
 			$order_row['order_discount_fee']     = ($order_price * (100 - $user_rate)) / 100 + $voucher_price;   //折扣金额  店铺优惠价格 + 会员折扣价格  +  代金券价格
 			$order_row['order_point_fee']        = 0;    //买家使用积分
-			$order_row['order_shipping_fee']     = $transport_cost[$key]['cost'];
-			$order_row['order_message']          = $shop_remark[$key];
+			$order_row['order_shipping_fee']     = $transport_cost[$key_1]['cost'];
+			$order_row['order_message']          = $shop_remark[$key_1];
 			$order_row['order_status']           = $order_status;
 			$order_row['order_points_add']       = 0;    //订单赠送的积分
 			$order_row['voucher_id']             = $voucher_id;    //代金券id
@@ -828,6 +1053,11 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$order_row['payment_id']			   = $pay_way_id;
 			$order_row['payment_name']			   = $PaymentChannlModel->payWay[$pay_way_id];
 
+			if(in_array($order_row['shop_id'],$cost_void_array))
+			{	//免运费的商品
+				
+				$order_row['order_ps_type']='2';
+			}
 
 			$flag1 = $this->tradeOrderModel->addBase($order_row);
 
@@ -836,7 +1066,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			fb($flag1);*/
 			$flag = $flag && $flag1;
 
-			foreach ($val['goods'] as $k => $v)
+			foreach ($val_1['goods'] as $k => $v)
 			{
 
 				//计算商品的优惠
@@ -881,7 +1111,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 				$order_goods_row['order_goods_adjust_fee']        = 0;    //手工调整金额
 				$order_goods_row['order_goods_point_fee']         = 0;    //积分费用
 				$order_goods_row['order_goods_commission']        = $v['commission'];    //商品佣金
-				$order_goods_row['shop_id']                       = $key;
+				$order_goods_row['shop_id']                       = $key_1;
 				$order_goods_row['order_goods_status']            = Order_StateModel::ORDER_WAIT_PAY;
 				$order_goods_row['order_goods_evaluation_status'] = 0;  //0未评价 1已评价
 				$order_goods_row['order_goods_benefit']           = $order_goods_benefit;
@@ -899,7 +1129,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 				$order_goods_snapshot_add_row['goods_name'] 	=	$v['goods_base']['goods_name'];
 				$order_goods_snapshot_add_row['goods_image'] 	=	$v['goods_base']['goods_image'];
 				$order_goods_snapshot_add_row['goods_price'] 	=	$v['now_price'];
-				$order_goods_snapshot_add_row['freight'] 		=	$transport_cost[$key]['cost'];   //运费
+				$order_goods_snapshot_add_row['freight'] 		=	$transport_cost[$key_1]['cost'];   //运费
 				$order_goods_snapshot_add_row['snapshot_create_time'] =	get_date_time();
 				$order_goods_snapshot_add_row['snapshot_uptime'] =		get_date_time();
 				$order_goods_snapshot_add_row['snapshot_detail'] = $order_goods_benefit;
@@ -937,11 +1167,11 @@ class Buyer_OrderCtl extends Buyer_Controller
 			}
 
 			//加价购商品
-			if (isset($increase_shop_row[$key]))
+			if (isset($increase_shop_row[$key_1]))
 			{
-				unset($increase_shop_row[$key]['price']);
-				unset($increase_shop_row[$key]['commission']);
-				foreach ($increase_shop_row[$key] as $k => $v)
+				unset($increase_shop_row[$key_1]['price']);
+				unset($increase_shop_row[$key_1]['commission']);
+				foreach ($increase_shop_row[$key_1] as $k => $v)
 				{
 					//判断加价购的商品库存
 					fb($v);
@@ -961,7 +1191,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 					$order_goods_row['order_goods_adjust_fee']        = 0;    //手工调整金额
 					$order_goods_row['order_goods_point_fee']         = 0;    //积分费用
 					$order_goods_row['order_goods_commission']        = $v['commission'];        //商品佣金
-					$order_goods_row['shop_id']                       = $key;
+					$order_goods_row['shop_id']                       = $key_1;
 					$order_goods_row['order_goods_status']            = Order_StateModel::ORDER_WAIT_PAY;
 					$order_goods_row['order_goods_evaluation_status'] = 0;  //0未评价 1已评价
 					$order_goods_row['order_goods_benefit']           = '加价购商品';
@@ -1000,24 +1230,24 @@ class Buyer_OrderCtl extends Buyer_Controller
 			}
 
 			//店铺满赠商品
-			if ($val['mansong_info'] && $val['mansong_info']['gift_goods_id'])
+			if ($val_1['mansong_info'] && $val_1['mansong_info']['gift_goods_id'])
 			{
 				$order_goods_row                                  = array();
 				$order_goods_row['order_id']                      = $order_id;
-				$order_goods_row['goods_id']                      = $val['mansong_info']['gift_goods_id'];
-				$order_goods_row['common_id']                     = $val['mansong_info']['common_id'];
+				$order_goods_row['goods_id']                      = $val_1['mansong_info']['gift_goods_id'];
+				$order_goods_row['common_id']                     = $val_1['mansong_info']['common_id'];
 				$order_goods_row['buyer_user_id']                 = $user_id;
-				$order_goods_row['goods_name']                    = $val['mansong_info']['goods_name'];
+				$order_goods_row['goods_name']                    = $val_1['mansong_info']['goods_name'];
 				$order_goods_row['goods_class_id']                = 0;
 				$order_goods_row['goods_price']                   = 0;
 				$order_goods_row['order_goods_num']               = 1;
-				$order_goods_row['goods_image']                   = $val['mansong_info']['goods_image'];
+				$order_goods_row['goods_image']                   = $val_1['mansong_info']['goods_image'];
 				$order_goods_row['order_goods_amount']            = 0;
 				$order_goods_row['order_goods_discount_fee']      = 0;        //优惠价格
 				$order_goods_row['order_goods_adjust_fee']        = 0;    //手工调整金额
 				$order_goods_row['order_goods_point_fee']         = 0;    //积分费用
 				$order_goods_row['order_goods_commission']        = 0;    //商品佣金
-				$order_goods_row['shop_id']                       = $key;
+				$order_goods_row['shop_id']                       = $key_1;
 				$order_goods_row['order_goods_status']            = Order_StateModel::ORDER_WAIT_PAY;
 				$order_goods_row['order_goods_evaluation_status'] = 0;  //0未评价 1已评价
 				$order_goods_row['order_goods_benefit']           = '店铺满赠商品';
@@ -1029,13 +1259,13 @@ class Buyer_OrderCtl extends Buyer_Controller
 				$order_goods_snapshot_add_row = array();
 				$order_goods_snapshot_add_row['order_id'] 		=	$order_id;
 				$order_goods_snapshot_add_row['user_id'] 		=	$user_id;
-				$order_goods_snapshot_add_row['shop_id'] 		=	$key;
-				$order_goods_snapshot_add_row['common_id'] 	=	$val['mansong_info']['common_id'];
-				$order_goods_snapshot_add_row['goods_id'] 		=	$val['mansong_info']['gift_goods_id'];
-				$order_goods_snapshot_add_row['goods_name'] 	=	$val['mansong_info']['goods_name'];
-				$order_goods_snapshot_add_row['goods_image'] 	=	$val['mansong_info']['goods_image'];
+				$order_goods_snapshot_add_row['shop_id'] 		=	$key_1;
+				$order_goods_snapshot_add_row['common_id'] 	=	$val_1['mansong_info']['common_id'];
+				$order_goods_snapshot_add_row['goods_id'] 		=	$val_1['mansong_info']['gift_goods_id'];
+				$order_goods_snapshot_add_row['goods_name'] 	=	$val_1['mansong_info']['goods_name'];
+				$order_goods_snapshot_add_row['goods_image'] 	=	$val_1['mansong_info']['goods_image'];
 				$order_goods_snapshot_add_row['goods_price'] 	=	0;
-				$order_goods_snapshot_add_row['freight'] 		=	$transport_cost[$key]['cost'];   //运费
+				$order_goods_snapshot_add_row['freight'] 		=	$transport_cost[$key_1]['cost'];   //运费
 				$order_goods_snapshot_add_row['snapshot_create_time'] =	get_date_time();
 				$order_goods_snapshot_add_row['snapshot_uptime'] =		get_date_time();
 				$order_goods_snapshot_add_row['snapshot_detail'] = '满赠商品';
@@ -1047,7 +1277,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 				$flag = $flag && $flag2;
 
 				//删除商品库存
-				$flag3 = $Goods_BaseModel->delStock($val['mansong_info']['gift_goods_id'], 1);
+				$flag3 = $Goods_BaseModel->delStock($val_1['mansong_info']['gift_goods_id'], 1);
 				/*	fb("====flag3===");
 					fb($flag3);*/
 				$flag = $flag && $flag3;
@@ -1056,9 +1286,12 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 
 			//支付中心生成订单
-			$key      = Yf_Registry::get('shop_api_key');
-			$url         = Yf_Registry::get('paycenter_api_url');
+			$key_1      = Yf_Registry::get('shop_api_key');//支付key
+
+			$url         = Yf_Registry::get('paycenter_api_url');//支付url
+			
 			$shop_app_id = Yf_Registry::get('shop_app_id');
+			
 			$formvars = array();
 
 			$formvars['app_id']					= $shop_app_id;
@@ -1076,8 +1309,9 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$formvars['trade_create_time']    = $order_row['order_create_time'];
 			$formvars['trade_title']			= $trade_title;		//商品名称 - 标题
 			fb($formvars);
-			$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
-
+			
+			$rs = get_url_with_encrypt($key_1, sprintf('%s?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
+			
 			fb("合并支付返回的结果");
 			//将合并支付单号插入数据库
 			if($rs['status'] == 200)
@@ -1092,6 +1326,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			}
 
 			$uprice += $order_row['order_payment_amount'];
+			
 			$inorder .= $order_id . ',';
 
 			/*if(substr($inorder, -1) == ",")
@@ -1100,7 +1335,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			}*/
 			$utrade_title .=$trade_title;
 		}
-
+		
 		//生成合并支付订单
 		$key      = Yf_Registry::get('shop_api_key');
 		$url         = Yf_Registry::get('paycenter_api_url');
@@ -1109,6 +1344,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 		$formvars['inorder']    = $inorder;
 		$formvars['uprice']     = $uprice;
+		
 		$formvars['buyer']      = Perm::$userId;
 		$formvars['trade_title'] = $utrade_title;
 		$formvars['buyer_name'] = Perm::$row['user_account'];
@@ -1467,6 +1703,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 		$order_row['order_receiver_contact'] = $buyer_phone;
 		$order_row['order_goods_amount']     = $order_price;
 		$order_row['order_payment_amount']   = ($order_price * $user_rate) / 100 - $voucher_price;//$data['sprice'];
+
 		$order_row['order_discount_fee']     = ($order_price * (100 - $user_rate)) / 100 + $voucher_price;   //折扣金额
 		$order_row['order_point_fee']        = 0;    //买家使用积分
 		$order_row['order_message']          = $remarks;
@@ -1482,6 +1719,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 		$order_row['payment_name']			   = $PaymentChannlModel->payWay[$pay_way_id];
 
 		fb($order_row);
+
 		$flag1 = $this->tradeOrderModel->addBase($order_row);
 
 		$flag = $flag && $flag1;
