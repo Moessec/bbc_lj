@@ -507,7 +507,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 		$typ      = request_string('typ');
 		$order_id = request_string('order_id');
 
-		$Order_BaseModel   = new Order_BaseModel();
+		$Order_BaseModel   = new Order_BaseModel(); 
 		$Shop_ExpressModel = new Shop_ExpressModel();
 
 		if ($typ == 'e')
@@ -541,9 +541,9 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$confirm_order_time                 = Yf_Registry::get('confirm_order_time');
 			$update_data['order_shipping_time'] = date('Y-m-d H:i:s', $current_time);
 			$update_data['order_receiver_date'] = date('Y-m-d H:i:s', $current_time + $confirm_order_time);
-			var_dump($update_data);exit;
-			$flag = $Order_BaseModel->editBase($order_id, $update_data);
 			
+			$flag = $Order_BaseModel->editBase($order_id, $update_data);
+
 			if ($flag)
 			{
 				$order_base = $Order_BaseModel->getBase($order_id);
