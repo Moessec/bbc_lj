@@ -193,7 +193,8 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                             <tr class="tr_con">
                                 <td class="order_goods">
                                     <img src="<?=image_thumb($ogval['goods_image'],50,50)?>"/>
-                                    <a target="_blank"  href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Goods&met=goods&gid=<?=($ogval['goods_id'])?>"><?=($ogval['goods_name'])?></a>
+                                    <a style="width:45%" target="_blank"  href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Goods&met=goods&gid=<?=($ogval['goods_id'])?>"><?=($ogval['goods_name'])?></a>
+                                     <div style="margin-top:15px"><b><?php if ($data['order_ps_type']==1){?>物流配送<?php }else{?>上门自提<?php }?></b></div>
 
                                     <?php if($ogval['order_goods_benefit']){?><em class="td_sale bbc_btns small_details"><?=($ogval['order_goods_benefit'])?></em><?php }?>
                                 </td>
