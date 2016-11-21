@@ -8,7 +8,7 @@
  */
 class Waybill_ZpsModel extends Waybill_Ps
 {		
-	// public $_tableName       = 'waybill_zps';
+	
 
 	public static $waybillTplEnable = array(
 		"0" => '否',
@@ -31,12 +31,12 @@ class Waybill_ZpsModel extends Waybill_Ps
 	public function getZpsList($cond_row = array(), $order_row = array(), $page = 1, $rows = 100)
 	{	
 		
-			if ( empty($cond_row['shop_id:IN']) )
-		{
-			$cond_row['shop_id'] = Perm::$shopId;
-		}
-		$data                = $this->listByWhere();
-		// var_dump($data["items"]);exit;
+		// 	if ( empty($cond_row['shop_id:IN']) )
+		// {
+		// 	$cond_row['shop_id'] = Perm::$shopId;
+		// }
+		$data                = $this->listByWhere($cond_row, $order_row, $page, $rows);
+		
 		return $data;
 	}
 
