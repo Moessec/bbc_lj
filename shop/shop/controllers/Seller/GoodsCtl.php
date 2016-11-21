@@ -112,11 +112,13 @@ class Seller_GoodsCtl extends Seller_Controller
 
 		$goods_rows = $Goods_CommonModel->getCommonNormal($cront_row, array('common_id' => 'DESC'), $page, $row);
         $common_id_rows = array_column($goods_rows['items'], 'common_id');
+
         if(!empty($common_id_rows))
         {
             $goods_detail_rows = $Goods_CommonModel->getGoodsDetailRows($common_id_rows);
         }
 		$goods      = $Goods_CommonModel->getRecommonRow($goods_rows);
+
 		if ('e' == $this->typ)
 		{
 			if ($action == 'edit_goods')
@@ -803,6 +805,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		$common_id = request_int('common_id');
 
 		$common_data = $this->goodsCommonModel->listByWhere( array('shop_id' => Perm::$shopId, 'common_id' => $common_id) );
+		
 		if (empty($common_data))
 		{
 			return;
