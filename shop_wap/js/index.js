@@ -22,7 +22,7 @@ $(function() {
             var data = result.data;
             var html = '';
             var html1='';
-            console.info( data );
+            // console.info( data );
             $.each(data, function(k, v) {
                 $.each(v, function(kk, vv) {
                     switch (kk) {
