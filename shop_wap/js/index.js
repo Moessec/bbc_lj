@@ -49,34 +49,11 @@ $(function() {
                     }
                     if (k == 2) {
                         $("#product-contain").html(template.render(kk, vv));
-                    }// } else {
-                    //     html += template.render(kk, vv);
-                    // }
+                    }
                     return false;
                 });
             });
 
-
-
-              // html1 = template.render('goods1',goods1);
-            // $("#product-contain").html(html);
-
-            // $('.slider_list').each(function() {
-            //     if ($(this).find('.item').length < 2) {
-            //         return;
-            //     }
-
-            //     Swipe(this, {
-            //         startSlide: 2,
-            //         speed: 400,
-            //         auto: 3000,
-            //         continuous: true,
-            //         disableScroll: false,
-            //         stopPropagation: false,
-            //         callback: function(index, elem) {},
-            //         transitionEnd: function(index, elem) {}
-            //     });
-            // });
 
         }
     });
