@@ -14,6 +14,26 @@
     <link rel="stylesheet" type="text/css" href="../../css/base.css">
     <link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
     <link rel="stylesheet" type="text/css" href="../../css/nctouch_cart.css">
+    <style>
+
+     .btn_die{
+                   margin-left:10px; width:150px; height:40px;
+   border: 5px solid #dedede;
+   -moz-border-radius: 15px;      /* Gecko browsers */
+   -webkit-border-radius: 15px;   /* Webkit browsers */
+   border-radius:50px; font-size:20px;cursor:pointer; 
+            }
+            .btn_live{
+                   margin-left:10px; width:150px; height:40px;
+                   background-color:red;
+                   color:white;
+   border: 5px solid red;
+   -moz-border-radius: 15px;      /* Gecko browsers */
+   -webkit-border-radius: 15px;   /* Webkit browsers */
+   border-radius:50px; font-size:20px;cursor:pointer; 
+            }
+    </style>
+   
 </head>
 <body>
 <header id="header" class="fixed">
@@ -159,6 +179,10 @@
         </div>
     </div>
     <!--选择付款方式End-->
+    
+
+
+     
 
     <!--发票信息Begin-->
     <div class="nctouch-cart-block mt5"> <a href="javascript:void(0);" class="posr" id="invoice-valve">
@@ -335,6 +359,7 @@
     <div class="nctouch-cart-container">
         <dl class="nctouch-cart-store">
             <dt><i class="icon-store"></i><%=store_cart_list[k].shop_name%><span data-store_id="<%=k%>" class="store-cod-supported" style="display:none;">（该店铺不支持选定收货地址的货到付款）</span>
+            <dt><i ><b>店址</b>：<%=store_cart_list[k].shop_address%></i></dt>  
                 <% if (store_cart_list[k].voucher_base != '') { %>
 						<span class="handle">
 							<a href="javascript:void(0);" class="voucher animation-up animation-up<%=k%>"><i></i>使用代金券</a>
@@ -378,15 +403,24 @@
                 <dd><em id="vourchPrice<%=k%>"></em>元</dd>
                 <input type="hidden" class="voucher_list" id="vourch_id<%=k%>" name="vourch_id" value="">
             </dl>
-            <dl>
-                <dt>物流配送</dt>
-                <dd>运费<em id="storeFreight<%=k%>">0.00</em>元</dd>
+            <div>
+            <button class="btn_die" value='<%=k%>'>上门自提</button><span style="font-size:20px;margin-left:20px;color:red" id ='tips'>(上门自提可免运费)</span>
+            </div>
+            
+           
+            <dl id='wlps'>
+                <dt>
+                    物流配送
+                  
+               
+                </dt>
+                <dd>运费<em id="storeFreight<%=k%>" name='trans_cost'>0.00</em>元</dd>
             </dl>
             <div class="message">
                 <input type="text" name="remarks" placeholder="店铺订单留言：" rel="<%=k%>" id="storeMessage<%=k%>">
             </div>
             <div class="store-total">
-                本店合计<span><em id="storeTotal<%=k%>" ></em></span>元
+               <!--  本店合计<span><em id="storeTotal<%=k%>" ></em></span>元 -->
             </div>
         </div>
 
@@ -425,7 +459,55 @@
         <% } %>
 
 
+ <script type="text/javascript">
+            $(function(){
+                $('button').click(function(){
+                      color=$(this).attr('class');
+                if(color=='btn_die'){
+                   $(this).attr('class','btn_live');
+                  
+                   div=$(this).parent('div');
+                   div.next().hide();
+                   div.children('span').css('color','green');
+                   div.children('span').html('已免运费');
+                   //获取运费
+                   cost=div.next().children().children('em').html();
+                    //更新合计价格
+                   old_price=$('#totalPrice').html();
+                    old_price= Number(old_price);
+                    cost=Number(cost);
+                    //更新支付总金额
+                    totalPayPrice=$('#totalPayPrice').html();
+                    totalPayPrice=Number(totalPayPrice);
+                    $('#totalPayPrice').html(totalPayPrice-cost);
+                   $('#totalPrice').html(old_price-cost);
+                }
+                else{
+                    $(this).attr('class','btn_die');
+                   
+                    div=$(this).parent('div');
+                    div.next().show();
+                   
+                     div.children('span').css('color','red');
+                   div.children('span').html('上门自提可免运费');
+                   //获取运费
+                   cost=div.next().children().children('em').html();
+                    //更新合计价格
+                   old_price=$('#totalPrice').html();
+                    old_price= Number(old_price);
+                    cost=Number(cost);
+                   $('#totalPrice').html(old_price+cost);
+                     //更新支付总金额
+                    totalPayPrice=$('#totalPayPrice').html();
+                    totalPayPrice=Number(totalPayPrice);
+                    $('#totalPayPrice').html(totalPayPrice+cost);
+                   
+                }
 
+                });
+              
+            });
+            </script>
 </script>
 <script type="text/html" id="list-address-add-list-script">
     <% var address_list = address; %>
@@ -520,6 +602,7 @@
                 min-height: 0.95rem;
                 width: 95%;
             }
+           
         </style>
     </div>
 
@@ -609,5 +692,6 @@
 <script type="text/javascript" src="../../js/simple-plugin.js"></script>
 <script type="text/javascript" src="../../js/tmpl/order_payment_common.js"></script>
 <script type="text/javascript" src="../../js/tmpl/buy_step1.js"></script>
+
 </body>
 </html>
