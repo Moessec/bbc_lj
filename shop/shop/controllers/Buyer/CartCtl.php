@@ -162,14 +162,53 @@ class Buyer_CartCtl extends Controller
 
 
 	}
-
+	//计算距离
+	public function getDistance($lat1, $lng1, $lat2, $lng2){      
+          $earthRadius = 6378138; //近似地球半径米
+          // 转换为弧度
+          $lat1 = ($lat1 * pi()) / 180;
+          $lng1 = ($lng1 * pi()) / 180;
+          $lat2 = ($lat2 * pi()) / 180;
+          $lng2 = ($lng2 * pi()) / 180;
+          // 使用半正矢公式  用尺规来计算
+        $calcLongitude = $lng2 - $lng1;
+          $calcLatitude = $lat2 - $lat1;
+          $stepOne = pow(sin($calcLatitude / 2), 2) + cos($lat1) * cos($lat2) * pow(sin($calcLongitude / 2), 2);  
+       $stepTwo = 2 * asin(min(1, sqrt($stepOne)));
+          $calculatedDistance = $earthRadius * $stepTwo;
+          return round($calculatedDistance);
+   }
+	//地址转经纬度
+	public function addr_to_location($addr)
+	{	$location=array();
+		//去空格
+		$addr=str_replace(' ','',$addr);
+		//查出经纬度
+		$location_json = file_get_contents("http://api.map.baidu.com/geocoder/v2/?address=$addr&output=json&ak=CvQKTKQ3upsNAL7sLLFTvDqHc4g8nChG");
+		//解析出经度
+		$location_json=(string)$location_json;
+		$lng_pos=strpos($location_json,'lng"');
+		$lng_pos=$lng_pos+5;
+		$lat_pos=strpos($location_json,',"lat"');
+		$sub_len=(int)$lat_pos-(int)$lng_pos;
+		$lng=substr($location_json,$lng_pos,$sub_len);
+		//解析出纬度
+		$lat_pos=strpos($location_json,'lat"');
+		$lat_pos=$lat_pos+5;
+		$end_pos=strpos($location_json,'},"pre');
+		$sub_len=(int)$end_pos-(int)$lat_pos;
+		$lat=substr($location_json,$lat_pos,$sub_len);
+		$location['lat']=$lat;
+		$location['lng']=$lng;
+		return $location;
+	}
 	/**
 	 * 确认订单信息后生成订单
 	 *
 	 * @author Zhuyt
 	 */
 	public function confirm()
-	{
+	{	
 		$user_id = Perm::$row['user_id'];
 		$address_id = request_int('address_id');
 
@@ -211,11 +250,12 @@ class Buyer_CartCtl extends Controller
 
 		$cond_address    = array('user_id' => $user_id);
 		$address         = array_values($User_AddressModel->getAddressList($cond_address, array('user_address_default' => 'DESC')));
+
 		$data['address'] = $address;
 
 		fb($data['address']);
 		fb("用户地址");
-
+		// var_dump($address_id);exit;
 		if($address_id)
 		{
 			//如果传递了address_id,根据address_id获取运费信息
@@ -269,9 +309,111 @@ class Buyer_CartCtl extends Controller
 		{
 			$this->view->setMet('error');
 		}
+		
+		foreach($data['glist'] as $k=>&$v)
+		{	
+				//获取商家店址
+			$this->shopShippingAddressModel = new Shop_ShippingAddressModel();
 
+			$seller_address= $this->shopShippingAddressModel->getBaseList(array(
+				'shop_id'=>(int)$v['shop_id'],
+				'shipping_address_default'=>1
+				), array('shipping_address_time' => 'desc'), $page, 10);
+			
+			$seller_address=$seller_address['items'][0]['shipping_address_area'].$seller_address['items'][0]['shipping_address_address'];
+			
+			$data['glist'][$k]['shop_address']=$seller_address;
+		}
+
+		//查询有自配送模板的商家数组
+		$has_zps=array();
+		
+		foreach($data['glist'] as $k=>$v)
+		{	
+			//根据商家ID查询模板
+			$logisticsZpsModel=null;
+			$this->logisticsZpsModel = new Waybill_ZpsModel();
+			$zps_model = $this->logisticsZpsModel->getZpsList(array(
+				'shop_id'=>$k
+
+				));
+			
+			if(!empty($zps_model['items']))
+			{//将配送模板存入数组 店铺ID=>array('距离'=>价格)
+				$shop_model=array();
+				foreach($zps_model['items'] as $k1=>$v1)
+				{
+					$shop_model[$v1['zps_range']]=$v1['zps_cost'];
+				}
+				
+				$has_zps[$k]=$shop_model;
+
+			}
+		
+			
+		}
+		
+		//shop_address
+		foreach($has_zps as $k=> $v)
+		{	
+			$shop_address=$data['glist'][$k]['shop_address'];
+			//有默认地址
+			if($shop_address)
+			{	
+				//商家经纬度
+				$shop_location_array=$this->addr_to_location($shop_address);
+				//买家所选地址
+				foreach($data['address'] as $k1 =>$v1)
+				{
+					if($v1['user_address_id']==$address_id)
+					{
+						$buyer_address=$v1['user_address_area'].$v1['user_address_address'];
+					}
+
+				}
+				//买家经纬度
+				$buyer_location_array=$this->addr_to_location($buyer_address);
+				//经纬度计算距离
+				$distance=$this->getDistance($shop_location_array['lng'],$shop_location_array['lat'],$buyer_location_array['lng'],$buyer_location_array['lat']);
+				$km_distance=$distance/1000;//千米距离
+				
+
+			}
+			
+			
+				//查找商家的配送距离区间,算出运费
+			
+			$seller_send_array=array_keys($v);
+			
+			
+
+			$shop_need_change=array();
+			
+			for($i=0;$i<=count($seller_send_array)-1;$i++)
+			{	
+				if($seller_send_array[$i]<$km_distance&&$km_distance<$seller_send_array[$i+1])
+				{  
+					$shop_need_change[$k]=$v[$seller_send_array[$i+1]];
+				}
+			}
+			
+		}
+		// 运费替换
+		foreach($data['cost'] as $key =>&$val)
+		{	
+			foreach($shop_need_change as $key1 => $val1)
+			{
+				 if($key == $key1)
+				 {
+				 	$val['cost']=$val1;
+				 }
+			}
+
+		}
+		
+		
 		if ( $this->typ == 'json' )
-		{
+		{ 	
 			$this->data->addBody(-140, $data);
 		}
 		else
