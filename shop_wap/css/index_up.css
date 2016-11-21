@@ -325,6 +325,7 @@ body{
     		padding: 0.05rem;
     		background: white;
     		margin-bottom: 0.1rem;
+            /*height: 15rem;*/
         }
         .product-recommend ul li img{
         	width:100%;
@@ -335,13 +336,18 @@ body{
          	font-size: 0.65rem;
          	position: relative;
          }
+         .product-recommend ul li dl dt{
+           height: 2.45rem;
+           font-size: 0.6rem;
+           color:#FE7F17;
+         }
          .product-recommend ul li dl dd{
          	height: 1rem;
          	line-height: 1rem;
          	color:#999;
          }
-         .price{
-         	color:#FF7E18 !important;
+         .price a{
+         	color:#F8008C !important;
          	font-size: 0.75rem !important;
          }
          .product-recommend-info{

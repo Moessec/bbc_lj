@@ -79,6 +79,26 @@
 	</div>
 
 	<div class="product-recommend clearfix" id="product-contain">	</div>
+	<script type="text/html" id="goods">
+		<ul class="clearfix">
+		<% for (var i in item) { %>
+			<li><a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+				<img class="a" src="<%= item[i].goods_image %>" alt=""height="180rem"width='180rem' >
+			 	<div class="product-recommend-info">
+			 		<dl>
+			 			<dt><%= item[i].goods_name %></dt>
+			 			<dd>剩余10盒</dd>
+			 			<dd class="price">￥<%= item[i].goods_promotion_price %></a><a href="javascript:void(0)"><i class="add"></a></i></dd>
+			 			
+			 		</dl>
+			 	</div>
+
+			</li>
+			<% } %>
+
+			
+		</ul>
+	</script>
 
 
 	
@@ -180,26 +200,6 @@
 	</footer>
 
 
-	<script type="text/html" id="goods">
-		<ul class="clearfix">
-		<% for (var i in item) { %>
-			<li><a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
-				<img class="a" src="<%= item[i].goods_image %>" alt="">
-			 	<div class="product-recommend-info">
-			 		<dl>
-			 			<dt><%= item[i].goods_name %></dt>
-			 			<dd>剩余10盒</dd>
-			 			<dd class="price">￥<%= item[i].goods_promotion_price %></a><a href="javascript:void(0)"><i class="add"></a></i></dd>
-			 			
-			 		</dl>
-			 	</div>
-
-			</li>
-			<% } %>
-
-			
-		</ul>
-	</script>
 
 <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script> 
@@ -249,11 +249,9 @@ window.onload = function() {
 //======================
 	$(function(){
 		var c = $(window).width();
-	    var height = $('.a').height(c/2-2);
-	    // alert(height);
-	    // var width = $('.product-recommend').find('img').width(c/2-2)+'px';
-// alert(width);
-
+		// alert(1);
+       $('.a').height(c/2-1);
+	   
 		var width2 = $('.product-list-info').find('img').width();
 		  // alert(width2);
 		    $('.product-list-info').find('img').height(width2);
