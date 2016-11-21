@@ -75,17 +75,18 @@ class PayCtl extends Controller
 	public function money()
 	{
 		$trade_id = request_string('trade_id');
-
+		
 		//如果订单号为合并订单号，则获取合并订单号的信息
 		$Union_OrderModel = new Union_OrderModel();
-
+		
 		//开启事物
 		$Consume_DepositModel = new Consume_DepositModel();
-
+		
 		$uorder = $Union_OrderModel->getOne($trade_id);
 		//修改订单表中的各种状态
-
+		
 		$flag = $Consume_DepositModel->notifyShop($trade_id,$uorder['buyer_id']);
+		
 		$data = array();
 		if ($flag['status'] == 200)
 		{
