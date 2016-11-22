@@ -394,7 +394,7 @@ class Seller_Trade_WaybillCtl extends Seller_Controller
 			{
 				$zps_data = $this->logisticsZpsModel->getTpl($zps_tpl_id);
 				$zps_data = pos($zps_data);
-				var_dump($zps_data);exit;
+				// var_dump($zps_data);exit;
 			}
 
 			
