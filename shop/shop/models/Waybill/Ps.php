@@ -43,7 +43,7 @@ class Waybill_Ps extends Yf_Model
 	{
 		$rows = array();
 		$rows = $this->get($zps_tpl_id, $sort_key_row);
-		var_dump($rows);exit;
+		
 		return $rows;
 	}
 
