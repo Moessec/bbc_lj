@@ -1065,7 +1065,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			/*fb("====order_base===");
 			fb($flag1);*/
 			$flag = $flag && $flag1;
-
+			var_dump($flag);exit;
 			foreach ($val_1['goods'] as $k => $v)
 			{
 
