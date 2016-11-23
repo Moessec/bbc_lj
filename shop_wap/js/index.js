@@ -1,19 +1,5 @@
 $(function() {
-
-    // var headerClone = $('#header').clone();
-    // $(window).scroll(function(){
-    //     if ($(window).scrollTop() <= $('#main-container1').height()) {
-    //         headerClone = $('#header').clone();
-    //         $('#header').remove();
-    //         headerClone.addClass('transparent').removeClass('');
-    //         headerClone.prependTo('.nctouch-home-top');
-    //     } else {
-    //         headerClone = $('#header').clone();
-    //         $('#header').remove();
-    //         headerClone.addClass('').removeClass('transparent');
-    //         headerClone.prependTo('body');
-    //     }
-    // });
+ var key = getCookie('key');
     $.ajax({
         url: ApiUrl + "/index.php?ctl=Index&met=index&typ=json",
         type: 'get',
@@ -57,5 +43,50 @@ $(function() {
 
         }
     });
+//*************************************
+// alert(1);
+setTimeout(function(){
+    $('.add').each(function(){
+
+    $(this).click(function(){
+     // alert(1);
+        var goods_id = $(this).find('input').val();
+        var quantity = 1;
+        // alert(gid);
+                            $.ajax({
+                            url:ApiUrl+"/index.php?ctl=Buyer_Cart&met=addCart&typ=json",
+                            data:{k:key,u:getCookie('id'),goods_id:goods_id,goods_num:quantity},
+                            type:"post",
+                            success:function (result){
+                                /*var rData = $.parseJSON(result);*/
+                                if(checkLogin(result.login)){
+                                    if(result.status == 200){
+                                        // show_tip();
+                                        // 更新购物车中商品数量
+                                        delCookie('cart_count');
+                                        getCartCount();
+                                        // $('#cart_count,#cart_count1').html('<sup>'+getCookie('cart_count')+'</sup>');
+                                    }else{
+                                        // $.sDialog({
+                                        //     skin:"red",
+                                        //     content:result.msg,
+                                        //     okBtn:false,
+                                        //     cancelBtn:false
+                                        // });
+                                        alert('error');
+                                    }
+                                }
+                            }
+                        });
+    });        
+    });
+
+},2000)
+
+
+
+
+
+
 
 });
