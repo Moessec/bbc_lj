@@ -302,7 +302,7 @@ class Buyer_CartCtl extends Controller
 				$transport_cost      = $Transport_TypeModel->countTransportCost(0, $cart_id);
 				$data['cost'] = $transport_cost;
 			}
-			
+
 	//`````````````````````````````````````````````````````````````````
 			foreach($data['glist'] as $k=>&$v)
 					{	
