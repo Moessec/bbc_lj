@@ -88,7 +88,7 @@
 			 		<dl>
 			 			<dt><%= item[i].goods_name %></dt>
 			 			<dd>剩余10盒</dd>
-			 			<dd class="price">￥<%= item[i].goods_promotion_price %></a><a href="javascript:void(0)"><i class="add"></a></i></dd>
+			 			<dd class="price">￥<%= item[i].goods_price %></a><a class='add1' href="javascript:void(0)"><i class="add"><input type="hidden"value="<%= item[i].goods_id %>"></i></a></dd>
 			 			
 			 		</dl>
 			 	</div>
@@ -210,8 +210,8 @@
 <!-- 核心js文件集 -->
 <script type="text/javascript" src="js/config.php"></script>
 <script type="text/javascript" src="js/zepto.min.js"></script> 
-<script type="text/javascript" src="js/template.js"></script> 
 <script type="text/javascript" src="js/common.js"></script> 
+<script type="text/javascript" src="js/template.js"></script> 
 <script type="text/javascript" src="js/swipe.js"></script> 
 <script type="text/javascript" src="js/index.js"></script> 
 <script type="text/javascript" src="js/tmpl/footer.js"></script>
@@ -222,6 +222,7 @@
 <!-- index1.js 第二个图片轮播 -->
 <script type="text/javascript" src="js/jR3DCarousel.min.js"></script>
 <script type="text/javascript" src="js/index1.js"></script>
+
 
 <script type="text/javascript">
 
