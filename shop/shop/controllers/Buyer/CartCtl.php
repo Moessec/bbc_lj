@@ -302,7 +302,7 @@ class Buyer_CartCtl extends Controller
 				$transport_cost      = $Transport_TypeModel->countTransportCost(0, $cart_id);
 				$data['cost'] = $transport_cost;
 			}
-
+			var_dump($data['cost']);exit;
 	//`````````````````````````````````````````````````````````````````
 			foreach($data['glist'] as $k=>&$v)
 					{	
@@ -330,7 +330,7 @@ class Buyer_CartCtl extends Controller
 						'shop_id'=>$k
 
 						));
-					
+					// var_dump($zps_model);exit;
 					if(!empty($zps_model['items']))
 					{//将配送模板存入数组 店铺ID=>array('距离'=>价格)
 						$shop_model=array();
@@ -399,7 +399,7 @@ class Buyer_CartCtl extends Controller
 			}
 			
 		}
-		
+	
 
 			//根据默认收货地址计算运费
 			
