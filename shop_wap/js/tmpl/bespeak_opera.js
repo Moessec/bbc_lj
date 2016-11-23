@@ -1,0 +1,75 @@
+$(function ()
+{
+    var a = getCookie("key");
+    $.sValid.init({
+        rules: {true_name: "required", usercontact: "required", area_info: "required", address: "required", bespeak_title: "required"},
+        messages: {true_name: "姓名必填！", usercontact: "手机号必填！", area_info: "地区必填！", address: "街道必填！", bespeak_title: "报修物品"},
+        callback: function (a, e, r)
+        {
+            if (a.length > 0)
+            {
+                var i = "";
+                $.map(e, function (a, e)
+                {
+                    i += "<p>" + a + "</p>"
+                });
+                errorTipsShow(i)
+            }
+            else
+            {
+                errorTipsHide()
+            }
+        }
+    });
+    $("#header-nav").click(function ()
+    {
+        $(".btn").click()
+    });
+    $(".btn").click(function ()
+    {
+        if ($.sValid())
+        {
+            var e = $("#true_name").val();
+            var ru = $("#usercontact").val();
+            var rt = $("#bespeak_title").val();
+            var rc = $("#bespeak_com").val();
+            var d = $("#area_info").attr("data-areaid2");
+            var t = $("#area_info").attr("data-areaid");
+            var bes_info = $("#area_info").val();
+            var n = $("#address").val();
+
+            var province_id = $("#area_info").attr("data-areaid1");
+            var city_id = $("#area_info").attr("data-areaid2");
+            var area_id = $("#area_info").attr("data-areaid3");
+            var area_info = province_id+'-'+city_id+'-'+area_id;
+
+            $.ajax({
+                type: "post",
+                url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=addBespeakInfo&typ=json",
+                data: {k:a,u:getCookie('id'), true_name: e, usercontact: ru, bespeak_area_info: area_info, bespeak_address: n, bes_address: bes_info, bespeak_com: rc, bespeak_title: rt},
+
+                dataType: "json",
+                success: function (a)
+                {
+                    if (a)
+                    {
+                        location.href = WapSiteUrl + "/tmpl/member/bespeak_list.html"
+                    }
+                    else
+                    {
+                        location.href = WapSiteUrl
+                    }
+                }
+            })
+        }
+    });
+    $("#area_info").on("click", function ()
+    {
+        $.areaSelected({
+            success: function (a)
+            {
+                $("#area_info").val(a.area_info).attr({"data-areaid1": a.area_id_1, "data-areaid2": a.area_id_2, "data-areaid3": a.area_id_3, "data-areaid": a.area_id, "data-areaid2": a.area_id_2 == 0 ? a.area_id_1 : a.area_id_2})
+            }
+        })
+    })
+});
