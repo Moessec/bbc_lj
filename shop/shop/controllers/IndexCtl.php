@@ -117,115 +117,150 @@ class IndexCtl extends Controller
 			}
 
 
-			/*$data = array(
-				1 => array(
-					'home1' => array(
-						'title' => '',
-						'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-						'type' => 'special',
-						'data' => '3',
-					),
-				),
-				2 => array(
-					'home4' => array(
-						'title' => '',
-						'rectangle1_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-						'rectangle1_type' => 'goods',
-						'rectangle1_data' => '100456',
-						'rectangle2_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-						'rectangle2_type' => 'goods',
-						'rectangle2_data' => '100378',
-						'square_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-						'square_type' => 'keyword',
-						'square_data' => '收纳',
-					),
-				),
-				3 => array(
-					'home2' => array(
-						'title' => '',
-						'square_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-						'square_type' => 'keyword',
-						'square_data' => '水果',
-						'rectangle1_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-						'rectangle1_type' => 'goods',
-						'rectangle1_data' => '100374',
-						'rectangle2_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-						'rectangle2_type' => 'goods',
-						'rectangle2_data' => '100028',
-					),
-				),
-				4 => array(
-					'home1' => array(
-						'title' => '',
-						'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-						'type' => 'special',
-						'data' => '4',
-					),
-				),
-				5 => array(
-					'home3' => array(
-						'title' => '',
-						'item' => array(
-							0 => array(
-								'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-								'type' => 'goods',
-								'data' => '100517',
-							),
-							1 => array(
-								'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-								'type' => 'goods',
-								'data' => '100520',
-							)
-						),
-					),
-				),
-				6 => array(
-					'home1' => array(
-						'title' => '',
-						'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-						'type' => 'special',
-						'data' => '5',
-					),
-				),
-				7 => array(
-					'goods' => array(
-						'title' => '',
-						'item' => array(
-							0 => array(
-								'goods_id' => '100385',
-								'goods_name' => '【全国通用】500元面值海底捞火锅现金储值卡',
-								'goods_promotion_price' => '428.00',
-								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-							),
-							1 => array(
-								'goods_id' => '100383',
-								'goods_name' => '12省通用】必胜客100面值现金券1张',
-								'goods_promotion_price' => '87.90',
-								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
-							)
-						),
-					),
-				),
-				8 => array(
-					'goods' => array(
-						'title' => '热卖单品',
-						'item' => array(
-							0 => array(
-								'goods_id' => '100601',
-								'goods_name' => '进口德国凯驰HD5/11C高压清洗机 家商用高压水枪洗车 高压洗车机 进口机型 HD5/11C【配1',
-								'goods_promotion_price' => '7800.00',
-								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
-							),
-							1 => array(
-								'goods_id' => '100367',
-								'goods_name' => '乐视TV Letv Max70乐视tv液晶电视3d网络高清智能无线体感操作 银色 24个月服务',
-								'goods_promotion_price' => '9979.00',
-								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
-							)
-						),
-					),
-				),
-			);*/
+			// $data = array(
+			// 	1 => array(
+			// 		'home1' => array(
+			// 			'title' => '',
+			// 			'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 			'type' => 'special',
+			// 			'data' => '3',
+			// 		),
+			// 	),
+			// 	2 => array(
+			// 		'home4' => array(
+			// 			'title' => '',
+			// 			'rectangle1_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 			'rectangle1_type' => 'goods',
+			// 			'rectangle1_data' => '100456',
+			// 			'rectangle2_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 			'rectangle2_type' => 'goods',
+			// 			'rectangle2_data' => '100378',
+			// 			'square_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 			'square_type' => 'keyword',
+			// 			'square_data' => '收纳',
+			// 		),
+			// 	),
+			// 	3 => array(
+			// 		'home2' => array(
+			// 			'title' => '',
+			// 			'square_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 			'square_type' => 'keyword',
+			// 			'square_data' => '水果',
+			// 			'rectangle1_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 			'rectangle1_type' => 'goods',
+			// 			'rectangle1_data' => '100374',
+			// 			'rectangle2_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 			'rectangle2_type' => 'goods',
+			// 			'rectangle2_data' => '100028',
+			// 		),
+			// 	),
+			// 	4 => array(
+			// 		'home1' => array(
+			// 			'title' => '',
+			// 			'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 			'type' => 'special',
+			// 			'data' => '4',
+			// 		),
+			// 	),
+			// 	5 => array(
+			// 		'home3' => array(
+			// 			'title' => '',
+			// 			'item' => array(
+			// 				0 => array(
+			// 					'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 					'type' => 'goods',
+			// 					'data' => '100517',
+			// 				),
+			// 				1 => array(
+			// 					'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 					'type' => 'goods',
+			// 					'data' => '100520',
+			// 				)
+			// 			),
+			// 		),
+			// 	),
+			// 	6 => array(
+			// 		'home1' => array(
+			// 			'title' => '',
+			// 			'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 			'type' => 'special',
+			// 			'data' => '5',
+			// 		),
+			// 	),
+			// 	7 => array(
+			// 		'goods' => array(
+			// 			'title' => '',
+			// 			'item' => array(
+			// 				0 => array(
+			// 					'goods_id' => '100385',
+			// 					'goods_name' => '【全国通用】500元面值海底捞火锅现金储值卡',
+			// 					'goods_promotion_price' => '428.00',
+			// 					'goods_price' => '528.00',
+			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+			// 				),
+			// 				1 => array(
+			// 					'goods_id' => '100383',
+			// 					'goods_name' => '12省通用】必胜客100面值现金券1张',
+			// 					'goods_promotion_price' => '87.90',
+			// 					'goods_price' => '428.00',
+			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+			// 				)
+			// 			),
+			// 		),
+			// 	),
+			// 	8 => array(
+			// 		'goods' => array(
+			// 			'title' => '热卖单品',
+			// 			'item' => array(
+			// 				0 => array(
+			// 					'goods_id' => '100601',
+			// 					'goods_name' => '进口德国凯驰HD5/11C高压清洗机',
+			// 					'goods_promotion_price' => '7800.00',
+			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+			// 				),
+			// 				1 => array(
+			// 					'goods_id' => '100367',
+			// 					'goods_name' => '乐视TV Letv Max70乐视tv液晶电视',
+			// 					'goods_promotion_price' => '9979.00',
+			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+			// 				),
+			// 				2 => array(
+			// 					'goods_id' => '100367',
+			// 					'goods_name' => '乐视TV Letv Max70乐视tv液晶电视3d网络 ',
+			// 					'goods_promotion_price' => '19979.00',
+			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+			// 				)
+
+			// 			),
+			// 		),
+			// 	),
+			// 	9 => array(
+			// 		'goods' => array(
+			// 			'title' => '热卖单品',
+			// 			'item' => array(
+			// 				0 => array(
+			// 					'goods_id' => '100601',
+			// 					'goods_name' => '进口德国凯驰HD5/11C高压清洗机',
+			// 					'goods_promotion_price' => '7800.00',
+			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+			// 				),
+			// 				1 => array(
+			// 					'goods_id' => '100367',
+			// 					'goods_name' => '乐视TV Letv Max70乐视tv液晶电视',
+			// 					'goods_promotion_price' => '9979.00',
+			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+			// 				),
+			// 				2 => array(
+			// 					'goods_id' => '100367',
+			// 					'goods_name' => '乐视TV Letv Max70乐视tv液晶电视3d网络 ',
+			// 					'goods_promotion_price' => '19979.00',
+			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+			// 				)
+
+			// 			),
+			// 		),
+			// 	),
+			// );
 
 
 			//头部滚动条
