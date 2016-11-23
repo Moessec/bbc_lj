@@ -1355,7 +1355,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 		$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=addUnionOrder&typ=json', $url), $formvars);
 		fb($rs);
-
+		var_dump($flag);exit;
 		if ($rs['status'] == 200)
 		{
 			$uorder = $rs['data']['uorder'];
@@ -1368,7 +1368,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 			$flag = $flag && false;
 		}
-		var_dump($flag,$this->tradeOrderModel->sql->commitDb());exit;
+
 		if ($flag && $this->tradeOrderModel->sql->commitDb())
 		{
 			$status = 200;
