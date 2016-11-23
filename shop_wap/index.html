@@ -103,84 +103,47 @@
 
 	
 		
-
+	<div id="product-contain1">	</div>
+	<script type="text/html" id="goods1">
 	<div class="product-list">
 		<div class="product-list-pic"><img src="images/iconfont/tuceng02.png" /></div>
-		<div class="product-list-title"><a href="javascript:void(0)"><span>一日之计在于晨</span><span class="more-con" style="float: right;color: #999">more<i class="more" ></i></span></a></div>		
+			
+		<div class="product-list-title"><a href="javascript:void(0)"><span><%=title%></span><span class="more-con" style="float: right;color: #999">more<i class="more" ></i></span></a></div>		
 		<div class="product-list-info clearfix">
 			<ul>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_05.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
+			<% for (var i in item) { %>
+				<li><a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+					<img src="<%= item[i].goods_image %>" />
+					<p><%= item[i].goods_name %></p>
+					<p class="pro-info-price">￥<%= item[i].goods_promotion_price %></p>
 				</a></li>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_main_07.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
-				</a></li>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_main_10.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
-				</a></li>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_main_23.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
-				</a></li>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_main_19.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
-				</a></li>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_main_23.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
-				</a></li>
+					<% } %>
 			</ul>
 		</div>
+	
 	</div>
-
+	</script>
+	<div id="product-contain2">	</div>
+	<script type="text/html" id="goods2">
 	<div class="product-list">
-		<div class="product-list-pic"><img src="images/iconfont/tuceng03.png" /></div>
-		<div class="product-list-title"><a href="javascript:void(0)"><span>一日之计在于晨</span><span class="more-con" style="float: right;color: #999">more<i class="more" ></i></span></a></div>		
+		<div class="product-list-pic"><img src="images/iconfont/tuceng02.png" /></div>
+			
+		<div class="product-list-title"><a href="javascript:void(0)"><span><%=title%></span><span class="more-con" style="float: right;color: #999">more<i class="more" ></i></span></a></div>		
 		<div class="product-list-info clearfix">
 			<ul>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_main_40.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
+			<% for (var i in item) { %>
+				<li><a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
+					<img src="<%= item[i].goods_image %>" />
+					<p><%= item[i].goods_name %></p>
+					<p class="pro-info-price">￥<%= item[i].goods_promotion_price %></p>
 				</a></li>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_05.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
-				</a></li>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_main_03.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
-				</a></li>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_main_36.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
-				</a></li>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_main_35.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
-				</a></li>
-				<li><a href="javascript:void(0)">
-					<img src="images/iconfont/lj_main_36.jpg" />
-					<p>土鸡蛋</p>
-					<p class="pro-info-price">￥99</p>
-				</a></li>
+					<% } %>
 			</ul>
 		</div>
+	
 	</div>
+	</script>
+
 </div>
 <div class="fix-block-r">
 	<a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a>
