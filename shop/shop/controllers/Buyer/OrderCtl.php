@@ -1368,7 +1368,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 			$flag = $flag && false;
 		}
-
+		var_dump($flag,$this->tradeOrderModel->sql->commitDb());exit;
 		if ($flag && $this->tradeOrderModel->sql->commitDb())
 		{
 			$status = 200;
