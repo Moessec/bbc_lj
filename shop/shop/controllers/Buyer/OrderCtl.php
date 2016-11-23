@@ -766,10 +766,10 @@ class Buyer_OrderCtl extends Buyer_Controller
 		fb("购物车中的商品信息");
 
 		
-		// if(!$data['count'])
-		// {
-  //          $flag = false;
-		// }
+		if(!$data['count'])
+		{
+           $flag = false;
+		}
 
 		
 		//查找收货地址
