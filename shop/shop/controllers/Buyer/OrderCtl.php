@@ -765,7 +765,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 		fb($data);
 		fb("购物车中的商品信息");
 
-
+		var_dump($flag);exit;
 		if(!$data['count'])
 		{
            $flag = false;
@@ -1065,7 +1065,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			/*fb("====order_base===");
 			fb($flag1);*/
 			$flag = $flag && $flag1;
-			var_dump('111');exit;
+
 			foreach ($val_1['goods'] as $k => $v)
 			{
 
