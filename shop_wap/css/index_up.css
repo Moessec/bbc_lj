@@ -419,12 +419,18 @@ body{
          	text-align: center;
          	height: 1rem;
          	line-height: 1rem;
+            /*padding-top: 1rem;*/
+         }
+         .product-list-info ul li{
+            height:12rem;
          }
          .product-list-info ul li a{
-         	color: inherit;
+         	color: #FF7E18;
          }
-        .pro-info-price{
+        .pro-info-price {
+            margin-top:2rem;
         	color: #FF7E18 !important;
+
         }
         footer{
             position: fixed;
