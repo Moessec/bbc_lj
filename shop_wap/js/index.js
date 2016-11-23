@@ -73,7 +73,7 @@ setTimeout(function(){
                                         //     okBtn:false,
                                         //     cancelBtn:false
                                         // });
-                                        alert('库存不足');
+                                        alert('商品下架');
                                     }
                                 }
                             }
