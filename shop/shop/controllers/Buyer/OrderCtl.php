@@ -1065,7 +1065,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			/*fb("====order_base===");
 			fb($flag1);*/
 			$flag = $flag && $flag1;
-			var_dump($flag);exit;
+			var_dump('111');exit;
 			foreach ($val_1['goods'] as $k => $v)
 			{
 
@@ -1313,7 +1313,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$rs = get_url_with_encrypt($key_1, sprintf('%s?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
 			
 			fb("合并支付返回的结果");
-			
+
 			//将合并支付单号插入数据库
 			if($rs['status'] == 200)
 			{
