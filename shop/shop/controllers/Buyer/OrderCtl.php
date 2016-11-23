@@ -1313,6 +1313,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$rs = get_url_with_encrypt($key_1, sprintf('%s?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
 			
 			fb("合并支付返回的结果");
+			var_dump($flag);exit;
 			//将合并支付单号插入数据库
 			if($rs['status'] == 200)
 			{
@@ -1355,7 +1356,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 		$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=addUnionOrder&typ=json', $url), $formvars);
 		fb($rs);
-		var_dump($flag);exit;
+
 		if ($rs['status'] == 200)
 		{
 			$uorder = $rs['data']['uorder'];
