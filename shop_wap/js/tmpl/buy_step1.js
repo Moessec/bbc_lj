@@ -791,7 +791,7 @@ $(function() {
 
     // 支付
     $('#ToBuyStep2').click(function(){
-        console.log(111);
+      
         if($("#totalPayPrice").html() >= 99999999.99)
         {
             $.sDialog({
