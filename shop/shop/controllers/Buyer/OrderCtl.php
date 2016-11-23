@@ -637,7 +637,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 		$invoice           = request_string('invoice');//是否需要发票
 
 		$cart_id           = request_row("cart_id");//购物车ID
-		
+		var_dump($cart_id);exit;
 		$shop_id           = request_row("shop_id");//店铺ID
 
 		$remark            = request_row("remark");//留言备注数组
@@ -761,7 +761,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 		//购物车中的商品信息
 		$CartModel = new CartModel();
 		$data      = $CartModel->getCardList($cond_row, $order_row);
-		var_dump($data);exit;
+
 		fb($data);
 		fb("购物车中的商品信息");
 
