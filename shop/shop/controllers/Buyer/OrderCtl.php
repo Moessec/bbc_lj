@@ -761,17 +761,17 @@ class Buyer_OrderCtl extends Buyer_Controller
 		//购物车中的商品信息
 		$CartModel = new CartModel();
 		$data      = $CartModel->getCardList($cond_row, $order_row);
-
+		var_dump($data);exit;
 		fb($data);
 		fb("购物车中的商品信息");
 
-		
+
 		if(!$data['count'])
 		{
            $flag = false;
 		}
 
-		
+
 		//查找收货地址
 		$User_AddressModel = new User_AddressModel();
 		$city_id = 0;
