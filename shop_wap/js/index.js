@@ -73,7 +73,7 @@ setTimeout(function(){
                                         //     okBtn:false,
                                         //     cancelBtn:false
                                         // });
-                                        alert('error');
+                                        alert('库存不足');
                                     }
                                 }
                             }
