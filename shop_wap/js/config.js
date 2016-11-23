@@ -1,6 +1,6 @@
 
 var SiteUrl = "http://127.0.0.1/bbc_lj/shop";
-var ApiUrl = "http://127.0.0.1/bbc_lj/shop";
+var ApiUrl = "http://139.196.51.206/bbc_lj/shop";
 var pagesize = 10;
 var WapSiteUrl = "http://139.196.51.206/bbc_lj/shop_wap";
 
