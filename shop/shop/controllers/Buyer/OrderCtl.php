@@ -621,7 +621,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 	 * @author     Zhuyt
 	 */
 	public function addOrder()
-	{
+	{	
 		$user_id      = Perm::$row['user_id'];
 
 		$user_account = Perm::$row['user_account'];
@@ -629,7 +629,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 		$flag         = true;
 
 		$receiver_name     = request_string('receiver_name');//收货人
-
+		
 		$receiver_address  = request_string('receiver_address');//收货地址
 		
 		$receiver_phone    = request_string('receiver_phone');//收货人联系方式
@@ -637,7 +637,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 		$invoice           = request_string('invoice');//是否需要发票
 
 		$cart_id           = request_row("cart_id");//购物车ID
-		var_dump($cart_id);exit;
+		
 		$shop_id           = request_row("shop_id");//店铺ID
 
 		$remark            = request_row("remark");//留言备注数组
@@ -1313,7 +1313,6 @@ class Buyer_OrderCtl extends Buyer_Controller
 			$rs = get_url_with_encrypt($key_1, sprintf('%s?ctl=Api_Pay_Pay&met=addConsumeTrade&typ=json',$url), $formvars);
 			
 			fb("合并支付返回的结果");
-
 			//将合并支付单号插入数据库
 			if($rs['status'] == 200)
 			{
