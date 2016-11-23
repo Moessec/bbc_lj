@@ -34,7 +34,13 @@ $(function() {
 
                     }
                     if (k == 6) {
-                        $("#product-contain").html(template.render(kk, vv));
+                        $("#product-contain").html(template.render('goods', vv));
+                    }
+                    if (k == 7) {
+                        $("#product-contain1").html(template.render('goods1', vv));
+                    }
+                    if (k == 8) {
+                        $("#product-contain2").html(template.render('goods2', vv));
                     }
                     return false;
                 });
