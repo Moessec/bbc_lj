@@ -791,7 +791,7 @@ $(function() {
 
     // 支付
     $('#ToBuyStep2').click(function(){
-      
+
         if($("#totalPayPrice").html() >= 99999999.99)
         {
             $.sDialog({
@@ -834,7 +834,7 @@ $(function() {
         $("input[name='cart_id']").each(function(){
             cart_id.push($(this).val());//将值添加到数组中
         });
-
+        console.log(cart_id);
         var remark = [];
         var shop_id = [];
         $("input[name='remarks']").each(function(){
