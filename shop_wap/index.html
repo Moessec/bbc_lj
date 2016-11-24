@@ -116,12 +116,16 @@
 		<div class="product-list-info clearfix">
 			<ul>
 			<% for (var i in item) { %>
-				<li><a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
-					<img src="<%= item[i].goods_image %>" />
+				<% for (var j in i) { %>
+				<% if (items[i].cat_id==3) { %>
+				<li><a href="tmpl/product_detail.html?goods_id=<%= items[i].common_id %>">
+					<img src="<%= items[i].common_image %>" />
 					<p><%= item[i].goods_name %></p>
-					<p class="pro-info-price">￥<%= item[i].goods_promotion_price %></p>
+					<p class="pro-info-price">￥<%= item[i].common_price %></p>
 				</a></li>
 					<% } %>
+					<% } %>
+				<% } %>
 			</ul>
 		</div>
 	
