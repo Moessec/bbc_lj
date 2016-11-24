@@ -50,7 +50,7 @@ setTimeout(function(){
                                         delCookie('cart_count');
                                         getCartCount();
                                         alert(getCookie('cart_count'));
-                                        // $('#cart_count').html(getCookie('cart_count'));
+                                        $('#cart_count').html(getCookie('cart_count'));
                                     }else{
                                         // $.sDialog({
                                         //     skin:"red",
