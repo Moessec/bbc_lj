@@ -23,98 +23,98 @@ class IndexCtl extends Controller
 
 			$data = array();
 			$data[] = array();
+            var_dump($layout_list);
+			// if ( !empty($layout_list) )
+			// {
+			// 	foreach($layout_list as $mb_tpl_layout_id => $layout_data_val)
+			// 	{
+			// 		if ($layout_data_val['mb_tpl_layout_type'] == 'adv_list')
+			// 		{
+			// 			$adv_list = $layout_data_val;
+			// 		}
 
-			if ( !empty($layout_list) )
-			{
-				foreach($layout_list as $mb_tpl_layout_id => $layout_data_val)
-				{
-					if ($layout_data_val['mb_tpl_layout_type'] == 'adv_list')
-					{
-						$adv_list = $layout_data_val;
-					}
+			// 		if ($layout_data_val['mb_tpl_layout_type'] == 'home1')
+			// 		{
+			// 			$hom1 = array();
+			// 			$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
 
-					if ($layout_data_val['mb_tpl_layout_type'] == 'home1')
-					{
-						$hom1 = array();
-						$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
+			// 			$hom1['title'] = $layout_data_val['mb_tpl_layout_title'];
+			// 			$hom1['image'] = $mb_tpl_layout_data['image'];
+			// 			$hom1['type']  = $mb_tpl_layout_data['image_type'];
+			// 			$hom1['data']  = $mb_tpl_layout_data['image_data'];
 
-						$hom1['title'] = $layout_data_val['mb_tpl_layout_title'];
-						$hom1['image'] = $mb_tpl_layout_data['image'];
-						$hom1['type']  = $mb_tpl_layout_data['image_type'];
-						$hom1['data']  = $mb_tpl_layout_data['image_data'];
+			// 			$data[$mb_tpl_layout_id+1]['home1'] = $hom1;
+			// 		}
 
-						$data[$mb_tpl_layout_id+1]['home1'] = $hom1;
-					}
+			// 		if ($layout_data_val['mb_tpl_layout_type'] == 'home2' || $layout_data_val['mb_tpl_layout_type'] == 'home4')
+			// 		{
+			// 			$home2_4 = array();
+			// 			$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
 
-					if ($layout_data_val['mb_tpl_layout_type'] == 'home2' || $layout_data_val['mb_tpl_layout_type'] == 'home4')
-					{
-						$home2_4 = array();
-						$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
+			// 			$home2_4['title'] = $layout_data_val['mb_tpl_layout_title'];
 
-						$home2_4['title'] = $layout_data_val['mb_tpl_layout_title'];
+			// 			$home2_4['rectangle1_image'] = $mb_tpl_layout_data['rectangle1']['image'];
+			// 			$home2_4['rectangle1_type']  = $mb_tpl_layout_data['rectangle1']['image_type'];
+			// 			$home2_4['rectangle1_data']  = $mb_tpl_layout_data['rectangle1']['image_data'];
 
-						$home2_4['rectangle1_image'] = $mb_tpl_layout_data['rectangle1']['image'];
-						$home2_4['rectangle1_type']  = $mb_tpl_layout_data['rectangle1']['image_type'];
-						$home2_4['rectangle1_data']  = $mb_tpl_layout_data['rectangle1']['image_data'];
+			// 			$home2_4['rectangle2_image'] = $mb_tpl_layout_data['rectangle2']['image'];
+			// 			$home2_4['rectangle2_type']  = $mb_tpl_layout_data['rectangle2']['image_type'];
+			// 			$home2_4['rectangle2_data']  = $mb_tpl_layout_data['rectangle2']['image_data'];
 
-						$home2_4['rectangle2_image'] = $mb_tpl_layout_data['rectangle2']['image'];
-						$home2_4['rectangle2_type']  = $mb_tpl_layout_data['rectangle2']['image_type'];
-						$home2_4['rectangle2_data']  = $mb_tpl_layout_data['rectangle2']['image_data'];
+			// 			$home2_4['square_image'] = $mb_tpl_layout_data['square']['image'];
+			// 			$home2_4['square_type']  = $mb_tpl_layout_data['square']['image_type'];
+			// 			$home2_4['square_data']  = $mb_tpl_layout_data['square']['image_data'];
 
-						$home2_4['square_image'] = $mb_tpl_layout_data['square']['image'];
-						$home2_4['square_type']  = $mb_tpl_layout_data['square']['image_type'];
-						$home2_4['square_data']  = $mb_tpl_layout_data['square']['image_data'];
+			// 			$data[$mb_tpl_layout_id+1][$layout_data_val['mb_tpl_layout_type']] = $home2_4;
+			// 		}
 
-						$data[$mb_tpl_layout_id+1][$layout_data_val['mb_tpl_layout_type']] = $home2_4;
-					}
+			// 		if ($layout_data_val['mb_tpl_layout_type'] == 'home3')
+			// 		{
+			// 			$home3 = array();
+			// 			$item = array();
+			// 			$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
 
-					if ($layout_data_val['mb_tpl_layout_type'] == 'home3')
-					{
-						$home3 = array();
-						$item = array();
-						$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
+			// 			foreach ($mb_tpl_layout_data as $key => $layout_data)
+			// 			{
+			// 				$item[$key]['image'] = $layout_data['image'];
+			// 				$item[$key]['type']  = $layout_data['image_type'];
+			// 				$item[$key]['data']  = $layout_data['image_data'];
+			// 			}
 
-						foreach ($mb_tpl_layout_data as $key => $layout_data)
-						{
-							$item[$key]['image'] = $layout_data['image'];
-							$item[$key]['type']  = $layout_data['image_type'];
-							$item[$key]['data']  = $layout_data['image_data'];
-						}
+			// 			$home3['item'] = $item;
+			// 			$home3['title'] = $layout_data_val['mb_tpl_layout_title'];
 
-						$home3['item'] = $item;
-						$home3['title'] = $layout_data_val['mb_tpl_layout_title'];
+			// 			$data[$mb_tpl_layout_id+1]['home3'] = $home3;
+			// 		}
 
-						$data[$mb_tpl_layout_id+1]['home3'] = $home3;
-					}
+			// 		if ($layout_data_val['mb_tpl_layout_type'] == 'goods')
+			// 		{
+			// 			$goods = array();
+			// 			$item = array();
+			// 			$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
 
-					if ($layout_data_val['mb_tpl_layout_type'] == 'goods')
-					{
-						$goods = array();
-						$item = array();
-						$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
-
-						$common_list = $goods_CommonModel->getByWhere( array('common_id:IN'=>$mb_tpl_layout_data) );
-						if ( $common_list )
-						{
-							foreach($common_list as $common_id => $common_data)
-							{
-								$goods_id = pos($common_data['goods_id']);
-								if ( is_array($goods_id) )
-								{
-									$goods_id = pos($goods_id);
-								}
-								$item[$common_id]['goods_id'] 			   = $goods_id;
-								$item[$common_id]['goods_name'] 		   = $common_data['common_name'];
-								$item[$common_id]['goods_promotion_price'] = $common_data['common_price'];
-								$item[$common_id]['goods_image'] 		   = sprintf('%s!360x360', $common_data['common_image']);
-							}
-							$goods['item'] = array_values($item);
-							$goods['title'] = $layout_data_val['mb_tpl_layout_title'];
-							$data[$mb_tpl_layout_id+1]['goods'] = $goods;
-						}
-					}
-				}
-			}
+			// 			$common_list = $goods_CommonModel->getByWhere( array('common_id:IN'=>$mb_tpl_layout_data) );
+			// 			if ( $common_list )
+			// 			{
+			// 				foreach($common_list as $common_id => $common_data)
+			// 				{
+			// 					$goods_id = pos($common_data['goods_id']);
+			// 					if ( is_array($goods_id) )
+			// 					{
+			// 						$goods_id = pos($goods_id);
+			// 					}
+			// 					$item[$common_id]['goods_id'] 			   = $goods_id;
+			// 					$item[$common_id]['goods_name'] 		   = $common_data['common_name'];
+			// 					$item[$common_id]['goods_promotion_price'] = $common_data['common_price'];
+			// 					$item[$common_id]['goods_image'] 		   = sprintf('%s!360x360', $common_data['common_image']);
+			// 				}
+			// 				$goods['item'] = array_values($item);
+			// 				$goods['title'] = $layout_data_val['mb_tpl_layout_title'];
+			// 				$data[$mb_tpl_layout_id+1]['goods'] = $goods;
+			// 			}
+			// 		}
+			// 	}
+			// }
 
 
 			// $data = array(
