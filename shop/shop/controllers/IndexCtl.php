@@ -23,246 +23,244 @@ class IndexCtl extends Controller
 
 			$data = array();
 			$data[] = array();
-			// $this->goods_CommonModel->getGoodsList();
-            // var_dump($goods_CommonModel);
-            // echo 1;die;
-			// if ( !empty($layout_list) )
-			// {
-			// 	foreach($layout_list as $mb_tpl_layout_id => $layout_data_val)
-			// 	{
-			// 		if ($layout_data_val['mb_tpl_layout_type'] == 'adv_list')
-			// 		{
-			// 			$adv_list = $layout_data_val;
-			// 		}
 
-			// 		if ($layout_data_val['mb_tpl_layout_type'] == 'home1')
-			// 		{
-			// 			$hom1 = array();
-			// 			$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
+			if ( !empty($layout_list) )
+			{
+				foreach($layout_list as $mb_tpl_layout_id => $layout_data_val)
+				{
+					if ($layout_data_val['mb_tpl_layout_type'] == 'adv_list')
+					{
+						$adv_list = $layout_data_val;
+					}
 
-			// 			$hom1['title'] = $layout_data_val['mb_tpl_layout_title'];
-			// 			$hom1['image'] = $mb_tpl_layout_data['image'];
-			// 			$hom1['type']  = $mb_tpl_layout_data['image_type'];
-			// 			$hom1['data']  = $mb_tpl_layout_data['image_data'];
+					if ($layout_data_val['mb_tpl_layout_type'] == 'home1')
+					{
+						$hom1 = array();
+						$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
 
-			// 			$data[$mb_tpl_layout_id+1]['home1'] = $hom1;
-			// 		}
+						$hom1['title'] = $layout_data_val['mb_tpl_layout_title'];
+						$hom1['image'] = $mb_tpl_layout_data['image'];
+						$hom1['type']  = $mb_tpl_layout_data['image_type'];
+						$hom1['data']  = $mb_tpl_layout_data['image_data'];
 
-			// 		if ($layout_data_val['mb_tpl_layout_type'] == 'home2' || $layout_data_val['mb_tpl_layout_type'] == 'home4')
-			// 		{
-			// 			$home2_4 = array();
-			// 			$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
+						$data[$mb_tpl_layout_id+1]['home1'] = $hom1;
+					}
 
-			// 			$home2_4['title'] = $layout_data_val['mb_tpl_layout_title'];
+					if ($layout_data_val['mb_tpl_layout_type'] == 'home2' || $layout_data_val['mb_tpl_layout_type'] == 'home4')
+					{
+						$home2_4 = array();
+						$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
 
-			// 			$home2_4['rectangle1_image'] = $mb_tpl_layout_data['rectangle1']['image'];
-			// 			$home2_4['rectangle1_type']  = $mb_tpl_layout_data['rectangle1']['image_type'];
-			// 			$home2_4['rectangle1_data']  = $mb_tpl_layout_data['rectangle1']['image_data'];
+						$home2_4['title'] = $layout_data_val['mb_tpl_layout_title'];
 
-			// 			$home2_4['rectangle2_image'] = $mb_tpl_layout_data['rectangle2']['image'];
-			// 			$home2_4['rectangle2_type']  = $mb_tpl_layout_data['rectangle2']['image_type'];
-			// 			$home2_4['rectangle2_data']  = $mb_tpl_layout_data['rectangle2']['image_data'];
+						$home2_4['rectangle1_image'] = $mb_tpl_layout_data['rectangle1']['image'];
+						$home2_4['rectangle1_type']  = $mb_tpl_layout_data['rectangle1']['image_type'];
+						$home2_4['rectangle1_data']  = $mb_tpl_layout_data['rectangle1']['image_data'];
 
-			// 			$home2_4['square_image'] = $mb_tpl_layout_data['square']['image'];
-			// 			$home2_4['square_type']  = $mb_tpl_layout_data['square']['image_type'];
-			// 			$home2_4['square_data']  = $mb_tpl_layout_data['square']['image_data'];
+						$home2_4['rectangle2_image'] = $mb_tpl_layout_data['rectangle2']['image'];
+						$home2_4['rectangle2_type']  = $mb_tpl_layout_data['rectangle2']['image_type'];
+						$home2_4['rectangle2_data']  = $mb_tpl_layout_data['rectangle2']['image_data'];
 
-			// 			$data[$mb_tpl_layout_id+1][$layout_data_val['mb_tpl_layout_type']] = $home2_4;
-			// 		}
+						$home2_4['square_image'] = $mb_tpl_layout_data['square']['image'];
+						$home2_4['square_type']  = $mb_tpl_layout_data['square']['image_type'];
+						$home2_4['square_data']  = $mb_tpl_layout_data['square']['image_data'];
 
-			// 		if ($layout_data_val['mb_tpl_layout_type'] == 'home3')
-			// 		{
-			// 			$home3 = array();
-			// 			$item = array();
-			// 			$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
+						$data[$mb_tpl_layout_id+1][$layout_data_val['mb_tpl_layout_type']] = $home2_4;
+					}
 
-			// 			foreach ($mb_tpl_layout_data as $key => $layout_data)
-			// 			{
-			// 				$item[$key]['image'] = $layout_data['image'];
-			// 				$item[$key]['type']  = $layout_data['image_type'];
-			// 				$item[$key]['data']  = $layout_data['image_data'];
-			// 			}
+					if ($layout_data_val['mb_tpl_layout_type'] == 'home3')
+					{
+						$home3 = array();
+						$item = array();
+						$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
 
-			// 			$home3['item'] = $item;
-			// 			$home3['title'] = $layout_data_val['mb_tpl_layout_title'];
+						foreach ($mb_tpl_layout_data as $key => $layout_data)
+						{
+							$item[$key]['image'] = $layout_data['image'];
+							$item[$key]['type']  = $layout_data['image_type'];
+							$item[$key]['data']  = $layout_data['image_data'];
+						}
 
-			// 			$data[$mb_tpl_layout_id+1]['home3'] = $home3;
-			// 		}
+						$home3['item'] = $item;
+						$home3['title'] = $layout_data_val['mb_tpl_layout_title'];
 
-			// 		if ($layout_data_val['mb_tpl_layout_type'] == 'goods')
-			// 		{
-			// 			$goods = array();
-			// 			$item = array();
-			// 			$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
+						$data[$mb_tpl_layout_id+1]['home3'] = $home3;
+					}
 
-			// 			$common_list = $goods_CommonModel->getByWhere( array('common_id:IN'=>$mb_tpl_layout_data) );
-			// 			if ( $common_list )
-			// 			{
-			// 				foreach($common_list as $common_id => $common_data)
-			// 				{
-			// 					$goods_id = pos($common_data['goods_id']);
-			// 					if ( is_array($goods_id) )
-			// 					{
-			// 						$goods_id = pos($goods_id);
-			// 					}
-			// 					$item[$common_id]['goods_id'] 			   = $goods_id;
-			// 					$item[$common_id]['goods_name'] 		   = $common_data['common_name'];
-			// 					$item[$common_id]['goods_promotion_price'] = $common_data['common_price'];
-			// 					$item[$common_id]['goods_image'] 		   = sprintf('%s!360x360', $common_data['common_image']);
-			// 				}
-			// 				$goods['item'] = array_values($item);
-			// 				$goods['title'] = $layout_data_val['mb_tpl_layout_title'];
-			// 				$data[$mb_tpl_layout_id+1]['goods'] = $goods;
-			// 			}
-			// 		}
-			// 	}
-			// }
+					if ($layout_data_val['mb_tpl_layout_type'] == 'goods')
+					{
+						$goods = array();
+						$item = array();
+						$mb_tpl_layout_data = $layout_data_val['mb_tpl_layout_data'];
+
+						$common_list = $goods_CommonModel->getByWhere( array('common_id:IN'=>$mb_tpl_layout_data) );
+						if ( $common_list )
+						{
+							foreach($common_list as $common_id => $common_data)
+							{
+								$goods_id = pos($common_data['goods_id']);
+								if ( is_array($goods_id) )
+								{
+									$goods_id = pos($goods_id);
+								}
+								$item[$common_id]['goods_id'] 			   = $goods_id;
+								$item[$common_id]['goods_name'] 		   = $common_data['common_name'];
+								$item[$common_id]['goods_promotion_price'] = $common_data['common_price'];
+								$item[$common_id]['goods_image'] 		   = sprintf('%s!360x360', $common_data['common_image']);
+							}
+							$goods['item'] = array_values($item);
+							$goods['title'] = $layout_data_val['mb_tpl_layout_title'];
+							$data[$mb_tpl_layout_id+1]['goods'] = $goods;
+						}
+					}
+				}
+			}
 
 
-			// $data = array(
-			// 	1 => array(
-			// 		'home1' => array(
-			// 			'title' => '',
-			// 			'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 			'type' => 'special',
-			// 			'data' => '3',
-			// 		),
-			// 	),
-			// 	2 => array(
-			// 		'home4' => array(
-			// 			'title' => '',
-			// 			'rectangle1_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 			'rectangle1_type' => 'goods',
-			// 			'rectangle1_data' => '100456',
-			// 			'rectangle2_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 			'rectangle2_type' => 'goods',
-			// 			'rectangle2_data' => '100378',
-			// 			'square_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 			'square_type' => 'keyword',
-			// 			'square_data' => '收纳',
-			// 		),
-			// 	),
-			// 	3 => array(
-			// 		'home2' => array(
-			// 			'title' => '',
-			// 			'square_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 			'square_type' => 'keyword',
-			// 			'square_data' => '水果',
-			// 			'rectangle1_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 			'rectangle1_type' => 'goods',
-			// 			'rectangle1_data' => '100374',
-			// 			'rectangle2_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 			'rectangle2_type' => 'goods',
-			// 			'rectangle2_data' => '100028',
-			// 		),
-			// 	),
-			// 	4 => array(
-			// 		'home1' => array(
-			// 			'title' => '',
-			// 			'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 			'type' => 'special',
-			// 			'data' => '4',
-			// 		),
-			// 	),
-			// 	5 => array(
-			// 		'home3' => array(
-			// 			'title' => '',
-			// 			'item' => array(
-			// 				0 => array(
-			// 					'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 					'type' => 'goods',
-			// 					'data' => '100517',
-			// 				),
-			// 				1 => array(
-			// 					'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 					'type' => 'goods',
-			// 					'data' => '100520',
-			// 				)
-			// 			),
-			// 		),
-			// 	),
-			// 	6 => array(
-			// 		'home1' => array(
-			// 			'title' => '',
-			// 			'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 			'type' => 'special',
-			// 			'data' => '5',
-			// 		),
-			// 	),
-			// 	7 => array(
-			// 		'goods' => array(
-			// 			'title' => '',
-			// 			'item' => array(
-			// 				0 => array(
-			// 					'goods_id' => '100385',
-			// 					'goods_name' => '【全国通用】500元面值海底捞火锅现金储值卡',
-			// 					'goods_promotion_price' => '428.00',
-			// 					'goods_price' => '528.00',
-			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
-			// 				),
-			// 				1 => array(
-			// 					'goods_id' => '100383',
-			// 					'goods_name' => '12省通用】必胜客100面值现金券1张',
-			// 					'goods_promotion_price' => '87.90',
-			// 					'goods_price' => '428.00',
-			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
-			// 				)
-			// 			),
-			// 		),
-			// 	),
-			// 	8 => array(
-			// 		'goods' => array(
-			// 			'title' => '热卖单品',
-			// 			'item' => array(
-			// 				0 => array(
-			// 					'goods_id' => '100601',
-			// 					'goods_name' => '进口德国凯驰HD5/11C高压清洗机',
-			// 					'goods_promotion_price' => '7800.00',
-			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
-			// 				),
-			// 				1 => array(
-			// 					'goods_id' => '100367',
-			// 					'goods_name' => '乐视TV Letv Max70乐视tv液晶电视',
-			// 					'goods_promotion_price' => '9979.00',
-			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
-			// 				),
-			// 				2 => array(
-			// 					'goods_id' => '100367',
-			// 					'goods_name' => '乐视TV Letv Max70乐视tv液晶电视3d网络 ',
-			// 					'goods_promotion_price' => '19979.00',
-			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
-			// 				)
+			$data = array(
+				1 => array(
+					'home1' => array(
+						'title' => '',
+						'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+						'type' => 'special',
+						'data' => '3',
+					),
+				),
+				2 => array(
+					'home4' => array(
+						'title' => '',
+						'rectangle1_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+						'rectangle1_type' => 'goods',
+						'rectangle1_data' => '100456',
+						'rectangle2_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+						'rectangle2_type' => 'goods',
+						'rectangle2_data' => '100378',
+						'square_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+						'square_type' => 'keyword',
+						'square_data' => '收纳',
+					),
+				),
+				3 => array(
+					'home2' => array(
+						'title' => '',
+						'square_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+						'square_type' => 'keyword',
+						'square_data' => '水果',
+						'rectangle1_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+						'rectangle1_type' => 'goods',
+						'rectangle1_data' => '100374',
+						'rectangle2_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+						'rectangle2_type' => 'goods',
+						'rectangle2_data' => '100028',
+					),
+				),
+				4 => array(
+					'home1' => array(
+						'title' => '',
+						'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+						'type' => 'special',
+						'data' => '4',
+					),
+				),
+				5 => array(
+					'home3' => array(
+						'title' => '',
+						'item' => array(
+							0 => array(
+								'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+								'type' => 'goods',
+								'data' => '100517',
+							),
+							1 => array(
+								'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+								'type' => 'goods',
+								'data' => '100520',
+							)
+						),
+					),
+				),
+				6 => array(
+					'home1' => array(
+						'title' => '',
+						'image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+						'type' => 'special',
+						'data' => '5',
+					),
+				),
+				7 => array(
+					'goods' => array(
+						'title' => '',
+						'item' => array(
+							0 => array(
+								'goods_id' => '100385',
+								'goods_name' => '【全国通用】500元面值海底捞火锅现金储值卡',
+								'goods_promotion_price' => '428.00',
+								'goods_price' => '528.00',
+								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg',
+							),
+							1 => array(
+								'goods_id' => '100383',
+								'goods_name' => '12省通用】必胜客100面值现金券1张',
+								'goods_promotion_price' => '87.90',
+								'goods_price' => '428.00',
+								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+							)
+						),
+					),
+				),
+				8 => array(
+					'goods' => array(
+						'title' => '热卖单品',
+						'item' => array(
+							0 => array(
+								'goods_id' => '100601',
+								'goods_name' => '进口德国凯驰HD5/11C高压清洗机',
+								'goods_promotion_price' => '7800.00',
+								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+							),
+							1 => array(
+								'goods_id' => '100367',
+								'goods_name' => '乐视TV Letv Max70乐视tv液晶电视',
+								'goods_promotion_price' => '9979.00',
+								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+							),
+							2 => array(
+								'goods_id' => '100367',
+								'goods_name' => '乐视TV Letv Max70乐视tv液晶电视3d网络 ',
+								'goods_promotion_price' => '19979.00',
+								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+							)
 
-			// 			),
-			// 		),
-			// 	),
-			// 	9 => array(
-			// 		'goods' => array(
-			// 			'title' => '热卖单品',
-			// 			'item' => array(
-			// 				0 => array(
-			// 					'goods_id' => '100601',
-			// 					'goods_name' => '进口德国凯驰HD5/11C高压清洗机',
-			// 					'goods_promotion_price' => '7800.00',
-			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
-			// 				),
-			// 				1 => array(
-			// 					'goods_id' => '100367',
-			// 					'goods_name' => '乐视TV Letv Max70乐视tv液晶电视',
-			// 					'goods_promotion_price' => '9979.00',
-			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
-			// 				),
-			// 				2 => array(
-			// 					'goods_id' => '100367',
-			// 					'goods_name' => '乐视TV Letv Max70乐视tv液晶电视3d网络 ',
-			// 					'goods_promotion_price' => '19979.00',
-			// 					'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
-			// 				)
+						),
+					),
+				),
+				9 => array(
+					'goods' => array(
+						'title' => '热卖单品',
+						'item' => array(
+							0 => array(
+								'goods_id' => '100601',
+								'goods_name' => '进口德国凯驰HD5/11C高压清洗机',
+								'goods_promotion_price' => '7800.00',
+								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+							),
+							1 => array(
+								'goods_id' => '100367',
+								'goods_name' => '乐视TV Letv Max70乐视tv液晶电视',
+								'goods_promotion_price' => '9979.00',
+								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+							),
+							2 => array(
+								'goods_id' => '100367',
+								'goods_name' => '乐视TV Letv Max70乐视tv液晶电视3d网络 ',
+								'goods_promotion_price' => '19979.00',
+								'goods_image' => 'http://shop.bbc-builder.com/image.php/shop/data/upload/media/plantform/image/20160721/1469094838911002.jpg!360x360.jpg',
+							)
 
-			// 			),
-			// 		),
-			// 	),
-			// );
+						),
+					),
+				),
+			);
 
 
 			//头部滚动条
