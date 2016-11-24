@@ -11,7 +11,10 @@ $(function() {
             console.info( data );
             var list = Array()
             $.each(data,function(k,v){
+             $.each(v,function(k,v){
+                
                 console.log(v);
+              })
             })
 
             // $.each(data, function(k, v) {
