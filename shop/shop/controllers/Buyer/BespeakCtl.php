@@ -96,6 +96,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 	{
 		$user_id = Perm::$userId;
 		$user['user_id']=$user_id;
+		$user['bespeak_list']=0;
 		$USER_BespeakModel = new USER_BespeakModel();
 		$data            = $USER_BespeakModel->getBespeakList($user);
 
@@ -119,7 +120,98 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		{
 			include $this->view->getView();
 		}
+	}
 
+	public function advBespeak()
+	{
+		$user_id = Perm::$userId;
+		$user['user_id']=$user_id;
+		$user['bespeak_list']=1;
+		$adv['bespeak_list']=1;
+		$adv['user_id']=0;
+		$adv['bespeak_status']=1;
+		$adv['bespeak_state']=1;
+		$USER_BespeakModel = new USER_BespeakModel();
+		$data['temp']            = $USER_BespeakModel->getBespeakList($user);
+		$data['adv']            = $USER_BespeakModel->getBespeakList($adv);
+		// var_dump($data);
+		// exit();
+		if ("json" == $this->typ)
+		{
+			foreach ($data['temp'] as $key => $value) {
+					if($value['bespeak_state']=='0'){
+						$value['bespeak_state']='无效，审核不通过';
+					}elseif ($value['bespeak_state']=='1') {
+						$value['bespeak_state']='预约正在处理';
+					}elseif ($value['bespeak_state']=='2') {
+						$value['bespeak_state']='预约已完成';
+					}
+					$data['temp'][$key]=$value;
+			}
+			foreach ($data['adv'] as $key => $value) {
+					if($value['bespeak_state']=='0'){
+						$value['bespeak_state']='无效，审核不通过';
+					}elseif ($value['bespeak_state']=='1') {
+						$value['bespeak_state']='活动正在进行';
+					}elseif ($value['bespeak_state']=='2') {
+						$value['bespeak_state']='活动已经借宿';
+					}
+					$data['adv'][$key]=$value;
+			}
+			$num=count($data);
+			// exit();
+			$this->data->addBody(-140, $data);
+		}
+		else
+		{
+			include $this->view->getView();
+		}
+	}
+
+	public function rentBespeak()
+	{
+		$user_id = Perm::$userId;
+		$user['user_id']=$user_id;
+		$user['bespeak_list']=2;
+		$rent['bespeak_list']=2;
+		$rent['user_id']=0;
+		$rent['bespeak_status']=1;
+		$rent['bespeak_state']=1;
+		$USER_BespeakModel = new USER_BespeakModel();
+		$data['temp']            = $USER_BespeakModel->getBespeakList($user);
+		$data['rent']            = $USER_BespeakModel->getBespeakList($rent);
+		// var_dump($data);
+		// exit();
+		if ("json" == $this->typ)
+		{
+			foreach ($data['temp'] as $key => $value) {
+					if($value['bespeak_state']=='0'){
+						$value['bespeak_state']='无效，审核不通过';
+					}elseif ($value['bespeak_state']=='1') {
+						$value['bespeak_state']='预约正在处理';
+					}elseif ($value['bespeak_state']=='2') {
+						$value['bespeak_state']='预约已完成';
+					}
+					$data['temp'][$key]=$value;
+			}
+			foreach ($data['rent'] as $key => $value) {
+					if($value['bespeak_state']=='0'){
+						$value['bespeak_state']='无效，审核不通过';
+					}elseif ($value['bespeak_state']=='1') {
+						$value['bespeak_state']='活动正在进行';
+					}elseif ($value['bespeak_state']=='2') {
+						$value['bespeak_state']='活动已经借宿';
+					}
+					$data['rent'][$key]=$value;
+			}
+			$num=count($data);
+			// exit();
+			$this->data->addBody(-140, $data);
+		}
+		else
+		{
+			include $this->view->getView();
+		}
 	}
 
 	/**
@@ -251,6 +343,146 @@ class Buyer_BespeakCtl extends Buyer_Controller
 
 	}
 
+	public function addAdvBespeak()
+	{
+		$user_id = Perm::$userId;
+
+		$true_name    = request_string('true_name');
+		$usercontact    = request_string('usercontact');
+		$bespeak_title = request_string('bespeak_title');
+		$bespeak_com = request_string('bespeak_com');
+
+		$edit_bespeak_row['true_name']        = $true_name;
+		$edit_bespeak_row['usercontact']        = $usercontact;
+		$edit_bespeak_row['bespeak_com']        = $bespeak_com;
+		$edit_bespeak_row['bespeak_title']        = $bespeak_title;
+		$edit_bespeak_row['starttime']        = get_date_time();
+		$edit_bespeak_row['user_id']        = $user_id;
+		$edit_bespeak_row['bespeak_list']   = 1;
+		// var_dump($edit_bespeak_row);exit();
+		if (empty($usercontact)) {
+			$bespeak_id = request_int('id');
+			$data = $this->userBespeakModel->getBespeakInfo($bespeak_id);
+			if(!empty($data)){
+				$status                              = 200;
+				$msg                                 = _('success');
+			}else
+			{
+				$this->userBespeakModel->sql->rollBackDb();
+				
+				$status = 250;
+				$msg    = _('failure');
+			}
+		}else{
+			$bespeak['user_id']=Perm::$userId;
+			$bespeak['bespeak_title']=$bespeak_title;
+			$ones = $this->userBespeakModel->getBespeakList($bespeak);
+			foreach ($ones as $k => $v) {
+				$besid=$v['bespeak_id'];
+			}
+			if(empty($besid)){
+				$this->userBespeakModel->sql->startTransactionDb();
+			// var_dump($edit_bespeak_row);exit();
+				$flag = $this->userBespeakModel->addBespeak($edit_bespeak_row, true);
+				
+				if ($flag !== false && $this->userBespeakModel->sql->commitDb())
+				{
+					$edit_bespeak_row['bespeak_id'] = $addess_id;
+					$status                              = 200;
+					$msg                                 = _('success');
+				}
+				else
+				{
+					$this->userBespeakModel->sql->rollBackDb();
+					
+					$status = 250;
+					$msg    = _('failure');
+				}
+			}else
+				{
+					$this->userBespeakModel->sql->rollBackDb();
+					
+					$status = 250;
+					$msg    = _('failure');
+				}			
+
+			$data = $edit_bespeak_row;
+		}
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
+
+	public function addRentBespeak()
+	{
+		$user_id = Perm::$userId;
+
+		$true_name    = request_string('true_name');
+		$usercontact    = request_string('usercontact');
+		$bespeak_title = request_string('bespeak_title');
+		$bespeak_com = request_string('bespeak_com');
+
+		$edit_bespeak_row['true_name']        = $true_name;
+		$edit_bespeak_row['usercontact']        = $usercontact;
+		$edit_bespeak_row['bespeak_com']        = $bespeak_com;
+		$edit_bespeak_row['bespeak_title']        = $bespeak_title;
+		$edit_bespeak_row['starttime']        = get_date_time();
+		$edit_bespeak_row['user_id']        = $user_id;
+		$edit_bespeak_row['bespeak_list']   = 2;
+		// var_dump($edit_bespeak_row);exit();
+		if (empty($usercontact)) {
+			$bespeak_id = request_int('id');
+			$data = $this->userBespeakModel->getBespeakInfo($bespeak_id);
+			if(!empty($data)){
+				$status                              = 200;
+				$msg                                 = _('success');
+			}else
+			{
+				$this->userBespeakModel->sql->rollBackDb();
+				
+				$status = 250;
+				$msg    = _('failure');
+			}
+		}else{
+			$bespeak['user_id']=Perm::$userId;
+			$bespeak['bespeak_title']=$bespeak_title;
+			$ones = $this->userBespeakModel->getBespeakList($bespeak);
+
+			foreach ($ones as $k => $v) {
+				$besid=$v['bespeak_id'];
+			}
+			if(empty($besid)){
+				$this->userBespeakModel->sql->startTransactionDb();
+			// var_dump($edit_bespeak_row);exit();
+				$flag = $this->userBespeakModel->addBespeak($edit_bespeak_row, true);
+				
+				if ($flag !== false && $this->userBespeakModel->sql->commitDb())
+				{
+					$edit_bespeak_row['bespeak_id'] = $addess_id;
+					$status                              = 200;
+					$msg                                 = _('success');
+				}
+				else
+				{
+					$this->userBespeakModel->sql->rollBackDb();
+					
+					$status = 250;
+					$msg    = _('failure');
+				}
+			}else
+				{
+					$this->userBespeakModel->sql->rollBackDb();
+					
+					$status = 250;
+					$msg    = _('failure');
+				}			
+
+			$data = $edit_bespeak_row;
+		}
+		$this->data->addBody(-140, $data, $msg, $status);
+
+	}
+
 	/**
 	 *删除会员地址信息
 	 *
@@ -259,9 +491,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 	public function delBespeak()
 	{
 		$user_id         = Perm::$row['user_id'];
-		$bespeak_id = request_string('bespeak_id');
+		$bespeak_id = request_string('id');
 		// $bespeak_id = request_string('bespeak_id');
-
 		//验证用户
 		$cond_row = array(
 			'user_id' => $user_id,
