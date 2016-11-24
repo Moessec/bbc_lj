@@ -478,6 +478,7 @@ body{
         }
         #cart_count{
             color:red;
+            width:0.5rem;
         }
         .announ-contain .announ-contain-title{
             font-family: '雅宋';
