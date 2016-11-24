@@ -23,7 +23,7 @@ class IndexCtl extends Controller
 
 			$data = array();
 			$data[] = array();
-			$data[list] = $this->goods_CommonModel->getGoodsList();
+			$this->goods_CommonModel->getGoodsList();
             // var_dump($goods_CommonModel);
             // echo 1;die;
 			// if ( !empty($layout_list) )
