@@ -16,6 +16,7 @@ $(function ()
                 }
                 var s = e.data;
                 var t = template.render("saddress_list", s);
+                // console.log(s);
                 $("#address_list").empty();
                 $("#address_list").append(t);
                 $(".deladdress").click(function ()

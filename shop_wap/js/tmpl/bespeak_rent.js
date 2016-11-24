@@ -8,18 +8,18 @@ $(function ()
     function s()
     {
         $.ajax({
-            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=advBespeak&typ=json", data: {k: key, u:getCookie('id')}, dataType: "json", success: function (e)
+            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=rentBespeak&typ=json", data: {k: key, u:getCookie('id')}, dataType: "json", success: function (e)
             {
                 
                 checkLogin(e.login);
                 console.log(e.data.temp);
-                $.each(e.data.adv, function(key, value){
-                       tem='<ul><li><dl><dt><span class="name">已发布活动：'+value.bespeak_title+'</span><span class="phone" style="margin-left:100px">联系方式：'+value.usercontact+'</span></dt><dd>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="bespeak_opera_adv.html?bespeak_id='+value.bespeak_id+'"><i class="edit"></i>参与</a></div></li></ul>';
+                $.each(e.data.rent, function(key, value){
+                       tem='<ul><li><dl><dt><span class="name">已发布租赁：'+value.bespeak_title+'</span><span class="phone" style="margin-left:100px">联系方式：'+value.usercontact+'</span></dt><dd>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="bespeak_opera_rent.html?bespeak_id='+value.bespeak_id+'"><i class="edit"></i>参与</a></div></li></ul>';
                     $("#bespeak_list").append(tem);
                 })
                 $.each(e.data.temp, function(key, value){
                        tem='<ul><li><dl><dt><span class="name">已参与：'+value.bespeak_title+'</span><span class="phone" style="margin-left:100px">联系方式：'+value.usercontact+'</span></dt><dd>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="javascript:;" bespeak_id="'+value.bespeak_id+'" class="delbespeak"><i class="del"></i>删除</a></span></div></li></ul>';
-                    $("#bespeak_adv").append(tem);
+                    $("#bespeak_rent").append(tem);
                 })
 
                 if (e.data == null)
@@ -50,7 +50,7 @@ $(function ()
                 checkLogin(e.login);
                 if (e)
                 {
-                        location.href = WapSiteUrl + "/tmpl/member/bespeak_adv.html";
+                        location.href = WapSiteUrl + "/tmpl/member/bespeak_rent.html";
                 }
             }
         })

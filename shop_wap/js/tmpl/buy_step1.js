@@ -85,6 +85,11 @@ $(function() {
         wrapper : '#select-payment-wrapper',
         scroll : ''
     });
+       $.animationLeft({
+        valve : '#select-ps-valve',
+        wrapper : '#select-ps-wrapper',
+        scroll : ''
+    });
     // 地区选择
     $('#new-address-wrapper').on('click', '#varea_info', function(){
 
@@ -477,7 +482,46 @@ $(function() {
     })
 
 
-   
+    //PS···························
+      $('#ps-online').click(function(){
+        ps_name = 'online';
+        $('#select-ps-wrapper').find('.header-l > a').click();
+        $('#select-ps-valve').find('.current-con').html('配送到家');
+        $("#ps-selected").val('1');
+        $(this).addClass('sel').siblings().removeClass('sel');
+    })
+    // 上门自提
+    $('#ps-offline').click(function(){
+       ps_name = 'offline';
+        $('#select-ps-wrapper').find('.header-l > a').click();
+        $('#select-ps-valve').find('.current-con').html('上门自提');
+        // $("em[name='trans_cost']").html('0');
+        $("#ps-selected").val('2');
+         ps_type=$("#ps-selected").val();
+          $.ajax({
+            type:'post',
+            url:ApiUrl+"/index.php?ctl=Buyer_Cart&met=confirm&typ=json",
+
+            data:{k:key, u:getCookie('id'),product_id:cart_id,ps_type:ps_type},
+            dataType:'json',
+            async:false,
+            success:function(result){
+                checkLogin(result.login);
+                
+                if(result.data.address==null){
+                    return false;
+                }
+               
+                var data = result.data;
+                data.address_id = address_id;
+                var html = template.render('list-address-add-list-script', data);
+                $("#list-address-add-list-ul").html(html);
+            }
+        });
+        $("#ps-selected").val('2');
+        $(this).addClass('sel').siblings().removeClass('sel');
+    })
+
 
     // 地址保存
     $.sValid.init({
@@ -760,7 +804,6 @@ $(function() {
         //1.获取收货地址
         address_contact = $("#true_name").html();
         address_address = $("#address").html();
-
         address_phone   = $("#mob_phone").html();
         address_id = $("#address_id").val();
 

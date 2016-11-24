@@ -6,7 +6,7 @@ $(function ()
         type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=bespeak&act=edit&typ=json", data: {k:e,u:getCookie('id'), id: a}, dataType: "json", success: function (a)
         {
             checkLogin(a.login);
-            console.log(a);
+            // console.log(a);
             $("#true_name").val(a.data.true_name);
             $("#usercontact").val(a.data.usercontact);
             $("#bespeak_title").val(a.data.bespeak_title);

@@ -12,10 +12,7 @@ $(function ()
             {
                 
                 checkLogin(e.login);
-                // for (var i in e.data) {
-
-                //     console.log(e.data.i);
-                // };
+                console.log(e.data);
                 $.each(e.data, function(key, value){
                         temp='<ul><li><dl><dt><span class="name">报修物品：'+value.bespeak_title+'</span><span class="phone" style="margin-left:100px">联系方式：'+value.usercontact+'</span></dt><dd>报修详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="bespeak_edit.html?bespeak_id='+value.bespeak_id+'"><i class="edit"></i>编辑</a><a href="javascript:;" bespeak_id="'+value.bespeak_id+'" class="delbespeak"><i class="del"></i>删除</a></span></div></li></ul>';
                     $("#bespeak_list").append(temp);
