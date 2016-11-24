@@ -9,7 +9,7 @@ $(function() {
             var html = '';
             var html1='';
             // console.info( data );
-            var list = new Array();
+            // var list = new Array();
 
      // console.log(list);
  //            $.each(data, function(k, v) {
@@ -20,8 +20,10 @@ $(function() {
  //    list[v.cat_name][k][cat_name]=v.cat_name;
  // }
  //  });
-console.log(list);
+// console.log(list);
 $("#product-contain").html(template.render('goods', data));
+$("#product-contain1").html(template.render('goods1', data));
+$("#product-contain2").html(template.render('goods2', data));
 
         }
     });
