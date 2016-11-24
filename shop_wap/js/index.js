@@ -9,19 +9,7 @@ $(function() {
             var html = '';
             var html1='';
             // console.info( data );
-            var list = Array()
-            $.each(data,function(k,v){
-// alert(v.cat_id);
-                switch (v.cat_id)
-                {
-                case 1:  list[v.cat_id][k]['common_id'] = v['common_id'];
-                         list[v.cat_id][k]['cat_name'] = v['cat_name'];
-                            break;
-                    
-                          
 
-                }
-            })
      console.log(list);
             // $.each(data, function(k, v) {
             //     alert(k);
@@ -62,6 +50,7 @@ $(function() {
             //     });
             // });
 
+$("#product-contain,#product-contain1,#product-contain2").html(template.render('goods', data));
 
         }
     });
