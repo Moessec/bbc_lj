@@ -23,7 +23,7 @@ $(function() {
 
             $.dialog({
                 title: title,
-                content: 'url:' + SITE_URL + '?ctl=Goods_Bespeak&met=manage1&typ=e',
+                content: 'url:' + SITE_URL + '?ctl=Goods_Bespeak&met=manage&typ=e',
                 data: data,
                 width: 980,
                 height: 400,
