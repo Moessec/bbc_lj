@@ -82,18 +82,20 @@
 	<script type="text/html" id="goods">
 		<ul class="clearfix">
 		<% for (var i in item) { %>
-			<li><a href="tmpl/product_detail.html?goods_id=<%= item[i].goods_id %>">
-				<img class="a" src="<%= item[i].goods_image %>" alt="" >
+			<% for (var j in i) { %>
+			<li><a href="tmpl/product_detail.html?goods_id=<%= item[i][j].goods_id %>">
+				<img class="a" src="<%= item[i][j].goods_image %>" alt="" >
 			 	<div class="product-recommend-info">
 			 		<dl>
-			 			<dt><%= item[i].goods_name %></dt>
+			 			<dt><%= item[i][j].goods_name %></dt>
 			 			<dd>剩余10盒</dd>
-			 			<dd class="price">￥<%= item[i].goods_price %></a><a class='add1' href="javascript:void(0)"><i class="add"><input type="hidden"value="<%= item[i].goods_id %>"></i></a></dd>
+			 			<dd class="price">￥<%= item[i].goods_price %></a><a class='add1' href="javascript:void(0)"><i class="add"><input type="hidden"value="<%= item[i][j].goods_id %>"></i></a></dd>
 			 			
 			 		</dl>
 			 	</div>
 
 			</li>
+			<% } %>
 			<% } %>
 
 			
