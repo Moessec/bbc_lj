@@ -10,7 +10,7 @@ $(function() {
             var html1='';
             // console.info( data );
             $.each(data, function(k, v) {
-                alert(v);
+                alert(k);
                 $.each(v, function(kk, vv) {
                     // alert(vv);
                     // switch (kk) {
