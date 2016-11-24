@@ -8,15 +8,15 @@ $(function() {
             var data = result.data.items;
             var html = '';
             var html1='';
-            console.info( data );
+            // console.info( data );
             var list = Array()
             $.each(data,function(k,v){
              $.each(v,function(k,v){
                 
-                console.log(v);
+                list[cat_id][k]=v;
               })
             })
-
+     console.log(list);
             // $.each(data, function(k, v) {
             //     alert(k);
             //     $.each(v, function(kk, vv) {
