@@ -476,6 +476,9 @@ body{
             margin:0.5rem auto;
             
         }
+        #cart_count{
+            color:red;
+        }
         .announ-contain .announ-contain-title{
             font-family: '雅宋';
             font-size: 0.7rem;
