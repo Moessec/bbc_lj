@@ -5,21 +5,21 @@ $(function() {
         type: 'get',
         dataType: 'json',
         success: function(result) {
-            var data = result.data.items;
+            var data = result.data;
             var html = '';
             var html1='';
             // console.info( data );
             var list = new Array();
 
      // console.log(list);
-            $.each(data, function(k, v) {
-                 alert(v.cat_id);
- if(v.cat_id==1)
- {
-    list[v.cat_id][cat_id]=v.cat_id;
-    list[v.cat_name][k][cat_name]=v.cat_name;
- }
-  });
+ //            $.each(data, function(k, v) {
+ //                 alert(v.cat_id);
+ // if(v.cat_id==1)
+ // {
+ //    list[v.cat_id][cat_id]=v.cat_id;
+ //    list[v.cat_name][k][cat_name]=v.cat_name;
+ // }
+ //  });
 console.log(list);
 $("#product-contain").html(template.render('goods', data));
 
