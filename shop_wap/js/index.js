@@ -11,9 +11,7 @@ $(function() {
             // console.info( data );
             var list = Array()
             $.each(data,function(k,v){
-             $.each(v,function(k,v){
-                // list[k]=v;
-              })
+alert(v.cat_id);
             })
      console.log(data);
             // $.each(data, function(k, v) {
