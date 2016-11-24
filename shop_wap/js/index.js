@@ -9,10 +9,15 @@ $(function() {
             var html = '';
             var html1='';
             console.info( data );
+            var list = Array()
+            $.each(data,function(k,v){
+                console.log(v);
+            })
+
             // $.each(data, function(k, v) {
             //     alert(k);
             //     $.each(v, function(kk, vv) {
-            //         // alert(vv);
+            //         // console.log(v)
             //         // switch (kk) {
             //         //     case 'slider_list':
             //         //     case 'home3':
