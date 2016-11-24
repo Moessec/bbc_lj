@@ -12,10 +12,10 @@ $(function() {
             var list = Array()
             $.each(data,function(k,v){
              $.each(v,function(k,v){
-                list[k]=v;
+                // list[k]=v;
               })
             })
-     console.log(list);
+     console.log(data);
             // $.each(data, function(k, v) {
             //     alert(k);
             //     $.each(v, function(kk, vv) {
