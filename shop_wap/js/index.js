@@ -10,7 +10,7 @@ $(function() {
             var html1='';
             // console.info( data );
 
-     console.log(list);
+     // console.log(list);
             // $.each(data, function(k, v) {
             //     alert(k);
             //     $.each(v, function(kk, vv) {
