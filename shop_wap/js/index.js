@@ -1,7 +1,7 @@
 $(function() {
  var key = getCookie('key');
     $.ajax({
-        url: ApiUrl + "/index.php?ctl=Goods_GoodsCtl&met=goodslist&typ=json",
+        url: ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json",
         type: 'get',
         dataType: 'json',
         success: function(result) {
