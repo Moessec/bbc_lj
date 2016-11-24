@@ -23,9 +23,9 @@ class IndexCtl extends Controller
 
 			$data = array();
 			$data[] = array();
-			// $data[list]=$goods_CommonModel;
+			$data[list]=$goods_CommonModel->getGoodsList();
             // var_dump($goods_CommonModel);
-            echo 1;die;
+            // echo 1;die;
 			// if ( !empty($layout_list) )
 			// {
 			// 	foreach($layout_list as $mb_tpl_layout_id => $layout_data_val)
