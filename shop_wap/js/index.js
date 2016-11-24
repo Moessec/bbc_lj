@@ -10,8 +10,9 @@ $(function() {
             var html1='';
             // console.info( data );
             $.each(data, function(k, v) {
+                alert(v);
                 $.each(v, function(kk, vv) {
-                    alert(kk);
+                    // alert(vv);
                     // switch (kk) {
                     //     case 'slider_list':
                     //     case 'home3':
