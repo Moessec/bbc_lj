@@ -532,17 +532,17 @@ class IndexCtl extends Controller
 
 		$this->data->addBody(-140, $data);
 	}
-	public function getCatpro()
-	{
-		$data = array();
-		$goodscat = new Goods_GoodsCtl();
-		$goodscatlist=$goodscat->cat();
-		foreach ($goodscatlist as $key => $cat_data) {
+	// public function getCatpro()
+	// {
+	// 	$data = array();
+	// 	$goodscat = new Goods_GoodsCtl();
+	// 	$goodscatlist=$goodscat->cat();
+	// 	foreach ($goodscatlist as $key => $cat_data) {
 
-			$datalist[$key][list] =$this->goodscat->goodsCatList();
-		}
-		$this->data->addBody(-140, $data);
-	}
+	// 		$datalist[$key][list] =$this->goodscat->goodsCatList();
+	// 	}
+	// 	$this->data->addBody(-140, $data);
+	// }
 
 }
 
