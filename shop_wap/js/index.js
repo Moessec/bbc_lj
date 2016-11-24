@@ -14,8 +14,8 @@ $(function() {
 // alert(v.cat_id);
                 switch (v.cat_id)
                 {
-                case 1:  list[v.cat_id]['common_id'] = v['common_id'];
-                         list[v.cat_id]['cat_name'] = v['cat_name'];
+                case 1:  list[v.cat_id][k]['common_id'] = v['common_id'];
+                         list[v.cat_id][k]['cat_name'] = v['cat_name'];
                             break;
                     
                           
