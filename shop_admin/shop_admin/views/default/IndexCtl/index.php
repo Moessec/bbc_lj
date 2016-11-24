@@ -416,6 +416,10 @@ include $this->view->getTplPath() . '/' . 'header.php';
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Goods&met=recommend" rel="pageTab" tabid="shop-goods-recommend"
 													   tabtxt="商品推荐">商品推荐</a>
 						</li>
+						<li>
+							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak" rel="pageTab" tabid="shop-goods-bespeak"
+													   tabtxt="预约管理">预约管理</a>
+						</li>
 					</ul>
 					<ul>
 						<li>
