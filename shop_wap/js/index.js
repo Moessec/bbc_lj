@@ -23,7 +23,7 @@ $(function() {
 // console.log(list);
 $("#product-contain").html(template.render('goods', data));
 $("#product-contain1").html(template.render('goods1', data));
-$("#product-contain2").html(template.render('goods2', data));
+// $("#product-contain2").html(template.render('goods2', data));
 
         }
     });
