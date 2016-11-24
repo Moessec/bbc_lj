@@ -77,7 +77,7 @@
         <% for(var i=0; i<items.length; i++) { var col = i % 10;%>
         <dt><a href="<%= WapSiteUrl %>/tmpl/product_list.html?cat_id=<%= items[i].cat_id %>"><i class="col<%= col %>"></i><%= items[i].cat_name %><i class="arrow-r"></i></a></dt>
         <% for(var j=0; j<items[i].child.length; j++) { %>
-        <dd><a href="<%= WapSiteUrl %>/tmpl/product_list.html?cat_id=<%= items[i].child[j].cat_id %>"><%= items[i].child[j].cat_name %></a></dd>
+        <dd><a href="<%= WapSiteUrl %>/tmpl/product_list.html?cat_id=<%= items[i].child[j].cat_id %>"><%= items[i].child[j].cat_name %>123</a></dd>
         <dd>defdfdfdf</dd>
         <% } %>
         <% } %>
