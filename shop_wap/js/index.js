@@ -5,7 +5,7 @@ $(function() {
         type: 'get',
         dataType: 'json',
         success: function(result) {
-            var data = result.data.items;
+            var data = result.data;
             var html = '';
             var html1='';
             // console.info( data );
