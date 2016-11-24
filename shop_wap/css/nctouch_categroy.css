@@ -11,7 +11,7 @@
 .ci-fcategory-ico img { display: block; vertical-align: top; width: 100%; filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */ -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%); filter: gray; opacity: 0.5; }
 .ci-fcategory-name { font-size: 0.6rem; line-height: 2rem;height:2rem; color: #4F4F4F; text-align: center; width: 100%; /*height: 0.9rem;*/ padding-bottom: 0.25rem; border-bottom: solid 0.05rem #EEE;}
 .category-item.selected .ci-fcategory-ico img { -webkit-filter: grayscale(0); -moz-filter: grayscale(0); -ms-filter: grayscale(0); -o-filter: grayscale(0); filter: grayscale(0); filter: gray; opacity: 1; }
-.category-item.selected .ci-fcategory-name { color: #ED5564; padding-bottom: 0.2rem; border-bottom: solid 0.1rem #ED5564; }
+.category-item.selected .ci-fcategory-name { color: #FF862E; padding-bottom: 0.2rem; background-color:white; }
 .categroy-third-list { display: none; color: #666; border-bottom: 1px solid #ccc; box-shadow: 0 -2px 0 #e4e4e4 inset;/*border-top:2px solid #e4e4e4;*/ background: #f5f5f5; }
 .categroy-third-list li { border-bottom: 1px solid #dddddd; }
 .categroy-third-list a { color: #6d6d6d; display: block; padding: 15px 0px 15px 11px; }
