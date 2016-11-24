@@ -13,10 +13,10 @@ $(function() {
 
      // console.log(list);
             $.each(data, function(k, v) {
-                
+                 alert(vv.cat_id);
                 $.each(v, function(kk, vv) {
                    
-                   alert(vv.cat_id);
+                  
                 });
             });
 
