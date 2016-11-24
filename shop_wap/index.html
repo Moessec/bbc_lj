@@ -83,6 +83,7 @@
 		<ul class="clearfix">
 		<% for (var i in items) { %>
 			<% for (var j in i) { %>
+				<% if (items[i].cat_id==1) { %>
 			<li><a href="tmpl/product_detail.html?goods_id=<%= items[i].common_id %>">
 				<img class="a" src="<%= items[i].common_image %>" alt="" >
 			 	<div class="product-recommend-info">
@@ -95,6 +96,7 @@
 			 	</div>
 
 			</li>
+			<% } %>
 			<% } %>
 			<% } %>
 
