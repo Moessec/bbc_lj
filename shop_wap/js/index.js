@@ -49,8 +49,8 @@ setTimeout(function(){
                                         // 更新购物车中商品数量
                                         delCookie('cart_count');
                                         getCartCount();
-                                        
-                                        $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+
+                                        $('#cart_count').html(getCookie('cart_count'));
                                     }else{
                                         // $.sDialog({
                                         //     skin:"red",
