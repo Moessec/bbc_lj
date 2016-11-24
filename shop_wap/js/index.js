@@ -12,8 +12,10 @@ $(function() {
             var list = Array()
             $.each(data,function(k,v){
              $.each(v,function(k,v){
-                
+                if(k==cat_id)
+                {
                 list[cat_id][k]=v;
+            }
               })
             })
      console.log(list);
