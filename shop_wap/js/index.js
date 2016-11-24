@@ -50,7 +50,7 @@ $(function() {
             //     });
             // });
 
-$("#product-contain,#product-contain1,#product-contain2").html(template.render('goods', data));
+$("#product-contain").html(template.render('goods', data));
 
         }
     });
