@@ -11,9 +11,18 @@ $(function() {
             // console.info( data );
             var list = Array()
             $.each(data,function(k,v){
-alert(v.cat_id);
+// alert(v.cat_id);
+                switch (v.cat_id)
+                {
+                case 1:  list[v.cat_id]['common_id'] = v['common_id'];
+                         list[v.cat_id]['cat_name'] = v['cat_name'];
+                            break;
+                    
+                          
+
+                }
             })
-     console.log(data);
+     console.log(list);
             // $.each(data, function(k, v) {
             //     alert(k);
             //     $.each(v, function(kk, vv) {
