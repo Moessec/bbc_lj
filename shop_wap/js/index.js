@@ -48,42 +48,17 @@ $(function() {
         return false;
     }
 
-  // $.sValid.init({
-  //       rules:{
-  //           buynum:"digits"
-  //       },
-  //       messages:{
-  //           buynum:"请输入正确的数字"
-  //       },
-  //       callback:function (eId,eMsg,eRules){
-  //           if(eId.length >0){
-  //               var errorHtml = "";
-  //               $.map(eMsg,function (idx,item){
-  //                   errorHtml += "<p>"+idx+"</p>";
-  //               });
-  //               $.sDialog({
-  //                   skin:"red",
-  //                   content:errorHtml,
-  //                   okBtn:false,
-  //                   cancelBtn:false
-  //               });
-  //           }
-  //       }
-  //   });
 
        
-    $.ajax({
+ $.ajax({
         url: ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json",
         type: 'get',
         dataType: 'json',
         success: function(result) {
             var data = result.data;
             var html = '';
-
-$("#product-contain").html(template.render('goods', data));
-$("#product-contain1").html(template.render('goods1', data));
-// $("#product-contain2").html(template.render('goods2', data));
-
+            $("#product-contain").html(template.render('goods', data));
+            $("#product-contain1").html(template.render('goods1', data));
         }
     });
 //*******************加入购物车功能******************
@@ -228,8 +203,6 @@ setTimeout(function(){
                                     }else{
                                
                                            alert(result.msg);
-
-                                       
                                     }
                                 }
                             }
