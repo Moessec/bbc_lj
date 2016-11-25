@@ -73,6 +73,8 @@ $(function() {
 //*******************加入购物车功能*********************************
 
 setTimeout(function(){
+  if(key)
+  {
     $('.add').each(function(){
 
     $(this).click(function(){
@@ -250,7 +252,7 @@ setTimeout(function(){
 
     });        
     });
-
+ }
 },2000)
 
 
