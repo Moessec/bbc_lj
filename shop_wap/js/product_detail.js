@@ -39,34 +39,34 @@ $(function (){
         return true;
     });
 
-    //  // 图片轮播
-    // function picSwipe(){
-    //   var elem = $("#mySwipe")[0];
-    //   window.mySwipe = Swipe(elem, {
-    //     continuous: false,
-    //     // disableScroll: true,
-    //     stopPropagation: true,
-    //     callback: function(index, element) {
-    //       $('.goods-detail-turn').find('li').eq(index).addClass('cur').siblings().removeClass('cur');
-    //     }
-    //   });
-    // }
+     // 图片轮播
+    function picSwipe(){
+      var elem = $("#mySwipe")[0];
+      window.mySwipe = Swipe(elem, {
+        continuous: false,
+        // disableScroll: true,
+        stopPropagation: true,
+        callback: function(index, element) {
+          $('.goods-detail-turn').find('li').eq(index).addClass('cur').siblings().removeClass('cur');
+        }
+      });
+    }
     get_detail(goods_id);
   //点击商品规格，获取新的商品
-  // function arrowClick(self,myData){
-  //   $(self).addClass("current").siblings().removeClass("current");
-  //   //拼接属性
-  //   var curEle = $(".spec").find("a.current");
-  //   var curSpec = [];
-  //   $.each(curEle,function (i,v){
-  //       // convert to int type then sort
-  //       curSpec.push(parseInt($(v).attr("specs_value_id")) || 0);
-  //   });
-  //   var spec_string = curSpec.sort(function(a, b) { return a - b; }).join("|");
-  //   //获取商品ID
-  //   goods_id = myData.spec_list[spec_string];
-  //   get_detail(goods_id);
-  // }
+  function arrowClick(self,myData){
+    $(self).addClass("current").siblings().removeClass("current");
+    //拼接属性
+    var curEle = $(".spec").find("a.current");
+    var curSpec = [];
+    $.each(curEle,function (i,v){
+        // convert to int type then sort
+        curSpec.push(parseInt($(v).attr("specs_value_id")) || 0);
+    });
+    var spec_string = curSpec.sort(function(a, b) { return a - b; }).join("|");
+    //获取商品ID
+    goods_id = myData.spec_list[spec_string];
+    get_detail(goods_id);
+  }
 
   function contains(arr, str) {//检测goods_id是否存入
 	    var i = arr.length;
@@ -158,9 +158,9 @@ $(function (){
                 }
 
                 // 预售发货时间
-                /*if (data.goods_info.is_presell == '1') {
+                if (data.goods_info.is_presell == '1') {
                  data.goods_info.presell_deliverdate_str = unixTimeToDateString(data.goods_info.presell_deliverdate);
-                 }*/
+                 }
 
                 //渲染模板
                 console.info(data);
@@ -192,52 +192,50 @@ $(function (){
                 }
 
                 //图片轮播
-                // picSwipe();
-                // //商品描述
-                // $(".pddcp-arrow").click(function (){
-                //     $(this).parents(".pddcp-one-wp").toggleClass("current");
-                // });
-                // //规格属性
-                // var myData = {};
-                // myData["spec_list"] = data.spec_list;
-                // $(".spec a").click(function (){
-                //     var self = this;
-                //     arrowClick(self,myData);
-                // });
-                // //购买数量，减
-                // $(".minus").click(function (){
-                //     var buynum = $(".buy-num").val();
-                //     if(buynum >1){
-                //         $(".buy-num").val(parseInt(buynum-1));
-                //     }
-                // });
-                // //购买数量加
-                // $(".add").click(function (){
-                //     var buynum = parseInt($(".buy-num").val());
-                //     if(buynum < data.goods_info.goods_stock){
-                //         $(".buy-num").val(parseInt(buynum+1));
-                //     }
-                // });
+                picSwipe();
+                //商品描述
+                $(".pddcp-arrow").click(function (){
+                    $(this).parents(".pddcp-one-wp").toggleClass("current");
+                });
+                //规格属性
+                var myData = {};
+                myData["spec_list"] = data.spec_list;
+                $(".spec a").click(function (){
+                    var self = this;
+                    arrowClick(self,myData);
+                });
+                //购买数量，减
+                $(".minus").click(function (){
+                    var buynum = $(".buy-num").val();
+                    if(buynum >1){
+                        $(".buy-num").val(parseInt(buynum-1));
+                    }
+                });
+                //购买数量加
+                $(".add").click(function (){
+                    var buynum = parseInt($(".buy-num").val());
+                    if(buynum < data.goods_info.goods_stock){
+                        $(".buy-num").val(parseInt(buynum+1));
+                    }
+                });
                 // 一个F码限制只能购买一件商品 所以限制数量为1
-                // if (data.goods_info.is_fcode == '1') {
-                //     $('.minus').hide();
-                //     $('.add').hide();
-                //     $(".buy-num").attr('readOnly', true);
-                // }
-                // //收藏
-                // $(".pd-collect").click(function (){
-                //     if ($(this).hasClass('favorate')) {
-                //         if (dropFavoriteGoods(goods_id)) $(this).removeClass('favorate');
-                //     } else {
-                //         if (favoriteGoods(goods_id)) $(this).addClass('favorate');
-                //     }
-                // });
+                if (data.goods_info.is_fcode == '1') {
+                    $('.minus').hide();
+                    $('.add').hide();
+                    $(".buy-num").attr('readOnly', true);
+                }
+                //收藏
+                $(".pd-collect").click(function (){
+                    if ($(this).hasClass('favorate')) {
+                        if (dropFavoriteGoods(goods_id)) $(this).removeClass('favorate');
+                    } else {
+                        if (favoriteGoods(goods_id)) $(this).addClass('favorate');
+                    }
+                });
                 //加入购物车
                 $("#add-cart").click(function (){
                     var key = getCookie('key');//登录标记
-                    // var quantity = parseInt($(".buy-num").val());
-                    var quantity = 1;
-                    
+                    var quantity = parseInt($(".buy-num").val());
                     if(!key){
                         var goods_info = decodeURIComponent(getCookie('goods_cart'));
                         if (goods_info == null) {
