@@ -8,10 +8,11 @@ $(function() {
  {
     // 购物车中商品数量
        if (getCookie('cart_count')) {
-          if (getCookie('cart_count') > 0) {
-              $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
-                    }
-                }
+        delCookie('cart_count');
+          // if (getCookie('cart_count') > 0) {
+          //     $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+          //           }
+          //       }
  }
   var unixTimeToDateString = function(ts, ex) {
         ts = parseFloat(ts) || 0;
