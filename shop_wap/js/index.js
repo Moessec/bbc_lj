@@ -7,7 +7,7 @@ $(function() {
  if(!key)
  {
     // 购物车中商品数量
-       if (getCookie('cart_count')) {
+       if(getCookie('cart_count')) {
         delCookie('cart_count');
          }
                 }
