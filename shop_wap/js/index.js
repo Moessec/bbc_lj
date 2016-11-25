@@ -48,7 +48,10 @@ $(function() {
         return false;
     }
 
-
+if(!key)
+{
+    delCookie('cart_count');
+}
  //**********************调用商品数据****************************      
  $.ajax({
         url: ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json",
