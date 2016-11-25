@@ -117,7 +117,7 @@
 			<ul>
 			<% for (var i in items) { %>
 				<% for (var j in i) { %>
-				<% if (items[i].cat_id==4) { %>
+				<% if (items[i].cat_id==3) { %>
 				<li><a href="tmpl/product_detail.html?goods_id=<%= items[i].common_id %>">
 					<img src="<%= items[i].common_image %>" />
 					<p><%= items[i].common_name %></p>
@@ -141,7 +141,7 @@
 			<ul>
 			<% for (var i in items) { %>
 				<% for (var j in i) { %>
-				<% if (items[i].cat_id==2) { %>
+				<% if (items[i].cat_id==4) { %>
 				<li><a href="tmpl/product_detail.html?goods_id=<%= items[i].common_id %>">
 					<img src="<%= items[i].common_image %>" />
 					<p><%= items[i].common_name %></p>
