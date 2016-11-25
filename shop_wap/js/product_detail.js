@@ -53,20 +53,20 @@ $(function (){
     // }
     get_detail(goods_id);
   //点击商品规格，获取新的商品
-  function arrowClick(self,myData){
-    $(self).addClass("current").siblings().removeClass("current");
-    //拼接属性
-    var curEle = $(".spec").find("a.current");
-    var curSpec = [];
-    $.each(curEle,function (i,v){
-        // convert to int type then sort
-        curSpec.push(parseInt($(v).attr("specs_value_id")) || 0);
-    });
-    var spec_string = curSpec.sort(function(a, b) { return a - b; }).join("|");
-    //获取商品ID
-    goods_id = myData.spec_list[spec_string];
-    get_detail(goods_id);
-  }
+  // function arrowClick(self,myData){
+  //   $(self).addClass("current").siblings().removeClass("current");
+  //   //拼接属性
+  //   var curEle = $(".spec").find("a.current");
+  //   var curSpec = [];
+  //   $.each(curEle,function (i,v){
+  //       // convert to int type then sort
+  //       curSpec.push(parseInt($(v).attr("specs_value_id")) || 0);
+  //   });
+  //   var spec_string = curSpec.sort(function(a, b) { return a - b; }).join("|");
+  //   //获取商品ID
+  //   goods_id = myData.spec_list[spec_string];
+  //   get_detail(goods_id);
+  // }
 
   function contains(arr, str) {//检测goods_id是否存入
 	    var i = arr.length;
