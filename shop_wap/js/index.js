@@ -3,11 +3,6 @@ var map_index_id = '';
 var shop_id;
 
 $(function() {
-if (getCookie('cart_count')) {
-                    if (getCookie('cart_count') > 0) {
-                        $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
-                    }
-                }
  var key = getCookie('key');
   var unixTimeToDateString = function(ts, ex) {
         ts = parseFloat(ts) || 0;
