@@ -79,28 +79,15 @@ $(function() {
         success: function(result) {
             var data = result.data;
             var html = '';
-            var html1='';
-            // console.info( data );
-            // var list = new Array();
 
-     // console.log(list);
- //            $.each(data, function(k, v) {
- //                 alert(v.cat_id);
- // if(v.cat_id==1)
- // {
- //    list[v.cat_id][cat_id]=v.cat_id;
- //    list[v.cat_name][k][cat_name]=v.cat_name;
- // }
- //  });
-// console.log(list);
 $("#product-contain").html(template.render('goods', data));
 $("#product-contain1").html(template.render('goods1', data));
 // $("#product-contain2").html(template.render('goods2', data));
 
         }
     });
-//*************************************
-// alert(1);
+//*******************加入购物车功能******************
+
 setTimeout(function(){
     $('.add').each(function(){
 
@@ -194,7 +181,7 @@ setTimeout(function(){
                             for (var i=0; i<goodsarr.length; i++) {
                                 var arr = goodsarr[i].split(',');
                                 if(contains(arr,goods_id)){
-                                    show_tip();
+                                    // show_tip();
                                     return false;
                                 }
                             }
@@ -239,11 +226,9 @@ setTimeout(function(){
                                         getCartCount();
                                         $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
                                     }else{
-                                        $.sDialog({
-                                            skin:"red",
-                                            content:result.msg,
-                                            okBtn:false,
-                                            cancelBtn:false
+                               
+                                           alert(result.msg);
+
                                         });
                                     }
                                 }
