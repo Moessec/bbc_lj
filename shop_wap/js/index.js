@@ -212,12 +212,7 @@ setTimeout(function(){
                     }else{
                         if(data.shop_owner)
                         {
-                            $.sDialog({
-                                skin:"red",
-                                content:'不能购买自己商店的商品！',
-                                okBtn:false,
-                                cancelBtn:false
-                            });
+                            alert('不能购买自己的商品');
                             return;
                         }
                         if(data.isBuyHave)
