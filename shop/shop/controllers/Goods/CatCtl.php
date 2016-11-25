@@ -59,7 +59,34 @@ class Goods_CatCtl extends Controller
 
 		$this->data->addBody(-140, $data);
 	}
+	public function catgoodlist()
+	{
+		if('json' == $this->typ)
+		{
+		$Goods_CatModel = new Goods_CatModel();
 
+		if (isset($_REQUEST['cat_parent_id']))
+		{
+			$cat_parent_id = request_int('cat_parent_id', 0);
+
+			$data_rows     = $Goods_CatModel->getCatTreeData($cat_parent_id, false, 1);
+			$data['items'] = array_values($data_rows);
+		}
+		else
+		{
+			$data = $Goods_CatModel->getCatTree();
+			
+			if ( request_string('filter') )
+			{
+				$Goods_CatModel->filterCatTreeData( $data['items'] );
+				$data['items'] = array_values($data['items']);
+			}
+		}
+
+
+		$this->data->addBody(-140, $data);
+	}
+	}
 
 	public function tree()
 	{
