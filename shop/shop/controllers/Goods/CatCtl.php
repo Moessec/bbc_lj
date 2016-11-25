@@ -82,7 +82,11 @@ class Goods_CatCtl extends Controller
 				$data['items'] = array_values($data['items']);
 			}
 		}
-
+         foreach ($data['items'] as $key => $value) {
+         	foreach ($value as $v) {
+         		$data['a'][]=$v;
+         	}
+         }
 
 		$this->data->addBody(-140, $data);
 	}
