@@ -4,14 +4,6 @@ var shop_id;
 
 $(function() {
  var key = getCookie('key');
- if(!key)
- {
-    // 购物车中商品数量
-       if(getCookie('cart_count')) {
-        delCookie('cart_count');
-         }
-                }
- }
   var unixTimeToDateString = function(ts, ex) {
         ts = parseFloat(ts) || 0;
         if (ts < 1) {
@@ -251,7 +243,7 @@ setTimeout(function(){
 
     });        
     });
- }
+}
 },2000)
 
 
