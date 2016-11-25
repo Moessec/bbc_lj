@@ -68,6 +68,11 @@ if(!key)
         success: function(result) {
             var data = result.data;
             var html = '';
+
+            $.each(data.items,function(k,v))
+            {
+                alert(v);
+            }
             $("#product-contain").html(template.render('goods', data));
             $("#product-contain1").html(template.render('goods1', data));
         }
