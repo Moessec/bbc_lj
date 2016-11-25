@@ -136,12 +136,12 @@
 	<div class="product-list">
 		<div class="product-list-pic"><img src="images/iconfont/tuceng02.png" /></div>
 			
-		<div class="product-list-title"><a href="javascript:void(0)"><span><%=items[0].cat_name%></span><span class="more-con" style="float: right;color: #999">more<i class="more" ></i></span></a></div>		
+		<div class="product-list-title"><a href="javascript:void(0)"><span><%=items[3].cat_name%></span><span class="more-con" style="float: right;color: #999">more<i class="more" ></i></span></a></div>		
 		<div class="product-list-info clearfix">
 			<ul>
 			<% for (var i in items) { %>
 				<% for (var j in i) { %>
-				<% if (items[i].cat_id==3) { %>
+				<% if (items[i].cat_id==2) { %>
 				<li><a href="tmpl/product_detail.html?goods_id=<%= items[i].common_id %>">
 					<img src="<%= items[i].common_image %>" />
 					<p><%= items[i].common_name %></p>
