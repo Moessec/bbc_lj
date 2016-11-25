@@ -69,14 +69,15 @@ if(!key)
             var data = result.data;
             var html = '';
 
-            $.each(data.items,function(k,v){
-                console.log(v);
-            })
+            // $.each(data.items,function(k,v){
+            //     console.log(v);
+            // })
          
                 
            
             $("#product-contain").html(template.render('goods', data));
             $("#product-contain1").html(template.render('goods1', data));
+            $("#product-contain2").html(template.render('goods2', data));
         }
     });
 //*******************加入购物车功能*********************************
