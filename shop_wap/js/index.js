@@ -70,7 +70,7 @@ if(!key)
             var html = '';
 
             $.each(data.items,function(k,v){
-                alert(v);
+                console.log(v);
             })
          
                 
