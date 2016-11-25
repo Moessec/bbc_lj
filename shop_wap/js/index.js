@@ -229,7 +229,7 @@ setTimeout(function(){
                                
                                            alert(result.msg);
 
-                                        });
+                                       
                                     }
                                 }
                             }
