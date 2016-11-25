@@ -200,6 +200,7 @@ class Goods_CatModel extends Goods_Cat
 	{
 		$Goods_CatModel = new Goods_CatModel();
 		$data_re        = array();
+		$data = array();
 		//取所有一级分类
 		$data_cat = $Goods_CatModel->getByWhere(array('cat_parent_id' => 0));
 		if (!empty($data_cat))
@@ -216,8 +217,8 @@ class Goods_CatModel extends Goods_Cat
 				$data_re[$key]['cat']      = $cat;
 			}
 		}
-		echo json_encode($data_re);
-		return $data_re;
+		$data[itms]=json_encode($data_re);
+		return $data,$data_re;
 	}
     /*
      * 根据分类id 获取热销商品
