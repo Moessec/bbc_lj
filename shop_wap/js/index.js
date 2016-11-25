@@ -51,6 +51,13 @@ $(function() {
 if(!key)
 {
     delCookie('cart_count');
+}else{
+if(getCartCount())
+{
+  getCartCount();
+   $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+}
+
 }
  //**********************调用商品数据****************************      
  $.ajax({
