@@ -4,6 +4,15 @@ var shop_id;
 
 $(function() {
  var key = getCookie('key');
+ if(key)
+ {
+    // 购物车中商品数量
+       if (getCookie('cart_count')) {
+          if (getCookie('cart_count') > 0) {
+              $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+                    }
+                }
+ }
   var unixTimeToDateString = function(ts, ex) {
         ts = parseFloat(ts) || 0;
         if (ts < 1) {
