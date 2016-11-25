@@ -86,8 +86,10 @@ class Goods_CatCtl extends Controller
          	foreach ($value as $k=>$v) {
          		if($k=='cat_id')
          		{
-         			$data['a'][]=$v;
+         			
+         			$data['items'][$k][]=$Goods_CatModel->getReturnData($v);
          		}
+
          	}
          }
 
