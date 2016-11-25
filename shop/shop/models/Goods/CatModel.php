@@ -216,7 +216,7 @@ class Goods_CatModel extends Goods_Cat
 				$data_re[$key]['cat']      = $cat;
 			}
 		}
-		return json_encode($data_re);
+		return $data_re;
 	}
     /*
      * 根据分类id 获取热销商品
