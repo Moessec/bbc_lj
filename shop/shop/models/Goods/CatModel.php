@@ -218,7 +218,7 @@ class Goods_CatModel extends Goods_Cat
 			}
 		}
 		$data = $data_re;
-		$data=json_encode($data);
+		// $data=json_encode($data);
 		return $data,$data_re;
 	}
     /*
