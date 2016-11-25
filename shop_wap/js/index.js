@@ -3,6 +3,11 @@ var map_index_id = '';
 var shop_id;
 
 $(function() {
+if (getCookie('cart_count')) {
+                    if (getCookie('cart_count') > 0) {
+                        $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+                    }
+                }
  var key = getCookie('key');
   var unixTimeToDateString = function(ts, ex) {
         ts = parseFloat(ts) || 0;
@@ -49,7 +54,7 @@ $(function() {
     }
 
 
-       
+ //**********************调用商品数据****************************      
  $.ajax({
         url: ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json",
         type: 'get',
@@ -61,7 +66,7 @@ $(function() {
             $("#product-contain1").html(template.render('goods1', data));
         }
     });
-//*******************加入购物车功能******************
+//*******************加入购物车功能*********************************
 
 setTimeout(function(){
     $('.add').each(function(){
@@ -179,12 +184,9 @@ setTimeout(function(){
                         }
                         if(data.isBuyHave)
                         {
-                            $.sDialog({
-                                skin:"red",
-                                content:'您已达购买上限！',
-                                okBtn:false,
-                                cancelBtn:false
-                            });
+                         
+                                alert('您已达购买上限！');
+                         
                             return;
                         }
                         $.ajax({
