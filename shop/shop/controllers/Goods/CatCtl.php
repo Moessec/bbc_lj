@@ -83,8 +83,11 @@ class Goods_CatCtl extends Controller
 			}
 		}
          foreach ($data['items'] as $key => $value) {
-         	foreach ($value as $v) {
-         		$data['a'][]=$v;
+         	foreach ($value as $k=>$v) {
+         		if($k=='cat_id')
+         		{
+         			$data['a'][]=$v;
+         		}
          	}
          }
 
