@@ -217,7 +217,7 @@ class Goods_CatModel extends Goods_Cat
 				$data_re[$key]['cat']      = $cat;
 			}
 		}
-		$data[itms]=json_encode($data_re);
+		$data=json_encode($data_re);
 		return $data,$data_re;
 	}
     /*
