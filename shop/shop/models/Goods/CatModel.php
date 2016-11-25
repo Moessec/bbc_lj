@@ -172,7 +172,7 @@ class Goods_CatModel extends Goods_Cat
 	}
 
 	//新增分类后，获取返回数据
-	/*public function getReturnData($cat_id)
+	public function getReturnData($cat_id)
 	{
 		$re             = array();
 		$Goods_CatModel = new Goods_CatModel();
@@ -191,7 +191,7 @@ class Goods_CatModel extends Goods_Cat
 			}
 		}
 		return $re;
-	}*/
+	}
 
 	/*  前台全部商品分类
      * @return array $data_re 分类数据
