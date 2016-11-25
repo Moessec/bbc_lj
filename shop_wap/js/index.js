@@ -48,33 +48,30 @@ $(function() {
         return false;
     }
 
-  $.sValid.init({
-        rules:{
-            buynum:"digits"
-        },
-        messages:{
-            buynum:"请输入正确的数字"
-        },
-        callback:function (eId,eMsg,eRules){
-            if(eId.length >0){
-                var errorHtml = "";
-                $.map(eMsg,function (idx,item){
-                    errorHtml += "<p>"+idx+"</p>";
-                });
-                $.sDialog({
-                    skin:"red",
-                    content:errorHtml,
-                    okBtn:false,
-                    cancelBtn:false
-                });
-            }
-        }
-    });
+  // $.sValid.init({
+  //       rules:{
+  //           buynum:"digits"
+  //       },
+  //       messages:{
+  //           buynum:"请输入正确的数字"
+  //       },
+  //       callback:function (eId,eMsg,eRules){
+  //           if(eId.length >0){
+  //               var errorHtml = "";
+  //               $.map(eMsg,function (idx,item){
+  //                   errorHtml += "<p>"+idx+"</p>";
+  //               });
+  //               $.sDialog({
+  //                   skin:"red",
+  //                   content:errorHtml,
+  //                   okBtn:false,
+  //                   cancelBtn:false
+  //               });
+  //           }
+  //       }
+  //   });
 
- //检测商品数目是否为正整数
-  function buyNumer(){
-    $.sValid();
-  };        
+       
     $.ajax({
         url: ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json",
         type: 'get',
