@@ -71,7 +71,7 @@
                             <span class="input-del"></span>
                         </div>
                     </li>
-                    <li>
+                    <li class="form-item">
                       <style>
                         .txt{ height:28px; border:1px solid #cdcdcd; width:670px;    font-size: 1rem;margin-left: 40px}
                         .mybtn{ background-color:#FFF; line-height:14px;vertical-align:middle;border:1px solid #CDCDCD;height:30px; width:70px;    font-size: 1rem;margin-left: 40px}
@@ -83,7 +83,7 @@
                         <label class="control-label" style="    font-size: 0.6rem;">图片上传：</label>
                         <span onclick="file.click()"  class="mybtn">浏览...</span>
                         <input type="file" name="file" class="file" id="file" size="28"  onchange="javascript:setImagePreview();" />
-                        <span onclick="UpladFile()" class="mybtn">上传</span>
+                        <span onclick="UpladFile()" id="upload" class="mybtn">上传</span>
                         <div class="input-box" style="display:none">
                             <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
                             <span class="input-del"></span>
@@ -112,7 +112,7 @@
     function UpladFile()
     {
         var fileObj = document.getElementById("file").files[0];
-        var FileController = 'upload.php';
+        var FileController = ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=upload&typ=json";
         var form = new FormData();
         form.append("myfile", fileObj);
         createXMLHttpRequest();
@@ -131,6 +131,7 @@
                 var img = document.getElementById('img');
                 var val = img.value
                 img.value=json.file+'--'+val;
+                alert(WapSiteUrl);
                 alert("上传成功，如有需要可以继续上传");
             }
         }
@@ -144,13 +145,13 @@ function setImagePreview(avalue) {
     if(docObj.files &&docObj.files[0])
     {
     //火狐下，直接设img属性
-    imgObjPreview.style.display = 'block';
-    imgObjPreview.style.width = '150px';
-    imgObjPreview.style.height = '180px'; 
-    //imgObjPreview.src = docObj.files[0].getAsDataURL();
-     
-    //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
-    imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+        imgObjPreview.style.display = 'block';
+        imgObjPreview.style.width = '150px';
+        imgObjPreview.style.height = '180px'; 
+        //imgObjPreview.src = docObj.files[0].getAsDataURL();
+         
+        //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+        imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
     }
     else
     {
@@ -162,18 +163,18 @@ function setImagePreview(avalue) {
     localImagId.style.width = "150px";
     localImagId.style.height = "180px";
     //图片异常的捕捉，防止用户修改后缀来伪造图片
-    try{
-    localImagId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
-    localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
-    }
-    catch(e)
-    {
-    alert("您上传的图片格式不正确，请重新选择!");
-    return false;
-    }
-    imgObjPreview.style.display = 'none';
-    document.selection.empty();
-    }
+        try{
+            localImagId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+            localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+        }
+        catch(e)
+        {
+            alert("您上传的图片格式不正确，请重新选择!");
+            return false;
+        }
+            imgObjPreview.style.display = 'none';
+            document.selection.empty();
+        }
     return true;
 }
 </script>
