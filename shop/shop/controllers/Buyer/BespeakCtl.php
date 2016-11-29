@@ -349,6 +349,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 	public function upload(){
 		if(isset($_FILES["myfile"]))
 		{
+			var_dump($_FILES);
+			exit();
 			$ret = array();
 			$uploadDir = 'upload/images'.DIRECTORY_SEPARATOR.date("Ymd").DIRECTORY_SEPARATOR;
 			$dir = DATA_PATH.DIRECTORY_SEPARATOR.$uploadDir;
