@@ -297,14 +297,17 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$user_id = Perm::$userId;
 
 		$usercontact    = request_string('usercontact');
+		$upfile    = request_string('upfile');
 		$true_name    = request_string('true_name');
 		$bespeak_area_info = request_string('bespeak_area_info');
 		$bespeak_com   = request_string('bespeak_com');
 		$bespeak_title = request_string('bespeak_title');
 		$bespeak_address = request_string('bespeak_address');
 		$bes_address = request_string('bes_address');
+		$img = request_string('img');
 
 		$edit_bespeak_row['true_name']                  = $true_name;
+		$edit_bespeak_row['bespeak_img']                  = $img;
 		$edit_bespeak_row['usercontact']                  = $usercontact;
 		$edit_bespeak_row['bespeak_area_info']     = $bespeak_area_info;
 		$edit_bespeak_row['bes_address'] = $bes_address;
@@ -314,6 +317,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$edit_bespeak_row['starttime']        = get_date_time();
 		$edit_bespeak_row['user_id']        = $user_id;
 		$edit_bespeak_row['bespeak_list']   = 0;
+
 
 			//开启事物
 		$this->userBespeakModel->sql->startTransactionDb();
@@ -589,6 +593,17 @@ class Buyer_BespeakCtl extends Buyer_Controller
 			include $this->view->getView();
 		}
 
+	}
+
+	public function getBespeakalllist()
+	{
+		var_dump(111);
+		exit();
+		$bespeak_id = request_int('bespeak_id');
+		$USER_BespeakModel = new USER_BespeakModel();
+		$data    = $USER_BespeakModel->getBespeakAllList($bespeak_id);
+		var_dump($data);exit();
+		$this->data->addBody(-140, $data);
 	}
 
 
