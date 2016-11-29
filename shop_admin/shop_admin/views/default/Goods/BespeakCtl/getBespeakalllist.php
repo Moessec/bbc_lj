@@ -44,7 +44,6 @@ input, select, textarea {
 <body>
 <div id="manage-wrap" class="manage-wrap">
 	<?php
-  var_dump(get_defined_constants());
 	foreach ($data as $key => $value) {
 
 	?>
@@ -88,7 +87,7 @@ input, select, textarea {
           $img=array_filter($img);
           foreach ($img as $k => $v) {
           ?>
-          <img src="<?='http://localhost\bbc\shop\shop\data\upload'.$v?>">
+          <img src="http://139.196.51.206/bbc_lj/\shop\shop\data\upload<?=$v?>">
           <?}?>
           </td>
       </tr>
