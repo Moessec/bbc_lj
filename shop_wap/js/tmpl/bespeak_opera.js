@@ -37,6 +37,7 @@ $(function ()
             var t = $("#area_info").attr("data-areaid");
             var bes_info = $("#area_info").val();
             var n = $("#address").val();
+            var img = $("#img").val();
 
             var province_id = $("#area_info").attr("data-areaid1");
             var city_id = $("#area_info").attr("data-areaid2");
@@ -46,7 +47,7 @@ $(function ()
             $.ajax({
                 type: "post",
                 url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=addBespeakInfo&typ=json",
-                data: {k:a,u:getCookie('id'), true_name: e, usercontact: ru, bespeak_area_info: area_info, bespeak_address: n, bes_address: bes_info, bespeak_com: rc, bespeak_title: rt},
+                data: {k:a,u:getCookie('id'), true_name: e, usercontact: ru, bespeak_area_info: area_info, bespeak_address: n, bes_address: bes_info, bespeak_com: rc, img:img, bespeak_title: rt},
 
                 dataType: "json",
                 success: function (a)
