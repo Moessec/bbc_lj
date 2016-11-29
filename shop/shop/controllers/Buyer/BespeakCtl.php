@@ -359,7 +359,20 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				move_uploaded_file($_FILES["myfile"]["tmp_name"],$dir.$fileName);
 				$ret['file'] = DIRECTORY_SEPARATOR.$uploadDir.$fileName;
 			}
+			if ($ret['file'])
+			{
+				$status                              = 200;
+				$msg                                 = _('success');
+			}
+			else
+			{
+				$status = 250;
+				$msg    = _('failure');
+			}
+			// $data=$ret;
+			// $this->data->addBody(-140, $data, $msg, $status);
 			echo json_encode($ret);
+			exit();
 		}
 	}
 
