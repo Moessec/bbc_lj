@@ -2246,6 +2246,44 @@ $ccmd_rows = array (
       'cmd_id' => 'int16_t',
     ),
   ),
+  'Goods_Bespeak' => 
+  array (
+    'bespeak' => 
+    array (
+      'typ' => 'e',
+      'db' => 'master',
+      'rid' => '9000',
+      'cmd_id' => 'int16_t',
+    ),
+    'bespeaklist' => 
+    array (
+      'typ' => 'json',
+      'db' => 'master',
+      'rid' => '9000',
+      'cmd_id' => 'int16_t',
+    ),
+    'manage' => 
+    array (
+      'typ' => 'e',
+      'db' => 'master',
+      'rid' => '9010',
+      'cmd_id' => 'int16_t',
+    ),
+    'remove' => 
+    array (
+      'typ' => 'json',
+      'db' => 'master',
+      'rid' => '9020',
+      'cmd_id' => 'int16_t',
+    ),
+    'editBespeak' => 
+    array (
+      'typ' => 'json',
+      'db' => 'master',
+      'rid' => '9030',
+      'cmd_id' => 'int16_t',
+    ),
+  ),
 );
 
 //APPCAN,使用了网络请求 Request ，没有使用uexXmlHttpMgr, 新版本有改动，直接变为$_REQUEST
