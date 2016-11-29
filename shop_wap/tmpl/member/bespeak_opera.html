@@ -129,6 +129,7 @@
                 var result = xhr.responseText;
                 var json = eval("(" + result + ")");
                 var img = document.getElementById('img');
+                alert(img);
                 var val = img.value
                 img.value=json.file+'--'+val;
                 alert("上传成功，如有需要可以继续上传");
