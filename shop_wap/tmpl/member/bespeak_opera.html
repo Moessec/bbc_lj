@@ -34,7 +34,7 @@
             <div class="nctouch-inp-con">
                 <ul class="form-box">
                     <li class="form-item">
-                        <h4>报修人姓名</h4>
+                        <h4>报修人</h4>
                         <div class="input-box">
                             <input type="text" class="inp" name="true_name" id="true_name" autocomplete="off" oninput="writeClear($(this));" />
                             <span class="input-del"></span> </div>
@@ -80,10 +80,10 @@
                     </head>
                     <body>
                     <div class="form-group">
-                        <label class="control-label" style="    font-size: 0.6rem;">图片上传：</label>
-                        <span onclick="file.click()"  class="mybtn">浏览...</span>
+                        <label class="control-label" style=" padding-left:12px;   font-size: 0.6rem;">图片上传：</label>
+                        <span onclick="file.click()" style="font-size: 0.6rem;"  class="mybtn">浏览...</span>
                         <input type="file" name="file" class="file" id="file" size="28"  onchange="javascript:setImagePreview();" />
-                        <span onclick="UpladFile()" id="upload" class="mybtn">上传</span>
+                        <span onclick="UpladFile()" id="upload" style="font-size: 0.6rem;" class="mybtn">上传</span>
                         <div class="input-box" style="display:none">
                             <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
                             <span class="input-del"></span>
