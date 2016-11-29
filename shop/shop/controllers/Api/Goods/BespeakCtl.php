@@ -338,7 +338,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['user_id'] = 'admin';
 		$data['bespeak_list'] = '2';
 		$data['usercontact'] =  request_string('usercontact');
-
+// exit();
 		$bespeak_id = $this->goodsBespeakModel->addBespeak($data, true);
 
 		if ($bespeak_id)
@@ -356,7 +356,6 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['bespeak_id'] = $bespeak_id;
 		$this->data->addBody(-140, $data, $msg, $status);
 	}
-
 	/*
 	 * 修改规格
 	 */
@@ -386,6 +385,14 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['id']      = $id;
 		$data['bespeak_id'] = $id;
 		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+	public function getBespeakalllist()
+	{
+		$bespeak_id = request_int('bespeak_id');
+		$Goods_BespeakModel = new Goods_BespeakModel();
+		$data    = $Goods_BespeakModel->getbespeak($bespeak_id);
+		$this->data->addBody(-140, $data);
 	}
 
 }

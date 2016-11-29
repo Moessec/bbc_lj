@@ -47,6 +47,15 @@ class Goods_Bespeak extends Yf_Model
 		return $rows;
 	}
 
+
+
+	public function getBespeakAllList($bespeak_id)
+	{
+		$date = $this->getOne($bespeak_id);
+		return $date;
+
+	}
+
 	/**
 	 * 插入
 	 * @param array $field_row 插入数据信息
