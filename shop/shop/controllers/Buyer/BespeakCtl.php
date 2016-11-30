@@ -160,10 +160,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 						}
 					}
 					$data['adv'][$key]=$value;
-					
+
 			}
-			var_dump($data);
-			exit();
 			$num=count($data);
 			$this->data->addBody(-140, $data);
 		}
