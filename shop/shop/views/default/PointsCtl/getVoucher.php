@@ -1,4 +1,5 @@
 
+<?php
 include $this->view->getTplPath() . '/' . 'header.php';
 ?>
 
