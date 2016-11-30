@@ -34,7 +34,6 @@ include $this->view->getTplPath() . '/' . 'header.php';
 
 
 	};
-	alert(userName);
 	SYSTEM.categoryInfo = {};
 	//区分服务支持
 	SYSTEM.servicePro = SYSTEM.siType === 2 ? 'forbscm3' : 'forscm3';
@@ -198,6 +197,8 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				if (data.status === 200)
 				{
 					SYSTEM.categoryInfo['user'] = data.data.items;
+					alert(data);
+					console.log(data);
 				}
 				else if (data.status === 250)
 				{
