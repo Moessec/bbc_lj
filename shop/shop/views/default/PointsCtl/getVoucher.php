@@ -7,7 +7,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 <script type="text/javascript" src="<?=$this->view->js?>/tuangou-index.js"></script>
 <script src="<?=$this->view->js_com?>/plugins/jquery.slideBox.min.js" type="text/javascript"></script>
 
-<div class="wrap" style="z-index:9999">
+<div class="wrap" style="">
 	<!--  右登陆 -->
 	
 
