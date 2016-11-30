@@ -83,14 +83,14 @@ $(function(){
 	  //滚动header固定到顶部
 	  $.scrollTransparent();
 
+      
+      $("#paycenter").click(function(){
+          window.location.href = PayCenterWapUrl;
+      });
       $("#voucher").click(function(){
 
            window.location.href = '../../../shop/index.php?ctl=Points&met=getVoucher';
          
       });
-      $("#paycenter").click(function(){
-          window.location.href = PayCenterWapUrl;
-      });
-      
       
 });
