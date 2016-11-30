@@ -57,9 +57,9 @@ if (isset($_SERVER['DOCUMENT_ROOT']) && $_SERVER['DOCUMENT_ROOT'])
 	if (isset($pro_path_row[1]))
 	{
 		$pro_path = '/' . ltrim($pro_path_row[1], '/');
-		var_dump($pro_path);
+		
 		$themes = $pro_path . '/' . APP_DIR_NAME . '/static/' . $themes_name;
-		var_dump($themes);exit;
+		
 	}
 	else
 	{
@@ -88,7 +88,7 @@ define('RUNTIME', false);
 
 //是否开启debug，如果为true，则不生成runtime缓存
 define('DEBUG', false);
-
+var_dump($site_status);exit;
 if (1 != $site_status)
 {
 	if ((isset($_REQUEST['ctl']) && 'Api_'==substr($_REQUEST['ctl'], 0 , 4)))
