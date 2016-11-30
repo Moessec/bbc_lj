@@ -1,5 +1,5 @@
 <?php
-var_dump($_REQUEST);exit;
+
 /**
  * 入口文件
  *
