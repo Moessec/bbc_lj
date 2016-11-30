@@ -57,7 +57,9 @@ if (isset($_SERVER['DOCUMENT_ROOT']) && $_SERVER['DOCUMENT_ROOT'])
 	if (isset($pro_path_row[1]))
 	{
 		$pro_path = '/' . ltrim($pro_path_row[1], '/');
+		var_dump($pro_path);
 		$themes = $pro_path . '/' . APP_DIR_NAME . '/static/' . $themes_name;
+		var_dump($themes);exit;
 	}
 	else
 	{
