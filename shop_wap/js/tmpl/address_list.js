@@ -14,6 +14,7 @@ $(function ()
                 {
                     return false
                 }
+                console.info(e.data);
                 var s = e.data;
                 var t = template.render("saddress_list", s);
                 // console.log(s);
