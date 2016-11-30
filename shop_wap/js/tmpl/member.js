@@ -77,7 +77,7 @@ $(function(){
         + '<li><a href="login.html"><i class="cc-05"></i><p>退款/退货</p></a></li>';
         //渲染页面
         $("#order_ul").html(html);
-        return false;
+        return false;           
 	}
 
 	  //滚动header固定到顶部
@@ -85,7 +85,7 @@ $(function(){
 
       $("#voucher").click(function(){
 
-           window.location.href = '../../../../shop/index.php?ctl=Points&met=getVoucher';
+           window.location.href = '../../../shop/index.php?ctl=Points&met=getVoucher';
          
       });
       $("#paycenter").click(function(){
