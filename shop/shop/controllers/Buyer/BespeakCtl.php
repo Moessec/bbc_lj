@@ -362,6 +362,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				$ret['file'] = DIRECTORY_SEPARATOR.$uploadDir.$fileName;
 			}
 			echo json_encode($ret);
+			exit();
 		}
 	}
 
