@@ -157,14 +157,11 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					$data['adv'][$key]=$value;
 					foreach ($data['temp'] as $k1 => $v1) {
 						if($v1['bespeak_title']==$value['bespeak_title']){
-							$value['bespeak_click']='click'；
-							var_dump($v1);
-							var_dump($value);
+							$value['bespeak_click']='click';
 						}
 					}
 			}
 			$num=count($data);
-			exit();
 			$this->data->addBody(-140, $data);
 		}
 		else
