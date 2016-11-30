@@ -48,26 +48,32 @@ $(function ()
             var true_name = $("#true_name").val();
             var bespeak_com = $("#bespeak_com").val();
             var ru = $("#usercontact").val();
-            var rt = $("#bespeak_title").val();
-            // alert(bespeak_com);
-            $.ajax({
-                type: "post",
-                url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=addRentBespeak&typ=json",
-                data: {k:a,u:getCookie('id') , id:e, true_name: true_name,bespeak_com: bespeak_com, usercontact: ru,  bespeak_title: rt},
-                dataType: "json",
-                success: function (a)
-                {
-                    if (a)
+            var rt = $("#bespeak_title").val()+'11';
+            var partten = /^1[3,4,5,7,8]\d{9}$/;
+            if(partten.test(ru))
+            {
+                $.ajax({
+                    type: "post",
+                    url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=addRentBespeak&typ=json",
+                    data: {k:a,u:getCookie('id') , id:e, true_name: true_name,bespeak_com: bespeak_com, usercontact: ru,  bespeak_title: rt},
+                    dataType: "json",
+                    success: function (a)
                     {
+                        if (a)
+                        {
 
-                        location.href = WapSiteUrl + "/tmpl/member/bespeak_rent.html"
+                            location.href = WapSiteUrl + "/tmpl/member/bespeak_rent.html"
+                        }
+                        else
+                        {
+                            location.href = WapSiteUrl
+                        }
                     }
-                    else
-                    {
-                        location.href = WapSiteUrl
-                    }
-                }
-            })
+                })
+            }else{
+                alert('手机格式不正确')
+                return false;
+            }
         }
     });
 

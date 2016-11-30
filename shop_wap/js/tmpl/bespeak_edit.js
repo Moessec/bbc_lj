@@ -58,24 +58,30 @@ $(function ()
             var city_id = $("#area_info").attr("data-areaid2");
             var area_id = $("#area_info").attr("data-areaid3");
             var area_info = province_id+'-'+city_id+'-'+area_id;
-
-            $.ajax({
-                type: "post",
-                url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=editBespeakInfo&typ=json",
-                data: {k:e,u:getCookie('id') , id:a, true_name: true_name, usercontact: ru, bespeak_area_info: area_info, bespeak_address: address, bes_address: bes_address, bespeak_com: rc, bespeak_title: rt},
-                dataType: "json",
-                success: function (a)
-                {
-                    if (a)
+            var partten = /^1[3,4,5,7,8]\d{9}$/;
+              if(partten.test(ru))
+              {
+                $.ajax({
+                    type: "post",
+                    url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=editBespeakInfo&typ=json",
+                    data: {k:e,u:getCookie('id') , id:a, true_name: true_name, usercontact: ru, bespeak_area_info: area_info, bespeak_address: address, bes_address: bes_address, bespeak_com: rc, bespeak_title: rt},
+                    dataType: "json",
+                    success: function (a)
                     {
-                        // location.href = WapSiteUrl + "/tmpl/member/bespeak_list.html"
+                        if (a)
+                        {
+                            // location.href = WapSiteUrl + "/tmpl/member/bespeak_list.html"
+                        }
+                        else
+                        {
+                            location.href = WapSiteUrl
+                        }
                     }
-                    else
-                    {
-                        location.href = WapSiteUrl
-                    }
-                }
-            })
+                })
+            }else{
+                alert('手机格式不正确');
+                return false;
+            }
         }
     });
 
