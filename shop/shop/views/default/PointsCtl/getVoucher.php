@@ -1,4 +1,3 @@
-<div style="z-index:9999111111111111"> 
 <?php
 include $this->view->getTplPath() . '/' . 'header.php';
 ?>
@@ -66,4 +65,3 @@ include $this->view->getTplPath() . '/' . 'header.php';
 <?php
 include $this->view->getTplPath() . '/' . 'footer.php';
 ?>
-</div>
