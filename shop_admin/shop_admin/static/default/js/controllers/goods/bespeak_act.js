@@ -140,7 +140,6 @@ $(function() {
             {
                 if(row.bespeak_state == '预约完成'){
                     var html_con = '<div class="operating" data-id="' + row.id + '"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
-                    alert(111);
                 }else{
                     var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon set-status" title="预约处理"></span><span class="ui-icon ui-icon-trash ui-icon-disabled" title="删除"></span></div>';
                 }
