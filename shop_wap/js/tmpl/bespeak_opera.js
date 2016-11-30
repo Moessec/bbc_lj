@@ -2,8 +2,8 @@ $(function ()
 {
     var a = getCookie("key");
     $.sValid.init({
-        // rules: {true_name: "required", usercontact: "required", area_info: "required", address: "required", bespeak_title: "required"},
-        // messages: {true_name: "姓名必填！", usercontact: "手机号必填！", area_info: "地区必填！", address: "街道必填！", bespeak_title: "报修物品"},
+        rules: {true_name: "required", usercontact: "required", area_info: "required", address: "required", bespeak_title: "required"},
+        messages: {true_name: "姓名必填！", usercontact: "手机号必填！", area_info: "地区必填！", address: "街道必填！", bespeak_title: "报修物品"},
         callback: function (a, e, r)
         {
             if (a.length > 0)
