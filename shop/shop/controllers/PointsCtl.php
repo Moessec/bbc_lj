@@ -79,9 +79,11 @@ class PointsCtl extends Controller
 
 		//积分换购商品列表
 		$cond_row_p_goods['points_goods_shelves'] = Points_GoodsModel::ONSHELVES;
+
 		$order_row_p_goods['points_goods_sort']   = 'ASC';
 		$points_goods_rows                        = $this->pointsGoodsModel->getPointsGoodsList($cond_row_p_goods, $order_row_p_goods, 0, 18);
 		$data['points_goods']                     = $points_goods_rows['items'];
+		
 
 		//代金券列表
 		$cond_row_voucher_temp['voucher_t_state']      = Voucher_TempModel::VALID;
@@ -105,6 +107,22 @@ class PointsCtl extends Controller
 			include $this->view->getView();
 		}
 
+	}
+	public function getVoucher()
+	{
+			$cond_row_voucher_temp['voucher_t_state']      = Voucher_TempModel::VALID;
+		$cond_row_voucher_temp['voucher_t_end_date:>'] = get_date_time();
+		$order_row_voucher_temp['voucher_t_recommend'] = 'DESC';
+		$voucher_temp_rows                             = $this->voucherTempModel->getVoucherTempList($cond_row_voucher_temp, $order_row_voucher_temp, 0, 6);
+		$data['voucher']                               = $voucher_temp_rows['items'];
+		if('json' == $this->typ)
+		{
+			$this->data->addBody(-140, $data);
+		}
+		else
+		{
+			include $this->view->getView();
+		}
 	}
 
 	public function pList()
