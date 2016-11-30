@@ -818,7 +818,7 @@ function ucenterLogin()
         success: function(data){
 
             console.info(data);
-
+            console.log(data);
             //已经登录
             if (200 == data.status)
             {
