@@ -156,9 +156,10 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					}
 					foreach ($data['temp'] as $k1 => $v1) {
 						if($v1['bespeak_title']==$value['bespeak_title']){
-							$value['bespeak_click']='click';
+							$value['bespeak_click']='已参与';
 							$value['bespeak_id']='#';
 						}else{
+							$value['bespeak_click']='参与';
 							$id = $value['bespeak_id'];
 							$value['bespeak_id']='bespeak_opera_adv.html?bespeak_id='.$id;
 						}

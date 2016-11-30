@@ -15,7 +15,7 @@ $(function ()
                 console.log(e.data.temp);
                 console.log(e.data.adv);
                 $.each(e.data.adv, function(key, value){
-                       tem='<ul><li><dl><dt><span class="name">已发布活动：'+value.bespeak_title+'</span><span class="phone" style="margin-left:20px">开始时间：'+value.opentime+'</span></dt><dd><br/>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="'+value.bespeak_id+'" onclick="'+value.bespeak_click+'"><i class="edit"></i>参与</a></div></li></ul>';
+                       tem='<ul><li><dl><dt><span class="name">已发布活动：'+value.bespeak_title+'</span><span class="phone" style="margin-left:20px">开始时间：'+value.opentime+'</span></dt><dd><br/>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="'+value.bespeak_id+'"><i class="edit"></i>'+value.bespeak_click+'</a></div></li></ul>';
                     $("#bespeak_list").append(tem);
                 })
                 $.each(e.data.temp, function(key, value){
