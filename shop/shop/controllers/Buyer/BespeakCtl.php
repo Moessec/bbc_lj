@@ -155,15 +155,14 @@ class Buyer_BespeakCtl extends Buyer_Controller
 						$value['bespeak_state']='活动已经借宿';
 					}
 					$data['adv'][$key]=$value;
-					foreach ($data['temp'] as $k1 => $v1) {
-						if($v1['bespeak_title']===$value['bespeak_title']){
-							$data['adv'][$key]['bespeak_click']=='click'；
-						}
-					}
+					// foreach ($data['temp'] as $k1 => $v1) {
+					// 	if($v1['bespeak_title']===$value['bespeak_title']){
+					// 		$data['adv'][$key]['bespeak_click']=='click'；
+					// 	}
+					// }
 			}
-			var_dump($data)；
-			exit();
 			$num=count($data);
+			exit();
 			$this->data->addBody(-140, $data);
 		}
 		else
