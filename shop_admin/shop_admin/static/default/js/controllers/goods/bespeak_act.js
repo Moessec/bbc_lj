@@ -128,7 +128,7 @@ $(function() {
             }
         },
 
-        //操作项格式化，适用于有“修改、删除”操作的表格
+        //操作项格式化，适用于有“修改1111、删除”操作的表格
         operFormatter: function(val, opt, row) {
 
 
