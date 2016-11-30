@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <title>我的代金券</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="header-wrap">
+            <div class="header-l">
+                <a href="member.html"> <i class="back"></i> </a>
+            </div>
+            <div class="header-title">
+                <h1>我的代金券</h1>
+            </div>
+            <div class="header-r"> <a id="header-nav" href="address_opera.html"><i class="add"></i></a> </div>
+        </div>
+    </header>
+    <div class="nctouch-main-layout mb20">
+        <div class="nctouch-address-list" id="voucher_list"></div>
+    </div>
+    <footer id="footer" class="bottom"></footer>
+    <script type="text/html" id="svoucher_list">
+        <%if(items){%>
+            <ul>
+                <% for (var i in items) {%>
+                    <li style="margin-left:20px;margin-right:20px;margin-top:5px">
+                        <dl style="padding: 0.5rem 0.5rem 0 0px;">
+                            <dt>
+                    <span class="name" style="height: 1.3rem;font-size: 0.6rem;line-height: 0.65rem;color: #777;font-weight: normal;"> 面额：<%=items[i].voucher_price %></span>
+                     <dd>
+                      使用条件：         满<%=items[i].voucher_limit %>
+                                   可用
+                     </dd>
+                     <dd>
+                      状态：         <%=items[i].voucher_state_label %>
+                                   
+                     </dd>
+                    <dd class="phone" style="height: 1.3rem;font-size: 0.6rem;line-height: 0.65rem;color: #777;">有效期&nbsp;    <%=items[i].voucher_end_date %></dd>
+                </dt>
+                           
+                        </dl>
+                      
+                    </li>
+                    <%}%>
+            </ul>
+            
+            <%}else{%>
+                <div class="nctouch-norecord address">
+                    <div class="norecord-ico"><i></i></div>
+                    <dl>
+                        <dt>您还没有代金券</dt>
+                        
+                    </dl>
+                    <a href="address_opera.html" class="btn">添加新地址</a>
+                </div>
+                </div>
+                <%}%>
+    </script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/config.php"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/simple-plugin.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/voucher_list.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+</body>
+
+</html>
