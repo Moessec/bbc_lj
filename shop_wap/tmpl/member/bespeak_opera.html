@@ -76,19 +76,18 @@
                         .txt{ height:28px; border:1px solid #cdcdcd; width:670px;    font-size: 1rem;margin-left: 40px}
                         .mybtn{ background-color:#FFF; line-height:14px;vertical-align:middle;border:1px solid #CDCDCD;height:30px; width:70px;    font-size: 1rem;margin-left: 40px}
                         .file{ position:absolute; top:0;    font-size: 0.6rem; right:80px; height:24px; filter:alpha(opacity:0);opacity: 0;width:260px }
-                    </style>
-                    </head>
-                    <body>
-                    <div class="form-group">
-                        <label class="control-label" style=" padding-left:12px;   font-size: 0.6rem;">图片上传：</label>
-                        <span onclick="file.click()" style="font-size: 0.6rem;"  class="mybtn">浏览...</span>
-                        <input type="file" name="file" class="file" id="file" size="28"  onchange="javascript:setImagePreview();" />
-                        <span onclick="UpladFile()" id="upload" style="font-size: 0.6rem;" class="mybtn">上传</span>
-                        <div class="input-box" style="display:none">
-                            <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
-                            <span class="input-del"></span>
+                        </style>
+                        <div class="form-group">
+                            <label class="control-label" style=" padding-left:12px;   font-size: 0.6rem;">图片上传：</label>
+                            <span onclick="file.click()" style="font-size: 0.6rem;"  class="mybtn">浏览...</span>
+                            <input type="file" name="file" class="file" id="file" size="28"  onchange="javascript:setImagePreview();" />
+                            <span onclick="UpladFile()" id="upload" style="font-size: 0.6rem;" class="mybtn">上传</span>
+                            <div class="input-box" style="display:none">
+                                <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
+                                <span class="input-del"></span>
+                            </div>
+                            <div id="localImag"><img id="preview" src="" width="150" height="180" style="display: block; width: 150px; height: 180px;">
                         </div>
-                        <div id="localImag"><img id="preview" src="" width="150" height="180" style="display: block; width: 150px; height: 180px;"></div>
                   </li>
                 </ul>
                 <div class="error-tips"></div>

@@ -87,7 +87,7 @@ input, select, textarea {
           $img=array_filter($img);
           foreach ($img as $k => $v) {
           ?>
-          <img src="http://139.196.51.206/bbc_lj/\shop\shop\data\<?=$v?>" style="width:200px;height:200px; float:left; margin-left:20px">
+          <img src="<?='http://localhost\bbc\shop\shop\data\upload'.$v?>">
           <?}?>
           </td>
       </tr>

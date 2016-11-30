@@ -22,7 +22,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <h5>保修预约、活动预约、租赁预约</h5>
             </div>
             <ul class="tab-base nc-row">
-                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak" class=""><span>预约管理</span></a></li>
+                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak" class=""><span>报修预约</span></a></li>
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak_act" class="current"><span>活动预约</span></a></li>
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak_rent" class=""><span>租赁管理</span></a></li>
             </ul>

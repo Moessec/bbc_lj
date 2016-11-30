@@ -53,6 +53,7 @@ $(function ()
             var t = $("#area_info").attr("data-areaid");
             var address = $("#address").val();
             var bes_address = $("#area_info").val();
+            var img = $("#img").val();
 
             var province_id = $("#area_info").attr("data-areaid1");
             var city_id = $("#area_info").attr("data-areaid2");
@@ -70,7 +71,7 @@ $(function ()
                     {
                         if (a)
                         {
-                            // location.href = WapSiteUrl + "/tmpl/member/bespeak_list.html"
+                            location.href = WapSiteUrl + "/tmpl/member/bespeak_list.html"
                         }
                         else
                         {

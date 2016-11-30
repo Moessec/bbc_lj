@@ -50,7 +50,7 @@ $(function ()
                 checkLogin(e.login);
                 if (e)
                 {
-                    s()
+                    location.href = WapSiteUrl + "/tmpl/member/bespeak_list.html";
                 }
             }
         })

@@ -229,8 +229,10 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$bespeak_title = request_string('bespeak_title');
 		$bespeak_address = request_string('bespeak_address');
 		$bes_address = request_string('bes_address');
+		$bes_address = request_string('img');
 
 		$edit_bespeak_row['true_name']                  = $true_name;
+		$edit_bespeak_row['bespeak_img']                  = $img;
 		$edit_bespeak_row['usercontact']                  = $usercontact;
 		$edit_bespeak_row['bespeak_area_info']     = $bespeak_area_info;
 		$edit_bespeak_row['bes_address'] = $bes_address;
@@ -359,20 +361,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				move_uploaded_file($_FILES["myfile"]["tmp_name"],$dir.$fileName);
 				$ret['file'] = DIRECTORY_SEPARATOR.$uploadDir.$fileName;
 			}
-			if ($ret['file'])
-			{
-				$status                              = 200;
-				$msg                                 = _('success');
-			}
-			else
-			{
-				$status = 250;
-				$msg    = _('failure');
-			}
-			// $data=$ret;
-			// $this->data->addBody(-140, $data, $msg, $status);
 			echo json_encode($ret);
-			exit();
 		}
 	}
 
@@ -524,8 +513,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 	public function delBespeak()
 	{
 		$user_id         = Perm::$row['user_id'];
-		$bespeak_id = request_string('id');
-		// $bespeak_id = request_string('bespeak_id');
+		$bespeak_id = request_string('bespeak_id');
+		
 		//验证用户
 		$cond_row = array(
 			'user_id' => $user_id,
