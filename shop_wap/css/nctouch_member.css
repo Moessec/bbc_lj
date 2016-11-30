@@ -388,7 +388,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-address-list li dt span { display: inline-block; vertical-align: top; line-height: 0.9rem; height: 0.9rem;}
 .nctouch-address-list li dt span.name { min-width: 4rem; font-size: 0.7rem; font-weight: 600; color: #555;}
 .nctouch-address-list li dt span.phone { font-size: 0.6rem; color: #333;}
-.nctouch-address-list li dd { height: 1.3rem; font-size: 0.6rem; line-height: 0.65rem; color: #777;}
+.nctouch-address-list li dd { font-size: 0.6rem; line-height: 0.65rem; color: #777;}
 .nctouch-address-list li .handle { height: 0.9rem; padding: 0.5rem 0; position: relative; z-index: 1; font-size: 0.6rem; line-height: 0.9rem; color: #555;}
 .nctouch-address-list li .handle span { display: block; height: 0.9rem; position: absolute; z-index: 1; top: 0.5rem; right: 0;}
 .nctouch-address-list li .handle span a { font-size: 0.6rem; color: #555; margin-right: 0.5rem;}
