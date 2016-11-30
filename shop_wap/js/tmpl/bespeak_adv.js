@@ -13,12 +13,13 @@ $(function ()
                 
                 checkLogin(e.login);
                 console.log(e.data.temp);
+                console.log(e.data.adv);
                 $.each(e.data.adv, function(key, value){
-                       tem='<ul><li><dl><dt><span class="name">已发布活动：'+value.bespeak_title+'</span><span class="phone" style="margin-left:20px">联系方式：'+value.usercontact+'</span></dt><dd><br/>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="bespeak_opera_adv.html?bespeak_id='+value.bespeak_id+'"><i class="edit"></i>参与</a></div></li></ul>';
+                       tem='<ul><li><dl><dt><span class="name">已发布活动：'+value.bespeak_title+'</span><span class="phone" style="margin-left:20px">开始时间：'+value.opentime+'</span></dt><dd><br/>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="bespeak_opera_adv.html?bespeak_id='+value.bespeak_id+'"><i class="edit"></i>参与</a></div></li></ul>';
                     $("#bespeak_list").append(tem);
                 })
                 $.each(e.data.temp, function(key, value){
-                       tem='<ul><li><dl><dt><span class="name">已参与：'+value.bespeak_title+'</span><span class="phone" style="margin-left:20px">联系方式：'+value.usercontact+'</span></dt><dd><br/>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="javascript:;" bespeak_id="'+value.bespeak_id+'" class="delbespeak"><i class="del"></i>删除</a></span></div></li></ul>';
+                       tem='<ul><li><dl><dt><span class="name">已参与：'+value.bespeak_title+'</span><span class="phone" style="margin-left:20px">开始时间：'+value.opentime+'</span></dt><dd><br/>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="javascript:;" bespeak_id="'+value.bespeak_id+'" class="delbespeak"><i class="del"></i>删除</a></span></div></li></ul>';
                     $("#bespeak_adv").append(tem);
                 })
 
