@@ -392,7 +392,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 						</li>-->
 					</ul>
 
-					<ul>
+					<ul <? if(Perm::$row['user_account']=='yuyue'){ ?> class="cur cf" id="setting-base" <? } ?> >
 						<li  style="<?=$hidden?>">
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Goods&met=common" rel="pageTab" tabid="shop-goods-common"
 													   tabtxt="商品管理">商品管理</a>
