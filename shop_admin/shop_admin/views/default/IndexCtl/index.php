@@ -197,8 +197,6 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				if (data.status === 200)
 				{
 					SYSTEM.categoryInfo['user'] = data.data.items;
-					alert(data);
-					console.log(data);
 				}
 				else if (data.status === 250)
 				{
@@ -279,8 +277,14 @@ include $this->view->getTplPath() . '/' . 'header.php';
 		<div id="col-side">
 			<div class="nav-wrap hidden cf"><!--商品-->
 				<ul id="nav" class="cf">
-
-					<li class="item item-setting cur">
+					<?
+						if(Perm::$row['user_account']=='yuyue'){
+							$hidden='display:none';
+						}else{
+							$hidden='none';
+						}
+					?>
+					<li class="item item-setting cur" style="<?=$hidden?>">
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-silde02"></i>
 
 							<p>设置</p><s></s></a>
