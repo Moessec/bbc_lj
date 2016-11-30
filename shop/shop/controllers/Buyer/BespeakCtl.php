@@ -133,8 +133,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$USER_BespeakModel = new USER_BespeakModel();
 		$data['temp']            = $USER_BespeakModel->getBespeakList($user);
 		$data['adv']            = $USER_BespeakModel->getBespeakList($adv);
-		// var_dump($data);
-		// exit();
+		var_dump($data);
+		exit();
 		if ("json" == $this->typ)
 		{
 			foreach ($data['temp'] as $key => $value) {
