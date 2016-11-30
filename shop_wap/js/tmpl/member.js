@@ -89,7 +89,7 @@ $(function(){
       });
       $("#voucher").click(function(){
 
-           window.location.href = '../../../shop/index.php?ctl=Points&met=getVoucher';
+           window.location.href = 'http://139.196.51.206/bbc_lj/shop/index.php?ctl=Points&met=getVoucher';
          
       });
       
