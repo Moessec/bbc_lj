@@ -85,7 +85,7 @@ $(function(){
 
       $("#voucher").click(function(){
 
-           window.location.href = SiteUrl+'index.php?ctl=Points&met=getVoucher';
+           window.location.href = '../../../shop/index.php?ctl=Points&met=getVoucher';
          
       });
       $("#paycenter").click(function(){
