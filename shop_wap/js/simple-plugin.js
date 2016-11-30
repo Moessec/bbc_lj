@@ -3,8 +3,6 @@
  *sDialog 是dialog弹出框
  */
 (function($) {
-    var u = getCookie('id');
-    alert(u);
     $.extend($, {
         sDialog: function(options) {
             //dialog弹出框
