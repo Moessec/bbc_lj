@@ -150,12 +150,12 @@
 
 
     <!--付款方式Begin-->
-    <div class="nctouch-cart-block mt5"> <a href="javascript:void(0);" class="posr" id="select-payment-valve">
+    <!-- <div class="nctouch-cart-block mt5"> <a href="javascript:void(0);" class="posr" id="select-payment-valve">
         <h3><i class="pay"></i>支付方式：</h3>
         <div class="current-con">在线付款</div>
         <input type="hidden" name="pay-selected" id="pay-selected" value="1">
-        <!--<div class="current-con">货到付款</div>-->
-        <i class="icon-arrow"></i> </a> </div>
+       
+        <i class="icon-arrow"></i> </a> </div> -->
     <!--付款方式End-->
 
     <!--选择付款方式Begin-->
@@ -185,13 +185,13 @@
      
 
     <!--发票信息Begin-->
-    <div class="nctouch-cart-block mt5"> <a href="javascript:void(0);" class="posr" id="invoice-valve">
+    <!-- <div class="nctouch-cart-block mt5"> <a href="javascript:void(0);" class="posr" id="invoice-valve">
         <h3><i class="invoice"></i>发票信息：</h3>
         <div class="current-con">
             <p id="invContent">不需要发票</p>
             <input type="hidden" name="invoice_id">
         </div>
-        <i class="icon-arrow"></i> </a> </div>
+        <i class="icon-arrow"></i> </a> </div> -->
     <!--发票信息End-->
 
     <!--管理发票信息Begin-->
@@ -361,9 +361,7 @@
             <dt><i class="icon-store"></i><%=store_cart_list[k].shop_name%><span data-store_id="<%=k%>" class="store-cod-supported" style="display:none;">（该店铺不支持选定收货地址的货到付款）</span>
             <dt><i ><b>店址</b>：<%=store_cart_list[k].shop_address%></i></dt>  
                 <% if (store_cart_list[k].voucher_base != '') { %>
-						<span class="handle">
-							<a href="javascript:void(0);" class="voucher animation-up animation-up<%=k%>"><i></i>使用代金券</a>
-						</span>
+						
                 <% } %>
             </dt>
             <% if(!isEmpty(store_cart_list[k].mansong_info) && store_cart_list[k].mansong_info != null && store_cart_list[k].mansong_info.goods_name != null){ %>
@@ -400,6 +398,9 @@
         <div class="nctouch-cart-subtotal">
             <dl id="voucher<%=k%>" style="display: none;">
                 <dt>代金券</dt>
+                <span class="handle">
+                            <a href="javascript:void(0);" class="voucher animation-up animation-up<%=k%>"><i></i>使用代金券</a>
+                        </span>
                 <dd><em id="vourchPrice<%=k%>"></em>元</dd>
                 <input type="hidden" class="voucher_list" id="vourch_id<%=k%>" name="vourch_id" value="">
             </dl>
