@@ -34,7 +34,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 
 
 	};
-
+	alert(userName);
 	SYSTEM.categoryInfo = {};
 	//区分服务支持
 	SYSTEM.servicePro = SYSTEM.siType === 2 ? 'forbscm3' : 'forscm3';
