@@ -79,7 +79,7 @@ class Api_Goods_GoodsCtl extends Api_Controller
 
 		$Goods_CommonModel = new Goods_CommonModel();
 		$data              = $Goods_CommonModel->getCommonList($cond_row, $order_row, $page, $rows);
-
+		
 		if ($data['records'])
 		{
 			$status = 200;
