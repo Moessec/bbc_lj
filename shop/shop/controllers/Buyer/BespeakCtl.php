@@ -156,7 +156,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					}
 					$data['adv'][$key]=$value;
 					foreach ($data['temp'] as $k1 => $v1) {
-						if($v1['bespeak_title']===$value['bespeak_title']){
+						if($v1['bespeak_title']==$value['bespeak_title']){
 							$data['adv'][$key]['bespeak_click']='click'；
 						}
 					}
