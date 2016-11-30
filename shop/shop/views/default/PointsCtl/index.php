@@ -129,6 +129,9 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					foreach($data['voucher'] as $key=>$value)
 					{
 				?>
+
+
+
 				<div class="picture_<?=($key%3)+1?> imgs" data-id="<?=$value['voucher_t_id']?>">
 					<div class="picture_1_1"> <?=$value['shop_name']?> </div>
 					<div class="picture_1_2" style="margin-top:10px; ">
@@ -146,6 +149,9 @@ include $this->view->getTplPath() . '/' . 'header.php';
 						</a> 
 					</div>
 				</div>
+
+
+				
 				<?php  
 					}
                 }
