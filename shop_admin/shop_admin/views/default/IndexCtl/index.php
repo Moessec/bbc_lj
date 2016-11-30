@@ -294,33 +294,33 @@ include $this->view->getTplPath() . '/' . 'header.php';
 
 							<p>商品</p><s></s></a>
 					</li>
-					<li class="item item-setting">
+					<li class="item item-setting"  style="<?=$hidden?>">
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-silde04"></i>
 
 							<p>店铺</p><s></s></a>
 					</li>
-					<li class="item item-setting">
+					<li class="item item-setting"  style="<?=$hidden?>">
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-silde05"></i>
 
 							<p>会员</p><s></s></a>
 					</li>
-					<li class="item item-setting">
+					<li class="item item-setting"  style="<?=$hidden?>">
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-silde06"></i>
 
 							<p>交易</p><s></s></a>
 					</li>
-					<li class="item item-setting">
+					<li class="item item-setting"  style="<?=$hidden?>">
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-silde07"></i>
 
 							<p>运营</p><s></s></a>
 					</li>
-					<li class="item item-setting">
+					<li class="item item-setting"  style="<?=$hidden?>">
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-silde08"></i>
 
 							<p>促销</p><s></s></a>
 					</li>
 
-					<li class="item item-setting">
+					<li class="item item-setting"  style="<?=$hidden?>">
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-silde09"></i>
 							<p>手机端</p><s></s></a>
 					</li>
@@ -393,31 +393,31 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					</ul>
 
 					<ul>
-						<li>
+						<li  style="<?=$hidden?>">
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Goods&met=common" rel="pageTab" tabid="shop-goods-common"
 													   tabtxt="商品管理">商品管理</a>
 						</li>
-						<li>
+						<li  style="<?=$hidden?>">
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Cat&met=cat" rel="pageTab" tabid="shop-goods-cat"
 													   tabtxt="分类管理">分类管理</a>
 						</li>
-						<li>
+						<li  style="<?=$hidden?>">
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Brand&met=brand" rel="pageTab" tabid="shop-goods-brand"
 													   tabtxt="品牌管理">品牌管理</a>
 						</li>
-						<li>
+						<li  style="<?=$hidden?>">
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Type&met=type" rel="pageTab" tabid="shop-goods-type"
 													   tabtxt="类型管理">类型管理</a>
 						</li>
-						<li>
+						<li  style="<?=$hidden?>">
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Spec&met=spec" rel="pageTab" tabid="shop-goods-spec"
 													   tabtxt="规格管理">规格管理</a>
 						</li>
-						<li>
+						<li  style="<?=$hidden?>">
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Album&met=album" rel="pageTab" tabid="shop-goods-album"
 													   tabtxt="图片空间">图片空间</a>
 						</li>
-						<li>
+						<li  style="<?=$hidden?>">
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Goods&met=recommend" rel="pageTab" tabid="shop-goods-recommend"
 													   tabtxt="商品推荐">商品推荐</a>
 						</li>
