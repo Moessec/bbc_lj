@@ -1,6 +1,6 @@
 
 <?php
-
+include $this->view->getTplPath() . '/' . 'header.php';
 ?>
 
 <link rel="stylesheet" type="text/css" href="<?=$this->view->css?>/Group-integral.css" />
