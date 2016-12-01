@@ -292,7 +292,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					<li class="item item-setting">
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-silde03"></i>
 
-							<p>商品</p><s></s></a>
+							<p><? if(Perm::$row['user_account']=='yuyue'){ ?>预约<? }else{ ?>商品<? } ?></p><s></s></a>
 					</li>
 					<li class="item item-setting"  style="<?=$hidden?>">
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-silde04"></i>
