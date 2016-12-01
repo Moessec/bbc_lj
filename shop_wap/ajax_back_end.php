@@ -37,7 +37,7 @@ $geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address
     
 $output= json_decode($geocode);    
     
-var_dump($geocode);	
+
 }
 
 
