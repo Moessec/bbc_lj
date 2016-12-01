@@ -327,7 +327,7 @@ class VoucherCtl extends Controller
 			$status = 250;
 		}
 		$data = $this->voucherTempModel->getOne($voucher_t_id);
-		$this->data->addBody(-140, $data, $msg, $status);
+		$this->data->addBody(-140, $data, $msg, $status,$voucher_t_row);
 	}
 	
 	
