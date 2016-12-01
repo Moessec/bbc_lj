@@ -14,7 +14,7 @@
     <title>代金券领取中心</title>
     <link rel="stylesheet" type="text/css" href="../../css/base.css">
     <link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
-    <link rel="stylesheet" type="text/css" href="../../../../shop/shop/static/default/css/Group-integral.css">
+ <!--    <link rel="stylesheet" type="text/css" href="../../../../shop/shop/static/default/css/Group-integral.css"> -->
 <!--     <script src="../../../../shop/shop/static/common/js/jquery.js"></script>
     <script src="../../../../shop/shop/static/common/js/plugins/jquery.toastr.min.js"></script>
     <script src="../../../../shop/shop/static/default/js/common.js"></script>
@@ -40,27 +40,29 @@
     </div>
     <footer id="footer" class="bottom"></footer>
     <script type="text/html" id="svoucher_list">
-        <%if(voucher){%>
+     <% var common_list = items; %>
+      <% if(common_list.length >0){%>
+       
             <ul>
-                <% for (var i in voucher) {%>
+                <% for (var i in items) {%>
                     <li style="margin-left:20px;margin-right:20px;margin-top:5px ; ">
                         <dl style="padding: 0.5rem 0.5rem 0 0px;">
                             <dt>
                       <dd style="height:30px">
-                      <%=voucher[i].voucher_t_title %>
+                      <%=items[i].voucher_t_title %>
                                   
                      </dd>   
-                    <span class="name" style="font-size: 0.6rem;line-height: 40px;color: #777;font-weight: normal;"> 来源商家：<%=voucher[i].shop_name %></span>
+                    <span class="name" style="font-size: 0.6rem;line-height: 40px;color: #777;font-weight: normal;"> 来源商家：<%=items[i].shop_name %></span>
                      <dd style="line-height:35px">
-                      使 用条件：         满<%=voucher[i].voucher_t_limit %>
+                      使 用条件：         满<%=items[i].voucher_t_limit %>
                                    可用
                      </dd>
                      <dd style="line-height:35px">
-                      兑换方式：         <%=voucher[i].voucher_t_access_method_label %>
+                      兑换方式：         <%=items[i].voucher_t_access_method_label %>
                                    
                      </dd>
                     <dd class="phone" style="line-height: 40px;font-size: 0.6rem;color: #777;">
-                    <span>有效期&nbsp;    <%=voucher[i].voucher_t_end_date %></span>
+                    <span>有效期&nbsp;    <%=items[i].voucher_t_end_date %></span>
 
                     <span style ="float:right">
                       
@@ -68,7 +70,7 @@
                             color: #fff !important;
                             border-radius: 2px;
                             padding: 0 4px;
-                            cursor: pointer;line-height: 30px;"><p class="btn_dh"  dh_id="<%=voucher[i].voucher_t_id %>">立即兑换</p></div>
+                            cursor: pointer;line-height: 30px;"><p class="btn_dh"  dh_id="<%=items[i].voucher_t_id %>">立即兑换</p></div>
                       
                     </span>
 
@@ -80,18 +82,32 @@
                     </li>
                     <%}%>
             </ul>
+                  <% if (hasmore) {%>
+                    <li class="loading"><div class="spinner"><i></i></div>数据读取中...</li>
+                  
+                    <% }%>
+         
+               
+   
+
+
+
+
+
+
+              <% }else {   %>
+  
+    <div class="nctouch-norecord search">
+        <div class="norecord-ico"><i></i></div>
+        <dl>
+            <dt>没有找到任何相关信息</dt>
             
-            <%}else{%>
-                <div class="nctouch-norecord address">
-                    <div class="norecord-ico"><i></i></div>
-                    <dl>
-                        <dt>您还没有代金券</dt>
-                        
-                    </dl>
-                   
-                </div>
-                </div>
-                <%}%>
+        </dl>
+        <a href="javascript:history.go(-1)" class="btn">重新选择</a>
+    </div>
+    <%
+    }
+    %>
     </script>
 
     <script type="text/javascript" src="../../js/zepto.min.js"></script>
