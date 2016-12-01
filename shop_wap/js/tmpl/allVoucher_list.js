@@ -1,26 +1,61 @@
 var key = getCookie("key");
-
-
+ var page = pagesize;
+    var curpage = 1;
+    var firstRow = 0;
+    var hasmore = true;
+    var footer = false;
+    var rows=3;
 $(function ()
 {   
      var key=getCookie("key");if(!key){location.href="login.html"}
-
-    function s()
+     $.animationLeft({valve: "#search_adv", wrapper: ".nctouch-full-mask", scroll: "#list-items-scroll"});
+    
+    s();
+     $(window).scroll(function ()
     {
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - 1)
+        {
+            s()
+        }
+    });
+    function s()
+    {    $(".loading").remove();
+            if (!hasmore)
+            {
+                return false
+            }
+            hasmore = false;
+           
+
+            console.info(firstRow);
         $.ajax({
-            type: "post", url: ApiUrl + "/index.php?ctl=Points&met=getVoucher&typ=json", data: {k: key, u:getCookie('id')}, dataType: "json", 
+            type: "post", url: ApiUrl + "/index.php?ctl=Points&met=getAllVouchers&typ=json", data: {k: key, u:getCookie('id'), rows : page,
+            page : curpage,
+           firstRow : firstRow}, dataType: "json", 
             success: function (e)
-            {   console.info(e.data);
+            {   console.info(e);
                 checkLogin(e.login);
-                // if (e.data.items == null)
-                // {
-                //     return false
-                // }
+             
+                 $(".loading").remove();
+                curpage++;
                 var s = e.data;
                 var t = template.render("svoucher_list", s);
                 
-                $("#voucher_list").empty();
+                // $("#voucher_list").empty();
                 $("#voucher_list").append(t);
+                 if(e.data.page < e.data.total)
+                   {
+                       firstRow =e.data.records;
+
+                       hasmore = true;
+                   }
+                    else
+                   {
+                       hasmore = false;
+                   }
+                  
+
+
                 $(".btn_dh").click(function ()
                 {
                     var e = $(this).attr("dh_id");
@@ -36,7 +71,7 @@ $(function ()
         })
     }
 
-    s();
+    
     function a(a)
     {
         $.ajax({
