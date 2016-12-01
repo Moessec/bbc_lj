@@ -327,11 +327,12 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				</ul>
 				<div id="sub-nav"><!--商城设置-->
 					<ul <? if(Perm::$row['user_account']!='yuyue'){ ?> class="cur cf" id="setting-base" <? } ?> >
+						<? if(Perm::$row['user_account']!='yuyue'){ ?>  
 						<li>
-							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=site&config_type%5B%5D=site" rel="pageTab" tabid="<? if(Perm::$row['user_account']!='yuyue'){ ?>base-setting<? } ?>"
+							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=site&config_type%5B%5D=site" rel="pageTab" tabid="base-setting"
 													   tabtxt="基础设置">基础设置</a>
 						</li>
-
+						<? } ?>
 						<li>
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=api&config_type%5B%5D=api" rel="pageTab" tabid="api-setting"
 																  tabtxt="API设置">API设置</a>
@@ -422,7 +423,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 													   tabtxt="商品推荐">商品推荐</a>
 						</li>
 						<li>
-							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak" rel="pageTab" tabid="<? if(Perm::$row['user_account']=='yuyue'){ ?>base-setting<? } ?>"
+							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak" rel="pageTab" tabid="shop-goods-bespeak"
 													   tabtxt="预约管理">预约管理</a>
 						</li>
 					</ul>
