@@ -38,7 +38,7 @@ class Voucher_TempModel extends Voucher_Temp
 	public function getVoucherTempList($cond_row = array(), $order_row = array(), $page = 1, $rows = 100)
 	{
 		$rows = $this->listByWhere($cond_row, $order_row, $page, $rows);
-
+		
 		$Shop_ClassModel = new Shop_ClassModel();
 		$shop_cat_row    = $Shop_ClassModel->getClassWhere();
 
