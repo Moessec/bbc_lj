@@ -141,7 +141,7 @@ class VoucherCtl extends Controller
 			$data['growth']['next_grade_growth']  = $next_grade['user_grade_demand'] - $data['user_resource']['user_growth'];//距离下一级差多少经验值
 			$data['growth']['grade_growth_per']   = sprintf("%.2f", $growth_diff / $diff_grade_growth) * 100;
 		}
-
+		
 		$this->view->setMet('vlist');
 
 		if ('e' == $this->typ)
