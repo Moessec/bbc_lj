@@ -35,9 +35,9 @@ $prepAddr = str_replace(' ','+',$address);
     
 $geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');    
     
-echo $output= json_decode($geocode);    
+$output= json_decode($geocode);    
     
-var_dump($output);	
+var_dump($geocode);	
 }
 
 
