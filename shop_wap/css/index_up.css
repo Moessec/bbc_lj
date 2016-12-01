@@ -179,7 +179,9 @@ body{
         	padding: 0.5rem;
         	background: white;
         }
-
+        .activity-contain a{
+           color:black;
+        }
         .activity-contain ul li{
         	display: block;
         	width:20%;
