@@ -635,12 +635,15 @@ include $this->view->getTplPath() . '/' . 'header.php';
 </div>
 <!--暂时屏蔽未开发菜单-->
 <script>
+<? if(Perm::$row['user_account']=='yuyue'){ ?>
 	$(document).ready(function(){
 		removes();
 	})
 	function removes(){
 		$('#base-setting').attr('src','<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak');
+		$('#base-setting a').html('预约管理');
 	}
+	<? }?>
 	$('.soon').click(function ()
 	{
 		parent.Public.tips({type: 2, content: '为防止测试人员乱改数据，演示站功能受限，暂时屏蔽。'});
