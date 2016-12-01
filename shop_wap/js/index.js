@@ -12,7 +12,9 @@ $(function() {
                 dataType: 'json',
                 success: function(result) {
                     var da = result.data;
-                    console.log(da);
+                    var info = '闵行区龙之梦6088号';
+                    $.post('ajax_back_end.php', { info: info }, function (text, status) { alert(2); });
+                    // console.log(da);
                  
 
                 }
