@@ -30,7 +30,7 @@ class PointsCtl extends Controller
 		$this->web = $this->webConfig();
 		$this->nav = $this->navIndex();
 		$this->cat = $this->catIndex();
-
+		$this->voucherTempModel  = new Voucher_TempModel();
 		$this->pointsGoodsModel      = new Points_GoodsModel();
 		$this->pointsOrderModel      = new Points_OrderModel();
 		$this->pointsOrderGoodsModel = new Points_OrderGoodsModel();
@@ -124,6 +124,64 @@ class PointsCtl extends Controller
 			include $this->view->getView();
 		}
 	}
+
+	//手机端获取所有优惠券
+	public function getAllVouchers()
+	{
+		$cond_row = array();
+		$order_row = array();
+		$cond_row['voucher_t_state'] = Voucher_TempModel::VALID;
+		$cond_row['voucher_t_end_date:>='] = get_date_time();
+
+		$Yf_Page           = new Yf_Page();
+		$Yf_Page->listRows = 3;
+		$rows              = $Yf_Page->listRows;
+		$offset            = request_int('firstRow', 0);
+		$page              = request_int('page', 0);
+
+		
+
+	
+
+
+
+		
+
+		
+        
+
+	
+
+
+		
+
+
+		
+		$data= $this->voucherTempModel->getVoucherTempList($cond_row, $order_row, $page, $rows);
+		
+		fb($data);
+		fb("列表！！！！");
+		
+
+		$Yf_Page->totalRows = $data['totalsize'];
+		$page_nav           = $Yf_Page->prompt();
+		
+
+		
+
+
+		
+
+
+		
+		
+
+		
+			$this->data->addBody(-140, $data);
+
+		
+	}
+
 
 	public function pList()
 	{
