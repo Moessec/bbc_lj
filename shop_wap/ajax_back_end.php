@@ -21,7 +21,8 @@ function getLatLong($address){
 if(isset($_POST['info']))
 {
 	$addr = $_POST['info'];
-	getLatLong($addr);
+	$re = getLatLong($addr);
+	var_dump($re);
 }
 // echo getLatLong('上海市闵行区');
 // //关键字
