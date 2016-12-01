@@ -7,7 +7,7 @@
 */
 function getLatLong($address){ 
     if (!is_string($address))die("All Addresses must be passed as a string"); 
-    $_url = sprintf('http://api.map.baidu.com/geocoder?address=s%&output=json&key=6eea93095ae93db2c77be9ac910ff311&city=上海市',rawurlencode($address)); 
+    $_url = sprintf('http://api.map.baidu.com/geocoder?address='.$address.'&output=json&key=6eea93095ae93db2c77be9ac910ff311&city=上海市'); 
    
     
     
