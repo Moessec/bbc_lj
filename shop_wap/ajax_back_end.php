@@ -25,7 +25,7 @@ if(isset($_POST['info']))
 {
 	$addr = $_POST['info'];
 	// echo $addr;
-	echo  getLatLong($addr);
+	echo json_encode(getLatLong($addr));
 	
 }
 
