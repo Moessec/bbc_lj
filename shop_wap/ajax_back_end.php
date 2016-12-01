@@ -33,7 +33,7 @@ if(isset($_POST['info']))
 $address = !empty($_POST['info'])?$_POST['info']:"上海徐汇区漕宝70号";// Google HQ    
 $prepAddr = str_replace(' ','+',$address);    
     
-$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');    
+$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address=上海市闵行区莘建路6088号&sensor=false');    
     
 $output= json_decode($geocode);    
     
