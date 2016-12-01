@@ -336,7 +336,6 @@ class Goods_CommonModel extends Goods_Common
 			$common_data['total']     = ceil_r($total / $rows);  //total page
 			$common_data['totalsize'] = $total;
 			$common_data['records']   = count($common_rows);
-
 			$common_data['items'] = $common_rows;
 		}
 		else
