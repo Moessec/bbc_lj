@@ -635,7 +635,9 @@ include $this->view->getTplPath() . '/' . 'header.php';
 </div>
 <!--暂时屏蔽未开发菜单-->
 <script>
-	document.onload(removes);
+	$(document).ready(function(){
+		removes();
+	})
 	function removes(){
 		$('#base-setting').setAttribute('src','<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak');
 	}
