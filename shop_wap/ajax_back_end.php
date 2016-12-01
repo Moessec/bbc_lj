@@ -21,12 +21,23 @@ function getLatLong($address){
     return $_coords; 
 }
 
+
+
+
+
 if(isset($_POST['info']))
 {
-	$addr = $_POST['info'];
-	// echo $addr;
-	echo json_encode(getLatLong($addr));
-	
+	// $addr = $_POST['info'];
+	// // echo $addr;
+	// echo json_encode(getLatLong($addr));
+$address = !empty($_POST['info'])?$_POST['info']:"上海徐汇区漕宝70号";// Google HQ    
+$prepAddr = str_replace(' ','+',$address);    
+    
+$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');    
+    
+$output= json_decode($geocode);    
+    
+echo $output;	
 }
 
 
