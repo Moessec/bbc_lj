@@ -27,9 +27,7 @@ function getLatLong($address){
 
 if(isset($_POST['info']))
 {
-	// $addr = $_POST['info'];
-	// // echo $addr;
-	// echo json_encode(getLatLong($addr));
+
 $address = !empty($_POST['info'])?$_POST['info']:"上海徐汇区漕宝70号";// Google HQ    
 $prepAddr = str_replace(' ','+',$address);    
     
