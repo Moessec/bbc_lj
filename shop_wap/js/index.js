@@ -3,6 +3,20 @@ var map_index_id = '';
 var shop_id;
 
 $(function() {
+
+    if(getCookie('lat')&&getCookie('lng'))
+    {alert(123);
+         $.ajax({
+                url: ApiUrl + "/index.php?ctl=Shop_Settled&met=getShopInfo&typ=json",
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    var da = result.data;
+                 
+
+                }
+            });
+    }
  var key = getCookie('key');
   var unixTimeToDateString = function(ts, ex) {
         ts = parseFloat(ts) || 0;
