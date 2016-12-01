@@ -7,7 +7,10 @@
 */
 function getLatLong($address){ 
     if (!is_string($address))die("All Addresses must be passed as a string"); 
-    $_url = sprintf('http://maps.google.com/maps?output=js&q=%s',rawurlencode($address)); 
+    // $_url = sprintf('http://maps.google.com/maps?output=js&q=%s',rawurlencode($address)); 
+    $_url = sprintf('http://api.map.baidu.com\/geocoder/v2/?address=s%&output=json&ak=E4805d16520de693a3fe707cdc96204',rawurlencode($address)); 
+    
+    
     $_result = false; 
     if($_result = file_get_contents($_url)) { 
         if(strpos($_result,'errortips') > 1 || strpos($_result,'Did you mean:') !== false) return false; 
