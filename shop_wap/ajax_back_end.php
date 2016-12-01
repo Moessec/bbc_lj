@@ -35,7 +35,7 @@ $prepAddr = str_replace(' ','+',$address);
     
 $geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address=上海市闵行区莘建路6088号&sensor=false');    
     
-$output= json_decode($geocode);    
+echo $output= json_decode($geocode);    
     
 var_dump($geocode);	
 }
