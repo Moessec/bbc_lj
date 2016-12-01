@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <title>代金券领取中心</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+    <link rel="stylesheet" type="text/css" href="../../../../shop/shop/static/default/css/Group-integral.css">
+<!--     <script src="../../../../shop/shop/static/common/js/jquery.js"></script>
+    <script src="../../../../shop/shop/static/common/js/plugins/jquery.toastr.min.js"></script>
+    <script src="../../../../shop/shop/static/default/js/common.js"></script>
+    <script src="../../../../shop/shop/static/default/js/receive_voucher.js"></script> -->
+
+
+</head>
+
+<body>
+    <header id="header">
+        <div class="header-wrap">
+            <div class="header-l">
+                <a href="member.html"> <i class="back"></i> </a>
+            </div>
+            <div class="header-title">
+                <h1>代金券领取中心 </h1>
+            </div>
+            <div class="header-r"> <a id="header-nav" href="address_opera.html"><i class="add"></i></a> </div>
+        </div>
+    </header>
+    <div class="nctouch-main-layout mb20">
+        <div class="nctouch-address-list" id="voucher_list"></div>
+    </div>
+    <footer id="footer" class="bottom"></footer>
+    <script type="text/html" id="svoucher_list">
+        <%if(voucher){%>
+            <ul>
+                <% for (var i in voucher) {%>
+                    <li style="margin-left:20px;margin-right:20px;margin-top:5px ; ">
+                        <dl style="padding: 0.5rem 0.5rem 0 0px;">
+                            <dt>
+                      <dd style="height:30px">
+                      <%=voucher[i].voucher_t_title %>
+                                  
+                     </dd>   
+                    <span class="name" style="font-size: 0.6rem;line-height: 40px;color: #777;font-weight: normal;"> 来源商家：<%=voucher[i].shop_name %></span>
+                     <dd style="line-height:35px">
+                      使 用条件：         满<%=voucher[i].voucher_t_limit %>
+                                   可用
+                     </dd>
+                     <dd style="line-height:35px">
+                      兑换方式：         <%=voucher[i].voucher_t_access_method_label %>
+                                   
+                     </dd>
+                    <dd class="phone" style="line-height: 40px;font-size: 0.6rem;color: #777;">
+                    <span>有效期&nbsp;    <%=voucher[i].voucher_t_end_date %></span>
+
+                    <span style ="float:right">
+                      
+                            <div style="    background: #e45050;
+                            color: #fff !important;
+                            border-radius: 2px;
+                            padding: 0 4px;
+                            cursor: pointer;line-height: 30px;"><p class="btn_dh"  dh_id="<%=voucher[i].voucher_t_id %>">立即兑换</p></div>
+                      
+                    </span>
+
+                    </dd>
+                </dt>
+                           
+                        </dl>
+                      
+                    </li>
+                    <%}%>
+            </ul>
+            
+            <%}else{%>
+                <div class="nctouch-norecord address">
+                    <div class="norecord-ico"><i></i></div>
+                    <dl>
+                        <dt>您还没有代金券</dt>
+                        
+                    </dl>
+                   
+                </div>
+                </div>
+                <%}%>
+    </script>
+
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/config.php"></script>
+    <script type="text/javascript" src="../../js/template.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/simple-plugin.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/Allvoucher_list.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+   
+</body>
+
+</html>
+
