@@ -24,6 +24,7 @@ function getLatLong($address){
 if(isset($_POST['info']))
 {
 	$addr = $_POST['info'];
+	echo $addr;
 	// $re = getLatLong($addr);
 	$return = file_get_contents('api.map.baidu.com/geocoder/v2/?address='.$addr.'&output=json&ak=E4805d16520de693a3fe707cdc96204');
 }
