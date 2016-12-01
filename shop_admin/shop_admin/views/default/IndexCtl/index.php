@@ -639,7 +639,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 		removes();
 	})
 	function removes(){
-		$('#base-setting').setAttribute('src','<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak');
+		$('#base-setting').attr('src','<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak');
 	}
 	$('.soon').click(function ()
 	{
