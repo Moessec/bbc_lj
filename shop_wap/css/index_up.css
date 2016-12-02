@@ -496,9 +496,11 @@ body{
     .outer{
         clear: both;
         height:auto;
-          border:1px solid blue;
+          /*border:1px solid blue;*/
     }
-
+.outer img{
+    height:3rem;
+}
     .inter{
        width: 50%;
 
