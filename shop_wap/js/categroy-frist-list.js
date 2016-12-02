@@ -54,8 +54,11 @@ $(function ()
                  
 
     });
-    alert(str);
- $(this).find('.outer').html(str); 
+    //展示模版
+setTimeout(function(){
+    $(this).find('.outer').html(str); 
+},1000)
+
     });
 },2000)
 
