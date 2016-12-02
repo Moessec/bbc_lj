@@ -13,8 +13,6 @@ $(function() {
                 success: function(result) {
                     var da = result.data;
                     var info = da.shop_address;
-                   // console.log(da);
-                   alert(info);
                   var map = new BMap.Map("container");
                   var localSearch = new BMap.LocalSearch(map);
 
@@ -32,7 +30,7 @@ $(function() {
                             // alert(poi.point.lng);
                             // alert(poi.point.lat);
                            
-                            $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (text, status) { alert(text); });
+                            $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (distance, status) { alert(distance); });
 
                         });
                         localSearch.search(keyword);
