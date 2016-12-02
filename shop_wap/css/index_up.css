@@ -495,7 +495,7 @@ body{
     }
     .outer{
         clear: both;
-        height:12rem;
+        height:auto;
           border:1px solid blue;
     }
 
