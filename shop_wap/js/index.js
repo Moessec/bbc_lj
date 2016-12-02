@@ -12,7 +12,7 @@ $(function() {
                 dataType: 'json',
                 success: function(result) {
                     var da = result.data;
-                    var info = '闵行区龙之梦6088号';
+                    var info = da.address;
                   var map = new BMap.Map("container");
                   var localSearch = new BMap.LocalSearch(map);
 
@@ -29,7 +29,7 @@ $(function() {
                             // var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
                             // alert(poi.point.lng);
                             // alert(poi.point.lat);
-                            console.log(da);
+                            console.log(info);
                             $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (text, status) { alert(text); });
 
                         });
