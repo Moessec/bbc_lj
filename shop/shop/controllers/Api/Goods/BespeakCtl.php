@@ -57,11 +57,11 @@ class Api_Goods_BespeakCtl extends Api_Controller
 				$data['items'][$k]['bespeak_status']='待审核';
 			}
 			if($v['bespeak_state']=='0'){
-				$data['items'][$k]['bespeak_state']='无效';
+				$data['items'][$k]['bespeak_state']='等待进行';
 			}else if($v['bespeak_state']=='1'){
-				$data['items'][$k]['bespeak_state']='预约正在处理';
+				$data['items'][$k]['bespeak_state']='活动正在进行';
 			}else if($v['bespeak_state']=='2'){
-				$data['items'][$k]['bespeak_state']='预约完成';
+				$data['items'][$k]['bespeak_state']='活动结束';
 			}
 			if($v['bespeak_list']!=1){
 				unset($data['items'][$k]);
