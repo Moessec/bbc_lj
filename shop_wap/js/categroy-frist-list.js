@@ -46,9 +46,6 @@ $(function ()
         console.info(t);
         var r = t.data;
 
-        // var a = template.render("category-one", r);
-        // $("#categroy-cnt").html(a);
-
     });
 
     });
