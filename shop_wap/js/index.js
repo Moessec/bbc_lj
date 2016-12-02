@@ -13,9 +13,28 @@ $(function() {
                 success: function(result) {
                     var da = result.data;
                     var info = '闵行区龙之梦6088号';
-                    $.post('ajax_back_end.php', { info: info }, function (text, status) { alert(text); });
-                    // console.log(da);
-                 
+                  var map = new BMap.Map("container");
+                  var localSearch = new BMap.LocalSearch(map);
+
+                    function searchByStationName(info) {
+                        map.clearOverlays();//清空原来的标注
+                        var keyword = info;
+
+                        localSearch.setSearchCompleteCallback(function (searchResult) {
+                            var poi = searchResult.getPoi(0);
+
+                            map.centerAndZoom(poi.point, 13);
+                            var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
+                            map.addOverlay(marker);
+                            // var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
+                            alert(poi.point.lng);
+                            var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + content + "</p>");
+                            marker.addEventListener("click", function () { this.openInfoWindow(infoWindow); });
+                            // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+                        });
+                        localSearch.search(keyword);
+                    } 
+                    searchByStationName(info);                 
 
                 }
             });
