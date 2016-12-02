@@ -505,8 +505,18 @@ body{
        float: left;
     }
     .add1{
-        margin-left: 1rem;
+        margin-left: 0.1rem;
     }
-        .inter .add{
+    .inter .add{
             float: right;
+            display: inline-block;
+            width: 1.2rem;
+            height: 1.2rem;
+            background-image: url(../images/iconfont/add02.png);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: 83%;
+            opacity: 1;
+             right: 0.5rem;
+            bottom: 0.3rem
         }
