@@ -54,10 +54,10 @@ $(function ()
                  
 
     });
+    
     //展示模版
-setTimeout(function(){
     $(this).find('.outer').html(str); 
-},4000);
+
 
     });
 },2000)
