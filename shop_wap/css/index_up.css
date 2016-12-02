@@ -490,10 +490,12 @@ body{
     #goods_cont{
         font-size: 0.5rem;
         color:orange;
-        width: 98%;
+        width: 100%;
 
     }
     .outer{
+        width: 49%;
+        float: left;
         height:10rem;
         border:1px solid blue;
     }
