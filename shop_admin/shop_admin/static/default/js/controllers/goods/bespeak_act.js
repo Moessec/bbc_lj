@@ -228,6 +228,15 @@ $(function() {
             "fixed": true,
             "width":100
         }, {
+            "name": "opentime",
+            "index": "opentime",
+            "label": "发布时间",
+            "classes": "ui-ellipsis",
+            "align": "center",
+            "title": true,
+            "fixed": false,
+            "width": 60
+        },{
             "name": "starttime",
             "index": "starttime",
             "label": "预约时间",
