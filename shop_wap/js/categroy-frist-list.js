@@ -54,7 +54,7 @@ $(function ()
                  
 
     });
-    // alert(str);
+    alert(str);
  $(this).find('.outer').html(str); 
     });
 },2000)
