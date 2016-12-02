@@ -13,7 +13,7 @@ $(function() {
                 success: function(result) {
                     var da = result.data;
                     var info = da.address;
-                    alert(info);
+                   console.log(da);
                   var map = new BMap.Map("container");
                   var localSearch = new BMap.LocalSearch(map);
 
