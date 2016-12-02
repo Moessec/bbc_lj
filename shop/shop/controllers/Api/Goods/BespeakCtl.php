@@ -31,14 +31,16 @@ class Api_Goods_BespeakCtl extends Api_Controller
 				$data['items'][$k]['bespeak_status']='待审核';
 			}
 			if($v['bespeak_state']=='0'){
-				$data['items'][$k]['bespeak_state']='无效';
+				$data['items'][$k]['bespeak_state']='待处理';
 			}else if($v['bespeak_state']=='1'){
 				$data['items'][$k]['bespeak_state']='预约正在处理';
 			}else if($v['bespeak_state']=='2'){
 				$data['items'][$k]['bespeak_state']='预约完成';
 			}
+			if($v['bespeak_list']!='0'){
+				unset($data['items'][$k]);
+			}
 		}
-
 		$data['items']=array_values($data['items']);
 		$this->data->addBody(-140, $data);
 	}
