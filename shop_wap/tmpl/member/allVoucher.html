@@ -45,22 +45,28 @@
        
             <ul>
                 <% for (var i in items) {%>
-                    <li style="margin-left:20px;margin-right:20px;margin-top:5px ; ">
+                    
+                    <li style="margin-left:20px;margin-right:20px;margin-top:5px ;background: url(../../../../shop/shop/static/default/images/line_50.png); ">
+                   
                         <dl style="padding: 0.5rem 0.5rem 0 0px;">
                             <dt>
                       <dd style="height:30px">
                       <%=items[i].voucher_t_title %>
-                                  
+                        <% if (items[i].voucher_t_access_method_label=='积分兑换'){%>
+                     <span class="name" style="font-size: 0.6rem;color: red;font-weight: normal;float:right;margin-right:2px;"> 需 <%=items[i].voucher_t_points %> 积分</span> 
+                    <%}%>               
                      </dd>   
-                    <span class="name" style="font-size: 0.6rem;line-height: 40px;color: #777;font-weight: normal;"> 来源商家：<%=items[i].shop_name %></span>
+                    <span class="name" style="font-size: 0.6rem;line-height: 40px;color: #777;font-weight: normal;">  兑换方式：         <%=items[i].voucher_t_access_method_label %></span>   
+                   
                      <dd style="line-height:35px">
-                      使 用条件：         满<%=items[i].voucher_t_limit %>
-                                   可用
-                     </dd>
+                    <b style="color:red"> ￥<%=items[i].voucher_t_price %></b>
+                                
+                     </dd>  
                      <dd style="line-height:35px">
-                      兑换方式：         <%=items[i].voucher_t_access_method_label %>
-                                   
+                      (满<span style="color:red">￥<%=items[i].voucher_t_limit %></span>
+                                   可用)
                      </dd>
+                     
                     <dd class="phone" style="line-height: 40px;font-size: 0.6rem;color: #777;">
                     <span>有效期&nbsp;    <%=items[i].voucher_t_end_date %></span>
 
@@ -80,6 +86,7 @@
                         </dl>
                       
                     </li>
+                   
                     <%}%>
             </ul>
                   <% if (hasmore) {%>
