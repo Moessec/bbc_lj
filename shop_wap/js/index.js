@@ -12,7 +12,7 @@ $(function() {
                 dataType: 'json',
                 success: function(result) {
                     var da = result.data;
-                    var info = da.address;
+                    var info = da.shop_address;
                    console.log(da);
                   var map = new BMap.Map("container");
                   var localSearch = new BMap.LocalSearch(map);
