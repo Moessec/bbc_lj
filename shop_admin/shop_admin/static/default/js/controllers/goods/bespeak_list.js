@@ -105,13 +105,13 @@ $(function() {
         operFormatter: function(val, opt, row) {
 
 
-            if (row.bespeak_status == '待审核')
+            if (row.bespeak_state == '待处理')
             {
-                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon ui-icon-pencil" title="待审核"></span><span class="ui-icon ui-icon-search" title="查看详情"></span></div>';
+                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon ui-icon-pencil" title="预约处理"></span><span class="ui-icon ui-icon-search" title="查看详情"></span></div>';
             }
             else
             {
-                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon set-status" title="预约处理"></span><span class="ui-icon ui-icon-trash ui-icon-disabled" title="删除"></span></div>';
+                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon set-status" title="处理完成"></span><span class="ui-icon ui-icon-trash ui-icon-disabled" title="删除"></span></div>';
             }
 
 
@@ -195,24 +195,7 @@ $(function() {
             "title": true,
             "fixed": true,
             "width":100
-        }, {
-            "name": "starttime",
-            "index": "starttime",
-            "label": "预约时间",
-            "classes": "ui-ellipsis",
-            "align": "center",
-            "title": true,
-            "fixed": false,
-            "width": 60
-        }, {
-            "name": "bespeak_status",
-            "index": "bespeak_status",
-            "label": "审核",
-            "classes": "ui-ellipsis",
-            "align": "center",
-            "title": true,
-            "width": 30
-        }, {
+        },  {
             "name": "bespeak_state",
             "index": "bespeak_state",
             "label": "预约状态",
