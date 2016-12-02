@@ -77,6 +77,7 @@
         <% for(var i=0; i<items.length; i++) { var col = i % 10;%>
         <dt><a href="#?cat_id=<%= items[i].cat_id %>"><i class="col<%= col %>"></i><%= items[i].cat_name %><i class="arrow-r"></i></a></dt>
            <div id='goods_cont'>
+            <input type="hidden" value="<%= items[i].cat_id %>"/>
                <div class='outer'>
                     <div class='inter'>
                     <div><image src="#" height:60px/></div>
