@@ -43,7 +43,7 @@ $(function ()
     // alert($cat_id);
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
     {
-        console.info(t);
+        console.log(t);
         var r = t.data;
 
     });
