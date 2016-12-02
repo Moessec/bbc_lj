@@ -486,3 +486,10 @@ body{
             font-family: '雅宋';
             font-size: 0.7rem;
         }
+
+    #good_cont{
+        font-size: 0.5rem;
+        color:orange;
+        width: 98%;
+
+    }
