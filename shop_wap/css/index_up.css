@@ -494,6 +494,13 @@ body{
 
     }
     .outer{
+        clear: both;
         height:10rem;
         border:1px solid blue;
+    }
+
+    .inter{
+       width: 50%;
+       border:1px solid #9999;
+       float: right;
     }
