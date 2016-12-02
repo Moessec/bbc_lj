@@ -112,6 +112,8 @@ $(function() {
             else if(row.bespeak_state == '预约正在处理')
             {
                 var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon set-status" title="处理完成"></span><span class="ui-icon ui-icon-trash ui-icon-disabled" title="删除"></span></div>';
+            }else{
+                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
             }
 
 
