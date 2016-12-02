@@ -1,41 +1,29 @@
 <?php
-@set_time_limit(0);
-// include_once("includes/global.php");
-/**
- * 获取某地址的经纬度
- * by http://www.jbxue.com
-*/
-function getLatLong($address){ 
-    if (!is_string($address))die("All Addresses must be passed as a string"); 
-    $_url = sprintf('http://api.map.baidu.com/geocoder?address='.$address.'&output=json&key=6eea93095ae93db2c77be9ac910ff311'); 
-   
-    
-    
-    $_result = false; 
-    if($_result = file_get_contents($_url)) { 
-        if(strpos($_result,'errortips') > 1 || strpos($_result,'Did you mean:') !== false) return false; 
-        preg_match('!center:\s*{lat:\s*(-?\d+\.\d+),lng:\s*(-?\d+\.\d+)}!U', $_result, $_match); 
-        $_coords['lat'] = $_match[1]; 
-        $_coords['long'] = $_match[2]; 
-    } 
-    return $_coords; 
-}
 
 
-
-
-
-if(isset($_POST['info']))
+if(isset($_POST['shoplng']))
 {
-
-$address = !empty($_POST['info'])?$_POST['info']:"上海徐汇区漕宝70号";// Google HQ    
-$prepAddr = str_replace(' ','+',$address);    
-    
-$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address=$prepAddr&sensor=false');    
-    
-$output= json_decode($geocode);    
-    
-
+	$shoplng = $_POST['shoplng'];
+	$shoplat = $_POST['shoplat'];
+	$lat = $_COOKIE['lat'];
+	$lng = $_COOKIE['lng'];
+   function getDistance($lat1, $lng1, $lat2, $lng2)
+   {      
+          $earthRadius = 6378138; //近似地球半径米
+          // 转换为弧度
+          $lat1 = ($lat1 * pi()) / 180;
+          $lng1 = ($lng1 * pi()) / 180;
+          $lat2 = ($lat2 * pi()) / 180;
+          $lng2 = ($lng2 * pi()) / 180;
+          // 使用半正矢公式  用尺规来计算
+        $calcLongitude = $lng2 - $lng1;
+          $calcLatitude = $lat2 - $lat1;
+          $stepOne = pow(sin($calcLatitude / 2), 2) + cos($lat1) * cos($lat2) * pow(sin($calcLongitude / 2), 2);  
+       $stepTwo = 2 * asin(min(1, sqrt($stepOne)));
+          $calculatedDistance = $earthRadius * $stepTwo;
+          return round($calculatedDistance);
+   }
+   echo getDistance($shoplat,$shoplng,$lat,$lng);
 }
 
 
