@@ -37,11 +37,11 @@ $(function ()
         $(".pre-loading").show();
         get_brand_recommend()
     })
-    setTimeout(function(){
+alert(2);
  $('.goods_cont').each(function(){
         alert(1);
     });
-    },1000)
+
 
 });
 
