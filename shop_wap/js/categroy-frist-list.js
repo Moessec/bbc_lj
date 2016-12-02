@@ -1,8 +1,6 @@
 $(function ()
 {
- $('.goods_cont').each(function(){
-        alert(1);
-    });
+
     var e;
     $("#header").on("click", ".header-inp", function ()
     {
@@ -39,6 +37,11 @@ $(function ()
         $(".pre-loading").show();
         get_brand_recommend()
     })
+    setTimeout(function(){
+ $('.goods_cont').each(function(){
+        alert(1);
+    });
+    },1000)
 
 });
 
