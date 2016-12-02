@@ -30,7 +30,9 @@ $(function() {
                             // alert(poi.point.lng);
                             // alert(poi.point.lat);
                            
-                            $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (distance, status) { alert(distance); });
+                            $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (distance, status) { da.shop_stamp=distance;
+                             $("#shopinfo").html(template.render('shop_info', da));   
+                             });
 
                         });
                         localSearch.search(keyword);
