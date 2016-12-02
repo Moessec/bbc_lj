@@ -494,8 +494,6 @@ body{
 
     }
     .outer{
-        width: 49%;
-        float: left;
         height:10rem;
         border:1px solid blue;
     }
