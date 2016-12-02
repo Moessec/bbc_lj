@@ -493,3 +493,7 @@ body{
         width: 98%;
 
     }
+    .outer{
+        height:10rem;
+        border:1px solid blue;
+    }
