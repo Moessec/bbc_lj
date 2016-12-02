@@ -40,8 +40,8 @@ $(function ()
     setTimeout(function(){
  $('.goods_cont').each(function(){
     $cat_id = $(this).find('.cat_id').val();
-    alert($cat_id);
-    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=0", function (t)
+    // alert($cat_id);
+    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=$cat_id", function (t)
     {
         console.info(t);
         var r = t.data;
