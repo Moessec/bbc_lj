@@ -504,3 +504,9 @@ body{
 
        float: left;
     }
+    .add1{
+        margin-left: 1rem;
+    }
+        .inter .add{
+            float: right;
+        }
