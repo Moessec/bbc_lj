@@ -36,7 +36,7 @@ $(function ()
         $(".pre-loading").show();
         get_brand_recommend()
     })
-    $('#goods_cont').find('.cat_id input').each(function(){
+    $('.goods_cont').find('.cat_id input').each(function(){
         alert(1);
     });
 });
