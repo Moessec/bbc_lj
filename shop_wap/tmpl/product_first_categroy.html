@@ -78,7 +78,7 @@
         <dt><a href="<%= WapSiteUrl %>/tmpl/product_list.html?cat_id=<%= items[i].cat_id %>"><i class="col<%= col %>"></i><%= items[i].cat_name %><i class="arrow-r"></i></a></dt>
         <% for(var j=0; j<items[i].child.length; j++) { %>
         <dd><a href="<%= WapSiteUrl %>/tmpl/product_list.html?cat_id=<%= items[i].child[j].cat_id %>"><%= items[i].child[j].cat_name %></a></dd>
-        <dd><a href="<%= WapSiteUrl %>/tmpl/product_list.html?cat_id=<%= items[i].child[j].cat_id %>"><%= items[i].child[j].cat_name %></a></dd>
+
 
         <% } %>
         <% } %>
@@ -90,6 +90,7 @@
         <dd>
             <a href="<%= WapSiteUrl %>/tmpl/product_list.html?brand_id=<%= items[i].brand_id %>">
                 <img src="<%= items[i].brand_pic %>">
+                <p><%= items[i].brand_name %></p>
                 <p><%= items[i].brand_name %></p>
             </a>
         </dd>
