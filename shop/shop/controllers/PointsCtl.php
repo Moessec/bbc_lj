@@ -134,7 +134,7 @@ class PointsCtl extends Controller
 		$cond_row['voucher_t_end_date:>='] = get_date_time();
 
 		$Yf_Page           = new Yf_Page();
-		$Yf_Page->listRows = 3;
+		$Yf_Page->listRows = 5;
 		$rows              = $Yf_Page->listRows;
 		$offset            = request_int('firstRow', 0);
 		$page              = request_int('page', 0);
