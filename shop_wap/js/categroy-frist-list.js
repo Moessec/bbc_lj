@@ -36,7 +36,12 @@ $(function ()
         $(".pre-loading").show();
         get_brand_recommend()
     })
+    $('#goods_cont').find('.cat_id input').each(function(){
+        alert(1);
+    });
 });
+
+
 function get_brand_recommend()
 {
     $(".category-item").removeClass("selected");
