@@ -45,15 +45,17 @@ $(function ()
     {
         // console.info(t);
         var r = t.data.items;
+        var str='';
         for (var i in r)
         {
-               str="<div class='inter'>
+               str+="<div class='inter'>
                     <div><image src="+r[i].common_image+" /></div>
                     <p> "+r[i].common_name+"</p>
                     <span class='add1'>￥"+r[i].common_price+"</a><a  href='javascript:void(0)'><i class='add'><input type=' hidden' value="+r[i].goods_id+"></i></a></span>
                     </div>";
-                $(this).find('.outer').html(str);
-         }           
+               
+         }  
+          $(this).find('.outer').html(str);         
 
     });
 
