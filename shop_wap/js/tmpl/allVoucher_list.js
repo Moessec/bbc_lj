@@ -8,7 +8,7 @@ var key = getCookie("key");
 $(function ()
 {   
      var key=getCookie("key");if(!key){location.href="login.html"}
-     $.animationLeft({valve: "#search_adv", wrapper: ".nctouch-full-mask", scroll: "#list-items-scroll"});
+     // $.animationLeft({valve: "#search_adv", wrapper: ".nctouch-full-mask", scroll: "#list-items-scroll"});
     
     s();
      $(window).scroll(function ()
@@ -29,7 +29,7 @@ $(function ()
 
             console.info(firstRow);
         $.ajax({
-            type: "post", url: ApiUrl + "/index.php?ctl=Points&met=getAllVouchers&typ=json", data: {k: key, u:getCookie('id'), rows : page,
+            type: "post", url: ApiUrl + "index.php?ctl=Points&met=getAllVouchers&typ=json", data: {k: key, u:getCookie('id'), rows : page,
             page : curpage,
            firstRow : firstRow}, dataType: "json", 
             success: function (e)
