@@ -54,7 +54,7 @@ $(function ()
 
 
     });
-},5000)
+},500)
 
     });
     $("#categroy-cnt").on("click", ".brand", function ()
