@@ -79,7 +79,7 @@ $(function ()
                  
 
     });
-    // alert(1);
+    alert(str);
     //展示模版
     $(this).find('.outer').html(str); 
 
