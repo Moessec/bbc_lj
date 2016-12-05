@@ -791,6 +791,7 @@ $(function() {
 
     // 支付
     $('#ToBuyStep2').click(function(){
+
         if($("#totalPayPrice").html() >= 99999999.99)
         {
             $.sDialog({
@@ -820,10 +821,20 @@ $(function() {
         }
         //获取配送方式信息
         ps_type=[];
-        $("button[class='btn_live']").each(function(){
+        $("input[name='ps_type']:checked").each(function(){
             ps_type.push($(this).val());//将值添加到数组中
         });
-
+        for(var i = 0 ;i<ps_type.length;i++)
+         {
+                     if(ps_type[i] == "" || typeof(ps_type[i]) == "undefined")
+                     {
+                              ps_type.splice(i,1);
+                              i= i-1;
+                          
+                     }
+                      
+         }
+      
         //2.获取发票信息
         invoice = $("#invContent").html();
         invoice_id = $("input[name='invoice_id']").val();
@@ -930,50 +941,50 @@ $(function() {
 
 
 
-        /*var msg = '';
-        for (var k in message) {
-            msg += k + '|' + message[k] + ',';
-        }
-        $.ajax({
-            type:'post',
-            url:ApiUrl+'/index.php?act=member_buy&op=buy_step2',
-            data:{
-                key:key,
-                ifcart:ifcart,
-                cart_id:cart_id,
-                address_id:address_id,
-                vat_hash:vat_hash,
-                offpay_hash:offpay_hash,
-                offpay_hash_batch:offpay_hash_batch,
-                pay_name:pay_name,
-                invoice_id:invoice_id,
-                voucher:voucher,
-                pd_pay:pd_pay,
-                password:password,
-                fcode:fcode,
-                rcb_pay:rcb_pay,
-                rpt:rpt,
-                pay_message:msg
-            },
-            dataType:'json',
-            success: function(result){
-                checkLogin(result.login);
-                if (result.datas.error) {
-                    $.sDialog({
-                        skin:"red",
-                        content:result.datas.error,
-                        okBtn:false,
-                        cancelBtn:false
-                    });
-                    return false;
-                }
-                if (result.datas.payment_code == 'offline') {
-                    window.location.href = WapSiteUrl + '/tmpl/member/order_list.html';
-                } else {
-                    delCookie('cart_count');
-                    toPay(result.datas.pay_sn,'member_buy','pay');
-                }
-            }
-        });*/
+        // var msg = '';
+        // for (var k in message) {
+        //     msg += k + '|' + message[k] + ',';
+        // }
+        // $.ajax({
+        //     type:'post',
+        //     url:ApiUrl+'/index.php?act=member_buy&op=buy_step2',
+        //     data:{
+        //         key:key,
+        //         ifcart:ifcart,
+        //         cart_id:cart_id,
+        //         address_id:address_id,
+        //         vat_hash:vat_hash,
+        //         offpay_hash:offpay_hash,
+        //         offpay_hash_batch:offpay_hash_batch,
+        //         pay_name:pay_name,
+        //         invoice_id:invoice_id,
+        //         voucher:voucher,
+        //         pd_pay:pd_pay,
+        //         password:password,
+        //         fcode:fcode,
+        //         rcb_pay:rcb_pay,
+        //         rpt:rpt,
+        //         pay_message:msg
+        //     },
+        //     dataType:'json',
+        //     success: function(result){
+        //         checkLogin(result.login);
+        //         if (result.datas.error) {
+        //             $.sDialog({
+        //                 skin:"red",
+        //                 content:result.datas.error,
+        //                 okBtn:false,
+        //                 cancelBtn:false
+        //             });
+        //             return false;
+        //         }
+        //         if (result.datas.payment_code == 'offline') {
+        //             window.location.href = WapSiteUrl + '/tmpl/member/order_list.html';
+        //         } else {
+        //             delCookie('cart_count');
+        //             toPay(result.datas.pay_sn,'member_buy','pay');
+        //         }
+        //     }
+        // });
     });
 });
