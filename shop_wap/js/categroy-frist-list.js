@@ -64,7 +64,8 @@ $(function ()
         $(".pre-loading").show();
         get_brand_recommend()
     })
-    setTimeout(function(){
+
+/*setTimeout(function(){
  $('.goods_cont').each(function(){
     var cat_id = $(this).find('.cat_id').val();
    var str='';
@@ -90,7 +91,7 @@ $(function ()
 
 
     });
-},2000)
+},2000)*/
 
 });
 
