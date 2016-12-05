@@ -63,7 +63,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 			}else if($v['bespeak_state']=='2'){
 				$data['items'][$k]['bespeak_state']='活动结束';
 			}
-			if($v['bespeak_list']!=1){
+			if($v['bespeak_list']!=1 || $v['user_id']!=0){
 				unset($data['items'][$k]);
 			}
 		}
