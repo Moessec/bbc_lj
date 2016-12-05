@@ -77,19 +77,11 @@ class Api_Goods_BespeakCtl extends Api_Controller
 
 		$Goods_BespeakModel = new Goods_BespeakModel();
 		$data            = $Goods_BespeakModel->getBespeakList();
+		$bespeak_id      = request_string('bespeak_id');
+		$one    = $Goods_BespeakModel->getbespeak($bespeak_id);
+		var_dump($one);
+		exit();
 		foreach ($data['items'] as $k => $v) {
-			if($v['bespeak_status']=='1'){
-				$data['items'][$k]['bespeak_status']='通过';
-			}else{
-				$data['items'][$k]['bespeak_status']='待审核';
-			}
-			if($v['bespeak_state']=='0'){
-				$data['items'][$k]['bespeak_state']='等待进行';
-			}else if($v['bespeak_state']=='1'){
-				$data['items'][$k]['bespeak_state']='活动正在进行';
-			}else if($v['bespeak_state']=='2'){
-				$data['items'][$k]['bespeak_state']='活动结束';
-			}
 			if($v['bespeak_list']!=1 || $v['user_id']!=0){
 				unset($data['items'][$k]);
 			}
@@ -140,7 +132,6 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['bespeak_item']         = request_string('bespeak_item'); // 规格值列
 		$data['bespeak_displayorder'] = request_string('bespeak_displayorder'); // 排序
 
-		exit();
 		$bespeak_id = $this->goodsBespeakModel->addBespeak($data, true);
 
 		if ($bespeak_id)
