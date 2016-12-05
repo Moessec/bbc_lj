@@ -29,24 +29,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				</tr>
 			</table>
 
-			<?php if(($user_resource['user_recharge_card']>0 || $user_resource['user_money']>0) && !$act ){?>
-
-			<p class="yue_pay"><?=_('使用余额支付')?></p>
-			<div class="box clearfix">
-				<?php if($user_resource['user_recharge_card'] > 0){ ?>
-				<div>
-					<input type="checkbox" class="pay_yue" name="choice" value="cards"><?=_('使用购物卡支付（可用余额：')?><?=format_money($user_resource['user_recharge_card'])?>）
-					<input type="hidden" name="cards" id="cards" value="<?=($user_resource['user_recharge_card'])?>">
-					<!--  用购物卡支付的金额  -->
-					<input type="hidden" name="cards_pay" id="cards_pay" value="0"/>
-				</div>
-				<?php }?>
-
-				
-				<!--<div><?/*=_('（同时勾选时，系统将优先使用购物卡，不足时扣除预存款，目前还需在线支付')*/?><?/*=_('￥')*/?><em class="online_money"><?/*=($uorder_base['trade_payment_amount'])*/?></em><?/*=_('。）余额不足？')*/?><a class="btn_active btn" href="./index.php?ctl=Info&met=deposit"><?/*=_('马上充值')*/?></a></div>-->
-			</div>
-
-			<?php }?>
+			
 			<!--  最后在线支付需要支付的金额  -->
 			<input type="hidden" name="online_pay" id="online_pay" value="<?=($uorder_base['trade_payment_amount'])?>">
 
