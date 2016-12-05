@@ -84,7 +84,7 @@ $(function ()
     });
   setTimeout(function(){
     $(this).find('.outer').html(str); 
-    },101);
+    },1000);
 
 
     });
