@@ -31,7 +31,7 @@
 
 /* 二三级分类 */
 .categroy-child-list { font-size: 0; width: 100%; background-color: #FFF;}
-.categroy-child-list dt { background-color: #FCFCFC; margin: 0.2rem 0; border-style: solid; border-color: #F5F5F5; border-width: 0.05rem 0; }
+.categroy-child-list dt {clear: both; background-color: #FCFCFC; margin: 0.2rem 0; border-style: solid; border-color: #F5F5F5; border-width: 0.05rem 0; }
 .categroy-child-list dt a { display: block; width: 96%; height: 1.48rem; padding: 0 0 0 4%; font-size: 0.6rem; line-height: 1.48rem; color: #111;}
 .categroy-child-list dt i { width: 0.4rem; height: 0.4rem; vertical-align: middle; display: inline-block; border-radius: 0.2rem; margin-right: 0.4rem; }
 .categroy-child-list dt i.col0 { background-color: #ED5564;}
