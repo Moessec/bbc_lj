@@ -194,6 +194,7 @@ $(function() {
             "resizable": false,
             "fixed": true,
             "align": "center",
+            "width": 100,
             "title": false,
             "formatter": handle.operFormatter
         },{
