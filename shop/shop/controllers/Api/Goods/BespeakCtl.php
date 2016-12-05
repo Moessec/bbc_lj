@@ -79,14 +79,13 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data            = $Goods_BespeakModel->getBespeakList();
 		$bespeak_id      = request_string('bespeak_id');
 		$one    = $Goods_BespeakModel->getbespeak($bespeak_id);
-		var_dump($one);
-		exit();
 		foreach ($data['items'] as $k => $v) {
 			if($v['bespeak_list']!=1 || $v['user_id']!=0){
 				unset($data['items'][$k]);
 			}
 		}
-
+		$data['one']=$one;
+		
 		$data['items']=array_values($data['items']);
 		$this->data->addBody(-140, $data);
 	}
