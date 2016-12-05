@@ -72,6 +72,33 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$this->data->addBody(-140, $data);
 	}
 
+	public function bespeakActlist()
+	{
+
+		$Goods_BespeakModel = new Goods_BespeakModel();
+		$data            = $Goods_BespeakModel->getBespeakList();
+		foreach ($data['items'] as $k => $v) {
+			if($v['bespeak_status']=='1'){
+				$data['items'][$k]['bespeak_status']='通过';
+			}else{
+				$data['items'][$k]['bespeak_status']='待审核';
+			}
+			if($v['bespeak_state']=='0'){
+				$data['items'][$k]['bespeak_state']='等待进行';
+			}else if($v['bespeak_state']=='1'){
+				$data['items'][$k]['bespeak_state']='活动正在进行';
+			}else if($v['bespeak_state']=='2'){
+				$data['items'][$k]['bespeak_state']='活动结束';
+			}
+			if($v['bespeak_list']!=1 || $v['user_id']!=0){
+				unset($data['items'][$k]);
+			}
+		}
+
+		$data['items']=array_values($data['items']);
+		$this->data->addBody(-140, $data);
+	}
+
 
 	public function bespeakRent()
 	{

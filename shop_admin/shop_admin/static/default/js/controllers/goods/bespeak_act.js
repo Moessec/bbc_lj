@@ -371,7 +371,7 @@ $(function() {
             var bespeak_id = $(this).parent().data("id");
               $.dialog({
                 title: "查看详情",
-                content: "url:"+ SITE_URL + '?ctl=Goods_Bespeak&met=getBespeakalllist&bespeak_id=' + bespeak_id,
+                content: "url:"+ SITE_URL + '?ctl=Goods_Bespeak&met=bespeakActlist&bespeak_id=' + bespeak_id,
                 width: 950,
                 height: $(window).height() * 0.9,
                 max: !1,
