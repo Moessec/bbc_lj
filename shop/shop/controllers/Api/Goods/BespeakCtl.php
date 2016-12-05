@@ -92,26 +92,6 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$this->data->addBody(-140, $data);
 	}
 
-	public function bespeakRentlist()
-	{
-
-		$Goods_BespeakModel = new Goods_BespeakModel();
-		$data            = $Goods_BespeakModel->getBespeakList();
-		$bespeak_id      = request_string('bespeak_id');
-		$one    = $Goods_BespeakModel->getbespeak($bespeak_id);
-		foreach ($one as $key => $value) {
-			$bespeak_title = $value['bespeak_title'].'11';
-		}
-		foreach ($data['items'] as $k => $v) {
-			if($v['bespeak_title'] != $bespeak_title || $v['user_id']==0){
-				unset($data['items'][$k]);
-			}
-		}
-
-		$data=array_values($data['items']);
-		$this->data->addBody(-140, $data);
-	}
-
 
 	public function bespeakRent()
 	{
@@ -131,12 +111,32 @@ class Api_Goods_BespeakCtl extends Api_Controller
 			}else if($v['bespeak_state']=='2'){
 				$data['items'][$k]['bespeak_state']='预约完成';
 			}
-			if($v['bespeak_list']!=2){
+			if($v['bespeak_list']!=2 || $v['user_id'] != 0){
 				unset($data['items'][$k]);
 			}
 		}
 
 		$data['items']=array_values($data['items']);
+		$this->data->addBody(-140, $data);
+	}
+
+		public function bespeakRentlist()
+	{
+
+		$Goods_BespeakModel = new Goods_BespeakModel();
+		$data            = $Goods_BespeakModel->getBespeakList();
+		$bespeak_id      = request_string('bespeak_id');
+		$one    = $Goods_BespeakModel->getbespeak($bespeak_id);
+		foreach ($one as $key => $value) {
+			$bespeak_title = $value['bespeak_title'].'11';
+		}
+		foreach ($data['items'] as $k => $v) {
+			if($v['bespeak_title'] != $bespeak_title || $v['user_id']==0){
+				unset($data['items'][$k]);
+			}
+		}
+
+		$data=array_values($data['items']);
 		$this->data->addBody(-140, $data);
 	}
 
