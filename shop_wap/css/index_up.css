@@ -502,8 +502,8 @@ body{
     height:3rem;
 }
     .inter{
-       width: 50%;
-
+       width: 48%;
+       margin-left:1%;
        float: left;
     }
 .inter a{
