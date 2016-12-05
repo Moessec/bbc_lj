@@ -12,7 +12,7 @@ $(function ()
             $("#bespeak_title").val(a.data.bespeak_title);
             $("#bespeak_com").val(a.data.bespeak_com);
             $("#imgPre").val(a.data.bespeak_img).attr({'src':a.data.bespeak_img});
-            $("#area_info").val(a.data.bes_address).attr({"data-areaid1": a.data.province_id, "data-areaid2": a.data.city_id, "data-areaid3": a.data.area_id, "data-areaid": a.data.province_id});
+            $("#area_info").val(a.data.bes_address).attr({"data-areaid1": 'http://139.196.51.206/bbc_lj/shop/data/'+a.data.province_id, "data-areaid2": a.data.city_id, "data-areaid3": a.data.area_id, "data-areaid": a.data.province_id});
             $("#address").val(a.data.bespeak_address);
             var e = a.data.bespeak_default == "1" ? true : false;
             $("#is_default").prop("checked", e);
