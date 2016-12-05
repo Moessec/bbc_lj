@@ -48,10 +48,11 @@ $(function ()
                  
 
     });
-    alert(1);
+   if(str!=='')
+   {
     //展示模版
     $(this).find('.outer').html(str); 
-
+}
 
     });
 },100)
