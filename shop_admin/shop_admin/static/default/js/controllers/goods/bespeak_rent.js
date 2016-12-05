@@ -134,11 +134,11 @@ $(function() {
 
             if (row.bespeak_status == '待审核')
             {
-                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon ui-icon-pencil" title="待审核"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
+                var html_con = '<div class="operating" data-id="' + row.id + '"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
             }
             else
             {
-                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon set-status" title="预约处理"></span><span class="ui-icon ui-icon-search" title="查看详情"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
+                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon set-status" title="预约处理"><span class="ui-icon ui-icon-pencil" title="修改"></span></span><span class="ui-icon ui-icon-search" title="查看详情"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
             }
 
 
@@ -379,7 +379,7 @@ $(function() {
         $('#grid').on('click', '.operating .ui-icon-pencil', function(e) {
             e.preventDefault();
             var id = $(this).parent().data('id');
-            handle.setStatus(id);
+            handle.operate('edit',id);
         });
 
         //删除
