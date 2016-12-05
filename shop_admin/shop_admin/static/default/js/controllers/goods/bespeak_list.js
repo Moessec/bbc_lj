@@ -46,13 +46,13 @@ $(function() {
             }, function(data) {
                 if (data && data.status == 200) {
                     parent.Public.tips({
-                        content: _('状态修改成功！')
+                        content: _('修改成功！')
                     });
                     $('#grid').jqGrid('setCell', id, 'enable', is_enable);
                 } else {
                     parent.Public.tips({
                         type: 1,
-                        content: _('状态修改失败！') + data.msg
+                        content: _('修改失败！') + data.msg
                     });
                 }
             });
