@@ -66,7 +66,7 @@ $(function ()
                 $.ajax({
                     type: "post",
                     url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=editBespeakInfo&typ=json",
-                    data: {k:e,u:getCookie('id') , id:a, true_name: true_name, usercontact: ru, bespeak_area_info: area_info, bespeak_address: address, bes_address: bes_address, bespeak_com: rc, bespeak_title: rt},
+                    data: {k:e,u:getCookie('id') , id:a, true_name: true_name, usercontact: ru, bespeak_area_info: area_info, bespeak_address: address, bes_address: bes_address, bespeak_com: rc, img:img , bespeak_title: rt},
                     dataType: "json",
                     success: function (a)
                     {
