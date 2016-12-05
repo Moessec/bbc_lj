@@ -1,6 +1,7 @@
 .list{
 	width:100%;
 	font-size:0.8rem;
+	color:#9999;
 }
 .list_left{
 	float:left;
@@ -11,4 +12,5 @@
 }
 .list_right{
 	float:left;
+	 margin-left: 1rem;
 }
