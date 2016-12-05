@@ -32,7 +32,7 @@ $(function ()
                     $.sDialog({
                         skin: "block", content: "确认删除吗？", okBtn: true, cancelBtn: true, okFn: function ()
                         {
-                            a(e)
+                            del(e)
                         }
                     })
                 })
@@ -41,7 +41,7 @@ $(function ()
     }
 
     s();
-    function a(bespeak_id)
+    function del(bespeak_id)
     {   
         // alert(bespeak_id);
         $.ajax({
