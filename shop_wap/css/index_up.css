@@ -486,3 +486,39 @@ body{
             font-family: '雅宋';
             font-size: 0.7rem;
         }
+
+    .goods_cont{
+        font-size: 0.5rem;
+        color:orange;
+        width: 100%;
+
+    }
+    .outer{
+        clear: both;
+        height:auto;
+          /*border:1px solid blue;*/
+    }
+.outer img{
+    height:3rem;
+}
+    .inter{
+       width: 50%;
+
+       float: left;
+    }
+    .add1{
+        margin-left: 0.1rem;
+    }
+    .inter .add{
+            float: right;
+            display: inline-block;
+            width: 1.2rem;
+            height: 1.2rem;
+            background-image: url(../images/iconfont/add02.png);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: 83%;
+            opacity: 1;
+             right: 0.5rem;
+            bottom: 0.3rem
+        }
