@@ -4,8 +4,6 @@ var shop_id;
 
 $(function() {
 
-    if(getCookie('lat')&&getCookie('lng'))
-    {
          $.ajax({
                 url: ApiUrl + "/index.php?ctl=Shop_Settled&met=getShopInfo&typ=json",
                 type: 'get',
@@ -42,7 +40,7 @@ $(function() {
 
                 }
             });
-    }
+  
  var key = getCookie('key');
   var unixTimeToDateString = function(ts, ex) {
         ts = parseFloat(ts) || 0;
