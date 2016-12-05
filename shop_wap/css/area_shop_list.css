@@ -3,6 +3,10 @@
 	font-size:0.8rem;
 	color:#9999;
 }
+.title{
+		font-size:0.6rem;
+		margin-bottom: 1rem;
+}
 .list_left{
 	float:left;
 }
