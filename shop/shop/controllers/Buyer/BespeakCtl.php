@@ -220,13 +220,13 @@ class Buyer_BespeakCtl extends Buyer_Controller
 							}else{
 								$value['bespeak_click']='参与';
 								$id = $value['bespeak_id'];
-								$value['bespeak_id']='bespeak_opera_adv.html?bespeak_id='.$id;
+								$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 							}
 						}
 					}else{
 						$value['bespeak_click']='参与';
 						$id = $value['bespeak_id'];
-						$value['bespeak_id']='bespeak_opera_adv.html?bespeak_id='.$id;
+						$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 					}
 					$data['rent'][$key]=$value;
 			}
