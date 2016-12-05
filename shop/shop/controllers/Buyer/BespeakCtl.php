@@ -525,7 +525,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 	public function delBespeak()
 	{
 		$user_id         = Perm::$row['user_id'];
-		$bespeak_id = request_string('bespeak_id');
+		$bespeak_id = request_string('id');
 		var_dump($bespeak_id);
 		exit();
 		
