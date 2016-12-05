@@ -36,7 +36,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			<div class="online_pay">
 				<p class="online_title"><?=_('选择在线支付')?> </p>
 				<?php foreach($payment_channel as $key => $val){?>
-					<div class="box-public box<?=($key)?>" style="width:25%;height: 40px; padding-left:3px" >
+					<div class="box-public box<?=($key)?>" style="width:25%;height: 40px; padding-left:20px" >
 						<div class="mallbox-public" >
 							<img src="<?=($val['payment_channel_image'])?>" alt="<?=($val['payment_channel_name'])?>" width="70%" />
 							<input type="hidden" name="payway_name" class="payway_name" value="<?=($val['payment_channel_code'])?>">
