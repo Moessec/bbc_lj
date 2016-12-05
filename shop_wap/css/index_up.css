@@ -502,14 +502,11 @@ body{
     height:3rem;
 }
     .inter{
-         clear:both;
        width: 50%;
 
        float: left;
     }
-    .clear{
-        clear:both;
-    }
+
     .add1{
         margin-left: 0.1rem;
     }
