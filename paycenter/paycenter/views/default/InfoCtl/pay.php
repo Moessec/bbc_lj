@@ -43,6 +43,10 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				<?php }?>
 
 				
+				<!--<div><?/*=_('（同时勾选时，系统将优先使用购物卡，不足时扣除预存款，目前还需在线支付')*/?><?/*=_('￥')*/?><em class="online_money"><?/*=($uorder_base['trade_payment_amount'])*/?></em><?/*=_('。）余额不足？')*/?><a class="btn_active btn" href="./index.php?ctl=Info&met=deposit"><?/*=_('马上充值')*/?></a></div>-->
+			</div>
+
+			<?php }?>
 			<!--  最后在线支付需要支付的金额  -->
 			<input type="hidden" name="online_pay" id="online_pay" value="<?=($uorder_base['trade_payment_amount'])?>">
 
