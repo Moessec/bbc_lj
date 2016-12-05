@@ -502,6 +502,7 @@ body{
     height:3rem;
 }
     .inter{
+         clear:both;
        width: 50%;
 
        float: left;
