@@ -43,7 +43,7 @@ $(function ()
     var cat_id = $(this).find('.cat_id').val();
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
     {
-        console.info(t);
+        // console.info(t);
         var r = t.data.items;
         
         for (var i in r)
@@ -54,7 +54,7 @@ $(function ()
                  
 
     });
-    // console.log(str);
+    console.log(str);
     //展示模版
     $(this).find('.outer').append(str); 
 
