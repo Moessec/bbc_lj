@@ -58,6 +58,10 @@ input, select, textarea {
         <th class="w150">参与人姓名：</th>
         <td><?=$value['true_name']?></td>
       </tr>
+      <tr>
+        <th class="w150">联系方式：</th>
+        <td><?=$value['usercontact']?></td>
+      </tr>
       <?
         }
       ?>
