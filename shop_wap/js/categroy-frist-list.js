@@ -51,6 +51,9 @@ $(function ()
     //展示模版
     $(this).find('.outer').html(str); 
     alert(str);
+       window.alert = function(str) {
+     return ;
+       }
 
 
     });
@@ -79,9 +82,13 @@ $(function ()
                  
 
     });
+    alert(str);
+    window.alert = function(str) {
+     return ;
+       }
     //展示模版
     $(this).find('.outer').html(str); 
-    alert(str);
+  
 
 
     });
