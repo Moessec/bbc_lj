@@ -52,26 +52,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			<div class="pc_trans_btn"><a id="submit" class="btn_big btn_active submit_disable" style="width:100%"><?=_('确认付款')?></a></div>
 			<!--<div id="test">TEst</div>-->
 		</div>
-		<div class="recharge2-content-bottom content-public">
-			<div class="theme" style="margin-top:60px;">
-				<span class="title"><?=_('支付遇到问题')?></span>
-			</div>
-			<div class="content">
-				<div class="one">
-					<h3><?=_(' 1.我还能用信用卡进行网购么？ ')?></h3>
-					<p class="texts"><?=_('答：您在带有信用卡小标识')?><?=_('的店铺购物，可以直接使用信用卡快捷（含卡通）、网银进行信用卡支付，支付限额为您的卡面额度。在没有信用卡标识的店铺购物 时，您可以使用信用卡快捷（含卡通）、网银进行信用卡支付，月累计支付限额不超过500元。')?>
-					</p>
-				</div>
-				<div class="one">
-					<h3><?=_('2.没有网上银行，怎么用银行卡充值？')?></h3>
-					<p class="texts"><?=_('答：储蓄卡用户，请使用储蓄卡快捷支付充值，开通后只需输入网付宝支付密码，即可完成充值。')?></p>
-				</div>
-				<div class="one">
-					<h3><?=_('3.怎样在网上开通储蓄卡快捷支付(含卡通)？')?> </h3>
-					<p class="texts"><?=_('答：已支持国内大部分主流银行在线开通。在支付宝填写信息后，根据页面引导在网上银行完成开通。')?></p>
-				</div>
-			</div>
-		</div>
+		
 	</form>
 <?php }else{ ?>
 	<?=_('订单号无效，请确认后再付款。')?>
