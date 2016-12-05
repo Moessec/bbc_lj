@@ -16,22 +16,22 @@ $(function ()
         e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
     });
     get_brand_recommend();
-    $("#categroy-cnt").on("click", ".category", function ()
-    {
-        $(".pre-loading").show();
-        $(this).parent().addClass("selected").siblings().removeClass("selected");
-        var t = $(this).attr("date-id");
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=tree&typ=json", {cat_parent_id: t}, function (e)
-        {
-            var t = e.data;
-            t.WapSiteUrl = WapSiteUrl;
-            var r = template.render("category-two", t);
-            $("#categroy-rgt").html(r);
-            $(".pre-loading").hide();
-            new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
-        });
-        e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3)
-    });
+    // $("#categroy-cnt").on("click", ".category", function ()
+    // {
+    //     $(".pre-loading").show();
+    //     $(this).parent().addClass("selected").siblings().removeClass("selected");
+    //     var t = $(this).attr("date-id");
+    //     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=tree&typ=json", {cat_parent_id: t}, function (e)
+    //     {
+    //         var t = e.data;
+    //         t.WapSiteUrl = WapSiteUrl;
+    //         var r = template.render("category-two", t);
+    //         $("#categroy-rgt").html(r);
+    //         $(".pre-loading").hide();
+    //         new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+    //     });
+    //     e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3)
+    // });
     $("#categroy-cnt").on("click", ".brand", function ()
     {
         $(".pre-loading").show();
