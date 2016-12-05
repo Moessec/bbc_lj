@@ -78,14 +78,14 @@
                         .file{ position:absolute; top:0;    font-size: 0.6rem; right:80px; height:24px; filter:alpha(opacity:0);opacity: 0;width:260px }
                         </style>
                         <div class="form-group">
-                            <label class="control-label" style=" padding-left:12px;   font-size: 0.6rem;">图片上传：</label>
                             <span onclick="file.click()" style="font-size: 0.6rem;"  class="mybtn">浏览...</span>
-                            <input type="file" name="file" class="file" id="file" size="28"  onchange="javascript:setImagePreview();" />
+                            <input type="file" name="file" class="file" id="file" size="28"  onchange="preImg(this.id,'imgPre');" />
                             <span onclick="UpladFile()" id="upload" style="font-size: 0.6rem;" class="mybtn">上传</span>
                             <div class="input-box" style="display:none">
                                 <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
                                 <span class="input-del"></span>
                             </div>
+                            <img id="imgPre" src="" width="300px" height="300px" style="display: block;" /> 
                   </li>
                 </ul>
                 <div class="error-tips"></div>
@@ -132,6 +132,27 @@
             }
         }
     }
+
+    function getFileUrl(sourceId) { 
+    var url; 
+    if (navigator.userAgent.indexOf("MSIE")>=1) { // IE 
+    url = document.getElementById(sourceId).value; 
+    } else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox 
+    url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+    } else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome 
+    url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+    } 
+    return url; 
+    } 
+
+    /** 
+    * 将本地图片 显示到浏览器上 
+    */ 
+    function preImg(sourceId, targetId) { 
+    var url = getFileUrl(sourceId); 
+    var imgPre = document.getElementById(targetId); 
+    imgPre.src = url; 
+    } 
 
 </script>
     <footer id="footer" class="bottom"></footer>
