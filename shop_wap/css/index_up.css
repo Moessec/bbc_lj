@@ -506,8 +506,10 @@ body{
 
        float: left;
     }
-    .add1{
+    .clear{
         clear:both;
+    }
+    .add1{
         margin-left: 0.1rem;
     }
     .inter .add{
