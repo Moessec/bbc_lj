@@ -88,7 +88,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 			}
 		}
 
-		$data['items']=array_values($data['items']);
+		$data=array_values($data['items']);
 		$this->data->addBody(-140, $data);
 	}
 

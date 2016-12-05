@@ -45,7 +45,6 @@ input, select, textarea {
 <div id="manage-wrap" class="manage-wrap">
 	<?php
 	foreach ($data as $key => $value) {
-
 	?>
   <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
     <thead>
