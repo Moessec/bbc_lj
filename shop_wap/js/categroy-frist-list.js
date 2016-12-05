@@ -48,7 +48,7 @@ $(function ()
                  
 
     });
-    // alert(1);
+    alert(1);
     //展示模版
     $(this).find('.outer').html(str); 
 
