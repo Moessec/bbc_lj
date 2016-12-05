@@ -52,7 +52,7 @@ $(function ()
     
 
     });
-    // alert(str+'78');
+    alert(str);
     // document.write(str+'111');
     //展示模版
     $(this).find('.outer').html(str); 
