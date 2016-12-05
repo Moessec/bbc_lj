@@ -210,15 +210,7 @@ $(function() {
             "title": false,
             "fixed": true,
             "width": 60
-        }, {
-            "name": "true_name",
-            "index": "true_name",
-            "label": "预约会员",
-            "classes": "ui-ellipsis",
-            "align": "center",
-            "title": false,
-            "width": 60
-        }, {
+        },  {
             "name": "bespeak_title",
             "index": "bespeak_title",
             "label": "预约事务",
@@ -236,14 +228,6 @@ $(function() {
             "title": true,
             "fixed": false,
             "width": 60
-        }, {
-            "name": "bespeak_status",
-            "index": "bespeak_status",
-            "label": "审核",
-            "classes": "ui-ellipsis",
-            "align": "center",
-            "title": true,
-            "width": 30
         }, {
             "name": "bespeak_state",
             "index": "bespeak_state",
@@ -380,6 +364,22 @@ $(function() {
                 var id = $(this).parent().data('id');
                 handle.del(id + '');
             }
+        });
+
+        $('.grid-wrap').on('click', '.ui-icon-search', function(e){
+            e.preventDefault();
+            var bespeak_id = $(this).parent().data("id");
+              $.dialog({
+                title: "查看详情",
+                content: "url:"+ SITE_URL + '?ctl=Goods_Bespeak&met=getBespeakalllist&bespeak_id=' + bespeak_id,
+                width: 950,
+                height: $(window).height() * 0.9,
+                max: !1,
+                min: !1,
+                cache: !1,
+                lock: !0
+            })
+        
         });
 
         //设置状态
