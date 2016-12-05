@@ -83,7 +83,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 			$bespeak_title = $value['bespeak_title'];
 		}
 		foreach ($data['items'] as $k => $v) {
-			if($v['bespeak_title'] != $bespeak_title || $v['bespeak_id']==0){
+			if($v['bespeak_title'] != $bespeak_title || $v['user_id']==0){
 				unset($data['items'][$k]);
 			}
 		}
