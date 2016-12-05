@@ -507,6 +507,7 @@ body{
        float: left;
     }
     .add1{
+        clear:both;
         margin-left: 0.1rem;
     }
     .inter .add{
