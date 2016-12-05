@@ -240,7 +240,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$bespeak_title = request_string('bespeak_title');
 		$bespeak_address = request_string('bespeak_address');
 		$bes_address = request_string('bes_address');
-		$bes_address = request_string('img');
+		$img = request_string('img');
 
 		$edit_bespeak_row['true_name']                  = $true_name;
 		$edit_bespeak_row['bespeak_img']                  = $img;
