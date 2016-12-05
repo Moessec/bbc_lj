@@ -80,16 +80,16 @@
                         <div class="form-group">
                             <span onclick="file.click()" style="font-size: 0.6rem;"  class="mybtn">浏览...</span>
                             <input type="file" name="file" class="file" id="file" size="28"  onchange="preImg(this.id,'imgPre');" />
-                            <span onclick="UpladFile()" id="upload" style="font-size: 0.6rem;" class="mybtn">上传</span>
+                            <!-- <span onclick="UpladFile()" id="upload" style="font-size: 0.6rem;" class="mybtn">上传</span> -->
                             <div class="input-box" style="display:none">
                                 <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
                                 <span class="input-del"></span>
                             </div>
-                            <img id="imgPre" src="" width="300px" height="300px" style="display: block;" /> 
+                            <img id="imgPre" src="" width="300px" height="300px" style="display: block;     margin: auto;" /> 
                   </li>
                 </ul>
                 <div class="error-tips"></div>
-                <div class="form-btn"><a class="btn" href="javascript:;">申请报修</a></div>
+                <div class="form-btn"><a  onclick="UpladFile()" class="btn" href="javascript:;">申请报修</a></div>
             </div>
         </form>
     </div>
