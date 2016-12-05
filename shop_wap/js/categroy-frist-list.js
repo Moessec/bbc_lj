@@ -50,7 +50,7 @@ $(function ()
          // addCookie('div',str,1);        
 
     });
-    // alert(str);
+    alert(str);
     // document.write(str+'111');
     //展示模版
     $(this).find('.outer').html(str); 
