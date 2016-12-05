@@ -138,7 +138,7 @@ $(function() {
             }
             else
             {
-                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon set-status" title="预约处理"><span class="ui-icon ui-icon-pencil" title="修改"></span></span><span class="ui-icon ui-icon-search" title="查看详情"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
+                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon set-status" title="预约处理"></span><span class="ui-icon ui-icon-pencil" title="修改"></span><span class="ui-icon ui-icon-search" title="查看详情"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
             }
 
 
