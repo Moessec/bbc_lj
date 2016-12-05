@@ -75,14 +75,12 @@
 <script type="text/html" id="category-two">
     <dl class="categroy-child-list">
         <% for(var i=0; i<items.length; i++) { var col = i % 10;%>
-        <dt><a href="#?cat_id=<%= items[i].cat_id %>"><i class="col<%= col %>"></i><%= items[i].cat_name %><i class="arrow-r"></i></a>
+        <dt><a href="#?cat_id=<%= items[i].cat_id %>"><i class="col<%= col %>"></i><%= items[i].cat_name %><i class="arrow-r"></i></a></dt>
            <div class='goods_cont'>
             <input class="cat_id" type="hidden" value="<%= items[i].cat_id %>"/>
                <div class='outer'>
                 </div>    
            </div>
-        </dt>
-
             
 
         <% } %>
