@@ -506,7 +506,9 @@ body{
 
        float: left;
     }
-
+.inter a{
+    color:orange;
+}
     .add1{
         margin-left: 0.1rem;
     }
