@@ -48,11 +48,10 @@ $(function ()
                  
 
     });
-   if(str!=='')
-   {
+    alert(1);
     //展示模版
     $(this).find('.outer').html(str); 
-}
+
 
     });
 },100)
@@ -80,11 +79,9 @@ $(function ()
                  
 
     });
-   if(str!=='')
-   {
+    alert(1);
     //展示模版
     $(this).find('.outer').html(str); 
-}
 
 
     });
