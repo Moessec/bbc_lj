@@ -82,7 +82,7 @@ input, select, textarea {
       <tr>
         <th>相关图片：</th>
         <td>
-          <img src="<?='http://139.196.51.206/bbc_lj/shop/data'.$value['bespeak_img']?>">
+          <img src="<?='http://139.196.51.206/bbc_lj/shop/shop/data'.$value['bespeak_img']?>">
           </td>
       </tr>
     </tbody>
