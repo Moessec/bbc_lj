@@ -51,7 +51,7 @@ $(function ()
                 checkLogin(e.login);
                 if (e)
                 {
-                        // location.href = WapSiteUrl + "/tmpl/member/bespeak_adv.html";
+                        location.href = WapSiteUrl + "/tmpl/member/bespeak_adv.html";
                 }
             }
         })

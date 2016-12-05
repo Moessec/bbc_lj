@@ -526,8 +526,6 @@ class Buyer_BespeakCtl extends Buyer_Controller
 	{
 		$user_id         = Perm::$row['user_id'];
 		$bespeak_id = request_string('id');
-		var_dump($bespeak_id);
-		exit();
 		
 		//验证用户
 		$cond_row = array(
