@@ -48,9 +48,12 @@ $(function ()
          // addCookie('div',str,1);        
 
     });
-    alert(str);
+    // alert(str);
     //展示模版
+  setTimeout(function(){
     $(this).find('.outer').html(str); 
+    },101);
+  
 
 
     });
@@ -79,9 +82,9 @@ $(function ()
                  
 
     });
-    alert(str);
-    //展示模版
+  setTimeout(function(){
     $(this).find('.outer').html(str); 
+    },101);
 
 
     });
