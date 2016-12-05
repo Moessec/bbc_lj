@@ -390,11 +390,7 @@ body{
          	border-right: 1px solid rgba(204, 204, 204, 0.5);
          	background: white;
          }
-         .product-list .product-list-info ul li img{
-         	/*width: 100%;*/
-            width: 8rem;
-            height: 8rem;
-         }
+
          .product-list-title{
          	padding: 0.5rem;
          	font-size: 0.8rem;
