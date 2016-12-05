@@ -31,7 +31,7 @@ $(function ()
             new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
         });
         e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
-
+ setTimeout(function(){
  $('.goods_cont').each(function(){
     var cat_id = $(this).find('.cat_id').val();
    var str='';
@@ -54,7 +54,7 @@ $(function ()
 
 
     });
-
+},5000)
 
     });
     $("#categroy-cnt").on("click", ".brand", function ()
