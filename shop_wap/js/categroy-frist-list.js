@@ -37,9 +37,10 @@ $(function ()
         $(".pre-loading").show();
         get_brand_recommend()
     })
-   var str='';
+ 
     setTimeout(function(){
  $('.goods_cont').each(function(){
+      var str='';
     var cat_id = $(this).find('.cat_id').val();
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
     {
