@@ -45,53 +45,18 @@ input, select, textarea {
 <div id="manage-wrap" class="manage-wrap">
 	<?php
 	foreach ($data as $key => $value) {
-    var_dump($data);
-    exit();
 
 	?>
   <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
     <thead>
       <tr>
-        <th colspan="20">报修信息</th>
+        <th colspan="20">活动参与人员</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th class="w150">报修人姓名：</th>
+        <th class="w150">参与人姓名：</th>
         <td><?=$value['true_name']?></td>
-      </tr>
-      <tr>
-        <th class="w150">报修情况:</th>
-        <td><?=$value['bespeak_title']?></td>
-      </tr>
-      <tr>
-        <th>报修人联系方式：</th>
-        <td><?=$value['usercontact']?></td>
-      </tr>
-      <tr>
-        <th>所在地区</th>
-        <td> <?=$value['bes_address']?></td>
-      </tr>
-    
-      <tr>
-        <th>详细地址：</th>
-        <td> <?=$value['bespeak_address']?></td>
-      </tr>
-      <tr>
-        <th>详细状况：</th>
-        <td> <?=$value['bespeak_com']?></td>
-      </tr>
-      <tr>
-        <th>相关图片：</th>
-        <td>
-       <?php
-          $img=explode('--', $value['bespeak_img']);
-          $img=array_filter($img);
-          foreach ($img as $k => $v) {
-          ?>
-          <img src="<?='http://localhost\bbc\shop\shop\data\upload'.$v?>">
-          <?}?>
-          </td>
       </tr>
     </tbody>
   </table>
