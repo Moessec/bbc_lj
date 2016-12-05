@@ -32,7 +32,7 @@ $(function ()
                 {
                     var bespeak_id = $(this).attr("bespeak_id");
                     $.sDialog({
-                        skin: "block", content: "确认删除吗？", okBtn: true, cancelBtn: true, okFn: function ()
+                        skin: "block", content: "确定取消吗？", okBtn: true, cancelBtn: true, okFn: function ()
                         {
                             del(bespeak_id)
                         }

@@ -128,7 +128,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$bespeak_id      = request_string('bespeak_id');
 		$one    = $Goods_BespeakModel->getbespeak($bespeak_id);
 		foreach ($one as $key => $value) {
-			$bespeak_title = $value['bespeak_title'].'11';
+			$bespeak_title = $value['bespeak_title'];
 		}
 		foreach ($data['items'] as $k => $v) {
 			if($v['bespeak_title'] != $bespeak_title || $v['user_id']==0){

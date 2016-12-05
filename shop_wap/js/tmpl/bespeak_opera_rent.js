@@ -48,7 +48,7 @@ $(function ()
             var true_name = $("#true_name").val();
             var bespeak_com = $("#bespeak_com").val();
             var ru = $("#usercontact").val();
-            var rt = $("#bespeak_title").val()+'11';
+            var rt = $("#bespeak_title").val();
             var partten = /^1[3,4,5,7,8]\d{9}$/;
             if(partten.test(ru))
             {
