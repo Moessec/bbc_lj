@@ -138,9 +138,9 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		{
 			foreach ($data['temp'] as $key => $value) {
 				if ($value['bespeak_state']=='1') {
-					$value['bespeak_state']='预约正在处理';
+					$value['bespeak_state']='已参与活动';
 				}elseif ($value['bespeak_state']=='2') {
-					$value['bespeak_state']='预约已完成';
+					$value['bespeak_state']='活动结束';
 				}
 				$data['temp'][$key]=$value;
 			}
@@ -526,6 +526,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 	{
 		$user_id         = Perm::$row['user_id'];
 		$bespeak_id = request_string('bespeak_id');
+		var_dump($bespeak_id);
+		exit();
 		
 		//验证用户
 		$cond_row = array(
