@@ -46,13 +46,13 @@ $(function() {
             }, function(data) {
                 if (data && data.status == 200) {
                     parent.Public.tips({
-                        content: _('修改成功！')
+                        content: _('状态修改成功！')
                     });
                     $('#grid').jqGrid('setCell', id, 'enable', is_enable);
                 } else {
                     parent.Public.tips({
                         type: 1,
-                        content: _('修改失败！') + data.msg
+                        content: _('状态修改失败！') + data.msg
                     });
                 }
             });
@@ -107,7 +107,7 @@ $(function() {
 
             if (row.bespeak_state == '待处理')
             {
-                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon ui-icon-pencil" title="修改"></span></span><span class="ui-icon ui-icon-search" title="查看详情"></span></div>';
+                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon ui-icon-pencil" title="预约处理"></span><span class="ui-icon ui-icon-search" title="查看详情"></span></div>';
             }
             else if(row.bespeak_state == '预约正在处理')
             {

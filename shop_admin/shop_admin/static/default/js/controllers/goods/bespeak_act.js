@@ -134,7 +134,7 @@ $(function() {
 
             if (row.bespeak_status == '待审核')
             {
-                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon ui-icon-pencil" title="待审核"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
+                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon ui-icon-pencil" title="待审核"><span class="ui-icon ui-icon-pencil" title="修改"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
             }
             else
             {
