@@ -45,7 +45,7 @@ $(function ()
     {   
         // alert(bespeak_id);
         $.ajax({
-            type: "post", url: ApiUrl + "?ctl=Buyer_Bespeak&met=delBespeak&typ=json", data: {k: key, u:getCookie('id') , id: a}, dataType: "json", success: function (e)
+            type: "post", url: ApiUrl + "?ctl=Buyer_Bespeak&met=delBespeak&typ=json", data: { id: a,k: key, u:getCookie('id')}, dataType: "json", success: function (e)
             {
                 checkLogin(e.login);
                 if (e)
