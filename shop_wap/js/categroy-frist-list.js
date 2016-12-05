@@ -54,7 +54,7 @@ $(function ()
                  
 
     });
-    // alert(1);
+    console.log(str);
     //展示模版
     $(this).find('.outer').append(str); 
 
