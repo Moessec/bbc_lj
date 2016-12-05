@@ -138,7 +138,7 @@ $(function() {
             }
             else
             {
-                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon set-status" title="预约处理"></span><span class="ui-icon ui-icon-trash ui-icon-disabled" title="删除"></span></div>';
+                var html_con = '<div class="operating" data-id="' + row.id + '"><span class="ui-icon set-status" title="预约处理"></span><span class="ui-icon ui-icon-search" title="查看详情"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
             }
 
 
@@ -357,6 +357,22 @@ $(function() {
                 content: 'url:/import.jsp',
                 lock: true
             });
+        });
+
+        $('.grid-wrap').on('click', '.ui-icon-search', function(e){
+            e.preventDefault();
+            var bespeak_id = $(this).parent().data("id");
+              $.dialog({
+                title: "查看详情",
+                content: "url:"+ SITE_URL + '?ctl=Goods_Bespeak&met=bespeakRentlist&bespeak_id=' + bespeak_id,
+                width: 950,
+                height: $(window).height() * 0.9,
+                max: !1,
+                min: !1,
+                cache: !1,
+                lock: !0
+            })
+        
         });
 
         //修改
