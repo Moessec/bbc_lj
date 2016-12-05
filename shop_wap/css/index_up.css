@@ -505,6 +505,7 @@ body{
        width: 48%;
        margin-left:1%;
        float: left;
+       background-color: #F5F5F5;
     }
 .inter a{
     color:orange;
