@@ -36,22 +36,20 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			<div class="online_pay">
 				<p class="online_title"><?=_('选择在线支付')?> </p>
 				<?php foreach($payment_channel as $key => $val){?>
-					<div class="box-public box<?=($key)?>">
+					<div class="box-public box<?=($key)?>" style="width:25%;height: 40px;text-align:center">
 						<div class="mallbox-public">
-							<img src="<?=($val['payment_channel_image'])?>" alt="<?=($val['payment_channel_name'])?>"/>
+							<img src="<?=($val['payment_channel_image'])?>" alt="<?=($val['payment_channel_name'])?>" width="70%"/>
 							<input type="hidden" name="payway_name" class="payway_name" value="<?=($val['payment_channel_code'])?>">
 						</div>
 						<span class="sel_icon"></span>
 					</div>
 				<?php }?>
 				<input type="hidden" name="online_payway" class="online_payway" id="online_payway">
-				<div class="mg clearfix" style="margin-top:14px;">
-					<p class=""><?=_('在线支付：')?><?=_('￥')?><em class="online_money"><?=($uorder_base['trade_payment_amount'])?></em></p>
-				</div>
+				
 			</div>
 		</div>
 		<div class="recharge2-content-center content-public wrap">
-			<div class="pc_trans_btn"><a id="submit" class="btn_big btn_active submit_disable" style="float:left;"><?=_('确认付款')?></a></div>
+			<div class="pc_trans_btn"><a id="submit" class="btn_big btn_active submit_disable" style="width:100%"><?=_('确认付款')?></a></div>
 			<!--<div id="test">TEst</div>-->
 		</div>
 		<div class="recharge2-content-bottom content-public">
