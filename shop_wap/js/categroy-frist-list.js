@@ -40,7 +40,7 @@ $(function ()
     {
         // console.info(t);
         var r = t.data.items;
-        
+        alert(1);
         for (var i in r)
         {
             alert(r[i].goods_id+'---'+i);
