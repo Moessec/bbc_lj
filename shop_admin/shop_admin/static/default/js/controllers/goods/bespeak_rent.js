@@ -136,7 +136,7 @@ $(function() {
         operFormatter: function(val, opt, row) {
 
 
-            if (row.bespeak_status == '预约完成')
+            if (row.bespeak_state == '预约完成')
             {
                 var html_con = '<div class="operating" data-id="' + row.id + '"></span><span class="ui-icon ui-icon-trash" title="删除"></span></div>';
             }
