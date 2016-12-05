@@ -358,7 +358,7 @@
     <% for (var k in store_cart_list) { %>
     <div class="nctouch-cart-container">
         <dl class="nctouch-cart-store">
-            <dt><i class="icon-store"></i><%=store_cart_list[k].shop_name%><span data-store_id="<%=k%>" class="store-cod-supported" style="display:none;">（该店铺不支持选定收货地址的货到付款）</span>
+            
             <dt><i><img src="../../images/Snap.jpg" alt=""> &nbsp;&nbsp;</i><i ><%=store_cart_list[k].shop_address%></i></dt>  
                 <% if (store_cart_list[k].voucher_base != '') { %>
 						
@@ -407,7 +407,8 @@
             <div>
             <button class="btn_die" value='<%=k%>'>上门自提</button><span style="font-size:20px;margin-left:20px;color:red" id ='tips'>(上门自提可免运费)</span>
             </div>
-            
+            <input type="radio" value="1" name='ps_type' checked>上门自提
+            <input type="radio" value="2"  name='ps_type'>物流配送
           
             <dl id='wlps'>
                 <dt>
