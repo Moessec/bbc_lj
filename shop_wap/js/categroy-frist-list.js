@@ -52,7 +52,7 @@ $(function ()
                
          }  
                  
-
+console.log(str);
     });
     console.log(str);
     //展示模版
