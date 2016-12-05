@@ -404,15 +404,20 @@
                 <dd><em id="vourchPrice<%=k%>"></em>元</dd>
                 <input type="hidden" class="voucher_list" id="vourch_id<%=k%>" name="vourch_id" value="">
             </dl>
-            <div>
-            <button class="btn_die" value='<%=k%>'>到店自提</button><span style="font-size:20px;margin-left:20px;color:red" id ='tips'>(到店自提可免运费)</span>
-            </div>
-            <input type="radio" value="1" name='ps_type'>到店自提
-            <input type="radio" value="2"  name='ps_type'  checked>物流配送
           
-            <dl id='wlps'>
+            
+            <div style="display:block;margin-left:5px">
+            <input type="radio" value="<%=k%>" name='ps_type' >
+            <i style="font-size:13px;">到店自提</i>
+            </div>
+            <div style="display:block ;margin-left:5px">
+            <input type="radio" value=""  name='ps_type'  checked>
+            <i style="font-size:13px">物流配送</i>
+            </div>
+            
+            <dl id='wlps' displayed="displayed" name="<%=k%>">
                 <dt>
-                    物流配送
+                   配送费
                   
                
                 </dt>
@@ -463,17 +468,13 @@
 
  <script type="text/javascript">
             $(function(){
-                $('button').click(function(){
-                      color=$(this).attr('class');
-                if(color=='btn_die'){
-                   $(this).attr('class','btn_live');
-                  
-                   div=$(this).parent('div');
-                   div.next().hide();
-                   div.children('span').css('color','green');
-                   div.children('span').html('已免运费');
-                   //获取运费
-                   cost=div.next().children().children('em').html();
+              $("input[name='ps_type']").change(function(){
+                a=$(this).val();
+                if(a!='')
+                {   wlps=$(this).parent().next().next();
+                    wlps.hide();
+                     //获取运费
+                   cost=wlps.children().next().children('em').html();
                     //更新合计价格
                    old_price=$('#totalPrice').html();
                     old_price= Number(old_price);
@@ -484,16 +485,11 @@
                     $('#totalPayPrice').html(totalPayPrice-cost);
                    $('#totalPrice').html(old_price-cost);
                 }
-                else{
-                    $(this).attr('class','btn_die');
-                   
-                    div=$(this).parent('div');
-                    div.next().show();
-                   
-                     div.children('span').css('color','red');
-                   div.children('span').html('到店自提可免运费');
-                   //获取运费
-                   cost=div.next().children().children('em').html();
+                else
+                {
+                    wlps=$(this).parent().next().show();
+                     //获取运费
+                   cost=wlps.children().next().children('em').html();
                     //更新合计价格
                    old_price=$('#totalPrice').html();
                     old_price= Number(old_price);
@@ -503,10 +499,11 @@
                     totalPayPrice=$('#totalPayPrice').html();
                     totalPayPrice=Number(totalPayPrice);
                     $('#totalPayPrice').html(totalPayPrice+cost);
-                   
                 }
-
-                });
+               
+             
+                
+              });
               
             });
             </script>
