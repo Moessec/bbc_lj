@@ -255,6 +255,3 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			);
 		});
 	</script>
-<?php
-include $this->view->getTplPath() . '/' . 'footer.php';
-?>
