@@ -43,9 +43,7 @@ input, select, textarea {
 </head>
 <body>
 <div id="manage-wrap" class="manage-wrap">
-	<?php
-	foreach ($data as $key => $value) {
-	?>
+	
   <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
     <thead>
       <tr>
@@ -53,15 +51,19 @@ input, select, textarea {
       </tr>
     </thead>
     <tbody>
+      <?php
+        foreach ($data as $key => $value) {
+      ?>
       <tr>
         <th class="w150">参与人姓名：</th>
         <td><?=$value['true_name']?></td>
       </tr>
+      <?
+        }
+      ?>
     </tbody>
   </table>
-  <?
-  	}
-	?>
+  
 </div>
 
 
