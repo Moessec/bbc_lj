@@ -33,8 +33,9 @@ $(function ()
         e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
  setTimeout(function(){
  $('.goods_cont').each(function(){
-    var cat_id = $(this).find('.cat_id').val();
+   var cat_id = $(this).find('.cat_id').val();
    var str='';
+   alert(cat_id);
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
     {
         // console.info(t);
