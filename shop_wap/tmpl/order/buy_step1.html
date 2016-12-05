@@ -405,10 +405,10 @@
                 <input type="hidden" class="voucher_list" id="vourch_id<%=k%>" name="vourch_id" value="">
             </dl>
             <div>
-            <button class="btn_die" value='<%=k%>'>上门自提</button><span style="font-size:20px;margin-left:20px;color:red" id ='tips'>(上门自提可免运费)</span>
+            <button class="btn_die" value='<%=k%>'>到店自提</button><span style="font-size:20px;margin-left:20px;color:red" id ='tips'>(到店自提可免运费)</span>
             </div>
-            <input type="radio" value="1" name='ps_type' checked>上门自提
-            <input type="radio" value="2"  name='ps_type'>物流配送
+            到店自提
+            物流配送
           
             <dl id='wlps'>
                 <dt>
@@ -491,7 +491,7 @@
                     div.next().show();
                    
                      div.children('span').css('color','red');
-                   div.children('span').html('上门自提可免运费');
+                   div.children('span').html('到店自提可免运费');
                    //获取运费
                    cost=div.next().children().children('em').html();
                     //更新合计价格
