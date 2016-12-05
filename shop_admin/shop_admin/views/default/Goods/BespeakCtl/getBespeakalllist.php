@@ -82,13 +82,7 @@ input, select, textarea {
       <tr>
         <th>相关图片：</th>
         <td>
-       <?php
-          $img=explode('--', $value['bespeak_img']);
-          $img=array_filter($img);
-          foreach ($img as $k => $v) {
-          ?>
-          <img src="<?='http://localhost\bbc\shop\shop\data\upload'.$v?>">
-          <?}?>
+          <img src="<?='http://139.196.51.206/bbc_lj/shop/data'.$value['bespeak_img']?>">
           </td>
       </tr>
     </tbody>
