@@ -42,24 +42,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				</div>
 				<?php }?>
 
-				<?php if($user_resource['user_money'] > 0){ ?>
-				<div>
-					<input type="checkbox" class="pay_yue" name="choice" value="money"><?=_('使用预存款支付（可用余额：')?><?=format_money($user_resource['user_money'])?>）
-					<input type="hidden" name="money" id="money" value="<?=($user_resource['user_money'])?>">
-					<!--  用余额支付的金额  -->
-					<input type="hidden" name="money_pay" id="money_pay" value="0"/>
-				</div>
-				<?php }?>
-				<p id="pay_password" style="display: none;">
-					<span class="spanmt"><?=_('支付密码')?> :&nbsp;</span>
-					<input type="password" name="password" onblur="checkPassword()" class="text text-1" />
-					<span class="msg-box" style="margin-left:73px;"></span>
-					<!--<span class="onright"><a target="_blank" href="./index.php?ctl=Info&met=depositlist&typ=e">充值记录</a></span>-->
-				</p>
-				<!--<div><?/*=_('（同时勾选时，系统将优先使用购物卡，不足时扣除预存款，目前还需在线支付')*/?><?/*=_('￥')*/?><em class="online_money"><?/*=($uorder_base['trade_payment_amount'])*/?></em><?/*=_('。）余额不足？')*/?><a class="btn_active btn" href="./index.php?ctl=Info&met=deposit"><?/*=_('马上充值')*/?></a></div>-->
-			</div>
-
-			<?php }?>
+				
 			<!--  最后在线支付需要支付的金额  -->
 			<input type="hidden" name="online_pay" id="online_pay" value="<?=($uorder_base['trade_payment_amount'])?>">
 
