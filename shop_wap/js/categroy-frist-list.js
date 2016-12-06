@@ -53,7 +53,7 @@ $(function ()
     
 
     });
-alert(str);
+// alert(str);
     //展示模版
     if(str!=='')
     $(this).find('.outer').html(str); 
