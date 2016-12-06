@@ -209,7 +209,9 @@
 </script>
 <script type="text/html" id="home_body1">
 1222222222
-   
+   <% for( var i in data.discount_goods_rows ) {%>
+    <%=data.discount_goods_rows[i].discount_name%>
+    <% }%>
 </script>
 <script type="text/javascript" src="../js/config.php"></script>
 <script type="text/javascript" src="../js/zepto.js"></script>
