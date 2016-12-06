@@ -12,7 +12,22 @@ class LoginCtl extends Yf_AppController
 		include $this->view->getView();
 	}
 	public function index()
-	{	
+	{
+		$web['site_logo']       = Web_ConfigModel::value("site_logo");//首页logo
+
+		$BaseAppModel = new BaseApp_BaseAppModel();
+		$shop_row = $BaseAppModel->getOne('102');
+		$shop_url = '';
+		if($shop_row)
+		{
+			$shop_url = $shop_row['app_url'];
+		}
+		fb($shop_url);
+
+		$act =  request_string('act');
+
+		fb($act);
+
 		//如果已经登录,则直接跳转
 		if (Perm::checkUserPerm())
 		{
@@ -21,7 +36,7 @@ class LoginCtl extends Yf_AppController
 			$k = $_COOKIE[Perm::$cookieName];
 			$u = $_COOKIE[Perm::$cookieId];
 
-			if (isset($_REQUEST['callback']))
+			if (isset($_REQUEST['callback']) && $_REQUEST['callback'])
 			{
 				$url = $_REQUEST['callback'] . '&us=' . $u . '&ks=' . urlencode($k);
 
@@ -35,6 +50,54 @@ class LoginCtl extends Yf_AppController
 		}
 		else
 		{
+			//查找注册的设置
+			$Web_ConfigModel = new Web_ConfigModel();
+			$reg_row = $Web_ConfigModel->getByWhere(array('config_type'=>'register'));
+
+			$pwd_str = '';
+
+			//判断是否开启了用户密码必须包含数字
+			if($reg_row['reg_number']['config_value'])
+			{
+				$pwd_str .= "'数字'";
+			}
+
+			//判断是否开启了用户密码必须包含小写字母
+			if($reg_row['reg_lowercase']['config_value'])
+			{
+				$pwd_str .= "'小写字母'";
+			}
+
+			//判断是否开启了用户密码必须包含大写字母
+			if($reg_row['reg_uppercase']['config_value'])
+			{
+				$pwd_str .= "'大写字母'";
+			}
+
+			//判断是否开启了用户密码必须包含符号
+			if($reg_row['reg_symbols']['config_value'])
+			{
+				$pwd_str .= "'符号'";
+			}
+
+			if($pwd_str)
+			{
+				$pwd_str = '密码中必须包含：'.$pwd_str;
+			}
+			if($pwd_str)
+			{
+				$pwd_str .= '，';
+			}
+
+			$pwd_str .= $reg_row['reg_pwdlength']['config_value'].'-20个字符。';
+			if($act == 'reset')
+			{
+				$this->view->setMet('resetpwd');
+			}
+			if($act == 'reg')
+			{
+				$this->view->setMet('regist');
+			}
 
 			include $this->view->getView();
 		}
@@ -64,7 +127,15 @@ class LoginCtl extends Yf_AppController
 		}
 		else
 		{
-			$url = './index.php?ctl=Login&act=reg';
+			if(isset($_REQUEST['callback']))
+			{
+				$url = './index.php?ctl=Login&act=reg&callback='.urlencode($_REQUEST['callback']);
+			}
+			else
+			{
+				$url = './index.php?ctl=Login&act=reg';
+			}
+
 			header('location:' . $url);
 		}
 
@@ -605,7 +676,7 @@ class LoginCtl extends Yf_AppController
 		{
 			$msg    = '验证码错误';
 			$status = 250;
-			$this->data->addBody(-1, array(), $msg, $status);
+			$this->data->addBody(-1, array('code'=>$user_code_pre), $msg, $status);
 		}
 	}
 
@@ -881,6 +952,14 @@ class LoginCtl extends Yf_AppController
 						
 					}
 
+					//
+					$info_row = $User_InfoDetail->getOne($user_name);
+					
+					$arr_field_user_info_detail['user_count_login']    = $info_row['user_count_login'] + 1;
+					$arr_field_user_info_detail['user_lastlogin_time'] = time();
+					
+					$User_InfoDetail->editInfoDetail($user_name, $arr_field_user_info_detail);
+					
 					$this->data->addBody(100, $arr_body);
 					
 				}
@@ -1007,6 +1086,50 @@ class LoginCtl extends Yf_AppController
 
 	}
 
+	public function checkMobile()
+	{
+		$mobile = request_string('mobile');
+
+		$mobile = request_string('mobile');
+
+		//判断手机号是否已经注册过
+		$User_InfoDetail = new User_InfoDetailModel();
+
+
+		$checkmobile = $User_InfoDetail->checkMobile($mobile);
+		$data   = array();
+		if($checkmobile)
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		else
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+	public function checkCode()
+	{
+		$yzm = request_string('yzm');
+		session_start();
+
+		$data = array();
+		if (strtolower($_SESSION['auth']) != strtolower($_REQUEST['yzm']))
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		else
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
 	public function getUserInfoDetail()
 	{
 		$user_name = request_string('user_name');
@@ -1052,6 +1175,227 @@ class LoginCtl extends Yf_AppController
 		{
 			exit($jsonp_callback . '(' . json_encode($this->data->getDataRows()) . ')');
 		}
+	}
+
+    //门店帐号注册
+    public function registerChain()
+    {
+        $user_name = request_string('user_account', null);
+        $password  = request_string('user_password', null);
+
+        $server_id = 0;
+
+        if (!$user_name)
+        {
+            return $this->data->addBody(-1, array(), '请输入账号', 250);
+        }
+
+        if (!$password)
+        {
+            return $this->data->addBody(-1, array(), '请输入密码', 250);
+        }
+
+
+        $rs_row = array();
+
+        //用户是否存在
+        $User_InfoModel  = new User_InfoModel();
+        $User_InfoDetail = new User_InfoDetailModel();
+
+        $user_rows = $User_InfoModel->getInfoByName($user_name);
+
+        if ($user_rows)
+        {
+            $arr_body = array(
+                "user_name" => $user_name,
+                "user_id" => $user_rows['user_id']
+            );
+            return $this->data->addBody(-1, $arr_body, '用户名已经存在', 250);
+        }
+        else
+        {
+
+            $User_InfoModel->sql->startTransaction();
+
+            $Db       = Yf_Db::get('ucenter');
+            $seq_name = 'user_id';
+            $user_id  = $Db->nextId($seq_name);
+
+            //$User_InfoModel->check_input($user_name, $password, $user_mobile);
+
+            $now_time = time();
+            $ip       = get_ip();
+
+            $session_id                         = uniqid();
+            $arr_field_user_info                = array();
+            $arr_field_user_info['user_id']     = $user_id;
+            $arr_field_user_info['user_name']   = $user_name;
+            $arr_field_user_info['password']    = md5($password);
+            $arr_field_user_info['action_time'] = $now_time;
+            $arr_field_user_info['action_ip']   = $ip;
+            $arr_field_user_info['session_id']  = $session_id;
+
+            $flag = $User_InfoModel->addInfo($arr_field_user_info);
+            array_push($rs_row, $flag);
+
+            $arr_field_user_info_detail                        = array();
+            $arr_field_user_info_detail['user_name']           = $user_name;
+            //$arr_field_user_info_detail['user_mobile']         = $mobile;
+            //$arr_field_user_info_detail['user_mobile_verify']         = 1;
+            $arr_field_user_info_detail['user_reg_time']       = $now_time;
+            $arr_field_user_info_detail['user_count_login']    = 1;
+            $arr_field_user_info_detail['user_lastlogin_time'] = $now_time;
+            $arr_field_user_info_detail['user_lastlogin_ip']   = $ip;
+            $arr_field_user_info_detail['user_reg_ip']         = $ip;
+
+            $flag = $User_InfoDetail->addInfoDetail($arr_field_user_info_detail);
+            array_push($rs_row, $flag);
+
+        }
+
+        $app_id   = isset($_REQUEST['app_id']) ? $_REQUEST['app_id'] : 0;
+        $Base_App = new Base_AppModel();
+
+        if ($app_id && !($base_app_rows = $Base_App->getApp($app_id)))
+        {
+            /*
+            $base_app_row = array_pop($base_app_rows);
+
+            $arr_field_user_app = array();
+            $arr_field_user_app['user_name'] = $user_name;
+            $arr_field_user_app['app_id'] = $app_id;
+            $arr_field_user_app['active_time'] = time();
+
+            $User_App = new User_AppModel();
+
+            //是否存在
+            $user_app_row = $User_App->getAppByNameAndAppId($user_name, $app_id);
+
+            if ($user_app_row)
+            {
+                // update app_quantity
+                $app_quantity_row = array();
+                $app_quantity_row['app_quantity'] = $user_app_row['app_quantity'] + 1;
+                $flag = $User_App->editApp($user_name, $app_quantity_row);
+                array_push($rs_row, $flag);
+            }
+            else
+            {
+
+                $flag = $User_App->addApp($arr_field_user_app);
+                array_push($rs_row, $flag);
+
+            }
+
+            $User_AppServerModel = new User_AppServerModel();
+
+            $user_app_server_row = array();
+            $user_app_server_row['user_name'] = $user_name;
+            $user_app_server_row['app_id'] = $app_id;
+            $user_app_server_row['server_id'] = $server_id;
+            $user_app_server_row['active_time'] = time();
+
+            $flag = $User_AppServerModel->addAppServer($user_app_server_row);
+            */
+        }
+        else
+        {
+        }
+
+        if (is_ok($rs_row) && $User_InfoDetail->sql->commit())
+        {
+            $d            = array();
+            $d['user_id'] = $user_id;
+
+            $encrypt_str = Perm::encryptUserInfo($d, $session_id);
+
+            $arr_body = array(
+                "user_name" => $user_name,
+                "server_id" => $server_id,
+                "k" => $encrypt_str,
+                "user_id" => $user_id
+            );
+            $this->data->addBody(100, $arr_body,'sucess',200);
+        }
+        else
+        {
+            $Base_App->sql->rollBack();
+            return $this->data->addBody(-1, array(), '创建用户信息失败', 250);
+        }
+
+    }
+
+
+
+	public function regConfig()
+	{
+		$Web_ConfigModel = new Web_ConfigModel();
+
+		$config_type_row = request_row('config_type');
+
+		fb($config_type_row);
+		$rs_row = array();
+		foreach ($config_type_row as $config_type)
+		{
+			$config_value_row = request_row($config_type);
+
+			fb($config_value_row);
+
+			$config_rows = $Web_ConfigModel->getByWhere(array('config_type' => $config_type));
+
+			fb($config_rows);
+
+			foreach ($config_rows as $config_key => $config_row)
+			{
+				$edit_row = array();
+
+				if (isset($config_value_row[$config_key]))
+				{
+					if ('json' == $config_row['config_datatype'])
+					{
+						$edit_row['config_value'] = json_encode($config_value_row[$config_key]);
+					}
+					else
+					{
+						$edit_row['config_value'] = $config_value_row[$config_key];
+					}
+				}
+				else
+				{
+					if ('number' == $config_row['config_datatype'])
+					{
+						if ('theme_id' != $config_key)
+						{
+							//$edit_row['config_value'] = 0;
+						}
+					}
+					else
+					{
+					}
+				}
+
+				if ($edit_row)
+				{
+					$flag = $Web_ConfigModel->editConfig($config_key, $edit_row);
+
+					check_rs($flag, $rs_row);
+				}
+			}
+		}
+
+		$flag = is_ok($rs_row);
+
+		if($flag)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		$this->data->addBody(-1, $edit_row, $msg, $status);
 	}
 }
 
