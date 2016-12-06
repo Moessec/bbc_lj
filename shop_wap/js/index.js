@@ -100,7 +100,7 @@ if(!key)
 }
  //**********************调用商品数据****************************      
  $.ajax({
-       url: ApiUrl + "/index.php?ctl=Index&met=index&typ=json",
+        url: ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json",
         type: 'get',
         dataType: 'json',
         success: function(result) {
