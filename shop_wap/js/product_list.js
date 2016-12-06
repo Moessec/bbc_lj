@@ -26,7 +26,7 @@ $(function ()
     $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Discount&met=index&op=manage&typ=json&id=1" , function (e)
     {
        
-        console.info(e);
+        console.info(e.data.discount_goods_rows);
         // var r = template.render("home_body", e);
         // $("#product_list .goods-secrch-list").append(r);
         //hasmore = e.hasmore
