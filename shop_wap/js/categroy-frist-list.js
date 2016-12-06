@@ -53,8 +53,6 @@ $(function ()
     
 
     console.log(str);
-       //展示模版
-    // $(this).find('.outer').html(str); 
     });
     //展示模版
     $(this).find('.outer').html(str); 
