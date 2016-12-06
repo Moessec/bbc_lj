@@ -72,6 +72,7 @@
 </div>
 <footer id="footer" class="bottom"></footer>
 <script type="text/html" id="search_items">
+<% alert(5);%>
     <div>
         <dl>
             <dt>价格区间</dt>
@@ -208,7 +209,7 @@
     %>
 </script>
 <script type="text/html" id="home_body1">
-alert(3);
+
     <% var common_list = data.discount_goods_rows%>
     <% if(common_list.length >0){ %>
     <%for(j=0;j<common_list.length;j++){%>
