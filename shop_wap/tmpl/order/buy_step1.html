@@ -541,44 +541,40 @@
               });
               
 
-                 $('#list-voucher-valve').click(function(){
+
+
+
+
+
+        $('#list-voucher-valve').click(function(){
        
         var shop_id = $(this).find("#voucher_id").val();
         var position = $(this).find("#position").val();
-        
+            
         $.ajax({
            type:'post',
             url:ApiUrl+'/index.php?ctl=Buyer_Cart&met=confirm&typ=json',
-            dataType:'json',
             data:{k:key, u:getCookie('id'),product_id:cart_id,ifcart:ifcart,address_id:address_id,position:position},
+            dataType:'json',
+            async:true,
+           
             success:function(result){
                
-                
-                // if (result.status == 250) {
-                //     $.sDialog({
-                //         skin:"red",
-                //         content:result.data.msg,
-                //         okBtn:false,
-                //         cancelBtn:false
-                //     });
-                //     return false;
-                // }
-                // 商品数据
-                result.data.address_id = address_id;
-                result.data.WapSiteUrl = WapSiteUrl;
-                delete result.data.glist.count
+              
+              
                 result.data.glist[shop_id]['position']=position;
                 // data.address_id = address_id;
                  var html = template.render('list-voucher-add-list-script', result.data.glist[shop_id]);
                   $("#list-voucher-add-list-ul").html(html);
             }
         });
-
          $.animationLeft({
         valve : '#list-voucher-valve',
         wrapper : '#list-voucher-wrapper',
         scroll : '#list-voucher-scroll'
-    });
+         });
+        
+        
 
     // // 地区选择
     $('#list-voucher-add-list-ul').on('click', 'li', function(){
@@ -600,8 +596,9 @@
           //更换编号
           var oldvc='#vourch_id'+voucher_info.position;
           var newid=voucher_info.voucher_id;
+        
           $(oldvc).val(newid);
-       
+      
         $('#list-voucher-wrapper').find('.header-l > a').click();
     });
     });
