@@ -99,25 +99,25 @@ if(!key)
 
 }
  //**********************调用商品数据****************************      
- $.ajax({
-        url: ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json",
-        type: 'get',
-        dataType: 'json',
-        success: function(result) {
-            var data = result.data;
-            var html = '';
+ // $.ajax({
+ //        url: ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json",
+ //        type: 'get',
+ //        dataType: 'json',
+ //        success: function(result) {
+ //            var data = result.data;
+ //            var html = '';
 
-            // $.each(data.items,function(k,v){
-            //     console.log(v);
-            // })
+ //            // $.each(data.items,function(k,v){
+ //            //     console.log(v);
+ //            // })
          
                 
            
-            $("#product-contain").html(template.render('goods', data));
-            $("#product-contain1").html(template.render('goods1', data));
-            $("#product-contain2").html(template.render('goods2', data));
-        }
-    });
+ //            $("#product-contain").html(template.render('goods', data));
+ //            $("#product-contain1").html(template.render('goods1', data));
+ //            $("#product-contain2").html(template.render('goods2', data));
+ //        }
+ //    });
     for(var i=1;i<=3;i++)
     {
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+i, function (t)
