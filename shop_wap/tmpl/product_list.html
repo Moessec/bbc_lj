@@ -207,7 +207,102 @@
     }
     %>
 </script>
+<script type="text/html" id="home_body">
+    <% var common_list = data.items; %>
+    <% if(common_list.length >0){%>
+    <%for(j=0;j<common_list.length;j++){%>
+    <%  var goods_list = common_list[j].good; %>
+    <%for(i=0;i<goods_list.length;i++){%>
+    <li class="goods-item" goods_id="<%=goods_list[i].goods_id;%>">
+                <span class="goods-pic">
+                    <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
+                        <img src="<%=goods_list[i].goods_image;%>"/>
+                    </a>
+                </span>
+        <dl class="goods-info">
+            <dt class="goods-name">
+                <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
+                    <h4><%=goods_list[i].goods_name;%></h4>
+                    <h6><%=goods_list[i].goods_jingle;%></h6>
+                </a>
+            </dt>
+            <dd class="goods-sale">
+                <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
+                            <span class="goods-price">￥<em><%=goods_list[i].goods_price;%></em>
+                                <%
+                                    if (goods_list[i].sole_flag) {
+                                %>
+                                    <span class="phone-sale"><i></i>手机专享</span>
+                                <%
+                                    }
+                                %>
+                            </span>
 
+                    <% if (goods_list[i].is_virtual == '1') { %>
+                    <span class="sale-type">虚拟</span>
+                    <% } else { %>
+                    <% if (goods_list[i].is_presell == '1') { %>
+                    <span class="sale-type">预</span>
+                    <% } %>
+                    <% if (goods_list[i].is_fcode == '1') { %>
+                    <span class="sale-type">F</span>
+                    <% } %>
+                    <% } %>
+
+                    <% if(goods_list[i].group_flag || goods_list[i].xianshi_flag){ %>
+                    <span class="sale-type">降</span>
+                    <% } %>
+                    <% if(goods_list[i].have_gift == '1'){ %>
+                    <span class="sale-type">赠</span>
+                    <% } %>
+                </a>
+            </dd>
+            <dd class="goods-assist">
+                <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
+                                <span class="goods-sold">销量
+                                    <em><%=common_list[j].common_salenum;%></em>
+                                </span>
+                                <span class="goods-sold">评论
+                                    <em><%=common_list[j].common_evaluate;%></em>
+                                </span>
+                </a>
+                <div class="goods-store">
+                    <%
+                    if (goods_list[i].is_own_shop == '1') {
+                    %>
+                    <span class="mall">自营</span>
+                    <%
+                    } else {
+                    %>
+                    <a href="javascript:void(0);" data-id='<%=goods_list[i].shop_id;%>'><%=goods_list[i].store_name;%><i></i></a>
+                    <%
+                    }
+                    %>
+                    <div class="sotre-creidt-layout" style="display: none;"></div>
+                </div>
+            </dd>
+        </dl>
+    </li>
+    <%}%>
+    <%}%>
+    <% if (hasmore) {%>
+    <li class="loading"><div class="spinner"><i></i></div>商品数据读取中...</li>
+    <% } %>
+    <%
+    }else {
+    %>
+    <div class="nctouch-norecord search">
+        <div class="norecord-ico"><i></i></div>
+        <dl>
+            <dt>没有找到任何相关信息</dt>
+            <dd>选择或搜索其它商品分类/名称...</dd>
+        </dl>
+        <a href="javascript:history.go(-1)" class="btn">重新选择</a>
+    </div>
+    <%
+    }
+    %>
+</script>
 <script type="text/javascript" src="../js/config.php"></script>
 <script type="text/javascript" src="../js/zepto.js"></script>
 <script type="text/javascript" src="../js/template.js"></script>
