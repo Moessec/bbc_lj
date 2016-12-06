@@ -23,7 +23,7 @@ $(function ()
 {
     if(seller)
     {
-    $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Discount&met=index&op=manage&typ=json&id=1" , param, function (e)
+    $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Discount&met=index&op=manage&typ=json&id=1" , function (e)
     {
        
         console.info(e);
