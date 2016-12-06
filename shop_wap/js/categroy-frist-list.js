@@ -32,12 +32,10 @@ $(function ()
         });
         e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
  
- setTimeout(function(){
+ // setTimeout(function(){
  $('.goods_cont').each(function(){
     var cat_id = $(this).find('.cat_id').val();
     var str='';
-            // str+="273627643634623436437";
-
    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
     {
 
@@ -55,11 +53,8 @@ $(function ()
     //展示模版
     $(this).find('.outer').html(str); 
 
-    
-
-
     });
-},100)
+// },100)
 
     });
     $("#categroy-cnt").on("click", ".brand", function ()
