@@ -93,7 +93,6 @@
 	<div class="product-recommend clearfix" id="product-contain3">	</div>
 	<script type="text/html" id="goods3">
 		<ul class="clearfix">
-		51555
 		<% for (var i in items) { %>
 			<% if (items[i].cat_id==3) { %>
 			<li><a href="tmpl/product_detail.html?goods_id=<%= items[i].common_id %>">
@@ -127,14 +126,12 @@
 		<div class="product-list-info clearfix">
 			<ul>
 			<% for (var i in items) { %>
-				<% for (var j in i) { %>
 				<% if (items[i].cat_id==3) { %>
 				<li><a href="tmpl/product_detail.html?goods_id=<%= items[i].common_id %>">
 					<img src="<%= items[i].common_image %>" />
 					<p><%= items[i].common_name %></p>
 					<p class="pro-info-price">￥<%= items[i].common_price %></p>
 				</a></li>
-					<% } %>
 					<% } %>
 				<% } %>
 			</ul>
@@ -151,14 +148,12 @@
 		<div class="product-list-info clearfix">
 			<ul>
 			<% for (var i in items) { %>
-				<% for (var j in i) { %>
 				<% if (items[i].cat_id==4) { %>
 				<li><a href="tmpl/product_detail.html?goods_id=<%= items[i].common_id %>">
 					<img src="<%= items[i].common_image %>" />
 					<p><%= items[i].common_name %></p>
 					<p class="pro-info-price">￥<%= items[i].common_price %></p>
 				</a></li>
-					<% } %>
 					<% } %>
 				<% } %>
 			</ul>
