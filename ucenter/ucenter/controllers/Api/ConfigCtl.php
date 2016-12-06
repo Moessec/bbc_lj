@@ -331,17 +331,8 @@ return $connect_rows;
 		$data['ucenter_app_id']  = $ucenter_app_id;
 
 		//$file = INI_PATH . '/ucenter_api.ini.php';
-		//$file = INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php';
-		
-		if (is_file(INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php'))
-		{
-			$file = INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php';
-		}
-		else
-		{
-			$file = INI_PATH . '/ucenter_api.ini.php';
-		}
-		
+		$file = INI_PATH . '/ucenter_api_' . Yf_Registry::get('server_id') . '.ini.php';
+
 		if (!Yf_Utils_File::generatePhpFile($file, $data))
 		{
 			$status = 250;
@@ -354,6 +345,120 @@ return $connect_rows;
 		}
 
 		$this->data->addBody(-140, array(), $msg, $status);
+	}
+
+	public function regConfig()
+	{
+		$Web_ConfigModel = new Web_ConfigModel();
+
+		$config_type_row = request_row('config_type');
+
+		fb($config_type_row);
+		$rs_row = array();
+		foreach ($config_type_row as $config_type)
+		{
+			$config_value_row = request_row($config_type);
+
+			fb($config_value_row);
+
+			$config_rows = $Web_ConfigModel->getByWhere(array('config_type' => $config_type));
+
+			fb($config_rows);
+			if(!$config_rows)
+			{
+				$add_row = array();
+				$add_row['config_key'] = 'reg_lowercase';
+				$add_row['config_value'] = '0';
+				$add_row['config_type'] = 'register';
+				$add_row['config_enable'] = '1';
+				$add_row['config_datatype'] = 'number';
+
+				$Web_ConfigModel->addConfig($add_row);
+
+				$add_row = array();
+				$add_row['config_key'] = 'reg_number';
+				$add_row['config_value'] = '0';
+				$add_row['config_type'] = 'register';
+				$add_row['config_enable'] = '1';
+				$add_row['config_datatype'] = 'number';
+
+				$Web_ConfigModel->addConfig($add_row);
+
+				$add_row = array();
+				$add_row['config_key'] = 'reg_pwdlength';
+				$add_row['config_value'] = '4';
+				$add_row['config_type'] = 'register';
+				$add_row['config_enable'] = '1';
+				$add_row['config_datatype'] = 'number';
+
+				$Web_ConfigModel->addConfig($add_row);
+
+				$add_row = array();
+				$add_row['config_key'] = 'reg_symbols';
+				$add_row['config_value'] = '0';
+				$add_row['config_type'] = 'register';
+				$add_row['config_enable'] = '1';
+				$add_row['config_datatype'] = 'number';
+
+				$Web_ConfigModel->addConfig($add_row);
+
+				$add_row = array();
+				$add_row['config_key'] = 'reg_uppercase';
+				$add_row['config_value'] = '0';
+				$add_row['config_type'] = 'register';
+				$add_row['config_enable'] = '1';
+				$add_row['config_datatype'] = 'number';
+
+				$Web_ConfigModel->addConfig($add_row);
+
+			}
+
+			$config_rows = $Web_ConfigModel->getByWhere(array('config_type' => $config_type));
+
+			fb($config_rows);
+
+			foreach ($config_rows as $config_key => $config_row)
+			{
+				$edit_row = array();
+
+				if (isset($config_value_row[$config_key]))
+				{
+					if ('json' == $config_row['config_datatype'])
+					{
+						$edit_row['config_value'] = json_encode($config_value_row[$config_key]);
+					}
+					else
+					{
+						$edit_row['config_value'] = $config_value_row[$config_key];
+					}
+				}
+				else
+				{
+					$edit_row['config_value'] = 0;
+				}
+
+				if ($edit_row)
+				{
+					$flag = $Web_ConfigModel->editConfig($config_key, $edit_row);
+
+					check_rs($flag, $rs_row);
+				}
+			}
+		}
+
+		$flag = is_ok($rs_row);
+
+		if($flag)
+		{
+			$msg    = 'success';
+			$status = 200;
+		}
+		else
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}
+		$this->data->addBody(-1, $edit_row, $msg, $status);
 	}
 
 
