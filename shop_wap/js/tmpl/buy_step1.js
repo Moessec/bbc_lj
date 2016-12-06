@@ -27,7 +27,6 @@ function isEmptyObject(e) {
 
 
 $(function() {
-   
     // 地址列表
     $('#list-address-valve').click(function(){
         var address_id = $(this).find("#address_id").val();
@@ -36,7 +35,7 @@ $(function() {
             url:ApiUrl+"/index.php?ctl=Buyer_Cart&met=confirm&typ=json",
             data:{k:key, u:getCookie('id'),product_id:cart_id},
             dataType:'json',
-            async:false,
+            async:true,
             success:function(result){
                 checkLogin(result.login);
                 if(result.data.address==null){
@@ -892,7 +891,7 @@ $(function() {
                 voucher_id.push($(this).val());
             }
         })
-        console.info(voucher_id);
+
         
 
         //获取支付方式
