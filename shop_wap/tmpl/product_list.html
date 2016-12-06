@@ -208,9 +208,9 @@
     %>
 </script>
 <script type="text/html" id="home_body1">
-
-    <% var common_list = discount_goods_rows%>
-    // <% if(common_list.length >0){ %>
+<%=data.discount_goods_rows[1].discount_name%>
+    <% var common_list = data.discount_goods_rows%>
+    <% if(common_list.length >0){ %>
     <%for(i=0;i<common_list.length;i++){%>
     <li class="goods-item" goods_id="<%=common_list[i].goods_id;%>">
                 <span class="goods-pic">
@@ -287,20 +287,20 @@
     <% if (hasmore) {%>
     <li class="loading"><div class="spinner"><i></i></div>商品数据读取中...</li>
     <% } %>
-    // <%
-    // }else {
-    // %>
-    // <div class="nctouch-norecord search">
-    //     <div class="norecord-ico"><i></i></div>
-    //     <dl>
-    //         <dt>没有找到任何相关信息</dt>
-    //         <dd>选择或搜索其它商品分类/名称...</dd>
-    //     </dl>
-    //     <a href="javascript:history.go(-1)" class="btn">重新选择</a>
-    // </div>
-    // <%
-    // }
-    // %>
+    <%
+    }else {
+    %>
+    <div class="nctouch-norecord search">
+        <div class="norecord-ico"><i></i></div>
+        <dl>
+            <dt>没有找到任何相关信息</dt>
+            <dd>选择或搜索其它商品分类/名称...</dd>
+        </dl>
+        <a href="javascript:history.go(-1)" class="btn">重新选择</a>
+    </div>
+    <%
+    }
+    %>
 </script>
 <script type="text/javascript" src="../js/config.php"></script>
 <script type="text/javascript" src="../js/zepto.js"></script>
