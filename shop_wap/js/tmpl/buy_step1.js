@@ -27,6 +27,7 @@ function isEmptyObject(e) {
 
 
 $(function() {
+   
     // 地址列表
     $('#list-address-valve').click(function(){
         var address_id = $(this).find("#address_id").val();
@@ -47,6 +48,7 @@ $(function() {
                 data.address_id = address_id;
                 var html = template.render('list-address-add-list-script', data);
                 $("#list-address-add-list-ul").html(html);
+               
             }
         });
     });
@@ -73,6 +75,22 @@ $(function() {
         $('#list-address-wrapper').find('.header-l > a').click();
     });
 
+
+
+
+
+
+
+
+
+
+
+    
+  
+    //
+    //
+    //
+    //
     // 地址新增
     $.animationLeft({
         valve : '#new-address-valve',
@@ -173,7 +191,7 @@ $(function() {
 
                 var html = template.render('goods_list', result.data);
                 $("#deposit").html(html);
-
+                
 
 
                 for (var i=0; i<result.data.glist.length; i++) {
@@ -271,7 +289,7 @@ $(function() {
                     voucher_temp.push([result.data.glist.voucher_base[k].voucher_t_id + '|' + k + '|' + result.data.glist.voucher_base[k].voucher_price]);
                 }
                 voucher = voucher_temp.join(',');
-                console.info(voucher);
+                
                 for (var k in result.data.glist) {
                     var voucher_price = 0;
                     var voucher_id = 0;
@@ -316,36 +334,36 @@ $(function() {
                 }
 
                 // 红包
-                /*rcb_pay = 0;
-                rpt = '';
-                var rptPrice = 0;
-                if (!$.isEmptyObject(result.datas.rpt_info)) {
-                    $('#rptVessel').show();
-                    var rpt_info = ((parseFloat(result.datas.rpt_info.rpacket_limit) > 0) ? '满' + parseFloat(result.datas.rpt_info.rpacket_limit).toFixed(2) + '元，': '') + '优惠' + parseFloat(result.datas.rpt_info.rpacket_price).toFixed(2) + '元'
-                    $('#rptInfo').html(rpt_info);
-                    rcb_pay = 1;
-                } else {
-                    $('#rptVessel').hide();
-                }*/
+                // rcb_pay = 0;
+                // rpt = '';
+                // var rptPrice = 0;
+                // if (!$.isEmptyObject(result.datas.rpt_info)) {
+                //     $('#rptVessel').show();
+                //     var rpt_info = ((parseFloat(result.datas.rpt_info.rpacket_limit) > 0) ? '满' + parseFloat(result.datas.rpt_info.rpacket_limit).toFixed(2) + '元，': '') + '优惠' + parseFloat(result.datas.rpt_info.rpacket_price).toFixed(2) + '元'
+                //     $('#rptInfo').html(rpt_info);
+                //     rcb_pay = 1;
+                // } else {
+                //     $('#rptVessel').hide();
+                // }
 
 
 
                 password = '';
 
-                /*$('#useRPT').click(function(){
-                    if ($(this).prop('checked')) {
-                        rpt = result.datas.rpt_info.rpacket_t_id+ '|' +parseFloat(result.datas.rpt_info.rpacket_price);
-                        rptPrice = parseFloat(result.datas.rpt_info.rpacket_price);
-                        var total_price = totals - rptPrice;
-                    } else {
-                        rpt = '';
-                        var total_price = totals;
-                    }
-                    if (total_price <= 0) {
-                        total_price = 0;
-                    }
-                    $('#totalPrice,#onlineTotal').html(total_price.toFixed(2));
-                });*/
+                // $('#useRPT').click(function(){
+                //     if ($(this).prop('checked')) {
+                //         rpt = result.datas.rpt_info.rpacket_t_id+ '|' +parseFloat(result.datas.rpt_info.rpacket_price);
+                //         rptPrice = parseFloat(result.datas.rpt_info.rpacket_price);
+                //         var total_price = totals - rptPrice;
+                //     } else {
+                //         rpt = '';
+                //         var total_price = totals;
+                //     }
+                //     if (total_price <= 0) {
+                //         total_price = 0;
+                //     }
+                //     $('#totalPrice,#onlineTotal').html(total_price.toFixed(2));
+                // });
 
                 // 计算总价
                 var total_price = totals;
@@ -874,7 +892,7 @@ $(function() {
                 voucher_id.push($(this).val());
             }
         })
-
+        console.info(voucher_id);
         
 
         //获取支付方式
