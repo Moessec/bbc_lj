@@ -1,431 +1,298 @@
 <?php if (!defined('ROOT_PATH')) exit('No Permission');?>
-<?php 
-    $re_url = '';
-    $re_url = Yf_Registry::get('re_url');
 
-    $from = 'mall';
-    $callback = $re_url;
-    $t = '';
-    $type = '';
-    $act= '';
-    $code = '';
+<?php
+$re_url = '';
+$re_url = Yf_Registry::get('re_url');
 
-    extract($_GET);
-        //
-    $qq_url = sprintf('%s?ctl=Connect_Qq&met=login&callback=%s&from=%s', Yf_Registry::get('url'), $callback ,$from);
-	$wx_url = sprintf('%s?ctl=Connect_Weixin&met=login&callback=%s&from=%s', Yf_Registry::get('url'), $callback ,$from);
-    $wb_url = sprintf('%s?ctl=Connect_Weibo&met=login&callback=%s&from=%s', Yf_Registry::get('url'), $callback ,$from);
+$from = 'mall';
+$callback = $re_url;
+$t = '';
+$type = '';
+$act= '';
+$code = '';
 
+extract($_GET);
 
-    $connect_config = Yf_Registry::get('connect_rows');
-    if($connect_config)
-    {
-      $qq = $connect_config['qq']['status'];
-      $wx = $connect_config['weixin']['status'];
-      $wb = $connect_config['weibo']['status'];  
-    }else
-    {
-      $qq = 2;
-      $wx = 2;
-      $wb = 2;  
-    }
-    
+$qq_url = sprintf('%s?ctl=Connect_Qq&met=login&callback=%s&from=%s', Yf_Registry::get('url'), urlencode($callback) ,$from);
+$wx_url = sprintf('%s?ctl=Connect_Weixin&met=login&callback=%s&from=%s', Yf_Registry::get('url'), urlencode($callback) ,$from);
+$wb_url = sprintf('%s?ctl=Connect_Weibo&met=login&callback=%s&from=%s', Yf_Registry::get('url'), urlencode($callback) ,$from);
+
+$connect_rows = Yf_Registry::get('connect_rows');
+
+$qq = $connect_rows['qq']['status'];
+$wx = $connect_rows['weixin']['status'];
+$wb = $connect_rows['weibo']['status'];
 ?>
 
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
+
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>用户登录中心</title>
-<!-- <link href="css/style.css" rel='stylesheet' type='text/css' /> -->
-<link href="<?=$this->view->css?>/style.css" media="screen" rel="stylesheet" type="text/css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta property="qc:admins" content="340166442164526151665670216375" />
-<meta name="keywords" content="Elegent Tab Forms,Login Forms,Sign up Forms,Registration Forms,News latter Forms,Elements"./>
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-</script>
-<script src="<?=$this->view->js?>/jquery.min.js"></script>
-<script src="<?=$this->view->js?>/easyResponsiveTabs.js" type="text/javascript"></script>
-				<script type="text/javascript">
-					$(document).ready(function () {
-						$('#horizontalTab').easyResponsiveTabs({
-							type: 'default', //Types: default, vertical, accordion           
-							width: 'auto', //auto or any width like 600px
-							fit: true   // 100% fit in a container
-						});
-					});
-				   </script>
-
-<!--webfonts-->
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700,200italic,300italic,400italic,600italic|Lora:400,700,400italic,700italic|Raleway:400,500,300,600,700,200,100' rel='stylesheet' type='text/css'>
-<!--//webfonts-->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+	<title>登录</title>
+	<link rel="stylesheet" href="<?=$this->view->css?>/index_login.css">
+	<link rel="stylesheet" href="<?=$this->view->css?>/base.css">
+	<link rel="stylesheet" type="text/css" href="<?= $this->view->css ?>/headfoot.css" />
+	<script src="<?=$this->view->js?>/jquery-1.9.1.js"></script>
+	<script src="<?=$this->view->js?>/respond.js"></script>
 </head>
+
 <body>
-<div class="main">
-		<input type="hidden" name="from" class="from" value="<?php echo $from;?>">
-		<input type="hidden" name="callback" class="callback" value="<?php echo urlencode($callback);?>">
-		<input type="hidden" name="t" class="t" value="<?php echo $t;?>">
-        <input type="hidden" name="type" class="type" value="<?php echo $type;?>">
-		<input type="hidden" name="act" class="act" value="<?php echo $act;?>">
-		<input type="hidden" name="code" class="code" value="<?php echo $code;?>">
-        <input type="hidden" name="re_url" class="re_url" value="<?php echo $re_url;?>">
+	<div class="login-wrap header clearfix">
+        <div id="logo">
+            <a href="<?=$shop_url?>" style="float:left;">
+				<img src="<?= $web['site_logo'] ?>" height="60"/>
+            </a>
+            <b>欢迎登录</b>
+        </div>
+        <div class="head-regist"><a href="<?=sprintf('%s?ctl=Login&act=reg&t=%s&from=%s&callback=%s', Yf_Registry::get('url'), request_string('t'), request_string('from'), urlencode(request_string('callback')))?>" target="_blank">立即注册</a></div>
+    </div>
+	<div id="content">
+		<div class="login-cont">
+			<div class="login-wrap login-wrap-content">
+				<div class="login-form">
+					<div class="login-tab login-tab-r">
+						<a href="javascript:void(0)" class="checked">
+                            账户登录
+                        </a>
+					</div>
+					<div class="login-box" style="visibility: visible;">
+						<div class="mt tab-h">
+						</div>
+						<div class="msg-wrap" style="display:none;">
+							<!--<div class="msg-warn"><b></b>公共场所不建议自动登录，以防账号丢失</div>-->
+							<div class="msg-error"></div>
+						</div>
+						<div class="mc">
+							<div class="form">
+								<form id="formlogin" method="post" onsubmit="return false;">
 
-		
-		<div class="h1"><img src="<?=$this->view->img?>/lg_title.png" alt=""/></div>
-<!--        <div class="sap_tabs"><img src="images/login_ic.png" alt=""/></div>
--->	 <div class="sap_tabs">	
-			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-			  <ul class="resp-tabs-list">
-			  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><div class="top-img"><img src="<?=$this->view->img?>/top-lock.png" alt=""/></div><span>登录</span></li>
-				  <li id="register" class="resp-tab-item" aria-controls="tab_item-1" role="tab"><div class="top-img"><img src="<?=$this->view->img?>/top-note.png" alt=""/></div><span>注册</span></li>
-				  <li id="resetpassword" class="resp-tab-item lost" aria-controls="tab_item-2" role="tab"><div class="top-img"><img src="<?=$this->view->img?>/top-key.png" alt=""/></div><span>找回密码</span></li>
-				  <div class="clear"></div>
-			  </ul>		
-			  <!---->		  	 
-			<div class="resp-tabs-container">
-			 <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
-					 	<div class="facts">
-							 <div class="login">
-							
-							<!-- <form> -->
-								<input type="text" class="text lo_user_account" placeholder="请输入用户名/Email/手机号"><a href="#" class=" icon email"></a>
+									<!--<input type="hidden" name="ctl" value="Login">
+									<input type="hidden" name="met" value="login">
+									<input type="hidden" name="typ" value="e">-->
 
-								<input class="lo_user_password" id="password" type="password" placeholder="请输入您的账户密码" ><a href="#" class=" icon lock"></a>
 
-								<div class="p-container">
-									<div class="submit three">
-									<input type="submit" onclick="loginclick()" value="登         录" >
+									<input type="hidden" name="from" class="from" value="<?php echo $from;?>">
+									<input type="hidden" name="callback" class="callback" value="<?php echo urlencode($callback);?>">
+									<input type="hidden" name="t" class="t" value="<?php echo $t;?>">
+									<input type="hidden" name="type" class="type" value="<?php echo $type;?>">
+									<input type="hidden" name="act" class="act" value="<?php echo $act;?>">
+									<input type="hidden" name="code" class="code" value="<?php echo $code;?>">
+									<input type="hidden" name="re_url" class="re_url" value="<?php echo $re_url;?>">
+
+									<div class="item item-fore1">
+										<label for="loginname" class="login-label name-label"></label>
+										<input id="loginname" type="text" class="itxt lo_user_account" name="user_account" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机">
+										<span class="clear-btn"></span>
 									</div>
-									<div class="clear"> </div>
+									<div id="entry" class="item item-fore2" style="visibility: visible;">
+										<label class="login-label pwd-label" for="nloginpwd"></label>
+										<input type="password" id="nloginpwd" name="user_password" class="itxt itxt-error lo_user_password" tabindex="2" autocomplete="off" placeholder="密码">
+										<span class="clear-btn"></span>
+									</div>
+									<div id="entry" class="item item-fore2 clearfix disp  " style="visibility: visible;">
+										<label class="login-label pwd-label" for="nloginpwd"></label>
+										<input type="text" id="nlogincode" name="nlogincode" class="itxt itxt-error yzm" tabindex="2" autocomplete="off" placeholder="验证码">
+										<span class="contM">
+											<img onClick="get_randfunc(this);" title="换一换" class="img-code" style="cursor:pointer;" src='./libraries/rand_func.php'/>
+										</span>
+									</div>
+									<div class="item item-fore3">
+										<div class="safe">
+											<span>
+                                                <!--<input id="autoLogin" name="chkRememberMe" type="checkbox" class="yfcheckbox" tabindex="3" >
+                                                <label for="">7天内自动登录</label>-->
+                                            </span>
+											<span class="forget-pw-safe">
+                                                <a href="<?=sprintf('%s?ctl=Login&act=reset&t=%s&from=%s&callback=%s', Yf_Registry::get('url'), request_string('t'), request_string('from'), urlencode(request_string('callback')))?>" class="" target="_blank" >忘记密码</a>
+                                            </span>
+										</div>
+									</div>
+
+									<input type="submit" style="display: none;" >
+
+									<div class="item item-fore5">
+										<div class="login-btn">
+											<a href="javascript:;" onclick="loginSubmit()" class="btn-img btn-entry" id="loginsubmit" tabindex="6">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="coagent" style="display: block; visibility: visible;">
+						<div class="titlea">——————— 其他方式登录 ———————</div>
+						<ul>
+
+							<?php if($qq == 1) {?> <!-- 1-开启 2-关闭 -->
+							<li class="bg-1 qq"><a href="<?=$qq_url;?>">QQ</a></li>
+							<?php }?>
+
+							<?php if($wx == 1){
+								?>
+								<li class="bg-1 wx"><a href="<?=$wx_url;?>">微信</a></li>
+							<?php }
+							if($wb == 1){
+								?>
+								<li class="bg-1 wb"><a href="<?=$wb_url;?>">微博</a></li>
+							<?php }?>
+							<li class="extra-r">
+								<div>
+									<div class="regist-link pa"><a href="<?=sprintf('%s?ctl=Login&act=reg&t=%s&from=%s&callback=%s', Yf_Registry::get('url'), request_string('t'), request_string('from'), urlencode(request_string('callback')))?>" target="_blank"><b></b>立即注册</a></div>
 								</div>
-
-							<!-- </form> -->
-                            <!--<div class="buttons">
-								<ul>
-								    <li class="fb">
-										<a href="#" class="hvr-bounce-to-bottom">FACEBOOK</a>
-									</li>
-									<li class="twr">
-										<a href="#" class="hvr-bounce-to-top">TWITTER</a>
-									</li>
-								    <li class="fb">
-										<a href="#" class="hvr-bounce-to-bottom">FACEBOOK</a>
-									</li>
-									<div class="clear"> </div>
-								</ul>
-							</div>-->
-                            <div class="buttons">
-                            <ul>
-                            <?php if($qq == 1) {?> <!-- 1-开启 2-关闭 -->
-                            <li class="fb"><a href="<?=$qq_url;?>"><img src="<?=$this->view->img?>/fast_qq.png" alt=""/></a></li>
-                            <?php }
-                            if($wx == 1){
-                            ?>
-                            <li class="fb"><a href="<?=$wx_url;?>"><img src="<?=$this->view->img?>/fast_wx.png" alt=""/></a></li>
-                            <?php }
-                            if($wb == 1){
-                            ?>
-                            <li class="fb"><a href="<?=$wb_url;?>"><img src="<?=$this->view->img?>/fast_wb.png" alt=""/></a></li>
-                            <?php }?>
-                             </ul>
-                             <div class="clear"></div>
-                           </div>
+							</li>
+						</ul>
 					</div>
-				</div> 
-			</div> 			        					 
-					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-					<div class="facts">
-							<!--login1-->
-							 <div class="login">
-							<!-- <form> -->
-								<input type="text" class="text re_user_account" placeholder="请输入用户账号" ><a href="#" class=" icon email"></a>
-
-								<input type="password" id="password" class="re_user_password" placeholder="请输入您的账户密码" ><a href="#" class=" icon lock"></a>
-								<input type="phone" class="text re_mobile" placeholder="请输入手机号码" ><a href="#" class=" icon phone"></a>
-								<input type="identify" class="text re_user_code" placeholder="输入验证码"><div class="id_get id_get_de" onclick="get_randfunc(this)" style="cursor:pointer;">获取验证码</div>
-									<div class="submit three">
-									<input type="submit" onclick="registclick()" value="注         册" >
-									</div>
-									<div class="clear"> </div>
-
-							<!-- </form> -->
-
-						</div>
-					</div>
-				</div>		
-				 <div class="tab-3 resp-tab-content" aria-labelledby="tab_item-2 item3">
-				     	<div class="facts">
-<div class="login">
-							<!-- <form> -->
-								<!-- <input type="text" class="text ps_user_account" value="请输入用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名';}" ><a href="#" class=" icon email"></a> -->
-
-								<input type="password" id="password" class="ps_user_password" placeholder="重置账户密码"><a href="#" class=" icon lock"></a>
-								<input type="phone" class="text ps_mobile" placeholder="请输入手机号码"><a href="#" class=" icon phone"></a>
-								<input type="identify" class="text ps_user_code" placeholder="输入验证码" ><div class="id_get id_get_ps" onclick="get_ps_randfunc(this)" style="cursor:pointer;">获取验证码</div>
-									<div class="submit three">
-									<input type="submit" onclick="resetPasswdClick()" value="确         认" >
-									</div>
-									<div class="clear"> </div>
-
-							<!-- </form> -->
-						</div>
-                        </div>
-				         	</div>           	      
-				        </div>	
-				     </div>	
-		        </div>
-	        </div>
-	     </div>
+				</div>
+			</div>
+			<div class="login-banner" style="background-color: #ca1933 ">
+				<div class="w">
+					<div id="banner-bg" class="i-inner" style=""></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
+	include $this->view->getTplPath() . '/' . 'footer.php';
+	?>
 
 <script>
 	$(document).ready(function() {
 
-	$from = $(".from").val();
-	$callback = $(".callback").val();
-	$t = $(".t").val();
-    $type = $(".type").val();
-	$act = $(".act").val();
-    $re_url = $(".re_url").val();
-	
-	if($act == 'reg')
-	{
-		$('#register').trigger('click');
-	}
-    if($act == 'reset')
-    {
-        $('#resetpassword').trigger('click');
-    }
+		$from = $(".from").val();
+		$callback = $(".callback").val();
+		$t = $(".t").val();
+		$type = $(".type").val();
+		$act = $(".act").val();
+		$re_url = $(".re_url").val();
 
-    });
+		$(".bg-1").each(function(){
+			if($(this).prev().length>0){
+				$(this).prev().append("<span>|</span>");
+			}
+		});
+		
+	});
+
+
+
+	function codeCallback()
+	{
+		var result = false;
+		if($("#nlogincode").val())
+		{
+			var ajaxurl = './index.php?ctl=Login&met=checkCode&typ=json&yzm='+$("#nlogincode").val();
+			$.ajax({
+				type: "POST",
+				url: ajaxurl,
+				dataType: "json",
+				async: false,
+				success: function (respone)
+				{
+					if(respone.status == 250)
+					{
+						$("#nlogincode").val("");
+						$(".img-code").click();
+
+						$(".msg-wrap").show();
+						$(".msg-error").show();
+
+						$(".msg-error").html('<b></b>'+'验证不正确或已过期');
+						result = false;
+					}
+					else
+					{
+						result = true;
+					}
+				}
+			});
+		}
+		else
+		{
+			$(".msg-wrap").show();
+			$(".msg-erroe").show();
+			$(".msg-error").html('<b></b>'+'请输入图片验证码');
+			result = false;
+		}
+
+		return result;
+	}
+
+
+	$("#formlogin").keydown(function(e){
+		var e = e || event,
+			keycode = e.which || e.keyCode;
+
+		if(keycode == 13)
+		{
+			loginSubmit();
+		}
+	});
+
+	//检验验证码是否正确
 
 	//登录按钮
-    function loginclick(){
-    	var user_account = $('.lo_user_account').val();
-    	var user_password = $('.lo_user_password').val();
-    	/*alert(user_password);
-    	alert(user_account);*/
+	function loginSubmit(){
 
-        $.post("./index.php?ctl=Login&met=login&typ=json",{"user_account":user_account,"user_password":user_password,"t":$t,"type":$type} ,function(data) {
-            console.info(data);
-              if(data.status == 200)
-              {
-                k = data.data.k;
-                u = data.data.user_id;
-                if($callback)
-                {
-                    window.location.href = decodeURIComponent($callback) + '&us=' + encodeURIComponent(u) + '&ks=' + encodeURIComponent(k);
-
-                }
-                else
-                {
-                    window.location.href = decodeURIComponent($re_url);
-                }
-                console.info(k);
-                console.info(u);
-              }else{
-                alert(data.msg);
-                //window.history.back(-1);
-              }
-            });
-
-    };
-
-	//获取注册验证码
-    function get_randfunc()
-    {
-
-		if (!window.randStatus)
+		//判断验证码是否显示。如果显示需要进行验证
+		if($(".disp").css("display")=='block')
 		{
-			return;
+			if(!codeCallback())
+			{
+				return;
+			}
+
 		}
 
-    	var mobile = $('.re_mobile').val();
+		var user_account = $('.lo_user_account').val();
+		var user_password = $('.lo_user_password').val();
 
-        if(!isNaN(mobile) && mobile.length == 11)
-        {
-            var ajaxurl = './index.php?ctl=Login&met=regCode&typ=json&mobile='+mobile;
-            $.ajax({
-                    type: "POST",
-                    url: ajaxurl,
-                    dataType: "json",
-                    async: false,
-                    success: function (respone)
-                    {
-                        if(respone.status == 250)
-                        {
-                            alert('该手机号已注册');
-                        }
-                        else
-                        {
-							window.countDown();
-                            alert('请查看手机短信获取验证码!');
-                        }
-                        
-                        console.info(respone);
-                    }
-                });
-                
-            $('.randfuc').html('重新获取验证码');  
-        }
-        else
-        {
-           alert('请填写手机号!');
-        }
-    	
-    }
+		$("#loginsubmit").html('正在登录...');
 
-	msg = "<?=_('获取验证码')?>";
-	var delayTime = 60;
-	window.randStatus = true;
-	window.countDown = function ()
-	{
-		window.randStatus = false;
-		delayTime--;
-		$('.id_get_de').html(delayTime + "<?=_(' 秒后重新获取')?>");
-		if (delayTime == 0) {
-			delayTime = 60;
-			$('.id_get_de').html(msg);
-
-			clearTimeout(t);
-
-			window.randStatus = true;
-		}
-		else
-		{
-			t=setTimeout(countDown, 1000);
-		}
-	}
-
-	window.randPsStatus = true;
-	var delayPsTime = 60;
-	window.countPsDown = function ()
-	{
-		window.randPsStatus = false;
-		delayPsTime--;
-		$('.id_get_ps').html(delayPsTime + "<?=_(' 秒后重新获取')?>");
-		if (delayPsTime == 0) {
-			delayPsTime = 60;
-			$('.id_get_ps').html(msg);
-
-			clearTimeout(t);
-
-			window.randPsStatus = true;
-		}
-		else
-		{
-			t=setTimeout(countPsDown, 1000);
-		}
-	}
-
-
-    //注册按钮
-    function registclick(){
-    	var user_account = $('.re_user_account').val();
-    	var user_password = $('.re_user_password').val();
-    	var user_code = $('.re_user_code').val();
-    	var mobile = $('.re_mobile').val();
-
-    	/*alert(user_password);
-    	alert(user_account);
-    	alert(user_code);
-    	alert(mobile);*/
-
-        
-        $.post("./index.php?ctl=Login&met=register&typ=json",{"user_account":user_account,"user_password":user_password,"user_code":user_code,"mobile":mobile,"t":$t} ,function(data) {
-            console.info(data);
-              if(data.status == 200)
-              {
-                k = data.data.k;
-                u = data.data.user_id;
-                if($from)
-                {
+		$.post("./index.php?ctl=Login&met=login&typ=json",{"user_account":user_account,"user_password":user_password,"t":$t,"type":$type} ,function(data) {
+			console.info(data);
+			if(data.status == 200)
+			{
+				k = data.data.k;
+				u = data.data.user_id;
+				if($callback)
+				{
 					window.location.href = decodeURIComponent($callback) + '&us=' + encodeURIComponent(u) + '&ks=' + encodeURIComponent(k);
-                }
-                else
-                {
-                    window.location.href = decodeURIComponent($re_url);
-                }
-                console.info(k);
-                console.info(u);
-              }else{
-                alert(data.msg);
-              }
-            });
-    }
 
-    //忘记密码获取验证码
-    function get_ps_randfunc()
-    {
-		if (!window.randPsStatus)
-		{
-			return;
-		}
+				}
+				else
+				{
+					window.location.href = decodeURIComponent($re_url);
+				}
+			}else{
+				$(".msg-warn").hide();
+				$(".msg-error").html('<b></b>'+data.msg);
+				$(".msg-wrap").show();
+				$(".msg-erroe").show();
+				$("#loginsubmit").html('登&nbsp;&nbsp;&nbsp;&nbsp;录');
+			}
+		});
 
-    	var mobile = $('.ps_mobile').val();
-        if(!isNaN(mobile) && mobile.length == 11)
-        {
-            //var user_name = $('.ps_user_account').val();
-            var ajaxurl = './index.php?ctl=Login&met=findPasswdCode&typ=json&mobile='+mobile;
-            $.ajax({
-                    type: "POST",
-                    url: ajaxurl,
-                    dataType: "json",
-                    async: false,
-                    success: function (respone)
-                    {
-                        if(respone.status == 250)
-                        {
-                            alert(respone.msg);
-                        }else
-                        {
-							window.countPsDown();
-                            alert('请查看手机短信获取验证码!');
-                        }
-                        
-                        console.info(respone);
-                    }
-                });
-                
-            $('.randfuc').html('重新获取验证码');
-        }
-        else
-        {
-            alert('请填写手机号!');
-        }
-    	
-    }
+	}
 
-    //重置密码
-    function resetPasswdClick(){
-    	var user_account = $('.ps_user_account').val();
-    	var user_password = $('.ps_user_password').val();
-    	var user_code = $('.ps_user_code').val();
-    	var mobile = $('.ps_mobile').val();
-    	/*alert(user_account);
-    	alert(user_password);
-    	alert(user_code);
-    	alert(mobile);*/
-        
-        $.post("./index.php?ctl=Login&met=resetPasswd&typ=json",{"user_password":user_password,"user_code":user_code,"mobile":mobile} ,function(data) {
-            console.info(data);
-              if(data.status == 200)
-              {
-                alert('重置密码成功，请妥善保管新密码！');
-                //window.location.reload();
-                //window.history.go(-1);
-
-              }else{
-                alert(data.msg);
-              }
-            });
-
-    }
+	function get_randfunc(obj)
+	{
+		var sj = new Date();
+		url = obj.src;
+		obj.src = url + '?' + sj;
+	}
 </script>
+
 </body>
+
 </html>
