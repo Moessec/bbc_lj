@@ -49,7 +49,7 @@ $(function ()
 
                
          }  
-    
+    alert(str);
 
     $(this).find('.outer').html(str); 
     });
