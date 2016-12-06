@@ -208,9 +208,8 @@
     %>
 </script>
 <script type="text/html" id="home_body1">
-<% alert(2) %>
-    <% var common_list = data.data %>
-    <% if(common_list.length >0){ alert(1);%>
+    <% var common_list = data.discount_goods_rows%>
+    <% if(common_list.length >0){ %>
     <%for(j=0;j<common_list.length;j++){%>
     <li class="goods-item" goods_id="<%=goods_list[i].goods_id;%>">
                 <span class="goods-pic">
