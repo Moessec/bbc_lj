@@ -124,6 +124,7 @@ if(!key)
              {
 
             console.log(t);
+                        $("#product-contain"+i).html(template.render('goods'+i, t));
         
              });
     }
