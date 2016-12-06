@@ -52,7 +52,7 @@ $(function ()
     
 
     });
-// alert(2);
+alert(2);
     //展示模版
     setTimeout(err(),100);
     function err(){
