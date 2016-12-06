@@ -40,8 +40,7 @@ $(function ()
 
    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
     {
-        // console.info(t);
-        // alert(1);
+
         var r = t.data.items;
         for (var i=0; i<r.length ;i++)
         {
