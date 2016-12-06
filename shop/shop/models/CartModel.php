@@ -172,7 +172,7 @@ class CartModel extends Cart
 	{
 		$user_id  = Perm::$row['user_id'];
 		$cart_row = $this->getByWhere($cond_row, $order_row);
-
+		
 		$Goods_BaseModel   = new Goods_BaseModel();
 		$Shop_BaseModel    = new Shop_BaseModel();
 		$Goods_CommonModel = new Goods_CommonModel();
@@ -448,6 +448,7 @@ class CartModel extends Cart
 
 			//店铺代金券
 			$voucher_base               = $Voucher_BaseModel->getUserOrderVoucherByWhere(Perm::$userId, $val['shop_id'], $val['sprice']);
+			
 			$data[$key]['voucher_base'] = array_values($voucher_base);
 
 			//获取该店铺可领取的代金券
