@@ -396,7 +396,7 @@
         </ul>
 
         <div class="nctouch-cart-subtotal">
-            <dl id="voucher<%=k%>" style="display: none;">
+            <dl id="voucher<%=k%>">
                 <dt>代金券</dt>
                 <span class="handle">
                             <a href="javascript:void(0);" class="voucher animation-up animation-up<%=k%>"><i></i>使用代金券</a>
@@ -404,6 +404,41 @@
                 <dd><em id="vourchPrice<%=k%>"></em>元</dd>
                 <input type="hidden" class="voucher_list" id="vourch_id<%=k%>" name="vourch_id" value="">
             </dl>
+            <div class="nctouch-cart-block">
+        <!--正在使用的默认地址Begin-->
+        <div class="nctouch-cart-add-default"><a href="javascript:void(0);" id="list-voucher-valve">
+            <dl>
+                <input type="hidden" class="inp" name="voucher_id" id="voucher_id" value="<%=store_cart_list[k].shop_id%>"/>
+                <input type="hidden" class="inp" name="voucher_id" id="position" value="<%=k%>"/>
+                
+                <dt style="width:95%;text-align:right;">选择其他代金券</dt>
+                <dd><span id="address"></span></dd>
+            </dl>
+            <i class="icon-arrow"></i>
+            </a></div>
+        <!--正在使用的默认地址End-->
+    </div>
+    <!--选择djqBegin-->
+    <div id="list-voucher-wrapper" class="nctouch-full-mask hide">
+        <div class="nctouch-full-mask-bg"></div>
+        <div class="nctouch-full-mask-block">
+            <div class="header">
+                <div class="header-wrap">
+                    <div class="header-l"> <a href="javascript:void(0);"> <i class="back"></i> </a> </div>
+                    <div class="header-title">
+                        <h1>我的代金券</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="nctouch-main-layout" style="display: block; position: absolute; top: 0; right: 0; left: 0; bottom:2rem; overflow: hidden; z-index: 1;" id="list-voucher-scroll">
+                <ul class="nctouch-cart-add-list" id="list-voucher-add-list-ul">
+                </ul>
+            </div>
+           
+        </div>
+    </div>
+    <!--选择djqEnd-->
+
           
             
             <div style="display:block;margin-left:5px">
@@ -505,8 +540,83 @@
                 
               });
               
+
+                 $('#list-voucher-valve').click(function(){
+       
+        var shop_id = $(this).find("#voucher_id").val();
+        var position = $(this).find("#position").val();
+        
+        $.ajax({
+           type:'post',
+            url:ApiUrl+'/index.php?ctl=Buyer_Cart&met=confirm&typ=json',
+            dataType:'json',
+            data:{k:key, u:getCookie('id'),product_id:cart_id,ifcart:ifcart,address_id:address_id,position:position},
+            success:function(result){
+               
+                checkLogin(result.login);
+                if (result.status == 250) {
+                    $.sDialog({
+                        skin:"red",
+                        content:result.data.msg,
+                        okBtn:false,
+                        cancelBtn:false
+                    });
+                    return false;
+                }
+                // 商品数据
+                result.data.address_id = address_id;
+                console.info(result.data);
+                result.data.WapSiteUrl = WapSiteUrl;
+                delete result.data.glist.count
+                result.data.glist[shop_id]['position']=position;
+                // data.address_id = address_id;
+                 var html = template.render('list-voucher-add-list-script', result.data.glist[shop_id]);
+                  $("#list-voucher-add-list-ul").html(html);
+            }
+        });
+
+         $.animationLeft({
+        valve : '#list-voucher-valve',
+        wrapper : '#list-voucher-wrapper',
+        scroll : '#list-voucher-scroll'
+    });
+
+    // // 地区选择
+    $('#list-voucher-add-list-ul').on('click', 'li', function(){
+       
+        eval('voucher_info = ' + $(this).attr('data-param'));
+       console.info(voucher_info);
+         var voucher_position='vourchPrice'+voucher_info.position;
+        var sel="#"+voucher_position;
+        var oldPrice= $(sel).html();//旧代金券
+        $(sel).html(voucher_info.voucher_price);
+        var oldTotalPrice=$('#totalPrice').html();
+        
+        //原价
+        var beforePrice=parseInt(oldTotalPrice)+parseInt(oldPrice);
+        
+        var newPrice=beforePrice-voucher_info.voucher_price;
+         $('#totalPrice').html(newPrice);
+         //折扣
+          var rate=$('#ratePrice').html();
+          var newAll=newPrice-rate;
+          $("#totalPayPrice,#onlineTotal").html(newAll);
+          //更换编号
+          var oldvc='#vourch_id'+voucher_info.position;
+          var newid=voucher_info.voucher_id;
+          console.info(newid);
+          $(oldvc).val(newid);
+        // $('#voucher_position').html(voucher_info.voucher_price);
+        // $('#mob_phone').html(address_info.user_address_phone);
+        // $('#address').html(address_info.user_address_area + address_info.user_address_address);
+        // $("#address_id").val(address_info.user_address_id);
+        $('#list-voucher-wrapper').find('.header-l > a').click();
+    });
+    });
+
             });
             </script>
+
 </script>
 <script type="text/html" id="list-address-add-list-script">
     <% var address_list = address; %>
@@ -518,6 +628,24 @@
     </dl>
     </li>
     <% } %>
+</script>
+<script type="text/html" id="list-voucher-add-list-script">
+   
+    <%for( var i in voucher_base){%>
+   <li data-param="{voucher_id:<%=voucher_base[i].voucher_id%>,voucher_price:<%=voucher_base[i].voucher_price%>,position:<%=position%>}">
+     <dl style="padding-bottom:10px;">
+        <dt style="margin-left:10px">金额<span id="" style="color:red">￥<%=voucher_base[i].voucher_price%></span></dt>
+        <dd><span id="">满<%=voucher_base[i].voucher_limit%>&nbsp;可用</span></dd>
+    </dl>
+     <dl style="padding-bottom:10px;border-bottom: 0.2px solid">
+        
+        <dd><span id="">有效期<%=voucher_base[i].voucher_end_date%></span></dd>
+    </dl>
+
+
+   </li>
+ <%}%>
+
 </script>
 <script type="text/html" id="invoice-list-script">
     <div  id="normal">
