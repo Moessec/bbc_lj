@@ -36,7 +36,7 @@ $(function ()
  $('.goods_cont').each(function(){
     var cat_id = $(this).find('.cat_id').val();
     var str='';
-            str+="273627643634623436437";
+            // str+="273627643634623436437";
 
    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
     {
@@ -52,9 +52,13 @@ $(function ()
     
 
     });
-alert(2);
+// alert(2);
     //展示模版
-    $(this).find('.outer').html(str); 
+    setTimeout(err(),100);
+    function err(){
+        $(this).find('.outer').html(str); 
+    }
+    
 
 
     });
