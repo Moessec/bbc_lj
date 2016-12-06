@@ -27,18 +27,9 @@ $(function ()
     {
        var data = e.data.data;
         console.info(e.data.data.discount_goods_rows);
-        var r = template.render("home_body", data);
-        // $("#product_list .goods-secrch-list").append(r);
-        //hasmore = e.hasmore
-       // if(e.data.page < e.data.total)
-       // {
-       //     firstRow = e.data.records;
-       //     hasmore = true;
-       // }
-       //  else
-       // {
-       //     hasmore = false;
-       // }
+        var r = template.render("home_body1", data);
+        $("#product_list .goods-secrch-list").append(r);
+   
     });        
     }
     $.animationLeft({valve: "#search_adv", wrapper: ".nctouch-full-mask", scroll: "#list-items-scroll"});
