@@ -209,8 +209,8 @@
 </script>
 <script type="text/html" id="home_body1">
     <% var common_list = data.discount_goods_rows; %>
-    <% if(common_list.length >0){%>
-    <%for(i=0;i<common_list.length;i++){%>
+    <% if(common_list){%>
+    <%for(var i in common_list){%>
     <li class="goods-item" goods_id="<%=common_list[i].goods_id;%>">
                 <span class="goods-pic">
                     <a href="product_detail.html?goods_id=<%=common_list[i].goods_id;%>">
