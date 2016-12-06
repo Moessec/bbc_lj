@@ -52,9 +52,9 @@ $(function ()
          }  
     
 
+    console.log(str);
     });
     //展示模版
-    console.log(str);
     $(this).find('.outer').html(str); 
 
     });
