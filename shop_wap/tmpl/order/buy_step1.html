@@ -553,19 +553,18 @@
             data:{k:key, u:getCookie('id'),product_id:cart_id,ifcart:ifcart,address_id:address_id,position:position},
             success:function(result){
                
-                checkLogin(result.login);
-                if (result.status == 250) {
-                    $.sDialog({
-                        skin:"red",
-                        content:result.data.msg,
-                        okBtn:false,
-                        cancelBtn:false
-                    });
-                    return false;
-                }
+                
+                // if (result.status == 250) {
+                //     $.sDialog({
+                //         skin:"red",
+                //         content:result.data.msg,
+                //         okBtn:false,
+                //         cancelBtn:false
+                //     });
+                //     return false;
+                // }
                 // 商品数据
                 result.data.address_id = address_id;
-                console.info(result.data);
                 result.data.WapSiteUrl = WapSiteUrl;
                 delete result.data.glist.count
                 result.data.glist[shop_id]['position']=position;
@@ -585,16 +584,13 @@
     $('#list-voucher-add-list-ul').on('click', 'li', function(){
        
         eval('voucher_info = ' + $(this).attr('data-param'));
-       console.info(voucher_info);
          var voucher_position='vourchPrice'+voucher_info.position;
         var sel="#"+voucher_position;
         var oldPrice= $(sel).html();//旧代金券
         $(sel).html(voucher_info.voucher_price);
         var oldTotalPrice=$('#totalPrice').html();
-        
         //原价
         var beforePrice=parseInt(oldTotalPrice)+parseInt(oldPrice);
-        
         var newPrice=beforePrice-voucher_info.voucher_price;
          $('#totalPrice').html(newPrice);
          //折扣
@@ -604,7 +600,6 @@
           //更换编号
           var oldvc='#vourch_id'+voucher_info.position;
           var newid=voucher_info.voucher_id;
-          console.info(newid);
           $(oldvc).val(newid);
         // $('#voucher_position').html(voucher_info.voucher_price);
         // $('#mob_phone').html(address_info.user_address_phone);
