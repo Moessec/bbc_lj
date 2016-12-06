@@ -23,7 +23,7 @@ $(function ()
 {
     if(seller)
     {
-        $(".goods-search-list-nav").css('display','none');
+        $("#nav_ul").css('display','none');
     $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Discount&met=index&op=manage&typ=json&id=1" , function (e)
     {
        var data = e.data;
