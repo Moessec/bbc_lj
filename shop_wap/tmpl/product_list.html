@@ -208,11 +208,9 @@
     %>
 </script>
 <script type="text/html" id="home_body1">
-    <% var common_list = data.items; %>
+    <% var common_list = data.discount_goods_rows; %>
     <% if(common_list.length >0){%>
     <%for(j=0;j<common_list.length;j++){%>
-    <%  var goods_list = common_list[j].good; %>
-    <%for(i=0;i<goods_list.length;i++){%>
     <li class="goods-item" goods_id="<%=goods_list[i].goods_id;%>">
                 <span class="goods-pic">
                     <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
@@ -283,7 +281,7 @@
             </dd>
         </dl>
     </li>
-    <%}%>
+  
     <%}%>
     <% if (hasmore) {%>
     <li class="loading"><div class="spinner"><i></i></div>商品数据读取中...</li>
