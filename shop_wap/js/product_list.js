@@ -18,8 +18,29 @@ var virtual = getQueryString("virtual");
 var ci = getQueryString("ci");
 var myDate = new Date;
 var searchTimes = myDate.getTime();
+var seller = getQueryString("ctl");
 $(function ()
 {
+    if(seller)
+    {
+    $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Discount&met=index&op=manage&typ=json&id=1" , param, function (e)
+    {
+       
+        console.info(e);
+        // var r = template.render("home_body", e);
+        // $("#product_list .goods-secrch-list").append(r);
+        //hasmore = e.hasmore
+       // if(e.data.page < e.data.total)
+       // {
+       //     firstRow = e.data.records;
+       //     hasmore = true;
+       // }
+       //  else
+       // {
+       //     hasmore = false;
+       // }
+    });        
+    }
     $.animationLeft({valve: "#search_adv", wrapper: ".nctouch-full-mask", scroll: "#list-items-scroll"});
     $("#header").on("click", ".header-inp", function ()
     {
