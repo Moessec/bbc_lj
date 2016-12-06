@@ -121,7 +121,10 @@ function markupVension(){
             <ol>
                 <li><a href="<?= $ucenter_admin_url ?>" target="_blank"><i class="nav_href">商城系统</i></a></li>
                 <li><a href="<?= $paycenter_admin_url ?>" target="_blank"><i class="nav_href">PayCenter</i></a></li>
-          
+           <!-- <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">广告系统</i></a></li>
+                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">大数据</i></a></li>
+                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">备份系统</i></a></li>
+                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Login&met=loginout"><i class="nav_href">IM系统</i></a></li> -->
                 <li><img src="<?= Yf_Registry::get('ucenter_api_url') ?>?ctl=Index&met=img&user_id=<?=Perm::$userId?>"><div><span><?=Perm::$row['user_account']?></span><div></li>
                 <li><a href="#"><i class="iconfont icon-top01"></i></a></li>
                 <li><a href="#"><i class="iconfont icon-top02"></i></a></li>
@@ -143,6 +146,23 @@ function markupVension(){
 						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-yonghu"></i><p>用户</p><s></s></a>
 					</li>
 
+					<?php
+					global $server_id;
+					if (!is_file(INI_PATH . '/db_' . $server_id . '.ini.php')):?>
+					<li class="item item-license ">
+						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-shouquan"></i><p>授权</p><s></s></a>
+					</li>
+
+					<li class="item item-setting">
+						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-uc02"></i><p>ERP</p><s></s></a>
+					</li>
+					<li class="item item-setting">
+						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-uc03"></i><p>商城</p><s></s></a>
+					</li>
+					<li class="item item-setting">
+						<a href="javascript:void(0);" class="setting main-nav"><i class="iconfont icon-uc03"></i><p>版本</p><s></s></a>
+					</li>
+					<?php endif; ?>
                 </ul>
                 <div id="sub-nav">
 					<ul class="cur cf" id="setting-base">
@@ -157,6 +177,9 @@ function markupVension(){
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="index.php?ctl=Config&met=sms&typ=e&config_type%5B%5D=sms" rel="pageTab" tabid="sms-setting" tabtxt="短信设置">短信设置</a>
 						</li>
 						<li>
+							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="index.php?ctl=Config&met=register&typ=e&config_type%5B%5D=register" rel="pageTab" tabid="reg-setting" tabtxt="注册设置">注册设置</a>
+						</li>
+						<li>
 							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="index.php?ctl=BaseApp_BaseApp&met=application" rel="pageTab" tabid="app-config" tabtxt="应用配置">应用配置</a>
 						</li>
 					</ul>
@@ -167,7 +190,37 @@ function markupVension(){
 
                     </ul>
 
-					
+					<?php
+					global $server_id;
+					if (!is_file(INI_PATH . '/db_' . $server_id . '.ini.php')):?>
+					<ul class=" cf" id="item-license">
+
+						<li>
+							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="index.php?ctl=Licence&met=index&typ=e" rel="pageTab" tabid="user-list" tabtxt="软件授权">软件授权</a>
+						</li>
+					</ul>
+
+
+					<ul class=" cf" id="setting-base">
+						<li>
+							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="index.php?ctl=User_Base&met=erpAccount&typ=e" rel="pageTab" tabid="erp-list" tabtxt="云版ERP">云版ERP</a>
+						</li>
+					</ul>
+
+
+					<ul class=" cf" id="setting-base">
+						<li>
+							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="index.php?ctl=User_Base&met=shopAccount&typ=e" rel="pageTab" tabid="shop-list" tabtxt="云版商城">云版商城</a>
+						</li>
+					</ul>
+						
+						
+					<ul class=" cf" id="base_app_version-base">
+						<li>
+							<i class="iconfont icon-point"></i><a data-right="BU_QUERY" href="index.php?ctl=Base_AppVersion&met=index&typ=e" rel="pageTab" tabid="version-list" tabtxt="版本管理">版本管理</a>
+						</li>
+					</ul>
+					<?php endif; ?>
 				</div>
             </div>
 			</div>
