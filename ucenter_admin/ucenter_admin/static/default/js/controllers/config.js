@@ -421,6 +421,43 @@ $(function ()
         });
 
     }
+
+    if ($('#reg-setting-form').length >= 0)
+    {
+        $('#reg-setting-form').validator({
+            ignore: ':hidden',
+            theme: 'yellow_right',
+            timely: 1,
+            stopOnError: true,
+            fields: {
+                'register[reg_pwdlength]': 'required; range[1~19]; integer[+]',
+            },
+            valid: function (form)
+            {
+                parent.$.dialog.confirm('修改立马生效,是否继续？', function ()
+                    {
+                        Public.ajaxPost(SITE_URL + '?ctl=Config&met=regConfig&typ=json', $('#reg-setting-form').serialize(), function (data)
+                        {
+                            if (data.status == 200)
+                            {
+                                parent.Public.tips({content: '修改操作成功！'});
+                                location.reload();
+                            }
+                            else
+                            {
+                                parent.Public.tips({type: 1, content: data.msg || '操作无法成功，请稍后重试！'});
+                            }
+                        });
+                    },
+                    function ()
+                    {
+                    });
+            },
+        }).on("click", "a.submit-btn", function (e)
+        {
+            $(e.delegateTarget).trigger("validate");
+        });
+    }
 });
 
 //消息模板
