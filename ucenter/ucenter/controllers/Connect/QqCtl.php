@@ -33,12 +33,13 @@ class Connect_QQCtl extends Yf_AppController implements Connect_Interface
 		parent::__construct($ctl, $met, $typ);
 
 		//$sms_config = include_once 'sms.ini.php'
-		$connect_config = include_once APP_PATH  . '/configs/connect.ini.php';
+		$connect_config = Yf_Registry::get('connect_rows');
 		$this->appid     = $connect_config['qq']['app_id'];
 		$this->appsecret = $connect_config['qq']['app_key'];
 		
 		$this->callback = request_string('callback');//Yf_Registry::get('url')
-		$this->redirect_url = 'http://ucenter.yuanfeng021.com/login.php';
+		$this->redirect_url = Yf_Registry::get('base_url') . '/login.php';
+		
 	}
 
 	public function select()
@@ -59,11 +60,11 @@ class Connect_QQCtl extends Yf_AppController implements Connect_Interface
 		//1.授权
 		if ("QQ")
 		{
-			$url = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=".$this->appid."&redirect_uri=".urlencode($redirect_url)."&client_secret=".$this->appsecret."&state=".urlencode($this->callback)."&cope=get_user_info,get_info&callback=".$this->callback;
+			$url = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=".$this->appid."&redirect_uri=".urlencode($redirect_url)."&client_secret=".$this->appsecret."&state=".urlencode($this->callback)."&cope=get_user_info,get_info&callback=".urlencode($this->callback);
 		}
 		else
 		{
-			$url = "https://open.weixin.qq.com/connect/qrconnect?appid=$appid&redirect_uri=$redirect_uri&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect";
+			$url = "https://open.weixin.qq.com/connect/qrconnect?appid=".$appid."&redirect_uri=".urlencode($redirect_uri)."&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect";
 		}
 
 		location_to($url);
@@ -278,7 +279,7 @@ class Connect_QQCtl extends Yf_AppController implements Connect_Interface
 						//选择,登录绑定还是新创建账号 $user_id == 0
 						if (!Perm::checkUserPerm())
 						{
-							$url = sprintf('%s?ctl=Login&met=select&t=%s&type=%s&from=%s&callback=%s', Yf_Registry::get('url'), $access_token,$type, request_string('from'), request_string('callback'));
+							$url = sprintf('%s?ctl=Login&met=select&t=%s&type=%s&from=%s&callback=%s', Yf_Registry::get('url'), $access_token,$type, request_string('from'), urlencode(request_string('callback')));
 							location_to($url);
 						}
 						else
@@ -326,9 +327,8 @@ class Connect_QQCtl extends Yf_AppController implements Connect_Interface
 				{
 					$us = $result['user_id'];
 					$ks = $result['k'];
-				    $url = sprintf('%s?us=%s&ks=%s', request_string('callback'), $us, $ks);
+				    $url = sprintf('%s&us=%s&ks=%s', request_string('callback'), $us, $ks);
 				    location_to($url);
-
 				}
 				else
 				{

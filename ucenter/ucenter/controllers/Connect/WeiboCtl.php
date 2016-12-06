@@ -32,12 +32,12 @@ class Connect_WeiboCtl extends Yf_AppController implements Connect_Interface
 	{
 		parent::__construct($ctl, $met, $typ);
 
-		$connect_config = include_once APP_PATH  . '/configs/connect.ini.php';
+		$connect_config = Yf_Registry::get('connect_rows');;
 
 		$this->appid     = $connect_config['weibo']['app_id'];
 		$this->appsecret = $connect_config['weibo']['app_key'];
 
-		$this->redirect_url = sprintf('%s?ctl=Connect_Weibo&met=callback&from=%s&callback=%s', Yf_Registry::get('url'),request_string('from'), request_string('callback'));
+		$this->redirect_url = sprintf('%s?ctl=Connect_Weibo&met=callback&from=%s&callback=%s', Yf_Registry::get('url'),request_string('from'), urlencode(request_string('callback')));
 	}
 
 	public function select()
@@ -238,7 +238,7 @@ class Connect_WeiboCtl extends Yf_AppController implements Connect_Interface
 						//选择,登录绑定还是新创建账号 $user_id == 0
 						if (!Perm::checkUserPerm())
 						{
-							$url = sprintf('%s?ctl=Login&met=select&t=%s&type=%s&from=%s&callback=%s', Yf_Registry::get('url'), $access_token,$type, request_string('from'), request_string('callback'));
+							$url = sprintf('%s?ctl=Login&met=select&t=%s&type=%s&from=%s&callback=%s', Yf_Registry::get('url'), $access_token,$type, request_string('from'), urlencode(request_string('callback')));
 							location_to($url);
 						}
 						else
