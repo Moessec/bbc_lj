@@ -28,8 +28,8 @@ $(function ()
        var data = e.data.data;
        // discount_goods_rows
         console.info(e.data.data);
-        var r = template.render("home_body1", data);
-        $("#product_list .goods-secrch-list").append(r);
+        var d = template.render("home_body1", data);
+        $("#product_list .goods-secrch-list").append(d);
    
     });        
     }
