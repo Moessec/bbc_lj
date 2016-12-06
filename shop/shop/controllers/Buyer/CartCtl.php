@@ -211,6 +211,8 @@ class Buyer_CartCtl extends Controller
 	{	
 		$user_id = Perm::$row['user_id'];
 		$address_id = request_int('address_id');
+		$position = request_int('position');
+
 
 
 		//获取用户的折扣信息
@@ -517,7 +519,7 @@ class Buyer_CartCtl extends Controller
 
 		}
 		
-	
+		$data['position']=$position;
 		if ( $this->typ == 'json' )
 		{ 	
 			$this->data->addBody(-140, $data);
