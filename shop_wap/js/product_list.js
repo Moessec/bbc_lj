@@ -23,7 +23,7 @@ $(function ()
 {
     if(seller)
     {
-        $(".nctouch-full-mask").css('display','none');
+        $(".header-title").css('display','none');
     $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Discount&met=index&op=manage&typ=json&id=1" , function (e)
     {
        var data = e.data;
