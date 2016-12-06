@@ -72,7 +72,6 @@
 </div>
 <footer id="footer" class="bottom"></footer>
 <script type="text/html" id="search_items">
-<% alert(5);%>
     <div>
         <dl>
             <dt>价格区间</dt>
@@ -212,25 +211,25 @@
 
     <% var common_list = data.discount_goods_rows%>
     <% if(common_list.length >0){ %>
-    <%for(j=0;j<common_list.length;j++){%>
-    <li class="goods-item" goods_id="<%=goods_list[i].goods_id;%>">
+    <%for(i=0;i<common_list.length;i++){%>
+    <li class="goods-item" goods_id="<%=common_list[i].goods_id;%>">
                 <span class="goods-pic">
-                    <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
-                        <img src="<%=goods_list[i].goods_image;%>"/>
+                    <a href="product_detail.html?goods_id=<%=common_list[i].goods_id;%>">
+                        <img src="<%=common_list[i].goods_image;%>"/>
                     </a>
                 </span>
         <dl class="goods-info">
             <dt class="goods-name">
-                <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
-                    <h4><%=goods_list[i].goods_name;%></h4>
-                    <h6><%=goods_list[i].goods_jingle;%></h6>
+                <a href="product_detail.html?goods_id=<%=common_list[i].goods_id;%>">
+                    <h4><%=common_list[i].goods_name;%></h4>
+                    <h6><%=common_list[i].goods_jingle;%></h6>
                 </a>
             </dt>
             <dd class="goods-sale">
-                <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
-                            <span class="goods-price">￥<em><%=goods_list[i].goods_price;%></em>
+                <a href="product_detail.html?goods_id=<%=common_list[i].goods_id;%>">
+                            <span class="goods-price">￥<em><%=common_list[i].goods_price;%></em>
                                 <%
-                                    if (goods_list[i].sole_flag) {
+                                    if (common_list[i].sole_flag) {
                                 %>
                                     <span class="phone-sale"><i></i>手机专享</span>
                                 <%
@@ -238,27 +237,27 @@
                                 %>
                             </span>
 
-                    <% if (goods_list[i].is_virtual == '1') { %>
+                    <% if (common_list[i].is_virtual == '1') { %>
                     <span class="sale-type">虚拟</span>
                     <% } else { %>
-                    <% if (goods_list[i].is_presell == '1') { %>
+                    <% if (common_list[i].is_presell == '1') { %>
                     <span class="sale-type">预</span>
                     <% } %>
-                    <% if (goods_list[i].is_fcode == '1') { %>
+                    <% if (common_list[i].is_fcode == '1') { %>
                     <span class="sale-type">F</span>
                     <% } %>
                     <% } %>
 
-                    <% if(goods_list[i].group_flag || goods_list[i].xianshi_flag){ %>
+                    <% if(common_list[i].group_flag || common_list[i].xianshi_flag){ %>
                     <span class="sale-type">降</span>
                     <% } %>
-                    <% if(goods_list[i].have_gift == '1'){ %>
+                    <% if(common_list[i].have_gift == '1'){ %>
                     <span class="sale-type">赠</span>
                     <% } %>
                 </a>
             </dd>
             <dd class="goods-assist">
-                <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
+                <a href="product_detail.html?goods_id=<%=common_list[i].goods_id;%>">
                                 <span class="goods-sold">销量
                                     <em><%=common_list[j].common_salenum;%></em>
                                 </span>
@@ -268,13 +267,13 @@
                 </a>
                 <div class="goods-store">
                     <%
-                    if (goods_list[i].is_own_shop == '1') {
+                    if (common_list[i].is_own_shop == '1') {
                     %>
                     <span class="mall">自营</span>
                     <%
                     } else {
                     %>
-                    <a href="javascript:void(0);" data-id='<%=goods_list[i].shop_id;%>'><%=goods_list[i].store_name;%><i></i></a>
+                    <a href="javascript:void(0);" data-id='<%=common_list[i].shop_id;%>'><%=common_list[i].store_name;%><i></i></a>
                     <%
                     }
                     %>
