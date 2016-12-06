@@ -35,7 +35,7 @@ $(function ()
  // setTimeout(function(){
  $('.goods_cont').each(function(){
     var cat_id = $(this).find('.cat_id').val();
-    window.str='';
+    var str='';
    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
     {
 
