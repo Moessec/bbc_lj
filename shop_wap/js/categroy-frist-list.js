@@ -54,10 +54,8 @@ $(function ()
     });
 alert(2);
     //展示模版
-    setTimeout(err(),100);
-    function err(){
-        $(this).find('.outer').html(str); 
-    }
+    $(this).find('.outer').html(str); 
+
     
 
 
