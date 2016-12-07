@@ -35,7 +35,7 @@ $(function() {
             url:ApiUrl+"/index.php?ctl=Buyer_Cart&met=confirm&typ=json",
             data:{k:key, u:getCookie('id'),product_id:cart_id},
             dataType:'json',
-            async:true,
+            async:false,
             success:function(result){
                 checkLogin(result.login);
                 if(result.data.address==null){
