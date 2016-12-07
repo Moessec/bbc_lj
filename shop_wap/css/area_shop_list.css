@@ -5,6 +5,9 @@
 	background-color:#FFFFFF;
 	margin-bottom: 0.6rem;
 }
+.list a {
+	color:orange;
+}
 .header-title{
 	font-size:0.8rem;
 }
