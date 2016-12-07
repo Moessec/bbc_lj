@@ -2,7 +2,7 @@ $(function ()
 {
   var map = new BMap.Map("container1");
   var localSearch = new BMap.LocalSearch(map);   
-  
+  var div = '';
 
   var city = $.cookie('trans_city');
   // alert(city);
@@ -14,14 +14,24 @@ $(function ()
         for(var i in r)
         {
                   temp = r[i].shop_company_address;
-                  // searchByStationName(temp); 
                   tem = temp.split(' ')[1];
-                  // alert(tem);
                   if(tem==city)
                   {
-                    alert(r[i].shop_name);
+                     div += '<a href="../tmpl/product_first_categroy.html?shop_id='+r[i].shop_id+'">
+                        <div class="list">
+                            <div class="list_left"><img src="'+r[i].shop_logo+'" alt=""></div>
+                            <div class="list_right">
+                                <dl>
+                                    <dd class="title">'+r[i].shop_name+'</dd>
+                                    <dd>地址:'+r[i].company_address_detail+'</dd>
+                                    <dd>电话:'+r[i].company_phone+'</dd>
+                                </dl>
+                            </div>
+                            
+                        </div></a>';
                   }
         }
+        $("#shop_info").html(div);
     });
 
 
