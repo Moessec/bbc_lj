@@ -363,6 +363,13 @@ body{
          	padding: 0.5rem;
          }
 
+        .font_inner a {
+            float: left;
+            margin-left: 4rem;
+            margin-top: -1rem;
+            color:orange;
+        } 
+
          .add{
          	display: inline-block;
         	width: 1.2rem;
