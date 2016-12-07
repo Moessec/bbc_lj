@@ -62,6 +62,7 @@ function getPositionError(error) {
       {
         $(".area").html($.cookie('trans_city'));
       }else if(address){
+        $.cookie("address",address,{expires:7});
       $(".area").html(address);
     }
     });        
