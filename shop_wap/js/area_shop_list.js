@@ -38,7 +38,7 @@ $(function ()
                               var address = addComp.city; 
                                 if(address==city)
                                 {
-                                    alert(i);
+                                    alert(r[i].shop_id);
                                 }
 
                                  });
