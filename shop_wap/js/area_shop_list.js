@@ -40,7 +40,7 @@ $(function ()
 
  // alert($.cookie('trans_city'));
 
-    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=cat&typ=json&cat_parent_id=0", function (t)
+    $.getJSON(ApiUrl + "/index.php?ctl=Shop_Class&met=index&typ=json", function (t)
     {
         console.info(t);
     });
