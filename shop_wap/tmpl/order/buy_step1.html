@@ -565,8 +565,8 @@
                 result.data.glist[shop_id]['position']=position;
             
                 
-                 // var html = template.render('list-voucher-add-list-script', result.data.glist[shop_id]);
-                  $("#list-voucher-add-list-ul").html(111);
+                 var html = template.render('list-voucher-add-list-script', result.data.glist[shop_id]);
+                  $("#list-voucher-add-list-ul").html(html);
             }
         });
 
@@ -814,6 +814,6 @@
 <script type="text/javascript" src="../../js/simple-plugin.js"></script>
 <script type="text/javascript" src="../../js/tmpl/order_payment_common.js"></script>
 <script type="text/javascript" src="../../js/tmpl/buy_step1.js"></script>
-
+<script type="text/javascript" src="../../js/tmpl/vconsole.min.js"></script>
 </body>
 </html>
