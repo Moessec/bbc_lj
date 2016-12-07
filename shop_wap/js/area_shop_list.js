@@ -16,9 +16,18 @@ $(function ()
                   temp = r[i].shop_company_address;
                   // searchByStationName(temp); 
                   tem = temp.split(' ')[1];
-                  alert(tem);
+                  // alert(tem);
+                  if(tem==city)
+                  {
+                    alert(r[i].shop_name);
+                  }
         }
     });
+
+
+
+});
+
   // function searchByStationName(info) 
   //    {
   //       map.clearOverlays();//清空原来的标注
@@ -47,8 +56,3 @@ $(function ()
   //           });
   //          localSearch.search(keyword);
   //    } 
-
-
-});
-
-
