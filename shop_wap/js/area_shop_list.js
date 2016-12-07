@@ -13,7 +13,7 @@ $(function ()
          var temp = '';
         for(var i in r)
         {
-                  temp = r[0].shop_company_address;
+                  temp = r[i].shop_company_address;
                   alert(temp);
                   searchByStationName(temp);
                   function searchByStationName(info) 
