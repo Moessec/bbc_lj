@@ -22,17 +22,22 @@ $(function ()
         }
         $("#shop_info").html(div);
     });
-    if($("#shop_info").html()=='')
+    if(div=='')
     {
-                $("#btn4").click(function(){
+                // $("#btn4").click(function(){
                     var txt=  "该社区暂时没有门店!";
                     window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.error);
-                });
-
-                var e = document.createEvent("MouseEvents");
-                e.initEvent("click", true, true);
-                document.getElementById("btn4").dispatchEvent(e);
-            
+                // });
+            //   // IE
+            // if(document.all) {
+            //     document.getElementById("btn4").click();
+            // }
+            // // 其它浏览器
+            // else {
+            //     var e = document.createEvent("MouseEvents");
+            //     e.initEvent("click", true, true);
+            //     document.getElementById("btn4").dispatchEvent(e);
+            // }
      }
 
 
