@@ -18,14 +18,16 @@ $(function ()
                             // var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
                             // alert(poi.point.lng);
                             // alert(poi.point.lat);
-    var point = new BMap.Point(poi.point.lng,poi.point.lat);
-    var geoc = new BMap.Geocoder();    
-    geoc.getLocation(point, function(rs){
-      var addComp = rs.addressComponents;
-      // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
-      var address = addComp.city;  
-      alert(address)  ;  
-         });                       
+    //=============================================================
+    // var point = new BMap.Point(poi.point.lng,poi.point.lat);
+    // var geoc = new BMap.Geocoder();    
+    // geoc.getLocation(point, function(rs){
+    //   var addComp = rs.addressComponents;
+    //   // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
+    //   var address = addComp.city;  
+    //   alert(address)  ;  
+    //      });
+    //==============================================================                       
                             // $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (distance, status) { da.shop_stamp=distance;
                             //     // console.log(da);
                             //  $("#shopinfo").html(template.render('shop_info', da));   
