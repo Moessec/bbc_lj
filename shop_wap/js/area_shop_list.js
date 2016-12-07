@@ -1,7 +1,7 @@
 $(function ()
 {
                   var info = '上海市';
-                  var map = new BMap.Map("container");
+                  var map = new BMap.Map("container1");
                   var localSearch = new BMap.LocalSearch(map);
 
                     function searchByStationName(info) {
