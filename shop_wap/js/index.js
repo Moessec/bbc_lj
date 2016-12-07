@@ -118,16 +118,15 @@ if(!key)
  //            $("#product-contain2").html(template.render('goods2', data));
  //        }
  //    });
-    for(var i=1;i<=3;i++)
-    {
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+i, function (t)
+
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=3", function (t)
              {
 
             console.log(t);
-                        $("#product-contain"+i).html(template.render('goods'+i, t));
+                        $("#product-contain3").html(template.render('goods3', t));
         
              });
-    }
+
 //*******************加入购物车功能*********************************
 
 setTimeout(function(){
