@@ -23,14 +23,14 @@ $(function ()
                   }
         }
         $("#shop_info").html(div);
+        if(div==''&&flag==0)
+        {
+
+            var txt=  "该社区暂时没有门店!";
+            window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.error);
+
+         }
     });
-    if(div==''&&flag==0)
-    {
-
-        var txt=  "该社区暂时没有门店!";
-        window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.error);
-
-     }
 
 
 
