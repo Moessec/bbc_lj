@@ -24,7 +24,8 @@ $(function ()
       var addComp = rs.addressComponents;
       // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
       var address = addComp.city;  
-      alert(address)  ;                       
+      alert(address)  ;  
+         });                       
                             // $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (distance, status) { da.shop_stamp=distance;
                             //     // console.log(da);
                             //  $("#shopinfo").html(template.render('shop_info', da));   
