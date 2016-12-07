@@ -5,6 +5,7 @@ $(function ()
   
 
   var city = $.cookie('trans_city');
+  alert(city);
     $.getJSON(ApiUrl + "/index.php?ctl=Shop_Shoplist&met=index&typ=json", function (t)
     {
         var r = t.data.items;
@@ -13,7 +14,8 @@ $(function ()
         for(var i in r)
         {
                   temp = r[i].shop_company_address;
-                  var check_city = searchByStationName(temp);  
+                  var check_city = searchByStationName(temp); 
+                  alert(check_city) ;
                   if(check_city==city) 
                   {
                     alert(i);
