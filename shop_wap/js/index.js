@@ -103,7 +103,7 @@ if(!key)
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=2", function (t)
              {
 
-            console.log(t);
+            // console.log(t);
                         $("#product-contain3").html(template.render('goods3', t));
         
              });
