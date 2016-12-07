@@ -39,7 +39,7 @@ $(function ()
                               var address = addComp.city; 
                                 if(address==city)
                                 {
-                                    alert(r[i].shop_id);
+                                    alert(r[i].shop_name);
                                 }
 
                                  });
