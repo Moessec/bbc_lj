@@ -34,7 +34,8 @@ class Shop_ShoplistCtl extends Yf_AppController
 	public function index()
 	{
 
-			$data = $this->Shop_ShoplistModel->getBaseList($cond_row, $order_row, '', '');
+			// $data = $this->Shop_ShoplistModel->getBaseList($cond_row, $order_row, '', '');
+			$data = $this->Shop_ShoplistModel->getBaseList();
 
 		$this->data->addBody(-140, $data);
 	}
