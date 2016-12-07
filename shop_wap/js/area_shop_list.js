@@ -27,7 +27,7 @@ $(function ()
         {
 
             var txt=  "该社区暂时没有门店!";
-            window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.error);
+            window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.confirm);
 
          }
     });
