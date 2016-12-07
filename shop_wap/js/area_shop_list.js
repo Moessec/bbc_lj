@@ -17,11 +17,11 @@ $(function ()
                   searchByStationName(temp); 
         }
     });
+        var address = '';
   function searchByStationName(info) 
      {
         map.clearOverlays();//清空原来的标注
         var keyword = info;
-        var address = '';
 
         localSearch.setSearchCompleteCallback(function (searchResult) {
             var poi = searchResult.getPoi(0);
