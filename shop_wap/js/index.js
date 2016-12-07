@@ -119,7 +119,7 @@ if(!key)
  //        }
  //    });
 
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=3", function (t)
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=2", function (t)
              {
 
             console.log(t);
