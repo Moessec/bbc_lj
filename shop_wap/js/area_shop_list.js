@@ -24,7 +24,7 @@ $(function ()
     });
 
                 $("#btn4").click(function(){
-                    var txt=  "提示文字，提示文字，提示文字，提示文字，提示文字，提示文字";
+                    var txt=  "该社区暂时没有门店!";
                     window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.error);
                 });
 
