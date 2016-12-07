@@ -46,7 +46,7 @@ $(function() {
                 console.info(data);
                 data.address_id = address_id;
                 var html = template.render('list-address-add-list-script', data);
-                $("#list-address-add-list-ul").html(11);
+                $("#list-address-add-list-ul").html(html);
                
             }
         });
