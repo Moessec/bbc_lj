@@ -555,7 +555,7 @@
            type:'post',
             url:ApiUrl+'index.php?ctl=Buyer_Cart&met=confirm&typ=json',
             data:{k:key, u:getCookie('id'),product_id:cart_id,ifcart:ifcart,address_id:address_id,position:position},
-            
+            async:true,
             dataType:'json',
           
            
