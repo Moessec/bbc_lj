@@ -431,7 +431,7 @@
                 </div>
             </div>
             <div class="nctouch-main-layout" style="display: block; position: absolute; top: 0; right: 0; left: 0; bottom:2rem; overflow: hidden; z-index: 1;" id="list-voucher-scroll">
-                <ul class="nctouch-cart-add-list" id="list-voucher-add-list-ul">
+                <ul class="nctouch-cart-add-list" id="list-voucher-add-list-ul">111
                 </ul>
             </div>
            
@@ -563,15 +563,16 @@
             
               
                 result.data.glist[shop_id]['position']=position;
-                // data.address_id = address_id;
+            
+                
                  var html = template.render('list-voucher-add-list-script', result.data.glist[shop_id]);
-                  $("#list-voucher-add-list-ul").html(html);
+                  // $("#list-voucher-add-list-ul").html(html);
             }
         });
 
          });
 
-        
+
          $.animationLeft({
         valve : '#list-voucher-valve',
         wrapper : '#list-voucher-wrapper',
