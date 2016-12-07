@@ -14,13 +14,7 @@ $(function ()
         for(var i in r)
         {
                   temp = r[i].shop_company_address;
-                  var check_city = searchByStationName(temp); 
-                  alert(check_city) ;
-                  if(check_city==city) 
-                  {
-                    alert(i);
-                  }          
-
+                  searchByStationName(temp); 
         }
     });
   function searchByStationName(info) 
@@ -43,8 +37,12 @@ $(function ()
             geoc.getLocation(point, function(rs){
               var addComp = rs.addressComponents;
               // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
-              var address = addComp.city;  
-             return address;
+              var address = addComp.city; 
+              if(address==city) 
+                  {
+                    alert(2);
+                  }   
+              
                  });
             //==============================================================                       
 
