@@ -1,6 +1,7 @@
 $(function ()
 {
                   var info = $.cookie('trans_city');
+                  var info = '上海上海市宝山区高跃路176号411室';
                   var map = new BMap.Map("container1");
                   var localSearch = new BMap.LocalSearch(map);
 
@@ -19,14 +20,14 @@ $(function ()
                             // alert(poi.point.lng);
                             // alert(poi.point.lat);
     //=============================================================
-    // var point = new BMap.Point(poi.point.lng,poi.point.lat);
-    // var geoc = new BMap.Geocoder();    
-    // geoc.getLocation(point, function(rs){
-    //   var addComp = rs.addressComponents;
-    //   // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
-    //   var address = addComp.city;  
-    //   alert(address)  ;  
-    //      });
+    var point = new BMap.Point(poi.point.lng,poi.point.lat);
+    var geoc = new BMap.Geocoder();    
+    geoc.getLocation(point, function(rs){
+      var addComp = rs.addressComponents;
+      var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
+      // var address = addComp.city;  
+      alert(address)  ;  
+         });
     //==============================================================                       
                             // $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (distance, status) { da.shop_stamp=distance;
                             //     // console.log(da);
