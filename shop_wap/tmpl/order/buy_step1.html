@@ -627,18 +627,38 @@
 <script type="text/html" id="list-voucher-add-list-script">
    
     <%for( var i in voucher_base){%>
-   <li data-param="{voucher_id:<%=voucher_base[i].voucher_id%>,voucher_price:<%=voucher_base[i].voucher_price%>,position:<%=position%>}">
-     <dl style="padding-bottom:10px;">
-        <dt style="margin-left:10px">金额<span id="" style="color:red">￥<%=voucher_base[i].voucher_price%></span></dt>
-        <dd><span id="">满<%=voucher_base[i].voucher_limit%>&nbsp;可用</span></dd>
-    </dl>
-     <dl style="padding-bottom:10px;border-bottom: 0.2px solid">
-        
-        <dd><span id="">有效期<%=voucher_base[i].voucher_end_date%></span></dd>
-    </dl>
+   
 
 
-   </li>
+    <li style="background: url(../../../../shop/shop/static/default/images/line_50.png) no-repeat;background-size:cover;margin-top:10px; "  data-param="{voucher_id:<%=voucher_base[i].voucher_id%>,voucher_price:<%=voucher_base[i].voucher_price%>,position:<%=position%>}">
+                   
+                        <dl style="padding: 0.5rem 0.5rem 0 0px;height:139px">
+                           
+                      <dd style="height:30px;text-align:left;margin:13px 0.5rem 0 3%">
+                      <span style="color:red;font-size:14px"><b>￥<%=voucher_base[i].voucher_price %></b></span>
+                       
+                  
+                               
+                     </dd>   
+                    
+                   
+                   
+                     <dd style="height:30px;text-align:left;margin:13px 0.5rem 0 3%">
+                      (满 <span style="color:red"><%=voucher_base[i].voucher_limit %>元 </span>
+                                   可用)
+                     </dd>
+                     
+                    <dd style="height:30px;text-align:left;margin:13px 0.5rem 0 3%">
+                    <span>有效期至&nbsp;    <%=voucher_base[i].voucher_end_date %></span>
+
+                   
+
+                    </dd>
+              
+                           
+                        </dl>
+                      
+                    </li>
  <%}%>
 
 </script>
