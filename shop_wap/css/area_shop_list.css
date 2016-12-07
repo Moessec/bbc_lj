@@ -2,6 +2,8 @@
 	width:100%;
 	font-size:0.8rem;
 	color:#3A3A3A;
+	background-color:#FFFFFF;
+	margin-bottom: 0.6rem;
 }
 .header-title{
 	font-size:0.8rem;
@@ -14,7 +16,7 @@
 	float:left;
 }
 .list_left img{
-	height:5rem;width:5rem
+	height:3rem;width:5rem
 
 }
 .list_right{
