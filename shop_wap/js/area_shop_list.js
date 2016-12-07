@@ -28,16 +28,11 @@ $(function ()
                     var txt=  "该社区暂时没有门店!";
                     window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.error);
                 });
-              // IE
-            if(document.all) {
-                document.getElementById("btn4").click();
-            }
-            // 其它浏览器
-            else {
+
                 var e = document.createEvent("MouseEvents");
                 e.initEvent("click", true, true);
                 document.getElementById("btn4").dispatchEvent(e);
-            }
+            
      }
 
 
