@@ -6,11 +6,12 @@ $(function ()
         var r = t.data.items;
         // console.info(r);
          var temp = '';
+      var map = new BMap.Map("container1");
+      var localSearch = new BMap.LocalSearch(map);         
         for(var i in r)
         {
                   temp = r[i].shop_company_address;
-                  var map = new BMap.Map("container1");
-                  var localSearch = new BMap.LocalSearch(map);
+
                   searchByStationName(temp);             
 
         }
