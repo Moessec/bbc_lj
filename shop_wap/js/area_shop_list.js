@@ -1,6 +1,6 @@
 $(function ()
 {
-                  var info = '上海市';
+                  var info = $.cookie('trans_city');
                   var map = new BMap.Map("container1");
                   var localSearch = new BMap.LocalSearch(map);
 
