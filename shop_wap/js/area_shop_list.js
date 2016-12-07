@@ -7,9 +7,10 @@ $(function ()
     {
         var r = t.data.items;
         // console.info(r);
+         var temp = '';
         for(var i in r)
         {
-                  var temp = r.shop_company_address;
+                  temp = r.shop_company_address;
                   var map = new BMap.Map("container1");
                   var localSearch = new BMap.LocalSearch(map);
 
