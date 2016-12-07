@@ -1,13 +1,13 @@
 $(function ()
 {
+      var map = new BMap.Map("container1");
+      var localSearch = new BMap.LocalSearch(map);         
   var city = $.cookie('trans_city');
     $.getJSON(ApiUrl + "/index.php?ctl=Shop_Shoplist&met=index&typ=json", function (t)
     {
         var r = t.data.items;
         // console.info(r);
          var temp = '';
-      var map = new BMap.Map("container1");
-      var localSearch = new BMap.LocalSearch(map);         
         for(var i in r)
         {
                   temp = r[i].shop_company_address;
