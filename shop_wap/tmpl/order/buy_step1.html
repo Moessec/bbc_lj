@@ -555,13 +555,12 @@
            type:'post',
             url:ApiUrl+'index.php?ctl=Buyer_Cart&met=confirm&typ=json',
             data:{k:key, u:getCookie('id'),product_id:cart_id,ifcart:ifcart,address_id:address_id,position:position},
-            async:false,
             dataType:'json',
-          
+           async:false,
            
             success:function(result){
                
-              
+            
               
                 result.data.glist[shop_id]['position']=position;
                 // data.address_id = address_id;
@@ -569,6 +568,8 @@
                   $("#list-voucher-add-list-ul").html(html);
             }
         });
+
+         });
          $.animationLeft({
         valve : '#list-voucher-valve',
         wrapper : '#list-voucher-wrapper',
@@ -603,7 +604,7 @@
       
         $('#list-voucher-wrapper').find('.header-l > a').click();
     });
-    });
+   
 
             });
             </script>
