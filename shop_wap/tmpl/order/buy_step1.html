@@ -556,7 +556,7 @@
             url:ApiUrl+'index.php?ctl=Buyer_Cart&met=confirm&typ=json',
             data:{k:key, u:getCookie('id'),product_id:cart_id,ifcart:ifcart,address_id:address_id,position:position},
             dataType:'json',
-           async:false,
+           async:true,
            
             success:function(result){
                
@@ -570,6 +570,8 @@
         });
 
          });
+
+        
          $.animationLeft({
         valve : '#list-voucher-valve',
         wrapper : '#list-voucher-wrapper',
