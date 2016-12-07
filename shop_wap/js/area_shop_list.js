@@ -22,7 +22,7 @@ $(function ()
         }
         $("#shop_info").html(div);
     });
-    if(div=='')
+    if($("#shop_info").html()=='')
     {
                 $("#btn4").click(function(){
                     var txt=  "该社区暂时没有门店!";
