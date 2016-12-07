@@ -34,8 +34,8 @@ $(function ()
                             var geoc = new BMap.Geocoder();    
                             geoc.getLocation(point, function(rs){
                               var addComp = rs.addressComponents;
-                              var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
-                              // var address = addComp.city;  
+                              // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
+                              var address = addComp.city;  
                               alert(address)  ;  
                                  });
                             //==============================================================                       
