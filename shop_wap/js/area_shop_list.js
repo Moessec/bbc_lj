@@ -5,7 +5,7 @@ $(function ()
   
 
   var city = $.cookie('trans_city');
-  alert(city);
+  // alert(city);
     $.getJSON(ApiUrl + "/index.php?ctl=Shop_Shoplist&met=index&typ=json", function (t)
     {
         var r = t.data.items;
@@ -14,10 +14,9 @@ $(function ()
         for(var i in r)
         {
                   temp = r[i].shop_company_address;
-                  searchByStationName(temp); 
+                  console.log(searchByStationName(temp)); 
         }
     });
-        var address = '';
   function searchByStationName(info) 
      {
         map.clearOverlays();//清空原来的标注
@@ -38,18 +37,17 @@ $(function ()
             geoc.getLocation(point, function(rs){
               var addComp = rs.addressComponents;
               // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
-              address = addComp.city; 
+              var address = addComp.city; 
               // if(address==city) 
               //     {
               //       alert(2);
               //     }   
               
-                 });
+              //    });
             //==============================================================                       
 
             });
            localSearch.search(keyword);
-           alert(address);
      } 
 
 
