@@ -14,7 +14,7 @@ $(function ()
         for(var i in r)
         {
                   temp = r[i].shop_company_address;
-                  console.log(searchByStationName(temp)); 
+                  searchByStationName(temp); 
         }
     });
   function searchByStationName(info) 
@@ -38,10 +38,10 @@ $(function ()
               var addComp = rs.addressComponents;
               // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
               var address = addComp.city; 
-              // if(address==city) 
-              //     {
-              //       alert(2);
-              //     }   
+              if(address==city) 
+                  {
+                    alert(i);
+                  }   
               
                  });
             //==============================================================                       
