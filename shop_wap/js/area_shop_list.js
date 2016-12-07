@@ -11,6 +11,7 @@ $(function ()
         for(var i in r)
         {
                   temp = r.shop_company_address;
+                  alert(temp);
                   var map = new BMap.Map("container1");
                   var localSearch = new BMap.LocalSearch(map);
 
