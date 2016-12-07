@@ -23,7 +23,10 @@ $(function ()
         $("#shop_info").html(div);
     });
 
-
+                $("#btn4").click(function(){
+                    var txt=  "提示文字，提示文字，提示文字，提示文字，提示文字，提示文字";
+                    window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.error);
+                });
 
 });
 
