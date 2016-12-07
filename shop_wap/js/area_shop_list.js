@@ -21,6 +21,7 @@ $(function ()
      {
         map.clearOverlays();//清空原来的标注
         var keyword = info;
+        var address = '';
 
         localSearch.setSearchCompleteCallback(function (searchResult) {
             var poi = searchResult.getPoi(0);
@@ -37,7 +38,7 @@ $(function ()
             geoc.getLocation(point, function(rs){
               var addComp = rs.addressComponents;
               // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
-              var address = addComp.city; 
+              address = addComp.city; 
               // if(address==city) 
               //     {
               //       alert(2);
