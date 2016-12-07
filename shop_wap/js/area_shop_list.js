@@ -30,7 +30,7 @@ $(function ()
                 });
               // IE
             if(document.all) {
-                document.getElementById("cityChoice").click();
+                document.getElementById("btn4").click();
             }
             // 其它浏览器
             else {
@@ -38,7 +38,7 @@ $(function ()
                 e.initEvent("click", true, true);
                 document.getElementById("btn4").dispatchEvent(e);
             }
-            }
+     }
 
 
 
