@@ -1,7 +1,9 @@
 $(function ()
 {
-      var map = new BMap.Map("container1");
-      var localSearch = new BMap.LocalSearch(map);         
+  var map = new BMap.Map("container1");
+  var localSearch = new BMap.LocalSearch(map);   
+  
+
   var city = $.cookie('trans_city');
     $.getJSON(ApiUrl + "/index.php?ctl=Shop_Shoplist&met=index&typ=json", function (t)
     {
@@ -11,8 +13,11 @@ $(function ()
         for(var i in r)
         {
                   temp = r[i].shop_company_address;
-
-                  searchByStationName(temp);             
+                  var check_city = searchByStationName(temp);  
+                  if(check_city==city) 
+                  {
+                    alert(i);
+                  }          
 
         }
     });
@@ -37,7 +42,7 @@ $(function ()
               var addComp = rs.addressComponents;
               // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
               var address = addComp.city;  
-              alert(address)  ;  
+             return address;
                  });
             //==============================================================                       
 
