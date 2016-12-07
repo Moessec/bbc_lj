@@ -281,7 +281,7 @@ window.onload = function() {
 		//1文字轮播(2-5页中间)开始
 	
 	$(".font_inner li:eq(0)").clone(true).appendTo($(".font_inner"));//克隆第一个放到最后(实现无缝滚动)
-	var liHeight = $(".swiper_wrap").height();//一个li的高度
+	var liHeight = $(".swiper_wrap").height()*19;//一个li的高度
 	//获取li的总高度再减去一个li的高度(再减一个Li是因为克隆了多出了一个Li的高度)
 	var totalHeight = ($(".font_inner li").length *  $(".font_inner li").eq(0).height()) -liHeight;
 	$(".font_inner").height(totalHeight);//给ul赋值高度
