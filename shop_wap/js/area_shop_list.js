@@ -1,8 +1,6 @@
 $(function ()
 {
   var city = $.cookie('trans_city');
-  // alert($.cookie('trans_city'));
-
     $.getJSON(ApiUrl + "/index.php?ctl=Shop_Shoplist&met=index&typ=json", function (t)
     {
         var r = t.data.items;
