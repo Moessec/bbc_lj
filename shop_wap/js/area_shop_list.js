@@ -13,7 +13,8 @@ $(function ()
          var temp = '';
         for(var i in r)
         {
-                  temp = r[i].shop_company_address;
+                  // temp = r[i].shop_company_address;
+                  temp = '上海';
                   alert(temp);
                   searchByStationName(temp);
                   function searchByStationName(info) 
