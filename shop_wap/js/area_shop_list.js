@@ -1,6 +1,15 @@
 $(function ()
 {
-                  var info = $.cookie('trans_city');
+  var city = $.cookie('trans_city');
+  // alert($.cookie('trans_city'));
+
+    $.getJSON(ApiUrl + "/index.php?ctl=Shop_Shoplist&met=index&typ=json", function (t)
+    {
+        var r = t.data.items;
+        // console.info(r);
+        for(var i in r)
+        {
+                  var temp = r.shop_company_address;
                   var map = new BMap.Map("container1");
                   var localSearch = new BMap.LocalSearch(map);
 
@@ -19,31 +28,22 @@ $(function ()
                             // alert(poi.point.lng);
                             // alert(poi.point.lat);
                             //=============================================================
-                            // var point = new BMap.Point(poi.point.lng,poi.point.lat);
-                            // var geoc = new BMap.Geocoder();    
-                            // geoc.getLocation(point, function(rs){
-                            //   var addComp = rs.addressComponents;
-                            //   var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
-                            //   // var address = addComp.city;  
-                            //   alert(address)  ;  
-                            //      });
+                            var point = new BMap.Point(poi.point.lng,poi.point.lat);
+                            var geoc = new BMap.Geocoder();    
+                            geoc.getLocation(point, function(rs){
+                              var addComp = rs.addressComponents;
+                              var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
+                              // var address = addComp.city;  
+                              alert(address)  ;  
+                                 });
                             //==============================================================                       
-                            // $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (distance, status) { da.shop_stamp=distance;
-                            //     // console.log(da);
-                            //  $("#shopinfo").html(template.render('shop_info', da));   
-                            //  });
 
                             });
                            localSearch.search(keyword);
                         } 
-                    searchByStationName(info); 
+                    searchByStationName(temp);             
 
- // alert($.cookie('trans_city'));
-
-    $.getJSON(ApiUrl + "/index.php?ctl=Shop_Shoplist&met=index&typ=json", function (t)
-    {
-        var r = t.data.items;
-        console.info(r);
+        }
     });
 
 
