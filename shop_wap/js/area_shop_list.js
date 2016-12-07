@@ -42,7 +42,8 @@ $(function ()
 
     $.getJSON(ApiUrl + "/index.php?ctl=Shop_Shoplist&met=index&typ=json", function (t)
     {
-        console.info(t);
+        var r = t.items;
+        console.info(r);
     });
 
 
