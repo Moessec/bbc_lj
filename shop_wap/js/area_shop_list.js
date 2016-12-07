@@ -38,16 +38,17 @@ $(function ()
               var addComp = rs.addressComponents;
               // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
               var address = addComp.city; 
-              if(address==city) 
-                  {
-                    alert(2);
-                  }   
+              // if(address==city) 
+              //     {
+              //       alert(2);
+              //     }   
               
-                 });
+              //    });
             //==============================================================                       
 
             });
            localSearch.search(keyword);
+           alert(address);
      } 
 
 
