@@ -16,8 +16,8 @@ $(function ()
         {
                   temp = r[i].shop_company_address;
                   tem = temp.split(' ')[1];
-                  alert(tem);
-                  alert(city);
+                  // alert(tem);
+                  // alert(city);
                   if(tem==city)
                   {
                     flag = 1;
