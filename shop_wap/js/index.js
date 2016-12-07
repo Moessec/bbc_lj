@@ -41,7 +41,7 @@ $(function() {
                 }
             });
   var trans_city = getCookie('trans_city'); 
-  alert(trans_city);
+  // alert(trans_city);
  var key = getCookie('key');
   var unixTimeToDateString = function(ts, ex) {
         ts = parseFloat(ts) || 0;
