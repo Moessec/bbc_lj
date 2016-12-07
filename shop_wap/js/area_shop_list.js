@@ -10,8 +10,8 @@ $(function ()
          var temp = '';
         for(var i in r)
         {
-                  temp = r.shop_company_address;
-                  alert(temp);
+                  temp = r[i].shop_company_address;
+
                   var map = new BMap.Map("container1");
                   var localSearch = new BMap.LocalSearch(map);
 
