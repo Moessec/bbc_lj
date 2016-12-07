@@ -5,6 +5,7 @@ $(function ()
   var div = '';
 
   var city = $.cookie('trans_city');
+  $("#city").html(city);
   // alert(city);
     $.getJSON(ApiUrl + "/index.php?ctl=Shop_Shoplist&met=index&typ=json", function (t)
     {
