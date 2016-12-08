@@ -37,8 +37,8 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <span id="explanationZoom" title="收起提示"></span><em class="close_warn">X</em>
         </div>
         <ul>
-              <li>该组幻灯片滚动图片应用于首页使用，最多可上传5张图片。</li>
-              <li>图片要求使用宽度为1900像素，高度为500像素jpg/gif/png格式的图片。</li>
+              <li>该组幻灯片滚动图片应用于首页使用，最多可上传20张图片。</li>
+              <li>图片要求使用宽度为96像素，高度为96像素jpg/gif/png格式的图片。</li>
               <li>上传图片后请添加格式为“http://网址...”链接地址，设定后将在显示页面中点击幻灯片将以另打开窗口的形式跳转到指定网址。</li>
         </ul>
     </div>
