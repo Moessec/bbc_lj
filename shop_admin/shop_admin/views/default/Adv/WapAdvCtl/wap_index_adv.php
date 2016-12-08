@@ -18,7 +18,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         <div class="item-title">
             <div class="subject">
                 <h3>模板风格</h3>
-                <h5>首页幻灯将在首页展示</h5>
+                <h5>首页广告位</h5>
             </div>
             <ul class="tab-base nc-row">
 
