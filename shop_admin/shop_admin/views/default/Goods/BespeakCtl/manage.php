@@ -39,7 +39,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 			  <li class="form-item">
                       <style>
                         .txt{ height:28px; border:1px solid #cdcdcd; width:670px;    font-size: 1rem;}
-                        .mybtn{ background-color:#FFF; line-height:14px;vertical-align:middle;border:1px solid #CDCDCD;height:30px; width:70px;    font-size: 1rem;margin-left: 40px}
+                        .mybtn{ background-color:#FFF; line-height:14px;vertical-align:middle;border:1px solid #CDCDCD;height:30px; width:70px;    font-size: 1rem;}
                         .file{ position:absolute; top:0;    font-size: 0.6rem; right:80px; height:24px; filter:alpha(opacity:0);opacity: 0;width:260px }
                         </style>
                         <div class="form-group">
