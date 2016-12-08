@@ -30,7 +30,6 @@ $(function ()
             $(".pre-loading").hide();
             new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
         });
-        e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
 // ========================钓起数据===================================
      $('.goods_cont').eq(0).each(function(e){
         var cat_id = $(this).find('.cat_id').val();
@@ -143,6 +142,8 @@ $(function ()
         });
         });
 //===========================钓起数据信息结束==============================
+        e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
+
 });
 
 
