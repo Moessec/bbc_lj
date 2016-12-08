@@ -52,12 +52,14 @@ $(function ()
          }  
     
      
-    console.log(str);    $(this).eq(e).find('.outer').html(str); 
+    console.log(str);  setTimeout(function(){ 
+        $(this).eq(e).find('.outer').html(str); 
+    },100);  
     });
    // alert(e);
     //展示模版
     // $(this).find('.outer').html(str); 
-    $(this).eq(e+1).find('.outer').html(str); 
+    // $(this).eq(e+1).find('.outer').html(str); 
 
     });
 },100)
