@@ -15,7 +15,7 @@ $(function ()
                 checkLogin(a.login);
                 console.log(a);
                 $.each(a.data, function(key, value){
-                       tem='<dl><img src="'+value.bespeak_img+'" style="width:100%"><span class="com">活动详情：<br><dd style="width:90%;margin:auto">'+value.bespeak_com+'</dd></span><dt>联系人：<span class="name" id="name">'+value.true_name+'</span></dt><dt>联系方式：<span class="name">'+value.usercontact+'</span></dt><div class="error-tips"></div><div class="form-btn"><a class="btn" href="bespeak_adv.html?bespeak_id='+value.bespeak_id+'">申请预约</a></div></dl>';
+                       tem='<dl><img src="'+value.bespeak_img+'" style="width:100%"><span>活动详情：<br><dd style="width:90%;margin:auto">'+value.bespeak_com+'</dd></span><dt>联系人：<span class="name" id="name">'+value.true_name+'</span></dt><dt>联系方式：<span class="name">'+value.usercontact+'</span></dt><div class="error-tips"></div><div class="form-btn"><a class="btn" href="bespeak_adv.html?bespeak_id='+value.bespeak_id+'">申请预约</a></div></dl>';
                     $("#bespeak_list").append(tem);
                 })
                 $("#img").attr('src',a.data.bespeak_img);
