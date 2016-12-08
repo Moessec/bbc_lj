@@ -47,6 +47,10 @@ $(function ()
     // console.log(str); 
     });
     alert(r);
+    if(!r)
+    {
+        continue;
+    }
     for (var i in r)
     {
         if(i<4)
