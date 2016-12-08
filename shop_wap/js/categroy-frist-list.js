@@ -32,10 +32,10 @@ $(function ()
         });
         e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
  
+    var str='';
  setTimeout(function(){
  $('.goods_cont').each(function(e){
     var cat_id = $(this).find('.cat_id').val();
-    var str='';
     var r = '';
    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
     {
@@ -58,7 +58,7 @@ $(function ()
 
 
     });
-    $('.goods_cont').find('.outer').html(str); s
+    $('.goods_cont').find('.outer').html(str); 
 },100)
 
     });
