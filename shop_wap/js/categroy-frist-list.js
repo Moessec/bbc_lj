@@ -155,6 +155,27 @@ $(function ()
     })
 
 
+    
+
+});
+
+
+function get_brand_recommend()
+{
+    $(".category-item").removeClass("selected");
+    $(".brand").parent().addClass("selected");
+    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Brand&met=lists&typ=json", function (e)
+    {
+        var t = e.data;
+        t.WapSiteUrl = WapSiteUrl;
+        var r = template.render("brand-one", t);
+        $("#categroy-rgt").html(r);
+        $(".pre-loading").hide();
+        new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+    })
+}
+
+
 var key = getCookie('key');
 setTimeout(function(){
   if(key)
@@ -338,22 +359,4 @@ setTimeout(function(){
     });        
     });
 }
-},2000)    
-
-});
-
-
-function get_brand_recommend()
-{
-    $(".category-item").removeClass("selected");
-    $(".brand").parent().addClass("selected");
-    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Brand&met=lists&typ=json", function (e)
-    {
-        var t = e.data;
-        t.WapSiteUrl = WapSiteUrl;
-        var r = template.render("brand-one", t);
-        $("#categroy-rgt").html(r);
-        $(".pre-loading").hide();
-        new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
-    })
-}
+},2000)
