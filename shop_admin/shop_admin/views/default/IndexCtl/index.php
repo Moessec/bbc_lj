@@ -641,6 +641,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 	})
 	function removes(){
 		$('#base-setting').attr('src','<?= Yf_Registry::get('url') ?>?ctl=Goods_Bespeak&met=bespeak');
+		$('.l-selected').attr('style','width:70px;text-align: center;');
 		$('li[tabid$="base-setting"]').text('预约管理');
 	}
 	<? }?>
