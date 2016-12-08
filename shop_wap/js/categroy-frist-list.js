@@ -56,7 +56,7 @@ $(function ()
     // $(this).find('.outer').html(str); 
     });
     alert(e);
-    $(this).eq(e).find('.outer').html(str); 
+    $('.goods_cont').eq(e).find('.outer').html(str); 
    
    
 
