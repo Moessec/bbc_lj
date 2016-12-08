@@ -6,6 +6,8 @@ function initField()
         $("#bespeak_com").val(rowData.bespeak_com);
         $("#opentime").val(rowData.opentime);
         $("#usercontact").val(rowData.usercontact);
+        $("#img").val(rowData.img);
+        $("#outtime").val(rowData.outtime);
     }
 }
 function initPopBtns()
@@ -23,6 +25,8 @@ function postData(t, e)
 {
     var bespeak_title = $.trim($("#bespeak_title").val()),
         bespeak_com = $.trim($("#bespeak_com").val()),
+        outtime = $.trim($("#outtime").val()),
+        img = $.trim($("#img").val()),
         usercontact = $.trim($("#usercontact").val()),
         opentime = $.trim($("#opentime").val()),
         n = "add" == t ? "新增预约" : "修改预约";
@@ -32,10 +36,14 @@ function postData(t, e)
         bespeak_title: bespeak_title,
         bespeak_com : bespeak_com,
         opentime : opentime,
-        usercontact : usercontact
+        usercontact : usercontact,
+        outtime : outtime,
+        img : img
     } : {
         bespeak_title: bespeak_title,
         bespeak_com : bespeak_com,
+        img : img,
+        outtime : outtime,
         usercontact : usercontact,
         opentime : opentime,
     };
@@ -62,6 +70,8 @@ function resetForm(t)
     $("#bespeak_title").val("");
     $("#bespeak_com").val("");
     $("#opentime").val("");
+    $("#img").val("");
+    $("#outtime").val("");
     $("#usercontact").val("");
 }
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
