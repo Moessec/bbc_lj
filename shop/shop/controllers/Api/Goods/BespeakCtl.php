@@ -460,7 +460,17 @@ class Api_Goods_BespeakCtl extends Api_Controller
 				$ret['file'] = DIRECTORY_SEPARATOR.$uploadDir.$fileName;
 			}
 			$data=json_encode($ret);
-			$this->data->addBody(-140, $data);
+			if (!empty($data))
+			{
+				$msg    = _('success');
+				$status = 200;
+			}
+			else
+			{
+				$msg    = _('failure');
+				$status = 250;
+			}
+			$this->data->addBody(-140, $data, $msg, $status);
 		}
 	}
 
