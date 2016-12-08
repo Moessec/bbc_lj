@@ -33,7 +33,7 @@ $(function ()
         e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
  
  setTimeout(function(){
- $('.goods_cont').each(function(){
+ $('.goods_cont').each(function(e){
     var cat_id = $(this).find('.cat_id').val();
     var str='';
    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
@@ -51,9 +51,10 @@ $(function ()
                
          }  
     
-
+     
     console.log(str);
     });
+   alert(e);
     //展示模版
     $(this).find('.outer').html(str); 
 
