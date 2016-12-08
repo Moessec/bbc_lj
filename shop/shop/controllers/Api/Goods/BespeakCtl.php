@@ -30,6 +30,11 @@ class Api_Goods_BespeakCtl extends Api_Controller
 			}else{
 				$data['items'][$k]['bespeak_status']='待审核';
 			}
+			if($v['bespeak_place']=='1'){
+				$data['items'][$k]['bespeak_place']='室内';
+			}else{
+				$data['items'][$k]['bespeak_place']='公共区域';
+			}
 			if($v['bespeak_state']=='0'){
 				$data['items'][$k]['bespeak_state']='待处理';
 			}else if($v['bespeak_state']=='1'){

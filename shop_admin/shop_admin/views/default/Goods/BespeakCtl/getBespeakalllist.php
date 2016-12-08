@@ -59,8 +59,8 @@ input, select, textarea {
         <td><?=$value['true_name']?></td>
       </tr>
       <tr>
-        <th class="w150">报修情况:</th>
-        <td><?=$value['bespeak_title']?></td>
+        <th class="w150">报修项目:</th>
+        <td><? if($value['bespeak_place']==0){echo '公共区域';}else{echo '室内';}?></td>
       </tr>
       <tr>
         <th>报修人联系方式：</th>

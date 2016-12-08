@@ -190,8 +190,8 @@ $(function() {
             "title": false,
             "width": 60
         }, {
-            "name": "bespeak_title",
-            "index": "bespeak_title",
+            "name": "bespeak_place",
+            "index": "bespeak_place",
             "label": "预约项目",
             "classes": "ui-ellipsis",
             "align": "center",
