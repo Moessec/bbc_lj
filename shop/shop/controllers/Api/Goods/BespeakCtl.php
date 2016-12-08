@@ -459,19 +459,20 @@ class Api_Goods_BespeakCtl extends Api_Controller
 				move_uploaded_file($_FILES["myfile"]["tmp_name"],$dir.$fileName);
 				$ret['file'] = DIRECTORY_SEPARATOR.$uploadDir.$fileName;
 			}
-			$data=json_encode($ret);
-			if (!empty($data))
-			{
-				$msg    = _('success');
-				$status = 200;
-			}
-			else
-			{
-				$msg    = _('failure');
-				$status = 250;
-			}
-			$this->data->addBody(-140, $data, $msg, $status);
+
 		}
+		$data=json_encode($ret);
+		if (!empty($data))
+		{
+			$msg    = _('success');
+			$status = 200;
+		}
+		else
+		{
+			$msg    = _('failure');
+			$status = 250;
+		}
+		$this->data->addBody(-140, $data, $msg, $status);
 	}
 
 }
