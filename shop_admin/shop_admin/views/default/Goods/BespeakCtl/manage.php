@@ -44,16 +44,12 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 			</li>
 			<li class="row-item">
 				<div class="label-wrap"><label for="opentime">活动开始时间:</label></div>
-				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="opentime" id="opentime"></div>
+				<div class="ctn-wrap"><input type="text" class="some_class" value="" name="opentime" id="some_class_1"/></div>
 			</li>
 			<li class="row-item">
 				<div class="label-wrap"><label for="outtime">活动截止时间:</label></div>
-				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="outtime" id="outtime"></div>
-			  <h3>DateTimePickers selected by class</h3>
-				<input type="text" class="some_class" value="" id="some_class_1"/>
-				<input type="text" class="some_class" value="" id="some_class_2"/>
-				<h3>TimePicker</h3>
-				<input type="text" id="datetimepicker1"/><br><br>
+				<div class="ctn-wrap">
+				<input type="text" class="some_class" name="outtime"  value="" id="some_class_2"/></div>
 			</li>
 			  <li class="form-item">
                       <style>
@@ -201,88 +197,6 @@ $('#datetimepicker2').datetimepicker({
 	minDate:'-1970/01/02', // yesterday is minimum date
 	maxDate:'+1970/01/02' // and tommorow is maximum date calendar
 });
-$('#datetimepicker3').datetimepicker({
-	inline:true
-});
-$('#datetimepicker4').datetimepicker();
-$('#open').click(function(){
-	$('#datetimepicker4').datetimepicker('show');
-});
-$('#close').click(function(){
-	$('#datetimepicker4').datetimepicker('hide');
-});
-$('#reset').click(function(){
-	$('#datetimepicker4').datetimepicker('reset');
-});
-$('#datetimepicker5').datetimepicker({
-	datepicker:false,
-	allowTimes:['12:00','13:00','15:00','17:00','17:05','17:20','19:00','20:00'],
-	step:5
-});
-$('#datetimepicker6').datetimepicker();
-$('#destroy').click(function(){
-	if( $('#datetimepicker6').data('xdsoft_datetimepicker') ){
-		$('#datetimepicker6').datetimepicker('destroy');
-		this.value = 'create';
-	}else{
-		$('#datetimepicker6').datetimepicker();
-		this.value = 'destroy';
-	}
-});
-var logic = function( currentDateTime ){
-	if (currentDateTime && currentDateTime.getDay() == 6){
-		this.setOptions({
-			minTime:'11:00'
-		});
-	}else
-		this.setOptions({
-			minTime:'8:00'
-		});
-};
-$('#datetimepicker7').datetimepicker({
-	onChangeDateTime:logic,
-	onShow:logic
-});
-$('#datetimepicker8').datetimepicker({
-	onGenerate:function( ct ){
-		$(this).find('.xdsoft_date')
-			.toggleClass('xdsoft_disabled');
-	},
-	minDate:'-1970/01/2',
-	maxDate:'+1970/01/2',
-	timepicker:false
-});
-$('#datetimepicker9').datetimepicker({
-	onGenerate:function( ct ){
-		$(this).find('.xdsoft_date.xdsoft_weekend')
-			.addClass('xdsoft_disabled');
-	},
-	weekends:['01.01.2014','02.01.2014','03.01.2014','04.01.2014','05.01.2014','06.01.2014'],
-	timepicker:false
-});
-var dateToDisable = new Date();
-	dateToDisable.setDate(dateToDisable.getDate() + 2);
-$('#datetimepicker11').datetimepicker({
-	beforeShowDay: function(date) {
-		if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == dateToDisable.getDate()) {
-			return [false, ""]
-		}
-
-		return [true, ""];
-	}
-});
-$('#datetimepicker12').datetimepicker({
-	beforeShowDay: function(date) {
-		if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == dateToDisable.getDate()) {
-			return [true, "custom-date-style"];
-		}
-
-		return [true, ""];
-	}
-});
-$('#datetimepicker_dark').datetimepicker({theme:'dark'})
-
-
 </script>
 <!--<script type="text/javascript" src="./shop_admin/static/common/js/plugins/jquery.datetimepicker.js" charset="utf-8"></script>
 <script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->
