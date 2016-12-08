@@ -17,6 +17,10 @@ class Adv_WidgetBaseCtl extends AdminController
 	{
 		include $view = $this->view->getView();;
 	}
+	public function wap_index_adv()
+	{
+		include $view = $this->view->getView();;
+	}
 }
 
 ?>
