@@ -15,7 +15,8 @@ $(function ()
                 console.log(e.data.temp);
                 console.log(e.data.adv);
                 $.each(e.data.adv, function(key, value){
-                       tem='<ul><li><dl><dt><span class="name">'+value.bespeak_title+'</span></dt><img src="'+value.bespeak_img+'" style="width:50px;height:50px"><dd style="margin-left:20px">活动时间：'+value.opentime+'</br>--"'+value.outtime+'"</dd><dd><br/>地点：'+value.bespeak_address+'</dd><dd><br/>联系人：'+value.true_name+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="'+value.bespeak_id+'"><i class="edit"></i>'+value.bespeak_click+'</a></div></li></ul>';
+                       tem='<ul><li><dl><dt><span class="name">'+value.bespeak_title+'</span></dt>
+                       <div style="width:100%;height:70px;"<img src="'+value.bespeak_img+'" style="width:50px;height:50px"><dd style="margin-left:20px">活动时间：'+value.opentime+'</br>--"'+value.outtime+'"</dd><dd><br/>地点：'+value.bespeak_address+'</dd><dd><br/>联系人：'+value.true_name+'</dd></div></dl><div class="handle">'+value.bespeak_state+'<span><a href="'+value.bespeak_id+'"><i class="edit"></i>'+value.bespeak_click+'</a></div></li></ul>';
                     $("#bespeak_list").append(tem);
                 })
                 $.each(e.data.temp, function(key, value){
