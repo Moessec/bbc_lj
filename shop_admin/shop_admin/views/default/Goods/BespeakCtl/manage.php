@@ -63,11 +63,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                             <div class="ctn-wrap"><span onclick="file.click()" style=""  class="mybtn">浏览...</span>
                         	</div>
                             <input type="file" name="file" class="file" id="file" size="28"  onchange="preImg(this.id,'imgPre');UpladFile();" />
-                            <!-- <span onclick="" id="upload" style="font-size: 0.6rem;" class="mybtn">上传</span> -->
-                            <div class="input-box" style="display:none">
-                                <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
-                                <span class="input-del"></span>
-                            </div>
+                                <input type="tel" class="inp" name="img" style="display:none" id="img"/>
                             <img id="imgPre" src="" style="display: block;border:1px #000;   margin: auto;" />  
                   </li>
 		</ul>
