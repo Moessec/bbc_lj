@@ -6,6 +6,9 @@ function initField()
         $("#bespeak_com").val(rowData.bespeak_com);
         $("#opentime").val(rowData.opentime);
         $("#usercontact").val(rowData.usercontact);
+        $("#bes_img").val(rowData.bes_img);
+        $("#some_class_1").val(rowData.opentime);
+        $("#some_class_2").val(rowData.outtime);
     }
 }
 function initPopBtns()
@@ -23,8 +26,10 @@ function postData(t, e)
 {
     var bespeak_title = $.trim($("#bespeak_title").val()),
         bespeak_com = $.trim($("#bespeak_com").val()),
+        outtime = $.trim($("#some_class_2").val()),
+        bes_img = $.trim($("#bes_img").val()),
         usercontact = $.trim($("#usercontact").val()),
-        opentime = $.trim($("#opentime").val()),
+        opentime = $.trim($("#some_class_1").val()),
         n = "add" == t ? "新增预约" : "修改预约";
 
     params = rowData.bespeak_id ? {
@@ -32,13 +37,18 @@ function postData(t, e)
         bespeak_title: bespeak_title,
         bespeak_com : bespeak_com,
         opentime : opentime,
-        usercontact : usercontact
+        usercontact : usercontact,
+        outtime : outtime,
+        bes_img : bes_img
     } : {
         bespeak_title: bespeak_title,
         bespeak_com : bespeak_com,
+        bes_img : bes_img,
+        outtime : outtime,
         usercontact : usercontact,
         opentime : opentime,
     };
+    console.log(params);
     Public.ajaxPost(SITE_URL +"?ctl=Goods_Bespeak&typ=json&met=" + ("add" == t ? "addGoodsbespeak1" : "editGoodsbespeak"), params, function (e)
     {
         if (200 == e.status)
@@ -61,7 +71,9 @@ function resetForm(t)
     $("#manage-form").validate().resetForm();
     $("#bespeak_title").val("");
     $("#bespeak_com").val("");
-    $("#opentime").val("");
+    $("#some_class_1").val("");
+    $("#bes_img").val("");
+    $("#some_class_2").val("");
     $("#usercontact").val("");
 }
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;

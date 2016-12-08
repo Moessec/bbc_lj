@@ -41,14 +41,24 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         buyer_logo_upload = new UploadImage({
             thumbnailWidth: 240,
             thumbnailHeight: 200,
-            imageContainer: '#brand_image',
-            uploadButton: '#brand_upload',
-            inputHidden: '#brand_logo'
+            imageContainer: '#bespeak_img',
+            uploadButton: '#bespeak_upload',
+            inputHidden: '#bes_img'
         });
     })
 </script>
+<style type="text/css">
+	.webuploader-element-invisible{display: none}
+</style>
+<script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
+
 <script type="text/javascript" src="<?= $this->view->js_com ?>/webuploader.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?= $this->view->js ?>/models/upload_image.js" charset="utf-8"></script>
+<!--<script type="text/javascript" src="./shop_admin/static/common/js/plugins/jquery.datetimepicker.js" charset="utf-8"></script>
+<script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->
+<script src="<?=$this->view->js?>/controllers/goods/jquery.js"></script>
+<script src="<?=$this->view->js?>/controllers/goods/build/jquery.datetimepicker.full.js"></script>
+<script>
 <script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak1.js" charset="utf-8"></script>
 <!--<script type="text/javascript" src="./shop_admin/static/common/js/plugins/jquery.datetimepicker.js" charset="utf-8"></script>
 <script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->
