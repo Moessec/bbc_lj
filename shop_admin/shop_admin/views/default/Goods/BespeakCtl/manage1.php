@@ -29,9 +29,23 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="usercontact" id="usercontact"></div>
 			</li>
 			<li class="row-item">
-				<div class="label-wrap"><label for="opentime">开始时间:</label></div>
-				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="opentime" id="opentime"></div>
+				<div class="label-wrap"><label for="opentime">活动开始时间:</label></div>
+				<div class="ctn-wrap"><input type="text" class="some_class" value="" name="opentime" id="some_class_1"/></div>
 			</li>
+			<li class="row-item">
+				<div class="label-wrap"><label for="outtime">活动截止时间:</label></div>
+				<div class="ctn-wrap">
+				<input type="text" class="some_class" name="outtime"  value="" id="some_class_2"/></div>
+			</li>
+			  <li class="row-item odd">
+    				<div class="label-wrap"><label for="bespeak_img">图片标识</label></div>
+    				<div class="ctn-wrap" >
+                        <img id="bespeak_img" name="setting[bes_img]" alt="选择图片" src="./shop_admin/static/common/images/image.png" class="image-line" />
+                        <div class="image-line" style="margin-left: 80px;" id="bespeak_upload">上传图片<i class="iconfont icon-tupianshangchuan"></i></div>
+
+                        <input id="bes_img" name="setting[bes_img]" value="" class="ui-input w400" type="hidden"/>
+                    </div>
+    			</li>
 		</ul>
 	</form>
 </div>
