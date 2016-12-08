@@ -370,6 +370,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		{
 			$msg    = _('failure');
 			$status = 250;
+			$data;
 		}
 
 		$data['id']      = $bespeak_id;
@@ -458,9 +459,8 @@ class Api_Goods_BespeakCtl extends Api_Controller
 				move_uploaded_file($_FILES["myfile"]["tmp_name"],$dir.$fileName);
 				$ret['file'] = DIRECTORY_SEPARATOR.$uploadDir.$fileName;
 			}
-
-			$this->data->addBody(-140, $ret);
-
+			$data=json_encode($ret);
+			$this->data->addBody(-140, $data);
 		}
 	}
 
