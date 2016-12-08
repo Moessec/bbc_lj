@@ -98,8 +98,55 @@ $(function ()
     $('.goods_cont').eq(2).find('.outer').html(str); 
     });
     });
+ $('.goods_cont').eq(3).each(function(e){
+    var cat_id = $(this).find('.cat_id').val();
+    var str='';
+    var r = '';
+   $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
+    {
 
+        r = t.data.items; 
+            for (var i in r)
+            {
+                if(i<4)
+                {
+
+                str+="<div class='inter'><div class='clear'><a href='../tmpl/product_detail.html?goods_id="+r[i].goods_id+"'><image src="+r[i].common_image+" /></a></div><a href='../tmpl/product_detail.html?goods_id="+r[i].goods_id+"'><p> "+r[i].common_name+"</p></a><span class='add1'>￥"+r[i].common_price+"</a><a  href='javascript:void(0)'><i class='add'><input type='hidden' value="+r[i].goods_id+"></i></a></span></div>";
+                }
+
+                   
+             }   
+  
+    $('.goods_cont').eq(3).find('.outer').html(str); 
     });
+    });
+ $('.goods_cont').eq(4).each(function(e){
+    var cat_id = $(this).find('.cat_id').val();
+    var str='';
+    var r = '';
+   $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
+    {
+
+        r = t.data.items; 
+            for (var i in r)
+            {
+                if(i<4)
+                {
+
+                str+="<div class='inter'><div class='clear'><a href='../tmpl/product_detail.html?goods_id="+r[i].goods_id+"'><image src="+r[i].common_image+" /></a></div><a href='../tmpl/product_detail.html?goods_id="+r[i].goods_id+"'><p> "+r[i].common_name+"</p></a><span class='add1'>￥"+r[i].common_price+"</a><a  href='javascript:void(0)'><i class='add'><input type='hidden' value="+r[i].goods_id+"></i></a></span></div>";
+                }
+
+                   
+             }   
+  
+    $('.goods_cont').eq(4).find('.outer').html(str); 
+    });
+    });
+});
+
+
+
+
     $("#categroy-cnt").on("click", ".brand", function ()
     {
         $(".pre-loading").show();
