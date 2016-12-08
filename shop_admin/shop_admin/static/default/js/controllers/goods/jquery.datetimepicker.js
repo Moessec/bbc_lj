@@ -46,7 +46,7 @@
 				],
 				dayOfWeek: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
 			},
-			is: { // Icelandic
+			yy: { // Icelandic
 				months: [
 					"Janúar", "Febrúar", "Mars", "Apríl", "Maí", "Júní", "Júlí", "Ágúst", "September", "Október", "Nóvember", "Desember"
 				],
@@ -181,7 +181,7 @@
 				],
 				dayOfWeek: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
 			},
-			ch: { // Simplified Chinese
+			is: { // Simplified Chinese
 				months: [
 					"一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"
 				],
