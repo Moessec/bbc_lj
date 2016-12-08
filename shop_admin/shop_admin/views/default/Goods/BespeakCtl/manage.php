@@ -51,7 +51,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                                 <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
                                 <span class="input-del"></span>
                             </div>
-                            <img id="imgPre" src="" width="300px" height="300px" style="display: block;border:1px #000;     margin: auto;" />  
+                            <img id="imgPre" src="" style="display: block;border:1px #000;width:300px;height:300px;     margin: auto;" />  
                   </li>
 		</ul>
 	</form>
