@@ -156,7 +156,8 @@ $(function ()
 
 
 var key = getCookie('key');
-setInterval(function(){
+var time ='';
+time = setInterval(function(){
   if(key)
   {
     $('.add').each(function(){
@@ -265,6 +266,7 @@ setInterval(function(){
                         addCookie('cart_count',cart_count);
                         // show_tip();
                         getCartCount();
+                        clearInterval(time);
                         $('#cart_count').html('<sup>'+cart_count+'</sup>');
                         return false;
                     }else{
