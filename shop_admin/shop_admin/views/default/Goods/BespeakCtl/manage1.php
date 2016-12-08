@@ -35,6 +35,18 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 		</ul>
 	</form>
 </div>
+<script>
+    //图片上传
+    $(function(){
+        buyer_logo_upload = new UploadImage({
+            thumbnailWidth: 240,
+            thumbnailHeight: 200,
+            imageContainer: '#brand_image',
+            uploadButton: '#brand_upload',
+            inputHidden: '#brand_logo'
+        });
+    })
+</script>
 <script type="text/javascript" src="<?= $this->view->js_com ?>/webuploader.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?= $this->view->js ?>/models/upload_image.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak1.js" charset="utf-8"></script>
