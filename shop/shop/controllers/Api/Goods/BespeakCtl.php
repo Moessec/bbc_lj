@@ -370,6 +370,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		{
 			$msg    = _('failure');
 			$status = 250;
+			$data;
 		}
 
 		$data['id']      = $bespeak_id;
