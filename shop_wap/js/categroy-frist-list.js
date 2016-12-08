@@ -156,16 +156,16 @@ $(function ()
 
 
 var key = getCookie('key');
-// setTimeout(function(){
+setTimeout(function(){
   if(key)
   {
-    $('.add').each(function(e){
+    $('.add').each(function(){
 
-    $(this).eq(e).click(function(){
+    $(this).click(function(){
      // alert(1);
         var goods_id = $(this).find('input').val();
-        // alert(goods_id);
-get_detail(goods_id);
+        alert(goods_id);
+            get_detail(goods_id);
   function get_detail(goods_id) {
       //渲染页面
       $.ajax({
@@ -223,7 +223,7 @@ get_detail(goods_id);
                 // 购物车中商品数量
                 if (getCookie('cart_count')) {
                     if (getCookie('cart_count') > 0) {
-                        $('.cart').html('<sup>'+getCookie('cart_count')+'</sup>');
+                        $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
                     }
                 }
 
@@ -265,7 +265,7 @@ get_detail(goods_id);
                         addCookie('cart_count',cart_count);
                         // show_tip();
                         getCartCount();
-                        $('.cart').html('<sup>'+cart_count+'</sup>');
+                        $('#cart_count').html('<sup>'+cart_count+'</sup>');
                         return false;
                     }else{
                         if(data.shop_owner)
@@ -292,8 +292,7 @@ get_detail(goods_id);
                                         // 更新购物车中商品数量
                                         delCookie('cart_count');
                                         getCartCount();
-                                        alert(getCookie('cart_count'));
-                                        $('.cart').html('<sup>'+getCookie('cart_count')+'</sup>');
+                                        $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
                                     }else{
                                
                                            alert(result.msg);
@@ -339,7 +338,7 @@ get_detail(goods_id);
     });        
     });
 }
-// },2000)    
+},2000)    
 
 });
 
