@@ -472,7 +472,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 			$msg    = _('failure');
 			$status = 250;
 		}
-		$this->data->addBody(-140, $data, $msg, $status);
+		$this->data->addBody(-140, $data);
 	}
 
 }
