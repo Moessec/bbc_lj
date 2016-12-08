@@ -325,11 +325,11 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$user_id = Perm::$userId;
 
 		$usercontact    = request_string('usercontact');
-		$upfile    = request_string('upfile');
 		$true_name    = request_string('true_name');
 		$bespeak_area_info = request_string('bespeak_area_info');
 		$bespeak_com   = request_string('bespeak_com');
-		$bespeak_title = request_string('bespeak_title');
+		$starttime   = request_string('starttime');
+		$bespeak_place = request_string('bespeak_place');
 		$bespeak_address = request_string('bespeak_address');
 		$bes_address = request_string('bes_address');
 		$img = request_string('img');
@@ -340,9 +340,9 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$edit_bespeak_row['bespeak_area_info']     = $bespeak_area_info;
 		$edit_bespeak_row['bes_address'] = $bes_address;
 		$edit_bespeak_row['bespeak_address']     = $bespeak_address;
+		$edit_bespeak_row['starttime']     = $starttime;
 		$edit_bespeak_row['bespeak_com']     = $bespeak_com;
-		$edit_bespeak_row['bespeak_title']        = $bespeak_title;
-		$edit_bespeak_row['starttime']        = get_date_time();
+		$edit_bespeak_row['bespeak_place']        = $bespeak_place;
 		$edit_bespeak_row['user_id']        = $user_id;
 		$edit_bespeak_row['bespeak_list']   = 0;
 
