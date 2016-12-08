@@ -56,7 +56,7 @@ $(function ()
     });
    // alert(e);
     //展示模版
-    $(this:last-child).html(str); 
+    $(this).find('.outer').html(str); 
 
     });
 },100)
