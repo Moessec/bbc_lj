@@ -32,7 +32,7 @@ $(function ()
         });
         e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
  
- setTimeout(function(){
+ // setTimeout(function(){
  $('.goods_cont').eq(0).each(function(e){
     var cat_id = $(this).find('.cat_id').val();
     var str='';
@@ -53,16 +53,13 @@ $(function ()
              }   
   
     $('.goods_cont').eq(e).find('.outer').html(str); 
-    //展示模版
-    // $(this).find('.outer').html(str); 
     });
-    // alert(e);
-   
+ 
    
 
 
     });
-},100)
+// },100)
 
     });
     $("#categroy-cnt").on("click", ".brand", function ()
