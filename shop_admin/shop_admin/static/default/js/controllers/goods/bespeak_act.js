@@ -225,7 +225,16 @@ $(function() {
         }, {
             "name": "opentime",
             "index": "opentime",
-            "label": "发布时间",
+            "label": "开始时间",
+            "classes": "ui-ellipsis",
+            "align": "center",
+            "title": true,
+            "fixed": false,
+            "width": 60
+        },{
+            "name": "outtime",
+            "index": "outtime",
+            "label": "结束时间",
             "classes": "ui-ellipsis",
             "align": "center",
             "title": true,
