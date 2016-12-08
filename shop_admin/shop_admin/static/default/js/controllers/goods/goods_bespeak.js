@@ -47,7 +47,7 @@ function postData(t, e)
         usercontact : usercontact,
         opentime : opentime,
     };
-    console.log(params);
+    console.log(url_path);
     Public.ajaxPost(SITE_URL +"?ctl=Goods_Bespeak&typ=json&met=" + ("add" == t ? "addGoodsbespeak" : "editGoodsbespeak"), params, function (e)
     {
         if (200 == e.status)
