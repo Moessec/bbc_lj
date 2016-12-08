@@ -25,6 +25,7 @@ $(function ()
                     $("#is_default").parents("label").addClass("checked")
                 }
             }
+        })
     }
 
     s();
