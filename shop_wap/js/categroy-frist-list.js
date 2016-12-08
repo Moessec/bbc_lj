@@ -146,12 +146,12 @@ $(function ()
 setTimeout(function(){
   if(key)
   {
-    $('.add').each(function(){
+    $('.add').each(function(e){
 
     $(this).on('click',function(){
      // alert(1);
         var goods_id = $(this).find('input').val();
-        alert(goods_id);
+        alert(e);
             get_detail(goods_id);
   function get_detail(goods_id) {
       //渲染页面
@@ -250,7 +250,7 @@ setTimeout(function(){
                         // 加入cookie
                         addCookie('goods_cart',goods_info);
                         // 更新cookie中商品数量
-                        addCookie('cart_count',1);
+                        addCookie('cart_count',cart_count);
                         // show_tip();
                         getCartCount();
                         // clearInterval(time);
