@@ -1,6 +1,6 @@
 $(function ()
 {
-
+var timer = '';
     var e;
     $("#header").on("click", ".header-inp", function ()
     {
@@ -143,7 +143,7 @@ $(function ()
         });
         });
 //===========================钓起数据信息结束==============================
-setTimeout(function(){
+timer = setTimeout(function(){
   if(key)
   {
     $('.add').each(function(e){
@@ -152,7 +152,8 @@ setTimeout(function(){
      // alert(1);
         var goods_id = $(this).find('input').val();
         alert(e);
-            get_detail(goods_id);
+        clearTimeout(timer);
+get_detail(goods_id);
   function get_detail(goods_id) {
       //渲染页面
       $.ajax({
