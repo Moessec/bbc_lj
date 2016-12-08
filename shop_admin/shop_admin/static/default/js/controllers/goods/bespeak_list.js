@@ -192,7 +192,16 @@ $(function() {
         }, {
             "name": "bespeak_title",
             "index": "bespeak_title",
-            "label": "预约事务",
+            "label": "预约项目",
+            "classes": "ui-ellipsis",
+            "align": "center",
+            "title": true,
+            "fixed": true,
+            "width":100
+        }, {
+            "name": "starttime",
+            "index": "starttime",
+            "label": "上门时间",
             "classes": "ui-ellipsis",
             "align": "center",
             "title": true,
