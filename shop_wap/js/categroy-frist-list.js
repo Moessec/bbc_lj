@@ -250,7 +250,7 @@ setTimeout(function(){
                         // 加入cookie
                         addCookie('goods_cart',goods_info);
                         // 更新cookie中商品数量
-                        addCookie('cart_count',cart_count);
+                        addCookie('cart_count',1);
                         // show_tip();
                         getCartCount();
                         // clearInterval(time);
