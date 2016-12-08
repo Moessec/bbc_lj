@@ -143,7 +143,7 @@ $(function ()
         });
         });
 //===========================钓起数据信息结束==============================
-// setInterval(function(){
+setTimeout(function(){
   if(key)
   {
     $('.add').each(function(){
@@ -327,7 +327,7 @@ $(function ()
     });        
     });
 }
-// },400)  
+},400)  
 
 });
 
