@@ -155,7 +155,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				}elseif ($value['bespeak_state']=='2') {
 					$value['bespeak_state']='活动已经结束';
 				}
-				$value['bespeakinfo']='bespeak_adv_info.html?bespeak_id='.$id;
+				$value['bespeakinfo']='bespeak_adv_info.html?bespeak_id='.$value['bespeak_id'];
 				if(!empty($data['temp'])){
 					foreach ($data['temp'] as $k1 => $v1) {
 						if($v1['bespeak_title']==$value['bespeak_title']){
