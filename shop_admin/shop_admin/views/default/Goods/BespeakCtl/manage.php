@@ -136,37 +136,43 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
 
 </script>
+
+<script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
+
+<!--<script type="text/javascript" src="./shop_admin/static/common/js/plugins/jquery.datetimepicker.js" charset="utf-8"></script>
+<script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->
 <script src="<?=$this->view->js?>/controllers/goods/jquery.js"></script>
 <script src="<?=$this->view->js?>/controllers/goods/build/jquery.datetimepicker.full.js"></script>
-<script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
-<script>/*
+<script>
+/*
+
 window.onerror = function(errorMsg) {
 	$('#console').html($('#console').html()+'<br>'+errorMsg)
 }*/
+var $jq = jQuery.noConflict();
+$jq.datetimepicker.setLocale('en');
 
-$.datetimepicker.setLocale('en');
+$jq('#datetimepicker_format').datetimepicker({value:'2015/04/15 05:03', format: $jq("#datetimepicker_format_value").val()});
+console.log($jq('#datetimepicker_format').datetimepicker('getValue'));
 
-$('#datetimepicker_format').datetimepicker({value:'2015/04/15 05:03', format: $("#datetimepicker_format_value").val()});
-console.log($('#datetimepicker_format').datetimepicker('getValue'));
-
-$("#datetimepicker_format_change").on("click", function(e){
-	$("#datetimepicker_format").data('xdsoft_datetimepicker').setOptions({format: $("#datetimepicker_format_value").val()});
+$jq("#datetimepicker_format_change").on("click", function(e){
+	$jq("#datetimepicker_format").data('xdsoft_datetimepicker').setOptions({format: $jq("#datetimepicker_format_value").val()});
 });
-$("#datetimepicker_format_locale").on("change", function(e){
-	$.datetimepicker.setLocale($(e.currentTarget).val());
+$jq("#datetimepicker_format_locale").on("change", function(e){
+	$jq.datetimepicker.setLocale($jq(e.currentTarget).val());
 });
 
-$('#datetimepicker').datetimepicker({
+$jq('#datetimepicker').datetimepicker({
 dayOfWeekStart : 1,
 lang:'en',
 disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
 startDate:	'1986/01/05'
 });
-$('#datetimepicker').datetimepicker({value:'2015/04/15 05:03',step:10});
+$jq('#datetimepicker').datetimepicker({value:'2015/04/15 05:03',step:10});
 
-$('.some_class').datetimepicker();
+$jq('.some_class').datetimepicker();
 
-$('#default_datetimepicker').datetimepicker({
+$jq('#default_datetimepicker').datetimepicker({
 	formatTime:'H:i',
 	formatDate:'d.m.Y',
 	//defaultDate:'8.12.1986', // it's my birthday
@@ -175,20 +181,20 @@ $('#default_datetimepicker').datetimepicker({
 	timepickerScrollbar:false
 });
 
-$('#datetimepicker10').datetimepicker({
+$jq('#datetimepicker10').datetimepicker({
 	step:5,
 	inline:true
 });
-$('#datetimepicker_mask').datetimepicker({
+$jq('#datetimepicker_mask').datetimepicker({
 	mask:'9999/19/39 29:59'
 });
 
-$('#datetimepicker1').datetimepicker({
+$jq('#datetimepicker1').datetimepicker({
 	datepicker:false,
 	format:'H:i',
 	step:5
 });
-$('#datetimepicker2').datetimepicker({
+$jq('#datetimepicker2').datetimepicker({
 	yearOffset:222,
 	lang:'ch',
 	timepicker:false,
@@ -198,8 +204,6 @@ $('#datetimepicker2').datetimepicker({
 	maxDate:'+1970/01/02' // and tommorow is maximum date calendar
 });
 </script>
-<!--<script type="text/javascript" src="./shop_admin/static/common/js/plugins/jquery.datetimepicker.js" charset="utf-8"></script>
-<script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->
 <?php
 include $this->view->getTplPath() . '/' . 'footer.php';
 ?>
