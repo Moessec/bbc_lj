@@ -16,7 +16,7 @@ class Adv_WapAdvCtl extends AdminController
 
 	public function wap_index_adv(){
 		include $temp = $this->view->getView();
-		var_dump($temp);
+		var_dump(123);
 	}
 
 }
