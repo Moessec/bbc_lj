@@ -156,7 +156,7 @@ $(function ()
 
 
 var key = getCookie('key');
-setTimeout(function(){
+// setTimeout(function(){
   if(key)
   {
     $('.add').each(function(e){
@@ -165,7 +165,7 @@ setTimeout(function(){
      // alert(1);
         var goods_id = $(this).find('input').val();
         // alert(goods_id);
-            get_detail(goods_id);
+get_detail(goods_id);
   function get_detail(goods_id) {
       //渲染页面
       $.ajax({
@@ -339,7 +339,7 @@ setTimeout(function(){
     });        
     });
 }
-},2000)    
+// },2000)    
 
 });
 
