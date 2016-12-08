@@ -6,6 +6,20 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 <link rel="stylesheet" href="<?=$this->view->css_com?>/jquery/plugins/validator/jquery.validator.css">
 <script type="text/javascript" src="<?=$this->view->js_com?>/plugins/validator/jquery.validator.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?=$this->view->js_com?>/plugins/validator/local/zh_CN.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="<?=$this->view->js?>/controllers/goods/jquery.datetimepicker.css"/>
+<style type="text/css">
+
+.custom-date-style {
+	background-color: red !important;
+}
+
+.input{	
+}
+.input-wide{
+	width: 500px;
+}
+
+</style>
 <style>
 .manage-wrap{margin: 20px auto 10px;width: 80%;}
 .mod-form-rows .label-wrap{width: 20%;}
@@ -35,13 +49,11 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 			<li class="row-item">
 				<div class="label-wrap"><label for="outtime">活动截止时间:</label></div>
 				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="outtime" id="outtime"></div>
-				<h3>DateTimePicker</h3>
-	<input type="text" value="" id="datetimepicker"/><br><br>
-  <h3>DateTimePickers selected by class</h3>
-	<input type="text" class="some_class" value="" id="some_class_1"/>
-	<input type="text" class="some_class" value="" id="some_class_2"/>
-	<h3>TimePicker</h3>
-	<input type="text" id="datetimepicker1"/><br><br>
+			  <h3>DateTimePickers selected by class</h3>
+				<input type="text" class="some_class" value="" id="some_class_1"/>
+				<input type="text" class="some_class" value="" id="some_class_2"/>
+				<h3>TimePicker</h3>
+				<input type="text" id="datetimepicker1"/><br><br>
 			</li>
 			  <li class="form-item">
                       <style>
