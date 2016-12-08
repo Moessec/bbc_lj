@@ -74,6 +74,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             inputHidden: '#bes_img'
         });
     })
+    alert(url_path);
 </script>
 <script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
 
