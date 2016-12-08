@@ -89,7 +89,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     function UpladFile()
     {
         var fileObj = document.getElementById("file").files[0];
-        var FileController = "/index.php?ctl=Goods_Bespeak&met=upload&typ=json";
+        var FileController = SITE_URL+"?ctl=Goods_Bespeak&met=upload&typ=json";
         var form = new FormData();
         form.append("myfile", fileObj);
         createXMLHttpRequest();
