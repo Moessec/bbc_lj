@@ -333,7 +333,7 @@ get_detail(goods_id);
 });
 
 
-
+clearTimeout(timer);
 
     $("#categroy-cnt").on("click", ".brand", function ()
     {
