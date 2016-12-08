@@ -14,7 +14,7 @@ $(function ()
             {
                 checkLogin(a.login);
                 console.log(a);
-                $("#img").attr('src',a.data.bespeak_img);
+                $("#img").val('src',a.data.bespeak_img);
                 $("#com").append(a.data.bespeak_com);
                 $("#name").val(a.data.true_name);
                 $("#usercontact").val(a.data.usercontact);
