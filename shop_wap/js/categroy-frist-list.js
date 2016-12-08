@@ -52,7 +52,7 @@ $(function ()
 
            
      }   
-    // alert(e);
+    alert(str);
     $(this).eq(e).find('.outer').html(str); 
    
    
