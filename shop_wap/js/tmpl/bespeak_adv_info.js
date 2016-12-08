@@ -17,10 +17,10 @@ $(function ()
                 $.each(a.data, function(key, value){
                        tem='<dl><img src="'+value.bespeak_img+'" style="width:100%"><div class="com">';
                        tem+='<span style="width:90%;margin:auto">'+value.bespeak_com+'</span></div>';
-                       tem+='<div class="ul"><li>活动开始时间：<span>'+value.opentime+'</span></li>';
-                       tem+='<li>活动截止时间：<span>'+value.outtime+'</span></li>';
-                       tem+='<li>联系人：<span>'+value.true_name+'</span></li>';
-                       tem+='<li>联系方式：<span>'+value.usercontact+'</span></li></div>'
+                       tem+='<div class="ul"><tr><td>活动开始时间：</td><td><span>'+value.opentime+'</span></td></tr>';
+                       tem+='<tr><td>活动截止时间：</td><td><span>'+value.outtime+'</span></td></tr>';
+                       tem+='<tr><td>联系人：</td><td><span>'+value.true_name+'</span></td></tr>';
+                       tem+='<tr><td>联系方式：</td><td><span>'+value.usercontact+'</span></td></tr></div>'
                        tem+='<div class="error-tips"></div><div class="form-btn"><a class="btn" href="bespeak_opera_adv.html?bespeak_id='+value.bespeak_id+'">申请预约</a></div></dl>';
                     $("#bespeak_list").append(tem);
                 })
