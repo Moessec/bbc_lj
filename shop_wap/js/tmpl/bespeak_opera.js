@@ -38,6 +38,7 @@ $(function ()
             var bes_info = $("#area_info").val();
             var n = $("#address").val();
             var img = $("#img").val();
+            var bespeak_place = $("#bespeak_place").val();
 
             var province_id = $("#area_info").attr("data-areaid1");
             var city_id = $("#area_info").attr("data-areaid2");
