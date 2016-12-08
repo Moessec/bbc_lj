@@ -159,9 +159,9 @@ var key = getCookie('key');
 setTimeout(function(){
   if(key)
   {
-    $('.add').each(function(){
+    $('.add').each(function(e){
 
-    $(this).click(function(){
+    $(this).eq(e).click(function(){
      // alert(1);
         var goods_id = $(this).find('input').val();
         // alert(goods_id);
