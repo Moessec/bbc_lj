@@ -143,21 +143,7 @@ $(function ()
         });
         });
 //===========================钓起数据信息结束==============================
-});
-
-
-
-
-    $("#categroy-cnt").on("click", ".brand", function ()
-    {
-        $(".pre-loading").show();
-        get_brand_recommend()
-    })
-
-
-var key = getCookie('key');
-var time ='';
-time = setInterval(function(){
+// setInterval(function(){
   if(key)
   {
     $('.add').each(function(){
@@ -167,7 +153,6 @@ time = setInterval(function(){
         var goods_id = $(this).find('input').val();
         alert(goods_id);
             get_detail(goods_id);
-            clearInterval(time);
   function get_detail(goods_id) {
       //渲染页面
       $.ajax({
@@ -342,7 +327,23 @@ time = setInterval(function(){
     });        
     });
 }
-},400)    
+// },400)  
+
+});
+
+
+
+
+    $("#categroy-cnt").on("click", ".brand", function ()
+    {
+        $(".pre-loading").show();
+        get_brand_recommend()
+    })
+
+
+var key = getCookie('key');
+
+  
 
 });
 
