@@ -155,7 +155,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				}elseif ($value['bespeak_state']=='2') {
 					$value['bespeak_state']='活动已经结束';
 				}
-				$value['bespeakinfo']='bespeak_opera_info.html?bespeak_id='.$id;
+				$value['bespeakinfo']='bespeak_adv_info.html?bespeak_id='.$id;
 				if(!empty($data['temp'])){
 					foreach ($data['temp'] as $k1 => $v1) {
 						if($v1['bespeak_title']==$value['bespeak_title']){
@@ -647,14 +647,11 @@ class Buyer_BespeakCtl extends Buyer_Controller
 
 	}
 
-	public function getBespeakalllist()
+	public function getbespeaklist()
 	{
-		var_dump(111);
-		exit();
 		$bespeak_id = request_int('bespeak_id');
 		$USER_BespeakModel = new USER_BespeakModel();
-		$data    = $USER_BespeakModel->getBespeakAllList($bespeak_id);
-		var_dump($data);exit();
+		$data    = $USER_BespeakModel->getBespeakList($bespeak_id);
 		$this->data->addBody(-140, $data);
 	}
 
