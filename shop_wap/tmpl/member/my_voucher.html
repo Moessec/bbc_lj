@@ -36,7 +36,7 @@
         <%if(items){%>
             <ul>
                 <% for (var i in items) {%>
-                    <li style="margin-left:20px;margin-right:20px;margin-top:5px ;">
+                  <!--   <li style="margin-left:20px;margin-right:20px;margin-top:5px ;">
                         <dl style="padding: 0.5rem 0.5rem 0 0px;">
                             <dt>
                     <span class="name" style="height: 1.3rem;font-size: 0.6rem;line-height: 0.65rem;color: #777;font-weight: normal;"> 面额：<%=items[i].voucher_price %></span>
@@ -54,7 +54,26 @@
                            
                         </dl>
                       
-                    </li>
+                    </li> -->
+
+                     <li style="background-color:RGBA(244,244,244,0.6);height:128px;border-bottom:0" >
+       <div style="margin:0px 30px 0 30px;height:104px;line-height:128px;background-color:RGB(254,254,254);">
+                    <div style="display:inline;height:108px;width:108px;float:left;text-align:center;line-height:102px;font-size:30px;color:rgb(234,138,62);border-right:0.5px solid RGBA(244,244,244,1);"><span style="font-size:21px">￥</span><%=items[i].voucher_price %></div>
+                    <div style="display:inline;height:102px;float:right;width:180px" >
+                    <div style="text-align:left;line-height:36px;font-size:15px">状态:<%=items[i].voucher_state_label%></div>
+                    <div style="text-align:left;line-height:36px;font-size:15px;color:rgb(189,189,189)">购物满<%=items[i].voucher_limit %>元可用</div>
+                    <div style="text-align:left;line-height:36px;font-size:15px;color:rgb(189,189,189)">有效期至：
+                    <%=items[i].voucher_end_date.substr(0,10) %></div>
+
+                    </div>
+                    </div>
+   </li>
+
+
+
+
+
+
                     <%}%>
             </ul>
             
