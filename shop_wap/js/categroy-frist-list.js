@@ -44,7 +44,7 @@ $(function ()
   
     
      
-    console.log(str); 
+    // console.log(str); 
     });
     for (var i=0; i<r.length ;i++)
     {
