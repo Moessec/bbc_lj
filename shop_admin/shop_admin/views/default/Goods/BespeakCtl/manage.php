@@ -75,6 +75,9 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         });
     })
 </script>
+<style type="text/css">
+	.webuploader-element-invisible{display: none}
+</style>
 <script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
 
 <script type="text/javascript" src="<?= $this->view->js_com ?>/webuploader.js" charset="utf-8"></script>
