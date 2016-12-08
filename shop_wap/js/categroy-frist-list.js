@@ -41,10 +41,6 @@ $(function ()
     {
 
         r = t.data.items;
-  
-    
-     
-    // console.log(str); 
     });
     alert(r);
     for (var i in r)
