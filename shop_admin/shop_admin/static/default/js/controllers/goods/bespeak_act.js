@@ -26,7 +26,7 @@ $(function() {
                 content: 'url:' + SITE_URL + '?ctl=Goods_Bespeak&met=manage&typ=e',
                 data: data,
                 width: 980,
-                height: 400,
+                height: 900,
                 max: false,
                 min: false,
                 cache: false,
