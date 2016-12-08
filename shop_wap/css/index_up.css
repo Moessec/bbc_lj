@@ -368,7 +368,10 @@ body{
             margin-left: 4rem;
             margin-top: -1rem;
             color:orange;
-        } 
+        }
+        .font_inner li{
+            display:none;
+        }
 
          .add{
          	display: inline-block;
