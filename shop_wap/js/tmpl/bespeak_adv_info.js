@@ -14,8 +14,12 @@ $(function ()
             {
                 checkLogin(a.login);
                 console.log(a);
-                $("#img").val('src',a.data.bespeak_img);
-                $("#com").append(a.data.bespeak_com);
+                $.each(a.data, function(key, value){
+                       tem='<dl><img src="'+value.bespeak_img+'"><span class="com">活动详情：<br><dd>'+bespeak_com+'</dd></span><dt>联系人：<span class="name" id="name">'+true_name+'</span></dt><dt>联系方式：<span class="name">'+usercontact+'</span></dt><div class="error-tips"></div><div class="form-btn"><a class="btn" href="bespeak_adv.html?bespeak_id='+bespeak_id+'">申请预约</a></div></dl>';
+                    $("#bespeak_list").append(tem);
+                })
+                $("#img").attr('src',a.data.bespeak_img);
+                $("#com").val(a.data.bespeak_com);
                 $("#name").val(a.data.true_name);
                 $("#usercontact").val(a.data.usercontact);
                 var e = a.data.bespeak_default == "1" ? true : false;
