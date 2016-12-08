@@ -156,7 +156,7 @@ $(function ()
 
 
 var key = getCookie('key');
-// setInterval(function(){
+setInterval(function(){
   if(key)
   {
     $('.add').each(function(){
@@ -338,7 +338,7 @@ var key = getCookie('key');
     });        
     });
 }
-// },2000)    
+},400)    
 
 });
 
