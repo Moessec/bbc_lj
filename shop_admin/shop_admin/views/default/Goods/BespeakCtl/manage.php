@@ -104,7 +104,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 var img = document.getElementById('img');
                 var val = img.value
                 img.value=json.file+val;
-                alert(img);
+                alert(val);
                 alert("上传成功");
             }
         }
