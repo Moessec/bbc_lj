@@ -38,7 +38,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 				<input type="text" class="some_class" name="outtime"  value="" id="some_class_2"/></div>
 			</li>
 			  <li class="row-item odd">
-    				<div class="label-wrap"><label for="bespeak_img">图片标识</label></div>
+    				<div class="label-wrap"><label for="bespeak_img">相关图片</label></div>
     				<div class="ctn-wrap" >
                         <img id="bespeak_img" name="setting[bes_img]" alt="选择图片" src="./shop_admin/static/common/images/image.png" class="image-line" />
                         <div class="image-line" style="margin-left: 80px;" id="bespeak_upload">上传图片<i class="iconfont icon-tupianshangchuan"></i></div>
