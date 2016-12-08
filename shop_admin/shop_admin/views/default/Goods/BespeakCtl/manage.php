@@ -73,10 +73,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 		</ul>
 	</form>
 </div>
-<script src="<?=$this->view->js?>/controllers/goods/jquery.js"></script>
-<script src="<?=$this->view->js?>/controllers/goods/build/jquery.datetimepicker.full.js"></script>
-<script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
-        <script type="text/javascript">
+<script type="text/javascript">
     var xhr;
     function createXMLHttpRequest()
     {
@@ -139,6 +136,9 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
 
 </script>
+<script src="<?=$this->view->js?>/controllers/goods/jquery.js"></script>
+<script src="<?=$this->view->js?>/controllers/goods/build/jquery.datetimepicker.full.js"></script>
+<script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
 <script>/*
 window.onerror = function(errorMsg) {
 	$('#console').html($('#console').html()+'<br>'+errorMsg)
