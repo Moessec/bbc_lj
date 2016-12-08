@@ -51,7 +51,7 @@ $(function ()
                    
              }   
   
-    $('.goods_cont').eq(e).find('.outer').html(str); 
+    $('.goods_cont').eq(0).find('.outer').html(str); 
     });
     });
  $('.goods_cont').eq(1).each(function(e){
@@ -73,7 +73,7 @@ $(function ()
                    
              }   
   
-    $('.goods_cont').eq(e).find('.outer').html(str); 
+    $('.goods_cont').eq(1).find('.outer').html(str); 
     });
     });
  $('.goods_cont').eq(2).each(function(e){
@@ -95,7 +95,7 @@ $(function ()
                    
              }   
   
-    $('.goods_cont').eq(e).find('.outer').html(str); 
+    $('.goods_cont').eq(2).find('.outer').html(str); 
     });
     });
 
