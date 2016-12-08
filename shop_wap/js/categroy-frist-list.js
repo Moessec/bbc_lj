@@ -46,7 +46,8 @@ $(function ()
      
     // console.log(str); 
     });
-    for (var i=0; i<r.length ;i++)
+    alert(r);
+    for (var i in r)
     {
         if(i<4)
         {
@@ -56,7 +57,7 @@ $(function ()
 
            
      }   
-   alert(str);
+  
     //展示模版
     // $(this).find('.outer').html(str); 
     $(this).eq(e).find('.outer').html(str); 
