@@ -352,7 +352,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['bespeak_com'] = request_string('bespeak_com');
 		$data['opentime'] = request_string('opentime');
 		$data['outtime'] = request_string('outtime');
-		$data['img'] = request_string('img');
+		$data['bespeak_img'] = request_string('bes_img');
 		$data['true_name'] = '管理员';
 		$data['user_id'] = 'admin';
 		$data['bespeak_list'] = '1';
@@ -418,7 +418,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['bespeak_com'] = request_string('bespeak_com');
 		$data['opentime'] = request_string('opentime');
 		$data['outtime'] = request_string('outtime');
-		$data['img'] = request_string('img');
+		$data['bespeak_img'] = request_string('bes_img');
 
 		$flag = $Goods_BespeakModel->editBespeak($id, $data);
 

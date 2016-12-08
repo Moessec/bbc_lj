@@ -6,6 +6,7 @@ function initField()
         $("#bespeak_com").val(rowData.bespeak_com);
         $("#opentime").val(rowData.opentime);
         $("#usercontact").val(rowData.usercontact);
+        $("#bes_img").val(rowData.bes_img);
         $("#some_class_1").val(rowData.opentime);
         $("#some_class_2").val(rowData.outtime);
     }
@@ -26,7 +27,7 @@ function postData(t, e)
     var bespeak_title = $.trim($("#bespeak_title").val()),
         bespeak_com = $.trim($("#bespeak_com").val()),
         outtime = $.trim($("#some_class_2").val()),
-        img = $.trim($("#img").val()),
+        bes_img = $.trim($("#bes_img").val()),
         usercontact = $.trim($("#usercontact").val()),
         opentime = $.trim($("#some_class_1").val()),
         n = "add" == t ? "新增预约" : "修改预约";
@@ -38,11 +39,11 @@ function postData(t, e)
         opentime : opentime,
         usercontact : usercontact,
         outtime : outtime,
-        img : img
+        bes_img : bes_img
     } : {
         bespeak_title: bespeak_title,
         bespeak_com : bespeak_com,
-        img : img,
+        bes_img : bes_img,
         outtime : outtime,
         usercontact : usercontact,
         opentime : opentime,
@@ -71,7 +72,7 @@ function resetForm(t)
     $("#bespeak_title").val("");
     $("#bespeak_com").val("");
     $("#some_class_1").val("");
-    $("#img").val("");
+    $("#bes_img").val("");
     $("#some_class_2").val("");
     $("#usercontact").val("");
 }
