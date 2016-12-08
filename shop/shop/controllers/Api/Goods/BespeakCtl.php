@@ -357,8 +357,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['user_id'] = 'admin';
 		$data['bespeak_list'] = '1';
 		$data['usercontact'] =  request_string('usercontact');
-		var_dump($data);
-		exit();
+
 
 		$bespeak_id = $this->goodsBespeakModel->addBespeak($data, true);
 
@@ -419,7 +418,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['opentime'] = request_string('opentime');
 		$data['outtime'] = request_string('outtime');
 		$data['img'] = request_string('img');
-		exit();
+
 		$flag = $Goods_BespeakModel->editBespeak($id, $data);
 
 		if ($flag != false)

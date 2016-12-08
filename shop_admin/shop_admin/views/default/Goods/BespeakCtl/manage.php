@@ -165,10 +165,10 @@ $jq("#datetimepicker_format_locale").on("change", function(e){
 $jq('#datetimepicker').datetimepicker({
 dayOfWeekStart : 1,
 lang:'en',
-disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
-startDate:	'1986/01/05'
+disabledDates:['1986-01-08','1986-01-09','1986-01-10'],
+startDate:	'1986-01-05'
 });
-$jq('#datetimepicker').datetimepicker({value:'2015/04/15 05:03',step:10});
+$jq('#datetimepicker').datetimepicker({value:'2015-04-15 05:03',step:10});
 
 $jq('.some_class').datetimepicker();
 
@@ -186,7 +186,7 @@ $jq('#datetimepicker10').datetimepicker({
 	inline:true
 });
 $jq('#datetimepicker_mask').datetimepicker({
-	mask:'9999/19/39 29:59'
+	mask:'9999-19-39 29:59'
 });
 
 $jq('#datetimepicker1').datetimepicker({
@@ -198,10 +198,10 @@ $jq('#datetimepicker2').datetimepicker({
 	yearOffset:222,
 	lang:'ch',
 	timepicker:false,
-	format:'d/m/Y',
-	formatDate:'Y/m/d',
-	minDate:'-1970/01/02', // yesterday is minimum date
-	maxDate:'+1970/01/02' // and tommorow is maximum date calendar
+	format:'d-m-Y',
+	formatDate:'Y-m-d',
+	minDate:'-1970-01-02', // yesterday is minimum date
+	maxDate:'+1970-01-02' // and tommorow is maximum date calendar
 });
 </script>
 <?php
