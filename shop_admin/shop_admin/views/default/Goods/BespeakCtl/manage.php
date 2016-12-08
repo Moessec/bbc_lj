@@ -32,10 +32,90 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 				<div class="label-wrap"><label for="opentime">活动开始时间:</label></div>
 				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="opentime" id="opentime"></div>
 			</li>
+			  <li class="form-item">
+                      <style>
+                        .txt{ height:28px; border:1px solid #cdcdcd; width:670px;    font-size: 1rem;margin-left: 40px}
+                        .mybtn{ background-color:#FFF; line-height:14px;vertical-align:middle;border:1px solid #CDCDCD;height:30px; width:70px;    font-size: 1rem;margin-left: 40px}
+                        .file{ position:absolute; top:0;    font-size: 0.6rem; right:80px; height:24px; filter:alpha(opacity:0);opacity: 0;width:260px }
+                        </style>
+                        <div class="form-group">
+                            <span onclick="file.click()" style="font-size: 0.6rem;"  class="mybtn">浏览...</span>
+                            <label class="control-label" style=" padding-left:12px;   font-size: 0.6rem;">图片上传：</label>
+                            <input type="file" name="file" class="file" id="file" size="28"  onchange="preImg(this.id,'imgPre');UpladFile();" />
+                            <!-- <span onclick="" id="upload" style="font-size: 0.6rem;" class="mybtn">上传</span> -->
+                            <div class="input-box" style="display:none">
+                                <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
+                                <span class="input-del"></span>
+                            </div>
+                            <img id="imgPre" src="" width="300px" height="300px" style="display: block;     margin: auto;" />  
+                  </li>
 		</ul>
 	</form>
 </div>
 <script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
+        <script type="text/javascript">
+    var xhr;
+    function createXMLHttpRequest()
+    {
+        if(window.ActiveXObject)
+        {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        else if(window.XMLHttpRequest)
+        {
+            xhr = new XMLHttpRequest();
+        }
+    }
+    function UpladFile()
+    {
+        var fileObj = document.getElementById("file").files[0];
+        var FileController = ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=upload&typ=json";
+        var form = new FormData();
+        form.append("myfile", fileObj);
+        createXMLHttpRequest();
+        xhr.onreadystatechange = handleStateChange;
+        xhr.open("post", FileController, true);
+        xhr.send(form);
+    }
+    function handleStateChange()
+    {
+        if(xhr.readyState == 4)
+        {
+            if (xhr.status == 200 || xhr.status == 0)
+            {
+                var result = xhr.responseText;
+                var json = eval("(" + result + ")");
+                var img = document.getElementById('img');
+                var val = img.value
+                img.value=json.file+val;
+                alert("上传成功");
+            }
+        }
+    }
+
+    function getFileUrl(sourceId) { 
+    var url; 
+    if (navigator.userAgent.indexOf("MSIE")>=1) { // IE 
+    url = document.getElementById(sourceId).value; 
+    } else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox 
+    url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+    } else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome 
+    url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+    } 
+    return url; 
+    } 
+
+    /** 
+    * 将本地图片 显示到浏览器上 
+    */ 
+    function preImg(sourceId, targetId) { 
+    var url = getFileUrl(sourceId); 
+    var imgPre = document.getElementById(targetId); 
+    imgPre.src = url; 
+    } 
+
+
+</script>
 <!--<script type="text/javascript" src="./shop_admin/static/common/js/plugins/jquery.datetimepicker.js" charset="utf-8"></script>
 <script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->
 <?php
