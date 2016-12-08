@@ -152,7 +152,7 @@ setTimeout(function(){
      // alert(1);
         var goods_id = $(this).find('input').val();
         alert(e);
-            get_detail(goods_id);
+        get_detail(goods_id);
   function get_detail(goods_id) {
       //渲染页面
       $.ajax({
@@ -282,6 +282,7 @@ setTimeout(function(){
                                         delCookie('cart_count');
                                         getCartCount();
                                         $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+                                        event.stopPropagation();
                                     }else{
                                
                                            alert(result.msg);
