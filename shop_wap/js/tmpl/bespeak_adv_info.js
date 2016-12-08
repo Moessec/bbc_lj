@@ -14,8 +14,8 @@ $(function ()
             {
                 checkLogin(a.login);
                 console.log(a);
-                $("#img").attr('src',a.data.img);
-                $("#com").append('src',a.data.bespeak_com);
+                $("#img").attr('src',a.data.bespeak_img);
+                $("#com").append(a.data.bespeak_com);
                 $("#name").val(a.data.true_name);
                 $("#usercontact").val(a.data.usercontact);
                 var e = a.data.bespeak_default == "1" ? true : false;
