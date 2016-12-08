@@ -21,7 +21,7 @@ $(function ()
                        tem+='<li>活动截止时间：<span>'+value.outtime+'</span></li>';
                        tem+='<li>联系人：<span>'+value.true_name+'</span></li>';
                        tem+='<li>联系方式：<span>'+value.usercontact+'</span></li></div>'
-                       tem+='<div class="error-tips"></div><div class="form-btn"><a class="btn" href="bespeak_adv.html?bespeak_id='+value.bespeak_id+'">申请预约</a></div></dl>';
+                       tem+='<div class="error-tips"></div><div class="form-btn"><a class="btn" href="bespeak_opera_adv.html?bespeak_id='+value.bespeak_id+'">申请预约</a></div></dl>';
                     $("#bespeak_list").append(tem);
                 })
                 $("#img").attr('src',a.data.bespeak_img);
