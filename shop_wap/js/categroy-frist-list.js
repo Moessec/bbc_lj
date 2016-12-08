@@ -40,7 +40,7 @@ $(function ()
    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
     {
 
-        r = t.data.items; alert(r);
+        r = t.data.items; 
             for (var i in r)
             {
                 if(i<4)
@@ -54,8 +54,9 @@ $(function ()
   
     //展示模版
     // $(this).find('.outer').html(str); 
-    });
+    alert(e);
     $(this).eq(e).find('.outer').html(str); 
+    });
    
 
 
