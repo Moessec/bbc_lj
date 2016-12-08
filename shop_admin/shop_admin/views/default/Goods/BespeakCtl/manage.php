@@ -32,6 +32,10 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 				<div class="label-wrap"><label for="opentime">活动开始时间:</label></div>
 				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="opentime" id="opentime"></div>
 			</li>
+			<li class="row-item">
+				<div class="label-wrap"><label for="outtime">活动截止时间:</label></div>
+				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="outtime" id="outtime"></div>
+			</li>
 			  <li class="form-item">
                       <style>
                         .txt{ height:28px; border:1px solid #cdcdcd; width:670px;    font-size: 1rem;margin-left: 40px}
@@ -47,7 +51,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                                 <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
                                 <span class="input-del"></span>
                             </div>
-                            <img id="imgPre" src="" width="300px" height="300px" style="display: block;     margin: auto;" />  
+                            <img id="imgPre" src="" width="300px" height="300px" style="display: block;border:1px #000;     margin: auto;" />  
                   </li>
 		</ul>
 	</form>
