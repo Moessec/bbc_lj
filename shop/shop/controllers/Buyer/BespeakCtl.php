@@ -109,11 +109,11 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					}elseif ($value['bespeak_state']=='2') {
 						$value['bespeak_state']='预约已完成';
 					}
-					if($value['bespeak_place']=='0'){
-						$value['bespeak_place']='公共区域';
-					}else{
-						$value['bespeak_place']='室内';
-					}
+					// if($value['bespeak_place']=='0'){
+					// 	$value['bespeak_place']='公共区域';
+					// }else{
+					// 	$value['bespeak_place']='室内';
+					// }
 					$data[$key]=$value;
 			}
 			$num=count($data);
