@@ -458,18 +458,8 @@ class Api_Goods_BespeakCtl extends Api_Controller
 				move_uploaded_file($_FILES["myfile"]["tmp_name"],$dir.$fileName);
 				$ret['file'] = DIRECTORY_SEPARATOR.$uploadDir.$fileName;
 			}
-			if ($ret != false)
-			{
-				$msg    = _('success');
-				$status = 200;
-			}
-			else
-			{
-				$msg    = _('failure');
-				$status = 250;
-			}
-			$data=$ret;
-			$this->data->addBody(-140, $data);
+
+			$this->data->addBody(-140, $ret);
 
 		}
 	}
