@@ -6,7 +6,6 @@ function initField()
         $("#bespeak_com").val(rowData.bespeak_com);
         $("#opentime").val(rowData.opentime);
         $("#usercontact").val(rowData.usercontact);
-        $("#img").val(rowData.img);
         $("#some_class_1").val(rowData.opentime);
         $("#some_class_2").val(rowData.outtime);
     }

@@ -52,12 +52,12 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 				<input type="text" class="some_class" name="outtime"  value="" id="some_class_2"/></div>
 			</li>
 			  <li class="row-item odd">
-    				<div class="label-wrap"><label for="brand_image">图片标识</label></div>
+    				<div class="label-wrap"><label for="bespeak_img">图片标识</label></div>
     				<div class="ctn-wrap" >
-                        <img id="brand_image" name="setting[brand_logo]" alt="选择图片" src="./shop_admin/static/common/images/image.png" class="image-line" />
-                        <div class="image-line" style="margin-left: 80px;" id="brand_upload">上传图片<i class="iconfont icon-tupianshangchuan"></i></div>
+                        <img id="bespeak_img" name="setting[bes_img]" alt="选择图片" src="./shop_admin/static/common/images/image.png" class="image-line" />
+                        <div class="image-line" style="margin-left: 80px;" id="bespeak_upload">上传图片<i class="iconfont icon-tupianshangchuan"></i></div>
 
-                        <input id="brand_logo" name="setting[brand_logo]" value="" class="ui-input w400" type="hidden"/>
+                        <input id="bes_img" name="setting[bes_img]" value="" class="ui-input w400" type="hidden"/>
                     </div>
     			</li>
 		</ul>
@@ -69,9 +69,9 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         buyer_logo_upload = new UploadImage({
             thumbnailWidth: 240,
             thumbnailHeight: 200,
-            imageContainer: '#brand_image',
-            uploadButton: '#brand_upload',
-            inputHidden: '#brand_logo'
+            imageContainer: '#bespeak_img',
+            uploadButton: '#bespeak_upload',
+            inputHidden: '#bes_img'
         });
     })
 </script>
