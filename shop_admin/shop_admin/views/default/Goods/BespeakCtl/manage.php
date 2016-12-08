@@ -45,7 +45,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                         <div class="form-group">
 							<div class="label-wrap">
                             <label class="control-label" style=" ">图片上传：</label></div>
-                            <div class="ctn-wrap"><span onclick="file.click()" style="font-size: 0.6rem;"  class="mybtn">浏览...</span>
+                            <div class="ctn-wrap"><span onclick="file.click()" style=""  class="mybtn">浏览...</span>
                         	</div>
                             <input type="file" name="file" class="file" id="file" size="28"  onchange="preImg(this.id,'imgPre');UpladFile();" />
                             <!-- <span onclick="" id="upload" style="font-size: 0.6rem;" class="mybtn">上传</span> -->
