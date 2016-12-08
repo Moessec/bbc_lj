@@ -372,6 +372,9 @@ body{
         .font_inner li{
             display:none;
         }
+        .display{
+            display:block;
+        }
 
          .add{
          	display: inline-block;
