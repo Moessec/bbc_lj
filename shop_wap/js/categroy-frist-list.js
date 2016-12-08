@@ -146,9 +146,9 @@ $(function ()
 setTimeout(function(){
   if(key)
   {
-    $('.add').each(function(e){
+    $('.add').each(function(){
 
-    $(this).on('click',function(){
+    $(this).on('click',function(e){
      // alert(1);
         var goods_id = $(this).find('input').val();
         alert(e);
