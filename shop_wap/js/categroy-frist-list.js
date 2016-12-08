@@ -223,7 +223,7 @@ setTimeout(function(){
                 // 购物车中商品数量
                 if (getCookie('cart_count')) {
                     if (getCookie('cart_count') > 0) {
-                        $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+                        $('.cart').html('<sup>'+getCookie('cart_count')+'</sup>');
                     }
                 }
 
@@ -265,7 +265,7 @@ setTimeout(function(){
                         addCookie('cart_count',cart_count);
                         // show_tip();
                         getCartCount();
-                        $('#cart_count').html('<sup>'+cart_count+'</sup>');
+                        $('.cart').html('<sup>'+cart_count+'</sup>');
                         return false;
                     }else{
                         if(data.shop_owner)
@@ -292,7 +292,7 @@ setTimeout(function(){
                                         // 更新购物车中商品数量
                                         delCookie('cart_count');
                                         getCartCount();
-                                        $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+                                        $('.cart').html('<sup>'+getCookie('cart_count')+'</sup>');
                                     }else{
                                
                                            alert(result.msg);
