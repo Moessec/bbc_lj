@@ -7,7 +7,8 @@ function initField()
         $("#opentime").val(rowData.opentime);
         $("#usercontact").val(rowData.usercontact);
         $("#img").val(rowData.img);
-        $("#outtime").val(rowData.outtime);
+        $("#some_class_1").val(rowData.opentime);
+        $("#some_class_2").val(rowData.outtime);
     }
 }
 function initPopBtns()
@@ -25,10 +26,10 @@ function postData(t, e)
 {
     var bespeak_title = $.trim($("#bespeak_title").val()),
         bespeak_com = $.trim($("#bespeak_com").val()),
-        outtime = $.trim($("#outtime").val()),
+        outtime = $.trim($("#some_class_2").val()),
         img = $.trim($("#img").val()),
         usercontact = $.trim($("#usercontact").val()),
-        opentime = $.trim($("#opentime").val()),
+        opentime = $.trim($("#some_class_1").val()),
         n = "add" == t ? "新增预约" : "修改预约";
 
     params = rowData.bespeak_id ? {
@@ -69,9 +70,9 @@ function resetForm(t)
     $("#manage-form").validate().resetForm();
     $("#bespeak_title").val("");
     $("#bespeak_com").val("");
-    $("#opentime").val("");
+    $("#some_class_1").val("");
     $("#img").val("");
-    $("#outtime").val("");
+    $("#some_class_2").val("");
     $("#usercontact").val("");
 }
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
