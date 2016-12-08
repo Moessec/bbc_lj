@@ -35,6 +35,8 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 		</ul>
 	</form>
 </div>
+<script type="text/javascript" src="<?= $this->view->js_com ?>/webuploader.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?= $this->view->js ?>/models/upload_image.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak1.js" charset="utf-8"></script>
 <!--<script type="text/javascript" src="./shop_admin/static/common/js/plugins/jquery.datetimepicker.js" charset="utf-8"></script>
 <script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->

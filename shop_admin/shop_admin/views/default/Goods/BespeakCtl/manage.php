@@ -51,87 +51,18 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 				<div class="ctn-wrap">
 				<input type="text" class="some_class" name="outtime"  value="" id="some_class_2"/></div>
 			</li>
-			  <li class="form-item">
-                      <style>
-                        .txt{ height:28px; border:1px solid #cdcdcd; width:670px;    font-size: 1rem;}
-                        .mybtn{ background-color:#FFF; line-height:14px;vertical-align:middle;border:1px solid #CDCDCD;height:30px; width:70px;    font-size: 1rem;}
-                        .file{ position:absolute; top:0;    font-size: 0.6rem; right:80px; height:24px; filter:alpha(opacity:0);opacity: 0;width:260px }
-                        </style>
-                        <div class="form-group">
-							<div class="label-wrap">
-                            <label class="control-label" style=" ">图片上传：</label></div>
-                            <div class="ctn-wrap"><span onclick="file.click()" style=""  class="mybtn">浏览...</span>
-                        	</div>
-                            <input type="file" name="file" class="file" id="file" size="28"  onchange="preImg(this.id,'imgPre');UpladFile();" />
-                                <input type="text" name="img" style="display:none" id="img"/>
-                            <img id="imgPre" src="" style="display: block;border:1px #000;   margin: auto;" />  
-                  </li>
+			  <li class="row-item odd">
+    				<div class="label-wrap"><label for="brand_image">图片标识</label></div>
+    				<div class="ctn-wrap" >
+                        <img id="brand_image" name="setting[brand_logo]" alt="选择图片" src="./shop_admin/static/common/images/image.png" class="image-line" />
+                        <div class="image-line" style="margin-left: 80px;" id="brand_upload">上传图片<i class="iconfont icon-tupianshangchuan"></i></div>
+
+                        <input id="brand_logo" name="setting[brand_logo]" value="" class="ui-input w400" type="hidden"/>
+                    </div>
+    			</li>
 		</ul>
 	</form>
 </div>
-<script type="text/javascript">
-    var xhr;
-    function createXMLHttpRequest()
-    {
-        if(window.ActiveXObject)
-        {
-            xhr = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        else if(window.XMLHttpRequest)
-        {
-            xhr = new XMLHttpRequest();
-        }
-    }
-    function UpladFile()
-    {
-        var fileObj = document.getElementById("file").files[0];
-        var FileController = SITE_URL+"?ctl=Upload&action=uploadImage";
-        var form = new FormData();
-        form.append("myfile", fileObj);
-        createXMLHttpRequest();
-        xhr.onreadystatechange = handleStateChange;
-        xhr.open("post", FileController, true);
-        xhr.send(form);
-    }
-    function handleStateChange()
-    {
-        if(xhr.readyState == 4)
-        {
-            if (xhr.status == 200 || xhr.status == 0)
-            {
-                var result = xhr.responseText;
-                var json = eval("(" + result + ")");
-                var img = document.getElementById('img');
-                var val = img.value
-                img.value=json.file+val;
-                alert("上传成功");
-            }
-        }
-    }
-
-    function getFileUrl(sourceId) { 
-    var url; 
-    if (navigator.userAgent.indexOf("MSIE")>=1) { // IE 
-    url = document.getElementById(sourceId).value; 
-    } else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox 
-    url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
-    } else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome 
-    url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
-    } 
-    return url; 
-    } 
-
-    /** 
-    * 将本地图片 显示到浏览器上 
-    */ 
-    function preImg(sourceId, targetId) { 
-    var url = getFileUrl(sourceId); 
-    var imgPre = document.getElementById(targetId); 
-    imgPre.src = url; 
-    } 
-
-
-</script>
 
 <script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
 
