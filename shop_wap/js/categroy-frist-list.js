@@ -148,7 +148,7 @@ setTimeout(function(){
   {
     $('.add').each(function(){
 
-    $(this).eq(0).click(function(){
+    $(this).on('click',function(){
      // alert(1);
         var goods_id = $(this).find('input').val();
         alert(goods_id);
