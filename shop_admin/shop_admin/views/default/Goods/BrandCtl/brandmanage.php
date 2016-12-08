@@ -109,6 +109,7 @@ body{background: #fff;}
             inputHidden: '#brand_logo'
         });
     })
+    alert(url_path);
 </script>
 <script type="text/javascript" src="<?= $this->view->js_com ?>/webuploader.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?= $this->view->js ?>/models/upload_image.js" charset="utf-8"></script>
