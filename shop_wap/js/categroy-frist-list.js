@@ -52,11 +52,11 @@ $(function ()
          }  
     
      
+    $(this).find('.outer').html(str); 
     console.log(str);
     });
-   alert(e);
+   // alert(e);
     //展示模版
-    $(this).find('.outer').html(str); 
 
     });
 },100)
