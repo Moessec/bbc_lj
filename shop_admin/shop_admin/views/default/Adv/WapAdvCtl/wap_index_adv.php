@@ -24,10 +24,10 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=siteTheme&config_type%5B%5D=site"><span>风格设置</span></a></li>
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Floor_Adpage&met=adpage"><span>首页模板</span></a></li>
-                <li><a class="current"><span>首页幻灯片</span></a></li>
+                <li><a ><span>首页幻灯片</span></a></li>
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=index_liandong&config_type%5B%5D=index_liandong"><span>首页联动小图</span></a></li>
-                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Adv_WapAdv&met=wap_index_adv&config_type%5B%5D=wap_index_adv"><span>wap首页广告小图</span></a></li>
-                
+                <li><a class="current" href="<?= Yf_Registry::get('url') ?>?ctl=Adv_WapAdv&met=wap_index_adv&config_type%5B%5D=wap_index_adv"><span>wap首页广告小图</span></a></li>
+
             </ul>
         </div>
     </div>
