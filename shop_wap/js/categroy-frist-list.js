@@ -167,6 +167,7 @@ time = setInterval(function(){
         var goods_id = $(this).find('input').val();
         alert(goods_id);
             get_detail(goods_id);
+            clearInterval(time);
   function get_detail(goods_id) {
       //渲染页面
       $.ajax({
@@ -175,6 +176,7 @@ time = setInterval(function(){
          data:{goods_id:goods_id,k:key,u:getCookie('id')},
          dataType:"json",
          success:function(result){
+
             var data = result.data;
              console.info(data);
             if(result.status == 200){
@@ -266,7 +268,7 @@ time = setInterval(function(){
                         addCookie('cart_count',cart_count);
                         // show_tip();
                         getCartCount();
-                        clearInterval(time);
+                        // clearInterval(time);
                         $('#cart_count').html('<sup>'+cart_count+'</sup>');
                         return false;
                     }else{
