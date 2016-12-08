@@ -357,6 +357,8 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['user_id'] = 'admin';
 		$data['bespeak_list'] = '1';
 		$data['usercontact'] =  request_string('usercontact');
+		var_dump($data);
+		exit();
 
 		$bespeak_id = $this->goodsBespeakModel->addBespeak($data, true);
 
@@ -381,14 +383,11 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data                      = array();
 		$data['bespeak_title']         = request_string('bespeak_title');
 		$data['bespeak_com'] = request_string('bespeak_com');
-		$data['opentime'] = request_string('opentime');
-		$data['outtime'] = request_string('outtime');
-		$data['img'] = request_string('img');
 		$data['true_name'] = '管理员';
 		$data['user_id'] = 'admin';
 		$data['bespeak_list'] = '2';
 		$data['usercontact'] =  request_string('usercontact');
-// exit();
+
 		$bespeak_id = $this->goodsBespeakModel->addBespeak($data, true);
 
 		if ($bespeak_id)
@@ -418,7 +417,9 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['bespeak_title']         = request_string('bespeak_title');
 		$data['bespeak_com'] = request_string('bespeak_com');
 		$data['opentime'] = request_string('opentime');
-
+		$data['outtime'] = request_string('outtime');
+		$data['img'] = request_string('img');
+		exit();
 		$flag = $Goods_BespeakModel->editBespeak($id, $data);
 
 		if ($flag != false)
