@@ -649,8 +649,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 
 	public function getbespeaklist()
 	{
-		$bespeak_id = request_int('bespeak_id');
-		$bespeak_id['bespeak_id'] = request_int('bespeak_id');
+		$bespeak_id['bespeak_id'] = request_int('id');
 		$USER_BespeakModel = new USER_BespeakModel();
 		$data    = $USER_BespeakModel->getBespeakList($bespeak_id);
 		$this->data->addBody(-140, $data);

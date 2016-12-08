@@ -19,6 +19,7 @@
 .remember-form .reg-cms { line-height: 0.9rem; font-size: 0.6rem; vertical-align: top; display: inline-block; height: 0.9rem; color: #5D9CEC; }
 .remember-form .reg-cms:visited { color: #4B89DC; }
 #imgPre{background: url(../images/Snap11.jpg) no-repeat center;}
+#background{background: url(../images/wap.jpg) no-repeat center;}
 
 /*三方账号登录*/
 .joint-login { position: absolute; z-index: 2; bottom: 2rem; left: 0; right: 0; text-align: center; display: none; }
