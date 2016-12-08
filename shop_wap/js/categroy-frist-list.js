@@ -156,7 +156,7 @@ $(function ()
 
 
 var key = getCookie('key');
-setTimeout(function(){
+setInterval(function(){
   if(key)
   {
     $('.add').each(function(){
