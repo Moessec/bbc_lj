@@ -63,7 +63,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                             <div class="ctn-wrap"><span onclick="file.click()" style=""  class="mybtn">浏览...</span>
                         	</div>
                             <input type="file" name="file" class="file" id="file" size="28"  onchange="preImg(this.id,'imgPre');UpladFile();" />
-                                <input type="tel" class="inp" name="img" style="display:none" id="img"/>
+                                <input type="text" name="img" style="display:none" id="img"/>
                             <img id="imgPre" src="" style="display: block;border:1px #000;   margin: auto;" />  
                   </li>
 		</ul>
@@ -104,6 +104,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 var img = document.getElementById('img');
                 var val = img.value
                 img.value=json.file+val;
+                alert(img);
                 alert("上传成功");
             }
         }
