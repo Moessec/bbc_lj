@@ -38,7 +38,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         </div>
         <ul>
               <li>该组图片应用于首页下栏广告使用，最多可上传20张图片。</li>
-              <li>图片要求使用宽度为96像素，高度为96像素jpg/gif/png格式的图片。</li>
+              <li>图片要求使用宽度为170像素，高度为170像素jpg/gif/png格式的图片。</li>
               <li>上传图片后请添加格式为“http://网址...”链接地址，设定后将在显示页面中点击幻灯片将以另打开窗口的形式跳转到指定网址。</li>
         </ul>
     </div>
@@ -51,7 +51,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>滚动图片1</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider1_review" src="<?=@($data['index_slider1_image']['config_value'])?>" width="760" height="200"/>
+                <img id="index_slider1_review" src="<?=@($data['index_slider1_image']['config_value'])?>" width="170" height="170"/>
                 <input type="hidden" id="index_slider1_image" name="index_slider[index_slider1_image]" value="<?=@($data['index_slider1_image']['config_value'])?>" />
                 <div  id='index_slider1_upload' class="image-line upload-image" >图片上传</div>
 
