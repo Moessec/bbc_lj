@@ -19,6 +19,10 @@ class Adv_WapAdvCtl extends Api_Controller
 		include  $this->view->getView();
 		
 	}
+	public function a(){
+
+		$this->data->addBody(-140, array('a'=>123));	
+	}
 	public function edit()
 	{
 		$data = array('aa'=>2);
