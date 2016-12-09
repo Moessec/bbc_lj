@@ -571,7 +571,7 @@ $(function ()
             {
                 parent.$.dialog.confirm('修改立马生效,是否继续？', function ()
                     {
-                        Public.ajaxPost(SITE_URL + '?ctl=Config&met=edit&typ=json', $('#wap_index_adv-setting-form').serialize(), function (data)
+                        Public.ajaxPost(SITE_URL + '?ctl=Adv_WapAdv&met=edit&typ=json', $('#wap_index_adv-setting-form').serialize(), function (data)
                         {
                             // console.log(data);
                             if (data.status == 200)
