@@ -183,7 +183,7 @@ div.bot {
                 <div  id='wap_index_adv5_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link5]" value="<?=Web_ConfigModel::value('wap_index_adv_link5')?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link5]" value="<?=@($data['wap_index_adv_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link5" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
