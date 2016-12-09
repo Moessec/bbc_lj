@@ -8,8 +8,6 @@ function initField()
         $("#bespeak_img").attr('src',rowData.bespeak_img);
         $("#true_name").val(rowData.true_name);
         $("#rent_price").val(rowData.rent_price);
-        $("#some_class_1").val(rowData.opentime);
-        $("#some_class_2").val(rowData.outtime);
     }
 }
 function initPopBtns()
@@ -39,9 +37,7 @@ function postData(t, e)
         bespeak_id: e,
         bespeak_title: bespeak_title,
         bespeak_com : bespeak_com,
-        opentime : opentime,
         usercontact : usercontact,
-        outtime : outtime,
         true_name : true_name,
         rent_price : rent_price,
         bes_img : bes_img
@@ -50,10 +46,8 @@ function postData(t, e)
         bespeak_com : bespeak_com,
         bes_img : bes_img,
         true_name : true_name,
-        outtime : outtime,
         rent_price : rent_price,
         usercontact : usercontact,
-        opentime : opentime,
     };
     console.log(params);
     Public.ajaxPost(SITE_URL +"?ctl=Goods_Bespeak&typ=json&met=" + ("add" == t ? "addGoodsbespeak1" : "editGoodsbespeak"), params, function (e)
@@ -78,10 +72,8 @@ function resetForm(t)
     $("#manage-form").validate().resetForm();
     $("#bespeak_title").val("");
     $("#bespeak_com").val("");
-    $("#some_class_1").val("");
     $("#bes_img").val("");
     $("#true_name").val("");
-    $("#some_class_2").val("");
     $("#usercontact").val("");
     $("#rent_price").val("");
 }

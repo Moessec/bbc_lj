@@ -227,24 +227,7 @@ $(function() {
             "title": true,
             "fixed": true,
             "width":100
-        }, {
-            "name": "opentime",
-            "index": "opentime",
-            "label": "预约开启时间",
-            "classes": "ui-ellipsis",
-            "align": "center",
-            "title": true,
-            "fixed": false,
-            "width": 60
-        }, {
-            "name": "outtime",
-            "index": "outtime",
-            "label": "截止时间",
-            "classes": "ui-ellipsis",
-            "align": "center",
-            "title": true,
-            "width": 60
-        }, {
+        },{
             "name": "bespeak_state",
             "index": "bespeak_state",
             "label": "预约状态",
