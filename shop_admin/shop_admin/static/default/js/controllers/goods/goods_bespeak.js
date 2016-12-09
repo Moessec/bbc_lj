@@ -7,7 +7,7 @@ function initField()
         $("#opentime").val(rowData.opentime);
         $("#true_name").val(rowData.true_name);
         $("#usercontact").val(rowData.usercontact);
-        $("#bes_img").val(rowData.bes_img);
+        $("#bespeak_img").attr('src',rowData.bespeak_img);
         $("#some_class_1").val(rowData.opentime);
         $("#some_class_2").val(rowData.outtime);
     }

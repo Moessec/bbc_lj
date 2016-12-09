@@ -14,7 +14,7 @@ $(function ()
                 checkLogin(e.login);
                 console.log(e.data.temp);
                 $.each(e.data.rent, function(key, value){
-                       tem='<ul><li><dl><dt><span class="name">已发布租赁：'+value.bespeak_title+'</span><span class="phone" style="margin-left:25px">联系方式：'+value.usercontact+'</span></dt><dd>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="'+value.bespeak_id+'"><i class="edit"></i>'+value.bespeak_click+'</a></div></li></ul>';
+                       tem='<ul><li><dl><dt><span class="name"><a href="'+value.bespeakinfo+'" style="list-style: none;">'+value.bespeak_title+'</a></span></dt><div style="width:100%;height:70px;"><a href="'+value.bespeakinfo+'"><img src="'+value.bespeak_img+'" style="width:50px;height:50px;float:left"></a><dd style="float: left;margin-left: 10px;">价格：'+value.rent_price+'</dd><dd style="float: left;margin-left: 10px;">租赁时间：'+value.opentime+'--'+value.outtime+'</dd><dd style="float: left;margin-left: 10px;"><br/>联系人：'+value.true_name+'</dd></div></dl><div class="handle">'+value.bespeak_state+'<span><a href="'+value.bespeak_id+'"><i class="edit"></i>'+value.bespeak_click+'</a></div></li></ul>';
                     $("#bespeak_list").append(tem);
                 })
                 $.each(e.data.temp, function(key, value){
