@@ -22,8 +22,10 @@ $(function ()
                        tem+='<tr><td class="left">联系人：</td><td><span>'+value.true_name+'</span></td></tr>';
                        tem+='<tr><td class="left">联系方式：</td><td><span>'+value.usercontact+'</span></td></tr></table></div>'
                        tem+='<div class="error-tips"></div><div class="form-btn"><a class="btn" href="bespeak_opera_adv.html?bespeak_id='+value.bespeak_id+'">申请预约</a></div></dl>';
-                      var b=tem.replace('&lt;','<');
-                      var c=b.replace('&gt;','>');
+                     var reg = new RegExp("&lt;","g")
+                     var teg = new RegExp("&gt;","g")
+                      var b=tem.replace(reg,'<');
+                      var c=b.replace(teg,'>');
                     $("#bespeak_list").append(c);
                 })
                 $("#img").attr('src',a.data.bespeak_img);
