@@ -26,7 +26,7 @@ $(function() {
                 content: 'url:' + SITE_URL + '?ctl=Goods_Bespeak&met=manage1&typ=e',
                 data: data,
                 width: 980,
-                height: 400,
+                height: 800,
                 max: false,
                 min: false,
                 cache: false,
@@ -356,8 +356,8 @@ $(function() {
             e.preventDefault();
 
             parent.$.dialog({
-                width: 560,
-                height: 300,
+                width: 900,
+                height: 800,
                 title: '批量导入',
                 content: 'url:/import.jsp',
                 lock: true
