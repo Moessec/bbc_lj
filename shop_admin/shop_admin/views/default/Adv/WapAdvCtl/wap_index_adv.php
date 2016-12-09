@@ -471,9 +471,61 @@ div.bot {
                 $imagePreview = $('#index_slider4_review');
                 $imageInput = $('#index_slider4_image');
                 imageWidth = 170, imageHeight = 170;
-            }else {
+            }else if( this.id == 'index_slider5_upload' ){
                 $imagePreview = $('#index_slider5_review');
                 $imageInput = $('#index_slider5_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider6_upload' ){
+                $imagePreview = $('#index_slider6_review');
+                $imageInput = $('#index_slider6_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider7_upload' ){
+                $imagePreview = $('#index_slider7_review');
+                $imageInput = $('#index_slider7_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider8_upload' ){
+                $imagePreview = $('#index_slider8_review');
+                $imageInput = $('#index_slider8_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider9_upload' ){
+                $imagePreview = $('#index_slider9_review');
+                $imageInput = $('#index_slider9_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider10_upload' ){
+                $imagePreview = $('#index_slider10_review');
+                $imageInput = $('#index_slider10_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider11_upload' ){
+                $imagePreview = $('#index_slider11_review');
+                $imageInput = $('#index_slider11_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider12_upload' ){
+                $imagePreview = $('#index_slider12_review');
+                $imageInput = $('#index_slider12_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider13_upload' ){
+                $imagePreview = $('#index_slider13_review');
+                $imageInput = $('#index_slider13_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider14_upload' ){
+                $imagePreview = $('#index_slider14_review');
+                $imageInput = $('#index_slider14_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider15_upload' ){
+                $imagePreview = $('#index_slider15_review');
+                $imageInput = $('#index_slider15_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider16_upload' ){
+                $imagePreview = $('#index_slider16_review');
+                $imageInput = $('#index_slider16_image');
+                imageWidth = 170, imageHeight = 170;
+            }else if( this.id == 'index_slider17_upload' ){
+                $imagePreview = $('#index_slider17_review');
+                $imageInput = $('#index_slider17_image');
+                imageWidth = 170, imageHeight = 170;
+            }else{
+                $imagePreview = $('#index_slider18_review');
+                $imageInput = $('#index_slider18_image');
                 imageWidth = 170, imageHeight = 170;
             }
             console.info($imagePreview);
