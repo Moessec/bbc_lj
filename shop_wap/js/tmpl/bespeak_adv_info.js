@@ -23,9 +23,9 @@ $(function ()
                        tem+='<tr><td class="left">联系方式：</td><td><span>'+value.usercontact+'</span></td></tr></table></div>'
                        tem+='<div class="error-tips"></div><div class="form-btn"><a class="btn" href="bespeak_opera_adv.html?bespeak_id='+value.bespeak_id+'">申请预约</a></div></dl>';
                      var reg = new RegExp("\n","g");
-                      var b=tem.replace(reg,'<br>');
+                      var c=b.replace(reg,'<br>');
                       var eg = new RegExp("/<span>([^<]+)\s<\//span>/","g");
-                      var c=tem.replace(eg,'&amp;nbsp;');
+                      var b=tem.replace(eg,'&amp;nbsp;');
 
                     $("#bespeak_list").append(c);
                 })
