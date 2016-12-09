@@ -551,6 +551,51 @@ $(function ()
 
 });
 
+//团购幻灯片设置
+$(function ()
+{
+    if ($('#wap_index-setting-form').length > 0)
+    {
+        $('#wap_index-setting-form').validator({
+            ignore: ':hidden',
+            theme: 'yellow_bottom',
+            timely: 1,
+            stopOnError: true,
+            fields: {
+
+            },
+            valid: function (form)
+            {
+                parent.$.dialog.confirm('修改立马生效,是否继续？', function ()
+                    {
+                        Public.ajaxPost(SITE_URL + '?ctl=Config&met=edit&typ=json', $('#wap_index-setting-form').serialize(), function (data)
+                        {
+                            if (data.status == 200)
+                            {
+                                parent.Public.tips({content: '修改操作成功！'});
+                            }
+                            else
+                            {
+                                parent.Public.tips({type: 1, content: data.msg || '操作无法成功，请稍后重试！'});
+                            }
+                        });
+                    },
+                    function ()
+                    {
+
+                    });
+            }
+        }).on("click", "a.submit-btn", function (e)
+        {
+            $(e.delegateTarget).trigger("validate");
+        });
+    }
+
+});
+
+
+
+
 
 //团购幻灯片设置
 $(function ()
