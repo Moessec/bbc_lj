@@ -56,7 +56,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <div  id='index_slider1_upload' class="image-line upload-image" >图片上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link1]" value="<?=@($data['index_live_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0;size:auto" type="text" name="index_slider[index_live_link1]" value="<?=@($data['index_live_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link1" class="error valid"></label></span>
            <p class="notic">请使用宽度170像素，高度170像素的jpg/gif/png格式图片首页下栏广告，<br>
@@ -69,7 +69,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>滚动图片2</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider2_review" src="<?=@($data['index_slider2_image']['config_value'])?>" width="760" height="200"/>
+                <img id="index_slider2_review" src="<?=@($data['index_slider2_image']['config_value'])?>" width="170" height="170"/>
                 <input type="hidden" id="index_slider2_image" name="index_slider[index_slider2_image]" value="<?=@($data['index_slider2_image']['config_value'])?>" />
                 <div  id='index_slider2_upload' class="image-line upload-image" >图片上传</div>
 
