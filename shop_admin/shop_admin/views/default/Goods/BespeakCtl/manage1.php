@@ -80,7 +80,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 <script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->
 <script src="<?=$this->view->js?>/controllers/goods/jquery.js"></script>
 <script src="<?=$this->view->js?>/controllers/goods/build/jquery.datetimepicker.full.js"></script>
-<script>
+
 <script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak1.js" charset="utf-8"></script>
 <!--<script type="text/javascript" src="./shop_admin/static/common/js/plugins/jquery.datetimepicker.js" charset="utf-8"></script>
 <script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->
