@@ -108,8 +108,8 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link2]" value="<?=@($data['index_live_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link2" class="error valid"></label></span>
-           <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
-            如需跳转请在后方添加以http://开头的链接地址。</p>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
         </dd>
       </dl>
 
@@ -127,8 +127,8 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link3]" value="<?=@($data['index_live_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link3" class="error valid"></label></span>
-           <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
-            如需跳转请在后方添加以http://开头的链接地址。</p>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
         </dd>
       </dl>
 
@@ -145,8 +145,8 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link4]" value="<?=@($data['index_live_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link4" class="error valid"></label></span>
-           <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
-            如需跳转请在后方添加以http://开头的链接地址。</p>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
         </dd>
       </dl>
        <dl class="row">
@@ -162,8 +162,8 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
-            如需跳转请在后方添加以http://开头的链接地址。</p>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
         </dd>
       </dl>
      <div class="bot"><a href="javascript:void(0);" class="ui-btn ui-btn-sp submit-btn">确认提交</a></div>
