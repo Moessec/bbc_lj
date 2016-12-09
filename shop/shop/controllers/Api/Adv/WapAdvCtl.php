@@ -24,9 +24,9 @@ class Api_Adv_WapAdvCtl extends Api_Controller
 		$Web_ConfigModel = new Web_ConfigModel();
 
 		$config_type_row = request_row('config_type');
-		echo $config_type_row;
 		foreach ($config_type_row as $config_type)
 		{
+			var_dump($config_type);
 			$config_value_row = request_row($config_type);
 
 			$config_rows = $Web_ConfigModel->getByWhere(array('config_type' => $config_type));
