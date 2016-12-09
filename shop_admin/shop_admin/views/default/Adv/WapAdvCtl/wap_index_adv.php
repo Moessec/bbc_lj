@@ -178,6 +178,148 @@ div.bot {
           
         </dd>
       </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片5</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
+                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片5</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
+                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+
+       <dl class="row">
+        <dt class="tit">
+          <label>图片5</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
+                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片5</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
+                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片5</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
+                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片5</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
+                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片5</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
+                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片5</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
+                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+
+
+
+      
+
      <div class="bot"><a href="javascript:void(0);" class="ui-btn ui-btn-sp submit-btn">确认提交</a></div>
   </form>
 
