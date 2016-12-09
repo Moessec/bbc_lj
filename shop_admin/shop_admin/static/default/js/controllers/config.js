@@ -676,6 +676,8 @@ $(function ()
             }
         }).on("click", "a.submit-btn", function (e)
         {
+            alert(1);
+            
             $(e.delegateTarget).trigger("validate");
         });
     }
