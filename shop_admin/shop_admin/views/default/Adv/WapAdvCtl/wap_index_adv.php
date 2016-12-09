@@ -48,10 +48,10 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
 div.bot {
     display: block;
-    left: 859px;
+    /*left: 859px;*/
     padding: 12px 0 10px 17%;
     position: relative;
-    top: 200px;
+    /*top: 200px;*/
 }
 </style>
 </head>
