@@ -50,7 +50,7 @@ div.bot {
     display: block;
     left: 859px;
     padding: 12px 0 10px 17%;
-    position: fixed;
+    position: relative;
     top: 200px;
 }
 </style>
