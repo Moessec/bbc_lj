@@ -25,7 +25,7 @@ $(function ()
                      var reg = new RegExp("\n","g");
                       var b=tem.replace(reg,'<br>');
                       var eg = new RegExp("\s","g");
-                      var c=$('#com').replace(eg,'&amp;nbsp;');
+                      var c=$('#com').text.replace(eg,'&amp;nbsp;');
 
                     $("#bespeak_list").append(c);
                 })
