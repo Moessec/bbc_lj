@@ -86,7 +86,7 @@ div.bot {
         </ul>
     </div>
 
-   <form method="post" enctype="multipart/form-data" id="index_slider-setting-form" name="form1">
+   <form method="post" enctype="multipart/form-data" id="wap_index_adv-setting-form" name="form1">
     <input type="hidden" name="config_type[]" value="index_slider"/>
     <div class="ncap-form-default">
       <dl class="row">
@@ -400,7 +400,7 @@ div.bot {
           
         </dd>
       </dl>
-     <div class="bot"><a href="javascript:void(0);" class="ui-btn ui-btn-sp submit-btn">确认提交</a></div>
+ <div class="bot"><a href="javascript:void(0);" class="ui-btn ui-btn-sp submit-btn">确认提交</a></div>
   </form>
 
     <script type="text/javascript" src="<?=$this->view->js?>/controllers/config.js" charset="utf-8"></script>
