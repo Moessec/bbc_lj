@@ -80,7 +80,67 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 <script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->
 <script src="<?=$this->view->js?>/controllers/goods/jquery.js"></script>
 <script src="<?=$this->view->js?>/controllers/goods/build/jquery.datetimepicker.full.js"></script>
+<script>
+/*
 
+window.onerror = function(errorMsg) {
+	$('#console').html($('#console').html()+'<br>'+errorMsg)
+}*/
+var $jq = jQuery.noConflict();
+$jq.datetimepicker.setLocale('en');
+
+$jq('#datetimepicker_format').datetimepicker({value:'2015/04/15 05:03', format: $jq("#datetimepicker_format_value").val()});
+console.log($jq('#datetimepicker_format').datetimepicker('getValue'));
+
+$jq("#datetimepicker_format_change").on("click", function(e){
+	$jq("#datetimepicker_format").data('xdsoft_datetimepicker').setOptions({format: $jq("#datetimepicker_format_value").val()});
+});
+$jq("#datetimepicker_format_locale").on("change", function(e){
+	$jq.datetimepicker.setLocale($jq(e.currentTarget).val());
+});
+
+$jq('#datetimepicker').datetimepicker({
+dayOfWeekStart : 1,
+lang:'en',
+disabledDates:['1986-01-08','1986-01-09','1986-01-10'],
+startDate:	'1986-01-05'
+});
+$jq('#datetimepicker').datetimepicker({value:'2015-04-15 05:03',step:10});
+
+$jq('.some_class').datetimepicker();
+
+$jq('#default_datetimepicker').datetimepicker({
+	formatTime:'H:i',
+	formatDate:'d.m.Y',
+	//defaultDate:'8.12.1986', // it's my birthday
+	defaultDate:'+03.01.1970', // it's my birthday
+	defaultTime:'10:00',
+	timepickerScrollbar:false
+});
+
+$jq('#datetimepicker10').datetimepicker({
+	step:5,
+	inline:true
+});
+$jq('#datetimepicker_mask').datetimepicker({
+	mask:'9999-19-39 29:59'
+});
+
+$jq('#datetimepicker1').datetimepicker({
+	datepicker:false,
+	format:'H:i',
+	step:5
+});
+$jq('#datetimepicker2').datetimepicker({
+	yearOffset:222,
+	lang:'ch',
+	timepicker:false,
+	format:'d-m-Y',
+	formatDate:'Y-m-d',
+	minDate:'-1970-01-02', // yesterday is minimum date
+	maxDate:'+1970-01-02' // and tommorow is maximum date calendar
+});
+</script>
 <script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak1.js" charset="utf-8"></script>
 <!--<script type="text/javascript" src="./shop_admin/static/common/js/plugins/jquery.datetimepicker.js" charset="utf-8"></script>
 <script type="text/javascript" src="./shop_admin/static/common/css/jquery/plugins/datepicker/dateTimePicker.css" charset="utf-8"></script>-->
