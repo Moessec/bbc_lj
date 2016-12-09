@@ -563,6 +563,9 @@ div.bot {
           }); */
    })
     </script>
+        <?php
+      var_dump($data);
+    ?>
     <?php
 include $this->view->getTplPath() . '/' . 'footer.php';
     ?>
