@@ -198,5 +198,6 @@ $(function(){
    })
 </script>
     <?php
+    var_dump($data);
 include $this->view->getTplPath() . '/' . 'footer.php';
     ?>
