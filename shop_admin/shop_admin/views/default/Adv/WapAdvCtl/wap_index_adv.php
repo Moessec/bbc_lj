@@ -30,6 +30,16 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     line-height: 33px !important;
     padding: 0 12px !important;
     width: 26px;
+}
+.ui-input {
+    border: 1px solid #e2e2e2;
+    color: #555;
+    height: 18px;
+    line-height: 18px;
+    outline: 0 none;
+    padding: 5px;
+    vertical-align: middle;
+    width: 105px;
 }  
 </style>
 </head>
