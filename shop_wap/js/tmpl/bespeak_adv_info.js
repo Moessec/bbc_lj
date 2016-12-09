@@ -16,7 +16,7 @@ $(function ()
                 console.log(a);
                 $.each(a.data, function(key, value){
                        tem='<dl><img src="'+value.bespeak_img+'" style="width:100%"><div class="com">';
-                       tem+='<span style="width:90%;margin:auto" id="com">''</span></div>';
+                       tem+='<span style="width:90%;margin:auto" id="com"></span></div>';
                        tem+='<div class="ul"><table><tr><td class="left">活动开始时间：</td><td><span>'+value.opentime+'</span></td></tr>';
                        tem+='<tr><td class="left">活动截止时间：</td><td><span>'+value.outtime+'</span></td></tr>';
                        tem+='<tr><td class="left">联系人：</td><td><span>'+value.true_name+'</span></td></tr>';
