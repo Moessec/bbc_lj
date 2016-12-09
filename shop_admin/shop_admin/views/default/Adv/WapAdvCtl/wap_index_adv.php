@@ -84,7 +84,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         <dd class="opt">
                 <img id="index_slider1_review" src="<?=@($data['index_slider1_image']['config_value'])?>" width="170" height="170"/>
                 <input type="hidden" id="index_slider1_image" name="index_slider[index_slider1_image]" value="<?=@($data['index_slider1_image']['config_value'])?>" />
-                <div  id='index_slider1_upload' class="image-line upload-image" >图片上传</div>
+                <div  id='index_slider1_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
                 <input class="ui-input w400" style="margin:5px 0;size:auto" type="text" name="index_slider[index_live_link1]" value="<?=@($data['index_live_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
@@ -102,7 +102,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         <dd class="opt">
                 <img id="index_slider2_review" src="<?=@($data['index_slider2_image']['config_value'])?>" width="170" height="170"/>
                 <input type="hidden" id="index_slider2_image" name="index_slider[index_slider2_image]" value="<?=@($data['index_slider2_image']['config_value'])?>" />
-                <div  id='index_slider2_upload' class="image-line upload-image" >图片上传</div>
+                <div  id='index_slider2_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link2]" value="<?=@($data['index_live_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
@@ -121,7 +121,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         <dd class="opt">
                 <img id="index_slider3_review" src="<?=@($data['index_slider3_image']['config_value'])?>" width="760" height="200"/>
                 <input type="hidden" id="index_slider3_image" name="index_slider[index_slider3_image]" value="<?=@($data['index_slider3_image']['config_value'])?>" />
-                <div  id='index_slider3_upload' class="image-line upload-image" >图片上传</div>
+                <div  id='index_slider3_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link3]" value="<?=@($data['index_live_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
@@ -139,7 +139,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         <dd class="opt">
                 <img id="index_slider4_review" src="<?=@($data['index_slider4_image']['config_value'])?>" width="760" height="200"/>
                 <input type="hidden" id="index_slider4_image" name="index_slider[index_slider4_image]" value="<?=@($data['index_slider4_image']['config_value'])?>" />
-                <div  id='index_slider4_upload' class="image-line upload-image" >图片上传</div>
+                <div  id='index_slider4_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link4]" value="<?=@($data['index_live_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
@@ -156,7 +156,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         <dd class="opt">
                 <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>" width="760" height="200"/>
                 <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >图片上传</div>
+                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
@@ -184,23 +184,23 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             if ( this.id == 'index_slider1_upload' ) {
                 $imagePreview = $('#index_slider1_review');
                 $imageInput = $('#index_slider1_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 170, imageHeight = 170;
             } else if ( this.id == 'index_slider2_upload' ) {
                 $imagePreview = $('#index_slider2_review');
                 $imageInput = $('#index_slider2_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 170, imageHeight = 170;
             }  else if ( this.id == 'index_slider3_upload' ) {
                 $imagePreview = $('#index_slider3_review');
                 $imageInput = $('#index_slider3_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 170, imageHeight = 170;
             }else if ( this.id == 'index_slider4_upload' ) {
                 $imagePreview = $('#index_slider4_review');
                 $imageInput = $('#index_slider4_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 170, imageHeight = 170;
             }else {
                 $imagePreview = $('#index_slider5_review');
                 $imageInput = $('#index_slider5_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 170, imageHeight = 170;
             }
             console.info($imagePreview);
             $.dialog({
