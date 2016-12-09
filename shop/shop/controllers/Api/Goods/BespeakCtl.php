@@ -349,7 +349,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 	{
 		$data                      = array();
 		$data['bespeak_title']         = request_string('bespeak_title');
-		$data['bespeak_com'] = request_string('bespeak_com');
+		$data['bespeak_com'] = preg_split('/\r\n/',request_string('bespeak_com'));
 		$data['opentime'] = request_string('opentime');
 		$data['outtime'] = request_string('outtime');
 		$data['bespeak_img'] = request_string('bes_img');
