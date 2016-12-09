@@ -6,7 +6,7 @@
 /**
  * @author     Xinze <xinze@live.cn>
  */
-class Adv_WapAdvCtl extends Api_Controller
+class Api_Adv_WapAdvCtl extends Api_Controller
 {
 	public function __construct(&$ctl, $met, $typ)
 	{
@@ -18,10 +18,6 @@ class Adv_WapAdvCtl extends Api_Controller
 	public function wap_index_adv(){
 		include  $this->view->getView();
 		
-	}
-	public function a(){
-
-		$this->data->addBody(-140, array('a'=>123));	
 	}
 	public function edit()
 	{
