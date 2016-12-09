@@ -119,7 +119,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>滚动图片3</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider3_review" src="<?=@($data['index_slider3_image']['config_value'])?>" width="760" height="200"/>
+                <img id="index_slider3_review" src="<?=@($data['index_slider3_image']['config_value'])?>" width="170" height="170"/>
                 <input type="hidden" id="index_slider3_image" name="index_slider[index_slider3_image]" value="<?=@($data['index_slider3_image']['config_value'])?>" />
                 <div  id='index_slider3_upload' class="image-line upload-image" >上传</div>
 
@@ -137,7 +137,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>滚动图片4</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider4_review" src="<?=@($data['index_slider4_image']['config_value'])?>" width="760" height="200"/>
+                <img id="index_slider4_review" src="<?=@($data['index_slider4_image']['config_value'])?>"  width="170" height="170"/>
                 <input type="hidden" id="index_slider4_image" name="index_slider[index_slider4_image]" value="<?=@($data['index_slider4_image']['config_value'])?>" />
                 <div  id='index_slider4_upload' class="image-line upload-image" >上传</div>
 
@@ -154,7 +154,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>滚动图片5</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>" width="760" height="200"/>
+                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
                 <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
                 <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
 
