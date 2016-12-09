@@ -551,12 +551,12 @@ $(function ()
 
 });
 
+    alert($('#wap_index_adv-setting-form').length);
 //首页商品广告设置
 $(function ()
 {
 
 
-    alert($('#wap_index_adv-setting-form').length);
     if ($('#wap_index_adv-setting-form').length > 0)
     {    
         $('#wap_index_adv-setting-form').validator({
