@@ -21,7 +21,6 @@ class Api_Adv_WapAdvCtl extends Api_Controller
 	}
 	public function edit()
 	{
-		// $data = array('aa'=>2);
 		$Web_ConfigModel = new Web_ConfigModel();
 
 		$config_type_row = request_row('config_type');
@@ -96,7 +95,7 @@ class Api_Adv_WapAdvCtl extends Api_Controller
 		$rs = Yf_Utils_File::generatePhpFile($file, $config_rows);
 
 
-		$this->data->addBody(-140, $data);
+		$this->data->addBody(-140, array());
 	}
 
 }
