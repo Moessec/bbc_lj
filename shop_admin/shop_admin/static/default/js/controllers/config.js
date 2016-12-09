@@ -551,12 +551,12 @@ $(function ()
 
 });
 
-//团购幻灯片设置
+//首页商品广告设置
 $(function ()
 {
-    if ($('#wap_index-setting-form').length > 0)
+    if ($('#wap_index_adv-setting-form').length > 0)
     {
-        $('#wap_index-setting-form').validator({
+        $('#wap_index_adv-setting-form').validator({
             ignore: ':hidden',
             theme: 'yellow_bottom',
             timely: 1,
@@ -568,7 +568,7 @@ $(function ()
             {
                 parent.$.dialog.confirm('修改立马生效,是否继续？', function ()
                     {
-                        Public.ajaxPost(SITE_URL + '?ctl=Config&met=edit&typ=json', $('#wap_index-setting-form').serialize(), function (data)
+                        Public.ajaxPost(SITE_URL + '?ctl=Config&met=edit&typ=json', $('#wap_index_adv-setting-form').serialize(), function (data)
                         {
                             if (data.status == 200)
                             {
