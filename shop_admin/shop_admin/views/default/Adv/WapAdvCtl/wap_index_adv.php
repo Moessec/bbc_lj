@@ -42,7 +42,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     width: 105px;
 } 
 .row{
-  width:300px;
+  width:250px;
   float: left;
 }
 </style>
