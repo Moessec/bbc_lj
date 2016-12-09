@@ -551,7 +551,7 @@ $(function ()
 
 });
 
-    alert($('#wap_index_adv-setting-form').length);
+    // alert($('#wap_index_adv-setting-form').length);
 //首页商品广告设置
 $(function ()
 {
