@@ -13,7 +13,7 @@ $(function ()
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getbespeaklist&typ=json", data: {k:a,u:getCookie('id'), id: e}, dataType: "json", success: function (a)
             {
                 checkLogin(a.login);
-                console.log(a);
+                console.log(a.data.bespeak_com);
                 $.each(a.data, function(key, value){
                        tem='<dl><img src="'+value.bespeak_img+'" style="width:100%"><div class="com">';
                        tem+='<span id="com" style="width:90%;margin:auto"><textarea id="textarea" style="border-style:none;background:#fff;overflow-y:visible"disabled="disabled">'+value.bespeak_com+'</textarea></span></div>';
