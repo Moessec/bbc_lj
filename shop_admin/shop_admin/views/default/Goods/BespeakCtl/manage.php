@@ -39,6 +39,10 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 				<div class="ctn-wrap"><textarea type="text" value="" class="ui-input" name="bespeak_com" id="bespeak_com"></textarea></div>
 			</li>
 			<li class="row-item">
+				<div class="label-wrap"><label for="true_name">联系人:</label></div>
+				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="true_name" id="true_name"></div>
+			</li>
+			<li class="row-item">
 				<div class="label-wrap"><label for="usercontact">联系方式:</label></div>
 				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="usercontact" id="usercontact"></div>
 			</li>

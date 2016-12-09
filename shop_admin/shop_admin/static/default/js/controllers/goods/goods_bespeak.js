@@ -5,6 +5,7 @@ function initField()
         $("#bespeak_title").val(rowData.bespeak_title);
         $("#bespeak_com").val(rowData.bespeak_com);
         $("#opentime").val(rowData.opentime);
+        $("#true_name").val(rowData.true_name);
         $("#usercontact").val(rowData.usercontact);
         $("#bes_img").val(rowData.bes_img);
         $("#some_class_1").val(rowData.opentime);
@@ -28,6 +29,7 @@ function postData(t, e)
         bespeak_com = $.trim($("#bespeak_com").val()),
         outtime = $.trim($("#some_class_2").val()),
         bes_img = $.trim($("#bes_img").val()),
+        true_name = $.trim($("#true_name").val()),
         usercontact = $.trim($("#usercontact").val()),
         opentime = $.trim($("#some_class_1").val()),
         n = "add" == t ? "新增预约" : "修改预约";
@@ -37,11 +39,13 @@ function postData(t, e)
         bespeak_title: bespeak_title,
         bespeak_com : bespeak_com,
         opentime : opentime,
+        true_name : true_name,
         usercontact : usercontact,
         outtime : outtime,
         bes_img : bes_img
     } : {
         bespeak_title: bespeak_title,
+        true_name : true_name,
         bespeak_com : bespeak_com,
         bes_img : bes_img,
         outtime : outtime,
@@ -73,6 +77,7 @@ function resetForm(t)
     $("#bespeak_com").val("");
     $("#some_class_1").val("");
     $("#bes_img").val("");
+    $("#true_name").val("");
     $("#some_class_2").val("");
     $("#usercontact").val("");
 }

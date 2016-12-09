@@ -213,7 +213,7 @@ $(function() {
         }, {
             "name": "true_name",
             "index": "true_name",
-            "label": "预约会员",
+            "label": "预约联系人",
             "classes": "ui-ellipsis",
             "align": "center",
             "title": false,
@@ -228,22 +228,22 @@ $(function() {
             "fixed": true,
             "width":100
         }, {
-            "name": "starttime",
-            "index": "starttime",
-            "label": "预约时间",
+            "name": "opentime",
+            "index": "opentime",
+            "label": "预约开启时间",
             "classes": "ui-ellipsis",
             "align": "center",
             "title": true,
             "fixed": false,
             "width": 60
         }, {
-            "name": "bespeak_status",
-            "index": "bespeak_status",
-            "label": "审核",
+            "name": "outtime",
+            "index": "outtime",
+            "label": "截止时间",
             "classes": "ui-ellipsis",
             "align": "center",
             "title": true,
-            "width": 30
+            "width": 60
         }, {
             "name": "bespeak_state",
             "index": "bespeak_state",

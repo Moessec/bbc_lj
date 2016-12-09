@@ -353,7 +353,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['opentime'] = request_string('opentime');
 		$data['outtime'] = request_string('outtime');
 		$data['bespeak_img'] = request_string('bes_img');
-		$data['true_name'] = '管理员';
+		$data['true_name'] = request_string('true_name');
 		$data['user_id'] = 'admin';
 		$data['bespeak_list'] = '1';
 		$data['usercontact'] =  request_string('usercontact');
@@ -387,10 +387,10 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['bespeak_img'] = request_string('bes_img');
 		$data['rent_price'] = request_string('rent_price');
 		$data['usercontact'] = request_string('userscontact');
-		$data['true_name'] = '管理员';
+		$data['opentime'] =  request_string('opentime');
+		$data['true_name'] = request_string('true_name');
 		$data['user_id'] = 'admin';
 		$data['bespeak_list'] = '2';
-		$data['opentime'] =  request_string('opentime');
 
 		$bespeak_id = $this->goodsBespeakModel->addBespeak($data, true);
 
@@ -420,10 +420,15 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data                      = array();
 		$data['bespeak_title']         = request_string('bespeak_title');
 		$data['bespeak_com'] = request_string('bespeak_com');
-		$data['opentime'] = request_string('opentime');
 		$data['outtime'] = request_string('outtime');
 		$data['bespeak_img'] = request_string('bes_img');
-
+		$data['rent_price'] = request_string('rent_price');
+		$data['usercontact'] = request_string('userscontact');
+		$data['opentime'] =  request_string('opentime');
+		$data['true_name'] = request_string('true_name');
+		if(empty($data['rent_price'])){
+			unset($data['rent_price']);
+		}
 		$flag = $Goods_BespeakModel->editBespeak($id, $data);
 
 		if ($flag != false)
