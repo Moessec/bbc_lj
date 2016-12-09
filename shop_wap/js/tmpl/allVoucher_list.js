@@ -84,7 +84,7 @@ $(function ()
                 // }
               var msg=e.status==200?'领取成功':'领取失败';
               alert(msg);
-              if(msg=e.status==200)
+              if(e.status==200)
               {
                  window.location.href="./my_voucher.html";
               }
