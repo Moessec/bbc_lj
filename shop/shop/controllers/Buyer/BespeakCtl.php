@@ -214,12 +214,12 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					if($value['bespeak_state']=='0'){
 						$value['bespeak_state']='无效，审核不通过';
 					}elseif ($value['bespeak_state']=='1') {
-						$value['bespeak_state']='活动正在进行';
+						$value['bespeak_state']='租赁中';
 					}elseif ($value['bespeak_state']=='2') {
-						$value['bespeak_state']='活动已经结束';
+						$value['bespeak_state']='租赁已经结束';
 					}
 				$value['bespeakinfo']='bespeak_opera_rent.html?bespeak_id='.$value['bespeak_id'];
-					
+
 					if(!empty($data['temp'])){
 						foreach ($data['temp'] as $k1 => $v1) {
 							if($v1['bespeak_title']==$value['bespeak_title']){
