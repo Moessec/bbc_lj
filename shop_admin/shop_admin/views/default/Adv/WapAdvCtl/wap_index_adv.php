@@ -453,7 +453,7 @@ div.bot {
 
         var $imagePreview, $imageInput, imageWidth, imageHeight;
 
-        $('#index_slider1_upload, #index_slider2_upload, #index_slider3_upload,#index_slider4_upload,#index_slider5_upload').on('click', function () {
+        $('#index_slider1_upload, #index_slider2_upload, #index_slider3_upload,#index_slider4_upload,#index_slider5_upload,#index_slider6_upload,#index_slider7_upload,#index_slider8_upload,#index_slider9_upload,#index_slider10_upload,#index_slider11_upload,#index_slider12_upload,#index_slider13_upload,#index_slider14_upload,#index_slider15_upload,#index_slider16_upload,#index_slider17_upload,#index_slider18_upload').on('click', function () {
 
             if ( this.id == 'index_slider1_upload' ) {
                 $imagePreview = $('#index_slider1_review');
