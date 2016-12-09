@@ -20,7 +20,7 @@ class Adv_WapAdvCtl extends AdminController
 	}
 	public function edit()
 	{
-		$data = 2;
+		$data = array('aa'=>2);
 		// $Web_ConfigModel = new Web_ConfigModel();
 
 		// $config_type_row = request_row('config_type');
