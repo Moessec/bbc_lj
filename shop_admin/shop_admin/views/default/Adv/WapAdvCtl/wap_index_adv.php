@@ -183,219 +183,31 @@ div.bot {
           <label>图片7</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+                <img id="index_slider7_review" src="<?=@($data['index_slider7_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider7_image" name="index_slider[index_slider7_image]" value="<?=@($data['index_slider7_image']['config_value'])?>" />
+                <div  id='index_slider7_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link7]" value="<?=@($data['index_live_link7']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <span class="err"><label for="index_live_link7" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
       </dl>
        <dl class="row">
         <dt class="tit">
-          <label>图片5</label>
+          <label>图片8</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+                <img id="index_slider8_review" src="<?=@($data['index_slider8_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider8_image" name="index_slider[index_slider8_image]" value="<?=@($data['index_slider8_image']['config_value'])?>" />
+                <div  id='index_slider8_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link8]" value="<?=@($data['index_live_link8']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
-          
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <span class="err"><label for="index_live_link8" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -403,17 +215,205 @@ div.bot {
 
        <dl class="row">
         <dt class="tit">
-          <label>图片5</label>
+          <label>图片9</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+                <img id="index_slider9_review" src="<?=@($data['index_slider9_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider9_image" name="index_slider[index_slider9_image]" value="<?=@($data['index_slider9_image']['config_value'])?>" />
+                <div  id='index_slider9_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link9]" value="<?=@($data['index_live_link9']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <span class="err"><label for="index_live_link9" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片10</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider10_review" src="<?=@($data['index_slider10_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider10_image" name="index_slider[index_slider10_image]" value="<?=@($data['index_slider10_image']['config_value'])?>" />
+                <div  id='index_slider10_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link10]" value="<?=@($data['index_live_link10']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link10" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片11</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider11_review" src="<?=@($data['index_slider11_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider11_image" name="index_slider[index_slider11_image]" value="<?=@($data['index_slider11_image']['config_value'])?>" />
+                <div  id='index_slider11_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link11]" value="<?=@($data['index_live_link11']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link11" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片12</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider12_review" src="<?=@($data['index_slider12_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider12_image" name="index_slider[index_slider12_image]" value="<?=@($data['index_slider12_image']['config_value'])?>" />
+                <div  id='index_slider12_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link12]" value="<?=@($data['index_live_link12']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link12" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片13</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider13_review" src="<?=@($data['index_slider13_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider13_image" name="index_slider[index_slider13_image]" value="<?=@($data['index_slider13_image']['config_value'])?>" />
+                <div  id='index_slider13_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link13]" value="<?=@($data['index_live_link13']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link13" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片14</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider14_review" src="<?=@($data['index_slider14_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider14_image" name="index_slider[index_slider14_image]" value="<?=@($data['index_slider14_image']['config_value'])?>" />
+                <div  id='index_slider14_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link14]" value="<?=@($data['index_live_link14']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link14" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片15</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider15_review" src="<?=@($data['index_slider15_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider15_image" name="index_slider[index_slider15_image]" value="<?=@($data['index_slider15_image']['config_value'])?>" />
+                <div  id='index_slider15_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link15]" value="<?=@($data['index_live_link15']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link15" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片16</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider16_review" src="<?=@($data['index_slider16_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider16_image" name="index_slider[index_slider16_image]" value="<?=@($data['index_slider16_image']['config_value'])?>" />
+                <div  id='index_slider16_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link16]" value="<?=@($data['index_live_link16']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link16" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片17</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider17_review" src="<?=@($data['index_slider17_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider17_image" name="index_slider[index_slider17_image]" value="<?=@($data['index_slider17_image']['config_value'])?>" />
+                <div  id='index_slider17_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link17]" value="<?=@($data['index_live_link17']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link17" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片18</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider18_review" src="<?=@($data['index_slider18_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider18_image" name="index_slider[index_slider18_image]" value="<?=@($data['index_slider18_image']['config_value'])?>" />
+                <div  id='index_slider18_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link18]" value="<?=@($data['index_live_link18']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link18" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+       <dl class="row">
+        <dt class="tit">
+          <label>图片19</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider19_review" src="<?=@($data['index_slider19_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider19_image" name="index_slider[index_slider19_image]" value="<?=@($data['index_slider19_image']['config_value'])?>" />
+                <div  id='index_slider19_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link19]" value="<?=@($data['index_live_link19']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link19" class="error valid"></label></span>
+           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+          
+        </dd>
+      </dl>
+
+       <dl class="row">
+        <dt class="tit">
+          <label>图片20</label>
+        </dt>
+        <dd class="opt">
+                <img id="index_slider20_review" src="<?=@($data['index_slider20_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="index_slider20_image" name="index_slider[index_slider20_image]" value="<?=@($data['index_slider20_image']['config_value'])?>" />
+                <div  id='index_slider20_upload' class="image-line upload-image" >上传</div>
+
+           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link20]" value="<?=@($data['index_live_link20']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="index_live_link20" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
