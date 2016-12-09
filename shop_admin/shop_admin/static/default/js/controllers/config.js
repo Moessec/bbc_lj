@@ -573,7 +573,7 @@ $(function ()
                     {
                         Public.ajaxPost(SITE_URL + '?ctl=Config&met=edit&typ=json', $('#wap_index_adv-setting-form').serialize(), function (data)
                         {
-                            console.log(data);
+                            // console.log(data);
                             if (data.status == 200)
                             {
                                 parent.Public.tips({content: '修改操作成功！'});
