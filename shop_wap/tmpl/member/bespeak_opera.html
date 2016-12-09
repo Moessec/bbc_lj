@@ -70,8 +70,24 @@
                     <li class="form-item">
                         <h4>上门时间</h4>
                         <div class="input-box">
-                            <input type="tel" class="inp" name="starttime" id="starttime" autocomplete="off" oninput="writeClear($(this));" />
+                            <select name="h" id="h" onchange="show();">
+                            <script>
+                            for(var i=0;i<=23;i++){
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
+                            时
+                            <select name="min" id="min" onchange="show();">
+                            <script>
+                            for(var i=0;i<=59;i++){
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
+                            <input type="hidden" class="inp" name="starttime" id="starttime" autocomplete="off" oninput="writeClear($(this));" />
                             <span class="input-del"></span>
+
                         </div>
                     </li>
                     <li class="form-item">
@@ -103,6 +119,9 @@
         </form>
     </div>
     <script type="text/javascript">
+    function show(){
+     document.getElementById("starttime").value=document.getElementById("h").value+"时"+document.getElementById("min").value+"分"
+    }
     var xhr;
     function createXMLHttpRequest()
     {
