@@ -349,7 +349,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 	{
 		$data                      = array();
 		$data['bespeak_title']         = request_string('bespeak_title');
-		$data['bespeak_com'] =  str_replace("\n","+'<br>'+",request_string('bespeak_com'));
+		$data['bespeak_com'] =  str_replace("\n","<br>",request_string('bespeak_com');
 		$data['opentime'] = request_string('opentime');
 		$data['outtime'] = request_string('outtime');
 		$data['bespeak_img'] = request_string('bes_img');
@@ -382,7 +382,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 	{
 		$data                      = array();
 		$data['bespeak_title']         = request_string('bespeak_title');
-		$data['bespeak_com'] =  str_replace("\n","+'<br>'+",request_string('bespeak_com'));
+		$data['bespeak_com'] =  str_replace("\n","<br>",request_string('bespeak_com');
 		$data['outtime'] = request_string('outtime');
 		$data['bespeak_img'] = request_string('bes_img');
 		$data['rent_price'] = request_string('rent_price');
@@ -419,7 +419,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$id                        = request_int('bespeak_id');
 		$data                      = array();
 		$data['bespeak_title']         = request_string('bespeak_title');
-		$data['bespeak_com'] =  str_replace("\n","<br>",request_string('bespeak_com'));
+		$data['bespeak_com'] =  str_replace("\n","<br>",request_string('bespeak_com');
 		$data['outtime'] = request_string('outtime');
 		$data['bespeak_img'] = request_string('bes_img');
 		$data['rent_price'] = request_string('rent_price');
