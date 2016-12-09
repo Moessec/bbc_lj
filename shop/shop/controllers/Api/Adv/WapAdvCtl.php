@@ -6,7 +6,7 @@
 /**
  * @author     Xinze <xinze@live.cn>
  */
-class Adv_WapAdvCtl extends AdminController
+class Adv_WapAdvCtl extends Api_Controller
 {
 	public function __construct(&$ctl, $met, $typ)
 	{
