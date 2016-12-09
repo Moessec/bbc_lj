@@ -22,6 +22,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 </style>
 <style>
 .manage-wrap{margin: 20px auto 10px;width: 80%;}
+	.webuploader-element-invisible{display: none}
 .mod-form-rows .label-wrap{width: 20%;}
 .mod-form-rows .ctn-wrap .ui-input{width: 50%;}
 </style>
