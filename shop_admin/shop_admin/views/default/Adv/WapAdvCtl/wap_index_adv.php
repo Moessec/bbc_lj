@@ -86,7 +86,7 @@ div.bot {
         </ul>
     </div>
 
-   <form method="post" enctype="multipart/form-data" id="#index_slider-setting-form" name="form1">
+   <form method="post" enctype="multipart/form-data" id="wap_index-setting-form" name="form1">
     <input type="hidden" name="config_type[]" value="index_slider"/>
     <div class="ncap-form-default">
       <dl class="row">
