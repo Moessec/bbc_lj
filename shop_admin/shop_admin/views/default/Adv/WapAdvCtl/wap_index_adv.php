@@ -111,9 +111,9 @@ div.bot {
                 <div  id='wap_index_adv1_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0;size:auto" type="text" name="wap_index_adv[index_live_link1]" value="<?=@($data['index_live_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0;size:auto" type="text" name="wap_index_adv[wap_index_adv_link1]" value="<?=@($data['wap_index_adv_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link1" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link1" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
             </p>
         </dd>
@@ -129,9 +129,9 @@ div.bot {
                 <div  id='wap_index_adv2_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link2]" value="<?=@($data['index_live_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link2]" value="<?=@($data['wap_index_adv_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link2" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link2" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -148,9 +148,9 @@ div.bot {
                 <div  id='wap_index_adv3_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link3]" value="<?=@($data['index_live_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link3]" value="<?=@($data['wap_index_adv_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link3" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link3" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -166,9 +166,9 @@ div.bot {
                 <div  id='wap_index_adv4_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link4]" value="<?=@($data['index_live_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link4]" value="<?=@($data['wap_index_adv_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link4" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link4" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -183,9 +183,9 @@ div.bot {
                 <div  id='wap_index_adv5_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link5]" value="<?=@($data['wap_index_adv_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link5" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -200,9 +200,9 @@ div.bot {
                 <div  id='wap_index_adv6_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link6]" value="<?=@($data['index_live_link6']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link6]" value="<?=@($data['wap_index_adv_link6']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link6" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link6" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -217,9 +217,9 @@ div.bot {
                 <div  id='wap_index_adv7_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link7]" value="<?=@($data['index_live_link7']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link7]" value="<?=@($data['wap_index_adv_link7']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link7" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link7" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -234,9 +234,9 @@ div.bot {
                 <div  id='wap_index_adv8_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link8]" value="<?=@($data['index_live_link8']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link8]" value="<?=@($data['wap_index_adv_link8']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link8" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link8" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -252,9 +252,9 @@ div.bot {
                 <div  id='wap_index_adv9_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link9]" value="<?=@($data['index_live_link9']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link9]" value="<?=@($data['wap_index_adv_link9']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link9" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link9" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -269,9 +269,9 @@ div.bot {
                 <div  id='wap_index_adv10_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link10]" value="<?=@($data['index_live_link10']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link10]" value="<?=@($data['wap_index_adv_link10']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link10" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link10" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -286,9 +286,9 @@ div.bot {
                 <div  id='wap_index_adv11_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link11]" value="<?=@($data['index_live_link11']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link11]" value="<?=@($data['wap_index_adv_link11']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link11" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link11" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -303,9 +303,9 @@ div.bot {
                 <div  id='wap_index_adv12_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link12]" value="<?=@($data['index_live_link12']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link12]" value="<?=@($data['wap_index_adv_link12']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link12" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link12" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -320,9 +320,9 @@ div.bot {
                 <div  id='wap_index_adv13_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link13]" value="<?=@($data['index_live_link13']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link13]" value="<?=@($data['wap_index_adv_link13']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link13" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link13" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -337,9 +337,9 @@ div.bot {
                 <div  id='wap_index_adv14_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link14]" value="<?=@($data['index_live_link14']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link14]" value="<?=@($data['wap_index_adv_link14']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link14" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link14" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -354,9 +354,9 @@ div.bot {
                 <div  id='wap_index_adv15_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link15]" value="<?=@($data['index_live_link15']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link15]" value="<?=@($data['wap_index_adv_link15']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link15" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link15" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -371,9 +371,9 @@ div.bot {
                 <div  id='wap_index_adv16_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link16]" value="<?=@($data['index_live_link16']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link16]" value="<?=@($data['wap_index_adv_link16']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link16" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link16" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -388,9 +388,9 @@ div.bot {
                 <div  id='wap_index_adv17_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link17]" value="<?=@($data['index_live_link17']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link17]" value="<?=@($data['wap_index_adv_link17']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link17" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link17" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
@@ -405,9 +405,9 @@ div.bot {
                 <div  id='wap_index_adv18_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link18]" value="<?=@($data['index_live_link18']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link18]" value="<?=@($data['wap_index_adv_link18']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link18" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_adv_link18" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
