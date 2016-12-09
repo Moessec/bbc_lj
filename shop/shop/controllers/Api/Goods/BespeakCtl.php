@@ -386,7 +386,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['outtime'] = request_string('outtime');
 		$data['bespeak_img'] = request_string('bes_img');
 		$data['rent_price'] = request_string('rent_price');
-		$data['usercontact'] = request_string('userscontact');
+		$data['usercontact'] = request_string('usercontact');
 		$data['opentime'] =  request_string('opentime');
 		$data['true_name'] = request_string('true_name');
 		$data['user_id'] = 'admin';
@@ -423,7 +423,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['outtime'] = request_string('outtime');
 		$data['bespeak_img'] = request_string('bes_img');
 		$data['rent_price'] = request_string('rent_price');
-		$data['usercontact'] = request_string('userscontact');
+		$data['usercontact'] = request_string('usercontact');
 		$data['opentime'] =  request_string('opentime');
 		$data['true_name'] = request_string('true_name');
 		if(empty($data['rent_price'])){
