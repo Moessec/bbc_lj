@@ -9,7 +9,28 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 <link href="<?= $this->view->css_com ?>/webuploader.css" rel="stylesheet" type="text/css">
 <style>
     .webuploader-pick{ padding:1px; }
-    
+  .upload-image {
+    background-color: #48cfae !important;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "microsoft yahei",arial;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-language-override: normal;
+    font-size: 12px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-synthesis: weight style;
+    font-variant: normal;
+    font-weight: normal;
+    height: 33px !important;
+    line-height: 33px !important;
+    padding: 0 12px !important;
+    width: 26px;
+}  
 </style>
 </head>
 <body>
@@ -59,8 +80,8 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input w400" style="margin:5px 0;size:auto" type="text" name="index_slider[index_live_link1]" value="<?=@($data['index_live_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link1" class="error valid"></label></span>
-           <p class="notic">请使用宽度170像素，高度170像素的jpg/gif/png格式图片首页下栏广告，<br>
-            如需跳转请在后方添加以http://开头的链接地址。</p>
+           <p class="notic">请使用宽度170像素，高度170像素的jpg/png格式图片<br>
+            </p>
         </dd>
       </dl>
 
