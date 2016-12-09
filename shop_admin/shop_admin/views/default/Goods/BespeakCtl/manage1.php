@@ -25,6 +25,10 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 				<div class="ctn-wrap"><textarea type="text" value="" class="ui-input" name="bespeak_com" id="bespeak_com"></textarea></div>
 			</li>
 			<li class="row-item">
+				<div class="label-wrap"><label for="rent_price">租赁价格:</label></div>
+				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="rent_price" id="rent_price"></div>
+			</li>
+			<li class="row-item">
 				<div class="label-wrap"><label for="usercontact">联系方式:</label></div>
 				<div class="ctn-wrap"><input type="text" value="" class="ui-input" name="usercontact" id="usercontact"></div>
 			</li>
@@ -64,7 +68,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 <style type="text/css">
 	.webuploader-element-invisible{display: none}
 </style>
-<script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak1.js" charset="utf-8"></script>
 
 <script type="text/javascript" src="<?= $this->view->js_com ?>/webuploader.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?= $this->view->js ?>/models/upload_image.js" charset="utf-8"></script>

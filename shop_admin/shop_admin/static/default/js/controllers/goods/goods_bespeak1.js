@@ -4,9 +4,9 @@ function initField()
     {
         $("#bespeak_title").val(rowData.bespeak_title);
         $("#bespeak_com").val(rowData.bespeak_com);
-        $("#opentime").val(rowData.opentime);
         $("#usercontact").val(rowData.usercontact);
         $("#bes_img").val(rowData.bes_img);
+        $("#rent_price").val(rowData.rent_price);
         $("#some_class_1").val(rowData.opentime);
         $("#some_class_2").val(rowData.outtime);
     }
@@ -28,6 +28,7 @@ function postData(t, e)
         bespeak_com = $.trim($("#bespeak_com").val()),
         outtime = $.trim($("#some_class_2").val()),
         bes_img = $.trim($("#bes_img").val()),
+        rent_price = $.trim($("#rent_price").val()),
         usercontact = $.trim($("#usercontact").val()),
         opentime = $.trim($("#some_class_1").val()),
         n = "add" == t ? "新增预约" : "修改预约";
@@ -39,12 +40,14 @@ function postData(t, e)
         opentime : opentime,
         usercontact : usercontact,
         outtime : outtime,
+        rent_price : rent_price,
         bes_img : bes_img
     } : {
         bespeak_title: bespeak_title,
         bespeak_com : bespeak_com,
         bes_img : bes_img,
         outtime : outtime,
+        rent_price : rent_price,
         usercontact : usercontact,
         opentime : opentime,
     };
@@ -75,6 +78,7 @@ function resetForm(t)
     $("#bes_img").val("");
     $("#some_class_2").val("");
     $("#usercontact").val("");
+    $("#rent_price").val("");
 }
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
 initPopBtns();
