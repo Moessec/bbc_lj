@@ -11,6 +11,7 @@ class Adv_WapAdvCtl extends Api_Controller
 	public function __construct(&$ctl, $met, $typ)
 	{
 		parent::__construct($ctl, $met, $typ);
+
 	}
 
 
