@@ -40,7 +40,11 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     padding: 5px;
     vertical-align: middle;
     width: 105px;
-}  
+} 
+.row{
+  width:200px;
+  float: left;
+}
 </style>
 </head>
 <body>
