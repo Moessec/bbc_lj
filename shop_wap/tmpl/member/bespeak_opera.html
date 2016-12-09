@@ -77,7 +77,7 @@
                             }
                             </script>
                             </select>
-                            时
+                            :
                             <select name="min" id="min" onchange="show();">
                             <script>
                             for(var i=0;i<=59;i++){
@@ -120,7 +120,7 @@
     </div>
     <script type="text/javascript">
     function show(){
-     document.getElementById("starttime").value=document.getElementById("h").value+"时"+document.getElementById("min").value+"分"
+     document.getElementById("starttime").value=document.getElementById("h").value+":"+document.getElementById("min").value
     }
     var xhr;
     function createXMLHttpRequest()
