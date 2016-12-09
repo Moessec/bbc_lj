@@ -37,7 +37,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <span id="explanationZoom" title="收起提示"></span><em class="close_warn">X</em>
         </div>
         <ul>
-              <li>该组幻灯片滚动图片应用于首页使用，最多可上传20张图片。</li>
+              <li>该组图片应用于首页下栏广告使用，最多可上传20张图片。</li>
               <li>图片要求使用宽度为96像素，高度为96像素jpg/gif/png格式的图片。</li>
               <li>上传图片后请添加格式为“http://网址...”链接地址，设定后将在显示页面中点击幻灯片将以另打开窗口的形式跳转到指定网址。</li>
         </ul>
@@ -59,7 +59,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link1]" value="<?=@($data['index_live_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link1" class="error valid"></label></span>
-           <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+           <p class="notic">请使用宽度170像素，高度170像素的jpg/gif/png格式图片首页下栏广告，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>
