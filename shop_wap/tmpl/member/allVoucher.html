@@ -46,47 +46,72 @@
             <ul>
                 <% for (var i in items) {%>
                     
-                    <li style="margin-left:20px;margin-right:20px;margin-top:5px ;background: url(../../../shop/shop/static/default/images/line_50.png) no-repeat;background-size:cover; ">
-                   
-                        <dl style="padding: 0.5rem 0.5rem 0 0px;">
-                            <dt>
-                      <dd style="height:30px">
-                      <%=items[i].shop_name %>
-                       
-                     <span class="name" style="font-size: 0.6rem;color: red;font-weight: normal;float:right;margin-right:-10px;"> 需 <%=items[i].voucher_t_points %> 积分</span> 
-                               
-                     </dd>   
-                   <!--  <span class="name" style="font-size: 0.6rem;line-height: 40px;color: #777;font-weight: normal;">  兑换方式：         <%=items[i].voucher_t_access_method_label %></span> -->   
-                   
-                     <dd style="line-height:35px">
-                    <b style="color:red"> ￥<%=items[i].voucher_t_price %></b>
-                                
-                     </dd>  
-                     <dd style="line-height:35px">
-                      (满<span style="color:red">￥<%=items[i].voucher_t_limit %></span>
-                                   可用)
-                     </dd>
+                  <!--   <li style="margin-left:20px;margin-right:20px;margin-top:5px ;background: url(../../../../shop/shop/static/default/images/line_50.png) no-repeat;background-size:cover; ">
+                                     
+                      <dl style="padding: 0.5rem 0.5rem 0 0px;">
+                          <dt>
+                    <dd style="height:30px">
+                    <%=items[i].shop_name %>
                      
-                    <dd class="phone" style="line-height: 40px;font-size: 0.6rem;color: #777;">
-                    <span>有效期&nbsp;    <%=items[i].voucher_t_end_date %></span>
-
-                    <span style ="float:right">
-                      
-                            <div style="    background: #e45050;
-                            color: #fff !important;
-                            border-radius: 2px;
-                            padding: 0 4px;
-                            cursor: pointer;line-height: 30px;"><p class="btn_dh"  dh_id="<%=items[i].voucher_t_id %>">立即兑换</p></div>
-                      
-                    </span>
-
-                    </dd>
-                </dt>
-                           
-                        </dl>
-                      
-                    </li>
+                   <span class="name" style="font-size: 0.6rem;color: red;font-weight: normal;float:right;margin-right:-10px;"> 需 <%=items[i].voucher_t_points %> 积分</span> 
+                             
+                   </dd>   
+                                     <span class="name" style="font-size: 0.6rem;line-height: 40px;color: #777;font-weight: normal;">  兑换方式：         <%=items[i].voucher_t_access_method_label %></span>   
+                                     
+                   <dd style="line-height:35px">
+                  <b style="color:red"> ￥<%=items[i].voucher_t_price %></b>
+                              
+                   </dd>  
+                   <dd style="line-height:35px">
+                    (满<span style="color:red">￥<%=items[i].voucher_t_limit %></span>
+                                 可用)
+                   </dd>
                    
+                  <dd class="phone" style="line-height: 40px;font-size: 0.6rem;color: #777;">
+                  <span>有效期&nbsp;    <%=items[i].voucher_t_end_date %></span>
+                  
+                  <span style ="float:right">
+                    
+                          <div style="    background: #e45050;
+                          color: #fff !important;
+                          border-radius: 2px;
+                          padding: 0 4px;
+                          cursor: pointer;line-height: 30px;"><p class="btn_dh"  dh_id="<%=items[i].voucher_t_id %>">立即兑换</p></div>
+                    
+                  </span>
+                  
+                  </dd>
+                                  </dt>
+                         
+                      </dl>
+                    
+                  </li> -->
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+                     <li style="background-color:RGBA(244,244,244,0.6);height:128px;border-bottom:0" >
+       <div style="margin:0px 10px 0 10px;height:104px;line-height:128px;background-color:RGB(254,254,254);">
+                    <div style="display:inline;height:108px;width:108px;float:left;text-align:center;line-height:102px;font-size:30px;color:rgb(234,138,62);border-right:0.5px solid RGBA(244,244,244,1);"><span style="font-size:21px">￥</span><%=items[i].voucher_t_price %></div>
+                    <div style="display:inline;height:102px;float:right;width:180px" >
+                    <div style="text-align:left;line-height:36px;font-size:15px">状态:<%=items[i].voucher_t_price%></div>
+                    <div style="text-align:left;line-height:36px;font-size:15px;color:rgb(189,189,189)">购物满<%=items[i].voucher_t_price %>元可用</div>
+                    <div style="text-align:left;line-height:36px;font-size:15px;color:rgb(189,189,189)">有效期至:
+                    <%=items[i].voucher_t_price%></div>
+
+                    </div>
+                    </div>
+   </li>
+
                     <%}%>
             </ul>
                   <% if (hasmore) {%>
