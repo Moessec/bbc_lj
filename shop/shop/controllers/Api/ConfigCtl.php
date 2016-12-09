@@ -349,6 +349,7 @@ class Api_ConfigCtl extends Api_Controller
 	 */
 	public function edit()
 	{
+		echo 1;die;
 		$Web_ConfigModel = new Web_ConfigModel();
 
 		$config_type_row = request_row('config_type');
