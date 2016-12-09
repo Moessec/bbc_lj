@@ -47,7 +47,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 }
 
 div.bot {
-    display: block;
+    /*display: block;*/
     background-color: #f53a59;
     border-radius: 2px;
     color: #fff;
