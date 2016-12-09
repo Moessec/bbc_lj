@@ -67,7 +67,7 @@ div.bot {
 
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=siteTheme&config_type%5B%5D=site"><span>风格设置</span></a></li>
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Floor_Adpage&met=adpage"><span>首页模板</span></a></li>
-                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=index_slider&config_type%5B%5D=index_slider"><span>首页幻灯片</span></a></li>
+                <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=wap_index_adv&config_type%5B%5D=wap_index_adv"><span>首页幻灯片</span></a></li>
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=index_liandong&config_type%5B%5D=index_liandong"><span>首页联动小图</span></a></li>
                 <li><a class="current" href="<?= Yf_Registry::get('url') ?>?ctl=Adv_WapAdv&met=wap_index_adv&config_type%5B%5D=wap_index_adv"><span>wap首页商品广告小图</span></a></li>
 
@@ -87,19 +87,19 @@ div.bot {
     </div>
 
    <form method="post" enctype="multipart/form-data" id="wap_index_adv-setting-form" name="form1">
-    <input type="hidden" name="config_type[]" value="index_slider"/>
+    <input type="hidden" name="config_type[]" value="wap_index_adv"/>
     <div class="ncap-form-default">
       <dl class="row">
         <dt class="tit">
           <label>图片1</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider1_review" src="<?=@($data['index_slider1_image']['config_value'])?>" width="170" height="170"/>
-                <input type="hidden" id="index_slider1_image" name="index_slider[index_slider1_image]" value="<?=@($data['index_slider1_image']['config_value'])?>" />
-                <div  id='index_slider1_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv1_review" src="<?=@($data['wap_index_adv1_image']['config_value'])?>" width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv1_image" name="wap_index_adv[wap_index_adv1_image]" value="<?=@($data['wap_index_adv1_image']['config_value'])?>" />
+                <div  id='wap_index_adv1_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0;size:auto" type="text" name="index_slider[index_live_link1]" value="<?=@($data['index_live_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0;size:auto" type="text" name="wap_index_adv[index_live_link1]" value="<?=@($data['index_live_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link1" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -112,12 +112,12 @@ div.bot {
           <label>图片2</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider2_review" src="<?=@($data['index_slider2_image']['config_value'])?>" width="170" height="170"/>
-                <input type="hidden" id="index_slider2_image" name="index_slider[index_slider2_image]" value="<?=@($data['index_slider2_image']['config_value'])?>" />
-                <div  id='index_slider2_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv2_review" src="<?=@($data['wap_index_adv2_image']['config_value'])?>" width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv2_image" name="wap_index_adv[wap_index_adv2_image]" value="<?=@($data['wap_index_adv2_image']['config_value'])?>" />
+                <div  id='wap_index_adv2_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link2]" value="<?=@($data['index_live_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link2]" value="<?=@($data['index_live_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link2" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -131,12 +131,12 @@ div.bot {
           <label>图片3</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider3_review" src="<?=@($data['index_slider3_image']['config_value'])?>" width="170" height="170"/>
-                <input type="hidden" id="index_slider3_image" name="index_slider[index_slider3_image]" value="<?=@($data['index_slider3_image']['config_value'])?>" />
-                <div  id='index_slider3_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv3_review" src="<?=@($data['wap_index_adv3_image']['config_value'])?>" width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv3_image" name="wap_index_adv[wap_index_adv3_image]" value="<?=@($data['wap_index_adv3_image']['config_value'])?>" />
+                <div  id='wap_index_adv3_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link3]" value="<?=@($data['index_live_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link3]" value="<?=@($data['index_live_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link3" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -149,12 +149,12 @@ div.bot {
           <label>图片4</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider4_review" src="<?=@($data['index_slider4_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider4_image" name="index_slider[index_slider4_image]" value="<?=@($data['index_slider4_image']['config_value'])?>" />
-                <div  id='index_slider4_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv4_review" src="<?=@($data['wap_index_adv4_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv4_image" name="wap_index_adv[wap_index_adv4_image]" value="<?=@($data['wap_index_adv4_image']['config_value'])?>" />
+                <div  id='wap_index_adv4_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link4]" value="<?=@($data['index_live_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link4]" value="<?=@($data['index_live_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link4" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -166,12 +166,12 @@ div.bot {
           <label>图片5</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv5_review" src="<?=@($data['wap_index_adv5_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv5_image" name="wap_index_adv[wap_index_adv5_image]" value="<?=@($data['wap_index_adv5_image']['config_value'])?>" />
+                <div  id='wap_index_adv5_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link5" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -183,12 +183,12 @@ div.bot {
           <label>图片6</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider6_review" src="<?=@($data['index_slider6_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider6_image" name="index_slider[index_slider6_image]" value="<?=@($data['index_slider6_image']['config_value'])?>" />
-                <div  id='index_slider6_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv6_review" src="<?=@($data['wap_index_adv6_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv6_image" name="wap_index_adv[wap_index_adv6_image]" value="<?=@($data['wap_index_adv6_image']['config_value'])?>" />
+                <div  id='wap_index_adv6_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link6]" value="<?=@($data['index_live_link6']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link6]" value="<?=@($data['index_live_link6']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link6" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -200,12 +200,12 @@ div.bot {
           <label>图片7</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider7_review" src="<?=@($data['index_slider7_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider7_image" name="index_slider[index_slider7_image]" value="<?=@($data['index_slider7_image']['config_value'])?>" />
-                <div  id='index_slider7_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv7_review" src="<?=@($data['wap_index_adv7_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv7_image" name="wap_index_adv[wap_index_adv7_image]" value="<?=@($data['wap_index_adv7_image']['config_value'])?>" />
+                <div  id='wap_index_adv7_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link7]" value="<?=@($data['index_live_link7']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link7]" value="<?=@($data['index_live_link7']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link7" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -217,12 +217,12 @@ div.bot {
           <label>图片8</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider8_review" src="<?=@($data['index_slider8_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider8_image" name="index_slider[index_slider8_image]" value="<?=@($data['index_slider8_image']['config_value'])?>" />
-                <div  id='index_slider8_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv8_review" src="<?=@($data['wap_index_adv8_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv8_image" name="wap_index_adv[wap_index_adv8_image]" value="<?=@($data['wap_index_adv8_image']['config_value'])?>" />
+                <div  id='wap_index_adv8_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link8]" value="<?=@($data['index_live_link8']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link8]" value="<?=@($data['index_live_link8']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link8" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -235,12 +235,12 @@ div.bot {
           <label>图片9</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider9_review" src="<?=@($data['index_slider9_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider9_image" name="index_slider[index_slider9_image]" value="<?=@($data['index_slider9_image']['config_value'])?>" />
-                <div  id='index_slider9_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv9_review" src="<?=@($data['wap_index_adv9_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv9_image" name="wap_index_adv[wap_index_adv9_image]" value="<?=@($data['wap_index_adv9_image']['config_value'])?>" />
+                <div  id='wap_index_adv9_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link9]" value="<?=@($data['index_live_link9']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link9]" value="<?=@($data['index_live_link9']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link9" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -252,12 +252,12 @@ div.bot {
           <label>图片10</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider10_review" src="<?=@($data['index_slider10_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider10_image" name="index_slider[index_slider10_image]" value="<?=@($data['index_slider10_image']['config_value'])?>" />
-                <div  id='index_slider10_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv10_review" src="<?=@($data['wap_index_adv10_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv10_image" name="wap_index_adv[wap_index_adv10_image]" value="<?=@($data['wap_index_adv10_image']['config_value'])?>" />
+                <div  id='wap_index_adv10_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link10]" value="<?=@($data['index_live_link10']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link10]" value="<?=@($data['index_live_link10']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link10" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -269,12 +269,12 @@ div.bot {
           <label>图片11</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider11_review" src="<?=@($data['index_slider11_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider11_image" name="index_slider[index_slider11_image]" value="<?=@($data['index_slider11_image']['config_value'])?>" />
-                <div  id='index_slider11_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv11_review" src="<?=@($data['wap_index_adv11_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv11_image" name="wap_index_adv[wap_index_adv11_image]" value="<?=@($data['wap_index_adv11_image']['config_value'])?>" />
+                <div  id='wap_index_adv11_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link11]" value="<?=@($data['index_live_link11']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link11]" value="<?=@($data['index_live_link11']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link11" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -286,12 +286,12 @@ div.bot {
           <label>图片12</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider12_review" src="<?=@($data['index_slider12_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider12_image" name="index_slider[index_slider12_image]" value="<?=@($data['index_slider12_image']['config_value'])?>" />
-                <div  id='index_slider12_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv12_review" src="<?=@($data['wap_index_adv12_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv12_image" name="wap_index_adv[wap_index_adv12_image]" value="<?=@($data['wap_index_adv12_image']['config_value'])?>" />
+                <div  id='wap_index_adv12_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link12]" value="<?=@($data['index_live_link12']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link12]" value="<?=@($data['index_live_link12']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link12" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -303,12 +303,12 @@ div.bot {
           <label>图片13</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider13_review" src="<?=@($data['index_slider13_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider13_image" name="index_slider[index_slider13_image]" value="<?=@($data['index_slider13_image']['config_value'])?>" />
-                <div  id='index_slider13_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv13_review" src="<?=@($data['wap_index_adv13_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv13_image" name="wap_index_adv[wap_index_adv13_image]" value="<?=@($data['wap_index_adv13_image']['config_value'])?>" />
+                <div  id='wap_index_adv13_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link13]" value="<?=@($data['index_live_link13']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link13]" value="<?=@($data['index_live_link13']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link13" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -320,12 +320,12 @@ div.bot {
           <label>图片14</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider14_review" src="<?=@($data['index_slider14_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider14_image" name="index_slider[index_slider14_image]" value="<?=@($data['index_slider14_image']['config_value'])?>" />
-                <div  id='index_slider14_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv14_review" src="<?=@($data['wap_index_adv14_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv14_image" name="wap_index_adv[wap_index_adv14_image]" value="<?=@($data['wap_index_adv14_image']['config_value'])?>" />
+                <div  id='wap_index_adv14_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link14]" value="<?=@($data['index_live_link14']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link14]" value="<?=@($data['index_live_link14']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link14" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -337,12 +337,12 @@ div.bot {
           <label>图片15</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider15_review" src="<?=@($data['index_slider15_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider15_image" name="index_slider[index_slider15_image]" value="<?=@($data['index_slider15_image']['config_value'])?>" />
-                <div  id='index_slider15_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv15_review" src="<?=@($data['wap_index_adv15_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv15_image" name="wap_index_adv[wap_index_adv15_image]" value="<?=@($data['wap_index_adv15_image']['config_value'])?>" />
+                <div  id='wap_index_adv15_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link15]" value="<?=@($data['index_live_link15']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link15]" value="<?=@($data['index_live_link15']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link15" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -354,12 +354,12 @@ div.bot {
           <label>图片16</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider16_review" src="<?=@($data['index_slider16_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider16_image" name="index_slider[index_slider16_image]" value="<?=@($data['index_slider16_image']['config_value'])?>" />
-                <div  id='index_slider16_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv16_review" src="<?=@($data['wap_index_adv16_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv16_image" name="wap_index_adv[wap_index_adv16_image]" value="<?=@($data['wap_index_adv16_image']['config_value'])?>" />
+                <div  id='wap_index_adv16_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link16]" value="<?=@($data['index_live_link16']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link16]" value="<?=@($data['index_live_link16']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link16" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -371,12 +371,12 @@ div.bot {
           <label>图片17</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider17_review" src="<?=@($data['index_slider17_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider17_image" name="index_slider[index_slider17_image]" value="<?=@($data['index_slider17_image']['config_value'])?>" />
-                <div  id='index_slider17_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv17_review" src="<?=@($data['wap_index_adv17_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv17_image" name="wap_index_adv[wap_index_adv17_image]" value="<?=@($data['wap_index_adv17_image']['config_value'])?>" />
+                <div  id='wap_index_adv17_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link17]" value="<?=@($data['index_live_link17']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link17]" value="<?=@($data['index_live_link17']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link17" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -388,12 +388,12 @@ div.bot {
           <label>图片18</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider18_review" src="<?=@($data['index_slider18_image']['config_value'])?>"  width="170" height="170"/>
-                <input type="hidden" id="index_slider18_image" name="index_slider[index_slider18_image]" value="<?=@($data['index_slider18_image']['config_value'])?>" />
-                <div  id='index_slider18_upload' class="image-line upload-image" >上传</div>
+                <img id="wap_index_adv18_review" src="<?=@($data['wap_index_adv18_image']['config_value'])?>"  width="170" height="170"/>
+                <input type="hidden" id="wap_index_adv18_image" name="wap_index_adv[wap_index_adv18_image]" value="<?=@($data['wap_index_adv18_image']['config_value'])?>" />
+                <div  id='wap_index_adv18_upload' class="image-line upload-image" >上传</div>
 
            <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link18]" value="<?=@($data['index_live_link18']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[index_live_link18]" value="<?=@($data['index_live_link18']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link18" class="error valid"></label></span>
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
@@ -413,79 +413,79 @@ div.bot {
 
         var $imagePreview, $imageInput, imageWidth, imageHeight;
 
-        $('#index_slider1_upload, #index_slider2_upload, #index_slider3_upload,#index_slider4_upload,#index_slider5_upload,#index_slider6_upload,#index_slider7_upload,#index_slider8_upload,#index_slider9_upload,#index_slider10_upload,#index_slider11_upload,#index_slider12_upload,#index_slider13_upload,#index_slider14_upload,#index_slider15_upload,#index_slider16_upload,#index_slider17_upload,#index_slider18_upload').on('click', function () {
+        $('#wap_index_adv1_upload, #wap_index_adv2_upload, #wap_index_adv3_upload,#wap_index_adv4_upload,#wap_index_adv5_upload,#wap_index_adv6_upload,#wap_index_adv7_upload,#wap_index_adv8_upload,#wap_index_adv9_upload,#wap_index_adv10_upload,#wap_index_adv11_upload,#wap_index_adv12_upload,#wap_index_adv13_upload,#wap_index_adv14_upload,#wap_index_adv15_upload,#wap_index_adv16_upload,#wap_index_adv17_upload,#wap_index_adv18_upload').on('click', function () {
 
-            if ( this.id == 'index_slider1_upload' ) {
-                $imagePreview = $('#index_slider1_review');
-                $imageInput = $('#index_slider1_image');
+            if ( this.id == 'wap_index_adv1_upload' ) {
+                $imagePreview = $('#wap_index_adv1_review');
+                $imageInput = $('#wap_index_adv1_image');
                 imageWidth = 170, imageHeight = 170;
-            } else if ( this.id == 'index_slider2_upload' ) {
-                $imagePreview = $('#index_slider2_review');
-                $imageInput = $('#index_slider2_image');
+            } else if ( this.id == 'wap_index_adv2_upload' ) {
+                $imagePreview = $('#wap_index_adv2_review');
+                $imageInput = $('#wap_index_adv2_image');
                 imageWidth = 170, imageHeight = 170;
-            }  else if ( this.id == 'index_slider3_upload' ) {
-                $imagePreview = $('#index_slider3_review');
-                $imageInput = $('#index_slider3_image');
+            }  else if ( this.id == 'wap_index_adv3_upload' ) {
+                $imagePreview = $('#wap_index_adv3_review');
+                $imageInput = $('#wap_index_adv3_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if ( this.id == 'index_slider4_upload' ) {
-                $imagePreview = $('#index_slider4_review');
-                $imageInput = $('#index_slider4_image');
+            }else if ( this.id == 'wap_index_adv4_upload' ) {
+                $imagePreview = $('#wap_index_adv4_review');
+                $imageInput = $('#wap_index_adv4_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider5_upload' ){
-                $imagePreview = $('#index_slider5_review');
-                $imageInput = $('#index_slider5_image');
+            }else if( this.id == 'wap_index_adv5_upload' ){
+                $imagePreview = $('#wap_index_adv5_review');
+                $imageInput = $('#wap_index_adv5_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider6_upload' ){
-                $imagePreview = $('#index_slider6_review');
-                $imageInput = $('#index_slider6_image');
+            }else if( this.id == 'wap_index_adv6_upload' ){
+                $imagePreview = $('#wap_index_adv6_review');
+                $imageInput = $('#wap_index_adv6_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider7_upload' ){
-                $imagePreview = $('#index_slider7_review');
-                $imageInput = $('#index_slider7_image');
+            }else if( this.id == 'wap_index_adv7_upload' ){
+                $imagePreview = $('#wap_index_adv7_review');
+                $imageInput = $('#wap_index_adv7_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider8_upload' ){
-                $imagePreview = $('#index_slider8_review');
-                $imageInput = $('#index_slider8_image');
+            }else if( this.id == 'wap_index_adv8_upload' ){
+                $imagePreview = $('#wap_index_adv8_review');
+                $imageInput = $('#wap_index_adv8_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider9_upload' ){
-                $imagePreview = $('#index_slider9_review');
-                $imageInput = $('#index_slider9_image');
+            }else if( this.id == 'wap_index_adv9_upload' ){
+                $imagePreview = $('#wap_index_adv9_review');
+                $imageInput = $('#wap_index_adv9_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider10_upload' ){
-                $imagePreview = $('#index_slider10_review');
-                $imageInput = $('#index_slider10_image');
+            }else if( this.id == 'wap_index_adv10_upload' ){
+                $imagePreview = $('#wap_index_adv10_review');
+                $imageInput = $('#wap_index_adv10_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider11_upload' ){
-                $imagePreview = $('#index_slider11_review');
-                $imageInput = $('#index_slider11_image');
+            }else if( this.id == 'wap_index_adv11_upload' ){
+                $imagePreview = $('#wap_index_adv11_review');
+                $imageInput = $('#wap_index_adv11_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider12_upload' ){
-                $imagePreview = $('#index_slider12_review');
-                $imageInput = $('#index_slider12_image');
+            }else if( this.id == 'wap_index_adv12_upload' ){
+                $imagePreview = $('#wap_index_adv12_review');
+                $imageInput = $('#wap_index_adv12_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider13_upload' ){
-                $imagePreview = $('#index_slider13_review');
-                $imageInput = $('#index_slider13_image');
+            }else if( this.id == 'wap_index_adv13_upload' ){
+                $imagePreview = $('#wap_index_adv13_review');
+                $imageInput = $('#wap_index_adv13_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider14_upload' ){
-                $imagePreview = $('#index_slider14_review');
-                $imageInput = $('#index_slider14_image');
+            }else if( this.id == 'wap_index_adv14_upload' ){
+                $imagePreview = $('#wap_index_adv14_review');
+                $imageInput = $('#wap_index_adv14_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider15_upload' ){
-                $imagePreview = $('#index_slider15_review');
-                $imageInput = $('#index_slider15_image');
+            }else if( this.id == 'wap_index_adv15_upload' ){
+                $imagePreview = $('#wap_index_adv15_review');
+                $imageInput = $('#wap_index_adv15_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider16_upload' ){
-                $imagePreview = $('#index_slider16_review');
-                $imageInput = $('#index_slider16_image');
+            }else if( this.id == 'wap_index_adv16_upload' ){
+                $imagePreview = $('#wap_index_adv16_review');
+                $imageInput = $('#wap_index_adv16_image');
                 imageWidth = 170, imageHeight = 170;
-            }else if( this.id == 'index_slider17_upload' ){
-                $imagePreview = $('#index_slider17_review');
-                $imageInput = $('#index_slider17_image');
+            }else if( this.id == 'wap_index_adv17_upload' ){
+                $imagePreview = $('#wap_index_adv17_review');
+                $imageInput = $('#wap_index_adv17_image');
                 imageWidth = 170, imageHeight = 170;
             }else{
-                $imagePreview = $('#index_slider18_review');
-                $imageInput = $('#index_slider18_image');
+                $imagePreview = $('#wap_index_adv18_review');
+                $imageInput = $('#wap_index_adv18_image');
                 imageWidth = 170, imageHeight = 170;
             }
             console.info($imagePreview);
@@ -506,48 +506,48 @@ div.bot {
         } 
          
            //图片上传
-         /*  index_slider1_image_upload= new UploadImage({
+         /*  wap_index_adv1_image_upload= new UploadImage({
               thumbnailWidth: 1900,
               thumbnailHeight: 500,
-              imageContainer: '#index_slider1_review',
-              uploadButton: '#index_slider1_upload',
-              inputHidden: '#index_slider1_image'
+              imageContainer: '#wap_index_adv1_review',
+              uploadButton: '#wap_index_adv1_upload',
+              inputHidden: '#wap_index_adv1_image'
           });
 
 
-          index_slider2_image_upload= new UploadImage({
+          wap_index_adv2_image_upload= new UploadImage({
               thumbnailWidth: 1900,
               thumbnailHeight: 500,
-              imageContainer: '#index_slider2_review',
-              uploadButton: '#index_slider2_upload',
-              inputHidden: '#index_slider2_image'
+              imageContainer: '#wap_index_adv2_review',
+              uploadButton: '#wap_index_adv2_upload',
+              inputHidden: '#wap_index_adv2_image'
           });
 
 
-            index_slider3_image_upload= new UploadImage({
+            wap_index_adv3_image_upload= new UploadImage({
               thumbnailWidth: 1900,
               thumbnailHeight: 500,
-              imageContainer: '#index_slider3_review',
-              uploadButton: '#index_slider3_upload',
-              inputHidden: '#index_slider3_image'
+              imageContainer: '#wap_index_adv3_review',
+              uploadButton: '#wap_index_adv3_upload',
+              inputHidden: '#wap_index_adv3_image'
           });
 
 
-           index_slider4_image_upload= new UploadImage({
+           wap_index_adv4_image_upload= new UploadImage({
               thumbnailWidth: 1900,
               thumbnailHeight: 500,
-              imageContainer: '#index_slider4_review',
-              uploadButton: '#index_slider4_upload',
-              inputHidden: '#index_slider4_image'
+              imageContainer: '#wap_index_adv4_review',
+              uploadButton: '#wap_index_adv4_upload',
+              inputHidden: '#wap_index_adv4_image'
           });
           
 
-           index_slider5_image_upload= new UploadImage({
+           wap_index_adv5_image_upload= new UploadImage({
               thumbnailWidth: 1900,
               thumbnailHeight: 500,
-              imageContainer: '#index_slider5_review',
-              uploadButton: '#index_slider5_upload',
-              inputHidden: '#index_slider5_image'
+              imageContainer: '#wap_index_adv5_review',
+              uploadButton: '#wap_index_adv5_upload',
+              inputHidden: '#wap_index_adv5_image'
           }); */
    })
     </script>
