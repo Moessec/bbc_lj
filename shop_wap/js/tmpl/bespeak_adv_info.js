@@ -24,8 +24,8 @@ $(function ()
                        tem+='<div class="error-tips"></div><div class="form-btn"><a class="btn" href="bespeak_opera_adv.html?bespeak_id='+value.bespeak_id+'">申请预约</a></div></dl>';
 
                       var eg = new RegExp("/<span>([^<]+)\s<\//span>/","g");
-                      console.log(eg);
                       var b=tem.replace(eg,'&amp;nbsp;');
+                      console.log(b);
                      var reg = new RegExp("\n","g");
                       var c=b.replace(reg,'<br>');
 
