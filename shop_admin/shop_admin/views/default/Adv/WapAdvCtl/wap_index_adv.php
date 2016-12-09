@@ -83,7 +83,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     <div class="ncap-form-default">
       <dl class="row">
         <dt class="tit">
-          <label>滚动图片1</label>
+          <label>图片1</label>
         </dt>
         <dd class="opt">
                 <img id="index_slider1_review" src="<?=@($data['index_slider1_image']['config_value'])?>" width="170" height="170"/>
@@ -101,7 +101,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
      <dl class="row">
         <dt class="tit">
-          <label>滚动图片2</label>
+          <label>图片2</label>
         </dt>
         <dd class="opt">
                 <img id="index_slider2_review" src="<?=@($data['index_slider2_image']['config_value'])?>" width="170" height="170"/>
@@ -120,7 +120,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
     <dl class="row">
         <dt class="tit">
-          <label>滚动图片3</label>
+          <label>图片3</label>
         </dt>
         <dd class="opt">
                 <img id="index_slider3_review" src="<?=@($data['index_slider3_image']['config_value'])?>" width="170" height="170"/>
@@ -138,7 +138,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
     <dl class="row">
         <dt class="tit">
-          <label>滚动图片4</label>
+          <label>图片4</label>
         </dt>
         <dd class="opt">
                 <img id="index_slider4_review" src="<?=@($data['index_slider4_image']['config_value'])?>"  width="170" height="170"/>
@@ -155,7 +155,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
       </dl>
        <dl class="row">
         <dt class="tit">
-          <label>滚动图片5</label>
+          <label>图片5</label>
         </dt>
         <dd class="opt">
                 <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>"  width="170" height="170"/>
