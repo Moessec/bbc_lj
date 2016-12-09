@@ -233,5 +233,6 @@ include $this->view->getTplPath() . '/'  . 'header.php';
    })
     </script>
     <?php
+    var_dump($data);
 include $this->view->getTplPath() . '/' . 'footer.php';
     ?>
