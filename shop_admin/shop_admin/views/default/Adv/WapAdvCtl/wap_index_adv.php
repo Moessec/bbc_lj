@@ -400,7 +400,7 @@ div.bot {
           
         </dd>
       </dl>
-       <dl class="row">
+<!--        <dl class="row">
         <dt class="tit">
           <label>图片19</label>
         </dt>
@@ -434,7 +434,7 @@ div.bot {
            <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
           
         </dd>
-      </dl>
+      </dl> -->
 
 
 
