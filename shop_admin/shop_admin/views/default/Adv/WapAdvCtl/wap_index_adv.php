@@ -99,7 +99,7 @@ div.bot {
     </div>
 
    <form method="post" enctype="multipart/form-data" id="wap_index_adv-setting-form" name="form1">
-    <input type="hidden" name="config_type[]" value="wap_index_adv1"/>
+    <input type="hidden" name="config_type[]" value="wap_index_adv"/>
     <div class="ncap-form-default">
       <dl class="row">
         <dt class="tit">
