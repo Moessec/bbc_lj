@@ -90,7 +90,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input w400" style="margin:5px 0;size:auto" type="text" name="index_slider[index_live_link1]" value="<?=@($data['index_live_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="index_live_link1" class="error valid"></label></span>
-           <p class="notic">宽170px,高170px的jpg/png格式<br>
+           <p class="notic">宽170px高170px的jpg/png格式<br>
             </p>
         </dd>
       </dl>
