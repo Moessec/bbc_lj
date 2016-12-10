@@ -42,7 +42,7 @@ class Adv_WapAdvCtl extends Yf_AppController
 				$data[$key]=$value['config_value'];
 			}
 		}
-       // var_dump($data);die;
+       var_dump($data);die;
 		$this->data->addBody(-140, $data);
 
  }
