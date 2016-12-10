@@ -420,16 +420,7 @@ body{
             height: 3rem;
             width: 100%
          }
-         .more{
-         	display: inline-block;
-        	width: 0.7rem;
-		    height: 0.7rem;
-		    background-image: url(../images/iconfont/right-jt.png);
-		    background-repeat: no-repeat;
-		    background-position: 50% 100%;
-		    background-size: 80%;
-		    opacity: 1;
-         }
+
 
          .product-list .product-list-info p{
          	font-size: 0.6rem;
