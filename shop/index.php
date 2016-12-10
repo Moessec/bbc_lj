@@ -179,7 +179,7 @@ else
 }
 
 if (RUNTIME)
-{
+{ECHO 3313;DIE;
 	Yf_Registry::set('runtime', $runtime);
 	Yf_Registry::set('runtime_file', $runtime_file);
 }
