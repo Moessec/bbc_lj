@@ -30,15 +30,15 @@ class Adv_WapAdvCtl extends Yf_AppController
  public function getwap_adv()
  {
  	$config_type = 'wap_index_adv';
- 	$rows = $this->advWapAdvModel->getConfig();
-		$data = array();
-        $rows =1;
-		if ($rows)
-		{
-			$data = array_pop($rows);
-		}
 
-		$this->data->addBody(-140, array('a'=>12));
+ 	$rows = $this->advWapAdvModel->getConfigValue($config_type);
+		// $data = array();
+		// if ($rows)
+		// {
+		// 	$data = array_pop($rows);
+		// }
+
+		$this->data->addBody(-140, $rows);
 
  }
 
