@@ -1585,9 +1585,10 @@ class Goods_GoodsCtl extends Controller
 		$data = $Shop_BaseModel ->getOneByWhere( array('shop_id'=>$shop_id) );
 		$Shop_CompanyModel = new Shop_CompanyModel();
 		$da = $Shop_CompanyModel ->getOneByWhere( array('shop_id'=>$shop_id) );
-		var_dump($da);die;
+		// var_dump($da);die;
 		if( $data )
 		{
+			$data['company_address'] = $da['shop_company_address'].$da['company_address_detail'];
 			$status = 200;
 			$msg = _('sucess');
 		}
