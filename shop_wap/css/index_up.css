@@ -405,8 +405,8 @@ body{
          }
          .product-list .product-list-info ul li img{
          	/*width: 100%;*/
-            width: 5rem;
-            height: 5rem;
+            width: 7rem;
+            height: 7rem;
          }
          .product-list-title{
          	/*padding: 0.5rem;*/
@@ -431,7 +431,7 @@ body{
             /*padding-top: 1rem;*/
          }
          .product-list-info ul li{
-            height:6rem;
+            height:7rem;
          }
          .product-list-info ul li a{
          	color: #FF7E18;
