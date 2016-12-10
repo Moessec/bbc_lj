@@ -43,7 +43,7 @@ class Adv_WapAdvCtl extends Yf_AppController
 			}
 		}
 		//echo 333;die;
-     //  var_dump($data);die;
+      var_dump($data);die;
 		$this->data->addBody(-140, $data);
 
  }
