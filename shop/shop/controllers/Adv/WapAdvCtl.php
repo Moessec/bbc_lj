@@ -33,15 +33,15 @@ class Adv_WapAdvCtl extends Yf_AppController
 
  	//$rows = $this->advWapAdvModel->getConfigValue($config_type);
  	$Web_ConfigModel = new Web_ConfigModel();
- 	$rows = $Web_ConfigModel->getConfigList(array('config_type'=>$config_type,'config_key','config_value'));
- 	var_dump( $rows );die;
-		// $data = array();
-		// if ($rows)
-		// {
-		// 	$data = array_pop($rows);
-		// }
+ 	$rows = $Web_ConfigModel->getConfigList(array('config_type'=>$config_type));
+ 	// var_dump( $rows );die;
+		$data = array();
+		if ($rows)
+		{
+			$data = array_pop($rows);
+		}
 
-		$this->data->addBody(-140, $rows);
+		$this->data->addBody(-140, $data);
 
  }
 
