@@ -14,7 +14,7 @@
  */
 //版本 
 define('VER', '1.02');
-
+ECHO 666;DIE;
 //设置开始的时间
 $mtime =  explode(' ',  microtime());
 $app_starttime = $mtime[1] + $mtime[0];
