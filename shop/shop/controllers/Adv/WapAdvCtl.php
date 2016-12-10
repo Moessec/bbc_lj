@@ -20,6 +20,7 @@ class Adv_WapAdvCtl extends Yf_AppController
 	 */
 	public function __construct(&$ctl, $met, $typ)
 	{
+		return 55;die;
 		parent::__construct($ctl, $met, $typ);
 
 		//include $this->view->getView();
