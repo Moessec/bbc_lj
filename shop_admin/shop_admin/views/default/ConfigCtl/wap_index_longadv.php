@@ -161,7 +161,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
         var $imagePreview, $imageInput, imageWidth, imageHeight;
 
-        $('#wap_index_longadv1_upload, #wap_index_longadv2_upload, #wap_index_longadv3_upload,#wap_index_longadv4_upload,#wap_index_longadv5_upload').on('click', function () {
+        $('#wap_index_longadv1_upload, #wap_index_longadv2_upload, #wap_index_longadv3_upload,#wap_index_longadv4_upload,#wap_index_longadv5_upload,#wap_index_longadv6_upload').on('click', function () {
 
             if ( this.id == 'wap_index_longadv1_upload' ) {
                 $imagePreview = $('#wap_index_longadv1_review');
