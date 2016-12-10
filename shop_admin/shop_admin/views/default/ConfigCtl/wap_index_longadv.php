@@ -78,27 +78,27 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
         var $imagePreview, $imageInput, imageWidth, imageHeight;
 
-        $('#index_slider1_upload, #index_slider2_upload, #index_slider3_upload,#index_slider4_upload,#index_slider5_upload').on('click', function () {
+        $('#wap_index_longadv1_upload, #wap_index_longadv2_upload, #wap_index_longadv3_upload,#wap_index_longadv4_upload,#wap_index_longadv5_upload').on('click', function () {
 
-            if ( this.id == 'index_slider1_upload' ) {
-                $imagePreview = $('#index_slider1_review');
-                $imageInput = $('#index_slider1_image');
+            if ( this.id == 'wap_index_longadv1_upload' ) {
+                $imagePreview = $('#wap_index_longadv1_review');
+                $imageInput = $('#wap_index_longadv1_image');
                 imageWidth = 1900, imageHeight = 500;
-            } else if ( this.id == 'index_slider2_upload' ) {
-                $imagePreview = $('#index_slider2_review');
-                $imageInput = $('#index_slider2_image');
+            } else if ( this.id == 'wap_index_longadv2_upload' ) {
+                $imagePreview = $('#wap_index_longadv2_review');
+                $imageInput = $('#wap_index_longadv2_image');
                 imageWidth = 1900, imageHeight = 500;
-            }  else if ( this.id == 'index_slider3_upload' ) {
-                $imagePreview = $('#index_slider3_review');
-                $imageInput = $('#index_slider3_image');
+            }  else if ( this.id == 'wap_index_longadv3_upload' ) {
+                $imagePreview = $('#wap_index_longadv3_review');
+                $imageInput = $('#wap_index_longadv3_image');
                 imageWidth = 1900, imageHeight = 500;
-            }else if ( this.id == 'index_slider4_upload' ) {
-                $imagePreview = $('#index_slider4_review');
-                $imageInput = $('#index_slider4_image');
+            }else if ( this.id == 'wap_index_longadv4_upload' ) {
+                $imagePreview = $('#wap_index_longadv4_review');
+                $imageInput = $('#wap_index_longadv4_image');
                 imageWidth = 1900, imageHeight = 500;
             }else {
-                $imagePreview = $('#index_slider5_review');
-                $imageInput = $('#index_slider5_image');
+                $imagePreview = $('#wap_index_longadv5_review');
+                $imageInput = $('#wap_index_longadv5_image');
                 imageWidth = 1900, imageHeight = 500;
             }
             console.info($imagePreview);
