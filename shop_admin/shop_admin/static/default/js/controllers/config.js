@@ -598,6 +598,7 @@ $(function ()
     }
 
 });
+    alert($('#wap_index_longadv-setting-form').length);
 
 
 $(function ()
