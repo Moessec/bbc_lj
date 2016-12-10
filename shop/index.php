@@ -188,7 +188,7 @@ if (RUNTIME)
 //var_dump($import_file_row);
 //程序控制器启动，计算结果
 
-//Yf_App::start();
+Yf_App::start();
 
 $PluginManager->trigger('end', '');
 
