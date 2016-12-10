@@ -41,7 +41,7 @@ class Adv_WapAdvCtl extends Yf_AppController
 			$data = array_pop($rows);
 		}
 
-		$this->data->addBody(-140, $data);
+		$this->data->addBody(-140, $rows);
 
  }
 
