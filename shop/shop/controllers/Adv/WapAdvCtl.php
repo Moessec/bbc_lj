@@ -20,7 +20,7 @@ class Adv_WapAdvCtl extends Yf_AppController
 	 */
 	public function __construct(&$ctl, $met, $typ)
 	{
-		return 55;die;
+		
 		parent::__construct($ctl, $met, $typ);
 
 		//include $this->view->getView();
@@ -45,8 +45,7 @@ class Adv_WapAdvCtl extends Yf_AppController
 		}
 		//echo 333;die;
      // var_dump($data);die;
-		//$this->data->addBody(-140, $data);
-		$this->data->addBody(-140, '1111');
+		$this->data->addBody(-140, $data);
 
  }
 
