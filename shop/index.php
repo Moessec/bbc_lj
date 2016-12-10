@@ -14,7 +14,7 @@
  */
 //版本 
 define('VER', '1.02');
-ECHO 666;DIE;
+
 //设置开始的时间
 $mtime =  explode(' ',  microtime());
 $app_starttime = $mtime[1] + $mtime[0];
@@ -24,7 +24,7 @@ define('ROOT_PATH', str_replace('\\', '/', dirname(__FILE__)));
 define('LIB_PATH', ROOT_PATH . '/libraries');   //ZeroPHP Framework 所在目录
 define('APP_PATH', ROOT_PATH . '/' . APP_DIR_NAME);         //应用程序目录
 define('MOD_PATH', APP_PATH . '/models');       //应用程序模型目录
-
+ECHO 123;DIE;
 /**
  * 风格静态文件文件目录，此处变量名称$themes勿修改
  *
