@@ -431,7 +431,7 @@ body{
             /*padding-top: 1rem;*/
          }
          .product-list-info ul li{
-            /*height:12rem;*/
+            height:6rem;
          }
          .product-list-info ul li a{
          	color: #FF7E18;
