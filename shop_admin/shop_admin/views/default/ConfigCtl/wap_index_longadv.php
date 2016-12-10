@@ -27,7 +27,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <li><a ><span>首页幻灯片</span></a></li>
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=index_liandong&config_type%5B%5D=index_liandong"><span>首页联动小图</span></a></li>
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=wap_index_adv&config_type%5B%5D=wap_index_adv"><span>wap首页广告小图</span></a></li>
-                <li><a class="current" href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=wap_index_longadv&config_type%5B%5D=wap_index_longadv"><span>wap首页广告长图</span></a></li>
+                <li><a class="current" href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=wap_index_longadv&config_type%5B%5D=wap_index_adv"><span>wap首页广告长图</span></a></li>
             </ul>
         </div>
     </div>
@@ -43,98 +43,28 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         </ul>
     </div>
 
-   <form method="post" enctype="multipart/form-data" id="index_slider-setting-form" name="form1">
-    <input type="hidden" name="config_type[]" value="index_slider"/>
+   <form method="post" enctype="multipart/form-data" id="wap_index_longadv-setting-form" name="form1">
+    <input type="hidden" name="config_type[]" value="wap_index_adv"/>
     <div class="ncap-form-default">
       <dl class="row">
         <dt class="tit">
           <label>滚动图片1</label>
         </dt>
         <dd class="opt">
-                <img id="index_slider1_review" src="<?=@($data['index_slider1_image']['config_value'])?>" width="760" height="200"/>
-                <input type="hidden" id="index_slider1_image" name="index_slider[index_slider1_image]" value="<?=@($data['index_slider1_image']['config_value'])?>" />
-                <div  id='index_slider1_upload' class="image-line upload-image" >图片上传</div>
+                <img id="wap_index_longadv1_review" src="<?=@($data['wap_index_longadv1_image']['config_value'])?>" width="760" height="200"/>
+                <input type="hidden" id="wap_index_longadv1_image" name="wap_index_adv[wap_index_longadv1_image]" value="<?=@($data['wap_index_longadv1_image']['config_value'])?>" />
+                <div  id='wap_index_longadv1_upload' class="image-line upload-image" >图片上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link1]" value="<?=@($data['index_live_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_longadv_link1]" value="<?=@($data['wap_index_longadv_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
-           <span class="err"><label for="index_live_link1" class="error valid"></label></span>
+           <span class="err"><label for="wap_index_longadv_link1" class="error valid"></label></span>
            <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>
 
-     <dl class="row">
-        <dt class="tit">
-          <label>滚动图片2</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider2_review" src="<?=@($data['index_slider2_image']['config_value'])?>" width="760" height="200"/>
-                <input type="hidden" id="index_slider2_image" name="index_slider[index_slider2_image]" value="<?=@($data['index_slider2_image']['config_value'])?>" />
-                <div  id='index_slider2_upload' class="image-line upload-image" >图片上传</div>
-
-           <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link2]" value="<?=@($data['index_live_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link2" class="error valid"></label></span>
-           <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
-            如需跳转请在后方添加以http://开头的链接地址。</p>
-        </dd>
-      </dl>
-
-
-    <dl class="row">
-        <dt class="tit">
-          <label>滚动图片3</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider3_review" src="<?=@($data['index_slider3_image']['config_value'])?>" width="760" height="200"/>
-                <input type="hidden" id="index_slider3_image" name="index_slider[index_slider3_image]" value="<?=@($data['index_slider3_image']['config_value'])?>" />
-                <div  id='index_slider3_upload' class="image-line upload-image" >图片上传</div>
-
-           <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link3]" value="<?=@($data['index_live_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link3" class="error valid"></label></span>
-           <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
-            如需跳转请在后方添加以http://开头的链接地址。</p>
-        </dd>
-      </dl>
-
-    <dl class="row">
-        <dt class="tit">
-          <label>滚动图片4</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider4_review" src="<?=@($data['index_slider4_image']['config_value'])?>" width="760" height="200"/>
-                <input type="hidden" id="index_slider4_image" name="index_slider[index_slider4_image]" value="<?=@($data['index_slider4_image']['config_value'])?>" />
-                <div  id='index_slider4_upload' class="image-line upload-image" >图片上传</div>
-
-           <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="index_slider[index_live_link4]" value="<?=@($data['index_live_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link4" class="error valid"></label></span>
-           <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
-            如需跳转请在后方添加以http://开头的链接地址。</p>
-        </dd>
-      </dl>
-       <dl class="row">
-        <dt class="tit">
-          <label>滚动图片5</label>
-        </dt>
-        <dd class="opt">
-                <img id="index_slider5_review" src="<?=@($data['index_slider5_image']['config_value'])?>" width="760" height="200"/>
-                <input type="hidden" id="index_slider5_image" name="index_slider[index_slider5_image]" value="<?=@($data['index_slider5_image']['config_value'])?>" />
-                <div  id='index_slider5_upload' class="image-line upload-image" >图片上传</div>
-
-           <label title="请输入图片要跳转的链接地址" ><i class="fa fa-link"></i>
-                <input class="ui-input  w400" style="margin:5px 0" type="text" name="index_slider[index_live_link5]" value="<?=@($data['index_live_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="index_live_link5" class="error valid"></label></span>
-           <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
-            如需跳转请在后方添加以http://开头的链接地址。</p>
-        </dd>
-      </dl>
+     
      <div class="bot"><a href="javascript:void(0);" class="ui-btn ui-btn-sp submit-btn">确认提交</a></div>
   </form>
 
