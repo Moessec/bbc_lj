@@ -51,7 +51,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片1</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_longadv1_review" src="<?=@($data['wap_index_longadv1_image']['config_value'])?>" width="760" height="200"/>
+                <img id="wap_index_longadv1_review" src="<?=@($data['wap_index_longadv1_image']['config_value'])?>" width="750" height="320"/>
                 <input type="hidden" id="wap_index_longadv1_image" name="wap_index_adv[wap_index_longadv1_image]" value="<?=@($data['wap_index_longadv1_image']['config_value'])?>" />
                 <div  id='wap_index_longadv1_upload' class="image-line upload-image" >图片上传</div>
 
@@ -68,7 +68,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片2</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_longadv2_review" src="<?=@($data['wap_index_longadv2_image']['config_value'])?>" width="760" height="200"/>
+                <img id="wap_index_longadv2_review" src="<?=@($data['wap_index_longadv2_image']['config_value'])?>" width="750" height="120"/>
                 <input type="hidden" id="wap_index_longadv2_image" name="wap_index_adv[wap_index_longadv2_image]" value="<?=@($data['wap_index_longadv2_image']['config_value'])?>" />
                 <div  id='wap_index_longadv2_upload' class="image-line upload-image" >图片上传</div>
 
@@ -85,7 +85,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片3</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_longadv3_review" src="<?=@($data['wap_index_longadv3_image']['config_value'])?>" width="760" height="200"/>
+                <img id="wap_index_longadv3_review" src="<?=@($data['wap_index_longadv3_image']['config_value'])?>" width="750" height="320"/>
                 <input type="hidden" id="wap_index_longadv3_image" name="wap_index_adv[wap_index_longadv3_image]" value="<?=@($data['wap_index_longadv3_image']['config_value'])?>" />
                 <div  id='wap_index_longadv3_upload' class="image-line upload-image" >图片上传</div>
 
@@ -102,7 +102,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片4</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_longadv4_review" src="<?=@($data['wap_index_longadv4_image']['config_value'])?>" width="760" height="200"/>
+                <img id="wap_index_longadv4_review" src="<?=@($data['wap_index_longadv4_image']['config_value'])?>" width="750" height="120"/>
                 <input type="hidden" id="wap_index_longadv4_image" name="wap_index_adv[wap_index_longadv4_image]" value="<?=@($data['wap_index_longadv4_image']['config_value'])?>" />
                 <div  id='wap_index_longadv4_upload' class="image-line upload-image" >图片上传</div>
 
@@ -119,7 +119,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片5</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_longadv5_review" src="<?=@($data['wap_index_longadv5_image']['config_value'])?>" width="760" height="200"/>
+                <img id="wap_index_longadv5_review" src="<?=@($data['wap_index_longadv5_image']['config_value'])?>" width="750" height="320"/>
                 <input type="hidden" id="wap_index_longadv5_image" name="wap_index_adv[wap_index_longadv5_image]" value="<?=@($data['wap_index_longadv5_image']['config_value'])?>" />
                 <div  id='wap_index_longadv5_upload' class="image-line upload-image" >图片上传</div>
 
@@ -136,7 +136,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片6</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_longadv6_review" src="<?=@($data['wap_index_longadv6_image']['config_value'])?>" width="760" height="200"/>
+                <img id="wap_index_longadv6_review" src="<?=@($data['wap_index_longadv6_image']['config_value'])?>" width="750" height="120"/>
                 <input type="hidden" id="wap_index_longadv6_image" name="wap_index_adv[wap_index_longadv6_image]" value="<?=@($data['wap_index_longadv6_image']['config_value'])?>" />
                 <div  id='wap_index_longadv6_upload' class="image-line upload-image" >图片上传</div>
 
