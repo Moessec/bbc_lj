@@ -18,7 +18,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         <div class="item-title">
             <div class="subject">
                 <h3>模板风格</h3>
-                <h5>首页幻灯将在首页展示</h5>
+                <h5>wap首页长图</h5>
             </div>
             <ul class="tab-base nc-row">
 
@@ -37,8 +37,8 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <span id="explanationZoom" title="收起提示"></span><em class="close_warn">X</em>
         </div>
         <ul>
-              <li>该组幻灯片滚动图片应用于首页使用，最多可上传5张图片。</li>
-              <li>图片要求使用宽度为1900像素，高度为500像素jpg/gif/png格式的图片。</li>
+              <li>该组幻灯片图片应用于首页使用，最多可上传6张图片。</li>
+              <li>图片要求使用宽度为750像素，jpg/gif/png格式的图片。</li>
               <li>上传图片后请添加格式为“http://网址...”链接地址，设定后将在显示页面中点击幻灯片将以另打开窗口的形式跳转到指定网址。</li>
         </ul>
     </div>
@@ -48,7 +48,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     <div class="ncap-form-default">
       <dl class="row">
         <dt class="tit">
-          <label>滚动图片1</label>
+          <label>图片1</label>
         </dt>
         <dd class="opt">
                 <img id="wap_index_longadv1_review" src="<?=@($data['wap_index_longadv1_image']['config_value'])?>" width="760" height="200"/>
@@ -59,12 +59,95 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_longadv_link1]" value="<?=@($data['wap_index_longadv_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_longadv_link1" class="error valid"></label></span>
-           <p class="notic">请使用宽度1900像素，高度500像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+           <p class="notic">请使用宽度750像素，高度320像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>
+      <dl class="row">
+        <dt class="tit">
+          <label>图片2</label>
+        </dt>
+        <dd class="opt">
+                <img id="wap_index_longadv2_review" src="<?=@($data['wap_index_longadv2_image']['config_value'])?>" width="760" height="200"/>
+                <input type="hidden" id="wap_index_longadv2_image" name="wap_index_adv[wap_index_longadv2_image]" value="<?=@($data['wap_index_longadv2_image']['config_value'])?>" />
+                <div  id='wap_index_longadv2_upload' class="image-line upload-image" >图片上传</div>
 
-     
+           <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_longadv_link2]" value="<?=@($data['wap_index_longadv_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="wap_index_longadv_link2" class="error valid"></label></span>
+           <p class="notic">请使用宽度750像素，高度120像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+            如需跳转请在后方添加以http://开头的链接地址。</p>
+        </dd>
+      </dl>
+      <dl class="row">
+        <dt class="tit">
+          <label>图片3</label>
+        </dt>
+        <dd class="opt">
+                <img id="wap_index_longadv3_review" src="<?=@($data['wap_index_longadv3_image']['config_value'])?>" width="760" height="200"/>
+                <input type="hidden" id="wap_index_longadv3_image" name="wap_index_adv[wap_index_longadv3_image]" value="<?=@($data['wap_index_longadv3_image']['config_value'])?>" />
+                <div  id='wap_index_longadv3_upload' class="image-line upload-image" >图片上传</div>
+
+           <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_longadv_link3]" value="<?=@($data['wap_index_longadv_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="wap_index_longadv_link3" class="error valid"></label></span>
+           <p class="notic">请使用宽度750像素，高度320像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+            如需跳转请在后方添加以http://开头的链接地址。</p>
+        </dd>
+      </dl>
+      <dl class="row">
+        <dt class="tit">
+          <label>图片4</label>
+        </dt>
+        <dd class="opt">
+                <img id="wap_index_longadv4_review" src="<?=@($data['wap_index_longadv4_image']['config_value'])?>" width="760" height="200"/>
+                <input type="hidden" id="wap_index_longadv4_image" name="wap_index_adv[wap_index_longadv4_image]" value="<?=@($data['wap_index_longadv4_image']['config_value'])?>" />
+                <div  id='wap_index_longadv4_upload' class="image-line upload-image" >图片上传</div>
+
+           <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_longadv_link4]" value="<?=@($data['wap_index_longadv_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="wap_index_longadv_link4" class="error valid"></label></span>
+           <p class="notic">请使用宽度750像素，高度120像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+            如需跳转请在后方添加以http://开头的链接地址。</p>
+        </dd>
+      </dl>
+      <dl class="row">
+        <dt class="tit">
+          <label>图片5</label>
+        </dt>
+        <dd class="opt">
+                <img id="wap_index_longadv5_review" src="<?=@($data['wap_index_longadv5_image']['config_value'])?>" width="760" height="200"/>
+                <input type="hidden" id="wap_index_longadv5_image" name="wap_index_adv[wap_index_longadv5_image]" value="<?=@($data['wap_index_longadv5_image']['config_value'])?>" />
+                <div  id='wap_index_longadv5_upload' class="image-line upload-image" >图片上传</div>
+
+           <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_longadv_link5]" value="<?=@($data['wap_index_longadv_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="wap_index_longadv_link5" class="error valid"></label></span>
+           <p class="notic">请使用宽度750像素，高度320像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+            如需跳转请在后方添加以http://开头的链接地址。</p>
+        </dd>
+      </dl>
+      <dl class="row">
+        <dt class="tit">
+          <label>图片6</label>
+        </dt>
+        <dd class="opt">
+                <img id="wap_index_longadv6_review" src="<?=@($data['wap_index_longadv6_image']['config_value'])?>" width="760" height="200"/>
+                <input type="hidden" id="wap_index_longadv6_image" name="wap_index_adv[wap_index_longadv6_image]" value="<?=@($data['wap_index_longadv6_image']['config_value'])?>" />
+                <div  id='wap_index_longadv6_upload' class="image-line upload-image" >图片上传</div>
+
+           <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_longadv_link6]" value="<?=@($data['wap_index_longadv_link6']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+           </label>
+           <span class="err"><label for="wap_index_longadv_link6" class="error valid"></label></span>
+           <p class="notic">请使用宽度750像素，高度120像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+            如需跳转请在后方添加以http://开头的链接地址。</p>
+        </dd>
+      </dl>                       
      <div class="bot"><a href="javascript:void(0);" class="ui-btn ui-btn-sp submit-btn">确认提交</a></div>
   </form>
 
@@ -96,11 +179,16 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 $imagePreview = $('#wap_index_longadv4_review');
                 $imageInput = $('#wap_index_longadv4_image');
                 imageWidth = 1900, imageHeight = 500;
-            }else {
+            }else if ( this.id == 'wap_index_longadv5_upload' ){
                 $imagePreview = $('#wap_index_longadv5_review');
                 $imageInput = $('#wap_index_longadv5_image');
                 imageWidth = 1900, imageHeight = 500;
+            }else {
+                $imagePreview = $('#wap_index_longadv6_review');
+                $imageInput = $('#wap_index_longadv6_image');
+                imageWidth = 1900, imageHeight = 500;
             }
+
             console.info($imagePreview);
             $.dialog({
                 title: '图片裁剪',
