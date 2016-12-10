@@ -25,6 +25,8 @@ class Adv_WapAdvCtl extends Yf_AppController
 
 		//include $this->view->getView();
 		$this->advWapAdvModel = new Web_ConfigModel();
+		
+		$this->web = $this->webConfig();
 	}
 
 
