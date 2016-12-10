@@ -9,12 +9,12 @@
 class IndexCtl extends Controller
 {
 	public function __construct(&$ctl, $met, $typ)
-	{
+	{	
 		parent::__construct($ctl, $met, $typ);
 	}
 
 	public function index()
-	{
+	{	echo 555;die;
 		if ('json' == $this->typ)
 		{
 			$goods_CommonModel = new Goods_CommonModel();
