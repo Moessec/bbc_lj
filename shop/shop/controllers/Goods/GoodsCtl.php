@@ -1581,8 +1581,11 @@ class Goods_GoodsCtl extends Controller
 
 		$shop_id = request_int('shop_id');
 		$shop_id = 2;
-		$Shop_BaseModel = new Shop_CompanyModel();
+		$Shop_BaseModel = new Shop_BaseModel();
 		$data = $Shop_BaseModel ->getOneByWhere( array('shop_id'=>$shop_id) );
+		$Shop_CompanyModel = new Shop_CompanyModel();
+		$da = $Shop_CompanyModel ->getOneByWhere( array('shop_id'=>$shop_id) );
+		var_dump($da);
 		if( $data )
 		{
 			$status = 200;
