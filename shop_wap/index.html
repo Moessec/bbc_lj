@@ -143,9 +143,9 @@
 		<div class="product-list-title"><a href="<%=data.wap_index_longadv_link2%>"><image src="<%=data.wap_index_longadv2_image%>"></a></div>		
 		<div class="product-list-info clearfix">
 			<ul>
-
-				<li><a href="tmpl/product_detail.html">
-					<img src="" />
+            <% for (var i=1;i<=6;i++) { %>
+				<li><a href="<%=data.wap_index_adv_link+i%>">
+					<img src="<%=data.wap_index_adv+i+_image%>" />
 				</a></li>
 			</ul>
 		</div>
