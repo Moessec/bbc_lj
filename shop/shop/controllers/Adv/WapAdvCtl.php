@@ -23,14 +23,14 @@ class Adv_WapAdvCtl extends Yf_AppController
 		parent::__construct($ctl, $met, $typ);
 
 		//include $this->view->getView();
-		// $this->$advWapAdvModel = new Web_ConfigModel();
+		$this->advWapAdvModel = new Web_ConfigModel();
 	}
 
 
  public function getwap_adv()
  {
  	$config_type = 'wap_index_adv';
- 	// $rows = $this->$advWapAdvModel->getConfig();
+ 	$rows = $this->advWapAdvModel->getConfig();
 		$data = array();
 $rows =1;
 		if ($rows)
