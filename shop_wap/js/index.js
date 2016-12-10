@@ -109,9 +109,9 @@ if(!key)
              });
         $.getJSON(ApiUrl + "/index.php?ctl=Adv_WapAdv&met=getwap_adv&typ=json", function (t)
              {
-                // console.log(t);
-               $("#product-contain2").html(template.render('goods2', t));
-               $("#product-contain1").html(template.render('goods1', t));
+                var data = t;
+               $("#product-contain2").html(template.render('goods2', data));
+               $("#product-contain1").html(template.render('goods1', data));
         
              });
 //*******************加入购物车功能*********************************
