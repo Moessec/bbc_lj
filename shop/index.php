@@ -187,8 +187,8 @@ if (RUNTIME)
 
 //var_dump($import_file_row);
 //程序控制器启动，计算结果
-echo 43;die;
-Yf_App::start();
+
+//Yf_App::start();
 
 $PluginManager->trigger('end', '');
 
@@ -197,7 +197,7 @@ $app_endtime = $mtime[1] + $mtime[0];
 
 fb($app_endtime-$app_starttime, 'exec time');
 
-ECHO 333;DIE;
+
 //fb($import_file_row);
 //$Yf_Registry = Yf_Registry::getInstance();
 //$Yf_Registry['sss']['fsdfds'] = 2;
