@@ -23,7 +23,7 @@ class Adv_WapAdvCtl extends Yf_AppController
 		parent::__construct($ctl, $met, $typ);
 
 		//include $this->view->getView();
-		$this->$advWapAdvModel = new Web_ConfigModel();
+		// $this->$advWapAdvModel = new Web_ConfigModel();
 	}
 
 
