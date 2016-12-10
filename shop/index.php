@@ -24,7 +24,7 @@ define('ROOT_PATH', str_replace('\\', '/', dirname(__FILE__)));
 define('LIB_PATH', ROOT_PATH . '/libraries');   //ZeroPHP Framework 所在目录
 define('APP_PATH', ROOT_PATH . '/' . APP_DIR_NAME);         //应用程序目录
 define('MOD_PATH', APP_PATH . '/models');       //应用程序模型目录
-ECHO 123;DIE;
+
 /**
  * 风格静态文件文件目录，此处变量名称$themes勿修改
  *
@@ -82,7 +82,7 @@ define('HLP_PATH', APP_PATH . '/helpers');
 */
 define('LAN_PATH', APP_PATH . '/data/locales');
 
-
+ECHO 1231;DIE;
 //是否开启runtime，如果为false，则不生成runtime缓存
 define('RUNTIME', false);
 
