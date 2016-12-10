@@ -107,9 +107,10 @@ if(!key)
                $("#product-contain3").html(template.render('goods3', t));
         
              });
-        $.getJSON(ApiUrl + "/index.php?ctl=Adv_WapAdv&met=getwap_adv&typ=json", function (t)
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getwap_adv&typ=json", function (t)
              {	
                 var data = t;
+                
                 if(data)
                 {	
                $("#product-contain2").html(template.render('goods2', data));
