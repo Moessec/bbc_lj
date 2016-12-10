@@ -409,16 +409,14 @@ body{
             height: 5rem;
          }
          .product-list-title{
-         	padding: 0.5rem;
+         	/*padding: 0.5rem;*/
          	font-size: 0.8rem;
          	height: 1rem;
          	line-height: 1rem;
          	background: white;
          }
-         .product-list-title a span{
-         	color:#FF7E18;
-         	
-         	letter-spacing: 0.1rem;
+         .product-list-title a img{
+            height: 40px;
          }
          .more{
          	display: inline-block;
