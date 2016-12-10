@@ -82,7 +82,7 @@ div.bot {
 
                 <li><a href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=index_liandong&config_type%5B%5D=index_liandong"><span>首页联动小图</span></a></li>
                 <li><a class="current" href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=wap_index_adv&config_type%5B%5D=wap_index_adv"><span>wap首页商品广告小图</span></a></li>
-                <li><a  href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=wap_index_longadv&config_type%5B%5D=wap_index_longadv"><span>wap首页广告长图</span></a></li>
+                <li><a  href="<?= Yf_Registry::get('url') ?>?ctl=Config&met=wap_index_longadv&config_type%5B%5D=wap_index_adv"><span>wap首页广告长图</span></a></li>
 
             </ul>
         </div>
