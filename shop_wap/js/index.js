@@ -5,7 +5,7 @@ var shop_id;
 $(function() {
 
          $.ajax({
-                url: ApiUrl + "/index.php?ctl=Shop_Settled&met=getShopInfo&typ=json",
+                url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json",
                 type: 'get',
                 dataType: 'json',
                 success: function(result) {
