@@ -39,7 +39,7 @@ class Adv_WapAdvCtl extends Yf_AppController
 		if ($rows)
 		{
 			foreach ($rows as $key => $value) {
-				$data[$key]=$value;
+				$data[$key]=$value['config_value'];
 			}
 		}
        var_dump($data);die;
