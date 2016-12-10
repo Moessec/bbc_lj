@@ -166,27 +166,27 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             if ( this.id == 'wap_index_longadv1_upload' ) {
                 $imagePreview = $('#wap_index_longadv1_review');
                 $imageInput = $('#wap_index_longadv1_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 750, imageHeight = 320;
             } else if ( this.id == 'wap_index_longadv2_upload' ) {
                 $imagePreview = $('#wap_index_longadv2_review');
                 $imageInput = $('#wap_index_longadv2_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 750, imageHeight = 120;
             }  else if ( this.id == 'wap_index_longadv3_upload' ) {
                 $imagePreview = $('#wap_index_longadv3_review');
                 $imageInput = $('#wap_index_longadv3_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 750, imageHeight = 320;
             }else if ( this.id == 'wap_index_longadv4_upload' ) {
                 $imagePreview = $('#wap_index_longadv4_review');
                 $imageInput = $('#wap_index_longadv4_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 750, imageHeight = 120;
             }else if ( this.id == 'wap_index_longadv5_upload' ){
                 $imagePreview = $('#wap_index_longadv5_review');
                 $imageInput = $('#wap_index_longadv5_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 750, imageHeight = 320;
             }else {
                 $imagePreview = $('#wap_index_longadv6_review');
                 $imageInput = $('#wap_index_longadv6_image');
-                imageWidth = 1900, imageHeight = 500;
+                imageWidth = 750, imageHeight = 120;
             }
 
             console.info($imagePreview);
