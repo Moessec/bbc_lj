@@ -180,7 +180,7 @@ else
 }
 
 if (RUNTIME)
-{ECHO 3313;DIE;
+{
 	Yf_Registry::set('runtime', $runtime);
 	Yf_Registry::set('runtime_file', $runtime_file);
 }
@@ -189,7 +189,7 @@ if (RUNTIME)
 //程序控制器启动，计算结果
 
 Yf_App::start();
-
+echo 11112;die;
 $PluginManager->trigger('end', '');
 
 $mtime =  explode(' ',  microtime());
