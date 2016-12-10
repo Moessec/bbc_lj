@@ -110,10 +110,12 @@ if(!key)
         $.getJSON(ApiUrl + "/index.php?ctl=Adv_WapAdv&met=getwap_adv&typ=json", function (t)
              {
                 var data = t;
+                if(data)
+                {
                $("#product-contain2").html(template.render('goods2', data));
                $("#product-contain1").html(template.render('goods1', data));
                $("#product-contain0").html(template.render('goods0', data));
-        
+                }
              });
 //*******************加入购物车功能*********************************
 
