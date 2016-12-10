@@ -104,11 +104,15 @@ if(!key)
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=2", function (t)
              {
 
-            // console.log(t);
-                        $("#product-contain3").html(template.render('goods3', t));
+               $("#product-contain3").html(template.render('goods3', t));
         
              });
-
+        $.getJSON(ApiUrl + "/index.php?ctl=Adv_WapAdv&met=getwap_adv&typ=json", function (t)
+             {
+                console.log(t);
+               // $("#product-contain3").html(template.render('goods3', t));
+        
+             });
 //*******************加入购物车功能*********************************
 
 setTimeout(function(){
