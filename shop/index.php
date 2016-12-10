@@ -187,9 +187,9 @@ if (RUNTIME)
 
 //var_dump($import_file_row);
 //程序控制器启动，计算结果
-
+echo 43;die;
 Yf_App::start();
-echo 11112;die;
+
 $PluginManager->trigger('end', '');
 
 $mtime =  explode(' ',  microtime());
