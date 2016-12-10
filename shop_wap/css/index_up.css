@@ -411,13 +411,12 @@ body{
          .product-list-title{
          	/*padding: 0.5rem;*/
          	font-size: 0.8rem;
-         	height: 3rem;
+         	height: 2.8rem;
          	line-height: 1rem;
          	background: white;
             margin-bottom: 0.2rem;
          }
          .product-list-title a img{
-            height: 3rem;
             width: 100%
          }
 
