@@ -163,11 +163,11 @@ $import_file_row = array();
  * 计算是否需要从runtime运行
  */
 if (RUNTIME && is_file($runtime_file))
-{	
+{
 	include_once $runtime_file;
 }
 else
-{	
+{
 	array_push($import_file_row, LIB_PATH . '/__init__.php');
 	array_push($import_file_row, APP_PATH . '/configs/config.ini.php');
 
@@ -176,7 +176,6 @@ else
 
 	//引入用户配置文件
 	require_once APP_PATH . '/configs/config.ini.php';
-	
 }
 
 if (RUNTIME)
