@@ -82,7 +82,7 @@ define('HLP_PATH', APP_PATH . '/helpers');
 */
 define('LAN_PATH', APP_PATH . '/data/locales');
 
-ECHO 1231;DIE;
+
 //是否开启runtime，如果为false，则不生成runtime缓存
 define('RUNTIME', false);
 
@@ -196,7 +196,7 @@ $app_endtime = $mtime[1] + $mtime[0];
 
 fb($app_endtime-$app_starttime, 'exec time');
 
-
+ECHO 333;DIE;
 //fb($import_file_row);
 //$Yf_Registry = Yf_Registry::getInstance();
 //$Yf_Registry['sss']['fsdfds'] = 2;
