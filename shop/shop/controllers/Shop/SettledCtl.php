@@ -24,7 +24,8 @@ class Shop_SettledCtl extends AdminController
 
 		$shop_id = request_int('shop_id');
 		$shop_id = 1;
-		$Shop_BaseModel = new Shop_BaseModel();
+		// $Shop_BaseModel = new Shop_BaseModel();
+		$Shop_BaseModel = new Shop_CompanyModel();
 		$data = $Shop_BaseModel ->getOneByWhere( array('shop_id'=>$shop_id) );
 		if( $data )
 		{
