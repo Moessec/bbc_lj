@@ -25,8 +25,6 @@ class Adv_WapAdvCtl extends Yf_AppController
 
 		//include $this->view->getView();
 		$this->advWapAdvModel = new Web_ConfigModel();
-		
-		$this->web = $this->webConfig();
 	}
 
 
@@ -47,7 +45,8 @@ class Adv_WapAdvCtl extends Yf_AppController
 		}
 		//echo 333;die;
      // var_dump($data);die;
-		$this->data->addBody(-140, $data);
+		//$this->data->addBody(-140, $data);
+		$this->data->addBody(-140, '1111');
 
  }
 
