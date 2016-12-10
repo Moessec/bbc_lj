@@ -108,7 +108,7 @@ if(!key)
         
              });
         $.getJSON(ApiUrl + "/index.php?ctl=Adv_WapAdv&met=getwap_adv&typ=json", function (t)
-             {	alert(t);
+             {	
                 var data = t;
                 if(data)
                 {	
