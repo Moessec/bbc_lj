@@ -9,7 +9,7 @@
 class IndexCtl extends Controller
 {
 	public function __construct(&$ctl, $met, $typ)
-	{	echo 555;die;
+	{	
 		parent::__construct($ctl, $met, $typ);
 	}
 
