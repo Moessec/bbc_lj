@@ -112,6 +112,7 @@ if(!key)
                 var data = t;
                $("#product-contain2").html(template.render('goods2', data));
                $("#product-contain1").html(template.render('goods1', data));
+               $("#product-contain0").html(template.render('goods0', data));
         
              });
 //*******************加入购物车功能*********************************
