@@ -1,6 +1,7 @@
-<?php if (!defined('ROOT_PATH'))
+<?php 
+if (!defined('ROOT_PATH'))
 {
-	exit('No Permission');
+	//exit('No Permission');
 }
 
 /**
