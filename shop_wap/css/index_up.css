@@ -393,7 +393,7 @@ body{
          }
 
          .product-list .product-list-pic img{
-         	width: 98%;
+         	width: 100%;
          	
          }
          .product-list .product-list-info ul li{
@@ -405,8 +405,8 @@ body{
          }
          .product-list .product-list-info ul li img{
          	/*width: 100%;*/
-            width: 7rem;
-            height: 7rem;
+            width: 100%;
+            height: 100%;
          }
          .product-list-title{
          	/*padding: 0.5rem;*/
