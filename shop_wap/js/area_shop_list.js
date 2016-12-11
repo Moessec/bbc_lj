@@ -7,7 +7,7 @@ $(function ()
   var city = $.cookie('trans_city');
   $("#city").html(city);
   var flag = 0;
-    $.getJSON(ApiUrl + "/index.php?ctl=Shop_Shoplist&met=index&typ=json", function (t)
+    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", function (t)
     {
         var r = t.data.items;
         // console.info(r);
