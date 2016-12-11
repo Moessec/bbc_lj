@@ -1604,7 +1604,7 @@ class Goods_GoodsCtl extends Controller
 			{
 		       $Shop_ShoplistModel = new Shop_BaseModel();
 					// $data = $this->Shop_ShoplistModel->getBaseList($cond_row, $order_row, '', '');
-					$data = $this->Shop_ShoplistModel->getBaseList();
+					$data = $Shop_ShoplistModel->getBaseList();
 
 				$this->data->addBody(-140, $data);
 			}
