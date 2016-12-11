@@ -11,15 +11,15 @@
 <meta name="msapplication-tap-highlight" content="no" />
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
 <title>商城触屏版</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/index_up.css">
+<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/swipeslider.css">
 	<!--[if IE]>
 		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
 	<![endif]-->
-<link rel="stylesheet" type="text/css" href="css/base.css">
-<link rel="stylesheet" type="text/css" href="css/index_up.css">
-<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
 
 
 <body>
@@ -107,28 +107,10 @@
 		</div>
 
 		<div class="pic-contain">
-			<!-- <article class="container"> -->
-
-			    <section>
-			      <figure id="responsiveness" class="swipslider">
-			        <ul class="sw-slides">
-			          <li class="sw-slide">
-			           <a href="http://www.baidu.com"> <img src="images/iconfont/tuceng01.png" alt="Concept for children game">
-			          </li></a>
-			          <li class="sw-slide">
-			            <img src="images/iconfont/tuceng02.png" alt="Another Concept for children game">
-			          </li>
-			           <li class="sw-slide">
-			            <img src="images/iconfont/tuceng02.png" alt="Another Concept for children game">
-			          </li>
-			          <li class="sw-slide">
-			            <img src="images/iconfont/tuceng02.png" alt="Another Concept for children game">
-			          </li>			          
-			        </ul>
-			      </figure>
-			    </section>
-
-			  <!-- </article> -->
+			<div class="swiper-container1">
+			    <div class="jR3DCarouselGallery" ></div>
+		    	<!-- <div class="swiper-pagination swiper-pagination-fraction"></div> -->
+			</div>
 		</div>
 	</div>
 
@@ -358,25 +340,7 @@
 <!-- index1.js 第二个图片轮播 -->
 <script type="text/javascript" src="js/jR3DCarousel.min.js"></script>
 <script type="text/javascript" src="js/index1.js"></script>
-	<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
-	<script type="text/javascript" src="js/swipeslider.min.js"></script>
-	<script type="text/javascript">
-		$(window).load(function() {
-		      $('#full_feature').swipeslider();
-		      $('#content_slider').swipeslider({
-		        transitionDuration: 600,
-		        autoPlayTimeout: 10000,
-		        sliderHeight: '400px'
-		      });
-		      $('#responsiveness').swipeslider();
-		      $('#customizability').swipeslider({
-		        transitionDuration: 1500, 
-		        autoPlayTimeout: 4000, 
-		        timingFunction: 'cubic-bezier(0.38, 0.96, 0.7, 0.07)',
-		        sliderHeight: '30%'});
-		    });
-	</script>
+
 
 
 
