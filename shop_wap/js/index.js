@@ -33,6 +33,7 @@ $(function() {
                            
                             $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (distance, status) { da.shop_stamp=distance;
                                 // console.log(da);
+                                alert( da.shop_stamp);
                              $("#shopinfo").html(template.render('shop_info', da));   
                              });
 
