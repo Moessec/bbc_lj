@@ -1,180 +1,332 @@
-/* line 1, D:/Temp/github/swipeslider/style.scss */
-/** {
-  box-sizing: border-box;
-  font-family: sans-serif; }*/
-
-/* line 6, D:/Temp/github/swipeslider/style.scss */
-/*html, body {
-  height: 100%; }*/
-
-/* line 10, D:/Temp/github/swipeslider/style.scss */
-/*body {
-  margin: 0 auto;
-  background-color: #383843;
-  max-width: 640px;
-  color: #fff8eb; }*/
-
-/* line 16, D:/Temp/github/swipeslider/style.scss */
-/*h1, h2, h3, h4, h5, h6 {
-  text-align: center;
-  color: #fff9f0;
-  text-shadow: 1px 2px 5px black; }*/
-
-/* line 21, D:/Temp/github/swipeslider/style.scss */
-/*h1 {
-  font-size: 50px; }*/
-
-/* line 25, D:/Temp/github/swipeslider/style.scss */
-/*h2 {
-  margin-top: 80px; }*/
-
-.container{
-  margin: 0 auto;
-  max-width: 640px;
+/* Div */
+body {
+	margin:0;
+	color:#555;
+	min-width:320px;
+	-webkit-text-size-adjust:100%;
+	background-color: #eeeeee;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	line-height: 20px;
 }
 
-/* line 30, D:/Temp/github/swipeslider/style.scss */
-a:link {
-  color: #fff0d5; }
+img {
+	border-style:none;
+	vertical-align:top;
+	max-width:100%;
+	height:auto;
+}
 
-/* line 33, D:/Temp/github/swipeslider/style.scss */
+a {
+	text-decoration:none;
+	color:#333;
+}
 a:hover {
-  color: #aaa3fc; }
+	color:#ff7700;
+	text-decoration:none;
+}
 
-/* line 36, D:/Temp/github/swipeslider/style.scss */
-a:active {
-  color: #9289ff; }
+.c-860 {
+	max-width: 900px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	padding-top: 100px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
 
-/* line 39, D:/Temp/github/swipeslider/style.scss */
-a:visited {
-  color: #fff0d5; }
+.c-demoslider {
+	margin: 0px auto;
+}
+/* Slider */
+#layerslider-wrapper{
+	position:relative;
+}
+#layerslider-wrapper .ls-shadow-top{
+	position:absolute;
+	background-image:url(bg/shadow-top.png);
+	background-repeat:no-repeat;
+	background-position:top center;
+	height:42px;
+	width:100%;
+	top:0;
+	z-index:1;
+}
+#layerslider-wrapper .ls-shadow-bottom{
+	position:absolute;
+	background-image:url(bg/shadow-bottom.png);
+	background-repeat:no-repeat;
+	background-position:bottom center;
+	height:32px;
+	width:100%;
+	bottom:0;
+	z-index:1;
+}
+.ls-avada{
+	border-top: 1px solid #d2d3d4;
+	border-bottom: 1px solid #d2d3d4;
+}
+.ls-avada .ls-layer{
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+.ls-avada .ls-nav-prev, .ls-avada .ls-nav-next {
+	background-color: rgba(0, 0, 0, 0.5);
+	background-repeat: no-repeat;
+	width: 63px;
+	height: 63px;
+	display: none;
+	position: absolute;
+	top: 42%;
+	opacity:0.8 !important;
+}
+.no-rgba .ls-avada .ls-nav-prev, .no-rgba .ls-avada .ls-nav-next, .no-rgba .wooslider .wooslider-prev, .no-rgba .wooslider .wooslider-next {
+	background-color:#ccc;
+}
+.ls-avada .ls-nav-prev:hover, .ls-avada .ls-nav-next:hover{
+	opacity:1 !important;
+}
+.ls-avada:hover .ls-nav-prev, .ls-avada:hover .ls-nav-next {
+	display: block;
+}
+.ls-avada .ls-nav-prev {
+	background-image: url(bg/ls_prev.png);
+	background-position: 19px 19px;
+	left: 0;
+}
+.ls-avada .ls-nav-next {
+	background-image: url(bg/ls_next.png);
+	background-position: 29px 19px;
+	right: 0;
+}
 
-/* line 44, D:/Temp/github/swipeslider/style.scss */
-.swipslider {
-  margin: 0 auto; }
+#fallback-slide{
+	display:none;
+	text-align:center;
+}
 
-/* line 48, D:/Temp/github/swipeslider/style.scss */
-#content_slider {
-  background-color: #f0f0f0;
-  width: 640px; }
-  /* line 52, D:/Temp/github/swipeslider/style.scss */
-  #content_slider .wanted {
-    padding: 25px; }
-    /* line 54, D:/Temp/github/swipeslider/style.scss */
-    #content_slider .wanted:after {
-      display: table;
-      content: "";
-      clear: both; }
-    /* line 60, D:/Temp/github/swipeslider/style.scss */
-    #content_slider .wanted img {
-      float: left;
-      position: relative;
-      height: 225px;
-      box-shadow: 0 0 1px rgba(0, 0, 0, 0.33);
-      margin-right: 15px; }
-    /* line 68, D:/Temp/github/swipeslider/style.scss */
-    #content_slider .wanted .description {
-      float: left;
-      padding: 10px;
-      display: block;
-      font-size: 16px;
-      color: #343332;
-      background: #e5e5e5;
-      height: 225px;
-      width: 349px;
-      box-shadow: 0 0 1px rgba(0, 0, 0, 0.58);
-      white-space: normal; }
-      /* line 80, D:/Temp/github/swipeslider/style.scss */
-      #content_slider .wanted .description h1 {
-        font-size: 18px;
-        margin: 0;
-        text-align: left;
-        color: #515f6c;
-        text-shadow: none; }
-      /* line 88, D:/Temp/github/swipeslider/style.scss */
-      #content_slider .wanted .description::after {
-        display: table;
-        content: "";
-        clear: both; }
-      /* line 94, D:/Temp/github/swipeslider/style.scss */
-      #content_slider .wanted .description p {
-        margin-bottom: 1px;
-        margin-top: 6px;
-        font-size: 14px; }
-      /* line 100, D:/Temp/github/swipeslider/style.scss */
-      #content_slider .wanted .description p.award {
-        color: #be9a02; }
-      /* line 104, D:/Temp/github/swipeslider/style.scss */
-      #content_slider .wanted .description ul {
-        list-style: square;
-        padding-left: 20px;
-        font-size: 14px; }
-      /* line 110, D:/Temp/github/swipeslider/style.scss */
-      #content_slider .wanted .description strong {
-        color: #515f6c; }
 
-/* line 120, D:/Temp/github/swipeslider/style.scss */
-#customizability .sw-next-prev {
-  width: 120px;
-  height: 60px;
-  background-color: rgba(82, 82, 82, 0);
-  color: rgba(255, 254, 235, 0.28);
-  border-radius: 3px;
-  font-size: 25px; }
-  /* line 128, D:/Temp/github/swipeslider/style.scss */
-  #customizability .sw-next-prev:hover {
-    color: #fffeeb;
-    background-color: #525252;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.57); }
+/* Global styles */
 
-/* line 135, D:/Temp/github/swipeslider/style.scss */
-#customizability .sw-prev {
-  left: 0%; }
-  /* line 138, D:/Temp/github/swipeslider/style.scss */
-  #customizability .sw-prev::after {
-    line-height: 60px;
-    content: '< back'; }
+.cute-slider {
+	position: relative;
+	visibility: hidden;
+	overflow: hidden;
+}
 
-/* line 144, D:/Temp/github/swipeslider/style.scss */
-#customizability .sw-next {
-  right: 0%; }
-  /* line 147, D:/Temp/github/swipeslider/style.scss */
-  #customizability .sw-next::after {
-    line-height: 60px;
-    content: 'next >'; }
+.cute-ie8 *,
+.cute-ie7 * {
+	filter: inherit;
+	opacity: inherit;
+}
 
-/* line 153, D:/Temp/github/swipeslider/style.scss */
-#customizability .sw-bullet {
-  top: 4%; }
-  /* line 156, D:/Temp/github/swipeslider/style.scss */
-  #customizability .sw-bullet li {
-    width: 10px;
-    height: 5px;
-    background-color: rgba(255, 254, 235, 0.28);
-    border-radius: 0;
-    vertical-align: middle; }
-    /* line 163, D:/Temp/github/swipeslider/style.scss */
-    #customizability .sw-bullet li.active {
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
-      border-top: 10px solid #fffeeb;
-      background-color: transparent;
-      width: 0;
-      height: 0;
-      vertical-align: bottom; }
-    /* line 174, D:/Temp/github/swipeslider/style.scss */
-    #customizability .sw-bullet li:hover {
-      height: 10px;
-      background-color: #fffeeb; }
+/* Slider Controls */
 
-/* line 183, D:/Temp/github/swipeslider/style.scss */
-.slide-number {
-  font-size: 60px;
-  display: inline-block;
-  position: absolute;
-  left: 50%;
-  top: 25%;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.54); }
+.br-controls {
+	position: absolute;
+	z-index: 10;
+}
+
+.br-next,
+.br-previous,
+.br-slidecontrol,
+.br-thumb-bottom .br-thumb-img,
+.br-thumb-up .br-thumb-img,
+.br-thumblist {
+	position: absolute;
+}
+
+.br-slidecontrol {
+	list-style: none;
+	cursor: auto !important;
+}
+
+	.br-slidecontrol ul {
+		margin: 0px;
+		padding: 0px;
+		height: 0px;
+	}
+
+	.br-slidecontrol ul li {
+		display: block;
+		position: relative;
+		float: left;
+		cursor: pointer !important;
+	}
+
+	.br-slidecontrol ul li .br-control-selected {
+		display: none;
+	}
+
+.br-thumb-bottom,
+.br-thumb-up {
+	position: relative;
+}
+
+.br-thumblist {
+	width: 100%;
+	text-align: center;
+	height: 0px;
+	left: 0px;
+	bottom: 0px;
+}
+
+.br-thumblist-content .br-list-thumb img {
+	cursor: pointer !important;
+}
+
+.br-thumb-img img {
+	height: 100% !important;
+}
+
+.br-slideinfo .top,
+.br-slideinfo .bottom {
+	width: 100%;
+}
+
+.br-slideinfo .right,
+.br-slideinfo .left {
+	height: 100%;
+}
+
+.br-slideinfo .more-btn {
+	cursor: pointer !important;
+	display: block;
+	position: relative;
+	text-decoration: none;
+}
+
+.br-slideinfo .subtitle,
+.br-slideinfo .title,
+.br-slideinfo .text {
+	display: block;
+}
+
+/* Slider Timer */
+
+.br-circle-timer,
+.br-circle-timer .br-timer-dot,
+.br-bar-timer,
+.br-bar-timer .br-timer-bar {
+	position: absolute !important;
+}
+
+.br-circle-timer .br-timer-dot {
+	left: 50% !important;
+	top: 50% !important;
+}
+
+/* Slider Captions */
+
+.br-captions div {
+	position: absolute;
+	text-shadow: none;
+}
+
+/* Slider Video */
+
+.br-video .play-btn,
+.br-video .close-btn {
+	background-repeat: no-repeat;
+	cursor: pointer !important;
+	position: absolute;
+}
+
+.br-video .video-cont {
+	position: absolute;
+	z-index: 2;
+}
+
+.cute-ie8 .video-cont,
+.cute-ie7 .video-cont {
+	z-index: auto !important;
+}
+
+/* Slider Shadow */
+
+.cute-shadow {
+	width: 100%;
+}
+
+.cute-shadow img {
+	max-width: 100%;
+}
+
+/* Slider Loading */
+
+.br-loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 101;
+}
+
+.br-large-loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 100;	
+}
+
+.br-loading .img,
+.br-large-loading .img {
+	width: 100%;
+	height: 100%;
+}
+
+/* Trying to remove all the default global styles of WordPress :) */
+
+.cute-slider img {
+	max-width: none !important;
+}
+
+.cute-slider img,
+.entry-content .cute-slider img,
+.comment-content .cute-slider img,
+.widget .cute-slider img,
+.cute-shadow img,
+.entry-content .cute-shadow img,
+.comment-content .cute-shadow img,
+.widget .cute-shadow img {
+	border-radius: 0px;
+	box-shadow: none;
+	border: 0px;
+	margin: 0px;
+}
+
+.entry-content .cute-slider *,
+.comment-content .cute-slider *,
+.widget .cute-slider * {
+	line-height: normal;
+	padding: 0px;
+	outline: none;
+	border: 0px;
+	margin: 0px;
+}
+
+.cute-slider br.clear {
+	clear: both;
+}
+
+.top div ,
+.right div,
+.bottom div,
+.left div {
+	padding: 20px !important;
+}
+
+.br-infocontent .title {
+	background: none !important;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.br-infocontent .text {
+	text-align: justify;	
+	margin: 10px 0px 0px 0px !important;
+	padding: 0px !important;
+}
 
