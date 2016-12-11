@@ -12,7 +12,7 @@ $(function() {
                     var da = result.data;
                     // console.log(da);
                     var info = da.company_address;
-                    alert(info);
+                    // alert(info);
                   var map = new BMap.Map("container");
                   var localSearch = new BMap.LocalSearch(map);
 
