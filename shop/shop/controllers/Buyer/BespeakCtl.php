@@ -677,6 +677,31 @@ class Buyer_BespeakCtl extends Buyer_Controller
 	}
 
 
+	public function getbespeaklist1()
+	{
+		$user_id = Perm::$userId;
+
+		$bespeak_id['bespeak_id'] = request_int('id');
+		$USER_BespeakModel = new USER_BespeakModel();
+		$data    = $USER_BespeakModel->getBespeakList($bespeak_id);
+		foreach ($data as $key => $value) {
+			$bespeak['bespeak_title']=$value['bespeak_title'];
+			$bespeak['user_id']=$user_id;
+			$one    = $USER_BespeakModel->getBespeakList($bespeak);
+
+			if(empty($one)){
+				$value['bespeak_id']='bespeak_opera_adv.html?bespeak_id='.$value['bespeak_id'];
+				$value['bespeaka']='申请预约';
+			}else{
+				$value['bespeak_id']=' ';
+				$value['bespeaka']='已预约';
+			}
+			$data[$key]=$value;
+		}
+		$this->data->addBody(-140, $data);
+	}
+
+
 }
 
 
