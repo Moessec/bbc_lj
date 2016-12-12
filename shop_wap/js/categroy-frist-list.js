@@ -10,7 +10,7 @@ $(function ()
    if (shop_id!='')
    {
         //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
-        $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0", function (t)
+        $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0&shop_id="+shop_id, function (t)
         {
             console.info(t);
             var r = t.data;
