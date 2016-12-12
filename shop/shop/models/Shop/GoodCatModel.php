@@ -159,7 +159,7 @@ class Shop_GoodCatModel extends Shop_GoodCat
      */
 	public function getChildCat($shop_id,$cat_id)
 	{
-		var_dump($shop_id,$cat_id);die;
+		var_dump($shop_id);die;
 		$data_re        = array();
 		$Goods_CatModel = new Shop_GoodsCatModel();
 		$data           = $Goods_CatModel->getByWhere(array('parent_id' => $cat_id,'shop_id'=>$shop_id));
