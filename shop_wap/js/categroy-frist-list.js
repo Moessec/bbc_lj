@@ -6,15 +6,33 @@ $(function ()
     {
         location.href = WapSiteUrl + "/tmpl/search.html"
     });
-    $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0", function (t)
+   var shop_id = getQueryString('shop_id');
+   if (shop_id!='')
+   {
+        //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
+        $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0", function (t)
+        {
+            console.info(t);
+            var r = t.data;
+            r.WapSiteUrl = WapSiteUrl;
+            var a = template.render("category-one", r);
+            $("#categroy-cnt").html(a);
+            e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
+        });    
+    }else
     {
-        console.info(t);
-        var r = t.data;
-        r.WapSiteUrl = WapSiteUrl;
-        var a = template.render("category-one", r);
-        $("#categroy-cnt").html(a);
-        e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
-    });
+         //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
+            $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=cat&typ=json&cat_parent_id=0", function (t)
+            {
+                console.info(t);
+                var r = t.data;
+                r.WapSiteUrl = WapSiteUrl;
+                var a = template.render("category-one", r);
+                $("#categroy-cnt").html(a);
+                e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
+            });
+    }
+   
     get_brand_recommend();
     $("#categroy-cnt").on("click", ".category", function ()
     {
