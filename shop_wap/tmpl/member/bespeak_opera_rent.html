@@ -48,6 +48,20 @@
                     <li class="form-item">
                         <h4>上门时间</h4>
                         <div class="input-box" style="float:right">
+                            <select name="h" id="m" onchange="show();">
+                            <script>
+                            for(var i=0;i<=12;i++){
+                             document.write("<option value='"+i+"'>"+i+"-</option>");
+                            }
+                            </script>
+                            </select>
+                            <select name="h" id="d" onchange="show();">
+                            <script>
+                            for(var i=0;i<=31;i++){
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
                             <select name="h" id="h" onchange="show();">
                             <script>
                             for(var i=0;i<=23;i++){
@@ -84,7 +98,7 @@
     </div>
     <script type="text/javascript">
         function show(){
-     document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
+     document.getElementById("starttime").value=document.getElementById("m").value+'-'+document.getElementById("d").value+document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
     }
     </script>
     <script type="text/javascript" src="../../js/zepto.min.js"></script>
