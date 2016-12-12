@@ -111,12 +111,11 @@ class Shop_GoodsCatCtl extends Yf_AppController
 	public function tree()
 	{
 
-		// var_dump(1);die;
+		
 		$parent_id = request_int('parent_id');
-		$shop_id = request_int('shop_id');
+		$shop_id = request_int('shop_id'); var_dump($parent_id);var_dump($shop_id);die;
 		$Shop_GoodsCatModel = new Shop_GoodsCatModel();
-		//$data = $Shop_GoodsCatModel->getChildCat($shop_id,$parent_id);
-		$data = array('aa'=>123);
+		$data = $Shop_GoodsCatModel->getChildCat($shop_id,$parent_id);
 		$this->data->addBody(-140, $data);
 	}
 	/**
