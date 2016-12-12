@@ -159,22 +159,22 @@ class Shop_GoodCatModel extends Shop_GoodCat
      */
 	public function getChildCat($shop_id,$cat_id)
 	{
-		var_dump(1);die;
-		$data_re        = array();
-		$Goods_CatModel = new Shop_GoodsCatModel();
-		$data           = $Goods_CatModel->getByWhere(array('parent_id' => $cat_id,'shop_id'=>$shop_id));
-		if (!empty($data))
-		{
-			foreach ($data as $key => $value)
-			{
-				$data_re[$key]['shop_goods_cat_id']   = $value['shop_goods_cat_id'];
-				$data_re[$key]['shop_goods_cat_name'] = $value['shop_goods_cat_name'];
-				$child                     = $Goods_CatModel->getByWhere(array('parent_id' => $value['shop_goods_cat_id'],'shop_id'=>$shop_id));
-				$data_re[$key]['child']    = array_values($child);
-			}
-		}
+		return 1;
+		// $data_re        = array();
+		// $Goods_CatModel = new Shop_GoodsCatModel();
+		// $data           = $Goods_CatModel->getByWhere(array('parent_id' => $cat_id,'shop_id'=>$shop_id));
+		// if (!empty($data))
+		// {
+		// 	foreach ($data as $key => $value)
+		// 	{
+		// 		$data_re[$key]['shop_goods_cat_id']   = $value['shop_goods_cat_id'];
+		// 		$data_re[$key]['shop_goods_cat_name'] = $value['shop_goods_cat_name'];
+		// 		$child                     = $Goods_CatModel->getByWhere(array('parent_id' => $value['shop_goods_cat_id'],'shop_id'=>$shop_id));
+		// 		$data_re[$key]['child']    = array_values($child);
+		// 	}
+		// }
 
-		return array_values($data_re);
+		// return array_values($data_re);
 	}
 
 	/*public function createLevel ( &$shop_cat )
