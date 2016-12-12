@@ -15,6 +15,7 @@ $(function ()
             console.info(t);
             var r = t.data;
             r.WapSiteUrl = WapSiteUrl;
+            r['status'] = 1;
             var a = template.render("category-one", r);
             $("#categroy-cnt").html(a);
             e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
