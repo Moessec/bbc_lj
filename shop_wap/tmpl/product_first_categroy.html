@@ -63,15 +63,6 @@
                 <div class="ci-fcategory-name">推荐</div>
             </a>
         </li>
-        <%if(status==1){%>
-        <% for(var i = 0;i<items.length;i++){ %>
-        <li class="category-item">
-            <a href="javascript:void(0);" class="category-item-a category" date-id="<%= items[i].shop_goods_cat_id %>">
-                <div class="ci-fcategory-name"><%= items[i].shop_goods_cat_name %></div>
-            </a>
-        </li>
-        <% } %>
-        <%}else{%>
         <% for(var i = 0;i<items.length;i++){ %>
         <li class="category-item">
             <a href="javascript:void(0);" class="category-item-a category" date-id="<%= items[i].cat_id %>">
@@ -79,28 +70,19 @@
             </a>
         </li>
         <% } %>
-        <% } %>             
     </ul>
 </script>
 <script type="text/html" id="category-two">
     <dl class="categroy-child-list">
-        <%if(status==1){%>    
-        <% for(var i=0; i<items.length; i++) { var col = i % 10;%>
-        <dt><a href="<%= WapSiteUrl %>/tmpl/product_list.html?shop_goods_cat_id=<%= items[i].shop_goods_cat_id %>"><i class="col<%= col %>"></i><%= items[i].shop_goods_cat_name %><i class="arrow-r"></i></a></dt>
-           <div class='goods_cont'>
-            <input class="cat_id" type="hidden" value="<%= items[i].shop_goods_cat_id %>"/>
-               <div class='outer'></div> 
-           </div>
-        <% } %>            
-        <% }else{ %> 
         <% for(var i=0; i<items.length; i++) { var col = i % 10;%>
         <dt><a href="<%= WapSiteUrl %>/tmpl/product_list.html?cat_id=<%= items[i].cat_id %>"><i class="col<%= col %>"></i><%= items[i].cat_name %><i class="arrow-r"></i></a></dt>
            <div class='goods_cont'>
             <input class="cat_id" type="hidden" value="<%= items[i].cat_id %>"/>
                <div class='outer'></div> 
            </div>
-        <% } %> 
-        <% } %> 
+            
+
+        <% } %>
     </dl>
 </script>
 <script type="text/html" id="brand-one">
@@ -116,8 +98,6 @@
         <% } %>
     </dl>
 </script>
-<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="../js/jquery.cookie.js"></script> 
 <script type="text/javascript" src="../js/config.php"></script>
 <script type="text/javascript" src="../js/zepto.js"></script>
 <script type="text/javascript" src="../js/template.js"></script>
