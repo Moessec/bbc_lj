@@ -205,7 +205,12 @@ class Shop_GoodCatModel extends Shop_GoodCat
 		{
 			return $leave;
 		}
+
 	}*/
+
+	public function test(){
+		return $this->getByWhere();
+	}
 }
 
 ?>
