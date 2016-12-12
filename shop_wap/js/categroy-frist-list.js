@@ -6,7 +6,7 @@ $(function ()
     {
         location.href = WapSiteUrl + "/tmpl/search.html"
     });
-    $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=lists&typ=json&parent_id=0", function (t)
+    $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0", function (t)
     {
         console.info(t);
         var r = t.data;
