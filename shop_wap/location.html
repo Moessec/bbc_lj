@@ -22,10 +22,8 @@ $(function(){
 	function getCookie(name)
 	{
 	var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-	if(arr=document.cookie.match(reg))
-	unescape(arr[2]);
-	else
-	return null;
+	console.log(arr);
+	console.log(document.cookie.match(reg));
 	}
 	// $("#cityChoice").focus();
     var cityPicker = new IIInsomniaCityPicker({
