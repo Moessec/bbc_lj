@@ -152,7 +152,31 @@ class Shop_GoodCatModel extends Shop_GoodCat
 
 		return $result_data;
 	}
+	    /*
+     * 获取自分类id
+     * @param int $cat_id 商品分类
+     * @return array $data_re 查询数据
+     */
+	public function getChildCat($shop_id,$cat_id)
+	{
+		var_dump($shop_id,$cat_id);die;
+		$data_re        = array();
+		$Goods_CatModel = new Shop_GoodsCatModel();
+		$data           = $Goods_CatModel->getByWhere(array('parent_id' => $cat_id,'shop_id'=>$shop_id));
 
+		if (!empty($data))
+		{
+			foreach ($data as $key => $value)
+			{
+				$data_re[$key]['shop_goods_cat_id']   = $value['shop_goods_cat_id'];
+				$data_re[$key]['shop_goods_cat_name'] = $value['shop_goods_cat_name'];
+				$child                     = $Goods_CatModel->getByWhere(array('parent_id' => $value['shop_goods_cat_id'],'shop_id'=>$shop_id));
+				$data_re[$key]['child']    = array_values($child);
+			}
+		}
+
+		return array_values($data_re);
+	}
 
 	/*public function createLevel ( &$shop_cat )
 	{
