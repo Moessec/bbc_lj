@@ -91,7 +91,7 @@ class Shop_GoodsCatCtl extends Yf_AppController
 		$rows = request_int('rows');
 		$sort = request_int('sord');
 
-		$cond_row  = array();
+		$cond_row  = array('shop_id'=>$shop_id);
 		$order_row = array();
 
 		$data = array();
