@@ -668,7 +668,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				$value['bespeak_id']=' ';
 				$value['bespeaka']='已租赁';
 			}
-
+			$data[$key]=$value;
 		}
 		$this->data->addBody(-140, $data);
 	}
