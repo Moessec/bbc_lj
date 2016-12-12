@@ -153,6 +153,7 @@ class Shop_GoodCatModel extends Shop_GoodCat
 		return $result_data;
 	}
 
+
 	/*public function createLevel ( &$shop_cat )
 	{
 		foreach ( $shop_cat as $key => $cat_data)
