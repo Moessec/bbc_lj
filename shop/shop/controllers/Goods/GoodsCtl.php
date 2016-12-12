@@ -1608,7 +1608,14 @@ class Goods_GoodsCtl extends Controller
 
 				$this->data->addBody(-140, $data);
 			}
+		public function shop_cat_goods()
+			{
+		       $Shop_catgoodslistModel = new Goods_CommonModel();
+					// $data = $this->Shop_ShoplistModel->getBaseList($cond_row, $order_row, '', '');
+					$data = $Shop_catgoodslistModel->getBaseList();
 
+				$this->data->addBody(-140, $data);
+			}
 
 }
 
