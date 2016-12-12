@@ -86,7 +86,7 @@
     <dl class="categroy-child-list">
         <%if(status==1){%>    
         <% for(var i=0; i<items.length; i++) { var col = i % 10;%>
-        <dt><a href="<%= WapSiteUrl %>/tmpl/product_list.html?shop_goods_cat_id=<%= items[i].shop_goods_cat_id %>"><i class="col<%= col %>"></i><%= items[i].shop_goods_cat_anme %><i class="arrow-r"></i></a></dt>
+        <dt><a href="<%= WapSiteUrl %>/tmpl/product_list.html?shop_goods_cat_id=<%= items[i].shop_goods_cat_id %>"><i class="col<%= col %>"></i><%= items[i].shop_goods_cat_name %><i class="arrow-r"></i></a></dt>
            <div class='goods_cont'>
             <input class="cat_id" type="hidden" value="<%= items[i].shop_goods_cat_id %>"/>
                <div class='outer'></div> 
