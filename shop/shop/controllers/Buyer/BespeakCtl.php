@@ -655,6 +655,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 	public function getbespeaklist()
 	{
 		$user_id = Perm::$userId;
+		var_dump($user_id);
+		exit();
 		$bespeak_id['bespeak_id'] = request_int('id');
 		$USER_BespeakModel = new USER_BespeakModel();
 		$data    = $USER_BespeakModel->getBespeakList($bespeak_id);
