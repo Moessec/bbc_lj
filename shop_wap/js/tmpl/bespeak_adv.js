@@ -13,7 +13,7 @@ $(function ()
                 
                 checkLogin(e.login);
                 $.each(e.data.adv, function(key, value){
-                       tem='<ul><li><dl><dt><span class="name"><a href="'+value.bespeakinfo+'" style="list-style: none;">'+value.bespeak_title+'</a></span></dt><div style="width:100%;height:70px;"><a href="'+value.bespeakinfo+'"><img src="'+value.bespeak_img+'" style="width:50px;height:50px;float:left"></a><dd style="margin-top:5px;float: left;margin-left: 10px;overflow:hidden;height:13px;width:84%">活动时间：'+value.opentime+'--'+value.outtime+'</dd><dd style="margin-left: 59px;line-height:28px"><br/>联系人：'+value.true_name+'</dd></div></dl><div class="handle">'+value.bespeak_state+'<span><a href="'+value.bespeak_id+'"><i class="edit"></i>'+value.bespeak_click+'</a></div></li></ul>';
+                       tem='<ul><li><dl><dt><span class="name"><a href="'+value.bespeakinfo+'" style="list-style: none;">'+value.bespeak_title+'</a></span></dt><div style="width:100%;height:70px;"><a href="'+value.bespeakinfo+'"><img src="'+value.bespeak_img+'" style="width:50px;height:50px;float:left"></a><dd style="margin-top:5px;float: left;margin-left: 10px;overflow:hidden;height:13px;width:84%">活动时间：'+value.opentime.substr(0,10)+'--'+value.outtime+'</dd><dd style="margin-left: 59px;line-height:28px"><br/>联系人：'+value.true_name+'</dd></div></dl><div class="handle">'+value.bespeak_state+'<span><a href="'+value.bespeak_id+'"><i class="edit"></i>'+value.bespeak_click+'</a></div></li></ul>';
                     $("#bespeak_list").append(tem);
                 })
                 $.each(e.data.temp, function(key, value){
