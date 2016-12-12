@@ -40,7 +40,8 @@ $(function ()
         $(".pre-loading").show();
         $(this).parent().addClass("selected").siblings().removeClass("selected");
         var t = $(this).attr("date-id");
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=tree&typ=json", {cat_parent_id: t}, function (e)
+        // Shop_GoodsCat
+        $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=tree&typ=json", {shop_id:shop_id,parent_id: t}, function (e)
         {
             var t = e.data;
             t.WapSiteUrl = WapSiteUrl;
