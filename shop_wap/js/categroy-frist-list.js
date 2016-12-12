@@ -186,7 +186,7 @@ function shop_goodslist1()
         });
 
 }
-function shop_goodslist2(){
+function shop_goodslist2(shop_id){
 
      $('.goods_cont').eq(0).each(function(e){
         var cat_id = $(this).find('.cat_id').val();
@@ -194,7 +194,7 @@ function shop_goodslist2(){
         var r = '';
         // alert(cat_id);
         // shop_cat_goods
-       $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
+       $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=shop_cat_goods&typ=json&shop_goods_cat_id="+cat_id, function (t)
         {
 
             r = t.data.items; 
@@ -216,7 +216,7 @@ function shop_goodslist2(){
         var cat_id = $(this).find('.cat_id').val();
         var str='';
         var r = '';
-       $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
+       $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=shop_cat_goods&typ=json&shop_goods_cat_id="+cat_id, function (t)
         {
 
             r = t.data.items; 
@@ -238,7 +238,7 @@ function shop_goodslist2(){
         var cat_id = $(this).find('.cat_id').val();
         var str='';
         var r = '';
-       $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
+       $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=shop_cat_goods&typ=json&shop_goods_cat_id="+cat_id, function (t)
         {
 
             r = t.data.items; 
@@ -260,7 +260,7 @@ function shop_goodslist2(){
         var cat_id = $(this).find('.cat_id').val();
         var str='';
         var r = '';
-       $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
+       $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=shop_cat_goods&typ=json&shop_goods_cat_id="+cat_id, function (t)
         {
 
             r = t.data.items; 
@@ -282,7 +282,7 @@ function shop_goodslist2(){
         var cat_id = $(this).find('.cat_id').val();
         var str='';
         var r = '';
-       $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
+       $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=shop_cat_goods&typ=json&shop_goods_cat_id="+cat_id, function (t)
         {
 
             r = t.data.items; 
@@ -304,7 +304,7 @@ function shop_goodslist2(){
 
 if(shop_id)
 {
-    shop_goodslist2();
+    shop_goodslist2(shop_id);
 }else{
     shop_goodslist1();
 
