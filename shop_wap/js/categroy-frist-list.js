@@ -23,7 +23,7 @@ $(function ()
             var a = template.render("category-one", r);
             // alert(a);
             $("#categroy-cnt").html(a);
-            e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
+            // e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
         });    
     }else{
     
