@@ -1612,7 +1612,7 @@ class Goods_GoodsCtl extends Controller
 			{
 		       $Shop_catgoodslistModel = new Goods_CommonModel();
 					// $data = $this->Shop_ShoplistModel->getBaseList($cond_row, $order_row, '', '');
-					$data = $Shop_catgoodslistModel->getByWhere();
+					$data = $Shop_catgoodslistModel->getCommonList($cond_row = array(), $order_row = array(), $page = 1, $rows = 100);
 
 				$this->data->addBody(-140, $data);
 			}
