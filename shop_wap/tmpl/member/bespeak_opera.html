@@ -136,6 +136,7 @@
         var exp = new Date();
         exp.setTime(exp.getTime() + Days*24*60*60*1000);
         document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+        alert(document.cookie);
         }
     function show(){
      document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
