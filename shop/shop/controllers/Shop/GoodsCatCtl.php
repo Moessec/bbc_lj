@@ -85,11 +85,13 @@ class Shop_GoodsCatCtl extends Yf_AppController
 	public function shoplists()
 	{
 		$user_id = Perm::$userId;
-
+		$parent_id = request_int('parent_id');
+		$shop_id = request_int('shop_id');
 		$page = request_int('page');
 		$rows = request_int('rows');
 		$sort = request_int('sord');
 
+        echo $parent_id,$shop_id;die;
 		$cond_row  = array();
 		$order_row = array();
 
