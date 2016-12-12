@@ -147,8 +147,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				}elseif ($value['bespeak_state']=='2') {
 					$value['bespeak_state']='活动结束';
 				}
-				$value['outtime']=mb_substr($value['outtime'],10);
-				$value['opentime']=mb_substr($value['opentime'],10);
+				$value['outtime']=mb_substr($value['outtime'],0,10);
+				$value['opentime']=mb_substr($value['opentime'],0,10);
 				$data['temp'][$key]=$value;
 			}
 			foreach ($data['adv'] as $key => $value) {
