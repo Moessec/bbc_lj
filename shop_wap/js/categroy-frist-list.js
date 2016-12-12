@@ -7,8 +7,11 @@ $(function ()
         location.href = WapSiteUrl + "/tmpl/search.html"
     });
    var shop_id = getQueryString('shop_id');
+
+ 
    if (shop_id!='')
    {
+     $.cookie("community_shopid",shop_id,{expires:7});
         //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
         $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0&shop_id="+shop_id, function (t)
         {
@@ -69,6 +72,8 @@ $(function ()
         var cat_id = $(this).find('.cat_id').val();
         var str='';
         var r = '';
+        alert(cat_id);
+        // shop_cat_goods
        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id="+cat_id, function (t)
         {
 
