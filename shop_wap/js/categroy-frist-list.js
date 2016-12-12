@@ -1,7 +1,7 @@
 $(function ()
 {
-// 
-    var e; 
+
+    var e;
     $("#header").on("click", ".header-inp", function ()
     {
         location.href = WapSiteUrl + "/tmpl/search.html"
