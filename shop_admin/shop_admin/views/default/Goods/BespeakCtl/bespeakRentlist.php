@@ -62,6 +62,10 @@ input, select, textarea {
         <th class="w150">联系方式：</th>
         <td><?=$value['usercontact']?></td>
       </tr>
+      <tr>
+        <th class="w150">预约时间：</th>
+        <td><?=$value['starttime']?></td>
+      </tr>
     </tbody>
   </table>
   
