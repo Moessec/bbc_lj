@@ -9,6 +9,7 @@
 class Shop_GoodsCatCtl extends Yf_AppController
 {
 	public $shopGoodsCatModel = null;
+	public $shopGoodCatModel = null;
 
 	/**
 	 * Constructor
@@ -24,6 +25,7 @@ class Shop_GoodsCatCtl extends Yf_AppController
 
 		//include $this->view->getView();
 		$this->shopGoodsCatModel = new Shop_GoodsCatModel();
+		$this->shopGoodCatModel = new Shop_GoodCatModel();
 	}
 
 	/**
@@ -129,8 +131,8 @@ class Shop_GoodsCatCtl extends Yf_AppController
 		$user_id = Perm::$userId;
 
 		$shop_goods_cat_id = request_int('shop_goods_cat_id');
-		var_dump($shop_goods_cat_id);die;
-		$rows              = $this->shopGoodsCatModel->getShopCatList($shop_goods_cat_id);
+		// var_dump($shop_goods_cat_id);die;
+		$rows              = $this->shopGoodCatModel->getShopCatList($shop_goods_cat_id);
 
 		$data = array();
 
