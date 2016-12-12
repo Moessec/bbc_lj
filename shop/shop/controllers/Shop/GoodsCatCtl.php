@@ -114,7 +114,6 @@ class Shop_GoodsCatCtl extends Yf_AppController
 		$shop_id = request_int('shop_id');
 		$Shop_GoodsCatModel = new Shop_GoodsCatModel();
 		$data['items'] = $Shop_GoodsCatModel->getChildCat($shop_id,$parent_id);
-        var_dump($data);die;
 
 		$this->data->addBody(-140, $data);
 	}
