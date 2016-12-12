@@ -11,7 +11,7 @@ $(function ()
  
    if (shop_id!='')
    {
-    alert(shop_id);
+    // alert(shop_id);
      $.cookie("community_shopid",shop_id,{expires:7});
         //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
         $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0&shop_id="+shop_id, function (t)
@@ -21,6 +21,7 @@ $(function ()
             r.WapSiteUrl = WapSiteUrl;
             r['status'] = 1;
             var a = template.render("category-one", r);
+            alert(a);
             $("#categroy-cnt").html(a);
             e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
         });    
