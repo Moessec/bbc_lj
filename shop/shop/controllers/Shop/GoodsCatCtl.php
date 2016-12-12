@@ -129,6 +129,7 @@ class Shop_GoodsCatCtl extends Yf_AppController
 		$user_id = Perm::$userId;
 
 		$shop_goods_cat_id = request_int('shop_goods_cat_id');
+		var_dump($shop_goods_cat_id);die;
 		$rows              = $this->shopGoodsCatModel->getShopCatList($shop_goods_cat_id);
 
 		$data = array();
