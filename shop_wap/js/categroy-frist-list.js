@@ -184,7 +184,6 @@ setTimeout(function(){
     $(this).on('click',function(e){
      // alert(1);
         var goods_id = $(this).find('input').val();
-        // alert(e);
         get_detail(goods_id);
   function get_detail(goods_id) {
       //渲染页面
