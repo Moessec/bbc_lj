@@ -63,6 +63,15 @@
                 <div class="ci-fcategory-name">推荐</div>
             </a>
         </li>
+        <%if(items.status==1){%>
+        <% for(var i = 0;i<items.length;i++){ %>
+        <li class="category-item">
+            <a href="javascript:void(0);" class="category-item-a category" date-id="<%= items[i].shop_goods_cat_id %>">
+                <div class="ci-fcategory-name"><%= items[i].shop_goods_cat_name %></div>
+            </a>
+        </li>
+        <% } %>
+        <%}else{%>
         <% for(var i = 0;i<items.length;i++){ %>
         <li class="category-item">
             <a href="javascript:void(0);" class="category-item-a category" date-id="<%= items[i].cat_id %>">
@@ -70,6 +79,7 @@
             </a>
         </li>
         <% } %>
+        <% } %>             
     </ul>
 </script>
 <script type="text/html" id="category-two">
