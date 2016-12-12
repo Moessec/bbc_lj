@@ -411,7 +411,8 @@ body{
          .product-list-title{
          	/*padding: 0.5rem;*/
          	font-size: 0.8rem;
-         	height: 2.8rem;
+         	height: 2rem;
+            overflow: hidden;
          	line-height: 1rem;
          	background: white;
             margin-bottom: 0.2rem;
