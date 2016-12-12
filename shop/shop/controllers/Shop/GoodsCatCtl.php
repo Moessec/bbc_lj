@@ -110,6 +110,8 @@ class Shop_GoodsCatCtl extends Yf_AppController
 	}	
 	public function tree()
 	{
+
+		var_dump(1);die;
 		$parent_id = request_int('parent_id');
 		$shop_id = request_int('shop_id');
 		$Shop_GoodsCatModel = new Shop_GoodsCatModel();
