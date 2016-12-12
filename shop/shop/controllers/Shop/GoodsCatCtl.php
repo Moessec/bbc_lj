@@ -78,6 +78,37 @@ class Shop_GoodsCatCtl extends Yf_AppController
 	}
 
 	/**
+	 * 列表数据
+	 *
+	 * @access public
+	 */
+	public function shoplists()
+	{
+		$user_id = Perm::$userId;
+
+		$page = request_int('page');
+		$rows = request_int('rows');
+		$sort = request_int('sord');
+
+		$cond_row  = array();
+		$order_row = array();
+
+		$data = array();
+
+		if ($skey = request_string('skey'))
+		{
+			$data = $this->shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
+		}
+		else
+		{
+			$data = $this->shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
+		}
+
+
+		$this->data->addBody(-140, $data);
+	}	
+
+	/**
 	 * 读取
 	 *
 	 * @access public
