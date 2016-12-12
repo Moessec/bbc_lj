@@ -481,12 +481,13 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$usercontact    = request_string('usercontact');
 		$bespeak_title = request_string('bespeak_title');
 		$bespeak_com = request_string('bespeak_com');
+		$starttime = request_string('starttime');
 
 		$edit_bespeak_row['true_name']        = $true_name;
 		$edit_bespeak_row['usercontact']        = $usercontact;
+		$edit_bespeak_row['starttime']        = $starttime;
 		$edit_bespeak_row['bespeak_com']        = $bespeak_com;
 		$edit_bespeak_row['bespeak_title']        = $bespeak_title;
-		$edit_bespeak_row['starttime']        = get_date_time();
 		$edit_bespeak_row['user_id']        = $user_id;
 		$edit_bespeak_row['bespeak_list']   = 2;
 		// var_dump($edit_bespeak_row);exit();

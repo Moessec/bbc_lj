@@ -46,6 +46,29 @@
                             <span class="input-del"></span> </div>
                     </li>
                     <li class="form-item">
+                        <h4>上门时间</h4>
+                        <div class="input-box" style="float:right">
+                            <select name="h" id="h" onchange="show();">
+                            <script>
+                            for(var i=0;i<=23;i++){
+                             document.write("<option value='"+i+"'>"+i+"：00</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">-</span>
+                            <select name="min" id="min" onchange="show();">
+                            <script>
+                            for(var i=0;i<=23;i++){
+                             document.write("<option value='"+i+"'>"+i+"：00</option>");
+                            }
+                            </script>
+                            </select>
+                            <input type="hidden" class="inp" name="starttime" id="starttime" autocomplete="off" oninput="writeClear($(this));" />
+                            <span class="input-del"></span>
+
+                        </div>
+                    </li>
+                    <li class="form-item">
                         <h4>预约活动</h4>
                         <div class="input-box">
                             <input type="tel" class="inp" name="bespeak_title" id="bespeak_title" autocomplete="off" oninput="writeClear($(this));" disabled="true"  />
@@ -59,6 +82,11 @@
             </div>
         </form>
     </div>
+    <script type="text/javascript">
+        function show(){
+     document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
+    }
+    </script>
     <script type="text/javascript" src="../../js/zepto.min.js"></script>
     <script type="text/javascript" src="../../js/config.php"></script>
     <script type="text/javascript" src="../../js/common.js"></script>

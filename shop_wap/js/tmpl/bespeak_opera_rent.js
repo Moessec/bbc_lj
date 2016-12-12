@@ -49,13 +49,14 @@ $(function ()
             var bespeak_com = $("#bespeak_com").val();
             var ru = $("#usercontact").val();
             var rt = $("#bespeak_title").val();
+            var starttime = $("#starttime").val();
             var partten = /^1[3,4,5,7,8]\d{9}$/;
             if(partten.test(ru))
             {
                 $.ajax({
                     type: "post",
                     url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=addRentBespeak&typ=json",
-                    data: {k:a,u:getCookie('id') , id:e, true_name: true_name,bespeak_com: bespeak_com, usercontact: ru,  bespeak_title: rt},
+                    data: {k:a,u:getCookie('id') , id:e, true_name: true_name,bespeak_com: bespeak_com, usercontact: ru,  bespeak_title: rt, starttime:starttime},
                     dataType: "json",
                     success: function (a)
                     {
