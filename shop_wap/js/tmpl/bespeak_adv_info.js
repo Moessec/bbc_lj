@@ -15,8 +15,8 @@ $(function ()
                 checkLogin(a.login);
                 console.log(a.data);
                 $.each(a.data, function(key, value){
-                       tem='<dl><img src="'+value.bespeak_img+'" style="width:100%"><div class="com">';
-                       tem+='<span style="color:#ADFF2F;display:block">预约说明</span>';
+                       tem='<dl><img src="'+value.bespeak_img+'" style="width:100%">';
+                       tem+='<span style="color:#ADFF2F;display:block;margin-top:10px;">预约说明</span><div class="com">';
                        tem+='<span id="com" style="width:90%;margin:auto">'+value.bespeak_com+'</span></div>';
                        tem+='<div class="ul"><table><tr><td class="left">活动开始时间：</td><td><span>'+value.opentime+'</span></td></tr>';
                        tem+='<tr><td class="left">活动截止时间：</td><td><span>'+value.outtime+'</span></td></tr>';
