@@ -1612,7 +1612,7 @@ class Goods_GoodsCtl extends Controller
 			{
 				$shop_id = request_int('shop_id');
 				$shop_goods_cat_id = request_int('shop_goods_cat_id');
-				$shop_id = 2;
+				// $shop_id = 2;
 				// $shop_goods_cat_id = 0;				
 		       $Shop_catgoodslistModel = new Goods_CommonModel();
 					// $data = $this->Shop_ShoplistModel->getBaseList($cond_row, $order_row, '', '');
