@@ -108,7 +108,16 @@ class Shop_GoodsCatCtl extends Yf_AppController
 
 		$this->data->addBody(-140, $data);
 	}	
+	public function tree()
+	{
+		$parent_id = request_int('parent_id');
+		$shop_id = request_int('shop_id');
+		$Shop_GoodsCatModel = new Shop_GoodsCatModel();
 
+		$data['items'] = $Shop_GoodsCatModel->getChildCat($shop_id,$parent_id);
+
+		$this->data->addBody(-140, $data);
+	}
 	/**
 	 * 读取
 	 *
@@ -119,7 +128,7 @@ class Shop_GoodsCatCtl extends Yf_AppController
 		$user_id = Perm::$userId;
 
 		$shop_goods_cat_id = request_int('shop_goods_cat_id');
-		$rows              = $this->shopGoodsCatModel->getGoodsCat($shop_goods_cat_id);
+		$rows              = $this->shopGoodsCatModel->getShopCatList($shop_goods_cat_id);
 
 		$data = array();
 
