@@ -40,7 +40,8 @@ $(function ()
         $(".pre-loading").show();
         $(this).parent().addClass("selected").siblings().removeClass("selected");
         var t = $(this).attr("date-id");
-        // Shop_GoodsCat
+       if (shop_id!='')
+       {
         $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=tree&typ=json", {shop_id:shop_id,parent_id: t}, function (e)
         {
             var t = e.data;
@@ -50,6 +51,17 @@ $(function ()
             $(".pre-loading").hide();
             new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
         });
+      }else{
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=tree&typ=json", {cat_parent_id: t}, function (e)
+        {
+            var t = e.data;
+            t.WapSiteUrl = WapSiteUrl;
+            var r = template.render("category-two", t);
+            $("#categroy-rgt").html(r);
+            $(".pre-loading").hide();
+            new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+        });        
+      }
         e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
 // ========================钓起数据===================================
      $('.goods_cont').eq(0).each(function(e){
