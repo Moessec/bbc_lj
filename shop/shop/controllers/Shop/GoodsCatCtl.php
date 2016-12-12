@@ -115,7 +115,7 @@ class Shop_GoodsCatCtl extends Yf_AppController
 		$parent_id = request_int('parent_id');
 		$shop_id = request_int('shop_id');
 		$Shop_GoodsCatModel = new Shop_GoodsCatModel();
-		$data = $Shop_GoodsCatModel->test();
+		$data = $Shop_GoodsCatModel->getByWhere();
 		//$data = $Shop_GoodsCatModel->getChildCat($shop_id,$parent_id);
 		$this->data->addBody(-140, $data);
 	}
