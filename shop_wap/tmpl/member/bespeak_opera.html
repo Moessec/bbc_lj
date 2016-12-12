@@ -15,6 +15,15 @@
     <link rel="stylesheet" type="text/css" href="../../css/base.css">
     <link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
     <link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
+    <style type="text/css">
+        .nctouch-inp-con ul li .input-box .inp {
+            width: 89%;
+            text-align: right;
+        }
+        textarea{width: 95%;margin: auto;background: #F5F5F5; border-style: none;padding:5px 5px  0px 5px; line-height: 20px; color: #2F4F4F;height: 150px}
+        option{ color: #2F4F4F; font-size: 0.6rem}
+        #h{}
+    </style>
 </head>
 
 <body>
@@ -36,7 +45,7 @@
                     <li class="form-item">
                         <h4>报修项目</h4>
                         <div class="input-box">
-                            <select class="inp" name="bespeak_place" id="bespeak_place" autocomplete="off" > 
+                            <select class="inp" name="bespeak_place" id="bespeak_place" autocomplete="off" placeholder="请选择项目所在区域" > 
                             <option value="1">公共区域</option>
                             <option value="0">室内</option> 
                             </select>
@@ -46,42 +55,42 @@
                     <li class="form-item">
                         <h4>联系人</h4>
                         <div class="input-box">
-                            <input type="text" class="inp" name="true_name" id="true_name" autocomplete="off" oninput="writeClear($(this));" />
+                            <input type="text" class="inp" name="true_name" id="true_name" autocomplete="off" oninput="writeClear($(this));"  placeholder="请填写您的名字" />
                             <span class="input-del"></span> </div>
                     </li>
                     <li class="form-item">
                         <h4>联系方式</h4>
                         <div class="input-box">
-                            <input type="tel" class="inp" name="usercontact" id="usercontact" autocomplete="off" oninput="writeClear($(this));" />
+                            <input type="tel" class="inp" name="usercontact" id="usercontact" autocomplete="off" oninput="writeClear($(this));" placeholder="请填写您的联系方式" />
                             <span class="input-del"></span> </div>
                     </li>
                     <li class="form-item">
                         <h4>社区选择</h4>
                         <div class="input-box">
-                            <input name="area_info" type="text" class="inp" id="area_info" autocomplete="off" onchange="btn_check($('form'));" readonly/>
+                            <input name="area_info" type="text" class="inp" id="area_info" autocomplete="off" onchange="btn_check($('form'));"  placeholder="所在社区"/>
                         </div>
                     </li>
                     <li class="form-item">
                         <h4>详细地址</h4>
                         <div class="input-box">
-                            <input type="text" class="inp" name="address" id="address" autocomplete="off" oninput="writeClear($(this));">
+                            <input type="text" class="inp" name="address" id="address" autocomplete="off" oninput="writeClear($(this));"  placeholder="所在位置">
                             <span class="input-del"></span> </div>
                     </li>
                     <li class="form-item">
                         <h4>上门时间</h4>
-                        <div class="input-box">
+                        <div class="input-box" style="float:right">
                             <select name="h" id="h" onchange="show();">
                             <script>
                             for(var i=0;i<=23;i++){
-                             document.write("<option value='"+i+"'>"+i+"</option>");
+                             document.write("<option value='"+i+"'>"+i+"：00</option>");
                             }
                             </script>
                             </select>
-                            <span style="font-size: 0.6rem;">:</span>
+                            <span style="font-size: 0.6rem;">-</span>
                             <select name="min" id="min" onchange="show();">
                             <script>
-                            for(var i=0;i<=59;i++){
-                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            for(var i=0;i<=23;i++){
+                             document.write("<option value='"+i+"'>"+i+"：00</option>");
                             }
                             </script>
                             </select>
@@ -91,11 +100,8 @@
                         </div>
                     </li>
                     <li class="form-item">
-                        <h4>报修详情</h4>
-                        <div class="input-box" style="height:100px">
-                            <textarea type="tel" class="inp" name="bespeak_com" id="bespeak_com" autocomplete="off" oninput="writeClear($(this));" style="height:100px" /></textarea>
-                            <span class="input-del"></span>
-                        </div>
+                        <textarea type="tel" class="inp" name="bespeak_com" id="bespeak_com" autocomplete="off" oninput="writeClear($(this));" style="h" placeholder="简单描述你需要申报的项目" /></textarea>
+                        <span class="input-del"></span>
                     </li>
                     <li class="form-item">
                       <style>
@@ -110,7 +116,7 @@
                                 <input type="tel" class="inp" name="img" id="img" autocomplete="off" oninput="writeClear($(this));" />
                                 <span class="input-del"></span>
                             </div>
-                            <img id="imgPre" onclick="file.click()" src="../../images/Snap11.jpg" width="300px" height="240px" style="display: block;margin: auto;">
+                            <img id="imgPre" onclick="file.click()" src="../../images/Snap11.jpg" width="30%" height="25%" style="display: block;margin: auto;">
                   </li>
                 </ul>
                 <div class="error-tips"></div>
@@ -120,7 +126,7 @@
     </div>
     <script type="text/javascript">
     function show(){
-     document.getElementById("starttime").value=document.getElementById("h").value+":"+document.getElementById("min").value
+     document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
     }
     var xhr;
     function createXMLHttpRequest()

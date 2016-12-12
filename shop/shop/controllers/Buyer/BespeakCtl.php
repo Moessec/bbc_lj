@@ -223,16 +223,16 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					if(!empty($data['temp'])){
 						foreach ($data['temp'] as $k1 => $v1) {
 							if($v1['bespeak_title']==$value['bespeak_title']){
-								$value['bespeak_click']='已参与';
+								$value['bespeak_click']='<a onclick="show()">已预约</a>';
 								$value['bespeak_id']='#';
 							}else{
-								$value['bespeak_click']='参与';
+								$value['bespeak_click']='预约';
 								$id = $value['bespeak_id'];
 								$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 							}
 						}
 					}else{
-						$value['bespeak_click']='参与';
+						$value['bespeak_click']='预约';
 						$id = $value['bespeak_id'];
 						$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 					}
