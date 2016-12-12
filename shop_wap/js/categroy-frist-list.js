@@ -21,12 +21,12 @@ $(function ()
             r.WapSiteUrl = WapSiteUrl;
             r['status'] = 1;
             var a = template.render("category-one", r);
-            alert(a);
+            // alert(a);
             $("#categroy-cnt").html(a);
             e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
         });    
-    }else
-    {
+    }else{
+    
          //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
             $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=cat&typ=json&cat_parent_id=0", function (t)
             {
