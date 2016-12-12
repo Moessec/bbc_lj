@@ -72,7 +72,7 @@
         </li>
         <% } %>
         <%}else{%>
-        <% for(var i = 0;i<items.length;i++){ %>
+        <% for(var i in items){ %>
         <li class="category-item">
             <a href="javascript:void(0);" class="category-item-a category" date-id="<%= items[i].cat_id %>">
                 <div class="ci-fcategory-name"><%= items[i].cat_name %></div>
