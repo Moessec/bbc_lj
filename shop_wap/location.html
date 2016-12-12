@@ -21,7 +21,11 @@ $(function(){
 	getCookie();
 	function getCookie(name)
 	{
-		alert('111');
+	var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+	if(arr=document.cookie.match(reg))
+	unescape(arr[2]);
+	else
+	return null;
 	}
 	// $("#cityChoice").focus();
     var cityPicker = new IIInsomniaCityPicker({
