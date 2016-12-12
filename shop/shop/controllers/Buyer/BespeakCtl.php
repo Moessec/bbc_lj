@@ -663,7 +663,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 			$bespeak['bespeak_title']=$value['bespeak_title'];
 			$bespeak['user_id']=$user_id;
 			$one    = $USER_BespeakModel->getBespeakList($bespeak);
-
+			var_dump($one);
+			exit();
 			if($one['0']['user_id']!=$user_id){
 				$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$value['bespeak_id'];
 				$value['bespeaka']='申请租赁';
