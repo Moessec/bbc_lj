@@ -25,7 +25,7 @@ $(function(){
         hideProvinceInput: '#province',
         callback: function(data){
              $.cookie("trans_city",data,{expires:0.083});
-             window.location.href="./tmpl/area_shop_list.html";
+             window.location.href="./tmpl/area_shop_list.html<?= '&'.$_POST['c']; ?>";
 
         }
     });
