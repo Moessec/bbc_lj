@@ -20,7 +20,7 @@
             width: 89%;
             text-align: right;
         }
-        textarea{width: 95%;margin: auto;background: #F5F5F5; border-style: none;padding:5px 5px  0px 5px; line-height: 20px; color: #2F4F4F;height: 150px;margin-bottom: 10px;}
+        textarea{width: 95%;margin: auto;background: #F5F5F5; border-style: none;padding:5px 5px  0px 5px; line-height: 20px; color: #2F4F4F;height: 150px;}
         option{ color: #2F4F4F; font-size: 0.6rem}
         #h{}
     </style>
@@ -109,7 +109,7 @@
                         .mybtn{ background-color:#FFF; line-height:14px;vertical-align:middle;border:1px solid #CDCDCD;height:30px; width:70px;    font-size: 1rem;margin-left: 40px}
                         .file{ position:absolute; top:0;    font-size: 0.6rem; right:80px; height:24px; filter:alpha(opacity:0);opacity: 0;width:260px }
                         </style>
-                        <div class="form-group">
+                        <div class="form-group" style="margin-top:10px">
                             <input type="file" name="file" class="file" id="file" size="28"  onchange="preImg(this.id,'imgPre');UpladFile();" />
                             <!-- <span onclick="UpladFile()" id="upload" style="font-size: 0.6rem;" class="mybtn">上传</span> -->
                             <div class="input-box" style="display:none">
@@ -118,7 +118,7 @@
                             </div>
                             <img id="imgPre" onclick="file.click()" src="../../images/Snap11.jpg" width="30%" height="25%" style="display: block;margin: auto;">
                         </div>
-                        <span style="">您需要上传维修部分的图片</span>
+                        <span style="font-size: 0.6rem;color: #cccccc;margin: auto;display: block;width: 50%;text-align: center;">您需要上传维修部分的图片</span>
                         <span class="input-del"></span>
                   </li>
                 </ul>
