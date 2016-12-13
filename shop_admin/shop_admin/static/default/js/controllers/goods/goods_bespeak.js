@@ -114,12 +114,6 @@ $('#area_1').on('change', function () {
 });
 
 $('#area_2').on('change', function () {
-    if ( this.value == 0 ){
-        if ( $('#area_3').length > 0 ) {
-            $('#area_3').remove();
-        }
-    } else {
-        $('#area_3').remove();
         var $this = $(this), pid = $(this).val();
         var a1 = $('#area_1').val(), BigCity = [1, 2, 9, 22];
         if($.inArray(Number(a1),BigCity) != -1){
@@ -139,7 +133,6 @@ $('#area_2').on('change', function () {
                 $('#area_3').html(options);
             }
         });
-    }
 });
 
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
