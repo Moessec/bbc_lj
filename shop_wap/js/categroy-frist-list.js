@@ -16,7 +16,7 @@ $(function ()
         //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=shoplists&typ=json&parent_id=0&shop_id="+shop_id, function (t)
         {
-            console.info(t);
+            // console.info(t);
             var r = t.data;
             r.WapSiteUrl = WapSiteUrl;
             r['status'] = 1;
