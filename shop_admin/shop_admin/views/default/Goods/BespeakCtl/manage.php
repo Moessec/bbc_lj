@@ -132,17 +132,20 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     	$('#area_1').on('change',function(){
     		var v1 = $('#area_1').find("option:selected").attr('name');
     		$('#_area_1').val(v1);
+    		$('#area_info').val(v1);
     	})
     	$('#area_2').on('change',function(){
     		var v2 = $('#area_2').find("option:selected").attr('name');
-    		$('#_area_2').val(v1);
+    		var val = $('#area_info').val();
+    		$('#area_info').val(val+v2);
+    		$('#_area_2').val(v2);
     	})
     	$('#area_3').on('change',function(){
     		var v3 = $('#area_3').find("option:selected").attr('name');
-    		$('#_area_3').val(v1);
+    		var val = $('#area_info').val();
+    		$('#area_info').val(val+v3);
+    		$('#_area_3').val(v3);
     	})
-    	var val = v1+' '+v2+' '+v3;
-    	$('#area_info').val(val);
     })
     $(function(){
         buyer_logo_upload = new UploadImage({
