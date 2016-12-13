@@ -125,14 +125,12 @@ $('#area_2').on('change', function () {
     } else {
         $('#area_3').remove();
         var $this = $(this), pid = $(this).val();
-        var a1 = $('#_area_1').val($(this).val());
+        var a1 = $('#area_1').val();
 
         //排除直辖市
         console.log(a1);
         $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (list) {
-            console.log(SITE_URL);
             var data = list.data;
-            console.log(data);
             if (data.items && data.items.length > 0) {
                 var options = null, select = null;
                 for ( var i = 0; i < data.items.length; i++ ) {
