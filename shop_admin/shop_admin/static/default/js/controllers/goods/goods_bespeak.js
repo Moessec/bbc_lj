@@ -96,7 +96,7 @@ $('#area_1').on('change', function () {
         var $this = $(this), pid = $(this).val(), BigCity = [1, 2, 9, 22];
 
         //排除直辖市
-
+        console.log($this);
         if( $.inArray(Number(pid), BigCity) == -1  ) {
 
             $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {pid: pid}, function (data) {
