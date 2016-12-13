@@ -91,8 +91,16 @@ $('#area_1').on('change', function () {
 
         //排除直辖市
         console.log(pid);
-        
-            $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (data) {
+        if( Number(pid) ==1 ) {
+            pid = '36';
+        }else if(Number(pid)==2){
+            pid = '40';
+        }else if(Number(pid)==9){
+            pid ='39';
+        }else if(Number(pid)==22){
+            pid='62';
+        }
+        $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (data) {
                 console.log(SITE_URL);
                 var data = data.data;
                 console.log(data);
@@ -105,7 +113,6 @@ $('#area_1').on('change', function () {
                     $('#area_2').html(options);
                 }
             });
-        
     
 });
 
