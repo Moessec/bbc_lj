@@ -34,7 +34,8 @@ function postData(t, e)
         usercontact = $.trim($("#usercontact").val()),
         opentime = $.trim($("#some_class_1").val()),
         address = $.trim($("#address").val()),
-        area_info = $.trim($("#area_1").val()+' '+$("#area_2").val()+' '+$("#area_3").val()),
+        area_info = $.trim($("#_area_1").val()+' '+$("#_area_2").val()+' '+$("#_area_3").val()),
+        bespeak_area_info = $.trim($("#area_1").val()+' '+$("#area_2").val()+' '+$("#area_3").val()),
         n = "add" == t ? "新增预约" : "修改预约";
 
     params = rowData.bespeak_id ? {
@@ -45,6 +46,7 @@ function postData(t, e)
         true_name : true_name,
         usercontact : usercontact,
         outtime : outtime,
+        bespeak_area_info:bespeak_area_info,
         area_info:area_info,
         address:address,
         bes_img : bes_img
@@ -55,6 +57,7 @@ function postData(t, e)
         bes_img : bes_img,
         outtime : outtime,
         address:address,
+        bespeak_area_info:bespeak_area_info,
         area_info:area_info,
         usercontact : usercontact,
         opentime : opentime,
