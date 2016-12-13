@@ -130,7 +130,7 @@ $('#area_2').on('change', function () {
             if (data.items && data.items.length > 0) {
                 var options = null, select = null;
                 for ( var i = 0; i < data.items.length; i++ ) {
-                    if ( i == 0 ) $('#_area_3').val(data.items[i]['district_id']);
+                    if ( i == 0 ) $('#_area_3').val(data.items[i]['district_name']);
                     options += '<option name=' + data.items[i]['district_name'] + ' value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
                 }
                 select = '<select id="area_3" class="valid">' + options + '</select>';
