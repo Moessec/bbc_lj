@@ -125,9 +125,10 @@ $('#area_2').on('change', function () {
     } else {
         $('#area_3').remove();
         var $this = $(this), pid = $(this).val();
+        var a1 = $('#_area_1').val($(this).val());
 
         //排除直辖市
-        console.log(pid);
+        console.log(a1);
         $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (list) {
             console.log(SITE_URL);
             var data = list.data;
