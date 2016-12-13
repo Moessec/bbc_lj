@@ -134,8 +134,15 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     		$('#_area_1').val(v1);
     	})
     	$('#area_2').on('change',function(){
-    		alert($('#area_2').find("option:selected").attr('name'));
+    		var v2 = $('#area_2').find("option:selected").attr('name');
+    		$('#_area_2').val(v1);
     	})
+    	$('#area_3').on('change',function(){
+    		var v3 = $('#area_3').find("option:selected").attr('name');
+    		$('#_area_3').val(v1);
+    	})
+    	var val = v1+' '+v2+' '+v3;
+    	$('#area_info').val(val);
     })
     $(function(){
         buyer_logo_upload = new UploadImage({
