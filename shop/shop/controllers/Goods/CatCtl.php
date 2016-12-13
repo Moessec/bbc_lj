@@ -154,7 +154,17 @@ class Goods_CatCtl extends Controller
 
 		$this->data->addBody(-140, $data);
 	}
+	// 	public function tree()
+	// {
 
+	// 	// var_dump(1);die;
+	// 	$parent_id = request_int('parent_id');
+	// 	$shop_id = request_int('shop_id');
+	// 	$Shop_GoodsCatModel = new Shop_GoodCatModel();
+	// 	$data['items'] = $Shop_GoodsCatModel->getChildCat($shop_id,$parent_id);
+
+	// 	$this->data->addBody(-140, $data);
+	// }
 }
 
 ?>
