@@ -106,7 +106,7 @@ $('#area_1').on('change', function () {
                         if ( i == 0 ) $('#_area_2').val(data.items[i]['district_id']);
                         options += '<option name=' + data.items[i]['district_name'] + ' value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
                     }
-                    $('#area_2').remove('style');
+                    $('#area_2').show();
                     $('#area_2').html(options);
                 }
             });
@@ -135,7 +135,7 @@ $('#area_2').on('change', function () {
                     options += '<option name=' + data.items[i]['district_name'] + ' value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
                 }
 
-                    $('#area_3').remove('style');
+                    $('#area_3').show();
                 $('#area_3').html(options);
             }
         });
