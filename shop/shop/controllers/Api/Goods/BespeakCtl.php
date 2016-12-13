@@ -484,6 +484,8 @@ class Api_Goods_BespeakCtl extends Api_Controller
 
 	public function district()
 	{
+		var_dump(1111);
+		exit();
 		$baseDistrictModel = new Base_DistrictModel();
 		$district_parent_id = request_int('pid', request_int('area_id'));
 		$data               = $this->baseDistrictModel->getDistrictTree($district_parent_id);
