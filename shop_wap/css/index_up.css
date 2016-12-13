@@ -530,3 +530,8 @@ body{
              right: 0.5rem;
             bottom: 0.3rem
         }
+  .left_icon{
+    height: 0.8rem;
+    width: 0.8rem;
+    vertical-align:middle;
+   }
