@@ -143,7 +143,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     		$('#area_info').val(val+v2);
     		$('#_area_2').val(v2);
     	})
-    	$('#area_3').on('change',function(){
+    	$('#area_3').on('click',function(){
     		var v3 = $('#area_3').find("option:selected").attr('name');
     		var val = $('#area_info').val();
     		$('#area_info').val(val+v3);
