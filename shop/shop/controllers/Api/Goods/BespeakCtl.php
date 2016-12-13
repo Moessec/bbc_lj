@@ -372,8 +372,6 @@ class Api_Goods_BespeakCtl extends Api_Controller
 			$status = 250;
 			$data;
 		}
-		$baseDistrictModel = new Base_DistrictModel()
-		$data['dis'] = $baseDistrictModel->getDistrictAll();
 
 		$data['id']      = $bespeak_id;
 		$data['bespeak_id'] = $bespeak_id;
@@ -441,8 +439,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 			$msg    = _('failure');
 			$status = 250;
 		}
-		$baseDistrictModel = new Base_DistrictModel()
-		$data['dis'] = $baseDistrictModel->getDistrictAll();
+
 		$data['id']      = $id;
 		$data['bespeak_id'] = $id;
 		$this->data->addBody(-140, $data, $msg, $status);
