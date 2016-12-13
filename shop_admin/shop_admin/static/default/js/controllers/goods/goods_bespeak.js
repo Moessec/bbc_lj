@@ -98,8 +98,8 @@ $('#area_1').on('change', function () {
         //排除直辖市
         console.log(pid);
         if( $.inArray(Number(pid), BigCity) == -1  ) {
-            $.post(SITE_URL + '?ctl=Base_District&met=getDistrictNameList&typ=json', {id: pid}, function (data) {
-                console.log(data);
+            $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {pid: pid}, function (data) {
+                console.log(pid);
                 var data = data.data;
                 console.log(data);
                 if (data.items && data.items.length > 0) {
