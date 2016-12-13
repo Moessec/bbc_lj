@@ -2,8 +2,8 @@ $(document).ready(function(){
     var slides = [{src: 'images/iconfont/tuceng01.png'}, {src: 'images/iconfont/tuceng02.png'}, {src: 'images/iconfont/tuceng03.png'},{src: 'images/iconfont/tuceng04.png'}]
     var jR3DCarousel;
     var carouselProps =  {
-                      width: 650,               /* largest allowed width */
-                      height: 250,              /* largest allowed height */
+                      width: 620,               /* largest allowed width */
+                      height: 230,              /* largest allowed height */
                       slideLayout : 'fill',     /* "contain" (fit according to aspect ratio), "fill" (stretches object to fill) and "cover" (overflows box but maintains ratio) */
                       animation: 'slide3D',         /* slide | scroll | fade | zoomInSlide | zoomInScroll */
                       animationCurve: 'ease',
