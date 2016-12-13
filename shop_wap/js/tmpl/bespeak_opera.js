@@ -7,7 +7,6 @@ $(function ()
         {
             console.info(lj);
             var r = lj.data;
-            rcheckLogin(lj.data);
             console.log(lj);
             $(".area").html(111);
         });
