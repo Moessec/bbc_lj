@@ -83,5 +83,14 @@ function resetForm(t)
     $("#usercontact").val("");
 }
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
+$("#area_info").on("click", function ()
+{
+    $.areaSelected({
+        success: function (a)
+        {
+            $("#area_info").val(a.area_info).attr({"data-areaid1": a.area_id_1, "data-areaid2": a.area_id_2, "data-areaid3": a.area_id_3, "data-areaid": a.area_id, "data-areaid2": a.area_id_2 == 0 ? a.area_id_1 : a.area_id_2})
+        }
+    })
+})
 initPopBtns();
 initField();
