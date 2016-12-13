@@ -20,7 +20,7 @@ $(function ()
                   if(tem==city)
                   {
                     flag = 1;
-                     div += '<div class="list"><a href="../tmpl/member/bespeak_opera.html"><div class="list_left"><img src="'+r[i].shop_logo+'" alt=""></div><div class="list_right"><dl><dd class="title">'+r[i].shop_name+'</dd><dd>地址:'+r[i].company_address_detail+'</dd><dd>电话:'+r[i].company_phone+'</dd></dl></div></a></div>'
+                     div += '<div class="list"><a href="../tmpl/member/bespeak_opera.html?nmb='+r[i].company_address_detail+'"><div class="list_left"><img src="'+r[i].shop_logo+'" alt=""></div><div class="list_right"><dl><dd class="title">'+r[i].shop_name+'</dd><dd>地址:'+r[i].company_address_detail+'</dd><dd>电话:'+r[i].company_phone+'</dd></dl></div></a></div>'
                   }
         }
       
