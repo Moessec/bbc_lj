@@ -86,7 +86,7 @@ function resetForm(t)
 }
 
 $('#area_1').on('change', function () {
-    $('#_area_1').val($(this).val());
+    $('#_area_1').val($(this).attr('name'));
         var $this = $(this), pid = $(this).val(), BigCity = [1, 2, 9, 22];
 
         //排除直辖市
@@ -149,10 +149,10 @@ $('#area_2').on('change', function () {
     }
 });
 
-    $('#area_2').on(' change', '#area_1', function () {
-        alert($('#area_1').attr('name'));
-        $('#_area_2').val($(this).prop('name'));
-    });
+    // $('#area_2').on(' change', '#area_1', function () {
+    //     alert($('#area_1').attr('name'));
+    //     $('#_area_2').val($(this).prop('name'));
+    // });
     // $('#area_2').parent().on(' change', '#area_2', function () {
     //     $('#_area_2').val($(this).prop('name'));
     // });
