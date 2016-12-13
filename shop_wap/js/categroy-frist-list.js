@@ -47,7 +47,7 @@ $(function ()
         var t = $(this).attr("date-id");
        if (shop_id!='')
        {
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=tree&typ=json", {shop_id:shop_id,parent_id: t}, function (e)
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=treelist&typ=json", {shop_id:shop_id,parent_id: t}, function (e)
         {
             var t = e.data;
             console.log(t);
