@@ -66,8 +66,8 @@
         <%if(status==1){%>
         <% for(var i in items){ %>
         <li class="category-item">
-            <a href="javascript:void(0);" class="category-item-a category" date-id="<%= items[i].shop_goods_cat_id %>">
-                <div class="ci-fcategory-name"><%= items[i].shop_goods_cat_name %></div>
+            <a href="javascript:void(0);" class="category-item-a category" date-id="<%= items[i].child.shop_goods_cat_id %>">
+                <div class="ci-fcategory-name"><%= items[i].child.shop_goods_cat_name %></div>
             </a>
         </li>
         <% } %>
