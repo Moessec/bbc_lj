@@ -15,7 +15,7 @@ $(function ()
               if(temp==lj){
                 cnm+=r[i].company_address_detail;
               }
-              console.log(r);
+              console.log(r[i]);
             }
             $('.area').html(cnm);
             $("#area_info").val(cnm);
