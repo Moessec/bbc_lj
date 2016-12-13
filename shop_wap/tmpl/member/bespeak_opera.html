@@ -131,15 +131,20 @@
         </form>
     </div>
     <script type="text/javascript">
+      var LocString=String(window.document.location.href);   
+   
+        function getQueryStr(str){   
+            var rs = new RegExp("(^|)"+str+"=([^/&]*)(/&|$)","gi").exec(LocString), tmp;   
+           
+            if(tmp=rs){   
+                return tmp[2];   
+            }   
+           
+            // parameter cannot be found   
+            return "";   
+        } 
 
-    function GetQueryString(name)
-    {
-         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-         var r = window.location.search.substr(1).match(reg).exec(LocString), tmp;
-         if(r!=null)return  unescape(r[2]); return null;
-    }
-
-    alert(decodeURI(GetQueryString("lj")));
+    alert(getQueryStr("lj"));
     function sb(){
         document.cookie="sb=cnm; path=/";
         };
