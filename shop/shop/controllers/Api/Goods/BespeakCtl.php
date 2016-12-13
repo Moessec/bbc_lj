@@ -358,7 +358,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['user_id'] = 'admin';
 		$data['bespeak_list'] = '1';
 		$data['usercontact'] =  request_string('usercontact');
-
+		$data['bespeak_address'] = request_string('address');
 
 		$bespeak_id = $this->goodsBespeakModel->addBespeak($data, true);
 
@@ -425,12 +425,16 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['usercontact'] = request_string('usercontact');
 		$data['opentime'] =  request_string('opentime');
 		$data['bes_address'] = request_string('area_info');
+		$data['bespeak_address'] = request_string('address');
 		$data['true_name'] = request_string('true_name');
 		if(empty($data['rent_price'])){
 			unset($data['rent_price']);
 		}
 		if(empty($data['bes_address'])){
 			unset($data['bes_address']);
+		}
+		if(empty($data['bespeak_address'])){
+			unset($data['bespeak_address']);
 		}
 		$flag = $Goods_BespeakModel->editBespeak($id, $data);
 
