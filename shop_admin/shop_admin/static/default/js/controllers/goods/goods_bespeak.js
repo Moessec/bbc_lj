@@ -320,6 +320,7 @@ areaSelected: function(options) {
                 });
             })();
         }
+    });
 function resetForm(t)
 {
     $("#manage-form").validate().resetForm();
