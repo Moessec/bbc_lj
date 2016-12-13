@@ -5,8 +5,8 @@ $(function ()
     $.ajax({
         type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (a)
         {
-            checkLogin(lj.data.items);
-            console.log(lj.data.items);
+            checkLogin(lj.data);
+            console.log(lj.data);
             $(".area").html(111);
         }
     });
