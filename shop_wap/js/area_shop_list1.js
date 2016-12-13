@@ -9,7 +9,7 @@ $(function ()
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", function (t)
     {
         var r = t.data.items;
-        console.info(r);
+        console.log(r);
          var temp = '';
         for(var i in r)
         {

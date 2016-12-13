@@ -23,11 +23,9 @@ $(function(){
 		var arr=arrCookie[i].split("="); 
 		if(arr[0]==sb){
 			var sb=arr[1];
-			console.log(sb);
 		}
 	}
 	if (sb=='cnm') {
-		alert(111);
 		var cityPicker = new IIInsomniaCityPicker({
 	        data: cityData,
 	        target: '#cityChoice',
