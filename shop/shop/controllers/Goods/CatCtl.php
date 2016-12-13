@@ -160,10 +160,9 @@ class Goods_CatCtl extends Controller
 		// var_dump(1);die;
 		$parent_id = request_int('parent_id');
 		$shop_id = request_int('shop_id');
-		var_dump($shop_id)var_dump($parent_id);die;
 		$Shop_GoodsCatModel = new Shop_GoodCatModel();
 		$data['items'] = $Shop_GoodsCatModel->getChildCat($shop_id,$parent_id);
-
+        var_dump($data);die;
 		$this->data->addBody(-140, $data);
 	}			
 
