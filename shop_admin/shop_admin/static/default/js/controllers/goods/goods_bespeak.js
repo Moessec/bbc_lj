@@ -89,7 +89,6 @@ $('#area_1').on('change', function () {
         var $this = $(this), pid = $(this).val(), BigCity = [1, 2, 9, 22];
 
         //排除直辖市
-        console.log(pid);
         if( Number(pid) ==1 ) {
             pid = '36';
         }else if(Number(pid)==2){
