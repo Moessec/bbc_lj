@@ -72,165 +72,165 @@ function cancleGridEdit()
     null !== curRow && null !== curCol && ($grid.jqGrid("saveCell", curRow, curCol), curRow = null, curCol = null)
 }
 areaSelected: function(options) {
-            var defaults = {
-                    success : function(data){}
-                }
-            var options = $.extend({}, defaults, options);
-            var ASID = 0;
-            var ASID_1 = 0;
-            var ASID_2 = 0;
-            var ASID_3 = 0;
-            var ASNAME = '';
-            var ASINFO = '';
-            var ASDEEP = 1;
-            var ASINIT = true;
-            function _init() {
-                if ($('#areaSelected').length > 0) {
-                    $('#areaSelected').remove();
-                }
-                var html = '<div id="areaSelected">'
-                    + '<div class="nctouch-full-mask left">'
-                    + '<div class="nctouch-full-mask-bg"></div>'
-                    + '<div class="nctouch-full-mask-block">'
-                    + '<div class="header">'
-                    + '<div class="header-wrap">'
-                    + '<div class="header-l"><a href="javascript:void(0);"><i class="back"></i></a></div>'
-                    + '<div class="header-title">'
-                    + '<h1>选择地区</h1>'
-                    + '</div>'
-                    + '<div class="header-r"><a href="javascript:void(0);"><i class="close"></i></a></div>'
-                    + '</div>'
-                    + '</div>'
-                    + '<div class="nctouch-main-layout">'
-                    + '<div class="nctouch-single-nav">'
-                    + '<ul id="filtrate_ul" class="area">'
-                    + '<li class="selected"><a href="javascript:void(0);">一级地区</a></li>'
-                    + '<li><a href="javascript:void(0);" >二级地区</a></li>'
-                    + '<li><a href="javascript:void(0);" >三级地区</a></li>'
-                    + '</ul>'
-                    + '</div>'
-                    + '<div class="nctouch-main-layout-a"><ul class="nctouch-default-list"></ul></div>'
-                    + '</div>'
-                    + '</div>'
-                    + '</div>'
-                    + '</div>';
-                $('body').append(html);
-                _getAreaList();
-                _bindEvent();
-                _close();
-            }
+    var defaults = {
+            success : function(data){}
+        }
+    var options = $.extend({}, defaults, options);
+    var ASID = 0;
+    var ASID_1 = 0;
+    var ASID_2 = 0;
+    var ASID_3 = 0;
+    var ASNAME = '';
+    var ASINFO = '';
+    var ASDEEP = 1;
+    var ASINIT = true;
+    function _init() {
+        if ($('#areaSelected').length > 0) {
+            $('#areaSelected').remove();
+        }
+        var html = '<div id="areaSelected">'
+            + '<div class="nctouch-full-mask left">'
+            + '<div class="nctouch-full-mask-bg"></div>'
+            + '<div class="nctouch-full-mask-block">'
+            + '<div class="header">'
+            + '<div class="header-wrap">'
+            + '<div class="header-l"><a href="javascript:void(0);"><i class="back"></i></a></div>'
+            + '<div class="header-title">'
+            + '<h1>选择地区</h1>'
+            + '</div>'
+            + '<div class="header-r"><a href="javascript:void(0);"><i class="close"></i></a></div>'
+            + '</div>'
+            + '</div>'
+            + '<div class="nctouch-main-layout">'
+            + '<div class="nctouch-single-nav">'
+            + '<ul id="filtrate_ul" class="area">'
+            + '<li class="selected"><a href="javascript:void(0);">一级地区</a></li>'
+            + '<li><a href="javascript:void(0);" >二级地区</a></li>'
+            + '<li><a href="javascript:void(0);" >三级地区</a></li>'
+            + '</ul>'
+            + '</div>'
+            + '<div class="nctouch-main-layout-a"><ul class="nctouch-default-list"></ul></div>'
+            + '</div>'
+            + '</div>'
+            + '</div>'
+            + '</div>';
+        $('body').append(html);
+        _getAreaList();
+        _bindEvent();
+        _close();
+    }
 
-            function _getAreaList() {
-                $.ajax({//获取区域列表
-                    type:'get',
-                    url:ApiUrl+'/index.php?ctl=Base_District&met=district&typ=json',
-                    data:{pid:ASID},
-                    dataType:'json',
-                    async:false,
-                    success:function(result){
-                        if (result.data.items.length == 0) {
-                            _finish();
-                            return false;
-                        }
-                        if (ASINIT) {
-                            ASINIT = false
-                        } else {
-                            ASDEEP++;
-                        }
-                        $('#areaSelected').find('#filtrate_ul').find('li').eq(ASDEEP-1).addClass('selected').siblings().removeClass('selected');
-                        checkLogin(result.login);
-                        var data = result.data;
-                        var area_li = '';
-                        for(var i=0;i<data.items.length;i++){
-                            area_li += '<li><a href="javascript:void(0);" data-id="' + data.items[i].district_id + '" data-name="' + data.items[i].district_name + '"><h4>' + data.items[i].district_name + '</h4><span class="arrow-r"></span> </a></li>';
-                        }
-                        $('#areaSelected').find(".nctouch-default-list").html(area_li);
-                        if (typeof(myScrollArea) == 'undefined') {
-                            if (typeof(IScroll) == 'undefined') {
-                                $.ajax({
-                                    url: WapSiteUrl+'/js/iscroll.js',
-                                    dataType: "script",
-                                    async: false
-                                  });
-                            }
-                            myScrollArea = new IScroll('#areaSelected .nctouch-main-layout-a', { mouseWheel: true, click: true });
-                        } else {
-                            myScrollArea.destroy();
-                            myScrollArea = new IScroll('#areaSelected .nctouch-main-layout-a', { mouseWheel: true, click: true });
-                        }
-                    }
-                });
-                return false;
-            }
-            
-            function _bindEvent() {
-                $('#areaSelected').find('.nctouch-default-list').off('click', 'li > a');
-                $('#areaSelected').find('.nctouch-default-list').on('click', 'li > a', function(){
-                    ASID = $(this).attr('data-id');
-                    eval("ASID_"+ASDEEP+"=$(this).attr('data-id')");
-                    ASNAME = $(this).attr('data-name');
-                    ASINFO += ASNAME + ' ';
-                    var _li = $('#areaSelected').find('#filtrate_ul').find('li').eq(ASDEEP);
-                    _li.prev().find('a').attr({'data-id':ASID, 'data-name':ASNAME}).html(ASNAME);
-                    if (ASDEEP == 3) {
-                        _finish();
-                        return false;
-                    }
-                    _getAreaList();
-                });
-                $('#areaSelected').find('#filtrate_ul').off('click', 'li > a');
-                $('#areaSelected').find('#filtrate_ul').on('click', 'li > a', function(){
-                    if ($(this).parent().index() >= $('#areaSelected').find('#filtrate_ul').find('.selected').index()) {
-                        return false;
-                    }
-                    ASID = $(this).parent().prev().find('a').attr('data-id');
-                    ASNAME = $(this).parent().prev().find('a').attr('data-name');
-                    ASDEEP = $(this).parent().index();
-                    ASINFO = '';
-                    for (var i=0; i<$('#areaSelected').find('#filtrate_ul').find('a').length; i++) {
-                        if (i < ASDEEP) {
-                            ASINFO += $('#areaSelected').find('#filtrate_ul').find('a').eq(i).attr('data-name') + ' ';
-                        } else {
-                            var text = '';
-                            switch (i) {
-                            case 0:
-                                text = '一级地区'
-                                break;
-                            case 1:
-                                text = '二级地区'
-                                break;
-                            case 2:
-                                text = '三级地区';
-                                break;
-                            }
-                            $('#areaSelected').find('#filtrate_ul').find('a').eq(i).html(text);
-                        }
-                    }
-                    _getAreaList();
-                });
-            }
-            
-            function _finish() {
-                var data = {area_id:ASID,area_id_1:ASID_1,area_id_2:ASID_2,area_id_3:ASID_3,area_name:ASNAME,area_info:ASINFO};
-                options.success.call('success', data);
-                if (!ASINIT) {
-                    $('#areaSelected').find('.nctouch-full-mask').addClass('right').removeClass('left');
+    function _getAreaList() {
+        $.ajax({//获取区域列表
+            type:'get',
+            url:ApiUrl+'/index.php?ctl=Base_District&met=district&typ=json',
+            data:{pid:ASID},
+            dataType:'json',
+            async:false,
+            success:function(result){
+                if (result.data.items.length == 0) {
+                    _finish();
+                    return false;
                 }
+                if (ASINIT) {
+                    ASINIT = false
+                } else {
+                    ASDEEP++;
+                }
+                $('#areaSelected').find('#filtrate_ul').find('li').eq(ASDEEP-1).addClass('selected').siblings().removeClass('selected');
+                checkLogin(result.login);
+                var data = result.data;
+                var area_li = '';
+                for(var i=0;i<data.items.length;i++){
+                    area_li += '<li><a href="javascript:void(0);" data-id="' + data.items[i].district_id + '" data-name="' + data.items[i].district_name + '"><h4>' + data.items[i].district_name + '</h4><span class="arrow-r"></span> </a></li>';
+                }
+                $('#areaSelected').find(".nctouch-default-list").html(area_li);
+                if (typeof(myScrollArea) == 'undefined') {
+                    if (typeof(IScroll) == 'undefined') {
+                        $.ajax({
+                            url: WapSiteUrl+'/js/iscroll.js',
+                            dataType: "script",
+                            async: false
+                          });
+                    }
+                    myScrollArea = new IScroll('#areaSelected .nctouch-main-layout-a', { mouseWheel: true, click: true });
+                } else {
+                    myScrollArea.destroy();
+                    myScrollArea = new IScroll('#areaSelected .nctouch-main-layout-a', { mouseWheel: true, click: true });
+                }
+            }
+        });
+        return false;
+    }
+    
+    function _bindEvent() {
+        $('#areaSelected').find('.nctouch-default-list').off('click', 'li > a');
+        $('#areaSelected').find('.nctouch-default-list').on('click', 'li > a', function(){
+            ASID = $(this).attr('data-id');
+            eval("ASID_"+ASDEEP+"=$(this).attr('data-id')");
+            ASNAME = $(this).attr('data-name');
+            ASINFO += ASNAME + ' ';
+            var _li = $('#areaSelected').find('#filtrate_ul').find('li').eq(ASDEEP);
+            _li.prev().find('a').attr({'data-id':ASID, 'data-name':ASNAME}).html(ASNAME);
+            if (ASDEEP == 3) {
+                _finish();
                 return false;
             }
-            
-            function _close() {
-                $('#areaSelected').find('.header-l').off('click', 'a');
-                $('#areaSelected').find('.header-l').on('click', 'a',function(){
-                    $('#areaSelected').find('.nctouch-full-mask').addClass('right').removeClass('left');
-                });
+            _getAreaList();
+        });
+        $('#areaSelected').find('#filtrate_ul').off('click', 'li > a');
+        $('#areaSelected').find('#filtrate_ul').on('click', 'li > a', function(){
+            if ($(this).parent().index() >= $('#areaSelected').find('#filtrate_ul').find('.selected').index()) {
                 return false;
             }
-            
-            return this.each(function() {
-                return _init();
-            })();
-        },
+            ASID = $(this).parent().prev().find('a').attr('data-id');
+            ASNAME = $(this).parent().prev().find('a').attr('data-name');
+            ASDEEP = $(this).parent().index();
+            ASINFO = '';
+            for (var i=0; i<$('#areaSelected').find('#filtrate_ul').find('a').length; i++) {
+                if (i < ASDEEP) {
+                    ASINFO += $('#areaSelected').find('#filtrate_ul').find('a').eq(i).attr('data-name') + ' ';
+                } else {
+                    var text = '';
+                    switch (i) {
+                    case 0:
+                        text = '一级地区'
+                        break;
+                    case 1:
+                        text = '二级地区'
+                        break;
+                    case 2:
+                        text = '三级地区';
+                        break;
+                    }
+                    $('#areaSelected').find('#filtrate_ul').find('a').eq(i).html(text);
+                }
+            }
+            _getAreaList();
+        });
+    }
+    
+    function _finish() {
+        var data = {area_id:ASID,area_id_1:ASID_1,area_id_2:ASID_2,area_id_3:ASID_3,area_name:ASNAME,area_info:ASINFO};
+        options.success.call('success', data);
+        if (!ASINIT) {
+            $('#areaSelected').find('.nctouch-full-mask').addClass('right').removeClass('left');
+        }
+        return false;
+    }
+    
+    function _close() {
+        $('#areaSelected').find('.header-l').off('click', 'a');
+        $('#areaSelected').find('.header-l').on('click', 'a',function(){
+            $('#areaSelected').find('.nctouch-full-mask').addClass('right').removeClass('left');
+        });
+        return false;
+    }
+    
+    return this.each(function() {
+        return _init();
+    })();
+},
         
 
 
@@ -320,7 +320,7 @@ areaSelected: function(options) {
                 });
             })();
         }
-    });
+
 function resetForm(t)
 {
     $("#manage-form").validate().resetForm();
