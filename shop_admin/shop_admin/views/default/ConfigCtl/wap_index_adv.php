@@ -62,6 +62,7 @@ div.bot {
     padding: 0 6px 0 13px;
     position: fixed;
   top: 100px;
+  right: 50px;
     vertical-align: middle;
 }
 </style>
