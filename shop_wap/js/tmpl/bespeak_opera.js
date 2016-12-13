@@ -2,7 +2,6 @@ $(function ()
 {
     var lj = getQueryString("lj");
     var wc = getCookie("key");
-    $.cookie("community_shopid",lj,{expires:7});
         //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
         $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0&shop_id="+lj, function (lj)
         {
