@@ -20,7 +20,9 @@ $(function ()
               console.log(r[i]);
             }
             if(cnm!=''){
-                
+                    var date=new Date(); 
+                    date.setTime(date.getTime()-11111111111);
+                    document.cookie="sb=''; path=/;"; //
             $('.area').html(cnm);
             $("#area_info").val(cnm);
             }
