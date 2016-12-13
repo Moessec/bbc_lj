@@ -10,10 +10,7 @@ body{
     .area{
         font-size: 0.8rem;
     }
-   .area .left_icon{
-    position: fixed;
-    left: 2rem;
-   }
+
 	.swiper-container {
 			width:100%;
 			height:auto;
@@ -129,12 +126,11 @@ body{
         	display: inline-block;
         	width: 1rem;
 		    height: 1rem;
-/*		    background-image: url(../images/iconfont/right-row.png);
-		    background-repeat: no-repeat;*/
+		    background-image: url(../images/iconfont/right-row.png);
+		    background-repeat: no-repeat;
 		    background-position: 50% 100%;
 		    background-size: 50%;
 		    opacity: 1;
-            background: #fff url(../images/iconfont/right-row.png) no-repeat fixed 50% 100%; 
 
         }
         .transparent .transparent-search{
