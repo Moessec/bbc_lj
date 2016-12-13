@@ -138,8 +138,8 @@
          var r = window.location.search.substr(1).match(reg);
          if(r!=null)return  unescape(r[2]); return null;
     }
-    escape();
-    alert(GetQueryString("lj"));
+
+    alert(decodeURI(GetQueryString("lj")));
     function sb(){
         document.cookie="sb=cnm; path=/";
         };
