@@ -149,13 +149,13 @@ $('#area_2').on('change', function () {
     }
 });
 
-    $('#area_1').on(' change', '#area_1', function () {
-        alert($(this).attr('name'));
-        $('#_area_1').val($(this).prop('name'));
-    });
-    $('#area_2').parent().on(' change', '#area_2', function () {
+    $('#area_2').on(' change', '#area_1', function () {
+        alert($('#area_1').attr('name'));
         $('#_area_2').val($(this).prop('name'));
     });
+    // $('#area_2').parent().on(' change', '#area_2', function () {
+    //     $('#_area_2').val($(this).prop('name'));
+    // });
 
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
 
