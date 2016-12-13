@@ -125,7 +125,6 @@ $('#area_2').on('change', function () {
             return false;
         }
         //排除直辖市
-        console.log(pid);
         $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (list) {
             var data = list.data;
             if (data.items && data.items.length > 0) {
