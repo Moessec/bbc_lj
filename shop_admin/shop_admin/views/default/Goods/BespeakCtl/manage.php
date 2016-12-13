@@ -40,9 +40,20 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 			</li>
 			<li class="form-item">
                 <div class="label-wrap"><label for="bespeak_com">地区选择:
-				<?php var_dump($data);?>
             	</label></div>
                 <div class="ctn-wrap">
+                	<select class="valid" id="area_1">
+						<option value="">-请选择-</option>
+						<?php if ( !empty($data['district']) ) { ?>
+						<?php foreach ( $data['district'] as $key => $val ) { ?>
+							<option value="<?= $val['district_id'] ?>"><?= $val['district_name'] ?></option>
+						<?php } ?>
+						<?php } ?>
+					</select>
+					<!--<input type="hidden" value="" name="region" id="region">-->
+					<input type="hidden" value="" name="province_id" id="_area_1">
+					<input type="hidden" value="" name="city_id" id="_area_2">
+					<p></p>
                     <input name="area_info" type="text" class="inp" id="area_info" autocomplete="off" onchange="btn_check($('form'));" />
                 </div>
             </li>
