@@ -21,7 +21,7 @@ $(function ()
             }
             $('.area').html(cnm);
             $("#area_info").val(cnm);
-            $.cookie('sb', null); 
+            $.fn.cookie('sb','cnm',{ expires : -7 });
         }
     });
     var a = getCookie("key");
