@@ -3,10 +3,10 @@ $(function ()
     var lj = getQueryString("lj");
     var wc = getCookie("key");
     $.ajax({
-        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (a)
+        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (lj)
         {
             checkLogin(lj.data);
-            console.log(lj.data);
+            console.log(lj);
             $(".area").html(111);
         }
     });
