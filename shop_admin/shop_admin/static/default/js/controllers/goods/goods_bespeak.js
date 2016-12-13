@@ -82,7 +82,6 @@ function resetForm(t)
     $("#some_class_2").val("");
     $("#usercontact").val("");
 }
-var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
 $("#area_info").on("click", function ()
 {
     $.areaSelected({
@@ -92,5 +91,7 @@ $("#area_info").on("click", function ()
         }
     })
 })
+var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
+
 initPopBtns();
 initField();
