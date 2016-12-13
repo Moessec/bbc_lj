@@ -4,9 +4,9 @@ $(function ()
     var wc = getCookie("key");
     var cnm='';
     $.ajax({
-        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (lj)
+        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (nmb)
         {
-            var r = lj.data.items;
+            var r = nmb.data.items;
             // console.info(r);
              var temp = '';
             for(var i in r)
@@ -17,7 +17,7 @@ $(function ()
               }
               console.log(temp);
               console.log(r[i]);
-              console.log(cnm);
+              console.log(lj);
             }
             $("#cnm").html(cnm);
         }
