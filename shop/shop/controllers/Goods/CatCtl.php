@@ -126,45 +126,7 @@ class Goods_CatCtl extends Controller
 
 		include $this->view->getView();
 	}
-
-	public function shoplists()
-	{
-var_dump(1);die;
-		// $user_id = Perm::$userId;
-		// $parent_id = request_int('parent_id');
-		// $shop_id = request_int('shop_id');
-		// $page = request_int('page');
-		// $rows = request_int('rows');
-		// $sort = request_int('sord');
-		// $shopGoodsCatModel = new Shop_GoodsCatModel();
-
-		// $cond_row  = array('shop_id'=>$shop_id,'parent_id'=>$parent_id);
-		// $order_row = array();
-
-		// $data = array();
-
-		// if ($skey = request_string('skey'))
-		// {
-		// 	$data = $shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
-		// }
-		// else
-		// {
-		// 	$data = $shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
-		// }
-
-		// $this->data->addBody(-140, $data);
-	}
-    	public function tree()
-		{
-
-			// var_dump(1);die;
-			$parent_id = request_int('parent_id');
-			$shop_id = request_int('shop_id');
-			$Shop_GoodsCatModel = new Shop_GoodCatModel();
-			$data['items'] = $Shop_GoodsCatModel->getChildCat($shop_id,$parent_id);
-
-			$this->data->addBody(-140, $data);
-		}		
+	
 }
 
 ?>
