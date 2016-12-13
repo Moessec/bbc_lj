@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1">
+<title>商铺</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_common.css">
+<link rel="stylesheet" type="text/css" href="../css/nctouch_cart.css">
+<link rel="stylesheet" type="text/css" href="../css/area_shop_list.css">
+<link rel="stylesheet" type="text/css" href="../css/xcConfirm.css"/>
+
+</head>
+<body>
+<header id="header" class="fixed">
+    <div class="header-wrap">
+        <div class="header-l">
+            <a href="javascript:history.go(-1)">
+                <i class="back"></i>
+            </a>
+        </div>
+        <div class="header-title"><span id='city'></span>●选择社区
+        </div>
+        <div class="header-r">
+            <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a>
+        </div>
+    </div>
+    <div class="nctouch-nav-layout">
+        <div class="nctouch-nav-menu">
+            <span class="arrow"></span>
+            <ul>
+                <li><a href="../index.html"><i class="home"></i>首页</a></li>
+                <li><a href="../tmpl/search.html"><i class="search"></i>搜索</a></li>
+                <li><a href="../tmpl/member/member.html"><i class="member"></i>我的商城</a></li>
+                <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+        <div hidden id="container1" 
+            style="position: absolute;
+                margin-top:30px; 
+                width: 730px; 
+                height: 590px; 
+                top: 50; 
+                border: 1px solid gray;
+                overflow:hidden;">
+        </div>
+<div class="nctouch-main-layout">
+    <div id="cart-list-wp"></div>
+</div>
+<footer id="footer" class="bottom"></footer>
+<div class="pre-loading hide">
+    <div class="pre-block">
+        <div class="spinner"><i></i></div>社区数据读取中...
+    </div>
+</div>
+<div id='shop_info'></div>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GAGiz9gdoRfTpImL6A2RZYxH"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="../js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script> 
+<script type="text/javascript" src="../js/zepto.js"></script>
+<script type="text/javascript" src="../js/config.php"></script>
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script> 
+<script type="text/javascript" src="../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../js/area_shop_list.js" charset="utf-8"></script> 
+
+</body></html>
