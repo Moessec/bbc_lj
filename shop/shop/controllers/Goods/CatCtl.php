@@ -128,7 +128,8 @@ class Goods_CatCtl extends Controller
 	}
 	public function shoplists()
 	{
-		var_dump(1);die;
+		$shopGoodsCatModel = new Shop_GoodsCatModel();
+		// var_dump(1);die;
 		$user_id = Perm::$userId;
 		$parent_id = request_int('parent_id');
 		$shop_id = request_int('shop_id');
@@ -143,11 +144,11 @@ class Goods_CatCtl extends Controller
 
 		if ($skey = request_string('skey'))
 		{
-			$data = $this->shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
+			$data = $shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
 		}
 		else
 		{
-			$data = $this->shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
+			$data = $shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
 		}
 
 
