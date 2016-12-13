@@ -11,7 +11,8 @@ body{
         font-size: 0.8rem;
     }
    .area .left_icon{
-
+    height: 0.8rem;
+    width: 0.8rem;
    }
 	.swiper-container {
 			width:100%;
