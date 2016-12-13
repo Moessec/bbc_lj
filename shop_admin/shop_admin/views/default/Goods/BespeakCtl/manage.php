@@ -45,40 +45,40 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 	<select class="valid" id="area_1">
 						<option value="">-请选择-</option>
 						<option name="北京" value="1">北京</option>
-						<option value="20">广西</option>
-						<option value="21">海南</option>
-						<option value="22">重庆</option>
-						<option value="23">四川</option>
-						<option value="24">贵州</option>
-						<option value="25">云南</option>
-						<option value="26">西藏</option>
-						<option value="27">陕西</option>
-						<option value="28">甘肃</option>
-						<option value="29">青海</option>
-						<option value="30">宁夏</option>
-						<option value="31">新疆</option>
-						<option value="32">台湾</option>
-						<option value="33">香港</option>
-						<option value="34">澳门</option>
-						<option value="19">广东</option>
-						<option value="18">湖南</option>
-						<option value="17">湖北</option>
-						<option value="2">天津</option>
-						<option value="3">河北</option>
-						<option value="4">山西</option>
-						<option value="5">内蒙古</option>
-						<option value="6">辽宁</option>
-						<option value="7">吉林</option>
-						<option value="8">黑龙江</option>
-						<option value="9">上海</option>
-						<option value="10">江苏</option>
-						<option value="11">浙江</option>
-						<option value="12">安徽</option>
-						<option value="13">福建</option>
-						<option value="14">江西</option>
-						<option value="15">山东</option>
-						<option value="16">河南</option>
-						<option value="35">海外</option>
+						<option name="广西" value="20">广西</option>
+						<option name="海南" value="21">海南</option>
+						<option name="重庆" value="22">重庆</option>
+						<option name="四川" value="23">四川</option>
+						<option name="贵州" value="24">贵州</option>
+						<option name="云南" value="25">云南</option>
+						<option name="西藏" value="26">西藏</option>
+						<option name="陕西" value="27">陕西</option>
+						<option name="甘肃" value="28">甘肃</option>
+						<option name="青海" value="29">青海</option>
+						<option name="宁夏" value="30">宁夏</option>
+						<option name="新疆" value="31">新疆</option>
+						<option name="台湾" value="32">台湾</option>
+						<option name="香港" value="33">香港</option>
+						<option name="澳门" value="34">澳门</option>
+						<option name="广东" value="19">广东</option>
+						<option name="湖南" value="18">湖南</option>
+						<option name="湖北" value="17">湖北</option>
+						<option name="天津" value="2">天津</option>
+						<option name="河北" value="3">河北</option>
+						<option name="山西" value="4">山西</option>
+						<option name="内蒙古" value="5">内蒙古</option>
+						<option name="辽宁" value="6">辽宁</option>
+						<option name="吉林" value="7">吉林</option>
+						<option name="黑龙江" value="8">黑龙江</option>
+						<option name="上海" value="9">上海</option>
+						<option name="江苏" value="10">江苏</option>
+						<option name="浙江" value="11">浙江</option>
+						<option name="安徽" value="12">安徽</option>
+						<option name="福建" value="13">福建</option>
+						<option name="江西" value="14">江西</option>
+						<option name="山东" value="15">山东</option>
+						<option name="河南" value="16">河南</option>
+						<option name="海外" value="35">海外</option>
 					</select>
 					<select id="area_2" class="valid">
 						<option>请选择</option>
@@ -130,8 +130,11 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     //图片上传
     $(document).ready(function(){
     	$('#area_1').on('change',function(){
-    	alert($('#area_1').find("option:selected").attr('name'));
-
+    		var v1 = $('#area_1').find("option:selected").attr('name'));
+    		$('#_area_1').val(v1);
+    	})
+    	$('#area_2').on('change',function(){
+    		alert($('#area_2').find("option:selected").attr('name'));
     	})
     })
     $(function(){
