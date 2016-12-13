@@ -16,6 +16,7 @@ $(function ()
                 cnm+=r[i].company_address_detail;
               }
               console.log(temp);
+              console.log(r[i]);
             }
             $(".area").html(cnm);
         }
