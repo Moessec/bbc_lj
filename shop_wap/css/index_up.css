@@ -13,6 +13,7 @@ body{
    .area .left_icon{
     height: 0.8rem;
     width: 0.8rem;
+    vertical-align:middle;
    }
 	.swiper-container {
 			width:100%;
