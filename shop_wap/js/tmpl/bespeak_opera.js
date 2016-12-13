@@ -13,6 +13,7 @@ $(function ()
             {
               temp = r[i].shop_id;
               if(temp==lj){
+                cnm+=r[i].business_license_location;
                 cnm+=r[i].company_address_detail;
               }
               console.log(r[i]);
@@ -54,18 +55,10 @@ $(function ()
             var ru = $("#usercontact").val();
             var rt = $("#starttime").val();
             var rc = $("#bespeak_com").val();
-            var d = $("#area_info").attr("data-areaid2");
-            var t = $("#area_info").attr("data-areaid");
             var bes_info = $("#area_info").val();
             var n = $("#address").val();
             var img = $("#img").val();
             var bespeak_place = $("#bespeak_place").val();
-
-            var province_id = $("#area_info").attr("data-areaid1");
-            var city_id = $("#area_info").attr("data-areaid2");
-            var area_id = $("#area_info").attr("data-areaid3");
-            var area_info = province_id+'-'+city_id+'-'+area_id;
-
 
               var partten = /^1[3,4,5,7,8]\d{9}$/;
               if(partten.test(ru))
@@ -73,7 +66,7 @@ $(function ()
                 $.ajax({
                     type: "post",
                     url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=addBespeakInfo&typ=json",
-                    data: {k:a,u:getCookie('id'), true_name: e, usercontact: ru, bespeak_area_info: area_info, bespeak_address: n, bes_address: bes_info, bespeak_com: rc, bespeak_place:bespeak_place, img:img, starttime: rt},
+                    data: {k:a,u:getCookie('id'), true_name: e, usercontact: ru,  bespeak_address: n, bes_address: bes_info, bespeak_com: rc, bespeak_place:bespeak_place, img:img, starttime: rt},
 
                     dataType: "json",
                     success: function (a)
