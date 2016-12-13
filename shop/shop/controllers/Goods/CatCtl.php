@@ -129,30 +129,30 @@ class Goods_CatCtl extends Controller
 
 	public function shoplists()
 	{
-var_dump($data);die;
-		$user_id = Perm::$userId;
-		$parent_id = request_int('parent_id');
-		$shop_id = request_int('shop_id');
-		$page = request_int('page');
-		$rows = request_int('rows');
-		$sort = request_int('sord');
-		$shopGoodsCatModel = new Shop_GoodsCatModel();
+var_dump(1);die;
+		// $user_id = Perm::$userId;
+		// $parent_id = request_int('parent_id');
+		// $shop_id = request_int('shop_id');
+		// $page = request_int('page');
+		// $rows = request_int('rows');
+		// $sort = request_int('sord');
+		// $shopGoodsCatModel = new Shop_GoodsCatModel();
 
-		$cond_row  = array('shop_id'=>$shop_id,'parent_id'=>$parent_id);
-		$order_row = array();
+		// $cond_row  = array('shop_id'=>$shop_id,'parent_id'=>$parent_id);
+		// $order_row = array();
 
-		$data = array();
+		// $data = array();
 
-		if ($skey = request_string('skey'))
-		{
-			$data = $shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
-		}
-		else
-		{
-			$data = $shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
-		}
+		// if ($skey = request_string('skey'))
+		// {
+		// 	$data = $shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
+		// }
+		// else
+		// {
+		// 	$data = $shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
+		// }
 
-		$this->data->addBody(-140, $data);
+		// $this->data->addBody(-140, $data);
 	}
     	public function tree()
 		{
