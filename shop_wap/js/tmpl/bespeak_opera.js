@@ -11,12 +11,9 @@ $(function ()
              var temp = '';
             for(var i in r)
             {
-                      temp = r[i].shop_company_address;
-                      tem = temp.split(' ')[1];
-                      // alert(tem);
-                      // alert(city);
+                      temp = r[i];
+                      
                       console.log(temp);
-                      console.log(tem);
             }
             $(".area").html(111);
         }
