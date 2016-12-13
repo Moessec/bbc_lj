@@ -133,13 +133,13 @@ class Goods_CatCtl extends Controller
 	 */
 	public function shoplists()
 	{
+var_dump($data);die
 		$user_id = Perm::$userId;
 		$parent_id = request_int('parent_id');
 		$shop_id = request_int('shop_id');
 		$page = request_int('page');
 		$rows = request_int('rows');
 		$sort = request_int('sord');
-var_dump($data);die
 		$shopGoodsCatModel = new Shop_GoodsCatModel();
 
 		$cond_row  = array('shop_id'=>$shop_id,'parent_id'=>$parent_id);
