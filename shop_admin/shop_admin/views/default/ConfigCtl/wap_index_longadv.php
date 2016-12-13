@@ -68,7 +68,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片2</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_longadv2_review" src="<?=@($data['wap_index_longadv2_image']['config_value'])?>" width="750" height="80"/>
+                <img id="wap_index_longadv2_review" src="<?=@($data['wap_index_longadv2_image']['config_value'])?>" width="750" height="60"/>
                 <input type="hidden" id="wap_index_longadv2_image" name="wap_index_adv[wap_index_longadv2_image]" value="<?=@($data['wap_index_longadv2_image']['config_value'])?>" />
                 <div  id='wap_index_longadv2_upload' class="image-line upload-image" >图片上传</div>
 
@@ -76,7 +76,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_longadv_link2]" value="<?=@($data['wap_index_longadv_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_longadv_link2" class="error valid"></label></span>
-           <p class="notic">请使用宽度750像素，高度80像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+           <p class="notic">请使用宽度750像素，高度60像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>
@@ -102,7 +102,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片4</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_longadv4_review" src="<?=@($data['wap_index_longadv4_image']['config_value'])?>" width="750" height="80"/>
+                <img id="wap_index_longadv4_review" src="<?=@($data['wap_index_longadv4_image']['config_value'])?>" width="750" height="60"/>
                 <input type="hidden" id="wap_index_longadv4_image" name="wap_index_adv[wap_index_longadv4_image]" value="<?=@($data['wap_index_longadv4_image']['config_value'])?>" />
                 <div  id='wap_index_longadv4_upload' class="image-line upload-image" >图片上传</div>
 
@@ -110,7 +110,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_longadv_link4]" value="<?=@($data['wap_index_longadv_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_longadv_link4" class="error valid"></label></span>
-           <p class="notic">请使用宽度750像素，高度80像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+           <p class="notic">请使用宽度750像素，高度60像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>
@@ -136,7 +136,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片6</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_longadv6_review" src="<?=@($data['wap_index_longadv6_image']['config_value'])?>" width="750" height="80"/>
+                <img id="wap_index_longadv6_review" src="<?=@($data['wap_index_longadv6_image']['config_value'])?>" width="750" height="60"/>
                 <input type="hidden" id="wap_index_longadv6_image" name="wap_index_adv[wap_index_longadv6_image]" value="<?=@($data['wap_index_longadv6_image']['config_value'])?>" />
                 <div  id='wap_index_longadv6_upload' class="image-line upload-image" >图片上传</div>
 
@@ -144,7 +144,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_longadv_link6]" value="<?=@($data['wap_index_longadv_link6']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_longadv_link6" class="error valid"></label></span>
-           <p class="notic">请使用宽度750像素，高度80像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+           <p class="notic">请使用宽度750像素，高度60像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>                       
@@ -170,7 +170,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             } else if ( this.id == 'wap_index_longadv2_upload' ) {
                 $imagePreview = $('#wap_index_longadv2_review');
                 $imageInput = $('#wap_index_longadv2_image');
-                imageWidth = 750, imageHeight = 80;
+                imageWidth = 750, imageHeight = 60;
             }  else if ( this.id == 'wap_index_longadv3_upload' ) {
                 $imagePreview = $('#wap_index_longadv3_review');
                 $imageInput = $('#wap_index_longadv3_image');
@@ -178,7 +178,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             }else if ( this.id == 'wap_index_longadv4_upload' ) {
                 $imagePreview = $('#wap_index_longadv4_review');
                 $imageInput = $('#wap_index_longadv4_image');
-                imageWidth = 750, imageHeight = 80;
+                imageWidth = 750, imageHeight = 60;
             }else if ( this.id == 'wap_index_longadv5_upload' ){
                 $imagePreview = $('#wap_index_longadv5_review');
                 $imageInput = $('#wap_index_longadv5_image');
@@ -186,7 +186,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             }else {
                 $imagePreview = $('#wap_index_longadv6_review');
                 $imageInput = $('#wap_index_longadv6_image');
-                imageWidth = 750, imageHeight = 80;
+                imageWidth = 750, imageHeight = 60;
             }
 
             console.info($imagePreview);
