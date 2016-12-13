@@ -44,7 +44,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <div class="ctn-wrap">
                 	<select class="valid" id="area_1">
 						<option value="">-请选择-</option>
-						<?php if ( !empty($data['district']) ) { ?>
+						<?php var_dump($data); if ( !empty($data['district']) ) { ?>
 						<?php foreach ( $data['district'] as $key => $val ) { ?>
 							<option value="<?= $val['district_id'] ?>"><?= $val['district_name'] ?></option>
 						<?php } ?>
