@@ -26,7 +26,7 @@ $(function ()
                        // tem+='<div class="error-tips"></div><div class="form-btn"><a style="    margin-bottom: 15px;" class="btn" href="'+value.bespeak_id+'">'+value.bespeaka+'</a></div></dl>';
                        if(value.bespeaka=='已预约')
                        {
-                      tem+='<button style="width:90%;height: 1.8rem;font-size:0.8rem;text-align:center;border:none;border-radius:0.2rem;margin-top:20px;margin:20px 5%;background-color:#F0F0F0">已参与</button>';
+                      tem+='<button style="width:90%;height: 1.8rem;font-size:0.8rem;text-align:center;border:none;border-radius:0.2rem;margin-top:20px;margin:20px 5%;">已参与</button>';
 
                        }
                        else
