@@ -128,7 +128,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 </div>
 <script>
     //图片上传
-    alert($('#area_1').attr('name'));
+    alert($('#area_1').find("option:selected").attr('name'));
     $(function(){
         buyer_logo_upload = new UploadImage({
             thumbnailWidth: 240,
