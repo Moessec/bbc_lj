@@ -146,6 +146,7 @@ body{
 		    display: block;
     		height: 1.6rem;
     		margin:0.275rem auto;
+            margin-left: 1.3rem;
         } 
         .width{
         	60%;
