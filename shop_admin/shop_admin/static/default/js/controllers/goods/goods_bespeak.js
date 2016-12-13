@@ -100,7 +100,9 @@ $('#area_1').on('change', function () {
         if( $.inArray(Number(pid), BigCity) == -1  ) {
 
             $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {pid: pid}, function (data) {
+                console.log(data);
                 var data = data.data;
+                console.log(data);
                 if (data.items && data.items.length > 0) {
                     var options = null, select = null;
                     for ( var i = 0; i < data.items.length; i++ ) {
