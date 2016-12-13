@@ -86,7 +86,6 @@ function resetForm(t)
 }
 
 $('#area_1').on('change', function () {
-    $('#_area_1').val($(this).attr('name'));
         var $this = $(this), pid = $(this).val(), BigCity = [1, 2, 9, 22];
 
         //排除直辖市
@@ -117,7 +116,6 @@ $('#area_1').on('change', function () {
 });
 
 $('#area_2').on('change', function () {
-    $('#_area_2').val($(this).val());
     if ( this.value == 0 ){
         if ( $('#area_3').length > 0 ) {
             $('#area_3').remove();
@@ -149,13 +147,13 @@ $('#area_2').on('change', function () {
     }
 });
 
-    // $('#area_2').on(' change', '#area_1', function () {
-    //     alert($('#area_1').attr('name'));
-    //     $('#_area_2').val($(this).prop('name'));
-    // });
-    // $('#area_2').parent().on(' change', '#area_2', function () {
-    //     $('#_area_2').val($(this).prop('name'));
-    // });
+    $('#area_1').on(' change', '#area_1', function () {
+        alert($('#area_1').attr('name'));
+        $('#_area_2').val($(this).prop('name'));
+    });
+    $('#area_2').parent().on(' change', '#area_2', function () {
+        $('#_area_2').val($(this).prop('name'));
+    });
 
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
 
