@@ -14,12 +14,14 @@ $(function ()
               temp = r[i].shop_id;
               if(temp==lj){
                 cnm+=r[i].business_license_location;
+                cnm+='  ';
                 cnm+=r[i].company_address_detail;
               }
               console.log(r[i]);
             }
             $('.area').html(cnm);
             $("#area_info").val(cnm);
+            $.cookie('sb', null); 
         }
     });
     var a = getCookie("key");
