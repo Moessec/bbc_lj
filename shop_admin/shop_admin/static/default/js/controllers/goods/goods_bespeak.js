@@ -108,7 +108,7 @@ $('#area_1').on('change', function () {
                     var options = null, select = null;
                     for ( var i = 0; i < data.items.length; i++ ) {
                         if ( i == 0 ) $('#_area_2').val(data.items[i]['district_id']);
-                        options += '<option value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
+                        options += '<option name=' + data.items[i]['district_name'] + ' value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
                     }
                     $('#area_2').html(options);
                 }
@@ -139,7 +139,7 @@ $('#area_2').on('change', function () {
                 var options = null, select = null;
                 for ( var i = 0; i < data.items.length; i++ ) {
                     if ( i == 0 ) $('#_area_3').val(data.items[i]['district_id']);
-                    options += '<option value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
+                    options += '<option name=' + data.items[i]['district_name'] + ' value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
                 }
                 select = '<select id="area_3" class="valid">' + options + '</select>';
 
@@ -150,10 +150,10 @@ $('#area_2').on('change', function () {
 });
 
     $('#area_1').parent().on(' change', '#area_2', function () {
-        $('#_area_2').val($(this).text());
+        $('#_area_2').val($(this).attr('name'));
     });
     $('#area_2').parent().on(' change', '#area_3', function () {
-        $('#_area_3').val($(this).text());
+        $('#_area_3').val($(this).attr('name'));
     });
 
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
