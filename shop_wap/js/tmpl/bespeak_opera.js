@@ -11,11 +11,13 @@ $(function ()
              var temp = '';
             for(var i in r)
             {
-                      temp = r[i];
-                      
+                      temp = r[i].shop_id;
+                      if(temp==lj){
+                        cnm=r[i].company_address_detail;
+                      }
                       console.log(temp);
             }
-            $(".area").html(111);
+            $(".area").html(cnm);
         }
     });
     var a = getCookie("key");
