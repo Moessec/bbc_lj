@@ -80,7 +80,10 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 						<option name="河南" value="16">河南</option>
 						<option name="海外" value="35">海外</option>
 					</select>
-					<select id="area_2" class="valid">
+					<select id="area_2" class="valid" style="display:none">
+						<option>请选择</option>
+					</select>
+					<select id="area_3" class="valid" style="display:none">
 						<option>请选择</option>
 					</select>
 					<!--<input type="hidden" value="" name="region" id="region">-->

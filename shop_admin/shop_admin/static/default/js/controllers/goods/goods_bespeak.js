@@ -106,6 +106,7 @@ $('#area_1').on('change', function () {
                         if ( i == 0 ) $('#_area_2').val(data.items[i]['district_id']);
                         options += '<option name=' + data.items[i]['district_name'] + ' value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
                     }
+                    $('#area_2').remove('style');
                     $('#area_2').html(options);
                 }
             });
@@ -130,22 +131,17 @@ $('#area_2').on('change', function () {
             if (data.items && data.items.length > 0) {
                 var options = null, select = null;
                 for ( var i = 0; i < data.items.length; i++ ) {
-                    if ( i == 0 ) $('#_area_3').val(data.items[i]['district_name']);
+                    if ( i == 0 ) $('#_area_3').val(data.items[i]['district_id']);
                     options += '<option name=' + data.items[i]['district_name'] + ' value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
                 }
-                select = '<select id="area_3" class="valid">' + options + '</select>';
 
-                $this.after( select );
+                    $('#area_3').remove('style');
+                $('#area_3').html(options);
             }
         });
     }
 });
-$('#area_3').on('change',function(){
-            var v3 = $('#area_3').find("option:selected").attr('name');
-            var val = $('#area_info').val();
-            $('#area_info').val(val+v3);
-            $('#_area_3').val(v3);
-        })
+
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
 
 initPopBtns();
