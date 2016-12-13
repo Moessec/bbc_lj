@@ -118,6 +118,7 @@ $('#area_1').on('change', function () {
 });
 
 $('#area_2').on('change', function () {
+    alert(111);
     $('#_area_2').val($(this).val());
     if ( this.value == 0 ){
         if ( $('#area_3').length > 0 ) {
