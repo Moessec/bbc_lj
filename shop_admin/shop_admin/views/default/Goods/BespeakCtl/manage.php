@@ -39,7 +39,9 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 				<div class="ctn-wrap"><textarea type="text" value="" class="ui-input" name="bespeak_com" id="bespeak_com"></textarea></div>
 			</li>
 			<li class="form-item">
-                <div class="label-wrap"><label for="bespeak_com">地区选择:</label></div>
+                <div class="label-wrap"><label for="bespeak_com">地区选择:
+				<?php var_dump($data);?>
+            	</label></div>
                 <div class="ctn-wrap">
                     <input name="area_info" type="text" class="inp" id="area_info" autocomplete="off" onchange="btn_check($('form'));" />
                 </div>

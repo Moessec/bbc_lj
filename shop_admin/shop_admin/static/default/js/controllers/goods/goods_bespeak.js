@@ -85,6 +85,41 @@ function resetForm(t)
     $("#usercontact").val("");
 }
 
+$('#area_1').on('change', function () {
+        $('#_area_1').val($(this).val());
+        if ( this.value == 0 ){
+            if ( $('#area_2').length > 0 ) {
+                $('#area_2').remove();
+            }
+        } else {
+            $('#area_2').remove();
+            var $this = $(this), pid = $(this).val(), BigCity = [1, 2, 9, 22];
+
+            //排除直辖市
+
+            if( $.inArray(Number(pid), BigCity) == -1  ) {
+
+                $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {pid: pid}, function (data) {
+                    var data = data.data;
+                    if (data.items && data.items.length > 0) {
+                        var options = null, select = null;
+                        for ( var i = 0; i < data.items.length; i++ ) {
+                            if ( i == 0 ) $('#_area_2').val(data.items[i]['district_id']);
+                            options += '<option value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
+                        }
+                        select = '<select id="area_2" class="valid">' + options + '</select>';
+
+                        $this.after( select );
+                    }
+                });
+            }
+        }
+    });
+
+    $('#area_1').parent().on(' change', '#area_2', function () {
+        $('#_area_2').val($(this).val());
+    });
+
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
 
 initPopBtns();
