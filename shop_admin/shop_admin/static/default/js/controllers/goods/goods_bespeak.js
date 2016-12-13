@@ -108,7 +108,7 @@ $('#area_1').on('change', function () {
                     var options = null, select = null;
                     for ( var i = 0; i < data.items.length; i++ ) {
                         if ( i == 0 ) $('#_area_2').val(data.items[i]['district_id']);
-                        options += '<option value="' + data.items[i]['district_name'] + '">' + data.items[i]['district_name'] + '</option>';
+                        options += '<option value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
                     }
                     $('#area_2').html(options);
                 }
@@ -125,16 +125,21 @@ $('#area_2').on('change', function () {
     } else {
         $('#area_3').remove();
         var $this = $(this), pid = $(this).val();
-        
+        var a1 = $('#area_1').val(), BigCity = [1, 2, 9, 22];
+        if($.inArray(Number(a1),BigCity) != -1){
+            return false;
+        }
         //排除直辖市
         console.log(pid);
         $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (list) {
+            console.log(SITE_URL);
             var data = list.data;
+            console.log(data);
             if (data.items && data.items.length > 0) {
                 var options = null, select = null;
                 for ( var i = 0; i < data.items.length; i++ ) {
                     if ( i == 0 ) $('#_area_3').val(data.items[i]['district_id']);
-                    options += '<option value="' + data.items[i]['district_name'] + '">' + data.items[i]['district_name'] + '</option>';
+                    options += '<option value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
                 }
                 select = '<select id="area_3" class="valid">' + options + '</select>';
 
