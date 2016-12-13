@@ -140,14 +140,16 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     	$('#area_2').on('change',function(){
     		var v2 = $('#area_2').find("option:selected").attr('name');
     		var val = $('#area_info').val();
-    		$('#area_info').val(val+v2);
     		$('#_area_2').val(v2);
+    		var v22 = $('#_area_2').val();
+    		$('#area_info').val(val+v22);
     	})
-    	$('#area_3').on('click',function(){
+    	$('#area_3').on('change',function(){
     		var v3 = $('#area_3').find("option:selected").attr('name');
     		var val = $('#area_info').val();
-    		$('#area_info').val(val+v3);
     		$('#_area_3').val(v3);
+    		var v33 = $('#_area_3').val();
+    		$('#area_info').val(val+v33);
     	})
     })
     $(function(){
