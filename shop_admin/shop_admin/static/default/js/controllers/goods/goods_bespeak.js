@@ -87,11 +87,6 @@ function resetForm(t)
 
 $('#area_1').on('change', function () {
     $('#_area_1').val($(this).val());
-    if ( this.value == 0 ){
-        if ( $('#area_2').length > 0 ) {
-            $('#area_2').remove();
-        }
-    } else {
         $('#area_2').remove();
         var $this = $(this), pid = $(this).val(), BigCity = [1, 2, 9, 22];
 
@@ -112,7 +107,7 @@ $('#area_1').on('change', function () {
                 }
             });
         }
-    }
+    
 });
 
 $('#area_2').on('change', function () {
