@@ -2,14 +2,14 @@ $(function ()
 {
     var lj = getQueryString("lj");
     var wc = getCookie("key");
-        //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
-        $.getJSON(ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0&shop_id="+lj, function (lj)
+    $.ajax({
+        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (lj)
         {
-            console.info(lj);
-            var r = lj.data;
+            checkLogin(lj.data);
             console.log(lj);
             $(".area").html(111);
-        });
+        }
+    });
     var a = getCookie("key");
     $.sValid.init({
         rules: {true_name: "required", usercontact: "required", area_info: "required", address: "required", bespeak_title: "required"},
