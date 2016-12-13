@@ -126,14 +126,10 @@ class Goods_CatCtl extends Controller
 
 		include $this->view->getView();
 	}
-	/**
-	 * 列表数据
-	 *
-	 * @access public
-	 */
+
 	public function shoplists()
 	{
-var_dump($data);die
+var_dump($data);die;
 		$user_id = Perm::$userId;
 		$parent_id = request_int('parent_id');
 		$shop_id = request_int('shop_id');
