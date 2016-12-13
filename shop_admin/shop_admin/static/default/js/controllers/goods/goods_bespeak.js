@@ -118,6 +118,10 @@ $('#area_1').on('change', function () {
 
 $('#area_2').on('change', function () {
     $('#_area_2').val($(this).val());
+    var a1 = $('#area_1').val(), BigCity = [1, 2, 9, 22];
+        if($.inArray(Number(a1),BigCity) != -1){
+            return false;
+        }
     if ( this.value == 0 ){
         if ( $('#area_3').length > 0 ) {
             $('#area_3').remove();
@@ -125,10 +129,7 @@ $('#area_2').on('change', function () {
     } else {
         $('#area_3').remove();
         var $this = $(this), pid = $(this).val();
-        var a1 = $('#area_1').val(), BigCity = [1, 2, 9, 22];
-        if($.inArray(Number(a1),BigCity) != -1){
-            return false;
-        }
+        
         //排除直辖市
         console.log(a1);
         $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (list) {
