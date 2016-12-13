@@ -139,8 +139,8 @@ class Goods_CatCtl extends Controller
 		$page = request_int('page');
 		$rows = request_int('rows');
 		$sort = request_int('sord');
-		$shopGoodsCatModel = new Shop_GoodsCatModel();
 var_dump($data);die
+		$shopGoodsCatModel = new Shop_GoodsCatModel();
 
 		$cond_row  = array('shop_id'=>$shop_id,'parent_id'=>$parent_id);
 		$order_row = array();
