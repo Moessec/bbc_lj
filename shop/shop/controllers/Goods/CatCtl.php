@@ -136,7 +136,6 @@ class Goods_CatCtl extends Controller
 		$page = request_int('page');
 		$rows = request_int('rows');
 		$sort = request_int('sord');
-var_dump(1);die;
 		$cond_row  = array('shop_id'=>$shop_id,'parent_id'=>$parent_id);
 		$order_row = array();
 
@@ -151,6 +150,7 @@ var_dump(1);die;
 			$data = $shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
 		}
 
+var_dump($data);die;
 
 		$this->data->addBody(-140, $data);
 	}		
