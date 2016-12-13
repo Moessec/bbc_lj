@@ -92,7 +92,7 @@ div.bot {
           <span id="explanationZoom" title="收起提示"></span><em class="close_warn">X</em>
         </div>
         <ul>
-              <li>该组图片应用于首页下栏广告使用，最多可上传20张图片。</li>
+              <li>该组图片应用于首页下栏广告使用，最多可上传18张图片。</li>
               <li>图片要求使用宽度为170像素，高度为170像素jpg/gif/png格式的图片。</li>
               <li>上传图片后请添加格式为“http://网址...”链接地址，设定后将在显示页面中点击幻灯片将以另打开窗口的形式跳转到指定网址。</li>
         </ul>
@@ -106,7 +106,7 @@ div.bot {
           <label>图片1</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv1_review" src="<?=@($data['wap_index_adv1_image']['config_value'])?>" width="170" height="170"/>
+                <img id="wap_index_adv1_review" src="<?=@($data['wap_index_adv1_image']['config_value'])?>" width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv1_image" name="wap_index_adv[wap_index_adv1_image]" value="<?=@($data['wap_index_adv1_image']['config_value'])?>" />
                 <div  id='wap_index_adv1_upload' class="image-line upload-image" >上传</div>
 
@@ -114,7 +114,7 @@ div.bot {
                 <input class="ui-input w400" style="margin:5px 0;size:auto" type="text" name="wap_index_adv[wap_index_adv_link1]" value="<?=@($data['wap_index_adv_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link1" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
             </p>
         </dd>
       </dl>
@@ -124,7 +124,7 @@ div.bot {
           <label>图片2</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv2_review" src="<?=@($data['wap_index_adv2_image']['config_value'])?>" width="170" height="170"/>
+                <img id="wap_index_adv2_review" src="<?=@($data['wap_index_adv2_image']['config_value'])?>" width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv2_image" name="wap_index_adv[wap_index_adv2_image]" value="<?=@($data['wap_index_adv2_image']['config_value'])?>" />
                 <div  id='wap_index_adv2_upload' class="image-line upload-image" >上传</div>
 
@@ -132,7 +132,7 @@ div.bot {
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link2]" value="<?=@($data['wap_index_adv_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link2" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -143,7 +143,7 @@ div.bot {
           <label>图片3</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv3_review" src="<?=@($data['wap_index_adv3_image']['config_value'])?>" width="170" height="170"/>
+                <img id="wap_index_adv3_review" src="<?=@($data['wap_index_adv3_image']['config_value'])?>" width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv3_image" name="wap_index_adv[wap_index_adv3_image]" value="<?=@($data['wap_index_adv3_image']['config_value'])?>" />
                 <div  id='wap_index_adv3_upload' class="image-line upload-image" >上传</div>
 
@@ -151,7 +151,7 @@ div.bot {
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link3]" value="<?=@($data['wap_index_adv_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link3" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -161,7 +161,7 @@ div.bot {
           <label>图片4</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv4_review" src="<?=@($data['wap_index_adv4_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv4_review" src="<?=@($data['wap_index_adv4_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv4_image" name="wap_index_adv[wap_index_adv4_image]" value="<?=@($data['wap_index_adv4_image']['config_value'])?>" />
                 <div  id='wap_index_adv4_upload' class="image-line upload-image" >上传</div>
 
@@ -169,7 +169,7 @@ div.bot {
                 <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link4]" value="<?=@($data['wap_index_adv_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link4" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -178,7 +178,7 @@ div.bot {
           <label>图片5</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv5_review" src="<?=@($data['wap_index_adv5_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv5_review" src="<?=@($data['wap_index_adv5_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv5_image" name="wap_index_adv[wap_index_adv5_image]" value="<?=@($data['wap_index_adv5_image']['config_value'])?>" />
                 <div  id='wap_index_adv5_upload' class="image-line upload-image" >上传</div>
 
@@ -186,7 +186,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link5]" value="<?=@($data['wap_index_adv_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link5" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>      
@@ -195,7 +195,7 @@ div.bot {
           <label>图片6</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv6_review" src="<?=@($data['wap_index_adv6_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv6_review" src="<?=@($data['wap_index_adv6_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv6_image" name="wap_index_adv[wap_index_adv6_image]" value="<?=@($data['wap_index_adv6_image']['config_value'])?>" />
                 <div  id='wap_index_adv6_upload' class="image-line upload-image" >上传</div>
 
@@ -203,7 +203,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link6]" value="<?=@($data['wap_index_adv_link6']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link6" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -212,7 +212,7 @@ div.bot {
           <label>图片7</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv7_review" src="<?=@($data['wap_index_adv7_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv7_review" src="<?=@($data['wap_index_adv7_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv7_image" name="wap_index_adv[wap_index_adv7_image]" value="<?=@($data['wap_index_adv7_image']['config_value'])?>" />
                 <div  id='wap_index_adv7_upload' class="image-line upload-image" >上传</div>
 
@@ -220,7 +220,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link7]" value="<?=@($data['wap_index_adv_link7']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link7" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -229,7 +229,7 @@ div.bot {
           <label>图片8</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv8_review" src="<?=@($data['wap_index_adv8_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv8_review" src="<?=@($data['wap_index_adv8_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv8_image" name="wap_index_adv[wap_index_adv8_image]" value="<?=@($data['wap_index_adv8_image']['config_value'])?>" />
                 <div  id='wap_index_adv8_upload' class="image-line upload-image" >上传</div>
 
@@ -237,7 +237,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link8]" value="<?=@($data['wap_index_adv_link8']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link8" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -247,7 +247,7 @@ div.bot {
           <label>图片9</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv9_review" src="<?=@($data['wap_index_adv9_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv9_review" src="<?=@($data['wap_index_adv9_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv9_image" name="wap_index_adv[wap_index_adv9_image]" value="<?=@($data['wap_index_adv9_image']['config_value'])?>" />
                 <div  id='wap_index_adv9_upload' class="image-line upload-image" >上传</div>
 
@@ -255,7 +255,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link9]" value="<?=@($data['wap_index_adv_link9']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link9" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -264,7 +264,7 @@ div.bot {
           <label>图片10</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv10_review" src="<?=@($data['wap_index_adv10_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv10_review" src="<?=@($data['wap_index_adv10_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv10_image" name="wap_index_adv[wap_index_adv10_image]" value="<?=@($data['wap_index_adv10_image']['config_value'])?>" />
                 <div  id='wap_index_adv10_upload' class="image-line upload-image" >上传</div>
 
@@ -272,7 +272,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link10]" value="<?=@($data['wap_index_adv_link10']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link10" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -281,7 +281,7 @@ div.bot {
           <label>图片11</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv11_review" src="<?=@($data['wap_index_adv11_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv11_review" src="<?=@($data['wap_index_adv11_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv11_image" name="wap_index_adv[wap_index_adv11_image]" value="<?=@($data['wap_index_adv11_image']['config_value'])?>" />
                 <div  id='wap_index_adv11_upload' class="image-line upload-image" >上传</div>
 
@@ -289,7 +289,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link11]" value="<?=@($data['wap_index_adv_link11']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link11" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -298,7 +298,7 @@ div.bot {
           <label>图片12</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv12_review" src="<?=@($data['wap_index_adv12_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv12_review" src="<?=@($data['wap_index_adv12_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv12_image" name="wap_index_adv[wap_index_adv12_image]" value="<?=@($data['wap_index_adv12_image']['config_value'])?>" />
                 <div  id='wap_index_adv12_upload' class="image-line upload-image" >上传</div>
 
@@ -306,7 +306,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link12]" value="<?=@($data['wap_index_adv_link12']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link12" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -315,7 +315,7 @@ div.bot {
           <label>图片13</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv13_review" src="<?=@($data['wap_index_adv13_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv13_review" src="<?=@($data['wap_index_adv13_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv13_image" name="wap_index_adv[wap_index_adv13_image]" value="<?=@($data['wap_index_adv13_image']['config_value'])?>" />
                 <div  id='wap_index_adv13_upload' class="image-line upload-image" >上传</div>
 
@@ -323,7 +323,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link13]" value="<?=@($data['wap_index_adv_link13']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link13" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -332,7 +332,7 @@ div.bot {
           <label>图片14</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv14_review" src="<?=@($data['wap_index_adv14_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv14_review" src="<?=@($data['wap_index_adv14_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv14_image" name="wap_index_adv[wap_index_adv14_image]" value="<?=@($data['wap_index_adv14_image']['config_value'])?>" />
                 <div  id='wap_index_adv14_upload' class="image-line upload-image" >上传</div>
 
@@ -340,7 +340,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link14]" value="<?=@($data['wap_index_adv_link14']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link14" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -349,7 +349,7 @@ div.bot {
           <label>图片15</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv15_review" src="<?=@($data['wap_index_adv15_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv15_review" src="<?=@($data['wap_index_adv15_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv15_image" name="wap_index_adv[wap_index_adv15_image]" value="<?=@($data['wap_index_adv15_image']['config_value'])?>" />
                 <div  id='wap_index_adv15_upload' class="image-line upload-image" >上传</div>
 
@@ -357,7 +357,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link15]" value="<?=@($data['wap_index_adv_link15']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link15" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -366,7 +366,7 @@ div.bot {
           <label>图片16</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv16_review" src="<?=@($data['wap_index_adv16_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv16_review" src="<?=@($data['wap_index_adv16_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv16_image" name="wap_index_adv[wap_index_adv16_image]" value="<?=@($data['wap_index_adv16_image']['config_value'])?>" />
                 <div  id='wap_index_adv16_upload' class="image-line upload-image" >上传</div>
 
@@ -374,7 +374,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link16]" value="<?=@($data['wap_index_adv_link16']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link16" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -383,7 +383,7 @@ div.bot {
           <label>图片17</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv17_review" src="<?=@($data['wap_index_adv17_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv17_review" src="<?=@($data['wap_index_adv17_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv17_image" name="wap_index_adv[wap_index_adv17_image]" value="<?=@($data['wap_index_adv17_image']['config_value'])?>" />
                 <div  id='wap_index_adv17_upload' class="image-line upload-image" >上传</div>
 
@@ -391,7 +391,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link17]" value="<?=@($data['wap_index_adv_link17']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link17" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
@@ -400,7 +400,7 @@ div.bot {
           <label>图片18</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_adv18_review" src="<?=@($data['wap_index_adv18_image']['config_value'])?>"  width="170" height="170"/>
+                <img id="wap_index_adv18_review" src="<?=@($data['wap_index_adv18_image']['config_value'])?>"  width="249" height="249"/>
                 <input type="hidden" id="wap_index_adv18_image" name="wap_index_adv[wap_index_adv18_image]" value="<?=@($data['wap_index_adv18_image']['config_value'])?>" />
                 <div  id='wap_index_adv18_upload' class="image-line upload-image" >上传</div>
 
@@ -408,7 +408,7 @@ div.bot {
                 <input class="ui-input  w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_adv_link18]" value="<?=@($data['wap_index_adv_link18']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_adv_link18" class="error valid"></label></span>
-           <p class="notic" style="width: 180px">宽170px高170px的jpg/png格式<br>
+           <p class="notic" style="width: 180px">宽249px高249px的jpg/png格式<br>
           
         </dd>
       </dl>
