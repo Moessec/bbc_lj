@@ -6,8 +6,18 @@ $(function ()
     $.ajax({
         type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (lj)
         {
-            checkLogin(lj.data);
-            console.log(lj);
+            var r = lj.data.items;
+            // console.info(r);
+             var temp = '';
+            for(var i in r)
+            {
+                      temp = r[i].shop_company_address;
+                      tem = temp.split(' ')[1];
+                      // alert(tem);
+                      // alert(city);
+                      console.log(temp);
+                      console.log(tem);
+            }
             $(".area").html(111);
         }
     });
