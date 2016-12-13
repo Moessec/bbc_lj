@@ -150,10 +150,10 @@ $('#area_2').on('change', function () {
 });
 
     $('#area_1').parent().on(' change', '#area_2', function () {
-        $('#_area_2').val($(this).val());
+        $('#_area_2').val($(this).text());
     });
     $('#area_2').parent().on(' change', '#area_3', function () {
-        $('#_area_3').val($(this).val());
+        $('#_area_3').val($(this).text());
     });
 
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
