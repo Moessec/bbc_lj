@@ -154,7 +154,7 @@ class Goods_CatCtl extends Controller
 
 		$this->data->addBody(-140, $data);
 	}
-		public function tree3232()
+		public function treelist()
 			{
 
 				// var_dump(1);die;
