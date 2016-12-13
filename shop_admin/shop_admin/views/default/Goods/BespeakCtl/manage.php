@@ -95,6 +95,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 	.webuploader-element-invisible{display: none}
 </style>
 <script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?=$this->view->js?>/controllers/common.js" charset="utf-8"></script>
 
 <script type="text/javascript" src="<?= $this->view->js_com ?>/webuploader.js" charset="utf-8"></script>
 <script type="text/javascript" src="<?= $this->view->js ?>/models/upload_image.js" charset="utf-8"></script>
