@@ -19,8 +19,11 @@ $(function ()
               }
               console.log(r[i]);
             }
+            if(cnm!=''){
+                
             $('.area').html(cnm);
             $("#area_info").val(cnm);
+            }
         }
     });
     var a = getCookie("key");
