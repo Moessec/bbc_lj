@@ -66,26 +66,6 @@
 <script type="text/javascript">
 function cnm(lj){
     alert(111);
-    document.cookie='cnm='+lj+'; path=/';
-    var sb='sb';
-    var strCookie=document.cookie; 
-    var arrCookie=strCookie.split("; "); 
-    for(var i=0;i<arrCookie.length;i++){ 
-        var arr=arrCookie[i].split("="); 
-        if(arr[0]==sb){
-            del_(arr[0]);
-            del_(arr[1]);
-        }
-    }
-    function $(m,$False$n){
-       return document.forms[m].elements[n].value;
-    }
-
-    function del_(){
-       var cookie_name = $("myform","cookie_name");
-       delCookie(cookie_name);
-       alert("删除成功");
-    }
 };
 </script>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GAGiz9gdoRfTpImL6A2RZYxH"></script>
