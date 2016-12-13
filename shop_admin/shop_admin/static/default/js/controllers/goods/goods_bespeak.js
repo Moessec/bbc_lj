@@ -87,7 +87,6 @@ function resetForm(t)
 
 $('#area_1').on('change', function () {
     $('#_area_1').val($(this).val());
-        $('#area_2').remove();
         var $this = $(this), pid = $(this).val(), BigCity = [1, 2, 9, 22];
 
         //排除直辖市
