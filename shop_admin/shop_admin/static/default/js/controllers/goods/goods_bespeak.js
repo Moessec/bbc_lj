@@ -143,7 +143,7 @@ $('#area_2').on('change', function () {
     }
 });
 
-    $('#area_1').on(' change', function () {
+    $('#area_2').on(' change', function () {
         console.log($('#area_1').attr('name'));
         $('#_area_2').val($(this).prop('name'));
     });
