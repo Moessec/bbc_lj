@@ -71,7 +71,22 @@ function cancleGridEdit()
 {
     null !== curRow && null !== curCol && ($grid.jqGrid("saveCell", curRow, curCol), curRow = null, curCol = null)
 }
-areaSelected: function(options) {
+
+
+function resetForm(t)
+{
+    $("#manage-form").validate().resetForm();
+    $("#bespeak_title").val("");
+    $("#bespeak_com").val("");
+    $("#some_class_1").val("");
+    $("#bes_img").val("");
+    $("#true_name").val("");
+    $("#some_class_2").val("");
+    $("#usercontact").val("");
+}
+$("#area_info").on("click", function ()
+{
+    areaSelected: function(options) {
     var defaults = {
             success : function(data){}
         }
@@ -234,106 +249,92 @@ areaSelected: function(options) {
         
 
 
-        /**
-         * 从右到左动态显示隐藏内容
-         * 
-         */
-        animationLeft: function(options) {
-            var defaults = {
-                    valve : '.animation-left',          // 动作触发
-                    wrapper : '.nctouch-full-mask',    // 动作块
-                    scroll : ''     // 滚动块，为空不触发滚动
-            }
-            var options = $.extend({}, defaults, options);
-            function _init() {
-                $(options.valve).click(function(){
-                    $(options.wrapper).removeClass('hide').removeClass('right').addClass('left');
+/**
+ * 从右到左动态显示隐藏内容
+ * 
+ */
+animationLeft: function(options) {
+    var defaults = {
+            valve : '.animation-left',          // 动作触发
+            wrapper : '.nctouch-full-mask',    // 动作块
+            scroll : ''     // 滚动块，为空不触发滚动
+    }
+    var options = $.extend({}, defaults, options);
+    function _init() {
+        $(options.valve).click(function(){
+            $(options.wrapper).removeClass('hide').removeClass('right').addClass('left');
 
-                    if (options.scroll != '') {
-                        if (typeof(myScrollAnimationLeft) == 'undefined') {
-                            if (typeof(IScroll) == 'undefined') {
-                                $.ajax({
-                                    url: WapSiteUrl+'/js/iscroll.js',
-                                    dataType: "script",
-                                    async: false
-                                });
-                            }
-                            myScrollAnimationLeft = new IScroll(options.scroll, { mouseWheel: true, click: true });
-                        } else {
-                            myScrollAnimationLeft.refresh();
-                        }
+            if (options.scroll != '') {
+                if (typeof(myScrollAnimationLeft) == 'undefined') {
+                    if (typeof(IScroll) == 'undefined') {
+                        $.ajax({
+                            url: WapSiteUrl+'/js/iscroll.js',
+                            dataType: "script",
+                            async: false
+                        });
                     }
-                });
-                $(options.wrapper).on('click', '.header-l > a', function(){
-                    $(options.wrapper).addClass('right').removeClass('left');
-                });
-                
-            }
-            return this.each(function() {
-                _init();
-            })();
-        },
-
-        /**
-         * 从下到上动态显示隐藏内容
-         * 
-         */
-        animationUp: function(options) {
-            var defaults = {
-                    valve : '.animation-up',          // 动作触发，为空直接触发
-                    wrapper : '.nctouch-bottom-mask',    // 动作块
-                    scroll : '.nctouch-bottom-mask-rolling',     // 滚动块，为空不触发滚动
-                    start : function(){},       // 开始动作触发事件
-                    close : function(){}        // 关闭动作触发事件
-            }
-            var options = $.extend({}, defaults, options);
-            function _animationUpRun() {
-                options.start.call('start');
-                $(options.wrapper).removeClass('down').addClass('up');
-
-                if (options.scroll != '') {
-                    if (typeof(myScrollAnimationUp) == 'undefined') {
-                        if (typeof(IScroll) == 'undefined') {
-                            $.ajax({
-                                url: WapSiteUrl+'/js/iscroll.js',
-                                dataType: "script",
-                                async: false
-                              });
-                        }
-                        myScrollAnimationUp = new IScroll(options.scroll, { mouseWheel: true, click: true });
-                    } else {
-                        myScrollAnimationUp.refresh();
-                    }
-                }
-            }
-            return this.each(function() {
-                if (options.valve != '') {
-                    $(options.valve).on('click', function(){
-                        _animationUpRun();
-                    });
+                    myScrollAnimationLeft = new IScroll(options.scroll, { mouseWheel: true, click: true });
                 } else {
-                    _animationUpRun();
+                    myScrollAnimationLeft.refresh();
                 }
-                $(options.wrapper).on('click', '.nctouch-bottom-mask-bg,.nctouch-bottom-mask-close', function(){
-                    $(options.wrapper).addClass('down').removeClass('up');
-                    options.close.call('close');
-                });
-            })();
-        }
+            }
+        });
+        $(options.wrapper).on('click', '.header-l > a', function(){
+            $(options.wrapper).addClass('right').removeClass('left');
+        });
+        
+    }
+    return this.each(function() {
+        _init();
+    })();
+},
 
-function resetForm(t)
-{
-    $("#manage-form").validate().resetForm();
-    $("#bespeak_title").val("");
-    $("#bespeak_com").val("");
-    $("#some_class_1").val("");
-    $("#bes_img").val("");
-    $("#true_name").val("");
-    $("#some_class_2").val("");
-    $("#usercontact").val("");
+/**
+ * 从下到上动态显示隐藏内容
+ * 
+ */
+animationUp: function(options) {
+    var defaults = {
+            valve : '.animation-up',          // 动作触发，为空直接触发
+            wrapper : '.nctouch-bottom-mask',    // 动作块
+            scroll : '.nctouch-bottom-mask-rolling',     // 滚动块，为空不触发滚动
+            start : function(){},       // 开始动作触发事件
+            close : function(){}        // 关闭动作触发事件
+    }
+    var options = $.extend({}, defaults, options);
+    function _animationUpRun() {
+        options.start.call('start');
+        $(options.wrapper).removeClass('down').addClass('up');
+
+        if (options.scroll != '') {
+            if (typeof(myScrollAnimationUp) == 'undefined') {
+                if (typeof(IScroll) == 'undefined') {
+                    $.ajax({
+                        url: WapSiteUrl+'/js/iscroll.js',
+                        dataType: "script",
+                        async: false
+                      });
+                }
+                myScrollAnimationUp = new IScroll(options.scroll, { mouseWheel: true, click: true });
+            } else {
+                myScrollAnimationUp.refresh();
+            }
+        }
+    }
+    return this.each(function() {
+        if (options.valve != '') {
+            $(options.valve).on('click', function(){
+                _animationUpRun();
+            });
+        } else {
+            _animationUpRun();
+        }
+        $(options.wrapper).on('click', '.nctouch-bottom-mask-bg,.nctouch-bottom-mask-close', function(){
+            $(options.wrapper).addClass('down').removeClass('up');
+            options.close.call('close');
+        });
+    })();
 }
-$("#area_info").on("click", function ()
-{
     $.areaSelected({
         success: function (a)
         {
