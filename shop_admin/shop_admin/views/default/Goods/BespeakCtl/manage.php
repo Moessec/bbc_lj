@@ -41,7 +41,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 			<li class="form-item">
                 <div class="label-wrap"><label for="bespeak_com">地区选择:</label></div>
                 <div class="ctn-wrap">
-                    <input name="area_info" type="text" class="inp" id="area_info" onchange="btn_check($('form'));" />
+                    <input name="area_info" type="text" class="inp" id="area_info" autocomplete="off" onchange="btn_check($('form'));" />
                 </div>
             </li>
             <li class="form-item">
