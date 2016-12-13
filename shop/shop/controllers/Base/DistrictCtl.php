@@ -33,7 +33,7 @@ class Base_DistrictCtl extends Controller
 	 */
 	public function district()
 	{
-		$district_parent_id = request_int('pid', request_int('area_id'));
+		$district_parent_id = request_int('pid');
 		$data               = $this->baseDistrictModel->getDistrictTree($district_parent_id);
 		fb($data);
 		$this->data->addBody(-140, $data);
