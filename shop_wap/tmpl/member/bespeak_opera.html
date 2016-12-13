@@ -68,7 +68,7 @@
                         <h4>社区选择</h4>
                         <div class="input-box">
                             <div class="transparent">
-                            <div class="transparent-distinct"><a href="../../location.html" onclick="sb()"><span style="font-size: 0.8rem;color:#FF7E18" class='area'>上海</span><i class="left_icon"></i></a></div>
+                            <div class="transparent-distinct"><a href="../../location.html" onclick="sb()"><span style="font-size: 0.8rem;color:#FF7E18" class='area'></span><i class="left_icon"></i></a></div>
                             <a href="tmpl/member/chat_list.html"><div class="transparent-chat"></div></a>
                         </div>
                         </div>
@@ -131,20 +131,6 @@
         </form>
     </div>
     <script type="text/javascript">
-      var LocString=String(window.document.location.href);   
-   
-        function getQueryStr(str){   
-            var rs = new RegExp("(^|)"+str+"=([^/&]*)(/&|$)","gi").exec(LocString), tmp;   
-           
-            if(tmp=rs){   
-                return tmp[2];   
-            }   
-           
-            // parameter cannot be found   
-            return "";   
-        } 
-
-    alert(getQueryStr("lj"));
     function sb(){
         document.cookie="sb=cnm; path=/";
         };

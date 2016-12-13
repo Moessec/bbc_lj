@@ -1,5 +1,15 @@
 $(function ()
 {
+    var lj = getQueryString("lj");
+    var wc = getCookie("key");
+    $.ajax({
+        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:e,u:getCookie('id'), id: lj}, dataType: "json", success: function (a)
+        {
+            checkLogin(lj.login);
+            console.log(lj);
+            $(".area").html(lj.data.shop_id);
+        }
+    });
     var a = getCookie("key");
     $.sValid.init({
         rules: {true_name: "required", usercontact: "required", area_info: "required", address: "required", bespeak_title: "required"},
