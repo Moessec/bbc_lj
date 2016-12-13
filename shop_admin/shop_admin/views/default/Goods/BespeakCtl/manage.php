@@ -130,7 +130,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     //图片上传
     $(document).ready(function(){
     	$('#area_1').on('change',function(){
-    		var v1 = $('#area_1').find("option:selected").attr('name'));
+    		var v1 = $('#area_1').find("option:selected").attr('name');
     		$('#_area_1').val(v1);
     	})
     	$('#area_2').on('change',function(){
