@@ -100,9 +100,7 @@ $('#area_1').on('change', function () {
             pid='62';
         }
         $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (data) {
-                console.log(SITE_URL);
                 var data = data.data;
-                console.log(data);
                 if (data.items && data.items.length > 0) {
                     var options = null, select = null;
                     for ( var i = 0; i < data.items.length; i++ ) {
@@ -130,9 +128,7 @@ $('#area_2').on('change', function () {
         //排除直辖市
         console.log(pid);
         $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (list) {
-            console.log(SITE_URL);
             var data = list.data;
-            console.log(data);
             if (data.items && data.items.length > 0) {
                 var options = null, select = null;
                 for ( var i = 0; i < data.items.length; i++ ) {
@@ -147,11 +143,11 @@ $('#area_2').on('change', function () {
     }
 });
 
-    $('#area_1').on(' change', '#area_1', function () {
-        alert($('#area_1').attr('name'));
+    $('#area_1').on(' change', function () {
+        console.log($('#area_1').attr('name'));
         $('#_area_2').val($(this).prop('name'));
     });
-    $('#area_2').parent().on(' change', '#area_2', function () {
+    $('#area_2').on(' change', function () {
         $('#_area_2').val($(this).prop('name'));
     });
 
