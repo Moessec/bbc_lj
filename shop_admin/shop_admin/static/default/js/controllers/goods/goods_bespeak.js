@@ -140,15 +140,12 @@ $('#area_2').on('change', function () {
         });
     }
 });
-
-    $('#area_2').on(' change', function () {
-        console.log($('#area_1').attr('name'));
-        $('#_area_2').val($(this).prop('name'));
-    });
-    $('#area_2').on(' change', function () {
-        $('#_area_2').val($(this).prop('name'));
-    });
-
+$('#area_3').on('change',function(){
+            var v3 = $('#area_3').find("option:selected").attr('name');
+            var val = $('#area_info').val();
+            $('#area_info').val(val+v3);
+            $('#_area_3').val(v3);
+        })
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
 
 initPopBtns();
