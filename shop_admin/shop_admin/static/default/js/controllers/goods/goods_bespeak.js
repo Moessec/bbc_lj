@@ -117,8 +117,43 @@ $('#area_1').on('change', function () {
     }
 });
 
+$('#area_2').on('change', function () {
+    $('#_area_2').val($(this).val());
+    if ( this.value == 0 ){
+        if ( $('#area_3').length > 0 ) {
+            $('#area_3').remove();
+        }
+    } else {
+        $('#area_3').remove();
+        var $this = $(this), pid = $(this).val(), BigCity = [];
+
+        //排除直辖市
+        console.log(pid);
+        if( $.inArray(Number(pid), BigCity) == -1  ) {
+            $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (data) {
+                console.log(SITE_URL);
+                var data = data.data;
+                console.log(data);
+                if (data.items && data.items.length > 0) {
+                    var options = null, select = null;
+                    for ( var i = 0; i < data.items.length; i++ ) {
+                        if ( i == 0 ) $('#_area_3').val(data.items[i]['district_id']);
+                        options += '<option value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
+                    }
+                    select = '<select id="area_3" class="valid">' + options + '</select>';
+
+                    $this.after( select );
+                }
+            });
+        }
+    }
+});
+
     $('#area_1').parent().on(' change', '#area_2', function () {
         $('#_area_2').val($(this).val());
+    });
+    $('#area_2').parent().on(' change', '#area_3', function () {
+        $('#_area_3').val($(this).val());
     });
 
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;

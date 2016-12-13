@@ -83,6 +83,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 					<!--<input type="hidden" value="" name="region" id="region">-->
 					<input type="hidden" value="" name="province_id" id="_area_1">
 					<input type="hidden" value="" name="city_id" id="_area_2">
+					<input type="hidden" value="" name="are_id" id="_area_3">
 					<p></p>
                     <input name="area_info" type="text" class="inp" id="area_info" autocomplete="off" onchange="btn_check($('form'));" />
                 </div>
