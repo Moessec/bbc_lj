@@ -100,7 +100,7 @@ $('#area_1').on('change', function () {
                     var options = null, select = null;
                     for ( var i = 0; i < data.items.length; i++ ) {
                         if ( i == 0 ) $('#_area_2').val(data.items[i]['district_id']);
-                        options += '<option value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
+                        options += '<option value="' + data.items[i]['district_name'] + '">' + data.items[i]['district_name'] + '</option>';
                     }
                     $('#area_2').html(options);
                 }
@@ -129,7 +129,7 @@ $('#area_2').on('change', function () {
                 var options = null, select = null;
                 for ( var i = 0; i < data.items.length; i++ ) {
                     if ( i == 0 ) $('#_area_3').val(data.items[i]['district_id']);
-                    options += '<option value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
+                    options += '<option value="' + data.items[i]['district_name'] + '">' + data.items[i]['district_name'] + '</option>';
                 }
                 select = '<select id="area_3" class="valid">' + options + '</select>';
 
