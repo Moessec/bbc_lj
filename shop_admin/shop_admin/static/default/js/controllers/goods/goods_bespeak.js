@@ -149,8 +149,8 @@ $('#area_2').on('change', function () {
     }
 });
 
-    $('#area_1').parent().on(' change', '#area_2', function () {
-        $('#_area_2').val($(this).prop('name'));
+    $('#area_1').on(' change', '#area_1', function () {
+        $('#_area_1').val($(this).prop('name'));
     });
     $('#area_2').parent().on(' change', '#area_3', function () {
         $('#_area_3').val($(this).prop('name'));
