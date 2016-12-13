@@ -353,6 +353,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['opentime'] = request_string('opentime');
 		$data['outtime'] = request_string('outtime');
 		$data['bespeak_img'] = request_string('bes_img');
+		$data['bes_address'] = request_string('area_info');
 		$data['true_name'] = request_string('true_name');
 		$data['user_id'] = 'admin';
 		$data['bespeak_list'] = '1';
@@ -423,9 +424,13 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['rent_price'] = request_string('rent_price');
 		$data['usercontact'] = request_string('usercontact');
 		$data['opentime'] =  request_string('opentime');
+		$data['bes_address'] = request_string('area_info');
 		$data['true_name'] = request_string('true_name');
 		if(empty($data['rent_price'])){
 			unset($data['rent_price']);
+		}
+		if(empty($data['bes_address'])){
+			unset($data['bes_address']);
 		}
 		$flag = $Goods_BespeakModel->editBespeak($id, $data);
 
