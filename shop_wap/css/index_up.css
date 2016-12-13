@@ -257,7 +257,8 @@ body{
 		    height: 1rem;
 		    background-image: url(../images/iconfont/right-row.png);
 		    background-repeat: no-repeat;
-		    background-position: 50% 60%;
+		    background-position: right;
+            right: 1rem;
 		    background-size: 60%;
 		    opacity: 1;
             position: absolute;
