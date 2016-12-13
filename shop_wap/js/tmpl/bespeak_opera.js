@@ -3,7 +3,7 @@ $(function ()
     var lj = getQueryString("lj");
     var wc = getCookie("key");
     $.ajax({
-        type: "post", url: ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0&shop_id="+lj,function (lj)
+        type: "post", url: ApiUrl + "/index.php?ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0&shop_id="+lj, data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (lj)
         {
             checkLogin(lj.data);
             console.log(lj);
