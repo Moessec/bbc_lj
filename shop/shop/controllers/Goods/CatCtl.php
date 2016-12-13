@@ -126,7 +126,34 @@ class Goods_CatCtl extends Controller
 
 		include $this->view->getView();
 	}
-	
+	public function shoplists()
+	{
+		var_dump(1);die;
+		$user_id = Perm::$userId;
+		$parent_id = request_int('parent_id');
+		$shop_id = request_int('shop_id');
+		$page = request_int('page');
+		$rows = request_int('rows');
+		$sort = request_int('sord');
+
+		$cond_row  = array('shop_id'=>$shop_id,'parent_id'=>$parent_id);
+		$order_row = array();
+
+		$data = array();
+
+		if ($skey = request_string('skey'))
+		{
+			$data = $this->shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
+		}
+		else
+		{
+			$data = $this->shopGoodsCatModel->getGoodsCatList($cond_row, $order_row, $page, $rows);
+		}
+
+
+		$this->data->addBody(-140, $data);
+	}		
+
 }
 
 ?>
