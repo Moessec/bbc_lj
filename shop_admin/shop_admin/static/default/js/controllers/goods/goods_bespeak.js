@@ -150,6 +150,7 @@ $('#area_2').on('change', function () {
 });
 
     $('#area_1').on(' change', '#area_1', function () {
+        alert($(this).attr('name'));
         $('#_area_1').val($(this).prop('name'));
     });
     $('#area_2').parent().on(' change', '#area_2', function () {

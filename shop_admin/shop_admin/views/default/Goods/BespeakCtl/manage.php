@@ -44,7 +44,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                 <div class="ctn-wrap">
                 	<select class="valid" id="area_1">
 						<option value="">-请选择-</option>
-						<option value="1">北京</option>
+						<option name="北京" value="1">北京</option>
 						<option value="20">广西</option>
 						<option value="21">海南</option>
 						<option value="22">重庆</option>
