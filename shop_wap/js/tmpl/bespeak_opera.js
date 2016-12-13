@@ -15,9 +15,10 @@ $(function ()
               if(temp==lj){
                 cnm+=r[i].company_address_detail;
               }
+              console.log(r);
             }
             $('.area').html(cnm);
-            $("#cnm").val(cnm);
+            $("#area_info").val(cnm);
         }
     });
     var a = getCookie("key");
