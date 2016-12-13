@@ -2,7 +2,7 @@ $(function ()
 {
     var lj = getQueryString("lj");
     var wc = getCookie("key");
-
+    var cnm='';
     $.ajax({
         type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (lj)
         {
@@ -11,11 +11,11 @@ $(function ()
              var temp = '';
             for(var i in r)
             {
-                      temp = r[i].shop_id;
-                      if(temp==lj){
-                        cnm=r[i].company_address_detail;
-                      }
-                      console.log(temp);
+              temp = r[i].shop_id;
+              if(temp==lj){
+                cnm+=r[i].company_address_detail;
+              }
+              console.log(temp);
             }
             $(".area").html(cnm);
         }
