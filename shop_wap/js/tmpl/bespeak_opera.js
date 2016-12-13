@@ -3,11 +3,11 @@ $(function ()
     var lj = getQueryString("lj");
     var wc = getCookie("key");
     $.ajax({
-        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:e,u:getCookie('id'), id: lj}, dataType: "json", success: function (a)
+        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (a)
         {
-            checkLogin(lj.login);
-            console.log(lj);
-            $(".area").html(lj.data.shop_id);
+            checkLogin(lj.data.items);
+            console.log(lj.data.items);
+            $(".area").html(111);
         }
     });
     var a = getCookie("key");
