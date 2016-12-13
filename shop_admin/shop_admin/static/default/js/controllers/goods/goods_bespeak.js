@@ -91,7 +91,7 @@ $('#area_1').on('change', function () {
 
         //排除直辖市
         console.log(pid);
-        if( $.inArray(Number(pid), BigCity) == -1  ) {
+        
             $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (data) {
                 console.log(SITE_URL);
                 var data = data.data;
@@ -105,7 +105,7 @@ $('#area_1').on('change', function () {
                     $('#area_2').html(options);
                 }
             });
-        }
+        
     
 });
 
