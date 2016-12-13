@@ -10,35 +10,50 @@
 <script type="text/javascript" src="js/cityData.js"></script>
 <script type="text/javascript" src="js/cityPicker.js"></script>
 <body>
-
 <input type="hidden" id="cityChoice" value="">
 <!-- 如果热管 -->
 <input type="hidden" id="province" value="">
 <input type="hidden" id="city" value="">
 <script>
-
 $(function(){
-	getCookie();
-	function getCookie(name)
-	{
-	var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-	console.log(arr);
-	console.log(document.cookie.match(reg));
+	var sb='sb';
+	var strCookie=document.cookie; 
+	var arrCookie=strCookie.split("; "); 
+	for(var i=0;i<arrCookie.length;i++){ 
+		var arr=arrCookie[i].split("="); 
+		if(arr[0]==sb){
+			var sb=arr[1];
+		}
+	}
+	if (sb=='cnm') {
+		var cityPicker = new IIInsomniaCityPicker({
+	        data: cityData,
+	        target: '#cityChoice',
+	        valType: 'k-v',
+	        hideCityInput: '#city',
+	        hideProvinceInput: '#province',
+	        callback: function(data){
+	             $.cookie("trans_city",data,{expires:0.083});
+	             window.location.href="./tmpl/area_shop_list1.html";
+
+	        }
+	    });
+	}else{
+		var cityPicker = new IIInsomniaCityPicker({
+	        data: cityData,
+	        target: '#cityChoice',
+	        valType: 'k-v',
+	        hideCityInput: '#city',
+	        hideProvinceInput: '#province',
+	        callback: function(data){
+	             $.cookie("trans_city",data,{expires:0.083});
+	             window.location.href="./tmpl/area_shop_list.html";
+
+	        }
+	    });
 	}
 	// $("#cityChoice").focus();
-    var cityPicker = new IIInsomniaCityPicker({
-        data: cityData,
-        target: '#cityChoice',
-        valType: 'k-v',
-        hideCityInput: '#city',
-        hideProvinceInput: '#province',
-        callback: function(data){
-             $.cookie("trans_city",data,{expires:0.083});
-             window.location.href="./tmpl/area_shop_list.html";
-
-        }
-    });
-
+    
     cityPicker.init();
 
     setTimeout(function() {

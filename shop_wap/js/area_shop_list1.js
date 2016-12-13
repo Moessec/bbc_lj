@@ -3,7 +3,6 @@ $(function ()
   var map = new BMap.Map("container1");
   var localSearch = new BMap.LocalSearch(map);   
   var div = '';
-  alert(111);
   var city = $.cookie('trans_city');
   $("#city").html(city);
   var flag = 0;
