@@ -108,9 +108,7 @@ $('#area_1').on('change', function () {
                         if ( i == 0 ) $('#_area_2').val(data.items[i]['district_id']);
                         options += '<option value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
                     }
-                    select = '<select id="area_2" class="valid">' + options + '</select>';
-
-                    $this.after( select );
+                    $('#area_2').html(options);
                 }
             });
         }
@@ -118,7 +116,6 @@ $('#area_1').on('change', function () {
 });
 
 $('#area_2').on('change', function () {
-    alert(111);
     $('#_area_2').val($(this).val());
     if ( this.value == 0 ){
         if ( $('#area_3').length > 0 ) {
