@@ -20,9 +20,10 @@ $(function ()
                   if(tem==city)
                   {
                     flag = 1;
-                     div += '<div class="list"><a onclike="sb()" href="../tmpl/member/bespeak_opera.html"><div class="list_left"><img src="'+r[i].shop_logo+'" alt=""></div><div class="list_right"><dl><dd class="title">'+r[i].shop_name+'</dd><dd>地址:'+r[i].company_address_detail+'</dd><dd>电话:'+r[i].company_phone+'</dd></dl></div></a></div>'
+                     div += '<div class="list"><a onclike="cnm();" href="../tmpl/member/bespeak_opera.html"><div class="list_left"><img src="'+r[i].shop_logo+'" alt=""></div><div class="list_right"><dl><dd class="title">'+r[i].shop_name+'</dd><dd>地址:'+r[i].company_address_detail+'</dd><dd>电话:'+r[i].company_phone+'</dd></dl></div></a></div>'
                   }
         }
+        div+='<script type="text/javascript">function cnm(){alert(111);};</script>';
         $("#shop_info").html(div);
         if(div==''&&flag==0)
         {
