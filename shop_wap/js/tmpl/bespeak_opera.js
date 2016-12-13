@@ -17,8 +17,9 @@ $(function ()
               }
               console.log(temp);
               console.log(r[i]);
+              console.log(cnm);
             }
-            $(".area").html(cnm);
+            $("#cnm").html(cnm);
         }
     });
     var a = getCookie("key");
