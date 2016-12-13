@@ -50,6 +50,7 @@ $(function ()
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=tree&typ=json", {shop_id:shop_id,parent_id: t}, function (e)
         {
             var t = e.data;
+            console.log(t);
             e.data['status'] = 1;
             t.WapSiteUrl = WapSiteUrl;
             var r = template.render("category-two", t);
