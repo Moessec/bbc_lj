@@ -318,8 +318,8 @@ $(function(){
 $('.mainlist').find('li').hover(function(){
   var src = $(this).find('img')[0].src;
   // alert(src);
-  var sr = src.trim('.png');
-  var src1 = sr+2+'.png';
+  var sr = src.split('.png');
+  var src1 = sr[0]+2+sr[1];
   var src2 = $(this).find('img')[0].src=src1;
 
   console.log(sr); 
