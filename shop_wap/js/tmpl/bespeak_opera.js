@@ -44,8 +44,12 @@ $(function ()
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {k:wc,u:getCookie('id'),one:one,two:two}, dataType: "json", success: function (e)
                 {
-                    var km=e;
-                    console.log(km,place);
+                    var km=e.data;
+                    for(k in km){
+                        var distance[k]=km[k].dis;
+                    }
+                    console.log(distance);
+                    console.log(km);
                 }
         })
     }
