@@ -323,6 +323,7 @@ setTimeout(function(){
 
     $(this).on('click',function(e){
      // alert(1);
+     alert(getCookie('cart_count'));
         var goods_id = $(this).find('input').val();
         get_detail(goods_id);
   function get_detail(goods_id) {
@@ -386,7 +387,7 @@ setTimeout(function(){
                         $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
                     }
                 }
-                alert(getCookie('cart_count'));
+
  
                 //加入购物车
          
