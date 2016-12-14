@@ -4,6 +4,7 @@ $(function ()
     var cnm='';
     var place='';
     var res='';
+    var distance = new Array();
     $.ajax({
         type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
             {
