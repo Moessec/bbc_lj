@@ -317,17 +317,16 @@ setTimeout(function(){
 $(function(){
   var src;
   var sr2;
-$('.mainlist').find('li').hover(function(){
+$('.mainlist').find('li').click(function(){
   src = $(this).find('img')[0].src;
   var sr = src.split('.png');
   var src1 = sr[0]+2+'.png';
   src2 = $(this).find('img')[0].src=src1;
 
   // console.log(sr); 
-},function(){
-    $(this).find('img')[0].src=src;
-    // alert(io);
-})
+// },function(){
+//     $(this).find('img')[0].src=src;
+// })
 
 
 
