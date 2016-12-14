@@ -92,7 +92,7 @@
                                 if(i>=22){
                                     s=0;
                                 }
-                             document.write("<option value='"+i+"'>"+i+"：00-"+s+"：00</option>");
+                             document.write("<option value='"+i+"：00-"+s+"：00'>"+i+"：00-"+s+"：00</option>");
                             }
                             </script>
                             </select>
@@ -155,7 +155,7 @@
 
     
     function show(){
-     document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
+     document.getElementById("starttime").value=document.getElementById("min").value;
     }
     var xhr;
     function createXMLHttpRequest()
