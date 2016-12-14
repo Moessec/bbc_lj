@@ -316,7 +316,8 @@ setTimeout(function(){
 });
 $(function(){
 $('.mainlist').find('li').hover(function(){
- var src = $(this).find('img').src;
+  var src = $(this).find('img').src;
+  alert(src);
   var sr = src.split('.');
   console.log(sr); 
 },function(){
