@@ -133,7 +133,7 @@
         </form>
     </div>
     <script type="text/javascript">
-
+    var btn2 =document.getElementById('btn2');
     var info = document.getElementById("area_info");
     var are = document.getElementById("area_");
     var ops = are.getElementsByTagName("li");
@@ -144,7 +144,7 @@
         are.style.zIndex = 999999;
         hei.style.zIndex = 999998;
     }
-    info.onclick = function (parameters) {
+    btn2.onclick = function (parameters) {
         var arrOps = Array.prototype.slice.call(ops, 0);
         alert(arrOps);
         arrOps.sort(function (a, b) {
