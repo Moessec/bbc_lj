@@ -34,7 +34,7 @@ $(function ()
                 for(v in s){
                     if(s[v].user_address_default==1){
                         res += s[v].address_info;
-                        console.log(res);
+                        return res;
                     }
                 }
             }
