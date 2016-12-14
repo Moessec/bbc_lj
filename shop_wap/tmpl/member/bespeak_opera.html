@@ -131,7 +131,6 @@
         </form>
     </div>
     <script type="text/javascript">
-    onTest();
     function onTest(){
           var arr =   document.getElementById('#area_info').childNodes.val;
           arr.sort(function(a,b){
@@ -204,6 +203,11 @@
 
 </script>
     <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript">
+    $('#area_info').on('click',function(){
+        onTest();
+    })
+    </script>
     <script type="text/javascript" src="../../js/config.php"></script>
     <script type="text/javascript" src="../../js/common.js"></script>
     <script type="text/javascript" src="../../js/simple-plugin.js"></script>
