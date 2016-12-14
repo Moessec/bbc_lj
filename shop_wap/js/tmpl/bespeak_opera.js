@@ -4,7 +4,7 @@ $(function ()
     var cnm='';
     var place='';
     var res='';
-    function s(res)
+    function dis(res)
     {
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id')}, dataType: "json", success: function (nmb)
@@ -23,7 +23,7 @@ $(function ()
             }
         });
     }
-    
+
     $.ajax({
         type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
             {
@@ -36,7 +36,7 @@ $(function ()
                 for(v in s){
                     if(s[v].user_address_default==1){
                         res += s[v].address_info;
-                        s(res);
+                        dis(res);
                     }
                 }
             }
