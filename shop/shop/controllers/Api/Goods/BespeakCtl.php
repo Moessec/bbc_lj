@@ -435,8 +435,8 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		if(empty($data['rent_price'])){
 			unset($data['rent_price']);
 		}
-		if(empty($data['bes_address'])){
-			unset($data['bes_address']);
+		if(empty($data['outtime'])){
+			unset($data['outtime']);
 		}
 		if(empty($data['bespeak_area_info'])){
 			unset($data['bespeak_area_info']);
@@ -444,6 +444,10 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		if(empty($data['bespeak_address'])){
 			unset($data['bespeak_address']);
 		}
+		if(empty($data['opentime'])){
+			$data['opentime']=date('Y-m-d H:i:s',time());
+		}
+
 		$flag = $Goods_BespeakModel->editBespeak($id, $data);
 
 		if ($flag != false)
