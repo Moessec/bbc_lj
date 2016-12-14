@@ -7,6 +7,7 @@ function initField()
         $("#bes_img").val(rowData.bespeak_img);
         $("#true_name").val(rowData.true_name);
         $("#usercontact").val(rowData.usercontact);
+        $("#bespeak_address").val(rowData.bespeak_address);
         $("#rent_price").val(rowData.rent_price);
         $("#bespeak_img").attr('src',rowData.bespeak_img);
     }
