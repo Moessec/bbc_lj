@@ -708,8 +708,19 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$twoti = $this->addr_to_location($two);
 		$distance = $this->getDistance($oneti['lng'],$oneti['lat'],$twoti['lng'],$twoti['lat']);
 		$data=$distance/1000;
-		
-		$this->data->addBody(-140,$data);
+
+		if ($flag !== false)
+		{
+			$status = 200;
+			$msg    = _('success');
+		}
+		else
+		{
+			$status = 250;
+			$msg    = _('failure');
+		}
+
+		$this->data->addBody(-140, $data, $msg, $status);
 	}
 
 	//计算距离
