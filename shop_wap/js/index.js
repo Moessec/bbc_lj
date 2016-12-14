@@ -332,7 +332,7 @@ $(function(){
 if($('.mainlist').find('li').has('.active'))
 {
   
-    src = $('.active').find('img')[0].src;
+    src = $('.active1').find('img')[0].src;
     var sr = src.split('.png');
     var src1 = sr[0]+2+'.png';
     src2 = $(this).find('img')[0].src=src1;
