@@ -505,12 +505,9 @@ setTimeout(function(){
 
 
 
-$('.clearfix').find('li').hover(function(){
+ 
+ 
 
-},
-function(){
-    var i = $(this).find('a').src;
-    alert(i);
 });
 
 
