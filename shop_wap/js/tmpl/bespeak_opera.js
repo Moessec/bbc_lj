@@ -4,25 +4,7 @@ $(function ()
     var cnm='';
     var place='';
     var res='';
-    $.ajax({
-        type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
-            {
-                checkLogin(e.login);
-                if (e.data.address_list == null)
-                {
-                    return false
-                }
-                var s = e.data.address_list;
-                for(v in s){
-                    if(s[v].user_address_default==1){
-                        res += s[v].address_info;
-                        s(res);
-                    }
-                }
-            }
-    })
-
-     function s(res)
+    function s(res)
     {
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id')}, dataType: "json", success: function (nmb)
@@ -41,6 +23,24 @@ $(function ()
             }
         });
     }
+    
+    $.ajax({
+        type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
+            {
+                checkLogin(e.login);
+                if (e.data.address_list == null)
+                {
+                    return false
+                }
+                var s = e.data.address_list;
+                for(v in s){
+                    if(s[v].user_address_default==1){
+                        res += s[v].address_info;
+                        s(res);
+                    }
+                }
+            }
+    })
 
     function jl(add){
         $.ajax({
