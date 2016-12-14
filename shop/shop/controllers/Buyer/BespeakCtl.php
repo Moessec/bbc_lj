@@ -229,7 +229,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 							if($v1['bespeak_title']==$value['bespeak_title']){
 								$value['bespeak_click']='<a onclick="show()">已预约</a>';
 								$value['bespeak_id']='#';
-								$value['bespeak_img']=$v1['bespeak_img'];
+								$v1['bespeak_img']=$value['bespeak_img'];
 							}else{
 								$value['bespeak_click']='预约';
 								$id = $value['bespeak_id'];
