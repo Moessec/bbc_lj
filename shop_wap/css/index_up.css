@@ -540,6 +540,7 @@ box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
     .outer{
         clear: both;
         height:auto;
+       background-color: #999;
           /*border:1px solid blue;*/
     }
 .outer img{
@@ -547,9 +548,10 @@ box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
     width: 4rem;
 }
     .inter{
-       width: 48%;
-       margin-left:1%;
-       float: left;
+  float: left;
+    margin-left: 0.1rem;
+    padding-left: 0.1rem;
+    width: 47%;
        background-color: white;
     }
 .inter a{
