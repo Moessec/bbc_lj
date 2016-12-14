@@ -34,18 +34,18 @@ $(function ()
                     temp = r[i];
                     dq=temp.business_license_location;
                     place=temp.company_address_detail;
-                    var km=jl(dq,res);
-                    console.log(jl(dq,res));
+                    var km=jl(dq,res,place);
                 }
             }
         });
     }
 
-    function jl(one,two){
+    function jl(one,two,place){
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {k:wc,u:getCookie('id'),one:one,two:two}, dataType: "json", success: function (e)
                 {
                     var km=e;
+                    console.log(km,place);
                 }
         })
     }
