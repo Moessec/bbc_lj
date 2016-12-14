@@ -47,7 +47,7 @@ $(function ()
                 {
                     disce='<option data-flag="'+e.data.dis+'">'+place+'</option>';
                     $("#area_info").append(disce);
-                    console.log(place);
+                    console.log(e.data.dis,place);
                 }
         })
     }
