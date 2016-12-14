@@ -3,6 +3,7 @@ $(function ()
     var wc = getCookie("key");
     var cnm='';
     var place='';
+    var res='';
     $.ajax({
         type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id')}, dataType: "json", success: function (nmb)
         {
@@ -11,9 +12,8 @@ $(function ()
             for(var i in r)
             {
               temp = r[i];
+              console.log(temp);
               for(var k in temp){
-                cnm+=temp[k].business_license_location;
-                place+=temp[k].company_address_detail;
                 var sss = s();
                 console.log(sss);
               }
