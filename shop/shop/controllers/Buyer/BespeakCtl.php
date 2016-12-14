@@ -350,7 +350,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$edit_bespeak_row['bespeak_area_info']     = $bespeak_area_info;
 		$edit_bespeak_row['bes_address'] = $bes_address;
 		$edit_bespeak_row['bespeak_address']     = $bespeak_address;
-		$edit_bespeak_row['starttime']     = $starttime;
+		$edit_bespeak_row['starttime']     = date('Y-m-d ',time()).$starttime;
 		$edit_bespeak_row['bespeak_com']     = $bespeak_com;
 		$edit_bespeak_row['bespeak_place']        = $bespeak_place;
 		$edit_bespeak_row['user_id']        = $user_id;
