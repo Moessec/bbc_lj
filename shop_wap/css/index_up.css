@@ -454,7 +454,7 @@ box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
             /*padding-top: 1rem;*/
          }
          .product-list-info ul li{
-            height:7rem;
+            /*height:7rem;*/
          }
          .product-list-info ul li a{
          	color: #FF7E18;
