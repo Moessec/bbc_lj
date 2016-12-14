@@ -317,7 +317,7 @@ setTimeout(function(){
 $(function(){
   var src;
   var sr2;
-$('.mainlist').find('li').click(function(){
+$('.mainlist').find('li').hover(function(){
   src = $(this).find('img')[0].src;
   var sr = src.split('.png');
   var src1 = sr[0]+2+'.png';
@@ -326,6 +326,7 @@ $('.mainlist').find('li').click(function(){
   // console.log(sr); 
 },function(){
     $(this).find('img')[0].src=src;
+    // alert(io);
 })
 
 
