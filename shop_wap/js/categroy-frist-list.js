@@ -10,7 +10,7 @@ $(function ()
 
  
    if (shop_id!='')
-   {
+   { shop_goodslist2(shop_id);
     // alert(shop_id);
      $.cookie("community_shopid",shop_id,{expires:7});
         //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
@@ -26,14 +26,14 @@ $(function ()
             e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true});
         });    
     }else{
-    
+        shop_goodslist1();
          //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
             $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=cat&typ=json&cat_parent_id=0", function (t)
             {
                 console.info(t);
                 var r = t.data;
                 r.WapSiteUrl = WapSiteUrl;
-                shop_goodslist1();
+
                 var a = template.render("category-one", r);
                 $("#categroy-cnt").html(a);
                 e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
@@ -307,9 +307,9 @@ function shop_goodslist2(shop_id){
 
 if(shop_id)
 {
-    shop_goodslist2(shop_id);
+   // shop_goodslist2(shop_id);
 }else{
-    shop_goodslist1();
+   // shop_goodslist1();
 
 }
 
