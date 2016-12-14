@@ -152,19 +152,19 @@
         }
     </script>
     <script type="text/javascript">
-    var info = document.getElementById("area_info");
-    info.onclick = function (parameters) {
-        var sltProvice = document.getElementById("area_info");
-        var ops = sltProvice.getElementsByTagName("option");
-        var arrOps = Array.prototype.slice.call(ops, 0);
-        arrOps.sort(function (a, b) {
-            return a.attributes["data-flag"].value - b.attributes["data-flag"].value;
-        });
-        sltProvice.options.length = 0;
-        arrOps.map(function (op) {
-            sltProvice.appendChild(op);
-        });
-    }
+    // var info = document.getElementById("area_info");
+    // info.onclick = function (parameters) {
+    //     var sltProvice = document.getElementById("area_info");
+    //     var ops = sltProvice.getElementsByTagName("option");
+    //     var arrOps = Array.prototype.slice.call(ops, 0);
+    //     arrOps.sort(function (a, b) {
+    //         return a.attributes["data-flag"].value - b.attributes["data-flag"].value;
+    //     });
+    //     sltProvice.options.length = 0;
+    //     arrOps.map(function (op) {
+    //         sltProvice.appendChild(op);
+    //     });
+    // }
     function show(){
      document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
     }
