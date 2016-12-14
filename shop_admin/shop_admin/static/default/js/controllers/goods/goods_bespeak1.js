@@ -32,6 +32,9 @@ function postData(t, e)
         rent_price = $.trim($("#rent_price").val()),
         usercontact = $.trim($("#usercontact").val()),
         opentime = $.trim($("#some_class_1").val()),
+        address = $.trim($("#address").val()),
+        area_info = $.trim($("#_area_1").val()+' '+$("#_area_2").val()+' '+$("#_area_3").val()),
+        bespeak_area_info = $.trim($("#area_1").val()+' '+$("#area_2").val()+' '+$("#area_3").val()),
         n = "add" == t ? "新增预约" : "修改预约";
 
     params = rowData.bespeak_id ? {
