@@ -484,10 +484,12 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$bespeak_title = request_string('bespeak_title');
 		$bespeak_com = request_string('bespeak_com');
 		$starttime = request_string('starttime');
+		$outtime = request_string('outtime');
 
 		$edit_bespeak_row['true_name']        = $true_name;
 		$edit_bespeak_row['usercontact']        = $usercontact;
 		$edit_bespeak_row['starttime']        = $starttime;
+		$edit_bespeak_row['outtime']        = $outtime;
 		$edit_bespeak_row['bespeak_com']        = $bespeak_com;
 		$edit_bespeak_row['bespeak_title']        = $bespeak_title;
 		$edit_bespeak_row['user_id']        = $user_id;
@@ -671,8 +673,13 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				$value['bespeaka']='申请租赁';
 			}else{
 				$value['bespeak_id']=' ';
-				$value['bespeaka']='已租赁';
+				if($value['bespeak_state']=='1'){
+					$value['bespeaka']='租赁正在处理';
+				}else{
+					$value['bespeaka']='已租赁';
+				}
 			}
+
 			$data[$key]=$value;
 		}
 		$this->data->addBody(-140, $data);

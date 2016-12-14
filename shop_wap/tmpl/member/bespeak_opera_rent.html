@@ -47,9 +47,17 @@
                             <span class="input-del"></span> </div>
                     </li>
                     <li class="form-item">
-                        <h4>上门时间</h4>
+                        <h4>租赁日期</h4>
                         <div class="input-box" style="float:right;line-height: 37px;">
-                            <select name="h" id="m" onchange="show();">
+                            <select name="n" id="n" onchange="show();">
+                            <script>
+                            for(var i=2016;i<=2222;i++){
+                             document.write("<option value='"+i+"'>"+i+"：00</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">年</span>
+                            <select name="y" id="y" onchange="show();">
                             <script>
                             for(var i=0;i<=12;i++){
                              document.write("<option value='"+i+"'>"+i+"</option>");
@@ -57,30 +65,57 @@
                             </script>
                             </select>
                             <span style="font-size: 0.6rem;">月</span>
-                            <select name="h" id="d" onchange="show();">
+                            <select name="r" id="r" onchange="show();">
                             <script>
                             for(var i=0;i<=31;i++){
+                                var m=document.getElementById('m').val;
+                                if(m=2){
+                                    i<=29;
+                                }
                              document.write("<option value='"+i+"'>"+i+"</option>");
                             }
                             </script>
                             </select>
                             <span style="font-size: 0.6rem;">日</span>
-                            <select name="h" id="h" onchange="show();">
-                            <script>
-                            for(var i=0;i<=23;i++){
-                             document.write("<option value='"+i+"'>"+i+"：00</option>");
-                            }
-                            </script>
-                            </select>
-                            <span style="font-size: 0.6rem;">-</span>
-                            <select name="min" id="min" onchange="show();">
-                            <script>
-                            for(var i=0;i<=23;i++){
-                             document.write("<option value='"+i+"'>"+i+"：00</option>");
-                            }
-                            </script>
                             </select>
                             <input type="hidden" class="inp" name="starttime" id="starttime" autocomplete="off" oninput="writeClear($(this));" />
+                            <span class="input-del"></span>
+
+                        </div>
+                    </li>
+                    <li class="form-item">
+                        <h4>归还日期</h4>
+                        <div class="input-box" style="float:right;line-height: 37px;">
+                            <select name="year" id="year" onchange="show();">
+                            <script>
+                            for(var i=2016;i<=2222;i++){
+                             document.write("<option value='"+i+"'>"+i+"：00</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">年</span>
+                            <select name="mon" id="mon" onchange="show();">
+                            <script>
+                            for(var i=0;i<=12;i++){
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">月</span>
+                            <select name="day" id="day" onchange="show();">
+                            <script>
+                            for(var i=0;i<=31;i++){
+                                var m=document.getElementById('m').val;
+                                if(m=2){
+                                    i<=29;
+                                }
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">日</span>
+                            </select>
+                            <input type="hidden" class="inp" name="outtime" id="outtime" autocomplete="off" oninput="writeClear($(this));" />
                             <span class="input-del"></span>
 
                         </div>
@@ -101,7 +136,8 @@
     </div>
     <script type="text/javascript">
         function show(){
-     document.getElementById("starttime").value=document.getElementById("m").value+'/'+document.getElementById("d").value+' '+document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
+     document.getElementById("starttime").value=document.getElementById("n").value+'/'+document.getElementById("y").value+' '+document.getElementById("r").value;
+     document.getElementById("outtime").value=document.getElementById("year").value+'/'+document.getElementById("mon").value+' '+document.getElementById("day").value;
     }
     </script>
     <script type="text/javascript" src="../../js/zepto.min.js"></script>
