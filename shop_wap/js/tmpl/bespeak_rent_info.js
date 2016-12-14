@@ -18,10 +18,10 @@ $(function ()
                        tem='<dl><img src="'+value.bespeak_img+'" style="width:100%">';
                        tem+='<span style="width: 90%;display: block;height: 18px;margin: auto;padding-top: 23px;margin-left: 9px;font-size: 0.7rem;color: #000;">预约说明</span><div class="com">';
                        tem+='<span style="width:90%;margin:auto">'+value.bespeak_com+'</span></div>';
-                       tem+='<div class="ul"><table><tr><td class="left">租赁价格：</td><td><span>'+value.rent_price+'</span></td></tr>';
+                       tem+='<div class="ul"><table><tr><td class="left">价格：</td><td><span>'+value.rent_price+'</span></td></tr>';
                        tem+='<tr><td class="left">地址：</td><td><span>'+value.bes_address+value.bespeak_address+'</span></td></tr>';
                        tem+='<tr><td class="left">联系人：</td><td><span>'+value.true_name+'</span></td></tr>';
-                       tem+='<tr><td class="left">联系方式：</td><td><span>'+value.usercontact+'</span></td></tr></table></div>'
+                       tem+='<tr><td class="left">联系方式：</td><td><span style="color:#99CC00">'+value.usercontact+'</span></td></tr></table></div>'
                        tem+='<div class="error-tips"></div><div class="form-btn"><a style="margin-bottom: 15px;'+value.bespeakcss+'" class="btn" href="'+value.bespeak_id+'"><span style="color:#fff">'+value.bespeaka+'</span></a></div></dl>';
                     var reg = new RegExp("&lt;","g")
                      var teg = new RegExp("&gt;","g")
