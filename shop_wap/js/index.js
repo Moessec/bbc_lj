@@ -315,16 +315,23 @@ setTimeout(function(){
 
 });
 $(function(){
-  var src
+  var src;
+  var sr2;
 $('.mainlist').find('li').hover(function(){
   src = $(this).find('img')[0].src;
   var sr = src.split('.png');
   var src1 = sr[0]+2+'.png';
-  var src2 = $(this).find('img')[0].src=src1;
+  src2 = $(this).find('img')[0].src=src1;
 
-  console.log(sr); 
+  // console.log(sr); 
 },function(){
+  if($(this).event='click')
+  {
+    $(this).find('img')[0].src=src1;
+  }else{
     $(this).find('img')[0].src=src;
+  }
+    
     // alert(io);
 })
 
