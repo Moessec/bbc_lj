@@ -45,7 +45,7 @@ $(function ()
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {k:wc,u:getCookie('id'),one:one,two:two}, dataType: "json", success: function (e)
                 {
-                    disce='<li style="height:20px;line-height:16px;font-size: 0.6rem;color: #000;" data-flag="'+e.data.dis+'">'+place+'</li>';
+                    disce='<li style="height:28px;line-height:20px;font-size: 0.6rem;color: #000;" data-flag="'+e.data.dis+'">'+place+'</li>';
                     $("#area").append(disce);
                     console.log(e.data.dis,place);
                 }
