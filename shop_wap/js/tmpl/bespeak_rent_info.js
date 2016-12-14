@@ -22,7 +22,7 @@ $(function ()
                        tem+='<tr><td class="left">地址：</td><td><span>'+value.bes_address+value.bespeak_address+'</span></td></tr>';
                        tem+='<tr><td class="left">联系人：</td><td><span>'+value.true_name+'</span></td></tr>';
                        tem+='<tr><td class="left">联系方式：</td><td><span>'+value.usercontact+'</span></td></tr></table></div>'
-                       tem+='<div class="error-tips"></div><div class="form-btn"><a style="margin-bottom: 15px;'+value.bespeakcss+'" class="btn" href="'+value.bespeak_id+'">'+value.bespeaka+'</a></div></dl>';
+                       tem+='<div class="error-tips"></div><div class="form-btn"><a style="margin-bottom: 15px;'+value.bespeakcss+'" class="btn" href="'+value.bespeak_id+'"><span style="color:#fff">'+value.bespeaka+'</span></a></div></dl>';
                     var reg = new RegExp("&lt;","g")
                      var teg = new RegExp("&gt;","g")
                       var b=tem.replace(reg,'<');
