@@ -11,12 +11,11 @@ $(function ()
              var temp = '';
             for(var i in r)
             {
-              temp = r[i];
-              console.log(temp);
-              for(var k in temp){
+                temp = r[i];
+                cnm+=temp.business_license_location;
+                place+=temp.company_address_detail;
                 var sss = s();
                 console.log(sss);
-              }
             }
         }
     });
