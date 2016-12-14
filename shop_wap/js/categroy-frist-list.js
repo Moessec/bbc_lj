@@ -546,7 +546,7 @@ function get_brand_recommend()
 
 $(function(){
 $('.mainlist').find('li').hover(function(){
-
+ alert(233);
 },function(){
     var io = $(this).find('a').src;
     alert(io);
