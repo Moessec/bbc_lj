@@ -4,7 +4,7 @@ $(function ()
     var cnm='';
     var place='';
     var res='';
-    var distance = new Array();
+    var disce='';
     $.ajax({
         type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
             {
@@ -45,11 +45,9 @@ $(function ()
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {k:wc,u:getCookie('id'),one:one,two:two}, dataType: "json", success: function (e)
                 {
-                    var km=e.data;
-                    for(k in km){
-                        console.log(km[k].dis);
-                    }
+                    disce+='<option value="'+e+'">'+place+'</option>';
                 }
+                $('#area_info').html(disce);
         })
     }
 
