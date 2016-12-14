@@ -37,8 +37,9 @@
             <div class="header-r"> <a id="header-nav" href="javascript:void(0);"></a> </div>
         </div>
     </header>
-            <select class="inp" name="area_info" id="area_info" autocomplete="off" style=" position:fixed; margin-top:50%; margin-left:50%;display: none; width:100px;height:100px;" placeholder="请选择项目所在区域" > 
-            </select>
+            <div class="inp" name="area_info" id="area_info" autocomplete="off" style=" position:fixed; margin-top:10%; margin-left:25%;display: none; width:50%;" placeholder="请选择项目所在区域" > 
+            </div>
+            <div id="hei" style="background: #F5F5F5;display:none" width="100%" height="100%"></div>
     <div class="nctouch-main-layout">
         <form>
             <img src="../../images/wap.jpg" style="width:100%">
@@ -133,12 +134,16 @@
     <script type="text/javascript">
 
     var info = document.getElementById("area_info");
+    var hei = document.getElementById("hei");
     function div2Show() {
-        info.style.display = "block";info.style.zIndex = 999999;
+        info.style.display = "block";
+        hei.style.display = "block";
+        info.style.zIndex = 999999;
+        hei.style.zIndex = 999998;
     }
     info.onclick = function (parameters) {
         var sltProvice = document.getElementById("area_info");
-        var ops = sltProvice.getElementsByTagName("option");
+        var ops = sltProvice.getElementsByTagName("li");
         var arrOps = Array.prototype.slice.call(ops, 0);
         arrOps.sort(function (a, b) {
             return a.attributes["data-flag"].value - b.attributes["data-flag"].value;
