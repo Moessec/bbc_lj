@@ -322,10 +322,10 @@ $('.mainlist').find('li').click(function(){
   var sr = src.split('.png');
   var src1 = sr[0]+2+'.png';
   src2 = $(this).find('img')[0].src=src1;
-alert(src2);
+
   // console.log(sr); 
-// },function(){
-//     $(this).find('img')[0].src=src;
+},function(){
+    $(this).find('img')[0].src=src;
 })
 
 
