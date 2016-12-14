@@ -212,6 +212,11 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					}elseif ($value['bespeak_state']=='2') {
 						$value['bespeak_state']='预约已完成';
 					}
+					foreach ($data['rent'] as $kk => $vv) {
+						if($value['bespeak_title']==$vv['bespeak_title']){
+							$value['bespeak_img']=$vv['bespeak_img'];
+						}
+					}
 					$data['temp'][$key]=$value;
 			}
 			foreach ($data['rent'] as $key => $value) {
@@ -241,7 +246,6 @@ class Buyer_BespeakCtl extends Buyer_Controller
 						$id = $value['bespeak_id'];
 						$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 					}
-					$data['temp'][$key]=$value;
 					$data['rent'][$key]=$value;
 			}
 			$num=count($data);
