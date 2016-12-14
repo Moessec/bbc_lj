@@ -6,7 +6,7 @@ $(function ()
     function s()
     {
         $.ajax({
-            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: key, u:getCookie('id')}, dataType: "json", success: function (e)
+            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
             {
                 checkLogin(e.login);
                 if (e.data.address_list == null)
