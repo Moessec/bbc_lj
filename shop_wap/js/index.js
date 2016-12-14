@@ -316,11 +316,11 @@ setTimeout(function(){
 });
 $(function(){
 $('.mainlist').find('li').hover(function(){
- var src = $(this).find('a').src;
+ var src = $(this).find('img').src;
   var sr = src.split('.');
   console.log(sr); 
 },function(){
-    var io = $(this).find('a').src;
+    // var io = $(this).find('a').src;
     // alert(io);
 })
 
