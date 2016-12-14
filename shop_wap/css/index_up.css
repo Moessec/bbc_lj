@@ -225,9 +225,9 @@ body{
             /*border-radius: 0.5;*/
             margin-top: 0.5rem;
 border: solid 0px #000;
--webkit-border-radius: 0.3;
--moz-border-radius: 0.3px;
-border-radius: 0.3px;
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
 -webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
 -moz-box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
 box-shadow: inset 0 1px 5px rgba(0,0,0,.5);             
