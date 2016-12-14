@@ -67,7 +67,7 @@
                     <li class="form-item">
                         <h4>社区选择</h4>
                         <div class="input-box">
-                            
+
                             <select class="inp" name="area_info" id="area_info" autocomplete="off" style="position: fixed;display: none; width:100px;height:100px;" placeholder="请选择项目所在区域" > 
 
                             </select>
@@ -135,7 +135,7 @@
 
     var info = document.getElementById("area_info");
     function div2Show() {
-        info.style.display = "block";
+        info.style.display = "block";info.style.zIndex = 999999;
     }
     info.onclick = function (parameters) {
         var sltProvice = document.getElementById("area_info");
