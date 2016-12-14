@@ -34,7 +34,6 @@ $(function ()
                     temp = r[i];
                     dq=temp.business_license_location;
                     place=temp.company_address_detail;
-                    console.log(dq);
                     var km=jl(dq,res);
                     console.log(km);
                 }
