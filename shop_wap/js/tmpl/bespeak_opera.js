@@ -47,7 +47,7 @@ $(function ()
                 {
                     disce+='<option value="'+e+'">'+place+'</option>';
                 }
-                $('#area_info').html(disce);
+                $('#area_info').append(disce);
         })
     }
 
