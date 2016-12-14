@@ -18,12 +18,11 @@ $(function ()
                 for(v in s){
                     if(s[v].user_address_default==1){
                         var res = s[v].address_info;
-                        console.log(s[v]);
                     }
                 }
             }
         })
-        console.log(res);
+        // console.log(res);
     }
     s();
 
