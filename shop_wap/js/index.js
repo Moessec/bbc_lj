@@ -326,7 +326,7 @@ $('.mainlist').find('li').click(function(){
   // console.log(sr); 
 // },function(){
 //     $(this).find('img')[0].src=src;
-// })
+})
 
 
 
