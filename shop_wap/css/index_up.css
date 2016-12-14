@@ -195,8 +195,8 @@ body{
         	text-align: center;
         }
         .activity-contain ul li img{
-        	width:60px;
-        	height:60px;
+        	width:20%;
+        	height:20%;
         }
         .activity-contain ul li p{
         	margin-top:0.2rem;
