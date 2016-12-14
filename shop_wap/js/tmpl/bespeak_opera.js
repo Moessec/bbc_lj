@@ -34,6 +34,7 @@ $(function ()
                     temp = r[i];
                     dq=temp.business_license_location;
                     place=temp.company_address_detail;
+                    console.log(dq);
                     var km=jl(dq,res);
                     console.log(km);
                 }
@@ -45,9 +46,7 @@ $(function ()
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {k:wc,u:getCookie('id'),one:one,two:two}, dataType: "json", success: function (e)
                 {
-                    if(e!=''){
-                        console.log(e);
-                    }
+
                 }
         })
     }
