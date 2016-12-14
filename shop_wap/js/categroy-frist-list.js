@@ -189,6 +189,8 @@ $(function ()
             $("#categroy-rgt").html(r);
             $(".pre-loading").hide();
             new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+        shop_goodslist1();
+            
         });        
       }
         e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
