@@ -702,12 +702,14 @@ class Buyer_BespeakCtl extends Buyer_Controller
 	}
 
 	public function getplace($one,$two){
+		$one = request_int('one');
+		$two = request_int('two');
 		$oneti = $this->addr_to_location($one);
 		$twoti = $this->addr_to_location($two);
 		$distance = $this->getDistance($one['lng'],$one['lat'],$two['lng'],$two['lat']);
 		$data=$distance/1000;
-		var_dump($oneti);
-		var_dump($twoti);
+		var_dump($one);
+		var_dump($two);
 		var_dump($distance);
 		exit();
 		$this->data->addBody(-140,$data);
