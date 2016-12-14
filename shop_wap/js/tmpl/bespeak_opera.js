@@ -1,31 +1,65 @@
 $(function ()
 {
-    var lj = getQueryString("lj");
     var wc = getCookie("key");
     var cnm='';
+    var place='';
     $.ajax({
-        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id'), id: lj}, dataType: "json", success: function (nmb)
+        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id')}, dataType: "json", success: function (nmb)
         {
             var r = nmb.data.items;
-            // console.info(r);
              var temp = '';
             for(var i in r)
             {
-              temp = r[i].shop_id;
-              if(temp==lj){
-                cnm+=r[i].business_license_location;
-                cnm+='  ';
-                cnm+=r[i].company_address_detail;
+              temp = r[i];
+              for(var k in temp){
+                cnm+=temp[k].business_license_location;
+                place+=temp[k].company_address_detail;
+                var sss = s();
+                console.log(sss);
               }
-              console.log(r[i]);
-            }
-            if(cnm!=''){
-                    document.cookie="sb=''; path=/;"; //
-            $('.area').html(cnm);
-            $("#area_info").val(cnm);
             }
         }
     });
+
+     function s()
+    {
+        $.ajax({
+            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
+            {
+                checkLogin(e.login);
+                if (e.data.address_list == null)
+                {
+                    return false
+                }
+                var s = e.data.address_list;
+                for(v in s){
+                    if(s[v].user_address_default==1){
+                        res += s[v].address_info;
+                    }
+                }
+            }
+        })
+    }
+
+    function jl(add){
+        $.ajax({
+            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {one:add, dataType: "json", success: function (e)
+            {
+                checkLogin(e.login);
+                if (e.data.address_list == null)
+                {
+                    return false
+                }
+                var s = e.data.address_list;
+                for(v in s){
+                    if(s[v].user_address_default==1){
+                        res += s[v].address_info;
+                    }
+                }
+            }
+        })
+    }
+
     var a = getCookie("key");
     $.sValid.init({
         rules: {true_name: "required", usercontact: "required", area_info: "required", address: "required", bespeak_title: "required"},
