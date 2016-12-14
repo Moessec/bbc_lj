@@ -16,7 +16,7 @@ $(function ()
                 console.log(a);
                 $.each(a.data, function(key, value){
                        tem='<dl><img src="'+value.bespeak_img+'" style="width:100%">';
-                       tem+='<span style="width:90%;margin:auto;margin-left:9px;font-size: 0.7rem;line-height: 3rem;color: #000;">预约说明</span><div class="com">';
+                       tem+='<span style="width: 90%;display: block;height: 18px;margin: auto;padding-top: 23px;margin-left: 9px;font-size: 0.7rem;color: #000;">预约说明</span><div class="com">';
                        tem+='<span style="width:90%;margin:auto">'+value.bespeak_com+'</span></div>';
                        tem+='<div class="ul"><table><tr><td class="left">租赁价格：</td><td><span>'+value.rent_price+'</span></td></tr>';
                        tem+='<tr><td class="left">地址：</td><td><span>'+value.bes_address+value.bespeak_address+'</span></td></tr>';
