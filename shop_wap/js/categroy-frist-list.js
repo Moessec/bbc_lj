@@ -147,7 +147,6 @@ $(function ()
             e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true});
         });    
     }else{
-        shop_goodslist1();
          //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
             $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=cat&typ=json&cat_parent_id=0", function (t)
             {
@@ -158,6 +157,7 @@ $(function ()
                 var a = template.render("category-one", r);
                 $("#categroy-cnt").html(a);
                 e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
+        shop_goodslist1();
             });
     }
    
