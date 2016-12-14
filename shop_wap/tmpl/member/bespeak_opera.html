@@ -156,11 +156,14 @@
             area.appendChild(op);
         });
     }
-    ops.onclick = function (ccc){
-        alert(ccc);
-        info.style.display = "none";
-        hei.style.display = "none";
-    }
+    window.are.on('click','.areainfo',function(){
+        function (ccc){
+            alert(ccc);
+            info.style.display = "none";
+            hei.style.display = "none";
+        }
+    })
+    
     function show(){
      document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
     }
