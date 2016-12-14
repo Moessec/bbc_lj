@@ -325,6 +325,4 @@ $(function(){
   // alert(src1);
   src2 = $('#active1').find('img')[0].src=src1;
 
-
-
 })
