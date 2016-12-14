@@ -108,6 +108,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 						$value['bespeak_state']='处理中';
 					}elseif ($value['bespeak_state']=='2') {
 						$value['bespeak_state']='已处理';
+						$value['bespeak_css']='color:#EA8A3E';
 					}
 					if($value['bespeak_place']=='0'){
 						$value['bespeak_place']='公共区域';
