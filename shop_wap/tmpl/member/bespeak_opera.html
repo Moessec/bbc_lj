@@ -156,10 +156,10 @@
             area.appendChild(op);
         });
     }
-    ops.onclick = function (ccc){
+    function infoval(place){
         var info = document.getElementById("area_info");
-        alert(document.getElementById("area_info"))
-        document.getElementById(ccc.target.attributes["data-flag"].value).value=ccc.target.attributes["data-flag"].value;
+        info.value=place;
+        btn2.html=place;
         info.style.display = "none";
         hei.style.display = "none";
     }
