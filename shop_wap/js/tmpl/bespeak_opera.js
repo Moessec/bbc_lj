@@ -5,25 +5,7 @@ $(function ()
     var place='';
     var res='';
     $.ajax({
-        type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id')}, dataType: "json", success: function (nmb)
-        {
-            var r = nmb.data.items;
-             var temp = '';
-            for(var i in r)
-            {
-                temp = r[i];
-                cnm+=temp.business_license_location;
-                place+=temp.company_address_detail;
-                var sss = s();
-                console.log(res);
-            }
-        }
-    });
-
-     function s()
-    {
-        $.ajax({
-            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
+        type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
             {
                 checkLogin(e.login);
                 if (e.data.address_list == null)
@@ -34,11 +16,30 @@ $(function ()
                 for(v in s){
                     if(s[v].user_address_default==1){
                         res += s[v].address_info;
-                        return res;
+                        s(res);
                     }
                 }
             }
-        })
+    })
+
+     function s(res)
+    {
+        $.ajax({
+            type: "post", url: ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", data: {k:wc,u:getCookie('id')}, dataType: "json", success: function (nmb)
+            {
+                var r = nmb.data.items;
+                 var temp = '';
+                for(var i in r)
+                {
+                    temp = r[i];
+                    cnm+=temp.business_license_location;
+                    place+=temp.company_address_detail;
+                    console.log(cnm);
+                    console.log(place);
+                    console.log(res);
+                }
+            }
+        });
     }
 
     function jl(add){
