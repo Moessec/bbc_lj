@@ -32,19 +32,18 @@ $(function ()
                 for(var i in r)
                 {
                     temp = r[i];
-                    cnm+=temp.business_license_location;
-                    place+=temp.company_address_detail;
+                    cnm=temp.business_license_location;
+                    place=temp.company_address_detail;
                     console.log(cnm);
                     console.log(place);
-                    console.log(res);
                 }
             }
         });
     }
 
-    function jl(add){
+    function jl(one,two){
         $.ajax({
-            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {one:add}, dataType: "json", success: function (e)
+            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {(one:one,two:two)}, dataType: "json", success: function (e)
                 {
                     if (e.data.address_list == null)
                     {
