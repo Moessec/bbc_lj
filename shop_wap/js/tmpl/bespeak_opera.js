@@ -4,6 +4,24 @@ $(function ()
     var cnm='';
     var place='';
     var res='';
+    $.ajax({
+        type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
+            {
+                checkLogin(e.login);
+                if (e.data.address_list == null)
+                {
+                    return false
+                }
+                var s = e.data.address_list;
+                for(v in s){
+                    if(s[v].user_address_default==1){
+                        res += s[v].address_info;
+                        dis(res);
+                    }
+                }
+            }
+    })
+
     function dis(res)
     {
         $.ajax({
@@ -24,27 +42,9 @@ $(function ()
         });
     }
 
-    $.ajax({
-        type: "post", url: ApiUrl + "/index.php?ctl=Buyer_User&met=address&typ=json", data: {k: wc, u:getCookie('id')}, dataType: "json", success: function (e)
-            {
-                checkLogin(e.login);
-                if (e.data.address_list == null)
-                {
-                    return false
-                }
-                var s = e.data.address_list;
-                for(v in s){
-                    if(s[v].user_address_default==1){
-                        res += s[v].address_info;
-                        dis(res);
-                    }
-                }
-            }
-    })
-
     function jl(add){
         $.ajax({
-            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {one:add, dataType: "json", success: function (e)
+            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {one:add}, dataType: "json", success: function (e)
                 {
                     if (e.data.address_list == null)
                     {
@@ -57,7 +57,6 @@ $(function ()
                         }
                     }
                 }
-            }
         })
     }
 
