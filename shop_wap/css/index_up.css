@@ -267,6 +267,7 @@ body{
         }
         .shop-contain-info dl dd.shop-tel{
         	bottom:1.9rem;
+
         }
         .shop-contain-info .shop-tel span{
 		    background-image: url(../images/iconfont/phone.png);
@@ -275,6 +276,8 @@ body{
 		    background-repeat: no-repeat;
 		    background-size: 0.9rem;
 		    padding-left: 1rem;
+            color: darkorange;
+            font-size: medium;
         }
         .shop-tel i{
         	position: absolute;
