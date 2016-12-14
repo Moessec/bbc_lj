@@ -39,7 +39,7 @@ $(function ()
             });
     }
    
-    get_brand_recommend();
+    // get_brand_recommend();
     $("#categroy-cnt").on("click", ".category", function ()
     {
         $(".pre-loading").show();
@@ -516,7 +516,7 @@ setTimeout(function(){
     $("#categroy-cnt").on("click", ".brand", function ()
     {
         $(".pre-loading").show();
-        get_brand_recommend()
+        // get_brand_recommend()
     })
 
 
