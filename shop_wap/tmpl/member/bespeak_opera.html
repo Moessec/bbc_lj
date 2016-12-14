@@ -144,6 +144,8 @@
         hei.style.zIndex = 999998;
     }
     info.onclick = function (parameters) {
+        var info = document.getElementById("area_");
+        var ops = info.getElementsByTagName("li");
         var arrOps = Array.prototype.slice.call(ops, 0);
         arrOps.sort(function (a, b) {
             return a.attributes["data-flag"].value - b.attributes["data-flag"].value;
