@@ -279,6 +279,11 @@ body{
             color: darkorange;
             font-size: medium;
         }
+.shop-tel span a{
+            color: darkorange;
+            font-size: medium;
+        }
+
         .shop-tel i{
         	position: absolute;
         }
