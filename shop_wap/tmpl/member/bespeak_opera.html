@@ -131,7 +131,8 @@
         </form>
     </div>
     <script type="text/javascript">
-    window.onload = function (parameters) {
+        var info = document.getElementById("area_info");
+    info.onclick = function (parameters) {
         var sltProvice = document.getElementById("area_info");
         var ops = sltProvice.getElementsByTagName("option");
         var arrOps = Array.prototype.slice.call(ops, 0);
