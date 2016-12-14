@@ -390,6 +390,9 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['usercontact'] = request_string('usercontact');
 		$data['true_name'] = request_string('true_name');
 		$data['user_id'] = 'admin';
+		$data['bespeak_address'] = request_string('address');
+		$data['bespeak_area_info'] = request_string('bespeak_area_info');
+		$data['opentime'] = date('Y-m-d H:i:s',time());
 		$data['bespeak_list'] = '2';
 
 		$bespeak_id = $this->goodsBespeakModel->addBespeak($data, true);

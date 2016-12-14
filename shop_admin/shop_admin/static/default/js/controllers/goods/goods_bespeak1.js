@@ -4,11 +4,10 @@ function initField()
     {
         $("#bespeak_title").val(rowData.bespeak_title);
         $("#bespeak_com").val(rowData.bespeak_com);
-        $("#usercontact").val(rowData.usercontact);
         $("#bes_img").val(rowData.bespeak_img);
-        $("#bespeak_img").attr('src',rowData.bespeak_img);
         $("#true_name").val(rowData.true_name);
-        $("#rent_price").val(rowData.rent_price);
+        $("#usercontact").val(rowData.usercontact);
+        $("#bespeak_img").attr('src',rowData.bespeak_img);
     }
 }
 function initPopBtns()
