@@ -225,8 +225,8 @@
     <script type="text/javascript" src="../../js/zepto.min.js"></script>
     <script type="text/javascript">
         $('#area').on('click','.areainfo',function(){
-           alert($(this).attr('data-flag'));
-            // $('#area_info').val($(this).alert('data-flag'));
+            $('#area_info').val($(this).attr('data'));
+            $('#btn2').html($(this).attr('data'));
             $('#area').hide();
             $('#hei').hide();
         })
