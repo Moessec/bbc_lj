@@ -320,7 +320,7 @@ $('.mainlist').find('li').hover(function(){
   // alert(src);
   var sr = src.split('.');
   var src1 = sr[0]+2+sr[1];
-  var src2 = $(this).find('img')[0].src(src1);
+  var src2 = $(this).find('img')[0].src=src1;
 
   console.log(sr); 
 },function(){
