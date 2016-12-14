@@ -133,7 +133,7 @@
     <script type="text/javascript">
     onTest();
     function onTest(){
-          var arr =   document.getElementById('#area_info').children.val;
+          var arr =   document.getElementById('#area_info').childNodes.val;
           arr.sort(function(a,b){
             return a.innerHTML>b.innerHTML?1:-1;
           });//对li进行排序，这里按照从小到大排序
