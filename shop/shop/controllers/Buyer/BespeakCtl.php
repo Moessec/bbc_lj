@@ -105,9 +105,9 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					if($value['bespeak_state']=='0'){
 						$value['bespeak_state']='无效，审核不通过';
 					}elseif ($value['bespeak_state']=='1') {
-						$value['bespeak_state']='预约正在处理';
+						$value['bespeak_state']='处理中';
 					}elseif ($value['bespeak_state']=='2') {
-						$value['bespeak_state']='预约已完成';
+						$value['bespeak_state']='已处理';
 					}
 					if($value['bespeak_place']=='0'){
 						$value['bespeak_place']='公共区域';
