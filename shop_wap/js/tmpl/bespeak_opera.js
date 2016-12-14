@@ -14,7 +14,6 @@ $(function ()
                     return false
                 }
                 var s = e.data.address_list;
-                console.info(s);
                 for(v in s){
                     if(s[v].user_address_default==1){
                         var res = s[v].address_info;
@@ -22,7 +21,7 @@ $(function ()
                 }
             }
         })
-        // console.log(res);
+        console.log(res);
     }
     s();
 
