@@ -386,7 +386,7 @@ setTimeout(function(){
                         $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
                     }
                 }
-
+                alert(getCookie('cart_count'));
  
                 //加入购物车
          
@@ -421,7 +421,6 @@ setTimeout(function(){
                         }
                         // 加入cookie
                         addCookie('goods_cart',goods_info);
-                        alert(2);
                         // 更新cookie中商品数量
                         addCookie('cart_count',cart_count);
                         // show_tip();
