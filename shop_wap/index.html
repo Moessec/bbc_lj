@@ -366,13 +366,13 @@ window.onload = function() {
 	$(function(){
 		var c = $(window).width();
 		alert(c);
-       $('.product-list .product-list-info ul li img').height(c/3-1);
-	   
-		var width2 = $('.product-list-info').find('img').width();
-		  // alert(width2);
-		    $('.product-list-info').find('img').height(width2);
-		    var width3 = $('.footer-nav').find('img').width();
-		    $('.footer-nav').find('img').height(width3);   
+       $('.product-list .product-list-info ul li img').width(c/3);
+	   $('.product-list .product-list-info ul li img').height(c/3)
+		// var width2 = $('.product-list-info').find('img').width();
+		//   // alert(width2);
+		//     $('.product-list-info').find('img').height(width2);
+		//     var width3 = $('.footer-nav').find('img').width();
+		//     $('.footer-nav').find('img').height(width3);   
 	})
   //自动获取定位信息功能
       showArea(BMap);
