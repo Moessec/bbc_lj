@@ -35,7 +35,7 @@ $(function ()
                     dq=temp.business_license_location;
                     place=temp.company_address_detail;
                     var km=jl(dq,res);
-                    console.log(km);
+                    console.log(jl(dq,res));
                 }
             }
         });
