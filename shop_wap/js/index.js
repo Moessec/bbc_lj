@@ -315,16 +315,16 @@ setTimeout(function(){
 
 });
 $(function(){
+  var src
 $('.mainlist').find('li').hover(function(){
-  var src = $(this).find('img')[0].src;
-  // alert(src);
+  src = $(this).find('img')[0].src;
   var sr = src.split('.png');
   var src1 = sr[0]+2+'.png';
   var src2 = $(this).find('img')[0].src=src1;
 
   console.log(sr); 
 },function(){
-    // var io = $(this).find('a').src;
+    $(this).find('img')[0].src=src;
     // alert(io);
 })
 
