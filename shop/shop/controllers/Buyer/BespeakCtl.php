@@ -241,6 +241,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 						$id = $value['bespeak_id'];
 						$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 					}
+					$data['temp'][$key]=$value;
 					$data['rent'][$key]=$value;
 			}
 			$num=count($data);
