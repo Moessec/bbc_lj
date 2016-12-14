@@ -45,19 +45,13 @@ $(function ()
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {k:wc,u:getCookie('id'),one:one,two:two}, dataType: "json", success: function (e)
                 {
-                    disce='<li onclick="infoval('+place+')" data-flag="'+e.data.dis+'">'+place+'</li>';
+                    disce='<li data-flag="'+e.data.dis+'">'+place+'</li>';
                     $("#area").append(disce);
                     console.log(e.data.dis,place);
                 }
         })
     }
-function infoval(place){
-        var info = document.getElementById("area_info");
-        info.value=place;
-        btn2.innerHTML=place;
-        info.style.display = "none";
-        hei.style.display = "none";
-    }
+
     var a = getCookie("key");
     $.sValid.init({
         rules: {true_name: "required", usercontact: "required", area_info: "required", address: "required", bespeak_title: "required"},
