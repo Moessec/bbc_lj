@@ -19,6 +19,7 @@ $(function ()
                        tem+='<span style="color:#FF8000;display:block;margin-top:10px;margin-left:5px;font-size:0.9rem">预约说明</span><div class="com">';
                        tem+='<span style="width:90%;margin:auto">'+value.bespeak_com+'</span></div>';
                        tem+='<div class="ul"><table><tr><td class="left">租赁价格：</td><td><span>'+value.rent_price+'</span></td></tr>';
+                       tem+='<tr><td class="left">地址：</td><td><span>'+value.bes_address+'</span></td></tr>';
                        tem+='<tr><td class="left">联系人：</td><td><span>'+value.true_name+'</span></td></tr>';
                        tem+='<tr><td class="left">联系方式：</td><td><span>'+value.usercontact+'</span></td></tr></table></div>'
                        tem+='<div class="error-tips"></div><div class="form-btn"><a style="    margin-bottom: 15px;" class="btn" href="'+value.bespeak_id+'">'+value.bespeaka+'</a></div></dl>';
