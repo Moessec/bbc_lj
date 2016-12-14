@@ -312,7 +312,7 @@ if(shop_id)
 
 }
 
-
+alert(32234);
 
 
 //===========================钓起数据信息结束==============================
@@ -323,7 +323,6 @@ setTimeout(function(){
 
     $(this).on('click',function(e){
      // alert(1);
-     alert(getCookie('cart_count'));
         var goods_id = $(this).find('input').val();
         get_detail(goods_id);
   function get_detail(goods_id) {
