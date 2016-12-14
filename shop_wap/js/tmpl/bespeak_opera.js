@@ -17,12 +17,13 @@ $(function ()
                 console.info(s);
                 for(v in s){
                     if(s[v].user_address_default==1){
-                        var address = s[v].address_info;
+                        var res = s[v].address_info;
+                        console.log(s[v]);
                     }
                 }
             }
         })
-        console.log(address);
+        console.log(res);
     }
     s();
 
