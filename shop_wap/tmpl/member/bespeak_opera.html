@@ -151,7 +151,6 @@
         arrOps.sort(function (a, b) {
             return a.attributes["data-flag"].value - b.attributes["data-flag"].value;
         });
-        alert(ops);
         area.options.length = 0;
         arrOps.map(function (op) {
             area.appendChild(op);
