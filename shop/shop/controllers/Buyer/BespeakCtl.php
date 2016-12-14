@@ -678,6 +678,11 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				}else{
 					$value['bespeaka']='已租赁';
 				}
+				if($value['outtime']-$value['starttime']>0){
+					$value['bespeak_id']=' ';
+					$value['bespeaka']='租赁中';
+
+				}
 			}
 
 			$data[$key]=$value;
