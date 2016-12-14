@@ -316,17 +316,20 @@ setTimeout(function(){
 });
 $(function(){
   var src;
-  var sr2;
+  var src2;
+  var sr;
+  var src1;
 $('.mainlist').find('li').hover(function(){
   src = $(this).find('img')[0].src;
-  var sr = src.split('.png');
-  var src1 = sr[0]+2+'.png';
+  sr = src.split('.png');
+  src1 = sr[0]+2+'.png';
   src2 = $(this).find('img')[0].src=src1;
 
   // console.log(sr); 
 },function(){
-  if($(this).event='click')
+  if($(this).data("events")[type] ='click')
   {
+
     $(this).find('img')[0].src=src1;
   }else{
     $(this).find('img')[0].src=src;
