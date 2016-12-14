@@ -131,13 +131,7 @@
         </form>
     </div>
     <script type="text/javascript">
-    function onTest(){
-          var arr =   document.getElementById('#area_info').childNodes.val;
-          arr.sort(function(a,b){
-            return a.innerHTML>b.innerHTML?1:-1;
-          });//对li进行排序，这里按照从小到大排序
-          document.getElementById('#area_info').empty().append(arr);//清空原来内容添加排序后内容。
-    }
+    
     function show(){
      document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
     }
@@ -204,9 +198,13 @@
 </script>
     <script type="text/javascript" src="../../js/zepto.min.js"></script>
     <script type="text/javascript">
-    $('#area_info').on('click',function(){
-        onTest();
-    })
+    function onTest(){
+          var arr =   $('#area_info option').val;
+          arr.sort(function(a,b){
+            return a.innerHTML>b.innerHTML?1:-1;
+          });//对li进行排序，这里按照从小到大排序
+          $('#area_info').empty().append(arr);//清空原来内容添加排序后内容。
+    }
     </script>
     <script type="text/javascript" src="../../js/config.php"></script>
     <script type="text/javascript" src="../../js/common.js"></script>
