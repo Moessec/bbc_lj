@@ -143,10 +143,10 @@
         hei.style.display = "block";
         are.style.zIndex = 999999;
         hei.style.zIndex = 999998;
+        areainfo();
     }
-    btn2.onclick = function (parameters) {
+    function areainfo() {
         var arrOps = Array.prototype.slice.call(ops, 0);
-        alert(arrOps);
         arrOps.sort(function (a, b) {
             return a.attributes["data-flag"].value - b.attributes["data-flag"].value;
         });
