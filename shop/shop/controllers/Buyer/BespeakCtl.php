@@ -215,6 +215,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					foreach ($data['rent'] as $kk => $vv) {
 						if($value['bespeak_title']==$vv['bespeak_title']){
 							$value['bespeak_img']=$vv['bespeak_img'];
+							$value['rent_price']=$vv['rent_price'];
 						}
 					}
 					$data['temp'][$key]=$value;
