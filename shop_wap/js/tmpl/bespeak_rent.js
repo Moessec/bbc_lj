@@ -14,7 +14,7 @@ $(function ()
                 checkLogin(e.login);
                 console.log(e.data.temp);
                 $.each(e.data.rent, function(key, value){
-                       tem='<ul><li><dl><dt></dt><div style="width:100%;height:130px;"><a href="'+value.bespeakinfo+'"><img src="'+value.bespeak_img+'" style="width:100px;float:left"></a>';
+                       tem='<ul><li><dl><dt></dt><div style="width:100%;height:130px;"><a href="'+value.bespeakinfo+'"><img src="'+value.bespeak_img+'" style="width:100px;height:100px;float:left"></a>';
                        tem+='<dd style="float: left;margin-left: 10px; width:70%;line-height: 1.6rem;color:#000;font-size:0.8rem">'+value.bespeak_title+'</dd>';
                        tem+='<dd style="float: left;margin-left: 10px; width:70%;line-height: 1rem;">发布时间：'+value.opentime+'</dd>'
                        tem+='<dd style="float: left;margin-left: 10px; width:70%;line-height: 1rem;">地点：'+value.bes_address+'</dd>';
