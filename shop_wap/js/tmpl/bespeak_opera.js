@@ -51,7 +51,13 @@ $(function ()
                 }
         })
     }
-
+function infoval(place){
+        var info = document.getElementById("area_info");
+        info.value=place;
+        btn2.innerHTML=place;
+        info.style.display = "none";
+        hei.style.display = "none";
+    }
     var a = getCookie("key");
     $.sValid.init({
         rules: {true_name: "required", usercontact: "required", area_info: "required", address: "required", bespeak_title: "required"},
