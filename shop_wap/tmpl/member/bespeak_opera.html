@@ -85,18 +85,14 @@
                     <li class="form-item">
                         <h4>上门时间</h4>
                         <div class="input-box" style="float:right">
-                            <select name="h" id="h" onchange="show();">
-                            <script>
-                            for(var i=0;i<=23;i++){
-                             document.write("<option value='"+i+"'>"+i+"：00</option>");
-                            }
-                            </script>
-                            </select>
-                            <span style="font-size: 0.6rem;">-</span>
                             <select name="min" id="min" onchange="show();">
                             <script>
                             for(var i=0;i<=23;i++){
-                             document.write("<option value='"+i+"'>"+i+"：00</option>");
+                                var s=i+2;
+                                if(i>=22){
+                                    s=0;
+                                }
+                             document.write("<option value='"+i+"'>"+i+"：00-"+s+"：00</option>");
                             }
                             </script>
                             </select>
