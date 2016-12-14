@@ -66,16 +66,12 @@
                     </li>
                     <li class="form-item">
                         <h4>社区选择</h4>
-                        <div class="input-box"><!-- 
-                            <select class="inp" name="area_info" id="area_info" autocomplete="off" placeholder="请选择项目所在区域" > 
+                        <div class="input-box">
+                            <select class="inp" name="area_info" id="area_info" autocomplete="off" style="position: fixed;display: none; width:100px;height:100px;" placeholder="请选择项目所在区域" > 
 
-                            </select> -->
-                            <div id="div1" class="div1">
-                            </div>
-                            <div id="div2" class="div1">
+                            </select>
                             <input type="button" value="btn2" id="btn2" onclick="div2Show()" />
                             </div>
-                            <input type="button" value="btn1" id="btn1" onclick="div1Show()"/>
                         </div>
                     </li>
                     <li class="form-item">
@@ -135,36 +131,25 @@
             </div>
         </form>
     </div>
-    <style type="text/css">
-    .div1{position:absolute;display:none;}
-    .div2{position:absolute;display:none;}
-    </style>
     <script type="text/javascript">
-        function div1Show() {
-            var div1 = document.getElementById("div1");
-            div1.style.display = "";
-        }
-        function div2Show() {
-            var div1 = document.getElementById("div1");
-            var div2 = document.getElementById("div2");
-            div1.style.display = "none";
-            div2.style.display = "";
-        }
-    </script>
-    <script type="text/javascript">
-    // var info = document.getElementById("area_info");
-    // info.onclick = function (parameters) {
-    //     var sltProvice = document.getElementById("area_info");
-    //     var ops = sltProvice.getElementsByTagName("option");
-    //     var arrOps = Array.prototype.slice.call(ops, 0);
-    //     arrOps.sort(function (a, b) {
-    //         return a.attributes["data-flag"].value - b.attributes["data-flag"].value;
-    //     });
-    //     sltProvice.options.length = 0;
-    //     arrOps.map(function (op) {
-    //         sltProvice.appendChild(op);
-    //     });
-    // }
+
+    var info = document.getElementById("area_info");
+    function div2Show() {
+        var div2 = info;
+        div2.style.display = "block";
+    }
+    info.onclick = function (parameters) {
+        var sltProvice = document.getElementById("area_info");
+        var ops = sltProvice.getElementsByTagName("option");
+        var arrOps = Array.prototype.slice.call(ops, 0);
+        arrOps.sort(function (a, b) {
+            return a.attributes["data-flag"].value - b.attributes["data-flag"].value;
+        });
+        sltProvice.options.length = 0;
+        arrOps.map(function (op) {
+            sltProvice.appendChild(op);
+        });
+    }
     function show(){
      document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
     }
