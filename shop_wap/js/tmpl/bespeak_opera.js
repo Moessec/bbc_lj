@@ -47,7 +47,7 @@ $(function ()
                 {
                     var km=e.data;
                     for(k in km){
-                        var distance[k]=km[k].dis;
+                        distance[k]=km[k].dis;
                     }
                     console.log(distance);
                     console.log(km);
