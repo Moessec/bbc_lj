@@ -134,26 +134,25 @@
     </div>
     <script type="text/javascript">
 
-    var info = document.getElementById("area_");
-    var ops = info.getElementsByTagName("li");
+    var info = document.getElementById("area_info");
+    var are = document.getElementById("area_");
+    var ops = are.getElementsByTagName("li");
     var hei = document.getElementById("hei");
     function div2Show() {
-        info.style.display = "block";
+        are.style.display = "block";
         hei.style.display = "block";
-        info.style.zIndex = 999999;
+        are.style.zIndex = 999999;
         hei.style.zIndex = 999998;
     }
     info.onclick = function (parameters) {
-        var are = document.getElementById("area_");
-        var ops = are.getElementsByTagName("li");
         var arrOps = Array.prototype.slice.call(ops, 0);
         alert(arrOps);
         arrOps.sort(function (a, b) {
             return a.attributes["data-flag"].value - b.attributes["data-flag"].value;
         });
-        info.options.length = 0;
+        are.options.length = 0;
         arrOps.map(function (op) {
-            info.appendChild(op);
+            are.appendChild(op);
         });
     }
     ops.onclick = function (ccc){
