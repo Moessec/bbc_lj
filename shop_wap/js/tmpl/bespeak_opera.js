@@ -3,6 +3,7 @@ $(function ()
     var lj = getQueryString("lj");
     var wc = getCookie("key");
     var cnm='';
+    var res='';
     function s()
     {
         $.ajax({
@@ -16,7 +17,7 @@ $(function ()
                 var s = e.data.address_list;
                 for(v in s){
                     if(s[v].user_address_default==1){
-                        var res = s[v].address_info;
+                        res += s[v].address_info;
                     }
                 }
             }
