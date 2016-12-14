@@ -325,6 +325,7 @@ setTimeout(function(){
         alert(32234);
      // alert(1);
         var goods_id = $(this).find('input').val();
+        alert(goods_id);
         get_detail(goods_id);
   function get_detail(goods_id) {
       //渲染页面
@@ -544,7 +545,7 @@ function get_brand_recommend()
 
 $(function(){
 
-    
 
-    
+
+
 })
