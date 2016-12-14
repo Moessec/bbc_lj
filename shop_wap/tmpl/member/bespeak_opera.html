@@ -196,19 +196,22 @@
     } 
 
 </script>
-    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+
+    <script type="text/javascript" src="../../js/jquery.js"></script>
     <script type="text/javascript">
-    $('#area_info').on('click',function(){
+    var $j=JQuery.noConflict(); 
+    $j('#area_info').on('click',function(){
         onTest();
     })
     function onTest(){
-          var arr =   $('#area_info option').val;
+          var arr =   $j('#area_info option').val;
           arr.sort(function(a,b){
             return a.innerHTML>b.innerHTML?1:-1;
           });//对li进行排序，这里按照从小到大排序
-          $('#area_info').empty().append(arr);//清空原来内容添加排序后内容。
+          $j('#area_info').empty().append(arr);//清空原来内容添加排序后内容。
     }
     </script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
     <script type="text/javascript" src="../../js/config.php"></script>
     <script type="text/javascript" src="../../js/common.js"></script>
     <script type="text/javascript" src="../../js/simple-plugin.js"></script>
