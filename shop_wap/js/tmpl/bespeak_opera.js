@@ -15,7 +15,7 @@ $(function ()
                 cnm+=temp.business_license_location;
                 place+=temp.company_address_detail;
                 var sss = s();
-                console.log(sss);
+                console.log(res);
             }
         }
     });
