@@ -719,8 +719,10 @@ class Buyer_BespeakCtl extends Buyer_Controller
 			$status = 250;
 			$msg    = _('failure');
 		}
+		var_dump($data);
+		exit();
 
-		$this->data->addBody(-140, $data, $status);
+		$this->data->addBody(-140, $data, $msg, $status);
 	}
 
 	//计算距离
