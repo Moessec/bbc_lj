@@ -43,7 +43,7 @@ $(function ()
 
     function jl(one,two){
         $.ajax({
-            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {(one:one,two:two)}, dataType: "json", success: function (e)
+            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {one:one,two:two}, dataType: "json", success: function (e)
                 {
                     if (e.data.address_list == null)
                     {
