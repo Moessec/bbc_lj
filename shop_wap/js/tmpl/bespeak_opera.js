@@ -42,10 +42,8 @@ $(function ()
     }
 
     function jl(one,two){
-        console.log(one);
-        console.log(two);
         $.ajax({
-            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {one:one,two:two}, dataType: "json", success: function (e)
+            type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {k:wc,u:getCookie('id'),one:one,two:two}, dataType: "json", success: function (e)
                 {
                     if(e!=''){
                         console.log(e);
