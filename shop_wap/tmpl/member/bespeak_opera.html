@@ -26,6 +26,9 @@
 </head>
 
 <body>
+    <div class="inp" name="area_info" id="area_info" autocomplete="off" style=" position:fixed;background: #fff; margin-top:15%; margin-left:25%;display: none; width:50%;" placeholder="请选择项目所在区域" > 
+            </div>
+    <div id="hei" style="background: #000;opacity: 0.4;display:none;width:100%;height:100%; position:fixed;" ></div>
     <header id="header">
         <div class="header-wrap">
             <div class="header-l">
@@ -37,9 +40,7 @@
             <div class="header-r"> <a id="header-nav" href="javascript:void(0);"></a> </div>
         </div>
     </header>
-            <div class="inp" name="area_info" id="area_info" autocomplete="off" style=" position:fixed; margin-top:10%; margin-left:25%;display: none; width:50%;" placeholder="请选择项目所在区域" > 
-            </div>
-            <div id="hei" style="background: #000;opacity: 0.5;display:none;width:100%;height:100%; position:fixed;" ></div>
+            
     <div class="nctouch-main-layout">
         <form>
             <img src="../../images/wap.jpg" style="width:100%">
@@ -70,8 +71,7 @@
                     <li class="form-item">
                         <h4>社区选择</h4>
                         <div class="input-box">
-
-                            <input type="button" value="btn2" id="btn2" onclick="div2Show()" />
+                            <div class="form-btn"><a style="margin-bottom:15px"  class="btn" id="btn2" onclick="div2Show()" href="javascript:;">选择社区</a></div>
                         </div>
                     </li>
                     <li class="form-item">
