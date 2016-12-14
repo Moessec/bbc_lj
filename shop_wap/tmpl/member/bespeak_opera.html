@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <div class="inp" name="area_info" id="area_info" autocomplete="off" style=" position:fixed;background: #fff; margin-top:15%; margin-left:25%;display: none; width:50%;" placeholder="请选择项目所在区域" > 
+    <div class="inp" name="area_" id="area_" autocomplete="off" style=" position:fixed;background: #fff; margin-top:15%; margin-left:25%;display: none; width:50%;" placeholder="请选择项目所在区域" > 
             </div>
     <div id="hei" style="background: #000;opacity: 0.4;display:none;width:100%;height:100%; position:fixed;" ></div>
     <header id="header">
@@ -72,6 +72,7 @@
                         <h4>社区选择</h4>
                         <div class="input-box">
                         <a style="width: 90%;height: 1.7rem;padding: 0;margin: 0 5%;font-size: 0.8rem;line-height: 1.8rem;text-align: center;background: #EEE;border: none;border-radius: 0.2rem;"  class="btn" id="btn2" onclick="div2Show()" href="javascript:;">选择社区</a>
+                        <input type="hidden" name="area_info" id="area_info"/>
                         </div>
                     </li>
                     <li class="form-item">
@@ -133,7 +134,8 @@
     </div>
     <script type="text/javascript">
 
-    var info = document.getElementById("area_info");
+    var info = document.getElementById("area_");
+    var ops = info.getElementsByTagName("li");
     var hei = document.getElementById("hei");
     function div2Show() {
         info.style.display = "block";
@@ -142,16 +144,19 @@
         hei.style.zIndex = 999998;
     }
     info.onclick = function (parameters) {
-        var sltProvice = document.getElementById("area_info");
-        var ops = sltProvice.getElementsByTagName("li");
         var arrOps = Array.prototype.slice.call(ops, 0);
         arrOps.sort(function (a, b) {
             return a.attributes["data-flag"].value - b.attributes["data-flag"].value;
         });
-        sltProvice.options.length = 0;
+        info.options.length = 0;
         arrOps.map(function (op) {
-            sltProvice.appendChild(op);
+            info.appendChild(op);
         });
+    }
+    ops.onclick = function (ccc){
+        document.getElementById("area_info").value=ccc.target.attributes["data-flag"].value;
+        info.style.display = "none";
+        hei.style.display = "none";
     }
     function show(){
      document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
