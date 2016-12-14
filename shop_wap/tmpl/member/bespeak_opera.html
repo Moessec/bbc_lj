@@ -95,7 +95,10 @@
                                 if(i<10){
                                     i='0'+i;
                                 }
-                             document.write("<option value='"+i+"：00-"+s+"：00'>"+i+"：00-"+s+"：00</option>");
+                                if(s<10){
+                                    s='0'+s;
+                                }
+                             document.write("<option style="margin-top:5px;" value='"+i+"：00 - "+s+"：00'>"+i+"：00-"+s+"：00</option>");
                             }
                             </script>
                             </select>
