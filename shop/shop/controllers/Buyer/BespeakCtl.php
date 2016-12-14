@@ -674,13 +674,16 @@ class Buyer_BespeakCtl extends Buyer_Controller
 			}else{
 				$value['bespeak_id']=' ';
 				if($value['bespeak_state']=='1'){
+					$value['bespeakcss']='';
 					$value['bespeaka']='租赁正在处理';
 				}else{
+					$value['bespeakcss']='background: #99CCCC;color: #fff';
 					$value['bespeaka']='已租赁';
 				}
 				if($value['outtime']-$value['starttime']>0){
 					$value['bespeak_id']=' ';
 					$value['bespeaka']='租赁中';
+					$value['bespeakcss']='background: #99CCCC;color: #fff';
 
 				}
 			}
