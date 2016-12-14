@@ -40,6 +40,7 @@
     $('#bespeak_list').on('click', 'img',function () {
         $(this).css('width','100%');
         $(this).css('height','100%');
+        alert($(this).attr('width'));
         if($(this).attr('width')=='100%'){
             $(this).removeAttr('width');
             $(this).removeAttr('height');
