@@ -8,7 +8,6 @@ $(function ()
             checkLogin(a.login);
             console.log(a);
             $("#bespeak_title").val(a.data.bespeak_title);
-            $("#bespeak_com").val(a.data.bespeak_com);
             var e = a.data.bespeak_default == "1" ? true : false;
             $("#is_default").prop("checked", e);
             if (e)

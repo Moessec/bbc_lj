@@ -14,8 +14,12 @@ $(function ()
                 checkLogin(e.login);
                 console.log(e.data.temp);
                 $.each(e.data.temp, function(key, value){
-                       tem='<ul><li><dl><dt><span class="name">已预约：'+value.bespeak_title+'</span><span class="phone" style="margin-left:25px">联系方式：'+value.usercontact+'</span></dt><dd>活动详情：'+value.bespeak_com+'</dd></dl><div class="handle">'+value.bespeak_state+'<span><a href="javascript:;" bespeak_id="'+value.bespeak_id+'" class="delbespeak"><i class="del"></i>取消预约</a></span></div></li></ul>';
-                    $("#bespeak_rent").append(tem);
+                       tem='<ul><li><dl><dt></dt><div style="width:100%;height:130px;"><a href="'+value.bespeakinfo+'"><img src="'+value.bespeak_img+'" style="margin-left:14px;width:100px;height:100px;float:left"></a>';
+                       tem+='<dd style="float: left;margin-left: 27px; width:61%;line-height: 1.6rem;color:#000;font-size:0.8rem">'+value.bespeak_title+'</dd>';
+                       tem+='<dd style="float: left;margin-left: 27px; width:61%;line-height: 1rem;">归还时间：'+value.outtime+'</dd>'
+                       tem+='<dd style="float: left;margin-left: 27px; width:61%;line-height: 1rem;"价格：'+value.rent_price+'</dd>';
+                       tem+='<dd style="float: left;margin-left: 27px; width:61%;line-height: 1rem;">备注：'+value.bespeak_com+'</dd></div></dl></li></ul>';
+                    $("#bespeak_list").append(tem);
                 })
 
                 if (e.data == null)
