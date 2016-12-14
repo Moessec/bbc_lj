@@ -317,26 +317,13 @@ setTimeout(function(){
 $(function(){
   var src;
   var sr2;
-// $('.mainlist').find('li').hover(function(){
-//   src = $(this).find('img')[0].src;
-//   var sr = src.split('.png');
-//   var src1 = sr[0]+2+'.png';
-//   src2 = $(this).find('img')[0].src=src1;
 
-//   // console.log(sr); 
-// },function(){
-//     $(this).find('img')[0].src=src;
-//     // alert(io);
-// })
+ 
+  src =  $('.active1').find('img')[0].src;
+  var sr = src.split('.png');
+  var src1 = sr[0]+2+'.png';
+  src2 = $(this).find('img')[0].src=src1;
 
-if($('.mainlist').find('li').has('.active'))
-{
-  
-    src = $('.active1').find('img')[0].src;
-    var sr = src.split('.png');
-    var src1 = sr[0]+2+'.png';
-    src2 = $(this).find('img')[0].src=src1;
-}
 
 
 })
