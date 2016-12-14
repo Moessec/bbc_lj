@@ -707,7 +707,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$oneti = $this->addr_to_location($one);
 		$twoti = $this->addr_to_location($two);
 		$distance = $this->getDistance($oneti['lng'],$oneti['lat'],$twoti['lng'],$twoti['lat']);
-		$data=$distance/1000;
+		$data = array();
+		$data['0']=$distance/1000;
 
 		if ($flag !== false)
 		{
@@ -720,7 +721,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 			$msg    = _('failure');
 		}
 
-		$this->data->addBody(-140, $data, $msg);
+		$this->data->addBody(-140, $data);
 	}
 
 	//计算距离
