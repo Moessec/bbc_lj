@@ -44,16 +44,16 @@ $(function ()
     function jl(add){
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {one:add, dataType: "json", success: function (e)
-            {
-                checkLogin(e.login);
-                if (e.data.address_list == null)
                 {
-                    return false
-                }
-                var s = e.data.address_list;
-                for(v in s){
-                    if(s[v].user_address_default==1){
-                        res += s[v].address_info;
+                    if (e.data.address_list == null)
+                    {
+                        return false
+                    }
+                    var s = e.data.address_list;
+                    for(v in s){
+                        if(s[v].user_address_default==1){
+                            res += s[v].address_info;
+                        }
                     }
                 }
             }
