@@ -12,7 +12,7 @@ $(function ()
             {
                 
                 checkLogin(e.login);
-                console.info(e.data);
+                console.info(e.data.temp);
                 $.each(e.data.temp, function(key, value){
                        tem='<ul><li><dl><dt><span class="name"><a href="'+value.bespeakinfo+'" style="list-style: none;">'+value.bespeak_title+'</a></span></dt><div style="width:100%;height:70px;"><a href="'+value.bespeakinfo+'"><img src="'+value.bespeak_img+'" style="width:40px;height:40px;float:left"></a><dd style="float: left;margin-left: 10px; width:80%;line-height: 0.9rem;">活动时间：'+value.opentime.substr(0,10)+'--'+value.outtime.substr(0,10)+'</dd><dd style="float: left;margin-left: 10px; width:80%;line-height: 0.9rem;overflow:hidden;height:22px;">联系人：'+value.true_name+'</dd><dd style="float: left;margin-left: 51px; width:80%";line-height: 0.9rem;">活动地点：'+value.bes_address+'</dd></div></dl><div class="handle">'+value.bespeak_state+'<span><a href="'+value.bespeak_id+'"><i class="edit"></i>'+value.bespeak_click+'</a></div></li></ul>';
                 })
