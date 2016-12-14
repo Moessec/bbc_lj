@@ -327,7 +327,7 @@ $('.mainlist').find('li').hover(function(){
 
   // console.log(sr); 
 },function(){
-  if($(this).data("events")[type] ='click')
+  if($(this).event ='click')
   {
 
     $(this).find('img')[0].src=src1;
