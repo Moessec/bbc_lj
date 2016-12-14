@@ -366,9 +366,9 @@ window.onload = function() {
 	$(function(){
 		var c = $(window).width();
 		// alert(c);
-      var d =  $('.product-list-info ul li a img').width(c/3);
+      var d =  $('.product-list-info').find('img').width(c/3);
       console.log(d);
-	  var f = $('.product-list-info ul li a img').height(c/3);
+	  var f = $('.product-list-info').find('img').height(c/3);
 	  console.log(f);
  
 	})
