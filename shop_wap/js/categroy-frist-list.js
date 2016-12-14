@@ -321,8 +321,8 @@ setTimeout(function(){
   {
     // $('.add').each(function(){
 
-    $('.add').on('click',function(e){
         alert(32234);
+    $('.add').on('click',function(e){
      // alert(1);
         var goods_id = $(this).find('input').val();
         alert(goods_id);
