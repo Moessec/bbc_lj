@@ -32,10 +32,13 @@ $(function ()
                 for(var i in r)
                 {
                     temp = r[i];
-                    cnm=temp.business_license_location;
+                    dq=temp.business_license_location;
                     place=temp.company_address_detail;
-                    console.log(cnm);
+                    var km=jl(dq,res);
+                    console.log(dq);
                     console.log(place);
+                    console.log(res);
+                    console.log(km);
                 }
             }
         });
@@ -45,15 +48,8 @@ $(function ()
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {one:one,two:two}, dataType: "json", success: function (e)
                 {
-                    if (e.data.address_list == null)
-                    {
-                        return false
-                    }
-                    var s = e.data.address_list;
-                    for(v in s){
-                        if(s[v].user_address_default==1){
-                            res += s[v].address_info;
-                        }
+                    if(e!=''){
+                        console(e);
                     }
                 }
         })
