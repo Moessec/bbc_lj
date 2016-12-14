@@ -319,9 +319,9 @@ alert(32234);
 setTimeout(function(){
   if(key)
   {
-    $('.add').each(function(){
+    // $('.add').each(function(){
 
-    $(this).on('click',function(e){
+    $('.add').on('click',function(e){
      // alert(1);
         var goods_id = $(this).find('input').val();
         get_detail(goods_id);
@@ -498,7 +498,7 @@ setTimeout(function(){
   
 
     });        
-    });
+    // });
 }
 },400)  
 
