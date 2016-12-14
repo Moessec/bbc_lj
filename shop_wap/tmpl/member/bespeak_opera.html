@@ -156,14 +156,7 @@
             area.appendChild(op);
         });
     }
-    are.on('click','.areainfo',function(){
-        ect();
-        function ect(ccc){
-            alert(ccc);
-            info.style.display = "none";
-            hei.style.display = "none";
-        }
-    })
+
     
     function show(){
      document.getElementById("starttime").value=document.getElementById("h").value+":00-"+document.getElementById("min").value+":00";
@@ -230,6 +223,15 @@
 
 </script>
     <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript">
+        $('#area').on('click','.areainfo',function(){
+            ect();
+            function ect(ccc){
+                $('#area').hide();
+                $('#hei').hide();
+            }
+        })
+    </script>
     <script type="text/javascript" src="../../js/config.php"></script>
     <script type="text/javascript" src="../../js/common.js"></script>
     <script type="text/javascript" src="../../js/simple-plugin.js"></script>
