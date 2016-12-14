@@ -49,7 +49,7 @@ $(function ()
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {one:one,two:two}, dataType: "json", success: function (e)
                 {
                     if(e!=''){
-                        console(e);
+                        console.log(e);
                     }
                 }
         })
