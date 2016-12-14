@@ -222,6 +222,7 @@ body{
         .shop-contain-img img{
         	width: 3.5rem;
             height: 3.5rem;
+            border-radius: 0.5;
             margin-top: 0.5rem;
         }
         .shop-adv .shop-contain .shop-contain-info{
