@@ -706,6 +706,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$twoti = $this->addr_to_location($two);
 		$distance = $this->getDistance($one['lng'],$one['lat'],$two['lng'],$two['lat']);
 		$km_distance=$distance/1000;
+		$data=$km_distance;
 		$this->data->addBody(-140,$data);
 	}
 
