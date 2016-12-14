@@ -314,14 +314,13 @@ if(shop_id)
 
 
 
-
+ var key = getCookie('key');
 //===========================钓起数据信息结束==============================
 setTimeout(function(){
   if(key)
   {
     // $('.add').each(function(){
 
-        alert(32234);
     $('.add').on('click',function(e){
      // alert(1);
         var goods_id = $(this).find('input').val();
