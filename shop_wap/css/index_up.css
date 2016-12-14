@@ -497,6 +497,14 @@ box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
         	color: #999;
             margin-bottom: 3rem;
         }
+       .activity-end1{
+            font-size: 0.7rem;
+            text-align: center;
+            height: 0.4rem;
+            line-height: 2rem;
+            color: #999;
+            margin-bottom: 3rem;
+        }
         .announ-contain{
             background: white;
             height: 1rem;
