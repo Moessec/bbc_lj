@@ -198,6 +198,9 @@
 </script>
     <script type="text/javascript" src="../../js/zepto.min.js"></script>
     <script type="text/javascript">
+    $('#area_info').on('click',function(){
+        onTest();
+    })
     function onTest(){
           var arr =   $('#area_info option').val;
           arr.sort(function(a,b){
