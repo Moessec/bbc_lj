@@ -118,83 +118,6 @@ function shop_goodslist1()
         });
 
 }
-
-$(function ()
-{
-
-    var e;
-    $("#header").on("click", ".header-inp", function ()
-    {
-        location.href = WapSiteUrl + "/tmpl/search.html"
-    });
-   var shop_id = getQueryString('shop_id');
-
- 
-   if (shop_id!='')
-   { shop_goodslist2(shop_id);
-    // alert(shop_id);
-     $.cookie("community_shopid",shop_id,{expires:7});
-        //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=shoplists&typ=json&parent_id=0&shop_id="+shop_id, function (t)
-        {
-            // console.info(t);
-            var r = t.data;
-            r.WapSiteUrl = WapSiteUrl;
-            r['status'] = 1;
-            var a = template.render("category-one", r);
-            // alert(a);
-            $("#categroy-cnt").html(a);
-            e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true});
-        });    
-    }else{
-         //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
-            $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=cat&typ=json&cat_parent_id=0", function (t)
-            {
-                console.info(t);
-                var r = t.data;
-                r.WapSiteUrl = WapSiteUrl;
-
-                var a = template.render("category-one", r);
-                $("#categroy-cnt").html(a);
-                e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
-        shop_goodslist1();
-            });
-    }
-   
-    get_brand_recommend();
-    $("#categroy-cnt").on("click", ".category", function ()
-    {
-        $(".pre-loading").show();
-        $(this).parent().addClass("selected").siblings().removeClass("selected");
-        var t = $(this).attr("date-id");
-       if (shop_id!='')
-       {
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=treelist&typ=json", {shop_id:shop_id,parent_id: t}, function (e)
-        {
-            var t = e.data;
-            // console.log(t);
-            e.data['status'] = 1;
-            t.WapSiteUrl = WapSiteUrl;
-            var r = template.render("category-two", t);
-            $("#categroy-rgt").html(r);
-            $(".pre-loading").hide();
-            new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
-        });
-      }else{
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=tree&typ=json", {cat_parent_id: t}, function (e)
-        {
-            var t = e.data;
-            t.WapSiteUrl = WapSiteUrl;
-            var r = template.render("category-two", t);
-            $("#categroy-rgt").html(r);
-            $(".pre-loading").hide();
-            new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
-        shop_goodslist1();
-            
-        });        
-      }
-        e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
-
 function shop_goodslist2(shop_id){
 
      $('.goods_cont').eq(0).each(function(e){
@@ -310,13 +233,95 @@ function shop_goodslist2(shop_id){
         });
 }
 
-if(shop_id)
-{
-   // shop_goodslist2(shop_id);
-}else{
-   // shop_goodslist1();
 
-}
+
+$(function ()
+{
+
+    var e;
+    $("#header").on("click", ".header-inp", function ()
+    {
+        location.href = WapSiteUrl + "/tmpl/search.html"
+    });
+   var shop_id = getQueryString('shop_id');
+
+ 
+   if (shop_id!='')
+   { 
+    // alert(shop_id);
+     $.cookie("community_shopid",shop_id,{expires:7});
+        //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=shoplists&typ=json&parent_id=0&shop_id="+shop_id, function (t)
+        {
+            // console.info(t);
+            var r = t.data;
+            r.WapSiteUrl = WapSiteUrl;
+            r['status'] = 1;
+            var a = template.render("category-one", r);
+            // alert(a);
+            $("#categroy-cnt").html(a);
+            e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true});
+            shop_goodslist2(shop_id);
+        });    
+    }else{
+         //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
+            $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=cat&typ=json&cat_parent_id=0", function (t)
+            {
+                console.info(t);
+                var r = t.data;
+                r.WapSiteUrl = WapSiteUrl;
+
+                var a = template.render("category-one", r);
+                $("#categroy-cnt").html(a);
+                e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
+                shop_goodslist1();
+            });
+    }
+   
+    get_brand_recommend();
+    $("#categroy-cnt").on("click", ".category", function ()
+    {
+        $(".pre-loading").show();
+        $(this).parent().addClass("selected").siblings().removeClass("selected");
+        var t = $(this).attr("date-id");
+       if (shop_id!='')
+       {
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=treelist&typ=json", {shop_id:shop_id,parent_id: t}, function (e)
+        {
+            var t = e.data;
+            // console.log(t);
+            e.data['status'] = 1;
+            t.WapSiteUrl = WapSiteUrl;
+            var r = template.render("category-two", t);
+            $("#categroy-rgt").html(r);
+            $(".pre-loading").hide();
+            new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+            shop_goodslist2(shop_id);
+        });
+      }else{
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=tree&typ=json", {cat_parent_id: t}, function (e)
+        {
+            var t = e.data;
+            t.WapSiteUrl = WapSiteUrl;
+            var r = template.render("category-two", t);
+            $("#categroy-rgt").html(r);
+            $(".pre-loading").hide();
+            new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+             shop_goodslist1();
+
+        });        
+      }
+        e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
+
+
+
+// if(shop_id)
+// {
+//    // shop_goodslist2(shop_id);
+// }else{
+//    // shop_goodslist1();
+
+// }
 
 
 
