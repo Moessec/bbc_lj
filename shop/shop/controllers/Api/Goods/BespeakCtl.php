@@ -496,6 +496,46 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$this->data->addBody(-140, $data);
 	}
 
+	public function getDistance($lat1, $lng1, $lat2, $lng2){      
+          $earthRadius = 6378138; //近似地球半径米
+          // 转换为弧度
+          $lat1 = ($lat1 * pi()) / 180;
+          $lng1 = ($lng1 * pi()) / 180;
+          $lat2 = ($lat2 * pi()) / 180;
+          $lng2 = ($lng2 * pi()) / 180;
+          // 使用半正矢公式  用尺规来计算
+        $calcLongitude = $lng2 - $lng1;
+          $calcLatitude = $lat2 - $lat1;
+          $stepOne = pow(sin($calcLatitude / 2), 2) + cos($lat1) * cos($lat2) * pow(sin($calcLongitude / 2), 2);  
+       $stepTwo = 2 * asin(min(1, sqrt($stepOne)));
+          $calculatedDistance = $earthRadius * $stepTwo;
+          return round($calculatedDistance);
+   }
+	//地址转经纬度
+	public function addr_to_location($addr)
+	{	$location=array();
+		//去空格
+		$addr=str_replace(' ','',$addr);
+		//查出经纬度
+		$location_json = file_get_contents("http://api.map.baidu.com/geocoder/v2/?address=$addr&output=json&ak=CvQKTKQ3upsNAL7sLLFTvDqHc4g8nChG");
+		//解析出经度
+		$location_json=(string)$location_json;
+		$lng_pos=strpos($location_json,'lng"');
+		$lng_pos=$lng_pos+5;
+		$lat_pos=strpos($location_json,',"lat"');
+		$sub_len=(int)$lat_pos-(int)$lng_pos;
+		$lng=substr($location_json,$lng_pos,$sub_len);
+		//解析出纬度
+		$lat_pos=strpos($location_json,'lat"');
+		$lat_pos=$lat_pos+5;
+		$end_pos=strpos($location_json,'},"pre');
+		$sub_len=(int)$end_pos-(int)$lat_pos;
+		$lat=substr($location_json,$lat_pos,$sub_len);
+		$location['lat']=$lat;
+		$location['lng']=$lng;
+		return $location;
+	}
+
 }
 
 ?>
