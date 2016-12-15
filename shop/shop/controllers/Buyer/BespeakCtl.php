@@ -198,8 +198,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$USER_BespeakModel = new USER_BespeakModel();
 		$data['temp']            = $USER_BespeakModel->getBespeakList($user);
 		$data['rent']            = $USER_BespeakModel->getBespeakList($rent);
-		// var_dump($data);
-		// exit();
+		var_dump($data);
+		exit();
 		if ("json" == $this->typ)
 		{
 			foreach ($data['temp'] as $key => $value) {
@@ -223,8 +223,6 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				if ($v3['bespeak_state']=='2') {
 						unset($data['rent'][$k3]);
 					}
-					var_dump($v3);
-					exit();
 					if($v3['bespeak_state']=='0'){
 						$v3['bespeak_state']='无效，审核不通过';
 					}elseif ($v3['bespeak_state']=='1') {
