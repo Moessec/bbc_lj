@@ -92,7 +92,7 @@ input, select, textarea {
   .rigbox{float:right;width: 100px;height: 20px;text-align: center;}
 </style>
 <script type="text/javascript" >
-var id = $('#id').val;
+var id = $('#id').val();
   $('#bespeak1').on('click',function(){
     var bespeak_status = 1;
     alert(id);
