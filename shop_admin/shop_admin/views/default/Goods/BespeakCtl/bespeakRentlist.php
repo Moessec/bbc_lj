@@ -92,7 +92,7 @@ input, select, textarea {
   .rigbox{float:right;width: 100px;height: 20px;text-align: center;}
 </style>
 <script type="text/javascript" >
-var bespeak_id = $('bespeak_id').val;
+var id = $('#id').val;
   $('#bespeak1').on('click',function(){
     $.dialog.confirm(_('状态修改之后不能恢复，确定修改吗？'), function() {
         Public.ajaxPost(SITE_URL + '?ctl=Goods_Bespeak&met=disable&typ=json', {
