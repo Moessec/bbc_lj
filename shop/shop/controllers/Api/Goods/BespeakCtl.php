@@ -241,8 +241,9 @@ class Api_Goods_BespeakCtl extends Api_Controller
 			$data_rs['msg']     = _('failure');
 			$status = 250;
 		}
+		$data=$flag;
 
-		$this->data->addBody(-140 , $data_rs, $msg, $status);
+		$this->data->addBody(-140 , $data, $msg, $status);
 	}
 
 	public function disablestate()
