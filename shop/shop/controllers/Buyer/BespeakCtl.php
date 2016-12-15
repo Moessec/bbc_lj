@@ -680,16 +680,16 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				$value['bespeaka']='申请租赁';
 			}else{
 				$value['bespeak_id']=' ';
-				if($value['bespeak_state']=='1'){
-					$value['bespeakcss']='';
-					$value['bespeaka']='租赁正在处理';
-				}else{
+				if($value['bespeak_status']=='2'){
+					$value['bespeakcss']='background:#DDDDDD';
+					$value['bespeaka']='预约处理中';
+				}else if($value['bespeak_status']=='1'){
 					$value['bespeakcss']='background: #DDDDDD;color: #fff';
 					$value['bespeaka']='已租赁';
 				}
 				if($value['outtime']-$value['starttime']>0){
 					$value['bespeak_id']=' ';
-					$value['bespeaka']='租赁中';
+					$value['bespeaka']='正在租用';
 					$value['bespeakcss']='background: #DDDDDD;color: #fff';
 
 				}
