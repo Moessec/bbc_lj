@@ -261,7 +261,7 @@ $(function ()
             // alert(a);
             $("#categroy-cnt").html(a);
             e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true});
-            shop_goodslist2(shop_id);
+            // shop_goodslist2(shop_id);
         });    
     }else{
          //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
@@ -274,7 +274,7 @@ $(function ()
                 var a = template.render("category-one", r);
                 $("#categroy-cnt").html(a);
                 e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
-                shop_goodslist1();
+                // shop_goodslist1();
             });
     }
    
