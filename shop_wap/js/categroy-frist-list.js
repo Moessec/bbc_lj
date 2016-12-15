@@ -281,7 +281,7 @@ $(function ()
             });
     }
    
-    get_brand_recommend();
+    // get_brand_recommend();
     $("#categroy-cnt").on("click", ".category", function ()
     {
         $(".pre-loading").show();
@@ -314,8 +314,8 @@ $(function ()
 
         });        
       }
-        e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
-
+     e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
+}
 
  var key = getCookie('key');
 alert(key);
