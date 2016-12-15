@@ -104,6 +104,7 @@ var id = $('#id').val;
                 $('.rigbox').remove();
             } else {
               console.log(data);
+              alert(id,bespeak_status);
                    alert('状态修改失败！');
             }
         });
