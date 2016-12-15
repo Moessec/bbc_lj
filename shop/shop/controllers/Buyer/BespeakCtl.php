@@ -675,26 +675,28 @@ class Buyer_BespeakCtl extends Buyer_Controller
 			$bespeak['bespeak_title']=$value['bespeak_title'];
 			$bespeak['user_id']=$user_id;
 			$one    = $USER_BespeakModel->getBespeakList($bespeak);
-			var_dump($one);
-			exit();
+
 			if(empty($one)){
 				$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$value['bespeak_id'];
 				$value['bespeaka']='申请租赁';
 			}else{
-				$value['bespeak_id']=' ';
-				if($value['bespeak_status']=='2'){
-					$value['bespeakcss']='background:#DDDDDD';
-					$value['bespeaka']='预约处理中';
-				}else if($value['bespeak_status']=='1'){
-					$value['bespeakcss']='background: #DDDDDD;color: #fff';
-					$value['bespeaka']='已租赁';
-				}
-				if($value['outtime']-$value['starttime']>0){
-					$value['bespeak_id']=' ';
-					$value['bespeaka']='正在租用';
-					$value['bespeakcss']='background: #DDDDDD;color: #fff';
+				foreach ($one as $k => $v) {
+					if($v['bespeak_status']=='2'){
+						$value['bespeakcss']='background:#DDDDDD';
+						$value['bespeaka']='预约处理中';
+					}else if($v['bespeak_status']=='1'){
+						$value['bespeakcss']='background: #DDDDDD;color: #fff';
+						$value['bespeaka']='已租赁';
+					}
+					if($v['outtime']-$v['starttime']>0){
+						$value['bespeak_id']=' ';
+						$value['bespeaka']='正在租用';
+						$value['bespeakcss']='background: #DDDDDD;color: #fff';
 
+					}
 				}
+				$value['bespeak_id']=' ';
+				
 			}
 
 			$data[$key]=$value;
