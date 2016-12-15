@@ -195,6 +195,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$user['bespeak_list']=2;
 		$rent['bespeak_list']=2;
 		$rent['user_id']=0;
+		$rent['bespeak_status']=1;
+		$rent['bespeak_state']=1;
 		$USER_BespeakModel = new USER_BespeakModel();
 		$data['temp']            = $USER_BespeakModel->getBespeakList($user);
 		$data['rent']            = $USER_BespeakModel->getBespeakList($rent);
@@ -215,7 +217,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 							$value['bespeak_img']=$vv['bespeak_img'];
 							$value['rent_price']=$vv['rent_price'];
 						}
-							$value['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$vv['bespeak_id'];
+					$value['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$vv['bespeak_id'];
 					}
 					$data['temp'][$key]=$value;
 			}
@@ -227,6 +229,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					}elseif ($value['bespeak_state']=='2') {
 						$value['bespeak_state']='租赁已经结束';
 					}
+				$value['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$value['bespeak_id'];
 
 					if(!empty($data['temp'])){
 						foreach ($data['temp'] as $k1 => $v1) {
@@ -247,7 +250,6 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					}
 					$data['rent'][$key]=$value;
 			}
-
 			$num=count($data);
 			// exit();
 			$this->data->addBody(-140, $data);
