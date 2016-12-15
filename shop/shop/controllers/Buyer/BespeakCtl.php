@@ -219,37 +219,37 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					}
 					$data['temp'][$key]=$value;
 			}
-			foreach ($data['rent'] as $key => $value) {
-				if ($value['bespeak_state']=='2') {
-						unset($data['rent'][$key]);
+			foreach ($data['rent'] as $k3 => $v3) {
+				if ($v3['bespeak_state']=='2') {
+						unset($data['rent'][$k3]);
 					}
-					var_dump($value);
+					var_dump($v3);
 					exit();
-					if($value['bespeak_state']=='0'){
-						$value['bespeak_state']='无效，审核不通过';
-					}elseif ($value['bespeak_state']=='1') {
-						$value['bespeak_state']='租赁中';
+					if($v3['bespeak_state']=='0'){
+						$v3['bespeak_state']='无效，审核不通过';
+					}elseif ($v3['bespeak_state']=='1') {
+						$v3['bespeak_state']='租赁中';
 					}
-				$value['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$value['bespeak_id'];
+				$v3['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$v3['bespeak_id'];
 
 					if(!empty($data['temp'])){
 						foreach ($data['temp'] as $k1 => $v1) {
-							if($v1['bespeak_title']==$value['bespeak_title']){
-								$value['bespeak_click']='<a onclick="show()">已预约</a>';
-								$value['bespeak_id']='#';
-								$v1['bespeak_img']=$value['bespeak_img'];
+							if($v1['bespeak_title']==$v3['bespeak_title']){
+								$v3['bespeak_click']='<a onclick="show()">已预约</a>';
+								$v3['bespeak_id']='#';
+								$v1['bespeak_img']=$v3['bespeak_img'];
 							}else{
-								$value['bespeak_click']='预约';
-								$id = $value['bespeak_id'];
-								$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
+								$v3['bespeak_click']='预约';
+								$id = $v3['bespeak_id'];
+								$v3['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 							}
 						}
 					}else{
-						$value['bespeak_click']='预约';
-						$id = $value['bespeak_id'];
-						$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
+						$v3['bespeak_click']='预约';
+						$id = $v3['bespeak_id'];
+						$v3['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 					}
-					$data['rent'][$key]=$value;
+					$data['rent'][$k3]=$v3;
 			}
 			$num=count($data);
 			// exit();
