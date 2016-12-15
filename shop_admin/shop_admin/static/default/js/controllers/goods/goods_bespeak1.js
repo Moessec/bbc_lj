@@ -86,26 +86,7 @@ function resetForm(t)
     $("#rent_price").val("");
 }
 
-$('#bespeak1').on('click',function(){
-    $.dialog.confirm(_('状态修改之后不能恢复，确定修改吗？'), function() {
-        Public.ajaxPost(SITE_URL + '?ctl=Goods_Bespeak&met=disable&typ=json', {
-            bespeak_id: id,bespeak_status:1,
-            disable: Number(is_enable)
-        }, function(data) {
-            if (data && data.status == 200) {
-                parent.Public.tips({
-                    content: _('状态修改成功！')
-                });
-                $('#grid').jqGrid('setCell', id, 'enable', is_enable);
-            } else {
-                parent.Public.tips({
-                    type: 1,
-                    content: _('状态修改失败！') + data.msg
-                });
-            }
-        });
-    });
-})
+
 $('#bespeak2').on('click',function(){
     $.dialog.confirm(_('状态修改之后不能恢复，确定修改吗？'), function() {
         Public.ajaxPost(SITE_URL + '?ctl=Goods_Bespeak&met=disable&typ=json', {

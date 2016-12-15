@@ -89,7 +89,29 @@ input, select, textarea {
 <style type="text/css">
   .rigbox{float:left;width: 100px;height: 20px;text-align: center;}
 </style>
-<script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak1.js" charset="utf-8"></script>
+<script type="text/javascript" >
+  $('#bespeak1').on('click',function(){
+    $.dialog.confirm(_('状态修改之后不能恢复，确定修改吗？'), function() {
+        Public.ajaxPost(SITE_URL + '?ctl=Goods_Bespeak&met=disable&typ=json', {
+            bespeak_id: id,bespeak_status:1,
+            disable: Number(is_enable)
+        }, function(data) {
+            if (data && data.status == 200) {
+                parent.Public.tips({
+                    content: _('状态修改成功！')
+                });
+                $('#grid').jqGrid('setCell', id, 'enable', is_enable);
+            } else {
+                parent.Public.tips({
+                    type: 1,
+                    content: _('状态修改失败！') + data.msg
+                });
+            }
+        });
+    });
+})
+</script>
+
 
 
 
