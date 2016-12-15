@@ -17,7 +17,8 @@ $(function ()
                        tem='<ul><li><dl><div style="width:100%;height:108px;"><a href="'+value.bespeakinfo+'"><img src="'+value.bespeak_img+'" style="margin-left:14px;width:100px;height:100px;float:left"></a>';
                        tem+='<dd style="float: left;margin-left: 27px; width:54%;line-height: 1.6rem;color:#000;font-size:0.8rem">'+value.bespeak_title+'</dd>';
                        tem+='<dd style="float: left;margin-left: 27px; width:54%;line-height: 1rem;">归还时间：'+value.outtime+'</dd>'
-                       tem+='<dd style="float: left;margin-left: 27px; width:54%;line-height: 1rem;">备注：'+value.bespeak_com+'</dd></div></dl></li></ul>';
+                       tem+='<dd style="float: left;margin-left: 27px; width:54%;line-height: 1rem;">备注：'+value.bespeak_com+'</dd></div>';
+                       tem+='<dd style="float: left;margin-left: 27px; width:54%;line-height: 1rem;">价格：'+value.rent_price+'</dd></dl></li></ul>';
                     $("#bespeak_list").append(tem);
                 })
 
