@@ -76,9 +76,10 @@ input, select, textarea {
         }elseif ($value['bespeak_status']=='0') {
           echo "审核不通过";
         }?>
-        <input type="hidden" class="id" name="id" value="<?=$value['bespeak_id']?>">
 
-        <div class="rigbox"><span class="bespeak1 ui-icon ui-icon-trash" title="不出租"></span><span class="bespeak2 ui-icon set-status" title="出租">></span></div>
+        <div class="rigbox">
+        <input type="hidden" class="id" name="id" value="<?=$value['bespeak_id']?>">
+          <span class="bespeak1 ui-icon ui-icon-trash" title="不出租"></span><span class="bespeak2 ui-icon set-status" title="出租">></span></div>
       </td>
       </tr>
     </tbody>
