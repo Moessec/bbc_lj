@@ -118,7 +118,6 @@ $('#bespeak2').on('click',function(){
     $.dialog.confirm(_('状态修改之后不能恢复，确定修改吗？'), function() {
         Public.ajaxPost(SITE_URL + '?ctl=Goods_Bespeak&met=disable&typ=json', {
             bespeak_id: id,bespeak_status:2,
-            disable: Number(is_enable)
         }, function(data) {
             if (data && data.status == 200) {
                 parent.Public.tips({
