@@ -238,7 +238,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 								$id = $value['bespeak_id'];
 								$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 							}
-							$value['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$v1['bespeak_id'];
+							$v1['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$value['bespeak_id'];
 						}
 					}else{
 						$value['bespeak_click']='预约';
