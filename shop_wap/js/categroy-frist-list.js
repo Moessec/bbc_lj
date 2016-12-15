@@ -547,7 +547,7 @@ function get_brand_recommend()
         var t = e.data;
         t.WapSiteUrl = WapSiteUrl;
         var r = template.render("brand-one", t);
-        $("#categroy-rgt").html(r);
+        // $("#categroy-rgt").html(r);
         $(".pre-loading").hide();
         new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
     })
