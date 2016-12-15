@@ -103,8 +103,7 @@ var id = $('#id').val();
                 alert('状态修改成功')
                 $('.rigbox').remove();
             } else {
-              console.log(SITE_URL);
-                   alert('状态修改失败！');
+              alert('状态修改失败！');
             }
         });
     });

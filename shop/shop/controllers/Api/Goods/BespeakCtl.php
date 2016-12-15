@@ -230,7 +230,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$Goods_BespeakModel = new Goods_BespeakModel();
 		$data['bespeak_status']         = request_string('bespeak_status');
 
-		$bespeak_id = request_int('bespeak_id');
+		$bespeak_id = request_string('bespeak_id');
 
 		if($bespeak_id){
 			$data_rs = $data;
