@@ -293,7 +293,7 @@ if(!key)
      // 购物车中商品数量
      if (getCookie('cart_count')) {
        if (getCookie('cart_count') > 0) {
-           $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+           $('#cart_count').html(getCookie('cart_count'));
            }
        }
 
@@ -303,7 +303,7 @@ if(!key)
 function addcart()
 {
     
-
+alert(1);
       if(key)
       {
         $('.add').click(function(){
@@ -611,6 +611,7 @@ $(function(){
 
 
 $(function(){
+// addcart();
 
 });
 
