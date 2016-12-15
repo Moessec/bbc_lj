@@ -391,7 +391,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['true_name'] = request_string('true_name');
 		$data['user_id'] = 'admin';
 		$data['bespeak_address'] = request_string('address');
-		$data['bespeak_area_info'] = request_string('bespeak_area_info');
+		$data['bespeak_area_info'] = request_string('area_info');
 		$data['opentime'] = date('Y-m-d H:i:s',time());
 		$data['bespeak_list'] = '2';
 
@@ -430,7 +430,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['opentime'] =  request_string('opentime');
 		$data['bes_address'] = request_string('area_info');
 		$data['bespeak_address'] = request_string('address');
-		$data['bespeak_area_info'] = request_string('bespeak_area_info');
+		$data['bespeak_area_info'] = request_string('area_info');
 		$data['true_name'] = request_string('true_name');
 		if(empty($data['rent_price'])){
 			unset($data['rent_price']);
