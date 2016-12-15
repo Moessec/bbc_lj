@@ -87,6 +87,7 @@ input, select, textarea {
       ?>
 </div>
 <style type="text/css">
+  #bespeak1{float: left;margin-right: 10px;}
   .rigbox{float:right;width: 100px;height: 20px;text-align: center;}
 </style>
 <script type="text/javascript" >
