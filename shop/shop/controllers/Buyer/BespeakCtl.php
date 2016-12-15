@@ -215,6 +215,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 							$value['bespeak_img']=$vv['bespeak_img'];
 							$value['rent_price']=$vv['rent_price'];
 						}
+							$value['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$vv['bespeak_id'];
 					}
 					$data['temp'][$key]=$value;
 			}
@@ -233,12 +234,10 @@ class Buyer_BespeakCtl extends Buyer_Controller
 								$value['bespeak_click']='<a onclick="show()">已预约</a>';
 								$value['bespeak_id']='#';
 								$v1['bespeak_img']=$value['bespeak_img'];
-							$v1['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$value['bespeak_id'];
 							}else{
 								$value['bespeak_click']='预约';
 								$id = $value['bespeak_id'];
 								$value['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
-							$v1['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$value['bespeak_id'];
 							}
 						}
 					}else{
