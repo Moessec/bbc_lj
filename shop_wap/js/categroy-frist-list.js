@@ -427,7 +427,7 @@ $(function(){
         $('.add').each(function(){
 
         $(this).click(function(){
-         alert(1);
+         // alert(1);
             var goods_id = $(this).find('input').val();
                 get_detail(goods_id);
       function get_detail(goods_id) {
