@@ -316,24 +316,18 @@ $(function ()
       }
      e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
 
-}
- 
-
 });
 
 
 
 
-    $("#categroy-cnt").on("click", ".brand", function ()
-    {
-        $(".pre-loading").show();
-        get_brand_recommend()
-    })
+$("#categroy-cnt").on("click", ".brand", function ()
+{
+    $(".pre-loading").show();
+    get_brand_recommend()
+})
 
 
-// var key = getCookie('key');
-
-  
 
 });
 
@@ -364,5 +358,10 @@ $(function(){
   // alert(src1);
   src2 = $('.active1').find('img')[0].src=src1;
 
-})
+});
+$(function(){
+var key = getCookie('key');
+alert(0);
+
+});
 
