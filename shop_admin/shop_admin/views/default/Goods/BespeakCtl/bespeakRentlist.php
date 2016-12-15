@@ -95,6 +95,8 @@ input, select, textarea {
 var id = $('#id').val;
   $('#bespeak1').on('click',function(){
     var bespeak_status = 1;
+    alert(id);
+    alert(bespeak_status);
     $.dialog.confirm(_('状态修改之后不能恢复，确定修改吗？'), function() {
         Public.ajaxPost(SITE_URL + '?ctl=Goods_Bespeak&met=disable&typ=json', {
             bespeak_id: id,bespeak_status:bespeak_status,
@@ -104,7 +106,6 @@ var id = $('#id').val;
                 $('.rigbox').remove();
             } else {
               console.log(data);
-              alert(id,bespeak_status);
                    alert('状态修改失败！');
             }
         });
