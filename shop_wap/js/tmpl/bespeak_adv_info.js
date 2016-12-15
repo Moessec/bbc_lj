@@ -31,7 +31,7 @@ $(function ()
                        }
                        else
                        {
-                      tem+='<a href="'+value.bespeak_id+'"><button style="width:90%;background-color:#FF8000;color:white;height: 1.8rem;font-size:0.8rem;text-align:center;border:none;border-radius:0.2rem;margin-top:20px;margin:20px 5%">我要预约</button></a>';
+                      tem+='<a href="'+value.bespeak_id+'"><button style="color:white;width:90%;background-color:#FF8000;color:white;height: 1.8rem;font-size:0.8rem;text-align:center;border:none;border-radius:0.2rem;margin-top:20px;margin:20px 5%">我要预约</button></a>';
 
                        }
                      var reg = new RegExp("\n","g");
