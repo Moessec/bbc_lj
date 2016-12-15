@@ -232,8 +232,15 @@ class Api_Goods_BespeakCtl extends Api_Controller
 
 		$bespeak_id = request_int('bespeak_id');
 
-		$flag = $this->goodsBespeakModel->editBespeak($bespeak_id, $data);
+		if($bespeak_id){
+			$data_rs = $data;
+			unset($data['bespeak_id']);
+			$flag = $this->goodsBespeakModel->editBespeak($bespeak_id, $data);
 
+		}else{
+			$data_rs['msg']     = _('failure');
+			$status = 250;
+		}
 		if(!$flag===FALSE){
 			$data_rs['msg']    = _('success');
 			$status = 200;
@@ -241,7 +248,6 @@ class Api_Goods_BespeakCtl extends Api_Controller
 			$data_rs['msg']     = _('failure');
 			$status = 250;
 		}
-		$data['flag']=$flag;
 
 		$this->data->addBody(-140 , $data, $msg, $status);
 	}
