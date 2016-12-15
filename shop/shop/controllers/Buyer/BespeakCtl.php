@@ -248,8 +248,6 @@ class Buyer_BespeakCtl extends Buyer_Controller
 						unset($data['rent'][$k3]);
 					}
 					$data['rent'][$k3]=$v3;
-						var_dump($data['rent'][$k3]);
-					exit();
 			}
 			$num=count($data);
 			// exit();
