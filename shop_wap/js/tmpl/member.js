@@ -99,7 +99,7 @@ $(function(){
   src =  $('.active1').find('img')[0].src;
   var sr = src.split('.png');
   var src1 = sr[0]+2+'.png';
-  // alert(src1);
+  // ale rt(src1); 
   src2 = $('.active1').find('img')[0].src=src1;
 
 })
