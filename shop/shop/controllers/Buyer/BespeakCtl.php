@@ -499,6 +499,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$edit_bespeak_row['outtime']        = $outtime;
 		$edit_bespeak_row['bespeak_com']        = $bespeak_com;
 		$edit_bespeak_row['bespeak_title']        = $bespeak_title;
+		$edit_bespeak_row['bespeak_status']        = 2;
 		$edit_bespeak_row['user_id']        = $user_id;
 		$edit_bespeak_row['bespeak_list']   = 2;
 		// var_dump($edit_bespeak_row);exit();
