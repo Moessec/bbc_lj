@@ -219,9 +219,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					$data['temp'][$key]=$value;
 			}
 			foreach ($data['rent'] as $k3 => $v3) {
-				if ($v3['bespeak_state']=='2') {
-						unset($data['rent'][$k3]);
-					}
+				
 					if($v3['bespeak_state']=='0'){
 						$v3['bespeak_state']='无效，审核不通过';
 					}elseif ($v3['bespeak_state']=='1') {
@@ -246,8 +244,11 @@ class Buyer_BespeakCtl extends Buyer_Controller
 						$id = $v3['bespeak_id'];
 						$v3['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 					}
+					if ($v3['bespeak_state']=='2') {
+						unset($data['rent'][$k3]);
+						var_dump($data['rent'][$k3]);
+					}
 					$data['rent'][$k3]=$v3;
-					var_dump($data['rent']);
 					exit();
 			}
 			$num=count($data);
