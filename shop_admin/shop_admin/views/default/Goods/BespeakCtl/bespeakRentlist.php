@@ -117,9 +117,11 @@ $('#bespeak2').on('click',function(){
             bespeak_id: id,bespeak_status:bespeak_status,
         }, function(data) {
             if (data && data.status == 200) {
+              alert(data);
                 alert('状态修改成功')
                 $('.rigbox').remove();
             } else {
+              alert(data);
                    alert('状态修改失败！');
             }
         });
