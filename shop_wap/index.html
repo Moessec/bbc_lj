@@ -104,7 +104,7 @@
 		<div class="pic-contain">
 			<div class="swiper-container1">
 			    <div class="jR3DCarouselGallery" ></div>
-		    	<!-- <div class="swiper-pagination swiper-pagination-fraction"></div> -->
+		    	<div class="swiper-pagination swiper-pagination-fraction"></div>
 			</div>
 		</div>
 	</div>
@@ -358,21 +358,13 @@ window.onload = function() {
 	});
 };
 
-//========================
-	// $(function(){
-	// 	var c = $(window).width();
-	// 	// alert(c);
- //      var d =  $('.product-list-info').find('img').width(c/3);
- //      console.log(d);
-	//   var f = $('.product-list-info').find('img').height(c/3);
-	//   console.log(f);
- 
-	// })
+
   //自动获取定位信息功能
       showArea(BMap);
 
 
 </script> 
+<!--     公告轮播插件 -->
 <script type="text/javascript">
 	$(function(){
 		//1文字轮播(2-5页中间)开始
@@ -416,20 +408,7 @@ window.onload = function() {
 		}
 		tab();
 	}
-	//切换到下一张
-	// $(".swiper_wrap .gt").on("click",function() {
-	// 	if(clickEndFlag) {
-	// 		next();
-	// 		clickEndFlag = false;
-	// 	}
-	// });
-	// //切换到上一张
-	// $(".swiper_wrap .lt").on("click",function() {
-	// 	if(clickEndFlag) {
-	// 		prev();
-	// 		clickEndFlag = false;
-	// 	}
-	// });
+
 	//自动轮播
 	autoTimer = setInterval(next,3000);
 	$(".font_inner a").hover(function(){
@@ -438,13 +417,7 @@ window.onload = function() {
 		autoTimer = setInterval(next,3000);
 	})
 
-	//鼠标放到左右方向时关闭定时器
-	// $(".swiper_wrap .lt,.swiper_wrap .gt").hover(function(){
-	// 	clearInterval(autoTimer);
-	// },function(){
-	// 	autoTimer = setInterval(next,3000);
-	// })
-	//1文字轮播(2-5页中间)结束
+
 	})
 	</script>
 
