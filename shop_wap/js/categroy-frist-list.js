@@ -315,7 +315,7 @@ $(function ()
         });        
       }
      e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
-}
+
 
  var key = getCookie('key');
 alert(key);
