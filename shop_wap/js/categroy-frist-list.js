@@ -331,7 +331,7 @@ $(function ()
     })
 
 
-var key = getCookie('key');
+// var key = getCookie('key');
 
   
 
