@@ -303,7 +303,7 @@ if(!key)
 function addcart()
 {
     
-alert(1);
+// alert(1);
       if(key)
       {
         $('.add').click(function(){
