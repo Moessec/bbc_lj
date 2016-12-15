@@ -223,6 +223,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 				if ($value['bespeak_state']=='2') {
 						unset($data['rent'][$key]);
 					}
+					var_dump($value);
+					exit();
 					if($value['bespeak_state']=='0'){
 						$value['bespeak_state']='无效，审核不通过';
 					}elseif ($value['bespeak_state']=='1') {
