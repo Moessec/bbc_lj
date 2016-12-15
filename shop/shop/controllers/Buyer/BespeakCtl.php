@@ -198,8 +198,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$USER_BespeakModel = new USER_BespeakModel();
 		$data['temp']            = $USER_BespeakModel->getBespeakList($user);
 		$data['rent']            = $USER_BespeakModel->getBespeakList($rent);
-		var_dump($data);
-		exit();
+
 		if ("json" == $this->typ)
 		{
 			foreach ($data['temp'] as $key => $value) {
@@ -248,6 +247,8 @@ class Buyer_BespeakCtl extends Buyer_Controller
 						$v3['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 					}
 					$data['rent'][$k3]=$v3;
+					var_dump($data['rent']);
+					exit();
 			}
 			$num=count($data);
 			// exit();
