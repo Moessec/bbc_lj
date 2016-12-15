@@ -231,8 +231,7 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['bespeak_status']         = request_string('bespeak_status');
 
 		$bespeak_id = request_int('bespeak_id');
-		var_dump($data);
-		exit();
+
 		$flag = $this->goodsBespeakModel->editBespeak($bespeak_id, $data);
 
 		if(!$flag===FALSE){
