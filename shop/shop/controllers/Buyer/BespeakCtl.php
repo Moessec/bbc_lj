@@ -195,8 +195,6 @@ class Buyer_BespeakCtl extends Buyer_Controller
 		$user['bespeak_list']=2;
 		$rent['bespeak_list']=2;
 		$rent['user_id']=0;
-		$rent['bespeak_status']=1;
-		$rent['bespeak_state']=1;
 		$USER_BespeakModel = new USER_BespeakModel();
 		$data['temp']            = $USER_BespeakModel->getBespeakList($user);
 		$data['rent']            = $USER_BespeakModel->getBespeakList($rent);
