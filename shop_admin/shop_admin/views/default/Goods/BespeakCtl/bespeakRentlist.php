@@ -99,15 +99,10 @@ var bespeak_id = $('bespeak_id').val;
             bespeak_id: id,bespeak_status:1,
         }, function(data) {
             if (data && data.status == 200) {
-                parent.Public.tips({
-                    content: _('状态修改成功！')
-                });
+                alert('状态修改成功')
                 $('.rigbox').remove();
             } else {
-                parent.Public.tips({
-                    type: 1,
-                    content: _('状态修改失败！') + data.msg
-                });
+                   alert('状态修改失败！');
             }
         });
     });
@@ -120,15 +115,10 @@ $('#bespeak2').on('click',function(){
             bespeak_id: id,bespeak_status:2,
         }, function(data) {
             if (data && data.status == 200) {
-                parent.Public.tips({
-                    content: _('状态修改成功！')
-                });
+                alert('状态修改成功')
                 $('.rigbox').remove();
             } else {
-                parent.Public.tips({
-                    type: 1,
-                    content: _('状态修改失败！') + data.msg
-                });
+                   alert('状态修改失败！');
             }
         });
     });
