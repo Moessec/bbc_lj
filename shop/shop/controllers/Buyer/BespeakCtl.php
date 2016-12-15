@@ -246,9 +246,9 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					}
 					if ($v3['bespeak_state']=='2') {
 						unset($data['rent'][$k3]);
-						var_dump($data['rent'][$k3]);
 					}
 					$data['rent'][$k3]=$v3;
+						var_dump($data['rent'][$k3]);
 					exit();
 			}
 			$num=count($data);
