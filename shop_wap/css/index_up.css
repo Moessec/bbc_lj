@@ -11,7 +11,7 @@ body{
         font-size: 0.8rem;
     }
 
-	.swiper-container {
+	.swiper-container{
 			width:100%;
 			height:auto;
 			position: relative;
@@ -27,7 +27,7 @@ body{
 			
 		}
 		
-		.swiper-wrapper {
+		.swiper-container .swiper-wrapper {
 			position: relative;
 			-webkit-box-sizing: content-box;
 			-moz-box-sizing: content-box;
@@ -55,7 +55,34 @@ body{
 			-ms-transform: translate3d(0px, 0, 0);
 			-ms-transition-timing-function: ease
 		}
-		
+       .swiper-wrapper {
+            position: relative;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            width: 100%;
+            -webkit-transition-timing-function: ease;
+            -moz-transition-timing-function: ease;
+            -o-transition-timing-function: ease;
+            transition-timing-function: ease;
+            -webkit-transition-duration: 0s;
+            -moz-transition-duration: 0s;
+            -o-transition-duration: 0s;
+            transition-duration: 0s;
+            -webkit-transition-property: -webkit-transform, left, top;
+            -moz-transition-property: -moz-transform, left, top;
+            -o-transition-property: -o-transform, left, top;
+            transition-property: transform, left, top;
+            -webkit-transform: translate3d(0px, 0, 0);
+            -moz-transform: translate3d(0px, 0, 0);
+            -o-transform: translate3d(0px, 0, 0);
+            -o-transform: translate(0px, 0px);
+            transform: translate3d(0px, 0, 0);
+            -ms-transition-property: -ms-transform, left, top;
+            -ms-transition-duration: 0s;
+            -ms-transform: translate3d(0px, 0, 0);
+            -ms-transition-timing-function: ease
+        }		
 		.swiper-free-mode>.swiper-wrapper {
 			margin: 0 auto;
 			-webkit-transition-timing-function: ease-out;
@@ -332,7 +359,7 @@ box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
 
         }
         .shop-adv .pic-contain img{
-        	height: 200px;
+        	/*height: 200px;*/
         }
         .product-recommend{
         	margin: 0rem auto 0 auto;

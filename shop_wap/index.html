@@ -19,7 +19,7 @@
 
 <body>
 <headers>
-	<div class="swiper-container">
+	<div class="swiper-container banner01">
 	    <div class="swiper-wrapper">
 	        <div class="swiper-slide"><img src="images/iconfont/tuceng01.png"></div>
 	        <div class="swiper-slide"><img src="images/iconfont/tuceng02.png"></div>
@@ -102,10 +102,22 @@
 		</div>
 
 		<div class="pic-contain">
-			<div class="swiper-container1">
+<!-- 			<div class="swiper-container1">
 			    <div class="jR3DCarouselGallery" ></div>
 		    	<div class="swiper-pagination swiper-pagination-fraction"></div>
-			</div>
+			</div> -->
+			<div class="swiper-container banner02">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide"><img src="images/iconfont/tuceng01.png"></div>
+			        <div class="swiper-slide"><img src="images/iconfont/tuceng02.png"></div>
+			        <div class="swiper-slide"><img src="images/iconfont/tuceng03.png"></div>
+			        <div class="swiper-slide"><img src="images/iconfont/tuceng04.png"></div>
+			        <div class="swiper-slide"><img src="images/iconfont/tuceng05.png"></div>
+			    </div>
+
+			    <!-- 如果需要分页器 -->
+			    <div class="swiper-pagination"></div>
+			</div>			
 		</div>
 	</div>
 
@@ -338,13 +350,13 @@
 <script type="text/javascript">
 
 window.onload = function() {
-	var swiper = new Swiper('.swiper-container', {
+	var swiper = new Swiper('.banner01', {
 		pagination: '.swiper-pagination',
 		paginationType : 'bullets',
 		// paginationType : 'fraction',
 		paginationClickable: true,
 		autoplayDisableOnInteraction: false,
-		autoplay: 3000,
+		autoplay: 1500,
 		speed: 300,
 		//loop: true, 
 		grabCursor: true,
@@ -356,6 +368,24 @@ window.onload = function() {
 		// pagination: '.swiper-pagination',
 
 	});
+	var swiper = new Swiper('.banner02', {
+		pagination: '.swiper-pagination',
+		paginationType : 'bullets',
+		// paginationType : 'fraction',
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		autoplay: 1300,
+		speed: 300,
+		height : 120, 
+		grabCursor: true,
+		paginationClickable: true,
+		mousewheelControl: true,
+		lazyLoading: true,
+		// nextButton: '.swiper-button-next',
+		// prevButton: '.swiper-button-prev',
+		// pagination: '.swiper-pagination',
+
+	});	
 };
 
 
