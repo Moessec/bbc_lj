@@ -244,10 +244,11 @@ class Buyer_BespeakCtl extends Buyer_Controller
 						$id = $v3['bespeak_id'];
 						$v3['bespeak_id']='bespeak_opera_rent.html?bespeak_id='.$id;
 					}
+					
+					$data['rent'][$k3]=$v3;
 					if ($v3['bespeak_state']=='2') {
 						unset($data['rent'][$k3]);
 					}
-					$data['rent'][$k3]=$v3;
 			}
 			$num=count($data);
 			// exit();
