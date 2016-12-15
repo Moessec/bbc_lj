@@ -220,12 +220,13 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					$data['temp'][$key]=$value;
 			}
 			foreach ($data['rent'] as $key => $value) {
+				if ($value['bespeak_state']=='2') {
+						unset($data['rent'][$key]);
+					}
 					if($value['bespeak_state']=='0'){
 						$value['bespeak_state']='无效，审核不通过';
 					}elseif ($value['bespeak_state']=='1') {
 						$value['bespeak_state']='租赁中';
-					}elseif ($value['bespeak_state']=='2') {
-						unset($data['rent'][$key]);
 					}
 				$value['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$value['bespeak_id'];
 
