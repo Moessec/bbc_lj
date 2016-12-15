@@ -293,7 +293,7 @@ if(!key)
      // 购物车中商品数量
      if (getCookie('cart_count')) {
        if (getCookie('cart_count') > 0) {
-           $('#cart_count').html(getCookie('cart_count'));
+           // $('#cart_count').html(getCookie('cart_count'));
            }
        }
 
