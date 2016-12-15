@@ -88,6 +88,21 @@ $(function(){
         
           window.location.href = PayCenterWapUrl;
       });
+
+ // var key = getCookie('key');
+
+if(!key)
+{
+    delCookie('cart_count');
+}else{
+     // 购物车中商品数量
+     if (getCookie('cart_count')) {
+       if (getCookie('cart_count') > 0) {
+            $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+           }
+       }
+
+}      
      
       
 });

@@ -258,6 +258,9 @@ border-radius: 20px;
 -moz-box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
 box-shadow: inset 0 1px 5px rgba(0,0,0,.5);             
         }
+
+
+
         .shop-adv .shop-contain .shop-contain-info{
         	width:75%;
         	height: 4.3rem;
@@ -267,6 +270,7 @@ box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
         }
         .shop-contain-info .shop-name{
         	font-size: 0.7rem;
+            color:#FF7E18;
         }
         .shop-contain-info .shop-name span{
         	height: 0.9rem;
@@ -548,7 +552,7 @@ box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
             margin:0.5rem auto;
             
         }
-        #cart_count{
+        #cart_count sup{
             color:red;
             width:0.5rem;
         }
