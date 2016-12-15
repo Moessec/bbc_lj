@@ -47,7 +47,6 @@ input, select, textarea {
       <?php
         foreach ($data as $key => $value) {
       ?>
-      <input type="hidden" id="id" name="id" value="<?=$value['bespeak_id']?>">
   <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
     <thead>
       <tr>
@@ -77,7 +76,9 @@ input, select, textarea {
         }elseif ($value['bespeak_status']=='0') {
           echo "审核不通过";
         }?>
-        <div class="rigbox"><span id="bespeak1" class="ui-icon ui-icon-trash" title="不出租"></span><span class="ui-icon set-status" id="bespeak2" title="出租">></span></div>
+        <input type="hidden" class="id" name="id" value="<?=$value['bespeak_id']?>">
+
+        <div class="rigbox"><span class="bespeak1 ui-icon ui-icon-trash" title="不出租"></span><span class="bespeak2 ui-icon set-status" title="出租">></span></div>
       </td>
       </tr>
     </tbody>
@@ -88,13 +89,15 @@ input, select, textarea {
       ?>
 </div>
 <style type="text/css">
-  #bespeak1{float: left;margin-right: 10px;}
+  .bespeak1{float: left;margin-right: 10px;}
   .rigbox{float:right;width: 100px;height: 20px;text-align: center;}
 </style>
 <script type="text/javascript" >
-var id = $('#id').val();
-  $('#bespeak1').on('click',function(){
+  $('.bespeak1').on('click',function(){
+    var id = $(this).parent().find('.id').val();
     var bespeak_status = 0;
+    alert(id);
+    return false;
     $.dialog.confirm(_('状态修改之后不能恢复，确定修改吗？'), function() {
         Public.ajaxPost(SITE_URL + '?ctl=Goods_Bespeak&met=disable&typ=json', {
             bespeak_id: id,bespeak_status:bespeak_status,
@@ -110,7 +113,7 @@ var id = $('#id').val();
 })
 
 
-$('#bespeak2').on('click',function(){
+$('.bespeak2').on('click',function(){
   var bespeak_status = 1;
     $.dialog.confirm(_('状态修改之后不能恢复，确定修改吗？'), function() {
         Public.ajaxPost(SITE_URL + '?ctl=Goods_Bespeak&met=disable&typ=json', {
