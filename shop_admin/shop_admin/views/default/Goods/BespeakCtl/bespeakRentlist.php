@@ -100,7 +100,7 @@ input, select, textarea {
                 parent.Public.tips({
                     content: _('状态修改成功！')
                 });
-                $('#grid').jqGrid('setCell', id, 'enable', is_enable);
+                $('.rigbox').remove();
             } else {
                 parent.Public.tips({
                     type: 1,
@@ -111,7 +111,7 @@ input, select, textarea {
     });
 })
 
-  
+
 $('#bespeak2').on('click',function(){
     $.dialog.confirm(_('状态修改之后不能恢复，确定修改吗？'), function() {
         Public.ajaxPost(SITE_URL + '?ctl=Goods_Bespeak&met=disable&typ=json', {
@@ -122,7 +122,7 @@ $('#bespeak2').on('click',function(){
                 parent.Public.tips({
                     content: _('状态修改成功！')
                 });
-                $('#grid').jqGrid('setCell', id, 'enable', is_enable);
+                $('.rigbox').remove();
             } else {
                 parent.Public.tips({
                     type: 1,
