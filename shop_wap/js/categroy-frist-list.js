@@ -522,7 +522,7 @@ setTimeout(function(){
         get_brand_recommend()
     })
 
-}
+
 // var key = getCookie('key');
 
   
