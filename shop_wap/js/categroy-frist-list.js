@@ -549,7 +549,7 @@ function get_brand_recommend()
         var r = template.render("brand-one", t);
         // $("#categroy-rgt").html(r);
         $(".pre-loading").hide();
-        new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+        // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
     })
 }
 
