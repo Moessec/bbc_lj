@@ -37,13 +37,13 @@
                     <li class="form-item">
                         <h4>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</h4>
                         <div class="input-box">
-                            <input type="text" class="inp" name="true_name" id="true_name" autocomplete="off" oninput="writeClear($(this));" />
+                            <input type="text" class="inp" name="true_name" id="true_name" autocomplete="off" oninput="writeClear($(this));"  placeholder="请输入您的姓名" />
                             <span class="input-del"></span> </div>
                     </li>
                     <li class="form-item">
                         <h4>手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机</h4>
                         <div class="input-box">
-                            <input type="tel" class="inp" name="usercontact" id="usercontact" autocomplete="off" oninput="writeClear($(this));" />
+                            <input type="tel" class="inp" name="usercontact" id="usercontact" autocomplete="off" oninput="writeClear($(this));"  placeholder="请输入联系方式"/>
                             <span class="input-del"></span> </div>
                     </li>
                     <li class="form-item">
@@ -59,7 +59,7 @@
                             <span style="font-size: 0.6rem;">年</span>
                             <select name="y" id="y" onchange="show();">
                             <script>
-                            for(var i=0;i<=12;i++){
+                            for(var i=1;i<=12;i++){
                              document.write("<option value='"+i+"'>"+i+"</option>");
                             }
                             </script>
@@ -67,7 +67,7 @@
                             <span style="font-size: 0.6rem;">月</span>
                             <select name="r" id="r" onchange="show();">
                             <script>
-                            for(var i=0;i<=31;i++){
+                            for(var i=1;i<=31;i++){
                                 var n=document.getElementById('n').val;
                                 if(n=2){
                                     i<=29;
@@ -96,7 +96,7 @@
                             <span style="font-size: 0.6rem;">年</span>
                             <select name="mon" id="mon" onchange="show();">
                             <script>
-                            for(var i=0;i<=12;i++){
+                            for(var i=1;i<=12;i++){
                              document.write("<option value='"+i+"'>"+i+"</option>");
                             }
                             </script>
@@ -104,7 +104,7 @@
                             <span style="font-size: 0.6rem;">月</span>
                             <select name="day" id="day" onchange="show();">
                             <script>
-                            for(var i=0;i<=31;i++){
+                            for(var i=1;i<=31;i++){
                                 var mon=document.getElementById('mon').val;
                                 if(mon=2){
                                     i<=29;
