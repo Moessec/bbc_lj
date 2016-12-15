@@ -66,6 +66,19 @@ input, select, textarea {
         <th class="w150">预约时间：</th>
         <td><?=$value['starttime']?></td>
       </tr>
+      <tr>
+        <th class="w150">审核：</th>
+        <td><?php
+        if($value['bespeak_status']=='1'){
+          echo "出租中";
+        }elseif ($value['bespeak_status']=='2') {
+          echo "待处理";
+        }elseif ($value['bespeak_status']=='0') {
+          echo "审核不通过";
+        }?>
+        <div class="rigbox"><span id="bespeak1">不出租</span><span id="bespeak2">出租</span></div>
+      </td>
+      </tr>
     </tbody>
   </table>
   
@@ -73,6 +86,11 @@ input, select, textarea {
         }
       ?>
 </div>
+<style type="text/css">
+  .rigbox{float:left;width: 100px;height: 20px;text-align: center;}
+</style>
+<script type="text/javascript" src="<?=$this->view->js?>/controllers/goods/goods_bespeak1.js" charset="utf-8"></script>
+
 
 
 <?php

@@ -231,18 +231,9 @@ class Api_Goods_BespeakCtl extends Api_Controller
 		$data['bespeak_status']         = request_string('bespeak_status');
 
 		$bespeak_id = request_int('bespeak_id');
-		$ones            = $Goods_BespeakModel->getBespeakList($bespeak_id);
-		if($ones['0']['bespeak_status']!='1'){
-			$data_rs = $data;
-			unset($data['bespeak_id']);
-			$data['bespeak_status']='1';
-			$data['bespeak_state']='1';
-			$flag = $this->goodsBespeakModel->editBespeak($bespeak_id, $data);
 
-		}else{
-			$data_rs['msg']     = _('failure');
-			$status = 250;
-		}
+		$flag = $this->goodsBespeakModel->editBespeak($bespeak_id, $data);
+
 		if(!$flag===FALSE){
 			$data_rs['msg']    = _('success');
 			$status = 200;
