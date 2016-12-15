@@ -359,9 +359,8 @@ $(function(){
   src2 = $('.active1').find('img')[0].src=src1;
 
 });
+//===========================商品加入购物车函数================================
 $(function(){
-// var key = getCookie('key');
-// alert(0);
-
+alert(1);
 });
 
