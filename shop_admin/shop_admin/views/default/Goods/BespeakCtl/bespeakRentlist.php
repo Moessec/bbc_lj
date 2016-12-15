@@ -76,7 +76,7 @@ input, select, textarea {
         }elseif ($value['bespeak_status']=='0') {
           echo "审核不通过";
         }?>
-        <div class="rigbox"><span id="bespeak1">不出租</span><span id="bespeak2">出租</span></div>
+        <div class="rigbox"><span id="bespeak1" class="ui-icon ui-icon-trash" title="不出租"></span><span class="ui-icon set-status" id="bespeak2" title="出租">></span></div>
       </td>
       </tr>
     </tbody>
@@ -87,7 +87,7 @@ input, select, textarea {
       ?>
 </div>
 <style type="text/css">
-  .rigbox{float:left;width: 100px;height: 20px;text-align: center;}
+  .rigbox{float:right;width: 100px;height: 20px;text-align: center;}
 </style>
 <script type="text/javascript" >
   $('#bespeak1').on('click',function(){
