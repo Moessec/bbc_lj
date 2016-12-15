@@ -225,7 +225,7 @@ class Buyer_BespeakCtl extends Buyer_Controller
 					}elseif ($value['bespeak_state']=='1') {
 						$value['bespeak_state']='租赁中';
 					}elseif ($value['bespeak_state']=='2') {
-						$value['bespeak_state']='租赁已经结束';
+						unset($data['rent'][$key]);
 					}
 				$value['bespeakinfo']='bespeak_rent_info.html?bespeak_id='.$value['bespeak_id'];
 
