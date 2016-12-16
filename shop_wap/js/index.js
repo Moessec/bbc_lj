@@ -92,18 +92,18 @@ $(function() {
         return false;
     }
 
-if(!key)
-{
-    delCookie('cart_count');
-}else{
-     // 购物车中商品数量
-     if (getCookie('cart_count')) {
-       if (getCookie('cart_count') > 0) {
-           $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
-           }
-       }
+// if(!key)
+// {
+//     delCookie('cart_count');
+// }else{
+//      // 购物车中商品数量
+//      if (getCookie('cart_count')) {
+//        if (getCookie('cart_count') > 0) {
+//            $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
+//            }
+//        }
 
-}
+// }
  //**********************调用商品数据****************************      
 
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=2", function (t)
