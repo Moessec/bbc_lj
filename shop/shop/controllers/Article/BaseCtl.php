@@ -156,7 +156,7 @@ class Article_BaseCtl extends Controller
 		$user_id = Perm::$userId;
 
 		$article_id = request_int('article_id');
-		$rows       = $this->articleBaseModel->getByWhere(array('article_type'=>1));
+		$rows       = $this->articleBaseModel->getBaseList(array('article_type'=>1));
 
 		$data = array();
 
