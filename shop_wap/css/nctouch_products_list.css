@@ -65,15 +65,15 @@
 .list .goods-secrch-list .goods-sale { display: block; height: 0.9rem; padding: 0.2rem 0; overflow: hidden;}
 .list .goods-secrch-list .goods-price { color: orange; font-size: 0.6rem; line-height: 0.9rem; display: block; float: left;}
 .list .goods-secrch-list .goods-price em { font-size: 0.8rem; line-height: 0.9rem; vertical-align: top; display: inline-block;}
-.list .goods-secrch-list .goods-price .phone-sale { font-size: 0.45rem; line-height: 0.6rem; vertical-align: top; display: inline-block; height: 0.6rem; padding-right: 0.1rem; margin-top: 0.05rem; border: solid #EC5464 0.05rem; }
+.list .goods-secrch-list .goods-price .phone-sale { font-size: 0.45rem; line-height: 0.6rem; vertical-align: top; display: inline-block; height: 0.6rem; padding-right: 0.1rem; margin-top: 0.05rem; border: solid orange 0.05rem; }
 .list .goods-secrch-list .goods-price .phone-sale i { display: inline-block; vertical-align: middle; margin-right: 0.1rem; width: 0.6rem; height: 0.6rem; background: orange url(../images/mobile_w.png) no-repeat 50% 50%; background-size: 80%;}
-.list .goods-secrch-list .sale-type { float: right; width: 0.7rem; height: 0.7rem; margin: 0 0 0 0.1rem; vertical-align: top; text-align: center;font-size: 0.45rem; color: #FFF; line-height: 0.7rem; background-color: #EC5464; border-radius: 0.1rem;}
+.list .goods-secrch-list .sale-type { float: right; width: 0.7rem; height: 0.7rem; margin: 0 0 0 0.1rem; vertical-align: top; text-align: center;font-size: 0.45rem; color: #FFF; line-height: 0.7rem; background-color: orange; border-radius: 0.1rem;}
 /*商品相关信息*/
 .list .goods-secrch-list .goods-assist { display: block; height: 1rem; padding-bottom: 0.2rem; overflow: hidden;}
 .list .goods-secrch-list .goods-sold { font-size: 0.55rem; line-height: 1rem; color: #999; display: block; float: left; width: 40%; height: 1rem;}
 .list .goods-secrch-list .goods-sold em { color: #000; vertical-align: middle; font-weight: 600;}
 .list .goods-secrch-list .goods-store { float: right; font-size: 0.55rem; line-height: 1rem; text-align: right; width: 60%; height: 1rem;}
-.list .goods-secrch-list .goods-store .mall { display: inline-block; padding: 0 0.1rem; font-size: 0.55rem; line-height: 0.7rem; color: #FFF; color: #EC5464;}
+.list .goods-secrch-list .goods-store .mall { display: inline-block; padding: 0 0.1rem; font-size: 0.55rem; line-height: 0.7rem; color: #FFF; color: orange;}
 .list .goods-secrch-list .goods-store a { color: #777; white-space: nowrap; overflow: hidden;}
 .list .goods-secrch-list .goods-store a i { background-image: url(../images/bbc-bg48.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 60%; vertical-align: top; display: inline-block; width: 1rem; height: 1rem; margin: 0 0 0 0.15rem; opacity: 0.4;}
 
@@ -109,9 +109,9 @@
 .grid .goods-secrch-list .goods-name h6 { display: none;}
 /*商品价格与促销*/
 .grid .goods-secrch-list .goods-sale { display: inline-block; height: 0.9rem; padding: 0.2rem 0; overflow: hidden;}
-.grid .goods-secrch-list .goods-price { color: #EC5464; font-size: 0.55rem; line-height: 0.9rem; display: block; float: left;}
+.grid .goods-secrch-list .goods-price { color: orange; font-size: 0.55rem; line-height: 0.9rem; display: block; float: left;}
 .grid .goods-secrch-list .goods-price em { font-size: 0.8rem; line-height: 0.9rem; vertical-align: top; display: inline-block;}
-.grid .goods-secrch-list .goods-price .phone-sale { font-size: 0; vertical-align: top; display: inline-block; width: 0.6rem; height: 0.6rem; border: solid #EC5464 0.02rem; }
+.grid .goods-secrch-list .goods-price .phone-sale { font-size: 0; vertical-align: top; display: inline-block; width: 0.6rem; height: 0.6rem; border: solid orange 0.02rem; }
 .grid .goods-secrch-list .goods-price .phone-sale i { display: block; width: 100%; height: 100%; background: orange url(../images/mobile_w.png) no-repeat 50% 50%; background-size: 80%;}
 .grid .goods-secrch-list .sale-type { display: none;}
 /*商品相关信息*/
@@ -119,7 +119,7 @@
 .grid .goods-secrch-list .goods-sold { font-size: 0.55rem; line-height: 1rem; color: #999; display: block; float: left;}
 .grid .goods-secrch-list .goods-sold em { color: #000; vertical-align: middle; font-weight: 600;}
 .grid .goods-secrch-list .goods-store { float: right; font-size: 0.55rem; line-height: 1rem;}
-.grid .goods-secrch-list .goods-store .mall { display: inline-block; padding: 0 0.1rem; font-size: 0.45rem; line-height: 0.7rem; color: #FFF; background-color: #EC5464;}
+.grid .goods-secrch-list .goods-store .mall { display: inline-block; padding: 0 0.1rem; font-size: 0.45rem; line-height: 0.7rem; color: #FFF; background-color: orange;}
 .grid .goods-secrch-list .goods-store a { font-size: 0; color: #888;}
 .grid .goods-secrch-list .goods-store a i { background-image: url(../images/bbc-bg48.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 60%; vertical-align: top; display: inline-block; width: 1rem; height: 1rem; margin: 0 0 0 0.15rem; opacity: 0.5;}
 .grid .goods-secrch-list .store-credit { display: none;}
