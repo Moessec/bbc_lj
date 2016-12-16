@@ -133,9 +133,8 @@ class Goods_CatCtl extends Controller
 		$user_id = Perm::$userId;
 		$parent_id = request_int('parent_id');
 		$shop_id = request_int('shop_id');
-		setcookie('community_shopid',$shop_id,time()+3600);
-		$_SESSION['community_shopid']=$shop_id;
-		var_dump($_SESSION['community_shopid']);die;
+		// setcookie('community_shopid',$shop_id,time()+3600);
+
 		$page = request_int('page');
 		$rows = request_int('rows');
 		$sort = request_int('sord');
