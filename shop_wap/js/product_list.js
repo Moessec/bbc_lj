@@ -5,6 +5,8 @@ var hasmore = true;
 var footer = false;
 var keyword = decodeURIComponent(getQueryString("keyword"));
 var cat_id = getQueryString("cat_id");
+var shop_goods_cat_id = getQueryString("shop_goods_cat_id");
+alert(shop_goods_cat_id);
 var brand_id = getQueryString("brand_id");
 var key = getQueryString("key");
 var order = getQueryString("order");
@@ -157,6 +159,36 @@ function get_list()
     {
         param.isvirtual = virtual
     }
+    alert(1);
+if(shop_goods_cat_id)
+{
+    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=shop_cat_goods&typ=json&shop_id="+getCookie('community_shopid')+"&shop_goods_cat_id="+shop_goods_cat_id, function (e)
+    {
+        if (!e)
+        {
+            e = [];
+            e.datas = [];
+            e.data.goods_list = []
+        }
+        $(".loading").remove();
+        curpage++;
+        console.info(e);
+        var r = template.render("home_body", e);
+        $("#product_list .goods-secrch-list").append(r);
+        //hasmore = e.hasmore
+       if(e.data.page < e.data.total)
+       {
+           firstRow = e.data.records;
+           hasmore = true;
+       }
+        else
+       {
+           hasmore = false;
+       }
+    })
+
+}else{
+
 
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json" + window.location.search.replace("?", "&"), param, function (e)
     {
@@ -182,6 +214,7 @@ function get_list()
            hasmore = false;
        }
     })
+ }   
 }
 function search_adv()
 {
