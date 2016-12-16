@@ -1579,8 +1579,13 @@ class Goods_GoodsCtl extends Controller
  }
  	public function getShopInfo(){
 
-		$shop_id = request_int('shop_id');
-		$shop_id = 2;
+		if($_COOKIE['community_shopid'])
+		{
+			$shop_id = $_COOKIE['community_shopid'];
+		}else{
+			$shop_id = 2;
+		}
+		// var_dump($shop_id);die;
 		$Shop_BaseModel = new Shop_BaseModel();
 		$data = $Shop_BaseModel ->getOneByWhere( array('shop_id'=>$shop_id) );
 		$Shop_CompanyModel = new Shop_CompanyModel();
