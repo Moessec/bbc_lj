@@ -151,6 +151,22 @@ class Article_BaseCtl extends Controller
 
 		$this->data->addBody(-140, $data);
 	}
+	public function getlist()
+	{
+		$user_id = Perm::$userId;
+
+		$article_id = request_int('article_id');
+		$rows       = $this->articleBaseModel->getByWhere();
+
+		$data = array();
+
+		if ($rows)
+		{
+			$data = array_pop($rows);
+		}
+
+		$this->data->addBody(-140, $data);
+	}
 
 	/**
 	 * 添加
