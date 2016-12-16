@@ -504,7 +504,8 @@ $(function ()
  
    if (shop_id!='')
    { 
-        addCookie('community_shopid',shop_id);
+        // addCookie('community_shopid',shop_id);
+        document.cookie="community_shopid="+shop_id+"; path=/"; 
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=shoplists&typ=json&parent_id=0&shop_id="+shop_id, function (t)
         {
             // console.info(t);
