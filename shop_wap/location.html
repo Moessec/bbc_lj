@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<!-- <meta http-equiv="refresh" content="0.5" /> -->
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="css/cityPicker.css">
 </head>
@@ -55,11 +56,11 @@ $(function(){
 	// $("#cityChoice").focus();
     
     cityPicker.init();
-
     setTimeout(function() {
 	// IE
 	if(document.all) {
 		document.getElementById("cityChoice").click();
+
 	}
 	// 其它浏览器
 	else {
@@ -69,7 +70,8 @@ $(function(){
 	}
 }, 100);	
 })
-
+$(function(){
+})
 </script> 	
 </body>
 </html>
