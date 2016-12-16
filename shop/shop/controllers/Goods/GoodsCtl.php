@@ -1578,10 +1578,10 @@ class Goods_GoodsCtl extends Controller
 
  }
  	public function getShopInfo(){
+			var_dump($_SESSION['community_shopid']);die;
 
 		if($_SESSION['community_shopid'])
 		{  
-			var_dump($_SESSION['community_shopid']);die;
 			$shop_id = $_COOKIE['community_shopid'];
 		}else{
 			$shop_id = 2;
