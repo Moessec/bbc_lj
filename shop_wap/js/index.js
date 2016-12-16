@@ -105,10 +105,11 @@ if(!key)
 
 }
 
-        $.getJSON(ApiUrl + "/index.php?ctl=Article_Base&met=lists&typ=json", function (t)
+        $.getJSON(ApiUrl + "/index.php?ctl=Article_Base&met=getlist&typ=json", function (t)
              {
 
-               console.log(t);
+               // console.log(t);
+                $("#announ").html(template.render('announcement', t));
         
              });
  //**********************调用商品数据****************************      

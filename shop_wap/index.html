@@ -82,19 +82,8 @@
 			<div class="">
 				<span class="announ-contain-title">最新公告 | </span>
 				<div class="swiper_wrap">
-						<ul class="font_inner">
-							<li style="display:block">
-								<a href="###">10月25号隆之梦促销活动！</a>
-							</li>
-							<li>
-								<a href="###">10月26号上午花园路一点LIFE特惠活动十点开始！</a>
-							</li>
-							<li>
-								<a href="###">10月27号阳光活动之奔在梦上开始！</a>
-							</li>
-							<li>
-								<a href="###">10月28号速度和第三季度开始！</a>
-							</li>
+						<ul class="font_inner" id='announ'>
+
 						</ul>
 
 					</div>
@@ -120,7 +109,16 @@
 			</div>			
 		</div>
 	</div>
-
+	<script type="text/html" id="announcement">
+		<li style="display:block">
+			<a href="tmpl/wap_announce.html?article_id=<%=data[0].article_id%>"><%=data[0].article_title%></a>
+		</li>
+	<%for(var i=0;i<data.length;i++){%>
+		<li >
+			<a href="tmpl/wap_announce.html?article_id=<%=data[i].article_id%>"><%=data[i].article_title%></a>
+		</li>
+    <%}%>
+	</script>
 	<div class="product-recommend clearfix" id="product-contain3">	</div>
 	<script type="text/html" id="goods3">
 		<ul class="clearfix">
