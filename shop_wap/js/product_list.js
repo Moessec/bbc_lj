@@ -176,7 +176,7 @@ if(shop_goods_cat_id)
         $(".loading").remove();
         curpage++;
         console.info(e);
-        e['status']= 1;
+        e.data['status']= 1;
         var r = template.render("home_body", e);
         $("#product_list .goods-secrch-list").append(r);
         //hasmore = e.hasmore
