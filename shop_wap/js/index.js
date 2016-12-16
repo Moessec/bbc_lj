@@ -1,9 +1,9 @@
 var map_list = [];
 var map_index_id = '';
-
-$(function() {
 var shop_id = getCookie('community_shopid');
 alert(shop_id);
+
+$(function() {
 
          $.ajax({
                 url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json",
