@@ -6,7 +6,6 @@ var footer = false;
 var keyword = decodeURIComponent(getQueryString("keyword"));
 var cat_id = getQueryString("cat_id");
 var shop_goods_cat_id = getQueryString("shop_goods_cat_id");
-alert(shop_goods_cat_id);
 var brand_id = getQueryString("brand_id");
 var key = getQueryString("key");
 var order = getQueryString("order");
@@ -23,6 +22,7 @@ var searchTimes = myDate.getTime();
 var seller = getQueryString("ctl");
 $(function ()
 {
+    alert(1);
     if(seller)
     {
         $("#nav_ul").css('display','none');
@@ -130,6 +130,9 @@ function get_list()
     else if (brand_id != "")
     {
         param.brand_id = brand_id
+    }else if(shop_goods_cat_id != '')
+    {
+        param.shop_goods_cat_id = shop_goods_cat_id
     }
     if (key != "")
     {
