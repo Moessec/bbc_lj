@@ -1578,6 +1578,7 @@ class Goods_GoodsCtl extends Controller
 
  }
  	public function getShopInfo(){
+ 		session_start();
 			var_dump($_SESSION['community_shopid']);die;
 
 		if($_SESSION['community_shopid'])
