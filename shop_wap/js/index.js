@@ -1,6 +1,7 @@
 var map_list = [];
 var map_index_id = '';
-var shop_id;
+var shop_id = getCookie('community_shopid');
+alert(shop_id);
 
 $(function() {
 
