@@ -22,7 +22,7 @@ var searchTimes = myDate.getTime();
 var seller = getQueryString("ctl");
 $(function ()
 {
-    alert(1);
+    // alert(1);
     if(seller)
     {
         $("#nav_ul").css('display','none');
