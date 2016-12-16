@@ -63,7 +63,7 @@
 .list .goods-secrch-list .goods-name h6 { font-size: 0.5rem; color: #999; line-height: 0.9rem; height: 0.9rem; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
 /*商品价格与促销*/
 .list .goods-secrch-list .goods-sale { display: block; height: 0.9rem; padding: 0.2rem 0; overflow: hidden;}
-.list .goods-secrch-list .goods-price { color: #EC5464; font-size: 0.6rem; line-height: 0.9rem; display: block; float: left;}
+.list .goods-secrch-list .goods-price { color: orange; font-size: 0.6rem; line-height: 0.9rem; display: block; float: left;}
 .list .goods-secrch-list .goods-price em { font-size: 0.8rem; line-height: 0.9rem; vertical-align: top; display: inline-block;}
 .list .goods-secrch-list .goods-price .phone-sale { font-size: 0.45rem; line-height: 0.6rem; vertical-align: top; display: inline-block; height: 0.6rem; padding-right: 0.1rem; margin-top: 0.05rem; border: solid #EC5464 0.05rem; }
 .list .goods-secrch-list .goods-price .phone-sale i { display: inline-block; vertical-align: middle; margin-right: 0.1rem; width: 0.6rem; height: 0.6rem; background: #ED5564 url(../images/mobile_w.png) no-repeat 50% 50%; background-size: 80%;}
