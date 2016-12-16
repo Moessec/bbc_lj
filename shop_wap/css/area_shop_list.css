@@ -7,7 +7,7 @@
 	margin-bottom: 0.13rem;
 }
 .list a {
-	color:orange;
+	color:#000000;
 }
 .header-title{
 	font-size:0.8rem;
@@ -20,7 +20,7 @@
 	float:left;
 }
 .list_left img{
-	height:4rem;width:5.5rem
+	height:5.5rem;width:5.5rem
 
 }
 .list_right{
