@@ -104,6 +104,13 @@ if(!key)
        }
 
 }
+
+        $.getJSON(ApiUrl + "/index.php?ctl=Article_Base&met=lists&typ=json", function (t)
+             {
+
+               console.log(t);
+        
+             });
  //**********************调用商品数据****************************      
 
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=2", function (t)
