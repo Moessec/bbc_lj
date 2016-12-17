@@ -37,7 +37,7 @@ $(function ()
        
         });        
     }else if(seller=='Promotion_ActIncrease'){
-        alert(1);
+        // alert(1);
         $("#nav_ul").css('display','none');
         $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Increase&met=getShopGoods&op=manage&typ=json&id=1" , function (e)
         {
