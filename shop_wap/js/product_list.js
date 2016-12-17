@@ -31,7 +31,7 @@ $(function ()
            var data = e.data;
            // discount_goods_rows
             // console.info(e);
-            if(data){var d = template.render("home_body1", data);}
+            // if(data){var d = template.render("home_body1", data);}
             
             $("#product_list .goods-secrch-list").append(d);
        
