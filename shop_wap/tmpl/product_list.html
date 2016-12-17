@@ -180,8 +180,8 @@
     %>
 <%}else{%>
     <% var common_list = data.items; %>
-    <% if(common_list.length >0){%>
-    <%for(j=0;j<common_list.length;j++){%>
+    <% if(common_list){%>
+    <%for(var j in common_list){%>
     <%  var goods_list = common_list[j].good; %>
     <%for(i=0;i<goods_list.length;i++){%>
     <li class="goods-item" goods_id="<%=goods_list[i].goods_id;%>">
