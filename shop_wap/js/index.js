@@ -20,6 +20,7 @@ $(function() {
                         $("#shopslid").html(template.render('banner02', shopslid));   
 
                   }
+                  JSON.stringify(shopslid); 
                   console.log(shopslid);
 
                   var info = da.company_address;
