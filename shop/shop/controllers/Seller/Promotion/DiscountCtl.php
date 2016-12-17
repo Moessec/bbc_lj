@@ -150,6 +150,80 @@ class Seller_Promotion_DiscountCtl extends Seller_Controller
 		}
 
 	}
+    public function index1()
+    {
+        $data   = array();
+        $combo_row = array();
+
+        if(request_string('op') == 'manage')
+        {
+            $discount_id = request_int('id');
+
+            if ($discount_id)
+            {
+                $cond_row['discount_id']     = $discount_id;
+                $cond_row['shop_id']         = Perm::$shopId;
+                $data['discount_detail']     = $this->discountBaseModel->getDiscountActInfo($cond_row);
+                $data['discount_goods_rows'] = $this->discountGoodsModel->getDiscountGoods($cond_row, array('discount_goods_id' => 'DESC'));
+            }
+            else
+            {
+                location_go_back('活动不存在');
+            }
+
+            $this->view->setMet('manage');
+        }
+        else
+        {
+            $Yf_Page           = new Yf_Page();
+            $Yf_Page->listRows = request_int('listRows')?request_int('listRows'):10;
+            $rows              = $Yf_Page->listRows;
+            $offset            = request_int('firstRow', 0);
+            $page              = ceil_r($offset / $rows);
+
+            $cond_row['shop_id'] = Perm::$shopId;         //店铺ID
+
+            if (request_string('keyword'))
+            {
+                $cond_row['discount_name:LIKE'] = request_string('keyword') . "%";
+            }
+            if (request_int('state'))
+            {
+                $cond_row['discount_state'] = request_int('state');
+            }
+
+            $data               = $this->discountBaseModel->getDiscountActList($cond_row, array('discount_id' => 'DESC'), $page, $rows);
+            $Yf_Page->totalRows = $data['totalsize'];
+            $page_nav           = $Yf_Page->prompt();
+        }
+
+        $shop_type = $this->self_support_flag;
+
+        if (!$this->self_support_flag)  //普通店铺
+        {
+            $com_flag = $this->combo_flag;
+
+            if ($this->combo_flag)//套餐可用
+            {
+                $combo_row = $this->discountQuotaModel->getDiscountQuotaByShopID(Perm::$shopId);
+            }
+        }
+
+        if('json' == $this->typ)
+        {
+            $json_data['data']       = $data;
+            $json_data['shop_type']  = $shop_type;
+            $json_data['combo_flag'] = $this->combo_flag;
+            $json_data['combo_row']  = $combo_row;
+
+            $this->data->addBody(-140, $json_data);
+        }
+        else
+        {
+            include $this->view->getView();
+        }
+
+    }
 
 
 	/**
