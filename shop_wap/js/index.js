@@ -112,6 +112,22 @@ if(!key)
                 $("#announ").html(template.render('announcement', t));
         
              });
+//商家幻灯片
+   if(getCookie('community_shopid'))
+   {
+            $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json", function (t)
+             {
+               console.log(t);
+
+        
+             });
+   }
+
+
+
+
+
+
  //**********************调用商品数据****************************      
 
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=2", function (t)

@@ -13,8 +13,9 @@ $(function ()
         // console.info(r);
          var temp = '';
         for(var i in r)
-        {
+        {    
                   temp = r[i].shop_company_address;
+                  if(temp)
                   tem = temp.split(' ')[1];
                   // alert(tem);
                   // alert(city);
