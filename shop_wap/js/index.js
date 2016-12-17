@@ -17,6 +17,7 @@ $(function() {
                     shopslid.push(shop_slide,shop_slideurl);
                   if(shopslid)
                   {
+                    json.dumps(shopslid);
                      $("#shopslid").html(template.render('banner02', shopslid));   
 
                   }
