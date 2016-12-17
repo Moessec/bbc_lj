@@ -2,7 +2,7 @@ var map_list = [];
 var map_index_id = '';
 var shop_slide = new Array();
 var shop_slideurl = new Array();
-var shopslid = new Array();
+var sli='';
 $(function() {
 
          $.ajax({
@@ -14,10 +14,13 @@ $(function() {
 
                     shop_slide = da.shop_slide.split(',');
                     shop_slideurl = da.shop_slideurl.split(',');
-                    shopslid.push(shop_slide,shop_slideurl);
                   if(shopslid)
                   {
-                        // $("#shopslid").html(template.render('banner02', shopslid));   
+                       for(var i=0;i<5;i++)
+                       {
+                        sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div></a>';
+                       }
+                       $('.swiper-wrapper').append(sli);   
 
                   }
                   console.log(shopslid);
