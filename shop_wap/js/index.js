@@ -1,8 +1,8 @@
 var map_list = [];
 var map_index_id = '';
-// var shop_id = $.cookie('community_shopid');
-// alert(shop_id);
-
+var shop_slide = new Array();
+var shop_slideurl = new Array();
+var shopslid = new Array();
 $(function() {
 
          $.ajax({
@@ -11,9 +11,18 @@ $(function() {
                 dataType: 'json',
                 success: function(result) {
                     var da = result.data;
-                    // console.log(da);
-                    var info = da.company_address;
-                    // alert(info);
+
+                    shop_slide = da.shop_slide.split(',');
+                    shop_slideurl = da.shop_slideurl.split(',');
+                    shopslid.push(shop_slide,shop_slideurl);
+                  if(shopslid)
+                  {
+                     $("#shopslide").html(template.render('banner02', shopslide));   
+
+                  }
+                  console.log(shopslid);
+
+                  var info = da.company_address;
                   var map = new BMap.Map("container");
                   var localSearch = new BMap.LocalSearch(map);
 
@@ -112,20 +121,6 @@ if(!key)
                 $("#announ").html(template.render('announcement', t));
         
              });
-//商家幻灯片
-   if(getCookie('community_shopid'))
-   {
-            $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json", function (t)
-             {
-               console.log(t);
-
-        
-             });
-   }
-
-
-
-
 
 
  //**********************调用商品数据****************************      
