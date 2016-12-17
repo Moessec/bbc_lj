@@ -20,12 +20,12 @@ $(function() {
                     var shopslid1 = {};
                     for(var i=0;i<shopslid.length;i++)
                     {
-                        shopslid1[i]=shopslid[i];
+                        json[i]=shopslid[i];
                     }
-                     $("#shopslid").html(template.render('banner02', shopslid1));   
+                     // $("#shopslid").html(template.render('banner02', shopslid1));   
 
                   }
-                  console.log(shopslid);
+                  console.log(shopslid1);
 
                   var info = da.company_address;
                   var map = new BMap.Map("container");
