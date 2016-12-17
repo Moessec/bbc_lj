@@ -23,18 +23,29 @@ var seller = getQueryString("ctl");
 $(function ()
 {
     // alert(1);
-    if(seller)
+    if(seller=='Seller_Promotion_Discount')
     {
         $("#nav_ul").css('display','none');
-    $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Discount&met=index&op=manage&typ=json&id=1" , function (e)
-    {
-       var data = e.data;
-       // discount_goods_rows
-        console.info(e);
-        var d = template.render("home_body1", data);
-        $("#product_list .goods-secrch-list").append(d);
-   
-    });        
+        $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Discount&met=index&op=manage&typ=json&id=1" , function (e)
+        {
+           var data = e.data;
+           // discount_goods_rows
+            // console.info(e);
+            if(data){var d = template.render("home_body1", data);}
+            
+            $("#product_list .goods-secrch-list").append(d);
+       
+        });        
+    }else{
+        $("#nav_ul").css('display','none');
+        $.getJSON(ApiUrl + "/index.php?ctl=Promotion_ActIncrease&met=getIncreaseInfo&op=manage&typ=json&id=1" , function (e)
+        {
+           var data = e.data;
+            // if(data){var d = template.render("home_body1", data);}
+            
+            $("#product_list .goods-secrch-list").append(d);
+       
+        });         
     }
     $.animationLeft({valve: "#search_adv", wrapper: ".nctouch-full-mask", scroll: "#list-items-scroll"});
     $("#header").on("click", ".header-inp", function ()
