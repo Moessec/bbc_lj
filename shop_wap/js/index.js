@@ -20,7 +20,7 @@ $(function() {
                        {
                         sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div></a>';
                        }
-                       $('.swiper-wrapper').append(sli);   
+                       $("#shopslid").find('.swiper-wrapper').append(sli);   
 
                   }
                   console.log(shopslid);
