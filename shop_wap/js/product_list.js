@@ -36,7 +36,8 @@ $(function ()
             $("#product_list .goods-secrch-list").append(d);
        
         });        
-    }else{
+    }else if(seller=='Promotion_ActIncrease'){
+        alert(1);
         $("#nav_ul").css('display','none');
         $.getJSON(ApiUrl + "/index.php?ctl=Promotion_ActIncrease&met=getIncreaseInfo&op=manage&typ=json&id=1" , function (e)
         {
