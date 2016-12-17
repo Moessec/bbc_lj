@@ -333,6 +333,64 @@
     %>
 
 </script>
+<script type="text/html" id="home_body2">
+    <% var common_list = data.itms; %>
+    <% if(common_list){%>
+    <%for(var i in common_list){%>
+    <li class="goods-item" goods_id="<%=common_list[i].goods_id;%>">
+                <span class="goods-pic">
+                    <a href="product_detail.html?goods_id=<%=common_list[i].goods_id;%>">
+                        <img src="<%=common_list[i].goods_image;%>"/>
+                    </a>
+                </span>
+        <dl class="goods-info">
+            <dt class="goods-name">
+                <a href="product_detail.html?goods_id=<%=common_list[i].goods_id;%>">
+                    <h4><%=common_list[i].goods_name;%></h4>
+                </a>
+            </dt>
+            <dd class="goods-sale">
+                <a href="product_detail.html?goods_id=<%=common_list[i].goods_id;%>">
+                            <span class="goods-price">￥<em><%=common_list[i].discount_price;%></em>
+                             
+                            </span>
+
+               </a>
+            </dd>
+            <dd class="goods-assist">
+                <a href="product_detail.html?goods_id=<%=common_list[i].goods_id;%>">
+                                <span class="goods-sold">促销
+                                    <em><%=common_list[i].discount_name;%></em>
+                                </span>
+                                <span class="goods-sold">
+                                    <em><%=common_list[i].goods_end_time;%></em>
+                                </span>
+                </a>
+                
+            </dd>
+        </dl>
+    </li>
+    <%}%>
+
+    <% if (hasmore) {%>
+    <li class="loading"><div class="spinner"><i></i></div>商品数据读取中...</li>
+    <% } %>
+    <%
+    }else {
+    %>
+    <div class="nctouch-norecord search">
+        <div class="norecord-ico"><i></i></div>
+        <dl>
+            <dt>没有找到任何相关信息</dt>
+            <dd>选择或搜索其它商品分类/名称...</dd>
+        </dl>
+        <a href="javascript:history.go(-1)" class="btn">重新选择</a>
+    </div>
+    <%
+    }
+    %>
+
+</script>
 <script type="text/javascript" src="../js/config.php"></script>
 <script type="text/javascript" src="../js/zepto.js"></script>
 <script type="text/javascript" src="../js/template.js"></script>

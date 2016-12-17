@@ -42,7 +42,7 @@ $(function ()
         $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Increase&met=getShopGoods&op=manage&typ=json&id=1" , function (e)
         {
            var data = e.data;
-            if(data){var d = template.render("home_body1", data);}
+            if(data){var d = template.render("home_body2", data);}
             
             $("#product_list .goods-secrch-list").append(d);
        
