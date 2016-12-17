@@ -1643,7 +1643,7 @@ class Goods_GoodsCtl extends Controller
             if ($discount_id)
             {
                 $cond_row['discount_id']     = $discount_id;
-                $cond_row['shop_id']         = Perm::$shopId;
+                // $cond_row['shop_id']         = Perm::$shopId;
                 $data['discount_detail']     = $discountBaseModel->getDiscountActInfo($cond_row);
                 $data['discount_goods_rows'] = $discountGoodsModel->getDiscountGoods($cond_row, array('discount_goods_id' => 'DESC'));
             }
@@ -1662,7 +1662,7 @@ class Goods_GoodsCtl extends Controller
             $offset            = request_int('firstRow', 0);
             $page              = ceil_r($offset / $rows);
 
-            $cond_row['shop_id'] = Perm::$shopId;         //店铺ID
+            // $cond_row['shop_id'] = Perm::$shopId;         //店铺ID
 
             if (request_string('keyword'))
             {
@@ -1686,7 +1686,7 @@ class Goods_GoodsCtl extends Controller
 
             if ($this->combo_flag)//套餐可用
             {
-                $combo_row = $discountQuotaModel->getDiscountQuotaByShopID(Perm::$shopId);
+                // $combo_row = $discountQuotaModel->getDiscountQuotaByShopID(Perm::$shopId);
             }
         }
 
