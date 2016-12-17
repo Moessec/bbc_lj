@@ -20,7 +20,7 @@ $(function() {
                     var shopslid1 = {};
                     for(var i=0;i<shopslid.length;i++)
                     {
-                        json[i]=shopslid[i];
+                        shopslid1[i]=shopslid[i];
                     }
                      // $("#shopslid").html(template.render('banner02', shopslid1));   
 
