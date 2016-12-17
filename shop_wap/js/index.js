@@ -17,8 +17,12 @@ $(function() {
                     shopslid.push(shop_slide,shop_slideurl);
                   if(shopslid)
                   {
-                    json.dumps(shopslid);
-                     $("#shopslid").html(template.render('banner02', shopslid));   
+                    var shopslid1 = {};
+                    for(var i=0;i<shopslid.length;i++)
+                    {
+                        shopslid1[i]=shopslid[i];
+                    }
+                     $("#shopslid").html(template.render('banner02', shopslid1));   
 
                   }
                   console.log(shopslid);
