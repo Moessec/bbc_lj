@@ -181,7 +181,7 @@ class Seller_Promotion_DiscountCtl extends Seller_Controller
             $offset            = request_int('firstRow', 0);
             $page              = ceil_r($offset / $rows);
 
-            $cond_row['shop_id'] = Perm::$shopId;         //店铺ID
+            // $cond_row['shop_id'] = Perm::$shopId;         //店铺ID
 
             if (request_string('keyword'))
             {
@@ -205,7 +205,7 @@ class Seller_Promotion_DiscountCtl extends Seller_Controller
 
             if ($this->combo_flag)//套餐可用
             {
-                $combo_row = $this->discountQuotaModel->getDiscountQuotaByShopID(Perm::$shopId);
+                // $combo_row = $this->discountQuotaModel->getDiscountQuotaByShopID(Perm::$shopId);
             }
         }
 
