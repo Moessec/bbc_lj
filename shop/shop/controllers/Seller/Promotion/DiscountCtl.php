@@ -162,7 +162,7 @@ class Seller_Promotion_DiscountCtl extends Seller_Controller
             if ($discount_id)
             {
                 $cond_row['discount_id']     = $discount_id;
-                $cond_row['shop_id']         = Perm::$shopId;
+                // $cond_row['shop_id']         = Perm::$shopId;
                 $data['discount_detail']     = $this->discountBaseModel->getDiscountActInfo($cond_row);
                 $data['discount_goods_rows'] = $this->discountGoodsModel->getDiscountGoods($cond_row, array('discount_goods_id' => 'DESC'));
             }
