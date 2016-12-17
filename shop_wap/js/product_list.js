@@ -26,7 +26,7 @@ $(function ()
     if(seller=='Seller_Promotion_Discount')
     {
         $("#nav_ul").css('display','none');
-        $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Discount&met=index&op=manage&typ=json&id=1" , function (e)
+        $.getJSON(ApiUrl + "/index.php?ctl=Seller_Promotion_Discount&met=index1&op=manage&typ=json&id=1" , function (e)
         {
            var data = e.data;
            // discount_goods_rows
