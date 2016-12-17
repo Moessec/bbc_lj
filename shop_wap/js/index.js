@@ -17,7 +17,7 @@ $(function() {
                     shopslid.push(shop_slide,shop_slideurl);
                   if(shopslid)
                   {
-                     $("#shopslide").html(template.render('banner02', shopslide));   
+                     $("#shopslide").html(template.render('banner02', shopslid));   
 
                   }
                   console.log(shopslid);
