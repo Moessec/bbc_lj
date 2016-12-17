@@ -1705,6 +1705,92 @@ class Goods_GoodsCtl extends Controller
 		}
 
 	}
+	public function getShopGoods121()
+	{
+
+	    $increaseBaseModel        = new Increase_BaseModel();
+		$increaseGoodsModel       = new Increase_GoodsModel();
+		// $this->increaseRuleModel        = new Increase_RuleModel();
+		// $this->increaseRedempGoodsModel = new Increase_RedempGoodsModel();
+		// $this->increaseComboModel       = new Increase_ComboModel();
+		// $this->goodsBaseModel           = new Goods_BaseModel();
+		// $this->shopCostModel            = new Shop_CostModel();
+		// $this->shopBaseModel            = new Shop_BaseModel();
+
+		$cond_row    = array();
+		$increase_id = request_int('id');
+		//分页
+		$Yf_Page           = new Yf_Page();
+		$Yf_Page->listRows = request_int('listRows')?request_int('listRows'):12;
+		$rows              = $Yf_Page->listRows;
+		$offset            = request_int('firstRow', 0);
+		$page              = ceil_r($offset / $rows);
+		//需要加入商品状态限定
+		// $cond_row['shop_id'] = Perm::$shopId;
+
+		$goods_name = request_string('goods_name');
+		if ($goods_name)
+		{
+			$cond_row['common_name:LIKE'] = $goods_name . "%";
+		}
+
+		$Goods_CommonModel = new Goods_CommonModel();
+		$data              = $Goods_CommonModel->getNormalSateGoodsBase($cond_row, array('common_id' => 'DESC'), $page, $rows);
+
+		$Yf_Page->totalRows = $data['totalsize'];
+		$page_nav           = $Yf_Page->prompt();
+
+		//店铺下已存在且状态正常的加价购活动
+		// $cond_rows_increase['shop_id']        = Perm::$shopId;
+		$cond_rows_increase['increase_state'] = Increase_BaseModel::NORMAL;
+		$increase_rows                        = $increaseBaseModel->getKeyByWhere($cond_rows_increase);
+
+		if ($increase_rows)
+		{
+			// $cond_rows_join['shop_id']           = Perm::$shopId;
+			$cond_rows_join['increase_id:IN']    = $increase_rows;
+			$cond_rows_join['goods_end_time:>='] = get_date_time();
+			//店铺已加入加价购活动的商品ID
+			$join_goods_id = $increaseGoodsModel->getIncreaseGoodsIdByWhere($cond_rows_join, array());
+		}
+		else
+		{
+			$join_goods_id = array();
+		}
+
+		$rows = array();
+
+		foreach ($data['items'] as $key => $value)
+		{
+			$rows[$value['goods_id']]           = $data['items'][$key];
+			$rows[$value['goods_id']]['id']     = $value['goods_id'];
+			$rows[$value['goods_id']]['common'] = $value['common_id'];
+			$rows[$value['goods_id']]['price']  = format_money($value['goods_price']);
+			$rows[$value['goods_id']]['image']  = $value['goods_image'];
+			$rows[$value['goods_id']]['name']   = $value['goods_name'];
+
+			if (in_array($value['goods_id'], $join_goods_id))
+			{
+				$data['items'][$key]['is_join'] = 'true';
+			}
+			else
+			{
+				$data['items'][$key]['is_join'] = 'false';
+			}
+		}
+
+		$rows = encode_json($rows);
+
+		if('json' == $this->typ)
+		{
+            $this->data->addBody(-140, $data);
+		}
+		else
+		{
+			include $this->view->getView();
+		}
+
+	}	
 
 
 }
