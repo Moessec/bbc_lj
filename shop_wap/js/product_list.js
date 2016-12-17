@@ -41,6 +41,7 @@ $(function ()
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopGoods121&op=manage&typ=json&id=1" , function (e)
         {
            var data = e.data;
+           console.log(e);
             if(data){var d = template.render("home_body2", data);}
             
             $("#product_list .goods-secrch-list").append(d);
