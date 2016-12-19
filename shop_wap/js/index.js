@@ -14,7 +14,7 @@ $(function() {
 
                     shop_slide = da.shop_slide.split(',');
                     shop_slideurl = da.shop_slideurl.split(',');
-                  if(shopslid)
+                  if(shop_slide[0]!='')
                   {
                        for(var i=0;i<5;i++)
                        {
@@ -128,7 +128,7 @@ if(!key)
 
  //**********************调用商品数据****************************      
 
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json&cat_id=2", function (t)
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json", function (t)
              {
 
                $("#product-contain3").html(template.render('goods3', t));
