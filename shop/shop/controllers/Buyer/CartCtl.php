@@ -981,7 +981,7 @@ class Buyer_CartCtl extends Controller
 
 		$CartModel = new CartModel();
 
-		$count  = $CartModel->getCartGoodsNum($cond_row, $order_row);
+		$count  = $CartModel->getCardListInIndex($cond_row, $order_row);
 		var_dump($count);die;
 		$data[] = $count;
 		$data['cart_count'] = $count;
