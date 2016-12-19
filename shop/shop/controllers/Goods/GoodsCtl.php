@@ -1707,11 +1707,11 @@ class Goods_GoodsCtl extends Controller
             if ($this->combo_flag)//套餐可用
             {
                 
-               if(isset($_COOKIE['community_shopid'])&&!empty($_COOKIE['community_shopid']))
-                   {
+               // if(isset($_COOKIE['community_shopid'])&&!empty($_COOKIE['community_shopid']))
+               //     {
                    	
-                    $combo_row = $discountQuotaModel->getDiscountQuotaByShopID($_COOKIE['community_shopid']);
-                   } 
+               //      $combo_row = $discountQuotaModel->getDiscountQuotaByShopID($_COOKIE['community_shopid']);
+               //     } 
             }
         }
 
