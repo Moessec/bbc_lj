@@ -12,6 +12,7 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
     <title>消息列表</title>
+    <link rel="stylesheet" type="text/css" href="../../css/index_up.css">
     <link rel="stylesheet" type="text/css" href="../../css/base.css">
     <link rel="stylesheet" type="text/css" href="../../css/nctouch_chat.css">
 </head>
@@ -42,6 +43,7 @@
         <ul class="nctouch-message-list" id="messageList">
         </ul>
     </div>
+
     <script type="text/html" id="messageListScript">
         <% if (!isEmpty(user)) { %>
             <% for (var k in user) { %>
@@ -82,6 +84,13 @@
     <script type="text/javascript" src="../../js/common.js"></script>
     <script type="text/javascript" src="../../js/simple-plugin.js"></script>
     <script type="text/javascript" src="../../js/tmpl/chat_list.js"></script>
+        <footer class="clearfix">
+    <div class="footer-nav clearfix">
+        <ul class="clearfix mainlist1">
+            <li id='active1'><a href="../../index.html"><img src="../../images/iconfont/home.png" /><p>首页</p></a></li><li><a href="../../tmpl/product_first_categroy.html"><img src="../../images/iconfont/cat.png" /><p>分类</p></a></li><li><a href="../../tmpl/door.html"><img src="../../images/iconfont/door.png" /></a><p>芝麻开门</p></li><li><a href="../../tmpl/cart_list.html"><img src="images/iconfont/cart.png"  /><span id='cart_count'></span><p >购物车</p/a></li><li><a href="../../tmpl/member/member.html"><img src="../../images/iconfont/mine.png" /><p>我的</p></a></li>
+        <ul>
+    </div>  
+    </footer>
 </body>
 
 </html>
