@@ -19,7 +19,7 @@
 .categroy-third-list a { color: #6d6d6d; display: block; padding: 15px 0px 15px 11px; }
 
 /* 分类子级内容 */
-.categroy-rgt { background-color: #FCFCFC;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0; overflow: hidden;}
+.categroy-rgt { background-color: #FCFCFC;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0;}
 
 /* 品牌推荐 */
 .brands-recommend { font-size: 0; }
@@ -49,10 +49,10 @@
     width: 4rem;}
 .categroy-child-list dt:first-child { margin-top: 0;}
 .categroy-child-list dd { font-size: 0.55rem; line-height: 1.48rem; vertical-align: top; display: inline-block; width: 3.35rem; height: 1.48rem; padding: 0.2rem; margin-left: 0.3rem; border-radius: 0;}
-.categroy-child-list dd a { display: block; color: #444; white-space: nowrap;  text-overflow: ellipsis; }
+.categroy-child-list dd a { display: block; color: #444; white-space: nowrap;  text-overflow: ellipsis; overflow: hidden;}
 .setheight{
 	/*height:350px;overflow:auto;overflow-x:hidden;*/
-	margin-bottom: 500px;
+	margin-bottom: 100px;
 }
 /*商品列表头部特征*/
 .nctouch-product-header .header-inp {}
