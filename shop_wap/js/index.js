@@ -3,7 +3,7 @@ var map_index_id = '';
 var shop_slide = new Array();
 var shop_slideurl = new Array();
 var sli='';
-var cart_count = 0;
+var cart_count = 1 ;
 
 $(function() {
 
