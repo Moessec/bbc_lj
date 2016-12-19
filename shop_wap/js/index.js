@@ -291,7 +291,7 @@ setTimeout(function(){
                                         // show_tip();
                                         // 更新购物车中商品数量
                                         delCookie('cart_count');
-                                         alert('加入成功');
+                                        alert('加入成功');
                                         getCartCount();
                                         if(!getCookie('goods_cart_num'))
                                         {
