@@ -214,14 +214,14 @@ body{
         }
 
        .left_icon{
-        	display: inline-block;
-        	width: 1rem;
+        display: inline-block;
+        width: 1rem;
 		    height: 1rem;
 		    background-image: url(../images/iconfont/right-row.png);
 		    background-repeat: no-repeat;
 		    background-position: 50% 100%;
 		    background-size: 69% auto;
-            margin-left: 0.13rem;
+        margin-left: 0.13rem;
 		    opacity: 1;
 
         }
