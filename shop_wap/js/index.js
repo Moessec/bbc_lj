@@ -298,7 +298,7 @@ setTimeout(function(){
                                         addCookie('goods_cart_num',cart_count);
                                           
                                         }else{
-                                        addCookie('goods_cart_num',cart_count+getCookie('goods_cart_num'));
+                                        addCookie('goods_cart_num',cart_count+parseInt(getCookie('goods_cart_num')));
 
                                         }
                                         $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
