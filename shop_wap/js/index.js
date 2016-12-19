@@ -251,6 +251,7 @@ setTimeout(function(){
                         }
                         // 加入cookie
                         addCookie('goods_cart',goods_info);
+                        alert('加入成功');
                         if(!getCookie('goods_cart_num'))
                         {
                         addCookie('goods_cart_num',cart_count);
