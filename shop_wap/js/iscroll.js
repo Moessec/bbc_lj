@@ -1604,7 +1604,6 @@ function createDefaultScrollbar (direction, interactive, type) {
 		scrollbar.className = 'iScrollVerticalScrollbar';
 	}
 
-	scrollbar.style.cssText += ';overflow:hidden';
 
 	if ( !interactive ) {
 		scrollbar.style.pointerEvents = 'none';
