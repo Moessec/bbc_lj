@@ -49,9 +49,10 @@
     width: 4rem;}
 .categroy-child-list dt:first-child { margin-top: 0;}
 .categroy-child-list dd { font-size: 0.55rem; line-height: 1.48rem; vertical-align: top; display: inline-block; width: 3.35rem; height: 1.48rem; padding: 0.2rem; margin-left: 0.3rem; border-radius: 0;}
-.categroy-child-list dd a { display: block; color: #444; white-space: nowrap;  text-overflow: ellipsis; overflow: hidden;}
+.categroy-child-list dd a { display: block; color: #444; white-space: nowrap;  text-overflow: ellipsis; }
 .setheight{
-	height:450px;overflow:auto;overflow-x:hidden;
+	/*height:350px;overflow:auto;overflow-x:hidden;*/
+	margin-bottom: 500px;
 }
 /*商品列表头部特征*/
 .nctouch-product-header .header-inp {}
