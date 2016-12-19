@@ -80,7 +80,7 @@
 
 		<div class="announ-contain">
 			<div class="">
-				<span class="announ-contain-title">最新公告 | </span>
+				<img src="images/iconfont/announce.png" height="30px"height="20px" alt="公告"><span class="announ-contain-title"> | </span>
 				<div class="swiper_wrap">
 						<ul class="font_inner" id='announ'>
 
@@ -122,7 +122,7 @@
 			<li><a href="tmpl/product_detail.html?goods_id=<%= data.items[i].common_id %>">
 				<img class="a" src="<%= data.items[i].common_image %>" alt="" >
 			 	<div class="product-recommend-info">
-			 		<dl>
+			 		<dl class='demo text-overflow'>
 			 			<dt><%= data.items[i].common_name %></dt>
 			 			<dd>库存<%= data.items[i].common_stock %>件</dd>
 			 			<dd class="price">￥<%= data.items[i].common_price %></a><a class='add1' href="javascript:void(0)"><i class="add"><input type="hidden"value="<%=data.items[i].common_id %>"></i></a></dd>
