@@ -291,15 +291,15 @@ setTimeout(function(){
                                         // 更新购物车中商品数量
                                         delCookie('cart_count');
                                          alert('加入成功');
+                                        getCartCount();
                                         if(!getCookie('goods_cart_num'))
                                         {
-                                        addCookie('goods_cart_num',cart_count);
+                                        addCookie('goods_cart_num',getCartCount());
                                           
                                         }else{
-                                        addCookie('goods_cart_num',cart_count+getCookie('goods_cart_num'));
+                                        addCookie('goods_cart_num',getCartCount()+getCookie('goods_cart_num'));
 
                                         }
-                                        getCartCount();
                                         $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
                                     }else{
                                
