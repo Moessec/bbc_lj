@@ -32,9 +32,9 @@
 /* 二三级分类 */
 .categroy-child-list { font-size: 0; width: 100%; }
 .categroy-child-list dt {clear: both; background-color: #FCFCFC; margin: 0.2rem 0; border-style: solid; border-color: #F5F5F5; border-width: 0.05rem 0; }
-.categroy-child-list dt a { display: block; width: 96%; height: 1.48rem; padding: 0 0 0 4%; font-size: 0.6rem; line-height: 1.48rem; color: #111;}
+.categroy-child-list dt a { border-left:0.1rem solid orange;display: block; width: 96%; height: 1.48rem; padding: 0 0 0 0; font-size: 0.6rem; line-height: 1.48rem; color: #111;}
 .categroy-child-list dt i { width: 0.4rem; height: 0.4rem; vertical-align: middle; display: inline-block; border-radius: 0.2rem; margin-right: 0.4rem; }
-.categroy-child-list dt i.col0 { background-color: #ED5564;}
+/*.categroy-child-list dt i.col0 { background-color: #ED5564;}
 .categroy-child-list dt i.col1 { background-color: #AC92ED;}
 .categroy-child-list dt i.col2 { background-color: #4FC0E8;}
 .categroy-child-list dt i.col3 { background-color: #A0D468;}
@@ -43,8 +43,10 @@
 .categroy-child-list dt i.col6 { background-color: #FFCE55;}
 .categroy-child-list dt i.col7 { background-color: #5D9CEC;}
 .categroy-child-list dt i.col8 { background-color: #FB6E52;}
-.categroy-child-list dt i.col9 { background-color: #AAB2BD;}
-.categroy-child-list dt i.arrow-r { display: block; width: 0.6rem; height: 0.6rem; background: transparent url(../images/arrow_right_b.png) no-repeat 50% 50%; background-size: cover; float: right; margin: 0.5rem 0.5rem 0 0; opacity: 0.5;}
+.categroy-child-list dt i.col9 { background-color: #AAB2BD;}*/
+.categroy-child-list dt i.arrow-r { display: block; width: 0.6rem; height: 0.6rem; background: transparent url(../images/iconfont/more.png) no-repeat 50% 50%; background-size: cover; float: right;     margin: 0.4rem -0.7rem 0 0;
+    opacity: 0.5;background-size: 2.6rem;
+    width: 4rem;}
 .categroy-child-list dt:first-child { margin-top: 0;}
 .categroy-child-list dd { font-size: 0.55rem; line-height: 1.48rem; vertical-align: top; display: inline-block; width: 3.35rem; height: 1.48rem; padding: 0.2rem; margin-left: 0.3rem; border-radius: 0;}
 .categroy-child-list dd a { display: block; color: #444; white-space: nowrap;  text-overflow: ellipsis; overflow: hidden;}

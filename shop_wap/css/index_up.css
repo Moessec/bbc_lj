@@ -645,14 +645,15 @@ box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
     width: 4rem;
 }
     .inter{
-  float: left;
+   float: left;
     margin-left: 0.16rem;
     padding-left: 0.1rem;
     width: 47%;
        background-color: white;
     }
 .inter a{
-    color:orange;
+    color:black;
+    font-size: 0.6rem;
 }
     .add1{
         margin-left: 0.1rem;
