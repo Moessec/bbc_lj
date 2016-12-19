@@ -617,8 +617,4 @@ $(function(){
 
 
 
-$(function(){
-// addcart();
-
-});
 
