@@ -3,6 +3,8 @@ var map_index_id = '';
 var shop_slide = new Array();
 var shop_slideurl = new Array();
 var sli='';
+var cart_count = 0;
+
 $(function() {
 
          $.ajax({
@@ -233,7 +235,6 @@ setTimeout(function(){
                             // show_tip();
                             return false;
                         }
-                        var cart_count = 0;
                         if(!goods_info){
                             goods_info = goods_id+','+quantity;
                             cart_count = 1;
@@ -294,10 +295,10 @@ setTimeout(function(){
                                         getCartCount();
                                         if(!getCookie('goods_cart_num'))
                                         {
-                                        addCookie('goods_cart_num',getCartCount());
+                                        addCookie('goods_cart_num',cart_count);
                                           
                                         }else{
-                                        addCookie('goods_cart_num',getCartCount()+getCookie('goods_cart_num'));
+                                        addCookie('goods_cart_num',cart_count+getCookie('goods_cart_num'));
 
                                         }
                                         $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
