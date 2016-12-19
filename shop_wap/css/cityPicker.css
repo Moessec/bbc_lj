@@ -138,16 +138,16 @@
 }*/
 .IIInsomnia-city-picker .IIInsomnia-province-name{
 	display: inline-block;
-	width: 39%;
+	width: 30%;
 	height: 7rem;
 	text-align: center;
 	line-height: 7rem;
 	position: relative;
-	background-color: white;
+	background-color: #EEEEEE;
 	font-size: 2.8rem;
 }
 .IIInsomnia-city-picker .IIInsomnia-province-name:hover{
-	/*color: #EEEEEE;*/
+	color: orange;
 }
 
 .IIInsomnia-city-picker .IIInsomnia-province.active{
@@ -157,7 +157,7 @@
 	/*border: 1px solid #D8D8D8;*/
 	border-bottom-color: #ffffff;
 	color: #FE6C00;
-	background-color: #FFFFCC;
+	background-color: white;
 
 }
 .IIInsomnia-city-picker .IIInsomnia-city-wrap{
