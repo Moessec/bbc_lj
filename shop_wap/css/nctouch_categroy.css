@@ -19,8 +19,18 @@
 .categroy-third-list a { color: #6d6d6d; display: block; padding: 15px 0px 15px 11px; }
 
 /* 分类子级内容 */
-.categroy-rgt { background-color: #FCFCFC;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0;margin-bottom: 10rem;}
-
+.categroy-rgt { background-color: #FCFCFC;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0;}
+#categroy-rgt{
+/*margin-bottom: auto;*/
+}
+/*#activity-end2{
+	clear: both;
+	margin-bottom: 500px;
+}*/
+.nctouch-main-layout{
+		clear: both;
+	margin-bottom: 40rem;
+}
 /* 品牌推荐 */
 .brands-recommend { font-size: 0; }
 .brands-recommend dd { background-color: #FFF; vertical-align: top; display: inline-block; width: 3.3rem; height: 3.3rem; padding: 0.2rem; margin: 0.3rem 0 0 0.3rem; }
