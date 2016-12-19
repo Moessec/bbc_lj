@@ -150,8 +150,7 @@ if(!key)
 //*******************加入购物车功能*********************************
 // alert( 111 );
 setTimeout(function(){
-  if(key)
-  {
+
     $('.add').each(function(){
 
     $(this).click(function(){
@@ -252,15 +251,15 @@ setTimeout(function(){
                         }
                         // 加入cookie
                         addCookie('goods_cart',goods_info);
-                        // alert('加入成功');
-                        // if(!getCookie('goods_cart_num'))
-                        // {
-                        // addCookie('goods_cart_num',cart_count);
+                        alert('加入成功');
+                        if(!getCookie('goods_cart_num'))
+                        {
+                        addCookie('goods_cart_num',cart_count);
                           
-                        // }else{
-                        // addCookie('goods_cart_num',cart_count+getCookie('goods_cart_num'));
+                        }else{
+                        addCookie('goods_cart_num',cart_count+parseInt(getCookie('goods_cart_num')));
 
-                        // }
+                        }
                         // 更新cookie中商品数量
                         addCookie('cart_count',cart_count);
                         // show_tip();
@@ -346,13 +345,7 @@ setTimeout(function(){
 
     });        
     });
-}else{
-  $('.add').on('click',function(){
-    alert('1');
-   errorTipsShow('请先登录!');
-  })
 
-}
 },2000)
 
 
