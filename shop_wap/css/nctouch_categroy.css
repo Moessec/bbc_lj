@@ -27,10 +27,7 @@
 	clear: both;
 	margin-bottom: 500px;
 }*/
-.nctouch-main-layout{
-		clear: both;
-	margin-bottom: 40rem;
-}
+/*.nctouch-main-layout{}*/
 /* 品牌推荐 */
 .brands-recommend { font-size: 0; }
 .brands-recommend dd { background-color: #FFF; vertical-align: top; display: inline-block; width: 3.3rem; height: 3.3rem; padding: 0.2rem; margin: 0.3rem 0 0 0.3rem; }
