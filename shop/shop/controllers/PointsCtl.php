@@ -131,8 +131,10 @@ class PointsCtl extends Controller
 		$cond_row = array();
 		$order_row = array();
 		$cond_row['voucher_t_state'] = Voucher_TempModel::VALID;
+		$cond_row['voucher_shop_id'] = 2;
 		$cond_row['voucher_t_end_date:>='] = get_date_time();
 
+        
 		$Yf_Page           = new Yf_Page();
 		$Yf_Page->listRows = 5;
 		$rows              = $Yf_Page->listRows;
