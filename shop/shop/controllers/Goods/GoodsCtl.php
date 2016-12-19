@@ -26,6 +26,10 @@ class Goods_GoodsCtl extends Controller
 	 */
 	public function goodslist()
 	{
+		if($_COOKIE['community_shopid'])
+		{
+			$shop_id = $_COOKIE['community_shopid'];
+		}
 		$cond_row = array();
 
 		$Goods_CommonModel = new Goods_CommonModel();
@@ -253,7 +257,17 @@ class Goods_GoodsCtl extends Controller
 		$property_value_row       = array();
 		$cond_row['common_state'] = Goods_CommonModel::GOODS_STATE_NORMAL;
 		$cond_row['common_verify'] = Goods_CommonModel::GOODS_VERIFY_ALLOW;
+
+		if($shop_id)
+		{
+		$cond_row['shop_id'] = $shop_id;
+
 		$data                     = $Goods_CommonModel->getGoodsList($cond_row, $order_row, $page, $rows, $property_value_row);
+
+	}else{
+
+		$data                     = $Goods_CommonModel->getGoodsList($cond_row, $order_row, $page, $rows, $property_value_row);
+	}
 		fb($data);
 		fb("列表！！！！");
 		$data['transport_area'] = $transport_area;
