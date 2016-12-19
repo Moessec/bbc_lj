@@ -85,7 +85,7 @@
     </ul>
 </script>
 <script type="text/html" id="category-two">
-    <dl class="categroy-child-list">
+    <dl class="categroy-child-list setheight">
         <%if(status==1){%>    
         <% for(var i=0; i<items.length; i++) { var col = i % 10;%>
         <dt><a href="<%= WapSiteUrl %>/tmpl/product_list.html?shop_goods_cat_id=<%= items[i].shop_goods_cat_id %>"><i class="col<%= col %>"></i><%= items[i].shop_goods_cat_name %><i class="arrow-r"></i></a></dt>
