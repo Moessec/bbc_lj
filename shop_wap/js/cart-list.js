@@ -350,7 +350,7 @@ function calculateTotalPrice() {
     check_button();
     return true;
 }
-
+// addcookie('cat_goods_num',0);
 function getGoods(goods_id, goods_num){
     var data = {};
     $.ajax({

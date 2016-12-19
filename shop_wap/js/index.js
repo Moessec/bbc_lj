@@ -329,6 +329,7 @@ setTimeout(function(){
     });
 }else{
   $('.add').on('click',function(){
+    alert('1');
    errorTipsShow('请先登录!');
   })
 
