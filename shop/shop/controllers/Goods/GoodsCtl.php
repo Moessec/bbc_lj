@@ -1753,6 +1753,10 @@ class Goods_GoodsCtl extends Controller
 		//需要加入商品状态限定
 		// $cond_row['shop_id'] = Perm::$shopId;
 
+        if(isset($_COOKIE['community_shopid'])&&!empty($_COOKIE['community_shopid']))
+           {
+           	$cond_row['shop_id']         = $_COOKIE['community_shopid'];
+           } 
 		$goods_name = request_string('goods_name');
 		if ($goods_name)
 		{
@@ -1773,6 +1777,7 @@ class Goods_GoodsCtl extends Controller
 		if ($increase_rows)
 		{
 			// $cond_rows_join['shop_id']           = Perm::$shopId;
+			
 			$cond_rows_join['increase_id:IN']    = $increase_rows;
 			$cond_rows_join['goods_end_time:>='] = get_date_time();
 			//店铺已加入加价购活动的商品ID
