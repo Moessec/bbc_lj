@@ -20,7 +20,7 @@
 .nctouch-chat-product .goods-pic img { width: 100%;}
 .nctouch-chat-product .goods-info { margin: 0 0.5rem 0 3.5rem;}
 .nctouch-chat-product .goods-name { font-size: 0.7rem; line-height: 0.7rem; height: 1.4rem; overflow: hidden; margin-bottom: 0.3rem; color: #000;}
-.nctouch-chat-product .goods-price { font-size: 0.6rem; line-height: 0.9rem; height: 0.9rem; color: #ED5564; font-weight: 600;}
+.nctouch-chat-product .goods-price { font-size: 0.6rem; line-height: 0.9rem; height: 0.9rem; color: #FB3635; font-weight: 600;}
 
 .nctouch-chat-con { position: absolute; z-index: auto; max-height: 100%; left: 0; right: 0; bottom: 2rem; overflow-x: hidden;  overflow-y: auto;}
 .nctouch-chat-con dl { position: relative; min-height: 2.2rem; padding: 0.2rem 0; margin-bottom: 0.2rem; overflow: hidden;}

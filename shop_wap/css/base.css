@@ -290,7 +290,7 @@ footer.bottom .nctouch-footer-wrap { background-color: transparent; border: none
 .nctouch-inp-con ul li .input-box .arrow-down { position: absolute; z-index: 1; top: 0.5rem; right: 0; display: block; width:0.975rem; height: 0.975rem; background-image: url(../images/arrow_down_b.png); background-repeat: no-repeat; background-repeat: 50% 50%; background-size: 50%; opacity: 0.5;}
 .nctouch-inp-con .form-btn { margin-top: 1rem;}
 .nctouch-inp-con .form-btn .btn { display: inline-block; width: 90%; height: 1.8rem; padding: 0; margin: 0 5%; font-size: 0.8rem; line-height: 1.8rem; text-align: center; color: #888; background: #EEE; border: none; border-radius: 0.2rem; }
-.nctouch-inp-con .form-btn.ok .btn { color: #FFF !important; background: #ED5564;}
+.nctouch-inp-con .form-btn.ok .btn { color: #FF7E18 !important; background: #ED5564;}
 /*开关*/
 .input-box label { display: inline-block !important; height: 1.95rem !important; padding: 0 !important; margin: 0!important; border: 0 !important; border-radius: 0 !important; font-size: 0.7rem !important; line-height: 1.95rem !important; color: #555 !important;}
 .input-box label.checked { background-color: transparent !important; padding: 0 !important; color: #555 !important;}
