@@ -327,6 +327,11 @@ setTimeout(function(){
 
     });        
     });
+}else{
+  $('.add').on('click',function(){
+    alert('请先登录');
+  })
+
 }
 },2000)
 
