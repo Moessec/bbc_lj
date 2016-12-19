@@ -267,7 +267,7 @@ class Goods_GoodsCtl extends Controller
 	}else{
 
 		$data                     = $Goods_CommonModel->getGoodsList($cond_row, $order_row, $page, $rows, $property_value_row);
-	}
+
 		fb($data);
 		fb("列表！！！！");
 		$data['transport_area'] = $transport_area;
@@ -369,7 +369,7 @@ class Goods_GoodsCtl extends Controller
 		$this->title       = str_replace("{sitename}", Web_ConfigModel::value("site_name"), $title);
 		$this->keyword       = str_replace("{sitename}", Web_ConfigModel::value("site_name"), $this->keyword);
 		$this->description       = str_replace("{sitename}", Web_ConfigModel::value("site_name"), $this->description);
-
+     }
 		if ('json' == $this->typ)
 		{
 			$this->data->addBody(-140, $data);
