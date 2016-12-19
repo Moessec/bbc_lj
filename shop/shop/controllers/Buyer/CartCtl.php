@@ -969,6 +969,25 @@ class Buyer_CartCtl extends Controller
 		$this->data->addBody(-140, $data);
 	}
 
+	//获取购物车中的数量
+	public function getCartGoodsNum11()
+	{
+		// $user_id = Perm::$row['user_id'];
+
+		$cord_row  = array();
+		$order_row = array();
+
+		// $cond_row = array('user_id' => $user_id);
+
+		$CartModel = new CartModel();
+
+		$count  = $CartModel->getCartGoodsNum($cond_row, $order_row);
+		var_dump($count);die;
+		$data[] = $count;
+		$data['cart_count'] = $count;
+
+		$this->data->addBody(-140, $data);
+	}
 
 }
 
