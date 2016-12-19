@@ -9,11 +9,12 @@
 .list a {
 	color:#000000;
 }
+
 .header-title{
-	font-size:0.8rem;
+	font-size:0.7rem;
 }
 .title{
-		font-size:0.6rem;
+		/*font-size:0.75rem;*/
 		margin-bottom: 1rem;
 }
 .list_left{
@@ -29,6 +30,9 @@
 
 }
 .list_right dd{
-margin-top: 0.5rem;
+margin-top: 0.24rem;
 
+}
+.address{
+	padding-top: 0.38rem ;
 }
