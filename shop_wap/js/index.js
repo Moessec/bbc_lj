@@ -251,15 +251,15 @@ setTimeout(function(){
                         }
                         // 加入cookie
                         addCookie('goods_cart',goods_info);
-                        alert('加入成功');
-                        if(!getCookie('goods_cart_num'))
-                        {
-                        addCookie('goods_cart_num',cart_count);
+                        // alert('加入成功');
+                        // if(!getCookie('goods_cart_num'))
+                        // {
+                        // addCookie('goods_cart_num',cart_count);
                           
-                        }else{
-                        addCookie('goods_cart_num',cart_count+getCookie('goods_cart_num'));
+                        // }else{
+                        // addCookie('goods_cart_num',cart_count+getCookie('goods_cart_num'));
 
-                        }
+                        // }
                         // 更新cookie中商品数量
                         addCookie('cart_count',cart_count);
                         // show_tip();
@@ -290,6 +290,15 @@ setTimeout(function(){
                                         // show_tip();
                                         // 更新购物车中商品数量
                                         delCookie('cart_count');
+                                                                alert('加入成功');
+                        // if(!getCookie('goods_cart_num'))
+                        // {
+                        // addCookie('goods_cart_num',cart_count);
+                          
+                        // }else{
+                        // addCookie('goods_cart_num',cart_count+getCookie('goods_cart_num'));
+
+                        // }
                                         getCartCount();
                                         $('#cart_count').html('<sup>'+getCookie('cart_count')+'</sup>');
                                     }else{
