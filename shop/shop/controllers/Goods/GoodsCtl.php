@@ -268,7 +268,7 @@ class Goods_GoodsCtl extends Controller
 		$data                     = $Goods_CommonModel->getGoodsList($cond_row, $order_row, $page, $rows, $property_value_row);
 
 	}else{
-
+		$cond_row['shop_id'] = $shop_id;
 		$data                     = $Goods_CommonModel->getGoodsList($cond_row, $order_row, $page, $rows, $property_value_row);
 
 		fb($data);
