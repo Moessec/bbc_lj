@@ -29,9 +29,6 @@ class Goods_GoodsCtl extends Controller
 		if($_COOKIE['community_shopid'])
 		{
 			$shop_id = $_COOKIE['community_shopid'];
-		}else{
-			$shop_id = 2;
-
 		}
 		$cond_row = array();
 
@@ -268,7 +265,7 @@ class Goods_GoodsCtl extends Controller
 		$data                     = $Goods_CommonModel->getGoodsList($cond_row, $order_row, $page, $rows, $property_value_row);
 
 	}else{
-		$cond_row['shop_id'] = $shop_id;
+
 		$data                     = $Goods_CommonModel->getGoodsList($cond_row, $order_row, $page, $rows, $property_value_row);
 
 		fb($data);
@@ -375,7 +372,6 @@ class Goods_GoodsCtl extends Controller
      }
 		if ('json' == $this->typ)
 		{
-			var_dump($data);die;
 			$this->data->addBody(-140, $data);
 
 		}
@@ -384,7 +380,23 @@ class Goods_GoodsCtl extends Controller
 			include $this->view->getView();
 		}
 	}
+function cur_goodslist()
+{
+	if($_COOKIE['community_shopid'])
+		{
+			$shop_id = $_COOKIE['community_shopid'];
+		}else{
+			$shop_id = 2;
+		}
+		$goodsModel = new Goods_BaseModel();
 
+		$data = $goodsModel->getBaseList(array('shop_id'->$shop_id));
+	if ('json' == $this->typ)
+		{
+			$this->data->addBody(-140, $data);
+
+		}
+}
 	function search()
 	{
 		$sphinx_search_flag = false;
@@ -1628,7 +1640,6 @@ class Goods_GoodsCtl extends Controller
 	       $Shop_ShoplistModel = new Shop_BaseModel();
 				// $data = $this->Shop_ShoplistModel->getBaseList($cond_row, $order_row, '', '');
 				$data = $Shop_ShoplistModel->getBaseList();
-				var_dump($data);die;
 
 			$this->data->addBody(-140, $data);
 		}
