@@ -1826,15 +1826,15 @@ class Goods_GoodsCtl extends Controller
 function cur_goodslist()
 {
 	var_dump(1);die;
-	// if($_COOKIE['community_shopid'])
-	// 	{
-	// 		$shop_id = $_COOKIE['community_shopid'];
-	// 	}else{
-	// 		$shop_id = 2;
-	// 	}
-	// 	$goodsModel = new Goods_BaseModel();
+	if($_COOKIE['community_shopid'])
+		{
+			$shop_id = $_COOKIE['community_shopid'];
+		}else{
+			$shop_id = 2;
+		}
+		$curgoodsModel = new Goods_BaseModel();
 
-	// 	$data = $goodsModel->getBaseList(array('shop_id'->$shop_id));
+		$data = $curgoodsModel->getBaseList(array('shop_id'->$shop_id));
 	// if ('json' == $this->typ)
 	// 	{
 	// 		$this->data->addBody(-140, $data);
