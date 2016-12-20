@@ -6,7 +6,6 @@ var sli='';
 var cart_count = 1 ;
 
 $(function() {
-
          $.ajax({
                 url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json",
                 type: 'get',
@@ -25,7 +24,7 @@ $(function() {
                        $("#shopslid").find('.swiper-wrapper').append(sli);   
 
                   }
-                  // console.log(shopslid);
+
 
                   var info = da.company_address;
                   var map = new BMap.Map("container");
@@ -60,7 +59,7 @@ $(function() {
                 }
             });
 
-  // alert($.cookie('trans_city'));
+
  var key = getCookie('key');
   var unixTimeToDateString = function(ts, ex) {
         ts = parseFloat(ts) || 0;
@@ -132,7 +131,7 @@ if(!key)
 
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json", function (t)
              {
-
+     
                $("#product-contain3").html(template.render('goods3', t));
         
              });
