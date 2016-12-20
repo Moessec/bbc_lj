@@ -4,8 +4,104 @@ var shop_slide = new Array();
 var shop_slideurl = new Array();
 var sli='';
 var cart_count = 1 ;
+var total = 1;
+var dis = new Array();
 
+
+    var EARTH_RADIUS = 6378137.0;    //单位M
+    var PI = Math.PI;
+    
+    function getRad(d){
+        return d*PI/180.0;
+    }
+    
+    /**
+     * caculate the great circle distance
+     * @param {Object} lat1
+     * @param {Object} lng1
+     * @param {Object} lat2
+     * @param {Object} lng2
+     */
+    function getGreatCircleDistance(lat1,lng1,lat2,lng2){
+        var radLat1 = getRad(lat1);
+        var radLat2 = getRad(lat2);
+        
+        var a = radLat1 - radLat2;
+        var b = getRad(lng1) - getRad(lng2);
+        
+        var s = 2*Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2) + Math.cos(radLat1)*Math.cos(radLat2)*Math.pow(Math.sin(b/2),2)));
+        s = s*EARTH_RADIUS;
+        s = Math.round(s*10000)/10000.0;
+                
+        return s;
+    }
+function sort (arr) {
+  for (var i = 0;i<arr.length;i++) {
+      for (var j = 0; j < arr.length-i-1; j++) {
+        if (arr[j]<arr[j+1]) {
+        var temp=arr[j];
+        arr[j]=arr[j+1];
+        arr[j+1]=temp;
+        }
+      }
+  }
+  return arr;
+}    
+function distance(ship_id){
+  var shop_id1 = ship_id;
+         $.ajax({
+                url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+shop_id1,
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    var da = result.data;
+                  var info = da.company_address;
+                  var map = new BMap.Map("container");
+                  var localSearch = new BMap.LocalSearch(map);
+
+                    function searchByStationName(info) {
+
+                        map.clearOverlays();//清空原来的标注
+                        var keyword = info;
+
+                        localSearch.setSearchCompleteCallback(function (searchResult) {
+                            var poi = searchResult.getPoi(0);
+
+                            map.centerAndZoom(poi.point, 13);
+                            var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
+                            map.addOverlay(marker);
+                            // var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
+                            // alert(poi.point.lng);
+                            // alert(poi.point.lat);
+                            // alert($.cookie('lat'));
+                           var c= getGreatCircleDistance(poi.point.lat,poi.point.lng,$.cookie('lat'),$.cookie('lng'));
+                           dis[shop_id1] = c;
+                             if(c)
+                             {
+                                return  c;
+                             }
+                        });
+                        localSearch.search(keyword);
+                    } 
+                    searchByStationName(info);                 
+
+                }
+            });
+}
 $(function() {
+
+    // $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", function (t)
+    //      {
+    //            total = t.data.totalsize;
+    //            // alert(total);
+    //            for(var i=1;i<=total;i++)
+    //            {
+    //              distance(i);
+    //            }
+    //        var m = sort(dis);
+    //      });  
+    //         console.info(dis);
+            
          $.ajax({
                 url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json",
                 type: 'get',
