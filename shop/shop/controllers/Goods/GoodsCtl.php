@@ -1823,7 +1823,7 @@ class Goods_GoodsCtl extends Controller
 	}
 
 
-function cur_goodslist1212()
+function cur_goodslist()
 {
 	var_dump(1);die;
 	if($_COOKIE['community_shopid'])
@@ -1835,11 +1835,11 @@ function cur_goodslist1212()
 		$goodsModel = new Goods_BaseModel();
 
 		$data = $goodsModel->getBaseList(array('shop_id'->$shop_id));
-	if ('json' == $this->typ)
-		{
-			$this->data->addBody(-140, $data);
+	// if ('json' == $this->typ)
+	// 	{
+	// 		$this->data->addBody(-140, $data);
 
-		}
+	// 	}
 }		
 
 
