@@ -542,7 +542,7 @@ var cshop_id = getCookie['community_shopid'];
         $(".pre-loading").show();
         $(this).parent().addClass("selected").siblings().removeClass("selected");
         var t = $(this).attr("date-id");
-       if ((shop_id!='')||(||(cshop_id!='')))
+       if ((shop_id!='')||((cshop_id!='')))
        {
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=treelist&typ=json", {shop_id:shop_id,parent_id: t}, function (e)
         {
