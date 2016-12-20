@@ -425,3 +425,33 @@ to {  width: 100%;}
 	text-align: center;
 	border-radius: 0.2rem;
 }
+ .text-overflow {
+    overflow: hidden; /*清除浮动*/
+ }
+ /*Safari,Opera,IE下效果*/
+ .text-overflow dt{
+   display: block;
+   /*width: 100px; *//*设置内容宽度*/
+   overflow: hidden;/*隐藏溢出的文本*/
+   white-space: nowrap;/*让文本不换行*/
+   -o-text-overflow: ellipsis;/*Opera下实现ellipsis效果*/
+   text-overflow: ellipsis;/*Safari，IE下实现ellipsis效果*/
+ }
+        
+ /*Firefox实现效果*/
+ @-moz-document url-prefix(){ /*@-moz-document url-perfix(){}是firefox的一个独有属性，只有firefox浏览器能识别，也可以说是一种hack*/
+   .text-overflow span {
+     max-width: 70px;/* 在FF下改变内容宽度，用来放置:after增加的内容(...)*/
+     float: left;/*进行浮动*/
+   }
+ }
+ @-moz-document url-prefix(){ 
+   /*利用:after增加(...)省略符*/
+   .text-overflow:after {
+
+      float: left;/*设置浮动*/
+      width: 25px;/*省略符宽度*/
+      padding-left: 5px;/*省略符内距，用来拉开内容之间的距离*/
+      color: #000;
+   }
+ }
