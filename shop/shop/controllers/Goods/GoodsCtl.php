@@ -1825,7 +1825,7 @@ class Goods_GoodsCtl extends Controller
 
 function cur_goodslist()
 {
-	var_dump(1);die;
+	// var_dump(1);die;
 	if($_COOKIE['community_shopid'])
 		{
 			$shop_id = $_COOKIE['community_shopid'];
