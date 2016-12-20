@@ -522,7 +522,21 @@ $(function ()
 
         });    
     }else{
-         //ctl=Shop_GoodsCat&met=shoplists&typ=json&parent_id=0
+        if(getCookie('community_shopid'))
+        {
+            $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=shoplists&typ=json&parent_id=0&shop_id="+getCookie('community_shopid'), function (t)
+            {
+                // console.info(t);
+                var r = t.data;
+                r.WapSiteUrl = WapSiteUrl;
+                r['status'] = 1;
+                var a = template.render("category-one", r);
+                $("#categroy-cnt").html(a);
+
+            });            
+        }else{
+
+
             $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=cat&typ=json&cat_parent_id=0", function (t)
             {
                 console.info(t);
@@ -534,6 +548,8 @@ $(function ()
                 // e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
                 // shop_goodslist1();
             });
+
+         }
     }
    
     get_brand_recommend();
