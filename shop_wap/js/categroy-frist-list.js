@@ -509,7 +509,7 @@ $(function ()
 var cshop_id = getCookie['community_shopid'];
    if ((shop_id!='')||(cshop_id!=''))
    { 
-        // addCookie('community_shopid',shop_id);
+        if(shop_id!='')
         document.cookie="community_shopid="+shop_id+"; path=/"; 
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=shoplists&typ=json&parent_id=0&shop_id="+shop_id, function (t)
         {
