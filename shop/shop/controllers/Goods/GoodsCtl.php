@@ -29,6 +29,9 @@ class Goods_GoodsCtl extends Controller
 		if($_COOKIE['community_shopid'])
 		{
 			$shop_id = $_COOKIE['community_shopid'];
+		}else{
+			$shop_id = 2;
+
 		}
 		$cond_row = array();
 
