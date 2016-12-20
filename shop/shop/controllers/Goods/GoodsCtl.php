@@ -375,6 +375,7 @@ class Goods_GoodsCtl extends Controller
      }
 		if ('json' == $this->typ)
 		{
+			var_dump($data);die;
 			$this->data->addBody(-140, $data);
 
 		}
