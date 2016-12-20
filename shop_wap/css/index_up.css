@@ -653,8 +653,8 @@ body{
           /*border:1px solid blue;*/
     }
 .outer img{
-       height: 4rem;
-    width: 4rem;
+       height: 100%;
+    width: 100%;
 }
 
 .inter{
