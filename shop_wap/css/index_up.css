@@ -449,8 +449,8 @@ body{
             /*height: 15rem;*/
         }
         .product-recommend ul li img{
-        	width:7.5rem;
-            height:7.5rem;
+        	width:100%;
+            height:7.8rem;
         }
          .product-recommend ul li dl{
          	margin-top: 0.1rem;
@@ -507,7 +507,7 @@ body{
 		     /*right: 0.5rem;*/
     		bottom: 0.3rem
          right: -4.5rem;
-          right: -4.5rem;
+          right: -6.5rem;
           bottom:1rem;
          }
          .product-list{
