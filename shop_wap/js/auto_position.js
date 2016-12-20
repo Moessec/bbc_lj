@@ -69,18 +69,4 @@ function getPositionError(error) {
    
   }
 
-  // 首页附近的店铺异步获取信息
-  function getHtmlSecond()
-  {
-    $.post("ajax_back_end.php",{"act":"getNearInfo","limit":20},function(data){
-      if(data == 1)
-      {
-        var t = setTimeout(getHtmlSecond,1000);
-      }
-      else
-      {
-        $(".itemSearchList").html(data);
-        showArea(BMap);
-      }
-    });
-  }
+ 
