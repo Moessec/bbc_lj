@@ -1625,7 +1625,7 @@ class Goods_GoodsCtl extends Controller
      		$data1 = $Shop_ShoplistModel->getBaseList();
      		$a1 = '';
      		foreach ($data1 as $key => $value) {
-     				$a1.=$value['shop_company_address'];
+     				$a1.=$value;
      			 var_dump($a1);die;
      		}
 			$this->data->addBody(-140, $data);
