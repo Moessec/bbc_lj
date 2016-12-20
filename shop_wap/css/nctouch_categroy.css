@@ -19,7 +19,7 @@
 .categroy-third-list a { color: #6d6d6d; display: block; padding: 15px 0px 15px 11px; }
 
 /* 分类子级内容 */
-.categroy-rgt { background-color: #FCFCFC;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0;}
+.categroy-rgt { height:40rem;background-color: #FCFCFC;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0;}
 #categroy-rgt{
 /*margin-bottom: auto;*/
 }
@@ -62,7 +62,8 @@
 	/*margin-bottom: 100px;*/
 }
 .nctouch-main-layout{
-	height: 800px;
+	/*height: 700px;*/
+	margin-bottom: 5rem;
 }
 /*商品列表头部特征*/
 .nctouch-product-header .header-inp {}

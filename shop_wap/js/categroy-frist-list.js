@@ -516,7 +516,7 @@ $(function ()
             var a = template.render("category-one", r);
             // alert(a);
             $("#categroy-cnt").html(a);
-            e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true});
+            // e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true});
             // shop_goodslist2(shop_id);
         });    
     }else{
@@ -529,7 +529,7 @@ $(function ()
 
                 var a = template.render("category-one", r);
                 $("#categroy-cnt").html(a);
-                e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
+                // e = new IScroll("#categroy-cnt", {mouseWheel: true, click: true})
                 // shop_goodslist1();
             });
     }
@@ -551,7 +551,7 @@ $(function ()
             var r = template.render("category-two", t);
             $("#categroy-rgt").html(r);
             $(".pre-loading").hide();
-            new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+            // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
             shop_goodslist2(shop_id);
             addcart();
         });
@@ -563,13 +563,13 @@ $(function ()
             var r = template.render("category-two", t);
             $("#categroy-rgt").html(r);
             $(".pre-loading").hide();
-            new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+            // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
              shop_goodslist1();
              addcart();
 
         });        
       }
-     e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
+     // e.scrollToElement(document.querySelector(".categroy-list li:nth-child(" + ($(this).parent().index() + 1) + ")"), 1e3);
 
 });
 
@@ -603,7 +603,7 @@ function get_brand_recommend()
 }
 
 $(function(){
-        // new IScroll("body", {mouseWheel: true, click: true})
+        // new IScroll(".categroy-rgt", {mouseWheel: true});
 
   var src;
   var sr2;
