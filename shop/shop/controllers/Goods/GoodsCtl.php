@@ -1628,7 +1628,7 @@ class Goods_GoodsCtl extends Controller
      				$a1.=$data1['items'][$key];
      				// $a1.=$data1['shop_address'];
      		}
-     		// 	    var_dump($a1);die;
+     			    var_dump($a1);die;
 			$this->data->addBody(-140, $data1);
 		}
 	public function shop_cat_goods()
