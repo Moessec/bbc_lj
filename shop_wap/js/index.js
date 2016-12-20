@@ -25,7 +25,7 @@ $(function() {
                        $("#shopslid").find('.swiper-wrapper').append(sli);   
 
                   }
-                  console.log(shopslid);
+                  // console.log(shopslid);
 
                   var info = da.company_address;
                   var map = new BMap.Map("container");
