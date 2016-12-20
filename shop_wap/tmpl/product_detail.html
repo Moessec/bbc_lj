@@ -224,28 +224,7 @@
                 <% }} %>
             </div>
         </div>
-        <% if (store_info.shop_self_support != "true") {%>
-        <div class="goods-detail-store">
-            <a href="store.html?shop_id=<%= store_info.store_id %>">
-                <div class="store-name"><i class="icon-store"></i><%= store_info.store_name %></div>
-                <div class="store-rate">
-				<span class="<%= store_info.store_credit.store_desccredit.percent_class %>">描述相符
-					<em><%= store_info.store_credit.store_desccredit.credit %></em>
-					<i><%= store_info.store_credit.store_desccredit.percent_text %></i>
-				</span>
-				<span class="<%= store_info.store_credit.store_servicecredit.percent_class %>">服务态度
-					<em><%= store_info.store_credit.store_servicecredit.credit %></em>
-					<i><%= store_info.store_credit.store_servicecredit.percent_text %></i>
-				</span>
-				<span class="<%= store_info.store_credit.store_deliverycredit.percent_class %>">发货速度
-					<em><%= store_info.store_credit.store_deliverycredit.credit %></em>
-					<i><%= store_info.store_credit.store_deliverycredit.percent_text %></i>
-				</span>
-                </div>
-                <div class="item-more"></div>
-            </a>
-        </div>
-        <% } %>
+
         <div class="goods-detail-recom">
             <h4>店铺推荐</h4>
             <ul>
