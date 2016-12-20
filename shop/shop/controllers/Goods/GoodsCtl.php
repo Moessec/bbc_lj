@@ -1624,6 +1624,7 @@ class Goods_GoodsCtl extends Controller
 	       $Shop_ShoplistModel = new Shop_BaseModel();
 				// $data = $this->Shop_ShoplistModel->getBaseList($cond_row, $order_row, '', '');
 				$data = $Shop_ShoplistModel->getBaseList();
+				var_dump($data);die;
 
 			$this->data->addBody(-140, $data);
 		}
