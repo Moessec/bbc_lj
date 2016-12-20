@@ -147,7 +147,7 @@
 .goods-detail-recom .pic { display: block; width: 3.225rem; height: 3.225rem; border: solid 0.05rem #EEE;}
 .goods-detail-recom .pic img { display: block; width: 100%; height: 100%;}
 .goods-detail-recom dl { margin-top: 0.2rem;}
-.goods-detail-recom dt { display: block; overflow: hidden; height: 1.2rem; font-size: 0.5rem; line-height: 0.6rem; color: #777; margin-bottom: 0.2rem;}
+.goods-detail-recom dt { display: block; overflow: hidden;  font-size: 0.5rem; line-height: 0.6rem; color: #777; margin-bottom: 0.2rem;}
 .goods-detail-recom dd { font-size: 0.45rem; color: #333;}
 .goods-detail-recom dd em { font-size: 0.55rem; }
 
