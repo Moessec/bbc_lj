@@ -311,17 +311,17 @@ body{
         	padding: 2px;
         }
         .shop-contain-img img{
-        	width: 3.5rem;
-            height: 3.5rem;
+        	  width: 3.8rem;
+            height: 3.8rem;
             /*border-radius: 0.5;*/
-            margin-top: 0.5rem;
-border: solid 0px #000;
--webkit-border-radius: 20px;
--moz-border-radius: 20px;
-border-radius: 20px;
--webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
--moz-box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
-box-shadow: inset 0 1px 5px rgba(0,0,0,.5);             
+            margin-top: 0.3rem;
+            border: solid 0px #000;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            -webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
+            -moz-box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
+            box-shadow: inset 0 1px 5px rgba(0,0,0,.5);             
         }
 
 
