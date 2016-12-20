@@ -1835,6 +1835,7 @@ function cur_goodslist()
 		$curgoodsModel = new Goods_BaseModel();
 
 		$data = $curgoodsModel->getBaseList(array('shop_id'=>$shop_id));
+		var_dump($data);die;
 	// if ('json' == $this->typ)
 	// 	{
 	// 		$this->data->addBody(-140, $data);
