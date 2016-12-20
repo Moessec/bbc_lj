@@ -506,8 +506,8 @@ $(function ()
     });
    var shop_id = getQueryString('shop_id');
 
- 
-   if (shop_id!='')
+var cshop_id = getCookie['community_shopid'];
+   if ((shop_id!='')||(cshop_id!=''))
    { 
         // addCookie('community_shopid',shop_id);
         document.cookie="community_shopid="+shop_id+"; path=/"; 
