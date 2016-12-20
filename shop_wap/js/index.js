@@ -130,7 +130,7 @@ if(!key)
 
  //**********************调用商品数据****************************      
 
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist1212&typ=json", function (t)
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json", function (t)
              {
 
                $("#product-contain3").html(template.render('goods3', t));
