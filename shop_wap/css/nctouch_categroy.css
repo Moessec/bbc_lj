@@ -59,7 +59,10 @@
 .categroy-child-list dd a { display: block; color: #444; white-space: nowrap;  text-overflow: ellipsis; overflow: hidden;}
 .setheight{
 	/*height:350px;overflow:auto;overflow-x:hidden;*/
-	margin-bottom: 100px;
+	/*margin-bottom: 100px;*/
+}
+.nctouch-main-layout{
+	height: 800px;
 }
 /*商品列表头部特征*/
 .nctouch-product-header .header-inp {}

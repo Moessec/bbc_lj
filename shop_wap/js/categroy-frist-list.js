@@ -603,6 +603,8 @@ function get_brand_recommend()
 }
 
 $(function(){
+        // new IScroll("body", {mouseWheel: true, click: true})
+
   var src;
   var sr2;
 
