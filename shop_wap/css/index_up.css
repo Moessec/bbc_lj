@@ -485,7 +485,7 @@ body{
         .font_inner a {
             float: left;
             margin-left: 3.4rem;
-            margin-top: -0.95rem;
+            margin-top: -1.2rem;
             color:orange;
         }
         .font_inner li{
@@ -626,11 +626,18 @@ body{
         }
         .announ-contain .announ-contain-title{
             font-family: '雅宋';
-            font-size: 0.7rem;
+            font-size: 0.55rem;
 
         }
 .font_inner li{
- margin-left: 20px;
+  color:#000000;
+  height:29px;
+  line-height: 29px;
+ margin-left: 1.3rem;
+}
+.font_inner li a{
+  color:#000000;
+ /*margin-left: 1.3rem;*/
 }
     .goods_cont{
         font-size: 0.5rem;
