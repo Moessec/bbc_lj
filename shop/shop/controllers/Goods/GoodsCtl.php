@@ -1680,7 +1680,10 @@ class Goods_GoodsCtl extends Controller
                 if(isset($_COOKIE['community_shopid'])&&!empty($_COOKIE['community_shopid']))
                    {
                    	$cond_row['shop_id']         = $_COOKIE['community_shopid'];
-                   } 
+                   }else{
+                   	$cond_row['shop_id']         = 2;
+
+                   }
 
             if (request_string('keyword'))
             {
@@ -1754,6 +1757,9 @@ class Goods_GoodsCtl extends Controller
         if(isset($_COOKIE['community_shopid'])&&!empty($_COOKIE['community_shopid']))
            {
            	$cond_row['shop_id']         = $_COOKIE['community_shopid'];
+           }else{
+            $cond_row['shop_id']         = 2;
+
            } 
 		$goods_name = request_string('goods_name');
 		if ($goods_name)
