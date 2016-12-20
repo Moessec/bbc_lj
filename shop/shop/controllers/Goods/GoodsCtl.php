@@ -1823,24 +1823,24 @@ class Goods_GoodsCtl extends Controller
 	}
 
 
-function cur_goodslist1212()
-{
-	var_dump(1);die;
-	if($_COOKIE['community_shopid'])
-		{
-			$shop_id = $_COOKIE['community_shopid'];
-		}else{
-			$shop_id = 2;
-		}
-		$goodsModel = new Goods_BaseModel();
+// function cur_goodslist1212()
+// {
+// 	var_dump(1);die;
+// 	if($_COOKIE['community_shopid'])
+// 		{
+// 			$shop_id = $_COOKIE['community_shopid'];
+// 		}else{
+// 			$shop_id = 2;
+// 		}
+// 		$goodsModel = new Goods_BaseModel();
 
-		$data = $goodsModel->getBaseList(array('shop_id'->$shop_id));
-	if ('json' == $this->typ)
-		{
-			$this->data->addBody(-140, $data);
+// 		$data = $goodsModel->getBaseList(array('shop_id'->$shop_id));
+// 	if ('json' == $this->typ)
+// 		{
+// 			$this->data->addBody(-140, $data);
 
-		}
-}		
+// 		}
+// }		
 
 
 }
