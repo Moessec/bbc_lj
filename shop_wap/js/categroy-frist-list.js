@@ -6,7 +6,7 @@ function get_brand_recommend()
     setTimeout(function(){
 
     $(".category-item:first").addClass("selected");
-  $("#categroy-cnt .category:first").click();
+    $("#categroy-cnt .category:first").click();
     // $(".category-item:first").trigger("click");
     },150);
 
@@ -591,6 +591,7 @@ $("#categroy-cnt").on("click", ".brand", function ()
 
 
 $(function(){
+    get_brand_recommend();
 
   var src;
   var sr2;
