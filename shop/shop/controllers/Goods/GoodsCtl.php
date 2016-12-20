@@ -1621,10 +1621,13 @@ class Goods_GoodsCtl extends Controller
 
 	public function index()
 		{
-	       $Shop_ShoplistModel = new Shop_BaseModel();
-				// $data = $this->Shop_ShoplistModel->getBaseList($cond_row, $order_row, '', '');
-				$data = $Shop_ShoplistModel->getBaseList();
-
+	        $Shop_ShoplistModel = new Shop_BaseModel();
+     		$data1 = $Shop_ShoplistModel->getBaseList();
+     		$a1 = '';
+     		foreach ($data1 as $key => $value) {
+     				$a1.=$data1['shop_company_address'];
+     			 var_dump($a1);die;
+     		}
 			$this->data->addBody(-140, $data);
 		}
 	public function shop_cat_goods()
