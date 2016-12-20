@@ -1627,8 +1627,8 @@ class Goods_GoodsCtl extends Controller
      		foreach ($data1 as $key => $value) {
      				$a1.=$data1['shop_company_address'];
      				$a1.=$data1['shop_address'];
-     			    var_dump($a1);die;
      		}
+     			    var_dump($a1);die;
 			$this->data->addBody(-140, $data);
 		}
 	public function shop_cat_goods()
