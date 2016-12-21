@@ -56,8 +56,8 @@ function shopinfo(){
       {  
         // console.log(dis[6]);
         // alert(dis[6]);
-        $.cookie('shot_shop',temp.length-1);
-        $.cookie('shot_distance',temp[temp.length-1]);
+        // $.cookie('shot_shop',temp.length-1);
+        // $.cookie('shot_distance',temp[temp.length-1]);
          $.ajax({
                 url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+(temp.length-1),
                 type: 'get',
@@ -118,7 +118,7 @@ function distance(ship_id){
                             // alert(poi.point.lat);
                             // alert(marker);
                            var c= getGreatCircleDistance(poi.point.lat,poi.point.lng,$.cookie('lat'),$.cookie('lng'));
-                           dis[shop_id1] = parseInt(c);alert(dis[shop_id1]);
+                           dis[shop_id1] = parseInt(c);
                          }
                         });
                         localSearch.search(keyword);
