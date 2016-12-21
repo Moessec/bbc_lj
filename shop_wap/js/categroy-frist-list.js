@@ -534,8 +534,19 @@ $(function ()
                 $("#categroy-cnt").html(a);
 
             });            
-        }else{
+        }else if(getCookie('shot_shop')){
+            $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=shoplists&typ=json&parent_id=0&shop_id="+getCookie('shot_shop'), function (t)
+            {
+                // console.info(t);
+                var r = t.data;
+                r.WapSiteUrl = WapSiteUrl;
+                r['status'] = 1;
+                var a = template.render("category-one", r);
+                $("#categroy-cnt").html(a);
 
+            });  
+
+         }else{
 
             $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=cat&typ=json&cat_parent_id=0", function (t)
             {
