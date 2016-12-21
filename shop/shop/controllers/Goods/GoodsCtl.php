@@ -1596,17 +1596,16 @@ class Goods_GoodsCtl extends Controller
 		if($_COOKIE['community_shopid'])
 		{
 			$shop_id = $_COOKIE['community_shopid'];
+		}else{
+			if($_COOKIE['shot_shop'])
+			{
+
+			$shop_id = $_COOKIE['shot_shop'];
+			}else{
+				
+			$shop_id = request_int('shop_id');
+			}
 		}
-		// else{
-		// 	if($_COOKIE['shot_shop'])
-		// 	{
-
-		// 	$shop_id = $_COOKIE['shot_shop'];
-		// 	}else{
-
-		// 	$shop_id = request_int('shop_id');
-		// 	}
-		// }
 		// var_dump($shop_id);die;
 		$Shop_BaseModel = new Shop_BaseModel();
 		$data = $Shop_BaseModel ->getOneByWhere( array('shop_id'=>$shop_id) );
