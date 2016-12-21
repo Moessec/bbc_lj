@@ -48,10 +48,11 @@ function sort (arr) {
   return arr;
 }
 function shopinfo(){
-             temp = sort(dis);
-           // alert(temp[temp.length-1]);
+      temp = sort(dis);
       if(temp[temp.length-1])
-      {
+      { 
+        $.cookie('shot_shop',temp.length-1);
+        $.cookie('shot_distance',temp[temp.length-1]);
          $.ajax({
                 url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+(temp.length-1),
                 type: 'get',
@@ -61,22 +62,22 @@ function shopinfo(){
 
                     shop_slide = da.shop_slide.split(',');
                     shop_slideurl = da.shop_slideurl.split(',');
-                  if(shop_slide[0]!='')
-                  {
-                       for(var i=0;i<5;i++)
-                       {
-                        sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div></a>';
-                       }
-                       $("#shopslid").find('.swiper-wrapper').append(sli);   
+                    if(shop_slide[0]!='')
+                    {
+                         for(var i=0;i<5;i++)
+                         {
+                          sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div></a>';
+                         }
+                         $("#shopslid").find('.swiper-wrapper').append(sli);   
 
-                  }
+                    }
 
                  da.shop_stamp=temp[temp.length-1];
                  $("#shopinfo").html(template.render('shop_info', da));   
       
                                     
 
-                }
+              }
             });
       }
 
@@ -211,7 +212,7 @@ if(!key)
 
  //**********************调用商品数据****************************      
 
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json", function (t)
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json&shop_id="+(temp.length-1), function (t)
              {
      
                $("#product-contain3").html(template.render('goods3', t));
