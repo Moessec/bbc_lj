@@ -6,7 +6,7 @@ var sli='';
 var cart_count = 1 ;
 var total = 1;
 var dis = new Array();
-
+var temp ='';
 
     var EARTH_RADIUS = 6378137.0;    //单位M
     var PI = Math.PI;
@@ -46,7 +46,42 @@ function sort (arr) {
       }
   }
   return arr;
-}    
+}
+function shopinfo(){
+             temp = sort(dis);
+           // alert(temp[temp.length-1]);
+      if(temp[temp.length-1])
+      {
+         $.ajax({
+                url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+(temp.length-1),
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    var da = result.data;
+
+                    shop_slide = da.shop_slide.split(',');
+                    shop_slideurl = da.shop_slideurl.split(',');
+                  if(shop_slide[0]!='')
+                  {
+                       for(var i=0;i<5;i++)
+                       {
+                        sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div></a>';
+                       }
+                       $("#shopslid").find('.swiper-wrapper').append(sli);   
+
+                  }
+
+                 da.shop_stamp=temp[temp.length-1];
+                 $("#shopinfo").html(template.render('shop_info', da));   
+      
+                                    
+
+                }
+            });
+      }
+
+}
+
 function distance(ship_id){
   var shop_id1 = ship_id;
          $.ajax({
@@ -67,7 +102,8 @@ function distance(ship_id){
 
                         localSearch.setSearchCompleteCallback(function (searchResult) {
                             var poi = searchResult.getPoi(0);
-
+                          if(poi)
+                           {  
                             map.centerAndZoom(poi.point, 13);
                             var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
                             map.addOverlay(marker);
@@ -76,7 +112,8 @@ function distance(ship_id){
                             // alert(poi.point.lat);
                             // alert(marker);
                            var c= getGreatCircleDistance(poi.point.lat,poi.point.lng,$.cookie('lat'),$.cookie('lng'));
-                           dis[shop_id1] = c;alert(c);
+                           dis[shop_id1] = c;
+                         }
                         });
                         localSearch.search(keyword);
                     } 
@@ -84,76 +121,25 @@ function distance(ship_id){
 
                 }
             });
+         // console.log(dis);
+                //return dis;
 }
 $(function() {
 
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", function (t)
          {
-               total = t.data.totalsize;
+              var total = t.data.totalsize;
+              var shop = t.data.items;
                // alert(total);
-               for(var i=1;i<=total;i++)
+               for(var i=0;i<total;i++)
                {
-                 distance(i);
+                // alert();
+                 distance(shop[i].shop_id);
                }
-           var m = sort(dis);
-         });  
-            console.info(dis);
+         }); 
+  /////////////////////获取店铺最近信息///////        
+     setTimeout(shopinfo,3000);
 
-
-
-            
-         $.ajax({
-                url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json",
-                type: 'get',
-                dataType: 'json',
-                success: function(result) {
-                    var da = result.data;
-
-                    shop_slide = da.shop_slide.split(',');
-                    shop_slideurl = da.shop_slideurl.split(',');
-                  if(shop_slide[0]!='')
-                  {
-                       for(var i=0;i<5;i++)
-                       {
-                        sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div></a>';
-                       }
-                       $("#shopslid").find('.swiper-wrapper').append(sli);   
-
-                  }
-
-
-                  var info = da.company_address;
-                  var map = new BMap.Map("container");
-                  var localSearch = new BMap.LocalSearch(map);
-
-                    function searchByStationName(info) {
-
-                        map.clearOverlays();//清空原来的标注
-                        var keyword = info;
-
-                        localSearch.setSearchCompleteCallback(function (searchResult) {
-                            var poi = searchResult.getPoi(0);
-
-                            map.centerAndZoom(poi.point, 13);
-                            var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
-                            map.addOverlay(marker);
-                            // var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
-                            // alert(poi.point.lng);
-                            // alert(poi.point.lat);
-                           
-                            $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (distance, status) { da.shop_stamp=distance;
-                             $("#shopinfo").html(template.render('shop_info', da));   
-                                // console.log(da);
-                                // alert( da.shop_stamp);
-                             });
-
-                        });
-                        localSearch.search(keyword);
-                    } 
-                    searchByStationName(info);                 
-
-                }
-            });
 
 
  var key = getCookie('key');
