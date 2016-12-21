@@ -50,7 +50,7 @@ function sort (arr) {
 function shopinfo(){
   // alert(dis);
 
-      // temp = sort(dis);
+      temp = sort(dis);
       if(temp[temp.length-1])
       {  console.log(dis);
         $.cookie('shot_shop',temp.length-1);
