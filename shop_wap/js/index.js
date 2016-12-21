@@ -114,11 +114,11 @@ function distance(ship_id){
                             var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
                             map.addOverlay(marker);
                             // var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
-                            alert(poi.point.lng);
-                            alert(poi.point.lat);
+                            // alert(poi.point.lng);
+                            // alert(poi.point.lat);
                             // alert(marker);
                            var c= getGreatCircleDistance(poi.point.lat,poi.point.lng,$.cookie('lat'),$.cookie('lng'));
-                           dis[shop_id1] = parseInt(c);
+                           dis[shop_id1] = parseInt(c);alert(dis[shop_id1]);
                          }
                         });
                         localSearch.search(keyword);
