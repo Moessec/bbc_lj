@@ -279,8 +279,8 @@ if(getCookie('community_shopid'))
              });  
 
 }else{
-  
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json&shop_id="+getCookie('shop_id'), function (t)
+
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json&shop_id="+getCookie('shot_shop'), function (t)
              {
      
                $("#product-contain3").html(template.render('goods3', t));
