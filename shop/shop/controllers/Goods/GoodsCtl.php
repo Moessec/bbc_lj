@@ -1602,7 +1602,7 @@ class Goods_GoodsCtl extends Controller
 
 			$shop_id = $_COOKIE['shot_shop'];
 			}else{
-				
+
 			$shop_id = request_int('shop_id');
 			}
 		}
@@ -1840,16 +1840,17 @@ function cur_goodslist()
 	if($_COOKIE['community_shopid'])
 		{
 			$shop_id = $_COOKIE['community_shopid'];
-		}else{
-			if($_COOKIE['shot_shop'])
-			{
-
-			$shop_id = $_COOKIE['shot_shop'];
-			}else{
-				
-			$shop_id = request_int('shop_id');
-			}
 		}
+		// else{
+		// 	if($_COOKIE['shot_shop'])
+		// 	{
+
+		// 	$shop_id = $_COOKIE['shot_shop'];
+		// 	}else{
+				
+		// 	$shop_id = request_int('shop_id');
+		// 	}
+		// }
 		$curgoodsModel = new Goods_BaseModel();
 
 		$data = $curgoodsModel->getBaseList(array('shop_id'=>$shop_id));
