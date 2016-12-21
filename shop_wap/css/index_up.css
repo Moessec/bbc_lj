@@ -505,10 +505,10 @@ body{
   		    background-size: 100%;
   		    opacity: 1;
 
-    		  bottom: 0.3rem
+    		  bottom: 0.2rem
           position: relative;
-            right: 0.5rem;
-          bottom:1rem;
+            right: 0.2rem;
+
          }
 /*         .add2:nth-last-child(1){
           right: -4.3rem;
