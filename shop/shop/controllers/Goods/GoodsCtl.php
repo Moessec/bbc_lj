@@ -1597,7 +1597,14 @@ class Goods_GoodsCtl extends Controller
 		{
 			$shop_id = $_COOKIE['community_shopid'];
 		}else{
+			if($_COOKIE['shot_shop'])
+			{
+
+			$shop_id = $_COOKIE['shot_shop'];
+			}else{
+				
 			$shop_id = request_int('shop_id');
+			}
 		}
 		// var_dump($shop_id);die;
 		$Shop_BaseModel = new Shop_BaseModel();
@@ -1834,7 +1841,14 @@ function cur_goodslist()
 		{
 			$shop_id = $_COOKIE['community_shopid'];
 		}else{
-			$shop_id = 2;
+			if($_COOKIE['shot_shop'])
+			{
+
+			$shop_id = $_COOKIE['shot_shop'];
+			}else{
+				
+			$shop_id = request_int('shop_id');
+			}
 		}
 		$curgoodsModel = new Goods_BaseModel();
 
