@@ -52,7 +52,9 @@ function shopinfo(){
 
       temp = sort(dis);
       if(1)
-      {  console.log(dis[6]);
+      {  
+        // console.log(dis[6]);
+        alert(dis[6]);
         $.cookie('shot_shop',temp.length-1);
         $.cookie('shot_distance',temp[temp.length-1]);
          $.ajax({
