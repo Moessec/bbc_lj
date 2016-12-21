@@ -137,7 +137,7 @@ function shop_goodslist2(shop_id){
         var cat_id = $(this).find('.cat_id').val();
         var str='';
         var r = '';
-        // alert(cat_id);
+        // alert(shop_id);
        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=shop_cat_goods&typ=json&shop_id="+shop_id+"&shop_goods_cat_id="+cat_id, function (t)
         {
 
