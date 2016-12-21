@@ -56,6 +56,7 @@ function distance(ship_id){
                 success: function(result) {
                     var da = result.data;
                   var info = da.company_address;
+                  // alert(info);
                   var map = new BMap.Map("container");
                   var localSearch = new BMap.LocalSearch(map);
 
@@ -73,13 +74,9 @@ function distance(ship_id){
                             // var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
                             // alert(poi.point.lng);
                             // alert(poi.point.lat);
-                            // alert($.cookie('lat'));
+                            // alert(marker);
                            var c= getGreatCircleDistance(poi.point.lat,poi.point.lng,$.cookie('lat'),$.cookie('lng'));
                            dis[shop_id1] = c;
-                             if(c)
-                             {
-                                return  c;
-                             }
                         });
                         localSearch.search(keyword);
                     } 
@@ -101,6 +98,26 @@ $(function() {
     //        var m = sort(dis);
     //      });  
     //         console.info(dis);
+
+    navigator.geolocation.getCurrentPosition( // 该函数有如下三个参数
+        function(pos){ // 如果成果则执行该回调函数
+            alert(
+                '  经度：' + pos.coords.latitude +
+                '  纬度：' + pos.coords.longitude +
+                '  高度：' + pos.coords.altitude +
+                '  精确度(经纬)：' + pos.coords.accuracy +
+                '  精确度(高度)：' + pos.coords.altitudeAccuracy +
+                '  速度：' + pos.coords.speed
+            );
+        }, function(err){ // 如果失败则执行该回调函数
+            alert(err.message);
+        }, { // 附带参数
+            enableHighAccuracy: false, // 提高精度(耗费资源)
+            timeout: 3000, // 超过timeout则调用失败的回调函数
+            maximumAge: 1000 // 获取到的地理信息的有效期，超过有效期则重新获取一次位置信息
+        }
+    );
+
             
          $.ajax({
                 url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json",
