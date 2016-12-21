@@ -585,17 +585,52 @@ $(function ()
             addcart();
         });
       }else{
-        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=tree&typ=json", {cat_parent_id: t}, function (e)
-        {
-            var t = e.data;
-            t.WapSiteUrl = WapSiteUrl;
-            var r = template.render("category-two", t);
-            $("#categroy-rgt").html(r);
-            $(".pre-loading").hide();
-            shop_goodslist1();
-             addcart();
+            if(getCookie('community_shopid'))
+            {
+                shop_id = getCookie('community_shopid');
+                $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=treelist&typ=json", {shop_id:shop_id,parent_id: t}, function (e)
+                {
+                    var t = e.data;
+                    // console.log(t);
+                    e.data['status'] = 1;
+                    t.WapSiteUrl = WapSiteUrl;
+                    var r = template.render("category-two", t);
+                    $("#categroy-rgt").html(r);
+                    $(".pre-loading").hide();
+                    // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+                    shop_goodslist2(shop_id);
+                    addcart();
+                });                
+            }else if(getCookie('shot_shop'))
+            {
+                shop_id = getCookie('shot_shop');
+                $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=treelist&typ=json", {shop_id:shop_id,parent_id: t}, function (e)
+                {
+                    var t = e.data;
+                    // console.log(t);
+                    e.data['status'] = 1;
+                    t.WapSiteUrl = WapSiteUrl;
+                    var r = template.render("category-two", t);
+                    $("#categroy-rgt").html(r);
+                    $(".pre-loading").hide();
+                    // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
+                    shop_goodslist2(shop_id);
+                    addcart();
+                });                 
+            }else{
+                
+                $.getJSON(ApiUrl + "/index.php?ctl=Goods_Cat&met=tree&typ=json", {cat_parent_id: t}, function (e)
+                {
+                    var t = e.data;
+                    t.WapSiteUrl = WapSiteUrl;
+                    var r = template.render("category-two", t);
+                    $("#categroy-rgt").html(r);
+                    $(".pre-loading").hide();
+                    shop_goodslist1();
+                     addcart();
 
-        });        
+                });        
+            }
       }
     
 
