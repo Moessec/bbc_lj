@@ -237,13 +237,13 @@ body{
 		    border: none;
 		    border-radius: 8px;
 		    display: block;
-    		height: 1.6rem;
-        line-height: 1.6rem;
+    		height: 1.4rem;
+        line-height: 1.4rem;
     		margin:0.275rem auto;
             margin-left: 1.3rem;
         } 
         .width{
-        	60%;
+        	width:100%;
         }
 		
         .icon{
