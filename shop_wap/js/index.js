@@ -469,7 +469,7 @@ setTimeout(function(){
                 $.sDialog({
                     content: '该商品已下架或该店铺已关闭！<br>请返回上一页继续操作…',
                     okBtn:false,
-                    cancelBtnText:'返回',
+                    cancelBtnText:'  返回',
                     cancelFn: function() { history.back(); }
                 });
             }
@@ -480,7 +480,7 @@ setTimeout(function(){
               $.sDialog({
                   content: data.error + '！<br>请返回上一页继续操作…',
                   okBtn:false,
-                  cancelBtnText:'返回',
+                  cancelBtnText:'  返回',
                   cancelFn: function() { history.back(); }
               });
             }
