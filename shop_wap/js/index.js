@@ -49,8 +49,8 @@ function sort (arr) {
 }
 function shopinfo(){
   // alert(dis);
+
       temp = sort(dis);
-      alert(temp);
       if(temp[temp.length-1])
       { 
         $.cookie('shot_shop',temp.length-1);
@@ -199,6 +199,7 @@ if($.cookie('community_shopid'))
  }else{
   /////////////////////获取店铺最近信息///////        
      setTimeout(shopinfo,3000);  
+     console.log(dis);
  }         
  var key = getCookie('key');
   var unixTimeToDateString = function(ts, ex) {
