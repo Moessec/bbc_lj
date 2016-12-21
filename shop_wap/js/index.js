@@ -47,10 +47,14 @@ function sort (arr) {
   }
   return arr;
 }
+function indexOfSmallest(a) {
+ return a.indexOf(Math.min.apply(Math, a));
+}
 function shopinfo(){
   // alert(dis);
 
-      temp = sort(dis);
+      temp = indexOfSmallest(dis);
+      alert(temp);
       if(1)
       {  
         // console.log(dis[6]);
