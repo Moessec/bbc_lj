@@ -400,6 +400,7 @@ setTimeout(function(){
                             goods_info+='|'+goods_id+','+quantity;
                             cart_count = goodsarr.length;
                         }
+                        // show_tip();
                         // 加入cookie
                         addCookie('goods_cart',goods_info);
                         alert('加入成功');
