@@ -1595,7 +1595,7 @@ class Goods_GoodsCtl extends Controller
 
 		if($_COOKIE['community_shopid'])
 		{
-			$shop_id = $_COOKIE['community_shopid'];
+			$shop_id = request_int('shop_id');
 		}else{
 			if($_COOKIE['shot_shop'])
 			{
