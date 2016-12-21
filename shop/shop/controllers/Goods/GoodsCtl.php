@@ -1597,7 +1597,7 @@ class Goods_GoodsCtl extends Controller
 		{
 			$shop_id = $_COOKIE['community_shopid'];
 		}else{
-			$shop_id = 2;
+			$shop_id = request_int('shop_id');
 		}
 		// var_dump($shop_id);die;
 		$Shop_BaseModel = new Shop_BaseModel();
