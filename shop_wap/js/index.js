@@ -76,7 +76,7 @@ function distance(ship_id){
                             // alert(poi.point.lat);
                             // alert(marker);
                            var c= getGreatCircleDistance(poi.point.lat,poi.point.lng,$.cookie('lat'),$.cookie('lng'));
-                           dis[shop_id1] = c;
+                           dis[shop_id1] = c;alert(c);
                         });
                         localSearch.search(keyword);
                     } 
