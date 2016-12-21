@@ -67,6 +67,23 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             </dd>
         </dl>
 
+        <dl class="row">
+          <dt class="tit">
+            <label>经度</label>
+          </dt>
+           <dd class="opt">
+               <input type="text" id="shop_longitude"  class="ui-input w200" value="<?= $data['shop_longitude'] ?>" name="shop[shop_end_time]"  readonly="readonly">
+            </dd>
+        </dl>
+        <dl class="row">
+          <dt class="tit">
+            <label>纬度</label>
+          </dt>
+           <dd class="opt">
+               <input type="text" id="shop_latitude"  class="ui-input w200" value="<?= $data['shop_latitude'] ?>" name="shop[shop_end_time]"  readonly="readonly">
+            </dd>
+        </dl>
+
             <dl class="row">
                 <dt class="tit">状态</dt>
                 <dd class="opt">
@@ -165,6 +182,8 @@ function postData(t, e)
                 shop_name = $.trim($("#shop_name").val()), 
                 shop_class_id= $.trim($("#class_id").val()), 
                 shop_grade_id = $.trim($("#grade_id").val()), 
+                shop_latitude = $.trim($("#shop_latitude").val()),
+                shop_longitude = $.trim($("#shop_longitude").val()),
                 shop_status = $.trim($("input[name='shop[shop_status]']:checked").val()),
     
 			n = "add" == t ? "新增店铺" : "修改店铺";
