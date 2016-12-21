@@ -498,17 +498,19 @@ body{
          .add2{
          	display: inline-block;
         	width: 1.2rem;
-		    height: 1.2rem;
-		    background-image: url(../images/iconfont/add02.png);
-		    background-repeat: no-repeat;
-		    background-position: 50% 50%;
-		    background-size: 100%;
-		    opacity: 1;
-		     /*right: 0.5rem;*/
-    		bottom: 0.3rem
-         right: -4.5rem;
-          right: -5.5rem;
+  		    height: 1.2rem;
+  		    background-image: url(../images/iconfont/add02.png);
+  		    background-repeat: no-repeat;
+  		    background-position: 50% 50%;
+  		    background-size: 100%;
+  		    opacity: 1;
+
+    		  bottom: 0.3rem
+          right: -4.5rem;
           bottom:1rem;
+         }
+         .add2:nth-last-child(1){
+          right: -4.3rem;
          }
          .product-list{
          	margin-top: 0.2rem;

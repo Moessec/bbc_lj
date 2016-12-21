@@ -302,7 +302,7 @@ if(getCookie('community_shopid'))
 // alert( 111 );
 setTimeout(function(){
 
-    $('.add').each(function(){
+    $('.add2').each(function(){
 
     $(this).click(function(){
      // alert(1);
