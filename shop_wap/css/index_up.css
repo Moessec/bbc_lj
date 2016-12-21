@@ -506,12 +506,13 @@ body{
   		    opacity: 1;
 
     		  bottom: 0.3rem
-          right: -4.5rem;
+          position: relative;
+            right: 0.5rem;
           bottom:1rem;
          }
-         .add2:nth-last-child(1){
+/*         .add2:nth-last-child(1){
           right: -4.3rem;
-         }
+         }*/
          .product-list{
          	margin-top: 0.2rem;
          }
@@ -683,7 +684,7 @@ body{
     color:black;
     font-size: 0.6rem;
 }
-    .add1{
+/*    .add1{
        font-size: 0.6rem;
        margin-left: 0.1rem;
        position: relative;
@@ -703,4 +704,4 @@ body{
             bottom: 0.3rem;
             position: relative;
             top: -0.25rem;
-        }
+        }*/

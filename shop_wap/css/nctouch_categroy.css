@@ -73,4 +73,24 @@
 .nctouch-product-header .header-r a.categroy { width: 0.975rem; height: 1.575rem; padding: 0.2rem 0.5rem 0.2rem 0.3rem;}
 .nctouch-product-header .header-r a.categroy i { width: 100%; height: 1rem; background-image: url(../images/stiore_categroy_b.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 70%; opacity: 0.65;}
 .nctouch-product-header .header-r a.categroy p {display: block; font-size: 0.45rem; line-height: 0.575rem; text-align: center; color: #555; }
-
+    .add1{
+       font-size: 0.6rem;
+       margin-left: 0.1rem;
+       position: relative;
+       top: 1rem;
+    }
+    .inter .add{
+            float: right;
+            display: inline-block;
+            width: 1.2rem;
+            height: 1.2rem;
+            background-image: url(../images/iconfont/add02.png);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: 83%;
+            opacity: 1;
+             right: 0.5rem;
+            bottom: 0.3rem;
+            position: relative;
+            top: -0.25rem;
+        }
