@@ -48,7 +48,9 @@ function sort (arr) {
   return arr;
 }
 function shopinfo(){
+  // alert(dis);
       temp = sort(dis);
+      alert(temp);
       if(temp[temp.length-1])
       { 
         $.cookie('shot_shop',temp.length-1);
