@@ -24,7 +24,6 @@ function getPositionError(error) {
       var trunback = function (point){
            $.cookie("lng",point.lng,{expires:7});
            $.cookie("lat",point.lat,{expires:7});
-           // alert(point.lng);alert(point.lat);
            // $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
       }
       BMap.Convertor.translate(ggPoint,0,trunback);     
@@ -56,9 +55,9 @@ function getPositionError(error) {
     var geoc = new BMap.Geocoder();    
     geoc.getLocation(point, function(rs){
       var addComp = rs.addressComponents;
-      var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
-      // var address = addComp.city;
-       alert(address);
+      // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
+      var address = addComp.city;
+
       if($.cookie('trans_city'))
       {
         $(".area").html($.cookie('trans_city'));
