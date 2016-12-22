@@ -141,10 +141,10 @@ var spid = min(dis);
                     }
                     if(parseFloat(getCookie('shot_distance'))<1000) 
                     {
-                      alert(1);
+                      // alert(1);
                      da.shop_stamp=getCookie('shot_distance')+'m';
                     }else{
-                      alert(2);
+
                      da.shop_stamp=parseFloat(parseFloat(getCookie('shot_distance'))/1000)+'km';
 
                     }         
@@ -225,8 +225,7 @@ if($.cookie('community_shopid'))
                         }
 
                     distan= getFlatternDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
-                        if(distan)
-                        {
+                       
                              if(parseFloat(distan)<1000)
                              {
 
@@ -237,7 +236,7 @@ if($.cookie('community_shopid'))
                              }
                          $("#shopinfo").html(template.render('shop_info', da));   
                           
-                        }     
+                            
 
                 }
             });
