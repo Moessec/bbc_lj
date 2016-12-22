@@ -56,9 +56,9 @@ function getPositionError(error) {
     var geoc = new BMap.Geocoder();    
     geoc.getLocation(point, function(rs){
       var addComp = rs.addressComponents;
-      // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
-      var address = addComp.city;
-
+      var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
+      // var address = addComp.city;
+       alert(address);
       if($.cookie('trans_city'))
       {
         $(".area").html($.cookie('trans_city'));
