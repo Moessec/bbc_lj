@@ -316,7 +316,7 @@ function shop_goodslist2(shop_id){
 /////////////////////////加入购物车/////////////////////////////////////////
 function addcart()
 {
-    alert(1);
+    // alert(1);
     setTimeout(function(){
 
             $('.add').click(function(){
@@ -588,8 +588,8 @@ $(function ()
             $(".pre-loading").hide();
             // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
             shop_goodslist2(shop_id);
-            addcart();
         });
+            addcart();
       }else{
             if(getCookie('community_shopid'))
             {
