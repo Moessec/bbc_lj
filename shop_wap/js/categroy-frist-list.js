@@ -655,7 +655,7 @@ $("#categroy-cnt").on("click", ".brand", function ()
 
 
 $(function(){
-    get_brand_recommend();
+get_brand_recommend();
 
   var src;
   var sr2;
