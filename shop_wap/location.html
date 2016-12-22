@@ -71,32 +71,7 @@ $(function(){
 }, 100);	
 })
 $(function(){
-			var cityPicker = new IIInsomniaCityPicker({
-	        data: cityData,
-	        target: '#cityChoice',
-	        valType: 'k-v',
-	        hideCityInput: '#city',
-	        hideProvinceInput: '#province',
-	        callback: function(data){
-	             $.cookie("trans_city",data,{expires:0.083});
-	             window.location.href="./tmpl/area_shop_list.html";
-
-	        }
-	    });
-    cityPicker.init();
- setTimeout(function() {
-	// IE
-	if(document.all) {
-		document.getElementById("cityChoice").click();
-
-	}
-	// 其它浏览器
-	else {
-		var e = document.createEvent("MouseEvents");
-		e.initEvent("click", true, true);
-		document.getElementById("cityChoice").dispatchEvent(e);
-	}
-}, 100);			
+	
 })
 </script> 	
 </body>
