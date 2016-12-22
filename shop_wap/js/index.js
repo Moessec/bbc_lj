@@ -114,10 +114,10 @@ function distance1(ship_id){
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+shop_id1, function (t)
          {
                   var da = t.data;
-                  // var shop_latitude = da.shop_latitude;
-                  // var shop_longitude = da.shop_longitude;
-                  var shop_latitude = 31.24916340;
-                  var shop_longitude = 121.48790048;
+                  var shop_latitude = da.shop_latitude;
+                  var shop_longitude = da.shop_longitude;
+                  // var shop_latitude = 31.24916340;
+                  // var shop_longitude = 121.48790048;
                   // alert(shop_latitude);
                   distance= getGreatCircleDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
                   // alert(distance); 
@@ -170,7 +170,7 @@ if($.cookie('community_shopid'))
                     distan= getGreatCircleDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
                         if(distan)
                         {
-                         da.shop_stamp=distan; alert(distan);
+                         da.shop_stamp=distan; 
                          $("#shopinfo").html(template.render('shop_info', da));   
                           
                         }     
