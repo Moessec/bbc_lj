@@ -105,9 +105,9 @@ function min(a){
     }  
 function shopinfo(){
   
-alert(dis);
+// alert(dis);
 var spid = min(dis);
- alert(spid);
+ // alert(spid);
      
       if(spid)
       {  
