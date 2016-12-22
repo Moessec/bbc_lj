@@ -35,6 +35,35 @@ var temp ='';
                 
         return parseInt(s);
     }
+    function getFlatternDistance(lat1,lng1,lat2,lng2){
+        var f = getRad((lat1 + lat2)/2);
+        var g = getRad((lat1 - lat2)/2);
+        var l = getRad((lng1 - lng2)/2);
+        
+        var sg = Math.sin(g);
+        var sl = Math.sin(l);
+        var sf = Math.sin(f);
+        
+        var s,c,w,r,d,h1,h2;
+        var a = EARTH_RADIUS;
+        var fl = 1/298.257;
+        var ss = 0;
+        sg = sg*sg;
+        sl = sl*sl;
+        sf = sf*sf;
+        
+        s = sg*(1-sl) + (1-sf)*sl;
+        c = (1-sg)*(1-sl) + sf*sl;
+        
+        w = Math.atan(Math.sqrt(s/c));
+        r = Math.sqrt(s*c)/w;
+        d = 2*w*a;
+        h1 = (3*r -1)/2/c;
+        h2 = (3*r +1)/2/s;
+        ss = d*(1 + fl*(h1*sf*(1-sg) - h2*(1-sf)*sg));
+        return parseInt(ss);
+    }
+
 function sort (arr) {
   for (var i = 0;i<arr.length;i++) {
       for (var j = 0; j < arr.length-i-1; j++) {
@@ -119,7 +148,8 @@ function distance1(ship_id){
                   // var shop_latitude = 31.24916340;
                   // var shop_longitude = 121.48790048;
                   // alert(shop_latitude);
-                  distance= getGreatCircleDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
+                  // distance= getGreatCircleDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
+                  distance= getFlatternDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
                   // alert(distance); 
          }); 
            setTimeout(function(){
@@ -167,7 +197,7 @@ if($.cookie('community_shopid'))
 
                         }
 
-                    distan= getGreatCircleDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
+                    distan= getFlatternDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
                         if(distan)
                         {
                          da.shop_stamp=distan; 
