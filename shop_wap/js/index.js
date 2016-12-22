@@ -33,7 +33,7 @@ var temp ='';
         s = s*EARTH_RADIUS;
         s = Math.round(s*10000)/10000.0;
                 
-        return s;
+        return parseInt(s);
     }
 function sort (arr) {
   for (var i = 0;i<arr.length;i++) {
