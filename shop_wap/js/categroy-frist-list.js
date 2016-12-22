@@ -563,8 +563,6 @@ $(function ()
          }
     }
    
-    get_brand_recommend();
-    // $("#categroy-cnt").on("click", ".category", function ()
     $("#categroy-cnt").on("click", ".category", function ()
     {
         $(".pre-loading").show();
@@ -665,6 +663,7 @@ $(function(){
   var src1 = sr[0]+2+'.png';
   // alert(src1);
   src2 = $('.active1').find('img')[0].src=src1;
+    // get_brand_recommend();
 
 });
 
