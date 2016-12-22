@@ -65,18 +65,18 @@ var temp ='';
         return parseInt(ss);
     }
 
-function sort (arr) {
-  for (var i = 0;i<arr.length;i++) {
-      for (var j = 0; j < arr.length-i-1; j++) {
-        if (arr[j]<arr[j+1]) {
-        var temp=arr[j];
-        arr[j]=arr[j+1];
-        arr[j+1]=temp;
-        }
-      }
-  }
-  return arr;
-}
+// function sort (arr) {
+//   for (var i = 0;i<arr.length;i++) {
+//       for (var j = 0; j < arr.length-i-1; j++) {
+//         if (arr[j]<arr[j+1]) {
+//         var temp=arr[j];
+//         arr[j]=arr[j+1];
+//         arr[j+1]=temp;
+//         }
+//       }
+//   }
+//   return arr;
+// }
 function min(a){
 
       var min = a[0];
@@ -166,11 +166,11 @@ $(function() {
               var total = t.data.totalsize;
               var shop = t.data.items;
               
-               for(var i=0;i<total;i++)
-              {
+              //  for(var i=0;i<total;i++)
+              // {
                 
-                 distance1(shop[i].shop_id);
-              }
+                 distance1(shop[1].shop_id);
+              // }
 
          }); 
 
