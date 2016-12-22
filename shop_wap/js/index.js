@@ -118,7 +118,7 @@ var spid = min(dis);
           alert(dis[spid]);
           delCookie('shot_shop');
           delCookie('shot_distance');
-          Location.href('index.html');
+          location.replace('http://www.dreamdu.com/');
         }
 
          $.ajax({
