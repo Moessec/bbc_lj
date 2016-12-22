@@ -1,97 +1,72 @@
-// function getPositionError(error) {
-//       //  HTML5 定位失败时，调用百度地图定位   
-//         var geolocation = new BMap.Geolocation();
-//         geolocation.getCurrentPosition(function(r){
-//             if(this.getStatus() == BMAP_STATUS_SUCCESS){
-//                 var mk = new BMap.Marker(r.point);
-//                 var pt = r.point;
-//                 // alert(123);
-//                 $.cookie("lng",pt.lng,{expires:7});
-//                 $.cookie("lat",pt.lat,{expires:7});
+function getPositionError(error) {
+      //  HTML5 定位失败时，调用百度地图定位   
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(r){
+            if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                var mk = new BMap.Marker(r.point);
+                var pt = r.point;
 
+                $.cookie("lng",pt.lng,{expires:7});
+                $.cookie("lat",pt.lat,{expires:7});
 
+                // $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
                               
-//             }
-//         },{enableHighAccuracy: true});
-//     }
+            }
+        },{enableHighAccuracy: true});
+    }
 
-//     function getPositionSuccess(position){
-//       var lat = position.coords.latitude;
-//       var lng = position.coords.longitude;
-//         alert(234);
-//            $.cookie("lng",point.lng,{expires:7});
-//            $.cookie("lat",point.lat,{expires:7});
-//       var ggPoint = new BMap.Point(lng,lat);
-//       //转换成百度地图坐标
-//       var trunback = function (point){
-//            // $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
-//       }
-//       BMap.Convertor.translate(ggPoint,0,trunback);     
-//     }
+    function getPositionSuccess(position){
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+
+      var ggPoint = new BMap.Point(lng,lat);
+      //转换成百度地图坐标
+      var trunback = function (point){
+           $.cookie("lng",point.lng,{expires:7});
+           $.cookie("lat",point.lat,{expires:7});
+           // $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
+      }
+      BMap.Convertor.translate(ggPoint,0,trunback);     
+    }
 
 
 
-//   // 先HTML5定位，定位不到再百度地图定位
-//   if(!$.cookie("lng")  || !$.cookie("lat") || "$act" == "renew")
-//   {
-//     var position_option = {enableHighAccuracy: true,maximumAge: 30000,timeout: 20000};
-//     navigator.geolocation.getCurrentPosition(getPositionSuccess, getPositionError, position_option);
-//   }
-//   else
-//   {
-//     var t_lng = $.cookie("lng");
-//     // alert( t_lng );
-//     var t_lat = $.cookie("lat");
-//     // if(!t_lng || !t_lat)
-//     // {
-//     //   $.post("ajax_back_end.php",{"act":"reposition","lng":$.cookie("lng"),"lat":$.cookie("lat")},function(){})
-//     // }
-//   }
+  // 先HTML5定位，定位不到再百度地图定位
+  if(!$.cookie("lng")  || !$.cookie("lat") || "$act" == "renew")
+  {
+    var position_option = {enableHighAccuracy: true,maximumAge: 30000,timeout: 20000};
+    navigator.geolocation.getCurrentPosition(getPositionSuccess, getPositionError, position_option);
+  }
+  else
+  {
+    var t_lng = $.cookie("lng");
+    // alert( t_lng );
+    var t_lat = $.cookie("lat");
+    if(!t_lng || !t_lat)
+    {
+      $.post("ajax_back_end.php",{"act":"reposition","lng":$.cookie("lng"),"lat":$.cookie("lat")},function(){})
+    }
+  }
 
-//   // 地址定位
-//   function showArea(BMap)
-//   {
-//     var point = new BMap.Point($.cookie("lng"),$.cookie("lat"));
-//     var geoc = new BMap.Geocoder();    
-//     geoc.getLocation(point, function(rs){
-//       var addComp = rs.addressComponents;
-//       // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
-//       var address = addComp.city;
+  // 地址定位
+  function showArea(BMap)
+  {
+    var point = new BMap.Point($.cookie("lng"),$.cookie("lat"));
+    var geoc = new BMap.Geocoder();    
+    geoc.getLocation(point, function(rs){
+      var addComp = rs.addressComponents;
+      // var address = addComp.province + "" + addComp.city + "" + addComp.district + "" + addComp.street + "" + addComp.streetNumber;
+      var address = addComp.city;
 
-//       if($.cookie('trans_city'))
-//       {
-//         $(".area").html($.cookie('trans_city'));
-//       }else if(address){
-//         $.cookie("address",address,{expires:7});
-//       $(".area").html(address);
-//     }
-//     });        
+      if($.cookie('trans_city'))
+      {
+        $(".area").html($.cookie('trans_city'));
+      }else if(address){
+        $.cookie("address",address,{expires:7});
+      $(".area").html(address);
+    }
+    });        
    
-//   }
+  }
 
-//  
-//  
-//  
-//  
-  navigator.geolocation.getCurrentPosition(translatePoint); //定位  
-            function translatePoint(position) {  
-                var currentLat = position.coords.latitude;  
-                var currentLon = position.coords.longitude;  
-                // SetCookie("curLat", currentLat, 1);//设置cookie  
-                // SetCookie("curLng", currentLon, 1);//设置cookie  
-                alert(currentLat);
-                $.cookie("lng",currentLon,{expires:7});
-                $.cookie("lat",currentLat,{expires:7});                
-                var gpsPoint = new BMap.Point(currentLon, currentLat);  
-            
-                    var pt = new BMap.Point(currentLon, currentLat);  
-                    var geoc = new BMap.Geocoder();  
-                    geoc.getLocation(pt, function (rs) {  
-                        var addComp = rs.addressComponents;  
-                        SetCookie("curLat", currentLat, 1); //设置cookie  
-                        SetCookie("curLng", currentLon, 1); //设置cookie  
-                        //alert(JSON.stringify(addComp));  
-                        var city = addComp.city;  
-               }); 
-
-            } 
+ 
