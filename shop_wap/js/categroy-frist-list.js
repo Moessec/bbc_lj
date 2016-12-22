@@ -659,7 +659,7 @@ $("#categroy-cnt").on("click", ".brand", function ()
 
 
 $(function(){
-    get_brand_recommend();
+    get_brand_recommend();addcart()
 
   var src;
   var sr2;
