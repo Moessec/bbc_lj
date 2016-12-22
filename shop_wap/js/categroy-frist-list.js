@@ -564,7 +564,8 @@ $(function ()
     }
    
     get_brand_recommend();
-    $("#categroy-cnt .category").click(function ()
+    // $("#categroy-cnt").on("click", ".category", function ()
+    $("#categroy-cnt").on("click", ".category", function ()
     {
         $(".pre-loading").show();
         $(this).parent().addClass("selected").siblings().removeClass("selected");
