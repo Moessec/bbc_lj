@@ -195,6 +195,8 @@ function postData(t, e)
 				shop_class_id: shop_class_id,
                                 shop_grade_id:shop_grade_id,
                                 shop_status:shop_status,
+                                shop_longitude:shop_longitude,
+                                shop_latitude:shop_latitude
 			};
 			Public.ajaxPost(SITE_URL + '?ctl=Shop_Manage&met=editShopinformation&typ=json', params, function (e)
 			{
