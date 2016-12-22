@@ -139,8 +139,14 @@ var spid = min(dis);
                          $("#shopslid").find('.swiper-wrapper').append(sli);   
 
                     }
+                    if(parseFloat(getCookie('shot_distance'))<1000) 
+                    {
 
-                 da.shop_stamp=getCookie('shot_distance');
+                     da.shop_stamp=getCookie('shot_distance')+'m';
+                    }else{
+                     da.shop_stamp=parseFloat(parseFloat(getCookie('shot_distance'))/1000)+'km';
+
+                    }         
                  $("#shopinfo").html(template.render('shop_info', da));   
       
                                     
@@ -216,7 +222,14 @@ if($.cookie('community_shopid'))
                     distan= getFlatternDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
                         if(distan)
                         {
-                         da.shop_stamp=distan; 
+                             if(distan<1000)
+                             {
+
+                             da.shop_stamp=distan+'m'; 
+                             }else if(distan>=1000){
+                               da.shop_stamp=parseFloat(distan/1000)+'km'; 
+
+                             }
                          $("#shopinfo").html(template.render('shop_info', da));   
                           
                         }     
