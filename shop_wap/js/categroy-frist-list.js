@@ -589,7 +589,7 @@ $(function ()
             // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
             shop_goodslist2(shop_id);
         });
-            addcart();
+            addcart();alert(232);
       }else{
             if(getCookie('community_shopid'))
             {
