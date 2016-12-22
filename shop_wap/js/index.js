@@ -61,7 +61,7 @@ var temp ='';
         h1 = (3*r -1)/2/c;
         h2 = (3*r +1)/2/s;
         ss = d*(1 + fl*(h1*sf*(1-sg) - h2*(1-sf)*sg));
-        alert(ss);
+        alert(d);
         return parseInt(ss);
     }
 
