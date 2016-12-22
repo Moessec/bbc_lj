@@ -77,8 +77,10 @@
             function translatePoint(position) {  
                 var currentLat = position.coords.latitude;  
                 var currentLon = position.coords.longitude;  
-                SetCookie("curLat", currentLat, 1);//设置cookie  
-                SetCookie("curLng", currentLon, 1);//设置cookie  
+                // SetCookie("curLat", currentLat, 1);//设置cookie  
+                // SetCookie("curLng", currentLon, 1);//设置cookie  
+                $.cookie("lng",currentLon,{expires:7});
+                $.cookie("lat",currentLat,{expires:7});                
                 var gpsPoint = new BMap.Point(currentLon, currentLat);  
             
                     var pt = new BMap.Point(currentLon, currentLat);  
