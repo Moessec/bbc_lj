@@ -587,8 +587,8 @@ $(function ()
             $("#categroy-rgt").html(r);
             $(".pre-loading").hide();
             // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
-            shop_goodslist2(shop_id);alert(5555);
-            // addcart();
+            shop_goodslist2(shop_id);
+            addcart();
         });
       }else{
             if(getCookie('community_shopid'))
