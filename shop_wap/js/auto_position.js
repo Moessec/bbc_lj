@@ -24,7 +24,7 @@ function getPositionError(error) {
       var trunback = function (point){
            $.cookie("lng",point.lng,{expires:7});
            $.cookie("lat",point.lat,{expires:7});
-           $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
+           // $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
       }
       BMap.Convertor.translate(ggPoint,0,trunback);     
     }
@@ -44,7 +44,7 @@ function getPositionError(error) {
     var t_lat = $.cookie("lat");
     if(!t_lng || !t_lat)
     {
-      $.post("ajax_back_end.php",{"act":"reposition","lng":$.cookie("lng"),"lat":$.cookie("lat")},function(){})
+      // $.post("ajax_back_end.php",{"act":"reposition","lng":$.cookie("lng"),"lat":$.cookie("lat")},function(){})
     }
   }
 
