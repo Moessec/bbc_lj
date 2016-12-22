@@ -36,6 +36,12 @@ var temp ='';
         return parseInt(s);
     }
     function getFlatternDistance(lat1,lng1,lat2,lng2){
+      var lat1=eval(lat1);
+      var lat2=eval(lat2);
+      var lng1=eval(lng1);
+      var lng2=eval(lng2);
+
+      // alert((lat1+lat2));
         var f = getRad((lat1 + lat2)/2);
         var g = getRad((lat1 - lat2)/2);
         var l = getRad((lng1 - lng2)/2);
@@ -61,7 +67,7 @@ var temp ='';
         h1 = (3*r -1)/2/c;
         h2 = (3*r +1)/2/s;
         ss = d*(1 + fl*(h1*sf*(1-sg) - h2*(1-sf)*sg));
-        alert(d);
+        // alert(ss);
         return parseInt(ss);
     }
 
@@ -98,9 +104,9 @@ function min(a){
     }  
 function shopinfo(){
   
-// alert(dis);
+alert(dis);
 var spid = min(dis);
- // alert(temp);
+ alert(spid);
      
       if(spid)
       {  
@@ -146,6 +152,7 @@ function distance1(ship_id){
                   var da = t.data;
                   var shop_latitude = da.shop_latitude;
                   var shop_longitude = da.shop_longitude;
+                  // alert(shop_latitude);alert(shop_longitude);
                   // var shop_latitude = 31.24916340;
                   // var shop_longitude = 121.48790048;
                   // alert(shop_latitude);
@@ -166,11 +173,11 @@ $(function() {
               var total = t.data.totalsize;
               var shop = t.data.items;
               
-              //  for(var i=0;i<total;i++)
-              // {
+               for(var i=0;i<total;i++)
+              {
                 
-                 distance1(shop[1].shop_id);
-              // }
+                 distance1(shop[i].shop_id);
+              }
 
          }); 
 
