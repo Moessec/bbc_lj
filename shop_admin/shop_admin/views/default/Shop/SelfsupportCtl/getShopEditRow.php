@@ -21,6 +21,22 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                     <input id="shop_name" name="shop_name" value="<?=$data['shop_name']?>" class="ui-input w200" type="text"/>
                 </dd>
               </dl>
+              <dl class="row">
+                <dt class="tit">
+                    <label for="shop_longitude"> *经度</label>
+                </dt>
+                <dd class="opt">
+                    <input id="shop_longitude" name="shop_longitude" value="<?=$data['shop_longitude']?>" class="ui-input w200" type="text"/>
+                </dd>
+              </dl>
+              <dl class="row">
+                <dt class="tit">
+                    <label for="shop_latitude"> *纬度</label>
+                </dt>
+                <dd class="opt">
+                    <input id="shop_latitude" name="shop_latitude" value="<?=$data['shop_latitude']?>" class="ui-input w200" type="text"/>
+                </dd>
+              </dl>
              <dl class="row">
                 <dt class="tit">
                     <label for="shop_create_time"> *开店时间</label>
@@ -87,7 +103,10 @@ function postData(t, e)
            },
             fields: {
                 'shop_name':'required;' ,
-                'shop_status':'required;' 
+                'shop_status':'required;',
+                'shop_latitude':'required;',
+                'shop_longitude':'required;'
+
             },
 
         valid: function (form)
@@ -95,6 +114,8 @@ function postData(t, e)
             var 
               shop_id = $.trim($("#shop_id").val()), 
               shop_name = $.trim($("#shop_name").val()), 
+              shop_longitude = $.trim($("#shop_longitude").val()), 
+              shop_latitude = $.trim($("#shop_latitude").val()), 
               shop_all_class = $.trim($("input[name='shop_all_class']:checked").val()),
               shop_status = $.trim($("input[name='shop_status']:checked").val()),
 
@@ -103,7 +124,9 @@ function postData(t, e)
 				shop_id: shop_id, 
 				shop_name: shop_name, 
 				shop_all_class: shop_all_class,
-                                shop_status:shop_status,
+        shop_status:shop_status,
+        shop_longitude:shop_longitude,
+        shop_latitude:shop_latitude,
                                
 			};
 			Public.ajaxPost(SITE_URL +"?ctl=Shop_Selfsupport&met=" + ("Add" == t ? "Add" : "Edit")+ "ShopBase&typ=json", params, function (e)
@@ -133,6 +156,8 @@ function resetForm(t)
 {
     $_form.validate().resetForm();
     $("#shop_name").val("");
+    $("#shop_longitude").val("");
+    $("#shop_latitude").val("");
     $("input[name='shop_all_class']:checked").val("");
     $("input[name='shop_status']:checked").val("");
 
