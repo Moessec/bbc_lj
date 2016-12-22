@@ -141,9 +141,10 @@ var spid = min(dis);
                     }
                     if(parseFloat(getCookie('shot_distance'))<1000) 
                     {
-
+                      alert(1);
                      da.shop_stamp=getCookie('shot_distance')+'m';
                     }else{
+                      alert(2);
                      da.shop_stamp=parseFloat(parseFloat(getCookie('shot_distance'))/1000)+'km';
 
                     }         
@@ -182,8 +183,8 @@ function distance1(ship_id){
 }
 $(function() {
 
-alert(getCookie('lat'));
-alert(getCookie('lng'));
+// alert(getCookie('lat'));
+// alert(getCookie('lng'));
 
 
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", function (t)
