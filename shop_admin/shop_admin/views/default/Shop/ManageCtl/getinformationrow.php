@@ -72,7 +72,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             <label>经度</label>
           </dt>
            <dd class="opt">
-               <input type="text" id="shop_longitude"  class="ui-input w200" value="<?= $data['shop_longitude'] ?>" name="shop[shop_end_time]"  readonly="readonly">
+               <input type="text" id="shop_longitude"   value="<?= $data['shop_longitude'] ?>" name="shop[shop_longitude]"  >
             </dd>
         </dl>
         <dl class="row">
@@ -80,7 +80,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             <label>纬度</label>
           </dt>
            <dd class="opt">
-               <input type="text" id="shop_latitude"  class="ui-input w200" value="<?= $data['shop_latitude'] ?>" name="shop[shop_end_time]"  readonly="readonly">
+               <input type="text" id="shop_latitude"   value="<?= $data['shop_latitude'] ?>" name="shop[shop_latitude]"  >
             </dd>
         </dl>
 
