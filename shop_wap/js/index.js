@@ -115,6 +115,7 @@ var spid = min(dis);
         $.cookie('shot_shop',spid);
         $.cookie('shot_distance',dis[spid]);
         if(dis[spid]>10000){
+          alert(dis[spid]);
           window.location.href(ApiUrl+'/index.html');
         }
 
