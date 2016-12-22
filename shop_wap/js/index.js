@@ -206,7 +206,7 @@ if($.cookie('community_shopid'))
 
                         }
 
-                    distan= getGreatCircleDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
+                    distan= getFlatternDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
                         if(distan)
                         {
                          da.shop_stamp=distan; 
