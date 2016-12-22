@@ -62,24 +62,23 @@ function min(a){
       } 
       if(c == '')
       {
-        c = 0;
+        c = 1;
       }
       return c;
     }  
 function shopinfo(){
   
-
-alert(min(dis));
+// alert(dis);
+var spid = min(dis);
  // alert(temp);
      
-      if(1)
+      if(spid)
       {  
-        // console.log(dis[6]);
-        // alert(dis[6]);
-        // $.cookie('shot_shop',temp.length-1);
-        // $.cookie('shot_distance',temp[temp.length-1]);
+
+        $.cookie('shot_shop',spid);
+        $.cookie('shot_distance',dis[spid]);
          $.ajax({
-                url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+(temp.length-1),
+                url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+getCookie('shot_shop'),
                 type: 'get',
                 dataType: 'json',
                 success: function(result) {
@@ -97,7 +96,7 @@ alert(min(dis));
 
                     }
 
-                 da.shop_stamp=temp[temp.length-1];
+                 da.shop_stamp=getCookie('shot_distance');
                  $("#shopinfo").html(template.render('shop_info', da));   
       
                                     
@@ -153,48 +152,28 @@ if($.cookie('community_shopid'))
                 dataType: 'json',
                 success: function(result) {
                     var da = result.data;
+                    var shop_longitude = da.shop_longitude;
+                    var shop_latitude = da.shop_latitude;
+                    var distan = '';
                     shop_slide = da.shop_slide.split(',');
                     shop_slideurl = da.shop_slideurl.split(',');
-                  if(shop_slide[0]!='')
-                  {
-                       for(var i=0;i<5;i++)
-                       {
-                        sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div></a>';
-                       }
-                       $("#shopslid").find('.swiper-wrapper').append(sli);   
+                        if(shop_slide[0]!='')
+                        {
+                             for(var i=0;i<5;i++)
+                             {
+                              sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div></a>';
+                             }
+                             $("#shopslid").find('.swiper-wrapper').append(sli);   
 
-                  }
+                        }
 
-
-                  var info = da.company_address;
-                  var map = new BMap.Map("container");
-                  var localSearch = new BMap.LocalSearch(map);
-
-                    function searchByStationName(info) {
-
-                        map.clearOverlays();//清空原来的标注
-                        var keyword = info;
-
-                        localSearch.setSearchCompleteCallback(function (searchResult) {
-                            var poi = searchResult.getPoi(0);
-
-                            map.centerAndZoom(poi.point, 13);
-                            var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
-                            map.addOverlay(marker);
-                            // var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
-                            // alert(poi.point.lng);
-                            // alert(poi.point.lat);
-                           
-                            $.post('ajax_back_end.php', { shoplng:poi.point.lng,shoplat:poi.point.lat }, function (distance, status) { da.shop_stamp=distance;
-                             $("#shopinfo").html(template.render('shop_info', da));   
-                                // console.log(da);
-                                // alert( da.shop_stamp);
-                             });
-
-                        });
-                        localSearch.search(keyword);
-                    } 
-                    searchByStationName(info);                 
+                    distan= getGreatCircleDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
+                        if(distan)
+                        {
+                         da.shop_stamp=distan; alert(distan);
+                         $("#shopinfo").html(template.render('shop_info', da));   
+                          
+                        }     
 
                 }
             });
