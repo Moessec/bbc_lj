@@ -247,7 +247,7 @@ function shop_goodslist2(shop_id){
         });
         });
     // addcart();
-    alert(3333);
+    // alert(3333);
 
 }
 
