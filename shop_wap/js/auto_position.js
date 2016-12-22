@@ -16,7 +16,8 @@
         function loand(position) {  //主函数
             var lat = position.coords.latitude;//y，纬度，通过上面的getCurrentPosition函数定位浏览器位置，从而获取地址
             var lon = position.coords.longitude;//x，经度
-            //alert(lat);
+           $.cookie("lng",lon,{expires:7});
+           $.cookie("lat",lat,{expires:7});
             var map = new BMap.Map("container"); //初始化地图类
             var point = new BMap.Point(lon,lat); //这里设置刚开始的点所在处
             var gc = new BMap.Geocoder();  //初始化，Geocoder类
@@ -39,32 +40,32 @@
                 // 创建信息窗口对象，把信息在初始化 地图信息窗口类的同时写进去
                 
 
-                marker.enableDragging(); //启用拖拽事件
-                marker.addEventListener("dragend", function (e) {
-                    gc.getLocation(point, function (rs) {
-                        //由于在getLocation函数返回信息之前，首先执行它下面的代码的，所以要把重新拖动后的代码放到它里面
-                        var addComp = rs.addressComponents;
-                        province = addComp.province;//获取省份
-                        city = addComp.city;//获取城市
-                        district = addComp.district;//区
-                        street = addComp.street;//街
-                        opts = {
-                            width: 25,     // 信息窗口宽度  
-                            height: 160,     // 信息窗口高度  
-                            title: "现在的位置:<hr />"  // 信息窗口标题  
-                        }
-                        point = new BMap.Point(e.point.lng, e.point.lat); //标记新坐标（拖拽以后的坐标）
-                        marker = new BMap.Marker(point);  //事件类
+                // marker.enableDragging(); //启用拖拽事件
+                // marker.addEventListener("dragend", function (e) {
+                //     gc.getLocation(point, function (rs) {
+                //         //由于在getLocation函数返回信息之前，首先执行它下面的代码的，所以要把重新拖动后的代码放到它里面
+                //         var addComp = rs.addressComponents;
+                //         province = addComp.province;//获取省份
+                //         city = addComp.city;//获取城市
+                //         district = addComp.district;//区
+                //         street = addComp.street;//街
+                //         opts = {
+                //             width: 25,     // 信息窗口宽度  
+                //             height: 160,     // 信息窗口高度  
+                //             title: "现在的位置:<hr />"  // 信息窗口标题  
+                //         }
+                //         point = new BMap.Point(e.point.lng, e.point.lat); //标记新坐标（拖拽以后的坐标）
+                //         marker = new BMap.Marker(point);  //事件类
 
 
-                        infoWindow = new BMap.InfoWindow("省份:" + province + ";" + "城市:"
-                        + city + ";<br /><br />" + "县/区:" + district + ";" + "街道:" + street + ".<br />" +
-                            "经度：" + e.point.lng + "<br />纬度：" + e.point.lat, opts);
+                //         infoWindow = new BMap.InfoWindow("省份:" + province + ";" + "城市:"
+                //         + city + ";<br /><br />" + "县/区:" + district + ";" + "街道:" + street + ".<br />" +
+                //             "经度：" + e.point.lng + "<br />纬度：" + e.point.lat, opts);
 
-                        map.openInfoWindow(infoWindow, point);
-                        //这条函数openInfoWindow是输出信息函数，传入信息类和点坐标
-                    })
-                })
+                //         map.openInfoWindow(infoWindow, point);
+                //         //这条函数openInfoWindow是输出信息函数，传入信息类和点坐标
+                //     })
+                // })
 
                 map.addControl(new BMap.NavigationControl()); //左上角控件
                 map.enableScrollWheelZoom(); //滚动放大
