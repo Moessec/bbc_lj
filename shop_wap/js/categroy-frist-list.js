@@ -129,9 +129,9 @@ function shop_goodslist1()
         $('.goods_cont').eq(4).find('.outer').html(str); 
         });
         });
-    addcart();
+    // addcart(); 
 
-
+   alert(222);
 }
 function shop_goodslist2(shop_id){
 
@@ -246,7 +246,8 @@ function shop_goodslist2(shop_id){
         $('.goods_cont').eq(4).find('.outer').html(str); 
         });
         });
-    addcart();
+    // addcart();
+    alert(3333);
 
 }
 
