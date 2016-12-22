@@ -615,7 +615,11 @@ body{
             line-height: 2rem;
             color: #999;
             margin-bottom: 3rem;
-        }        
+        }
+/*        #activity-end2{
+          margin-top: 30rem;
+          padding-top: 20rem;
+        } */       
         .announ-contain{
             background: white;
             height: 1rem;
@@ -684,24 +688,3 @@ body{
     color:black;
     font-size: 0.6rem;
 }
-/*    .add1{
-       font-size: 0.6rem;
-       margin-left: 0.1rem;
-       position: relative;
-       top: 1rem;
-    }
-    .inter .add{
-            float: right;
-            display: inline-block;
-            width: 1.2rem;
-            height: 1.2rem;
-            background-image: url(../images/iconfont/add02.png);
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: 83%;
-            opacity: 1;
-             right: 0.5rem;
-            bottom: 0.3rem;
-            position: relative;
-            top: -0.25rem;
-        }*/

@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* 触屏版商品分类样式类型				*/
 /*商品分类*/
+
 .categroy-cnt { width: 3.8rem; height: 100%x; display: block; float: left; position: absolute; z-index: 1; top: 2rem; bottom: 0; left: 0; overflow: hidden;}
 
 /*分类一级导航*/
@@ -19,7 +20,7 @@
 .categroy-third-list a { color: #6d6d6d; display: block; padding: 15px 0px 15px 11px; }
 
 /* 分类子级内容 */
-.categroy-rgt { height:40rem;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0;}
+.categroy-rgt { height:auto;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0;}
 #categroy-rgt{
 /*margin-bottom: auto;*/
 }

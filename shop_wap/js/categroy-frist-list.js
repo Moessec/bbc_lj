@@ -630,7 +630,10 @@ $(function ()
 
                 });        
             }
+          // alert(body.height());
       }
+          // $('#categroy-rgt').height(); 
+          // alert( $('#categroy-rgt').height()); 
     
 
 });
