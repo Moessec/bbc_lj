@@ -1,3 +1,37 @@
+var lat1='';
+var lng1 = '';
+
+
+jQuery.MapConvert = {
+    x_pi: 3.14159265358979324 * 3000.0 / 180.0,
+    /// <summary>
+    /// 中国正常坐标系GCJ02协议的坐标，转到 百度地图对应的 BD09 协议坐标
+    ///  point 为传入的对象，例如{lat:xxxxx,lng:xxxxx}
+    /// </summary>
+    abc: function (lng,lat) {
+        var x = lng, y = lat;
+        var z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * jQuery.MapConvert.x_pi);
+        var theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * jQuery.MapConvert.x_pi);
+        lng1 = z * Math.cos(theta) + 0.0065;
+        lat1 = z * Math.sin(theta) + 0.006;
+
+                $.cookie("lng",lng1,{expires:7});
+                $.cookie("lat",lat1,{expires:7});
+    }
+    /// <summary>
+    /// 百度地图对应的 BD09 协议坐标，转到 中国正常坐标系GCJ02协议的坐标
+    /// </summary>
+    // Convert_BD09_To_GCJ02: function (point) {
+    //     var x = point.lng - 0.0065, y = point.lat - 0.006;
+    //     var z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * jQuery.MapConvert.x_pi);
+    //     var theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * jQuery.MapConvert.x_pi);
+    //     point.lng = z * Math.cos(theta);
+    //     point.lat = z * Math.sin(theta);
+    // }
+}
+
+
+
 function getPositionError(error) {
       //  HTML5 定位失败时，调用百度地图定位   
         var geolocation = new BMap.Geolocation();
@@ -5,9 +39,9 @@ function getPositionError(error) {
             if(this.getStatus() == BMAP_STATUS_SUCCESS){
                 var mk = new BMap.Marker(r.point);
                 var pt = r.point;
-
-                $.cookie("lng",pt.lng,{expires:7});
-                $.cookie("lat",pt.lat,{expires:7});
+                jQuery.MapConvert.abc(pt.lng,pt.lat);
+                // $.cookie("lng",pt.lng,{expires:7});
+                // $.cookie("lat",pt.lat,{expires:7});
 
                 $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
                               
