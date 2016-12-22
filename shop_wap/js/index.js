@@ -182,6 +182,10 @@ function distance1(ship_id){
 }
 $(function() {
 
+alert(getCookie('lat'));
+alert(getCookie('lng'));
+
+
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=index&typ=json", function (t)
          {
               var total = t.data.totalsize;
