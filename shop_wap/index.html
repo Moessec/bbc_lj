@@ -71,7 +71,7 @@
 				<dl>
 					<a class="shop-name" href="tmpl/product_first_categroy.html?shop_id=<%=shop_id%>"><dt class="shop-name"><%=shop_name%><span class="button-l"> 营业中 </span><span>(06:00-22:00)</span><i class="examine"></i></dt></a>
 					<dd class="shop-tel"><span><a href="tel://<%=shop_tel%> "><%=shop_tel%></a></span></dd>
-					<dd class="shop-address"><a href="tmpl/product_first_categroy.html?shop_id=<%=shop_id%>" style="color:inherit;"><%=shop_address%><span style="color:#FF7E18;margin-left: 0.2rem">距离您<b style="font-size: 0.6rem">/<%=shop_stamp%>m</b></span></a></dd>
+					<dd class="shop-address"><a href="tmpl/product_first_categroy.html?shop_id=<%=shop_id%>" style="color:inherit;"><%=shop_address%><span style="color:#FF7E18;margin-left: 0.2rem">距离您<b style="font-size: 0.6rem">/<%if (shop_stamp <1000){%><%=shop_stamp%>m<%}else{%><%var kms=parseFloat(shop_stamp/1000)%><%=kms%>km<%}%></b></span></a></dd>
 				</dl>
 			</div>
 			</script>
