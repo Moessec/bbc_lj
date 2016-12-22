@@ -173,6 +173,8 @@ function postData(t, e)
            },
             fields: {
                 'shop[shop_name]':'required;' ,
+                'shop[shop_latitude]':'required;' ,
+                'shop[shop_longitude]':'required;',
             },
 
         valid: function (form)
