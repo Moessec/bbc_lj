@@ -131,7 +131,7 @@ function shop_goodslist1()
         });
     // addcart(); 
 
-   alert(222);
+   // alert(222);
 }
 function shop_goodslist2(shop_id){
 
@@ -587,7 +587,7 @@ $(function ()
             $("#categroy-rgt").html(r);
             $(".pre-loading").hide();
             // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
-            shop_goodslist2(shop_id);
+            shop_goodslist2(shop_id);alert(5555);
             // addcart();
         });
       }else{
