@@ -42,10 +42,10 @@ function getPositionError(error) {
     var t_lng = $.cookie("lng");
     // alert( t_lng );
     var t_lat = $.cookie("lat");
-    if(!t_lng || !t_lat)
-    {
-      $.post("ajax_back_end.php",{"act":"reposition","lng":$.cookie("lng"),"lat":$.cookie("lat")},function(){})
-    }
+    // if(!t_lng || !t_lat)
+    // {
+    //   $.post("ajax_back_end.php",{"act":"reposition","lng":$.cookie("lng"),"lat":$.cookie("lat")},function(){})
+    // }
   }
 
   // 地址定位
