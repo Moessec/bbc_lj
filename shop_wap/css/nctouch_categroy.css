@@ -9,7 +9,7 @@
 .category-item-a { display: block; }
 .ci-fcategory-ico { width: 1rem; height: 1rem; padding: 0.45rem 0 0.25rem 0; margin: 0 auto; }
 .ci-fcategory-ico img { display: block; vertical-align: top; width: 100%; filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */ -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%); filter: gray; opacity: 0.5; }
-.ci-fcategory-name { font-size: 0.6rem; line-height: 2rem;height:2rem; color: #4F4F4F; text-align: center; width: 100%; /*height: 0.9rem;*/ padding-bottom: 0.25rem; border-bottom: solid 0.05rem #EEE;}
+.ci-fcategory-name { font-size: 0.6rem; background-color:#f5f5f5;line-height: 2rem;height:2rem; color: #4F4F4F; text-align: center; width: 152%;margin-left: -1rem; /*height: 0.9rem;*/ padding-bottom: 0.25rem; border-bottom: solid 0.05rem #ccc;}
 .category-item.selected .ci-fcategory-ico img { -webkit-filter: grayscale(0); -moz-filter: grayscale(0); -ms-filter: grayscale(0); -o-filter: grayscale(0); filter: grayscale(0); filter: gray; opacity: 1; }
 .category-item.selected .ci-fcategory-name { color: #FF862E; padding-bottom: 0.2rem; background-color:white;  margin-left: -1rem;
     padding-bottom: 0.2rem;
@@ -38,7 +38,7 @@
 
 /* 二三级分类 */
 .categroy-child-list { font-size: 0; width: 100%; }
-.categroy-child-list dt {clear: both; background-color: #FCFCFC; margin: 0.2rem 0; border-style: solid; border-color: #F5F5F5; border-width: 0.05rem 0; }
+.categroy-child-list dt {clear: both; background-color: #eee; margin: 0.2rem 0; border-style: solid; border-color: #F5F5F5; border-width: 0.05rem 0; }
 .categroy-child-list dt a { border-left:0.1rem solid orange;display: block; width: 96%; height: 1.48rem; padding: 0 0 0 0; font-size: 0.6rem; line-height: 1.48rem; color: #111;}
 .categroy-child-list dt i { width: 0.4rem; height: 0.4rem; vertical-align: middle; display: inline-block; border-radius: 0.2rem; margin-right: 0.4rem; }
 /*.categroy-child-list dt i.col0 { background-color: #ED5564;}
