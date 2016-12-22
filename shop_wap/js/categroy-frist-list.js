@@ -129,9 +129,7 @@ function shop_goodslist1()
         $('.goods_cont').eq(4).find('.outer').html(str); 
         });
         });
-    // addcart(); 
 
-   // alert(222);
 }
 function shop_goodslist2(shop_id){
 
@@ -246,9 +244,6 @@ function shop_goodslist2(shop_id){
         $('.goods_cont').eq(4).find('.outer').html(str); 
         });
         });
-    // addcart();
-    // alert(3333);
-
 }
 
 //===========================钓起商品数据结束==============================
@@ -316,7 +311,6 @@ function shop_goodslist2(shop_id){
 /////////////////////////加入购物车/////////////////////////////////////////
 function addcart()
 {
-    // alert(1);
     setTimeout(function(){
 
             $('.add').click(function(){
@@ -588,8 +582,8 @@ $(function ()
             $(".pre-loading").hide();
             // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
             shop_goodslist2(shop_id);
+            addcart();
         });
-            // addcart();alert(232);
       }else{
             if(getCookie('community_shopid'))
             {
@@ -605,7 +599,7 @@ $(function ()
                     $(".pre-loading").hide();
                     // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
                     shop_goodslist2(shop_id);
-                    // addcart();
+                    addcart();
                 });                
             }else if(getCookie('shot_shop'))
             {
@@ -621,7 +615,7 @@ $(function ()
                     $(".pre-loading").hide();
                     // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
                     shop_goodslist2(shop_id);
-                    // addcart();
+                    addcart();
                 });                 
             }else{
                 
@@ -633,7 +627,7 @@ $(function ()
                     $("#categroy-rgt").html(r);
                     $(".pre-loading").hide();
                     shop_goodslist1();
-                     // addcart();
+                     addcart();
 
                 });        
             }
@@ -659,7 +653,7 @@ $("#categroy-cnt").on("click", ".brand", function ()
 
 
 $(function(){
-    get_brand_recommend();addcart()
+    get_brand_recommend();
 
   var src;
   var sr2;
