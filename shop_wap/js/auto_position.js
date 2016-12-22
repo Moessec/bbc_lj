@@ -1,26 +1,26 @@
-　　if(navigator.geolocation) { // 判断设备是否支持定位
+// 　　if(navigator.geolocation) { // 判断设备是否支持定位
 
-　　　　navigator.geolocation.getCurrentPosition(function(position) { 　　
+// 　　　　navigator.geolocation.getCurrentPosition(function(position) { 　　
 
-　　　　　　alert(position.coords.latitude); // 纬度
+// 　　　　　　alert(position.coords.latitude); // 纬度
 
-　　　　　　alert(position.coords.longitude); // 经度
+// 　　　　　　alert(position.coords.longitude); // 经度
 
-　　　　}, function(error) {
+// 　　　　}, function(error) {
 
-　　　　　　alert(error.message);
+// 　　　　　　alert(error.message);
 
-　　　　}, {
+// 　　　　}, {
 
-　　　　　　timeout: 90000
+// 　　　　　　timeout: 90000
 
-　　　　});
+// 　　　　});
 
-　　}else {
+// 　　}else {
 
-　　　　alert("不支持定位");
+// 　　　　alert("不支持定位");
 
-　　}
+// 　　}
 
 
 
