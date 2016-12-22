@@ -9,7 +9,7 @@ function getPositionError(error) {
                 $.cookie("lng",pt.lng,{expires:7});
                 $.cookie("lat",pt.lat,{expires:7});
 
-                // $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
+
                               
             }
         },{enableHighAccuracy: true});
