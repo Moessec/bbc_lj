@@ -224,6 +224,8 @@ class Api_Shop_SelfsupportCtl extends Api_Controller
 		$shop_base['shop_name']      = request_string("shop_name");
 		$shop_base['shop_all_class'] = request_int("shop_all_class");
 		$shop_base['shop_status']    = request_int("shop_status");
+		$shop_base['shop_longitude']    = request_float("shop_longitude");
+		$shop_base['shop_latitude']    = request_float("shop_latitude");
 		$flag                        = $this->shopBaseModel->editBase($shop_id, $shop_base);
                 
 		if ($flag === false)
