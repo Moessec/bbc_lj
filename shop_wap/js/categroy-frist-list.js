@@ -315,6 +315,7 @@ function shop_goodslist2(shop_id){
 /////////////////////////加入购物车/////////////////////////////////////////
 function addcart()
 {
+    alert(1);
     setTimeout(function(){
 
             $('.add').click(function(){
