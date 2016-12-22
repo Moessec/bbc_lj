@@ -79,6 +79,7 @@
                 var currentLon = position.coords.longitude;  
                 // SetCookie("curLat", currentLat, 1);//设置cookie  
                 // SetCookie("curLng", currentLon, 1);//设置cookie  
+                alert(currentLat);
                 $.cookie("lng",currentLon,{expires:7});
                 $.cookie("lat",currentLat,{expires:7});                
                 var gpsPoint = new BMap.Point(currentLon, currentLat);  
