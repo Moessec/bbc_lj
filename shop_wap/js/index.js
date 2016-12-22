@@ -6,6 +6,7 @@ var sli='';
 var cart_count = 1 ;
 var total = 1;
 var dis = new Array();
+dis[0]=10000000000000000;
 var temp ='';
 
     var EARTH_RADIUS = 6378137.0;    //单位M
