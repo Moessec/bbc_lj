@@ -5,11 +5,11 @@ function getPositionError(error) {
             if(this.getStatus() == BMAP_STATUS_SUCCESS){
                 var mk = new BMap.Marker(r.point);
                 var pt = r.point;
+                alert(123);
+                // $.cookie("lng",pt.lng,{expires:7});
+                // $.cookie("lat",pt.lat,{expires:7});
 
-                $.cookie("lng",pt.lng,{expires:7});
-                $.cookie("lat",pt.lat,{expires:7});
-
-                $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
+                // $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
                               
             }
         },{enableHighAccuracy: true});
@@ -18,12 +18,12 @@ function getPositionError(error) {
     function getPositionSuccess(position){
       var lat = position.coords.latitude;
       var lng = position.coords.longitude;
-
+        alert(234);
+           $.cookie("lng",point.lng,{expires:7});
+           $.cookie("lat",point.lat,{expires:7});
       var ggPoint = new BMap.Point(lng,lat);
       //转换成百度地图坐标
       var trunback = function (point){
-           $.cookie("lng",point.lng,{expires:7});
-           $.cookie("lat",point.lat,{expires:7});
            // $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
       }
       BMap.Convertor.translate(ggPoint,0,trunback);     
