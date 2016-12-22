@@ -5,9 +5,9 @@ function getPositionError(error) {
             if(this.getStatus() == BMAP_STATUS_SUCCESS){
                 var mk = new BMap.Marker(r.point);
                 var pt = r.point;
-                alert(123);
-                // $.cookie("lng",pt.lng,{expires:7});
-                // $.cookie("lat",pt.lat,{expires:7});
+                // alert(123);
+                $.cookie("lng",pt.lng,{expires:7});
+                $.cookie("lat",pt.lat,{expires:7});
 
                 // $.post("ajax_back_end.php",{"act":"reposition","lng":pt.lng,"lat":pt.lat},function(){})
                               
