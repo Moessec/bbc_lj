@@ -78,7 +78,7 @@
             <% } %>
             <% } else { %>
             <dl>
-                
+
                 <dt>￥<em><%=goods_info.goods_price%></em><span id="scock">库存<span><%=goods_info.goods_stock%></span>件</span></dt>
             </dl>
             <% } %>
@@ -207,6 +207,7 @@
             </div>
         </div>
         <% } %>
+        <div class="goods-detail-botto"><a href="javascript:void(0);" id="goodsBody1">点击查看商品详情</a></div>
         <div class="goods-detail-comment" id="goodsEvaluation1">
             <div class="title">
                 <a id="goodsEvaluation1" href="javascript:void(0);">商品评价<span class="rate">好评率<em><%=100%>%</em></span><span class="rate-num">（<%=goods_info.common_evaluate%>人评价）</span><div class="item-more"></div></a>
@@ -249,7 +250,7 @@
                 <%}%>
             </ul>
         </div>
-        <div class="goods-detail-bottom"><a href="javascript:void(0);" id="goodsBody1">点击查看商品详情</a></div>
+        // <div class="goods-detail-bottom"><a href="javascript:void(0);" id="goodsBody1">点击查看商品详情</a></div>
         <div class="goods-detail-foot">
             <div class="otreh-handle">
                 <a href="javascript:void(0);" class="kefu"><i></i><p>客服</p></a>
