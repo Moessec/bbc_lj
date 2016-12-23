@@ -70,8 +70,8 @@
             <% if (goods_info.promotion_type) { %>
             <dl>
                 <dt>￥<em><%=goods_info.promotion_price%></em>
-                </dt>
-                <dd>￥<%=goods_info.goods_price%><span id="scock">库存<span><%=goods_info.goods_stock%></span>件</span></dd>
+                </dt><span id="scock">库存<span><%=goods_info.goods_stock%></span>件</span>
+                <dd>￥<%=goods_info.goods_price%></dd>
             </dl>
             <% if (goods_info.promotion_type == 'sole') { %>
             <span class="activity"><i></i>手机专享</span>
