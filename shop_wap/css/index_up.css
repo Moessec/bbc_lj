@@ -312,7 +312,7 @@ body{
         }
         .shop-contain-img img{
         	  width: 3.6rem;
-            height: 3.6rem;
+            height: 3.685rem;
             /*border-radius: 0.5;*/
             margin-top: 0.3rem;
             border: solid 0px #000;
@@ -368,6 +368,7 @@ body{
 		    background-size: 60%;
 		    opacity: 1;
             position: absolute;
+            top: 0.4rem;
         }
         .shop-contain-info dl dd.shop-tel{
         	bottom:1.9rem;
