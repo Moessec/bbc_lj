@@ -23,6 +23,23 @@ include $this->view->getTplPath() . '/'  . 'header.php';
               </dl>
               <dl class="row">
                 <dt class="tit">
+                    <label for="shop_address"> *店铺地址</label>
+                </dt>
+                <dd class="opt">
+                    <input id="shop_address" name="shop_address" value="<?=$data['shop_address']?>" class="ui-input w200" type="text"/>
+                </dd>
+              </dl>
+              <dl class="row">
+                <dt class="tit">
+                    <label for="shop_tel"> *店铺电话</label>
+                </dt>
+                <dd class="opt">
+                    <input id="shop_tel" name="shop_tel" value="<?=$data['shop_tel']?>" class="ui-input w200" type="text"/>
+                </dd>
+              </dl>
+
+              <dl class="row">
+                <dt class="tit">
                     <label for="shop_longitude"> *经度</label>
                 </dt>
                 <dd class="opt">
@@ -105,7 +122,10 @@ function postData(t, e)
                 'shop_name':'required;' ,
                 'shop_status':'required;',
                 'shop_latitude':'required;',
-                'shop_longitude':'required;'
+                'shop_longitude':'required;',
+                'shop_address':'required;',
+                'shop_tel':'required;',
+
 
             },
 
@@ -114,6 +134,8 @@ function postData(t, e)
             var 
               shop_id = $.trim($("#shop_id").val()), 
               shop_name = $.trim($("#shop_name").val()), 
+              shop_address = $.trim($("#shop_address").val()), 
+              shop_tel = $.trim($("#shop_tel").val()), 
               shop_longitude = $.trim($("#shop_longitude").val()), 
               shop_latitude = $.trim($("#shop_latitude").val()), 
               shop_all_class = $.trim($("input[name='shop_all_class']:checked").val()),
@@ -122,7 +144,9 @@ function postData(t, e)
 			n = "Add" == t ? "新增店铺" : "修改店铺";
 			params =  {
 				shop_id: shop_id, 
-				shop_name: shop_name, 
+        shop_name: shop_name, 
+        shop_address: shop_address, 
+				shop_tel: shop_tel, 
 				shop_all_class: shop_all_class,
         shop_status:shop_status,
         shop_longitude:shop_longitude,
@@ -156,6 +180,8 @@ function resetForm(t)
 {
     $_form.validate().resetForm();
     $("#shop_name").val("");
+    $("#shop_address").val("");
+    $("#shop_tel").val("");
     $("#shop_longitude").val("");
     $("#shop_latitude").val("");
     $("input[name='shop_all_class']:checked").val("");
