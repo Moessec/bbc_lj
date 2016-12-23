@@ -88,12 +88,16 @@ function postData(t, e)
            },
             fields: {
                 'shop_name':'required;' ,
+                'shop_address':'required;' ,
+                'shop_tel':'required;' ,
               
             },
 
         valid: function (form)
         {
             var shop_name = $.trim($("#shop_name").val()), 
+            shop_address = $.trim($("#shop_address").val()), 
+            shop_tel = $.trim($("#shop_tel").val()), 
             user_name = $.trim($("#user_name").val()), 
             user_password = $.trim($("#user_password").val()), 
 
@@ -101,7 +105,9 @@ function postData(t, e)
 			params = rowData.shop_id ? {
 				shop_id: e, 
 				shop_name: shop_name, 
-				user_name: user_name,
+                user_name: user_name,
+                shop_address: shop_address,
+				shop_tel: shop_tel,
                                 user_password:user_password,
                                
 			} : {
