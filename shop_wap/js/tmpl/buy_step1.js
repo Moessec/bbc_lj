@@ -838,7 +838,7 @@ $(function() {
         }
         //获取配送方式信息
         ps_type=[];
-        $("input[name='ps_type']:checked").each(function(){
+        $("input[class='ps_type']:checked").each(function(){
             ps_type.push($(this).val());//将值添加到数组中
         });
         for(var i = 0 ;i<ps_type.length;i++)
