@@ -96,8 +96,6 @@ function postData(t, e)
         valid: function (form)
         {
             var shop_name = $.trim($("#shop_name").val()), 
-            user_name = $.trim($("#shop_address").val()), 
-            user_name = $.trim($("#shop_tel").val()), 
             user_name = $.trim($("#user_name").val()), 
             user_password = $.trim($("#user_password").val()), 
 
