@@ -2,7 +2,7 @@
 /* 触屏版商品分类样式类型				*/
 /*商品分类*/
 
-.categroy-cnt { width: 3.8rem; height: 100%; display: block; float: left; position: fixed; z-index: 1; top: 2rem; bottom: 0; left: 0; overflow: hidden;}
+.categroy-cnt { width: 3.8rem; height: 100%; display: block;  position: fixed; z-index: 1; top: 2rem; bottom: 0; left: 0; overflow: hidden;}
 
 /*分类一级导航*/
 .categroy-list { padding: 0 0.5rem; position: absolute; }
