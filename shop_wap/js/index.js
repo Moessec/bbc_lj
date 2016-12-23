@@ -154,8 +154,27 @@ var spid = min(dis);
                      da.shop_stamp=' km';
 
                     }         
-                 $("#shopinfo").html(template.render('shop_info', da));   
-                $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json&shop_id="+getCookie('shot_shop'), function (t)
+                 $("#shopinfo").html(template.render('shop_info', da));
+                  var swiper = new Swiper('.banner02', {
+                  pagination: '.swiper-pagination',
+                  paginationType : 'bullets',
+                  // paginationType : 'fraction',
+                  paginationClickable: true,
+                  autoplayDisableOnInteraction: false,
+                  autoplay: 1300,
+                  speed: 500,
+                  effect:'fade',
+                  height : 120, 
+                  grabCursor: true,
+                  paginationClickable: true,
+                  mousewheelControl: true,
+                  lazyLoading: true,
+                  // nextButton: '.swiper-button-next',
+                  // prevButton: '.swiper-button-prev',
+                  // pagination: '.swiper-pagination',
+
+                });    
+                 $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json&shop_id="+getCookie('shot_shop'), function (t)
                      {
              
                        $("#product-contain3").html(template.render('goods3', t));
