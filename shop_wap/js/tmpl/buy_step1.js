@@ -841,6 +841,7 @@ $(function() {
         $("input[class='ps_type']:checked").each(function(){
             ps_type.push($(this).val());//将值添加到数组中
         });
+        console.info(ps_type);
         for(var i = 0 ;i<ps_type.length;i++)
          {
                      if(ps_type[i] == "" || typeof(ps_type[i]) == "undefined")
