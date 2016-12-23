@@ -22,6 +22,15 @@ $(function ()
                   if(tem==city)
                   {
                     flag = 1;
+                    if(r[i].shop_address)
+                    {
+                      r[i].company_address_detail=r[i].shop_address;
+                    }
+                    if(r[i].shop_tel)
+                    {
+                      r[i].company_phone=r[i].shop_tel;
+                    }                    
+
                      div += '<div class="list"><a href="../tmpl/product_first_categroy.html?shop_id='+r[i].shop_id+'"><div class="list_left"><img src="'+r[i].shop_logo+'" alt=""></div><div class="list_right"><dl><dd class="title">'+r[i].shop_name+'</dd><dd class="address">地址:'+r[i].company_address_detail+'</dd><dd>电话:'+r[i].company_phone+'</dd></dl></div></a></div>';
                   }
         }
