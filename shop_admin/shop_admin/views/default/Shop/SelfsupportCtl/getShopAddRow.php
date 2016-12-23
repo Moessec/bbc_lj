@@ -88,8 +88,6 @@ function postData(t, e)
            },
             fields: {
                 'shop_name':'required;' ,
-                'shop_address':'required;' ,
-                'shop_tel':'required;' ,
               
             },
 
