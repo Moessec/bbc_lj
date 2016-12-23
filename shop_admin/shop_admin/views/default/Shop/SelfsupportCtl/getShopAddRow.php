@@ -96,18 +96,24 @@ function postData(t, e)
         valid: function (form)
         {
             var shop_name = $.trim($("#shop_name").val()), 
+            user_name = $.trim($("#shop_address").val()), 
+            user_name = $.trim($("#shop_tel").val()), 
             user_name = $.trim($("#user_name").val()), 
             user_password = $.trim($("#user_password").val()), 
 
 			n = "Add" == t ? "新增店铺" : "修改店铺";
 			params = rowData.shop_id ? {
 				shop_id: e, 
-				shop_name: shop_name, 
+                shop_name: shop_name, 
+                shop_address: shop_address, 
+				shop_tel: shop_tel, 
 				user_name: user_name,
                                 user_password:user_password,
                                
 			} : {
-				shop_name: shop_name, 
+				shop_name: shop_name,
+                shop_address: shop_address, 
+                shop_tel: shop_tel,  
 				user_name: user_name,
                                 user_password:user_password,
 			};
