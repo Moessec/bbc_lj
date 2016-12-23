@@ -336,6 +336,7 @@ body{
         .shop-contain-info .shop-name{
         	font-size: 0.7rem;
             color:#FF7E18;
+            margin-top: 0.12rem;
         }
         .shop-contain-info .shop-name span{
         	height: 0.9rem;
