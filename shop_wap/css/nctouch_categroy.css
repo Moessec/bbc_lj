@@ -2,7 +2,7 @@
 /* 触屏版商品分类样式类型				*/
 /*商品分类*/
 
-.categroy-cnt { width: 3.8rem; height: 100%x; display: block; float: left; position: absolute; z-index: 1; top: 2rem; bottom: 0; left: 0; overflow: hidden;}
+.categroy-cnt { width: 3.8rem; height: 100%x; display: block; float: left; position: fixed; z-index: 1; top: 2rem; bottom: 0; left: 0; overflow: hidden;}
 
 /*分类一级导航*/
 .categroy-list { padding: 0 0.5rem; position: absolute; }
@@ -23,6 +23,9 @@
 .categroy-rgt { height:auto;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0;}
 #categroy-rgt{
 /*margin-bottom: auto;*/
+}
+.hed{
+    position:fixed;
 }
 /*#activity-end2{
 	clear: both;
@@ -64,7 +67,7 @@
 }
 .nctouch-main-layout{
 	/*height: 700px;*/
-	margin-bottom: 46rem;
+	/*margin-bottom: 46rem;*/
 }
 /*商品列表头部特征*/
 .nctouch-product-header .header-inp {}
