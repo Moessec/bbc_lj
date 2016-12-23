@@ -104,16 +104,12 @@ function postData(t, e)
 			n = "Add" == t ? "新增店铺" : "修改店铺";
 			params = rowData.shop_id ? {
 				shop_id: e, 
-                shop_name: shop_name, 
-                shop_address: shop_address, 
-				shop_tel: shop_tel, 
+				shop_name: shop_name, 
 				user_name: user_name,
                                 user_password:user_password,
                                
 			} : {
-				shop_name: shop_name,
-                shop_address: shop_address, 
-                shop_tel: shop_tel,  
+				shop_name: shop_name, 
 				user_name: user_name,
                                 user_password:user_password,
 			};
