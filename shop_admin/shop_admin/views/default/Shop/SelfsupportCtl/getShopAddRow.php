@@ -113,6 +113,8 @@ function postData(t, e)
 			} : {
 				shop_name: shop_name, 
 				user_name: user_name,
+                shop_address: shop_address,
+                shop_tel: shop_tel,
                                 user_password:user_password,
 			};
 			Public.ajaxPost(SITE_URL +"?ctl=Shop_Selfsupport&met=" + ("Add" == t ? "Add" : "Edit")+ "ShopRow&typ=json", params, function (e)
@@ -143,6 +145,8 @@ function resetForm(t)
 {
     $_form.validate().resetForm();
     $("#shop_name").val("");
+    $("#shop_address").val("");
+    $("#shop_tel").val("");
     $("#user_name").val("");
     $("#user_password").val("");
 }
