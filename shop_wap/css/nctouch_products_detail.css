@@ -142,13 +142,13 @@
 .goods-detail-recom { background: #FFF; padding: 0 0 0 0.5rem; margin: 0.5rem 0; background-color: #FFF; border: solid #EEE; border-width: 0.05rem; overflow: hidden;}
 .goods-detail-recom h4 { display: block; height: 0.9rem; padding: 0.4rem 0; font-size: 0.6rem; color: #888; line-height: 0.9rem; }
 .goods-detail-recom ul { font-size: 0;}
-.goods-detail-recom ul li { display: inline-block; width: 22%; margin: 0 3% 0.4rem 0;}
+.goods-detail-recom ul li { display: inline-block; width: 32%; margin: 0 1% 0.4rem 0;}
 .goods-detail-recom ul li  a { display: block;}
-.goods-detail-recom .pic { display: block; width: 3.225rem; height: 3.225rem; border: solid 0.05rem #EEE;}
+.goods-detail-recom .pic { display: block; /*width: 3.225rem; height: 3.225rem;*/ border: solid 0.05rem #EEE;}
 .goods-detail-recom .pic img { display: block; width: 100%; height: 100%;}
 .goods-detail-recom dl { margin-top: 0.2rem;}
-.goods-detail-recom dt { display: block; overflow: hidden;  font-size: 0.5rem; line-height: 0.6rem; color: #777; margin-bottom: 0.2rem;}
-.goods-detail-recom dd { font-size: 0.45rem; color: #333;}
+.goods-detail-recom dt { display: block; overflow: hidden;  font-size: 0.6rem; line-height: 0.6rem; color: #777; margin-bottom: 0.2rem;}
+.goods-detail-recom dd { font-size: 0.5rem; color: #333;}
 .goods-detail-recom dd em { font-size: 0.55rem; }
 
 /*商品详情选项*/
