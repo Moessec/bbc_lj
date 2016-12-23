@@ -228,7 +228,7 @@ body{
         .transparent .transparent-search{
         	display: block;
 		    max-width: 750px;
-		    margin: 0 auto;
+		    margin: 0 16%;
 		    text-align: center;
             width:60%;
         }
