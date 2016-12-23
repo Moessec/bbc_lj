@@ -78,7 +78,7 @@
             <% } %>
             <% } else { %>
             <dl>
-
+                
                 <dt>￥<em><%=goods_info.goods_price%></em><span id="scock">库存<span><%=goods_info.goods_stock%></span>件</span></dt>
             </dl>
             <% } %>
@@ -225,7 +225,6 @@
                 <% }} %>
             </div>
         </div>
-                <div class="goods-detail-bottom"><a href="javascript:void(0);" id="goodsBody1">点击查看商品详情</a></div>
         <% if (store_info.shop_self_support != "true") {%>
         <div class="goods-detail-store">
             <a href="product_first_categroy.html?shop_id=<%= store_info.store_id %>">
@@ -237,7 +236,7 @@
         <div class="goods-detail-recom">
             <h4>店铺推荐</h4>
             <ul>
-                <%for (var i = 0;i<6;i++){%>
+                <%for (var i = 0;i<goods_commend_list.length;i++){%>
                 <li>
                     <a href="product_detail.html?goods_id=<%=goods_commend_list[i].goods_id%>">
                         <div class="pic"><img src="<%=goods_commend_list[i].common_image%>"></div>
@@ -250,7 +249,7 @@
                 <%}%>
             </ul>
         </div>
-
+        <div class="goods-detail-bottom"><a href="javascript:void(0);" id="goodsBody1">点击查看商品详情</a></div>
         <div class="goods-detail-foot">
             <div class="otreh-handle">
                 <a href="javascript:void(0);" class="kefu"><i></i><p>客服</p></a>
