@@ -404,7 +404,7 @@
                <a href="javascript:void(0);" id="list-voucher-valve" style="color:#FE943F"> <dt>选择代金券</dt>
                  <input type="hidden" class="inp" name="voucher_id" id="voucher_id" value="<%=store_cart_list[k].shop_id%>"/>
                 <input type="hidden" class="inp" name="voucher_id" id="position" value="<%=k%>"/>
-                <dd style="color:#DB4453;font-weight: 600;"><em id="vourchPrice<%=k%>"></em>元</dd>
+                <dd style="color:#DB4453;font-weight: 600;"><em id="vourchPrice<%=k%>"></em></dd>
                 <input type="hidden" class="voucher_list" id="vourch_id<%=k%>" name="vourch_id" value="">
             </dl>
             </a>
@@ -509,7 +509,7 @@
             $(function(){
               $("input[class='ps_type']").change(function(){
                 a=$(this).val();
-                console.info(a);
+               
                 if(a!='')
                 {   wlps=$(this).parent().next().next();
                     wlps.hide();
