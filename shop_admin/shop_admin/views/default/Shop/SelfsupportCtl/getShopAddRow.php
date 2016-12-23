@@ -20,6 +20,24 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                     <p class="notic">填写自营店铺的名称。</p>
                 </dd>
               </dl>
+              <dl class="row">
+                <dt class="tit">
+                    <label for="shop_address"> *店铺地址</label>
+                </dt>
+                <dd class="opt">
+                    <input id="shop_address" name="shop_address" value="" class="ui-input w200" type="text"/>
+                    <p class="notic">填写自营店铺的地址。</p>
+                </dd>
+              </dl>
+              <dl class="row">
+                <dt class="tit">
+                    <label for="shop_tel"> *店铺电话</label>
+                </dt>
+                <dd class="opt">
+                    <input id="shop_tel" name="shop_tel" value="" class="ui-input w200" type="text"/>
+                    <p class="notic">填写自营店铺的电话。</p>
+                </dd>
+              </dl>
            
            
              <dl class="row">
@@ -70,24 +88,32 @@ function postData(t, e)
            },
             fields: {
                 'shop_name':'required;' ,
+                'shop_address':'required;' ,
+                'shop_tel':'required;' ,
               
             },
 
         valid: function (form)
         {
             var shop_name = $.trim($("#shop_name").val()), 
+            user_name = $.trim($("#shop_address").val()), 
+            user_name = $.trim($("#shop_tel").val()), 
             user_name = $.trim($("#user_name").val()), 
             user_password = $.trim($("#user_password").val()), 
 
 			n = "Add" == t ? "新增店铺" : "修改店铺";
 			params = rowData.shop_id ? {
 				shop_id: e, 
-				shop_name: shop_name, 
+                shop_name: shop_name, 
+                shop_address: shop_address, 
+				shop_tel: shop_tel, 
 				user_name: user_name,
                                 user_password:user_password,
                                
 			} : {
-				shop_name: shop_name, 
+				shop_name: shop_name,
+                shop_address: shop_address, 
+                shop_tel: shop_tel,  
 				user_name: user_name,
                                 user_password:user_password,
 			};
@@ -119,6 +145,8 @@ function resetForm(t)
 {
     $_form.validate().resetForm();
     $("#shop_name").val("");
+    $("#shop_address").val("");
+    $("#shop_tel").val("");
     $("#user_name").val("");
     $("#user_password").val("");
 }
