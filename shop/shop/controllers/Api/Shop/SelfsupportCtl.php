@@ -126,6 +126,8 @@ class Api_Shop_SelfsupportCtl extends Api_Controller
 			if ($user_id)
 			{
 				$datas['shop_name']         = request_string("shop_name");
+				$datas['shop_address']      = request_string("shop_address");
+				$datas['shop_tel']          = request_string("shop_tel");
 				$datas['user_name']         = request_string("user_name");
 				$datas['user_id']           = $user_id;
 				$datas['shop_all_class']    = "1";
