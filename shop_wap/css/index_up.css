@@ -239,8 +239,8 @@ body{
 		    display: block;
     		height: 1.4rem;
         line-height: 1.4rem;
-    		margin:0.275rem auto;
-            margin-left: 1.3rem;
+    		margin:0.275rem 1.3rem;
+            /*margin-left: 1.3rem;*/
         } 
         .width{
         	width:100%;
