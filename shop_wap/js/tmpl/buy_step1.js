@@ -317,6 +317,10 @@ $(function() {
                         $('#voucher' + k).show();
                         $('#vourch_id' + k).val(voucher_id);
                     }
+                    else
+                    {
+                         $('#vourchPrice' + k).html('暂无');
+                    }
 
                     $('#storeTotal' + k).html(allprice.toFixed(2));
                     $('#storeFreight' + k).html(result.data.cost[k].cost.toFixed(2));
