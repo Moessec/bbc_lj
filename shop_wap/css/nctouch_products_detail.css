@@ -172,7 +172,7 @@
 .goods-option-value { display: block; height: 1.2rem; padding: 0.5rem; margin-bottom: 2rem; line-height: 1.2rem; font-size: 0.6rem; color: #999; border-top: solid 0.05rem #EEE;}
 
 .goods-detail-bottom { /*margin: 0.5rem 0 2.5rem 0;*/ text-align: center;}
-.goods-detail-bottom a { display: inline-block;margin-top:0.6rem;width: 100%; height: 1rem; margin: 0 auto; font-size: 0.6rem; line-height: 1rem; color: #999;}
+.goods-detail-bottom a { display: block;margin-top:0.6rem;width: 100%; height: 1.9rem; margin: 0 auto; font-size: 0.6rem; line-height: 1.9rem; background-color:white;color: #999;margin-top: 0.6rem;}
 
 /*商品详情底部*/
 .goods-detail-foot { position: fixed; z-index: 1; top: auto; left: 0; right: 0; bottom: 0; height: 2rem; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#F2F5F5F5', endColorstr='#F2F5F5F5');background:rgba(245,245,245,0.95);}
