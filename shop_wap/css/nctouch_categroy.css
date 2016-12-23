@@ -22,7 +22,7 @@
 /* 分类子级内容 */
 .categroy-rgt { height:auto;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0.28rem;}
 #categroy-rgt{
-margin:0 -3px;
+/*margin:0 -3px;*/
 }
 .hed{
     position:fixed;
