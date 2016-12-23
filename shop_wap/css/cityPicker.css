@@ -71,7 +71,7 @@
 	font-size: 2.8rem;
 	/*line-height: 5rem*/
 	border-bottom: 1px solid #EFEFEF;
-	border-top: 1px solid #EFEFEF;
+	border-top: 3px solid #EFEFEF;
 	line-height: 6rem;
 	color: #999999;
 	position: absolute;
@@ -163,7 +163,7 @@
 .IIInsomnia-city-picker .IIInsomnia-city-wrap{
 	display: none;
 	margin-top: 0px;
-	border-top: 1px solid #D8D8D8;
+	border-top: 2.6px solid #D8D8D8;
 	/*border-right: 1px solid #D8D8D8;*/
 	background: #ffffff;
 	position: relative;
