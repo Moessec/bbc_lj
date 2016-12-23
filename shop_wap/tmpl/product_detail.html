@@ -72,14 +72,14 @@
                 <dt>￥<em><%=goods_info.promotion_price%></em>
                 </dt>
                 <dd>￥<%=goods_info.goods_price%></dd>
-                <span id="scock">库存<span><%=goods_info.goods_stock%></span>件</span>
             </dl>
             <% if (goods_info.promotion_type == 'sole') { %>
             <span class="activity"><i></i>手机专享</span>
             <% } %>
             <% } else { %>
             <dl>
-                <dt>￥<em><%=goods_info.goods_price%></em></dt>
+                
+                <dt>￥<em><%=goods_info.goods_price%></em><span id="scock">库存<span><%=goods_info.goods_stock%></span>件</span></dt>
             </dl>
             <% } %>
             <span class="sold">销量：<%=goods_info.common_salenum%>件</span>
