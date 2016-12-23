@@ -128,7 +128,8 @@ class Api_Shop_SelfsupportCtl extends Api_Controller
 				$datas['shop_name']         = request_string("shop_name");
 				$datas['shop_address']      = request_string("shop_address");
 				$datas['shop_tel']          = request_string("shop_tel");
-				$datas['user_name']         = request_string("user_name");
+				$datas['shop_tel']          = request_string("shop_tel");
+				$datas['shop_logo']         = 'http://139.196.51.206/bbc_lj/shop/image.php/shop/data/upload/media/86eed725c53de6350c89c5b0234cddf0/10003/1/image/20161122/1479781342145006.jpg!200x60.jpg';
 				$datas['user_id']           = $user_id;
 				$datas['shop_all_class']    = "1";
 				$datas['shop_self_support'] = "true";
@@ -229,6 +230,7 @@ class Api_Shop_SelfsupportCtl extends Api_Controller
 		$shop_base['shop_all_class'] = request_int("shop_all_class");
 		$shop_base['shop_status']    = request_int("shop_status");
 		$shop_base['shop_longitude']    = request_float("shop_longitude");
+		$shop_base['shop_logo']    = 'http://139.196.51.206/bbc_lj/shop/image.php/shop/data/upload/media/86eed725c53de6350c89c5b0234cddf0/10003/1/image/20161122/1479781342145006.jpg!200x60.jpg';
 		$shop_base['shop_latitude']    = request_float("shop_latitude");
 		$flag                        = $this->shopBaseModel->editBase($shop_id, $shop_base);
                 
