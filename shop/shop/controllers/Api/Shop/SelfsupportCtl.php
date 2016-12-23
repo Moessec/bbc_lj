@@ -224,6 +224,8 @@ class Api_Shop_SelfsupportCtl extends Api_Controller
 	{
 		$shop_id                     = request_int("shop_id");
 		$shop_base['shop_name']      = request_string("shop_name");
+		$shop_base['shop_address']      = request_string("shop_address");
+		$shop_base['shop_tel']      = request_string("shop_tel");
 		$shop_base['shop_all_class'] = request_int("shop_all_class");
 		$shop_base['shop_status']    = request_int("shop_status");
 		$shop_base['shop_longitude']    = request_float("shop_longitude");
