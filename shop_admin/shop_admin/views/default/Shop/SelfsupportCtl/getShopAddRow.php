@@ -96,26 +96,20 @@ function postData(t, e)
         valid: function (form)
         {
             var shop_name = $.trim($("#shop_name").val()), 
-            user_name = $.trim($("#shop_address").val()), 
-            user_name = $.trim($("#shop_tel").val()), 
             user_name = $.trim($("#user_name").val()), 
             user_password = $.trim($("#user_password").val()), 
 
 			n = "Add" == t ? "新增店铺" : "修改店铺";
 			params = rowData.shop_id ? {
 				shop_id: e, 
-                shop_name: shop_name, 
-                shop_address: shop_address, 
-				shop_tel: shop_tel, 
+				shop_name: shop_name, 
 				user_name: user_name,
-                                user_password:user_password
+                                user_password:user_password,
                                
 			} : {
-				shop_name: shop_name,
-                shop_address: shop_address, 
-                shop_tel: shop_tel,  
+				shop_name: shop_name, 
 				user_name: user_name,
-                                user_password:user_password
+                                user_password:user_password,
 			};
 			Public.ajaxPost(SITE_URL +"?ctl=Shop_Selfsupport&met=" + ("Add" == t ? "Add" : "Edit")+ "ShopRow&typ=json", params, function (e)
 			{
@@ -145,8 +139,6 @@ function resetForm(t)
 {
     $_form.validate().resetForm();
     $("#shop_name").val("");
-    $("#shop_address").val("");
-    $("#shop_tel").val("");
     $("#user_name").val("");
     $("#user_password").val("");
 }
