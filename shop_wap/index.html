@@ -360,28 +360,25 @@ window.onload = function() {
 		// pagination: '.swiper-pagination',
 
 	});
-	setTimeout(function(){
+	var swiper = new Swiper('.banner02', {
+		pagination: '.swiper-pagination',
+		paginationType : 'bullets',
+		// paginationType : 'fraction',
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		autoplay: 1300,
+		speed: 500,
+		effect:'fade',
+		height : 120, 
+		grabCursor: true,
+		paginationClickable: true,
+		mousewheelControl: true,
+		lazyLoading: true,
+		// nextButton: '.swiper-button-next',
+		// prevButton: '.swiper-button-prev',
+		// pagination: '.swiper-pagination',
 
-		var swiper = new Swiper('.banner02', {
-			pagination: '.swiper-pagination',
-			paginationType : 'bullets',
-			// paginationType : 'fraction',
-			paginationClickable: true,
-			autoplayDisableOnInteraction: false,
-			autoplay: 1300,
-			speed: 500,
-			effect:'fade',
-			height : 120, 
-			grabCursor: true,
-			paginationClickable: true,
-			mousewheelControl: true,
-			lazyLoading: true,
-			// nextButton: '.swiper-button-next',
-			// prevButton: '.swiper-button-prev',
-			// pagination: '.swiper-pagination',
-
-		});	
-	},1000)
+	});	
 };
 
 
