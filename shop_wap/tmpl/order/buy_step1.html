@@ -509,6 +509,7 @@
             $(function(){
               $("input[class='ps_type']").change(function(){
                 a=$(this).val();
+                console.info(a);
                 if(a!='')
                 {   wlps=$(this).parent().next().next();
                     wlps.hide();
@@ -525,7 +526,7 @@
                    $('#totalPrice').html(old_price-cost);
                 }
                 else
-                {
+                {   
                     wlps=$(this).parent().next().show();
                      //获取运费
                    cost=wlps.children().next().children('em').html();
