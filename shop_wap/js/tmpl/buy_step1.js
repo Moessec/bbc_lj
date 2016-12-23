@@ -313,7 +313,7 @@ $(function() {
 
                     if(voucher_price > 0)
                     {
-                        $('#vourchPrice' + k).html(voucher_price);
+                        $('#vourchPrice' + k).html(voucher_price+'元');
                         $('#voucher' + k).show();
                         $('#vourch_id' + k).val(voucher_id);
                     }
