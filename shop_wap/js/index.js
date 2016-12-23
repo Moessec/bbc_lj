@@ -142,10 +142,15 @@ var spid = min(dis);
                     if(parseFloat(getCookie('shot_distance'))<1000) 
                     {
                       // alert(1);
-                     da.shop_stamp=getCookie('shot_distance')+'m';
-                    }else{
+                     var stamp=parseFloat(getCookie('shot_distance'));
+                     da.shop_stamp=stamp.toFixed(2) +'m';
+                    }else if(parseFloat(getCookie('shot_distance'))>=1000){
 
-                     da.shop_stamp=parseFloat(parseFloat(getCookie('shot_distance'))/1000)+'km';
+                     var stamp=parseFloat(parseFloat(getCookie('shot_distance'))/1000);
+                     da.shop_stamp=stamp.toFixed(2) +'km';
+
+                    }else{
+                     da.shop_stamp=' km';
 
                     }         
                  $("#shopinfo").html(template.render('shop_info', da));   
@@ -159,27 +164,29 @@ var spid = min(dis);
 }
 
 function distance1(ship_id){
-  var shop_id1 = ship_id;
-  // var dis = [];
-  var distance = ''
-    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+shop_id1, function (t)
-         {
-                  var da = t.data;
-                  var shop_latitude = da.shop_latitude;
-                  var shop_longitude = da.shop_longitude;
-                  // alert(shop_latitude);alert(shop_longitude);
-                  // var shop_latitude = 31.24916340;
-                  // var shop_longitude = 121.48790048;
-                  // alert(shop_latitude);
-                  // distance= getGreatCircleDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
-                  distance= getFlatternDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
-                  // alert(distance); 
-         }); 
-           setTimeout(function(){
+  if(($.cookie('lat')!='')&&($.cookie('lng')!=''))
+  {
+      var shop_id1 = ship_id;
+      // var dis = [];
+      var distance = ''
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+shop_id1, function (t)
+             {
+                      var da = t.data;
+                      var shop_latitude = da.shop_latitude;
+                      var shop_longitude = da.shop_longitude;
+                      // alert(shop_latitude);alert(shop_longitude);
+                      // var shop_latitude = 31.24916340;
+                      // var shop_longitude = 121.48790048;
+                      // alert(shop_latitude);
+                      // distance= getGreatCircleDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
+                      distance= getFlatternDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
+                      // alert(distance); 
+             }); 
+               setTimeout(function(){
 
-               dis[shop_id1] = distance; 
-           },400);
-
+                   dis[shop_id1] = distance; 
+               },400);
+   }
 }
 $(function() {
 
@@ -231,7 +238,7 @@ if($.cookie('community_shopid'))
 
                              da.shop_stamp=distan+'m'; 
                              }else if(parseFloat(distan)>=1000){
-                               da.shop_stamp=parseFloat(distan/1000)+'km'; 
+                               da.shop_stamp=parseFloat(distan/1000).toFixed(2)+'km'; 
 
                              }
                          $("#shopinfo").html(template.render('shop_info', da));   
