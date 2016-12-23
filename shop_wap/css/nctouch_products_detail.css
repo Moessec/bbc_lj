@@ -139,7 +139,7 @@
 .goods-detail-store .store-rate span.low i { color: #FFF; background-color: #48CFAE;}
 
 /*商品详情推荐*/
-.goods-detail-recom { background: #FFF; padding: 0 0 0 0.5rem; margin: 0.5rem 0; background-color: #FFF; border: solid #EEE; border-width: 0.05rem; overflow: hidden;}
+.goods-detail-recom { background: #FFF; padding: 0 0 0 0.5rem; margin: 0.5rem 0;margin-bottom: 2rem; background-color: #FFF; border: solid #EEE; border-width: 0.05rem; overflow: hidden;}
 .goods-detail-recom h4 { display: block; text-align:center;height: 0.9rem; padding: 0.4rem 0; font-size: 0.6rem; color: #888; line-height: 0.9rem; }
 .goods-detail-recom ul { font-size: 0;}
 .goods-detail-recom ul li { display: inline-block; width: 32%; margin: 0 1% 0.4rem 0;}
