@@ -841,18 +841,18 @@ $(function() {
         $("input[class='ps_type']:checked").each(function(){
             ps_type.push($(this).val());//将值添加到数组中
         });
-        alert(ps_type);
-        return;
-        for(var i = 0 ;i<ps_type.length;i++)
-         {
-                     if(ps_type[i] == "" || typeof(ps_type[i]) == "undefined")
-                     {
-                              ps_type.splice(i,1);
-                              i= i-1;
+       
+       
+        // for(var i = 0 ;i<ps_type.length;i++)
+        //  {
+        //              if(ps_type[i] == "" || typeof(ps_type[i]) == "undefined")
+        //              {
+        //                       ps_type.splice(i,1);
+        //                       i= i-1;
                           
-                     }
+        //              }
                       
-         }
+        //  }
       
         //2.获取发票信息
         invoice = $("#invContent").html();
