@@ -20,7 +20,7 @@
 .categroy-third-list a { color: #6d6d6d; display: block; padding: 15px 0px 15px 11px; }
 
 /* 分类子级内容 */
-.categroy-rgt { height:auto;  position: absolute; z-index: 1; left: 3.6rem; top: 2rem; bottom: 0; /*right: 0.28rem;*/}
+.categroy-rgt { height:auto;  position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0.28rem;}
 #categroy-rgt{
 /*margin-bottom: auto;*/
 }
