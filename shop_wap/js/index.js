@@ -334,6 +334,8 @@ if(getCookie('community_shopid'))
              });  
 
 }else{
+      if(getCookie(shot_shop))
+      {
 
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json&shop_id="+getCookie('shot_shop'), function (t)
              {
@@ -341,6 +343,10 @@ if(getCookie('community_shopid'))
                $("#product-contain3").html(template.render('goods3', t));
         
              });
+      }else{
+          location.replace('index.html');
+        
+      }
 }
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getwap_adv&typ=json", function (t)
              {	
