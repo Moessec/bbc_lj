@@ -141,7 +141,7 @@ header.fixed { position: fixed; background: rgba(248,248,248,0.95); z-index: 9;}
 .header-nav { display: inline-block; margin: 0 auto; vertical-align: top; font-size: 0; white-space: nowrap; }
 .header-nav li { display: inline-block; vertical-align: top; text-align: center; height: 1.95rem; }
 .header-nav li a { display: inline-block; padding: 0.1rem 0.25rem; margin: 0 0.5rem; font-size: 0.7rem; line-height: 1.825rem; color: #333; }
-.header-nav li.cur a { padding: 0.1rem 0.05rem 0 0.05rem; color: #ED5564; border-bottom: solid 0.1rem #ED5564; font-size: 0.8rem; font-weight: 600; }
+.header-nav li.cur a { padding: 0.1rem 0.05rem 0 0.05rem; color: #FF7E18; border-bottom: solid 0.1rem #FF7E18; font-size: 0.8rem; font-weight: 600; }
 .header-r { position: absolute; z-index: 1; top: 0; right: 0; font-size: 0; text-align: right; }
 .header-r a.text { position: relative; z-index: 1; display: inline-block; white-space: nowrap; width: 1.6rem; height: 0.95rem; padding: 0.6rem 0.7rem 0.4rem 0; font-size: 0.7rem; line-height: 0.975rem; color: #ED5564;}
 .header-r a { position: relative; z-index: 1; display: inline-block; vertical-align: top; width: 0.95rem; height: 0.95rem; padding: 0.5rem 0.5rem; }

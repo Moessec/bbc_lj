@@ -2,9 +2,9 @@
 .transparent .header-l a,
 .transparent .header-r a,
 .goods-detail-top .round { width: 1.35rem; height: 1.35rem; margin: 0.2775rem; padding: 0; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#BFFFFFFF', endColorstr='#BFFFFFFF'); background:rgba(255,255,255,0.75); border: solid 0.05rem #EEE; border-radius: 100%;}
-.transparent .header-l a i.back { width: 60%; height: 60%; margin: 20%; background-image: url(../images/arrow_left_r.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 100%; opacity: 1;}
+.transparent .header-l a i.back { width: 100%; height: 100%; margin: 0; background-image: url(../images/arrow_left_r.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 100%; opacity: 1;}
 .transparent .header-r a { margin: 0.2875rem  0.55rem; padding: 0; border-radius: 100%;}
-.transparent .header-r a i.more { width: 60%; height: 60%; margin: 20%; background-image: url(../images/more_r.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 100%; opacity: 1;}
+.transparent .header-r a i.more { width: 100%; height: 100%; margin: 0; background-image: url(../images/more_r.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 100%; opacity: 1;}
 
 
 .goods-detail-cnt { background: #F5F5F5; position: relative; z-index: 1; margin-top: 16rem;}
@@ -69,7 +69,7 @@
 
 /*地区运费*/
 .goods-detail-freight {}
-.goods-detail-freight dt strong { color: #ED5564; margin-left: 0.5rem;}
+.goods-detail-freight dt strong { color: #FF7E18; margin-left: 0.5rem;}
 .goods-detail-freight dd { line-height: 0.9rem; margin-top: 0.2rem;}
 
 /*虚拟订单线下店*/
@@ -105,7 +105,7 @@
 .goods-detail-comment { background-color: #FFF; padding: 0 0.5rem; margin-top: 0.5rem; border-top: solid #EEE 0.05rem; border-bottom: solid #EEE 0.05rem;}
 .goods-detail-comment .title { display: block;}
 .goods-detail-comment .title a { display: block; position: relative; z-index: 1; height: 0.9rem; padding: 0.5rem 0; font-size: 0.6rem; line-height: 0.9rem; color: #888;}
-.goods-detail-comment .title span { font-size: 0.55rem; margin-left: 1rem; color: #ED5564;}
+.goods-detail-comment .title span { font-size: 0.55rem; margin-left: 1rem; color: #FF7E18;}
 .goods-detail-comment .title span em { font-size: 0.6rem; font-weight: 600; margin-left: 0.2rem;}
 .goods-detail-comment .title .rate-num { position: absolute; z-index: 1; top: 0.5rem; right: 1rem; color: #888; font-size: 0.55rem;}
 .goods-detail-comment .title .item-more { right: 0;}
