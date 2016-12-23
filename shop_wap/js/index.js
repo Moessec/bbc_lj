@@ -163,7 +163,6 @@ var spid = min(dis);
                   autoplayDisableOnInteraction: false,
                   autoplay: 1300,
                   speed: 500,
-                  effect:'fade',
                   height : 120, 
                   grabCursor: true,
                   paginationClickable: true,
