@@ -174,14 +174,14 @@
                         <% if (!isEmpty(goods_info.common_spec_name)) { %>
                         <% if(goods_map_spec.length>0){%>
                         <% for(var i =0;i<goods_map_spec.length;i++){%>
-							<span>
-							<%=goods_map_spec[i].goods_spec_name%>
-							<%for(var j = 0;j<goods_map_spec[i].goods_spec_value.length;j++){%>
-								<%if (goods_info.goods_spec[goods_map_spec[i].goods_spec_value[j].specs_value_id]){%>
-									<em><%=goods_map_spec[i].goods_spec_value[j].specs_value_name%></em>
-								<%}%>
-							<%}%>
-							</span>
+                            <span>
+                            <%=goods_map_spec[i].goods_spec_name%>
+                            <%for(var j = 0;j<goods_map_spec[i].goods_spec_value.length;j++){%>
+                                <%if (goods_info.goods_spec[goods_map_spec[i].goods_spec_value[j].specs_value_id]){%>
+                                    <em><%=goods_map_spec[i].goods_spec_value[j].specs_value_name%></em>
+                                <%}%>
+                            <%}%>
+                            </span>
                         <%}%>
                         <%}} else { %>
                         <span>默认</span>
@@ -206,7 +206,6 @@
             </div>
         </div>
         <% } %>
-        <div class="goods-detail-bottom"><a href="javascript:void(0);" id="goodsBody1">点击查看商品详情</a></div>        
         <div class="goods-detail-comment" id="goodsEvaluation1">
             <div class="title">
                 <a id="goodsEvaluation1" href="javascript:void(0);">商品评价<span class="rate">好评率<em><%=good_pre%>%</em></span><span class="rate-num">（<%=goods_info.common_evaluate%>人评价）</span><div class="item-more"></div></a>
@@ -235,7 +234,7 @@
         <div class="goods-detail-recom">
             <h4>店铺推荐</h4>
             <ul>
-                <%for (var i = 0;i<6;i++){%>
+                <%for (var i = 0;i<goods_commend_list.length;i++){%>
                 <li>
                     <a href="product_detail.html?goods_id=<%=goods_commend_list[i].goods_id%>">
                         <div class="pic"><img src="<%=goods_commend_list[i].common_image%>"></div>
@@ -248,7 +247,7 @@
                 <%}%>
             </ul>
         </div>
-        <div class="goods-detail-bottom"><a href="javascript:void(0);" ></a></div>
+        <div class="goods-detail-bottom"><a href="javascript:void(0);" id="goodsBody1">点击查看商品详情</a></div>
         <div class="goods-detail-foot">
             <div class="otreh-handle">
                 <a href="javascript:void(0);" class="kefu"><i></i><p>客服</p></a>
@@ -281,11 +280,11 @@
                     case 'sole': promo = '手机专享'; break;}
                     %>
                     ￥<em><%=goods_info.promotion_price%></em>
-			<span class="activity">
-			<% if (promo) { %>
-				<%= promo %>
-				<% } %>
-			</span>
+            <span class="activity">
+            <% if (promo) { %>
+                <%= promo %>
+                <% } %>
+            </span>
                     <% } else { %>
                     ￥<em><%=goods_info.goods_price%></em>
                     <% } %>
@@ -343,15 +342,15 @@
         </div>
         <div class="goods-option-value">购买数量
             <div class="value-box">
-		<span class="minus">
-			<a href="javascript:void(0);">&nbsp;</a>
-		</span>
-		<span>
-			<input type="text" pattern="[0-9]*" class="buy-num" id="buynum" value="1"/>
-		</span>
-		<span class="add">
-			<a href="javascript:void(0);">&nbsp;</a>
-		</span>
+        <span class="minus">
+            <a href="javascript:void(0);">&nbsp;</a>
+        </span>
+        <span>
+            <input type="text" pattern="[0-9]*" class="buy-num" id="buynum" value="1"/>
+        </span>
+        <span class="add">
+            <a href="javascript:void(0);">&nbsp;</a>
+        </span>
             </div>
         </div>
         <div class="goods-option-foot">
