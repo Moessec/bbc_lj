@@ -660,6 +660,7 @@ body{
         height:auto;
        background-color: #999;
        margin-top: -6px;
+       width: 100%;
           /*border:1px solid blue;*/
     }
 /*.outer img{
