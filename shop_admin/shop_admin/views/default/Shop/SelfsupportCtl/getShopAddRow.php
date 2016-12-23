@@ -108,14 +108,14 @@ function postData(t, e)
                 shop_address: shop_address, 
 				shop_tel: shop_tel, 
 				user_name: user_name,
-                                user_password:user_password,
+                                user_password:user_password
                                
 			} : {
 				shop_name: shop_name,
                 shop_address: shop_address, 
                 shop_tel: shop_tel,  
 				user_name: user_name,
-                                user_password:user_password,
+                                user_password:user_password
 			};
 			Public.ajaxPost(SITE_URL +"?ctl=Shop_Selfsupport&met=" + ("Add" == t ? "Add" : "Edit")+ "ShopRow&typ=json", params, function (e)
 			{
