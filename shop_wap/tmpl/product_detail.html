@@ -34,6 +34,7 @@
                 <li><a href="../tmpl/cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
                 <li><a href="../tmpl/member/member.html"><i class="member"></i>我的商城</a></li>
                 <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+                <li><a href="javascript:void(0);"><i class="share"></i>分享<sup></sup></a></li>
             </ul>
         </div>
     </div>
@@ -238,7 +239,7 @@
         <div class="goods-detail-recom">
             <h4>店铺推荐</h4>
             <ul>
-                <%for (var i = 0;i<goods_commend_list.length;i++){%>
+                <%for (var i = 0;i<6;i++){%>
                 <li>
                     <a href="product_detail.html?goods_id=<%=goods_commend_list[i].goods_id%>">
                         <div class="pic"><img src="<%=goods_commend_list[i].common_image%>"></div>

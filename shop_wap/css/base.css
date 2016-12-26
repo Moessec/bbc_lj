@@ -135,7 +135,7 @@ header.fixed { position: fixed; background: rgba(248,248,248,0.95); z-index: 9;}
 .header-tab a { display: inline-block; height: 1.3rem; padding: 0 1rem; text-align: center; font-size: 0.68rem; color: #333; line-height: 1.3rem; border: solid 0.05rem #ED5564; }
 .header-tab a:first-child { border-radius: 0.25rem 0 0 0.25rem; }
 .header-tab a:last-child { border-radius: 0 0.25rem 0.25rem 0; }
-.header-tab a.cur { color: #FFF; background-color: #ED5564; }
+.header-tab a.cur { color: #FFF; background-color: #ED811F; }
 
 /*标题导航*/
 .header-nav { display: inline-block; margin: 0 auto; vertical-align: top; font-size: 0; white-space: nowrap; }
@@ -241,7 +241,7 @@ footer.bottom .nctouch-footer-wrap { background-color: transparent; border: none
 .nctouch-single-nav .area li { width: 33.33%;}
 .nctouch-single-nav ul li a { display: inline-block; padding: 0.1rem 0.05rem; font-size: 0.6rem; line-height: 1.85rem; color: #333; }
 .nctouch-single-nav ul li a i { display: inline-block; width: 1rem; height: 1rem; vertical-align: middle; margin-right: 0.1rem; background-position: 50% 50%; background-repeat: no-repeat; background-size: 70%; filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */ -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%); filter: gray; opacity: 1;}
-.nctouch-single-nav ul li.selected a { padding: 0.1rem 0.05rem 0 0.05rem; color: #ED5564; border-bottom: solid 0.1rem #ED5564!important; }
+.nctouch-single-nav ul li.selected a { padding: 0.1rem 0.05rem 0 0.05rem; color:#ED811F; border-bottom: solid 0.1rem #ED811F!important; }
 .nctouch-single-nav ul li.selected a i { -webkit-filter: grayscale(0); -moz-filter: grayscale(0); -ms-filter: grayscale(0); -o-filter: grayscale(0); filter: grayscale(0); filter: gray; opacity: 1;}
 .nctouch-single-nav.fixed { background-color: rgba(248,248,248,0.95); position: fixed; z-index: 3; top: 2rem; left: 0; right: 0;}
 
@@ -339,7 +339,7 @@ footer.bottom .nctouch-footer-wrap { background-color: transparent; border: none
 /*默认按钮样式*/
 .btn { vertical-align: top; display: inline-block !important; height: 1.1rem; padding: 0 0.3rem; margin: 0 auto; font-size: 0.6rem; color: #555 !important; line-height: 1.1rem; text-align: center; background-color: #FFF; border: solid 1px #CCC; border-radius: 0.15rem }
 .btn.key { border-color: #ED5564; color: #ED5564 !important; font-weight: 600;}
-.btn-l { display: inline-block; width: 90%; margin: 0 5%; font-size: 0.8rem; line-height: 1.8rem; text-align: center; color: #FFF; background: #ED5564; border-radius: 0.2rem; }
+.btn-l { display: inline-block; width: 90%; margin: 0 5%; font-size: 0.8rem; line-height: 1.8rem; text-align: center; color: #FFF; background:#ED811F; border-radius: 0.2rem; }
 
 /*图片选择上传*/
 .nctouch-upload { display: inline-block; width: 1.94rem; height: 1.94rem; border: solid 0.05rem #EEE; border-radius: 0.1rem; vertical-align: top;}

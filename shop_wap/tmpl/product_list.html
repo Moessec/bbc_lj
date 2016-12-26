@@ -125,25 +125,23 @@
         <dl class="goods-info">
             <dt class="goods-name">
                 <a href="product_detail.html?goods_id=<%=common_list[j].common_id;%>">
-                    <h4><%=common_list[j].common_name;%></h4>
+                    <h4><%=common_list[j].common_name;%><p style="font-size:0.6rem;color:#ccc"><%=common_list[j].common_promotion_tips;%></p></h4>
+
                 </a>
             </dt>
             <dd class="goods-sale">
                 <a href="product_detail.html?goods_id=<%=common_list[j].common_id;%>">
 							<span class="goods-price">￥<em><%=common_list[j].common_price;%></em>
 										</span>
+                            <span class="goods-price" style="margin-left:0.8rem;text-decoration:line-through;color:#ccc;font-size:0.7rem">￥<%=common_list[j].common_market_price;%>
+                                        </span>
+                            <span class="goods-price" style="float:right;margin-right:0.02rem;margin-left: 0.4rem;color:#ccc;font-size:0.5rem">仅剩<em><%=common_list[j].common_stock;%></em>份</span>
+                                        
                     
                 </a>
             </dd>
             <dd class="goods-assist">
-                <a href="product_detail.html?goods_id=<%=common_list[j].common_id;%>">
-								<span class="goods-sold">销量
-									<em><%=common_list[j].common_salenum;%></em>
-								</span>
-                                <span class="goods-sold">评论
-									<em><%=common_list[j].common_evaluate;%></em>
-								</span>
-                </a>
+
                 <div class="goods-store">
                     <%
                     if (common_list[j].is_own_shop == '1') {
@@ -152,7 +150,7 @@
                     <%
                     } else {
                     %>
-                    <a href="javascript:void(0);" data-id='<%=common_list[j].shop_id;%>'><%=common_list[j].store_name;%><i></i></a>
+                    <a href="javascript:void(0);" data-id='<%=common_list[j].shop_id;%>'><%=common_list[j].store_name;%></a>
                     <%
                     }
                     %>
