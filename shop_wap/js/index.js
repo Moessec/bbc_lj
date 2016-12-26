@@ -128,8 +128,8 @@ var spid = min(dis);
                 success: function(result) {
                     var da = result.data;
 
-                    shop_slide = da.shop_slide.split(',');
                     shop_slideurl = da.shop_slideurl.split(',');
+                    shop_slide = da.shop_slide.split(',');
                     if(shop_slide[0]!='')
                     {
   
