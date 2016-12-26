@@ -5,7 +5,7 @@
 .form-item .input-box .code-countdown,
 .form-item .input-box .code-again { position: absolute; right: 0.5rem; top: 0.3rem; z-index: 1; width: 4.3rem; height: 1.4rem; }
 .form-item .input-box .code-countdown p { display: block; font-size: 0.55rem; line-height: 0.7rem; color: #999; text-align: center; width: 100%; height: 0.7rem; }
-.form-item .input-box .code-countdown em { color: #ED5564; margin: 0 0.1rem; font-weight: 600;}
+.form-item .input-box .code-countdown em { color: #FF7E18; margin: 0 0.1rem; font-weight: 600;}
 .form-item .input-box .code-again a { display: block; font-size: 0.6rem; font-weight: 600; text-decoration: underline; line-height: 1.4rem; color: #3BAEDA; text-align: center; width: 100%; height: 1.4rem; }
 .form-item .input-box .code-img { position: absolute; right: 0.5rem; top: 0.3rem; z-index: 1; width: 4rem; height: 1.4rem; }
 .form-item .input-box .code-img img { width: 100%; height: 100%;}
@@ -26,7 +26,7 @@
 .joint-login ul { display: inline-block; width: 10rem; height: 2rem; margin: 1rem auto 0; font-size: 0; }
 .joint-login ul li { float: left; width: 33%; text-align: center; display: none; }
 .joint-login ul li a { display: inline-block; width: 1.85rem; height: 1.85rem; background-color: #FFF; background-position: 50% 50%; background-repeat: no-repeat; background-size: 70%; border: solid 0.05rem; -webkit-border-radius: 50%; border-radius: 50%;  }
-.joint-login ul li .weibo { background-image: url(../images/sina.png); border-color: #ED5564; }
+.joint-login ul li .weibo { background-image: url(../images/sina.png); border-color: #FF7E18; }
 .joint-login ul li .qq { background-image: url(../images/qq.png); border-color: #4FC0E8; }
 .joint-login ul li .wx { background-image: url(../images/wx.png); border-color: #80D740; }
 /*注册类型切换*/
@@ -50,9 +50,9 @@
 /*我的商城*/
 .transparent .header-r a sup { right: 0.3rem !important; top: 0.3rem !important;}
 .member-body .header-back { display: none; }
-.member-top { -webkit-animation:changeBg 20s infinite; -moz-animation:changeBg 20s infinite; animation:changeBg 20s infinite;background-color:#ED5564; background-image: url(../images/member_top_bg.png); background-size: cover;  text-align: center; width: 100%; height: 11rem; position: relative; z-index: 1;}
+.member-top { -webkit-animation:changeBg 20s infinite; -moz-animation:changeBg 20s infinite; animation:changeBg 20s infinite;background-color:#FF7E18; background-image: url(../images/member_top_bg.png); background-size: cover;  text-align: center; width: 100%; height: 11rem; position: relative; z-index: 1;}
 @-webkit-keyframes changeBg{
-0%{background-color:#ED5564;}
+0%{background-color:#FF7E18;}
 10%{background-color:#FB6E52;}
 20%{background-color:#FFCE55;}
 30%{background-color:#A0D468;}
@@ -61,10 +61,10 @@
 60%{background-color:#5D9CEC;}
 70%{background-color:#AC92ED;}
 80%{background-color:#EC87BF;}
-90%{background-color:#ED5564;}
+90%{background-color:#FF7E18;}
 }
 @-moz-keyframes changeBg{
-0%{background-color:#ED5564;}
+0%{background-color:#FF7E18;}
 10%{background-color:#FB6E52;}
 20%{background-color:#FFCE55;}
 30%{background-color:#A0D468;}
@@ -73,10 +73,10 @@
 60%{background-color:#5D9CEC;}
 70%{background-color:#AC92ED;}
 80%{background-color:#EC87BF;}
-90%{background-color:#ED5564;}
+90%{background-color:#FF7E18;}
 }
 @keyframes changeBg{
-0%{background-color:#ED5564;}
+0%{background-color:#FF7E18;}
 10%{background-color:#FB6E52;}
 20%{background-color:#FFCE55;}
 30%{background-color:#A0D468;}
@@ -85,7 +85,7 @@
 60%{background-color:#5D9CEC;}
 70%{background-color:#AC92ED;}
 80%{background-color:#EC87BF;}
-90%{background-color:#ED5564;}
+90%{background-color:#FF7E18;}
 }
 .member-info:before {}
 .member-info { width: 12rem; height: 6rem; margin: -3.5rem 0 0 -6rem; position: absolute; z-index: 1; top: 50%; left: 50%; animation: memberInfoDown 1000ms  ease-in; -webkit-animation: memberInfoDown 1000ms ease-in;}
@@ -115,7 +115,7 @@
 .member-info .user-avatar img { width: 100%; height: 100%; border-radius: 100%;}
 .member-info .user-name { color: #FFF;}
 .member-info .user-name span { font-weight: lighter; font-size: 0.8rem; line-height: 1.2rem; height: 1.2rem; position: relative; z-index: 1;}
-.member-info .user-name sup { font-size: 0.45rem; line-height: 0.6rem; background-color: #ED5564; display: block; height: 0.6rem; padding: 0 0.1rem; margin-left: 0.2rem; border-radius: 0.1rem; position: absolute; z-index: 1; top: 0; right: -0.9rem; box-shadow: 1px 1px 1px rgba(0,0,0,0.15);}
+.member-info .user-name sup { font-size: 0.45rem; line-height: 0.6rem; background-color: #FF7E18; display: block; height: 0.6rem; padding: 0 0.1rem; margin-left: 0.2rem; border-radius: 0.1rem; position: absolute; z-index: 1; top: 0; right: -0.9rem; box-shadow: 1px 1px 1px rgba(0,0,0,0.15);}
 .member-collect { font-size: 0; height: 3rem; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#19000000', endColorstr='#19000000');background:rgba(0,0,0,0.1);position: absolute; bottom: 0; left: 0; right: 0;}
 
 .member-collect span { display: inline-block; width: 33.33%; height: 2rem; padding: 0.5rem 0;}
@@ -144,7 +144,7 @@
 .member-center dd ul { font-size: 0;}
 .member-center dd ul li { vertical-align: top; display: inline-block; text-align: center; width: 20%; padding: 0.5rem 0 0.2rem 0;}
 .member-center dd ul li a { display: block; position: relative;}
-.member-center dd ul li a em { background-color: #ED5564; width: 0.3rem; height: 0.3rem; border-radius: 100%; position: absolute; top: -0.15rem; right: 0.85rem;}
+.member-center dd ul li a em { background-color: #FF7E18; width: 0.3rem; height: 0.3rem; border-radius: 100%; position: absolute; top: -0.15rem; right: 0.85rem;}
 .member-center dd ul li i { vertical-align: top; display: inline-block; width: 1.2rem; height: 1.2rem; margin: 0 auto 0.1rem auto;opacity:0.5;}
 i.cc-01 { background-image: url(../images/bbc-bg12.png); background-size: cover;}
 i.cc-02 { background-image: url(../images/bbc-bg28.png); background-size: cover;}
@@ -162,7 +162,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .my-pointnum { position: absolute; z-index: 1; top: 2.5rem; left: 0.8rem; text-align: center; font-size: 0.55rem; color: #FFF; line-height: 0.9rem; text-shadow: 0.05rem 0.05rem 0 rgba(0,0,0,0.15);}
 .my-pointnum span { display: block; font-size: 0.7rem; font-weight: 600; color: #FF0;}
 .sign-box { position: absolute; z-index: 1; top: 50%; left: 50%; width: 4rem; height: 4rem; padding: 0.2rem; margin: -2rem auto auto -2rem; background-image: url(../images/sign_btn.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 100%; border-radius: 100%;}
-.sign-btn { width: 3rem; height: 2rem; padding: 0.6rem 0.5rem 0.75rem 0.5rem; color:#ED5564;  }
+.sign-btn { width: 3rem; height: 2rem; padding: 0.6rem 0.5rem 0.75rem 0.5rem; color:#FF7E18;  }
 .sign-btn h2 { font-size: 0.8rem; line-height: 1.4rem; font-weight:500;}
 .sign-btn h6 { font-size: 0.6rem; line-height: 1.2rem; border-top: solid 0.05rem #EEE}
 .signin-help { position: absolute; z-index: 1; top: 2.5rem; right: 0.8rem; text-align: center; font-size: 0.55rem; color: #FFF; line-height: 0.9rem; text-shadow: 0.05rem 0.05rem 0 rgba(0,0,0,0.15);}
@@ -171,7 +171,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .signin-list h3 { font-size: 0.7rem; line-height: 1rem; padding: 0.4rem; overflow: hidden;}
 .signin-list h3 a { float: right; font-size: 0.55rem; line-height: 1rem; color: #333;}
 .signin-c { font-size: 0.6rem; line-height: 1rem;}
-.signin-c em { font-size: 1rem; color: #ED5564; margin: 0 1rem 0 0.2rem;}
+.signin-c em { font-size: 1rem; color: #FF7E18; margin: 0 1rem 0 0.2rem;}
 .signin-c span { color: #999; font-size: 0.55rem;}
 
 /*订单搜索*/
@@ -207,8 +207,8 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-order-item-con .goods-subtotal .goods-price { display: block; font-size: 0.55rem; line-height: 0.9rem; font-weight: 600;}
 .nctouch-order-item-con .goods-subtotal .goods-price em { font-size: 0.6rem; font-weight: 600;}
 .nctouch-order-item-con .goods-subtotal .goods-num { display: block; font-size: 0.55rem; line-height: 0.9rem; color: #999; font-weight: 600;}
-.nctouch-order-item-con .goods-return { position: absolute; z-index: 2; right: 0rem; bottom: 0.4rem; display: block; font-size: 0.6rem; line-height: 1.2rem; height: 1.2rem; padding: 0 0.4rem ; border: solid 0.05rem #EEE; border-radius: 0.2rem; color: #ED5564 !important; background-color: #FFF;}
-.nctouch-order-item-con .goods-refund { position: absolute; z-index: 2; right: 2.2rem; bottom: 0.4rem; display: block; font-size: 0.6rem; line-height: 1.2rem; height: 1.2rem; padding: 0 0.4rem ; border: solid 0.05rem #EEE; border-radius: 0.2rem; color: #ED5564 !important; background-color: #FFF;}
+.nctouch-order-item-con .goods-return { position: absolute; z-index: 2; right: 0rem; bottom: 0.4rem; display: block; font-size: 0.6rem; line-height: 1.2rem; height: 1.2rem; padding: 0 0.4rem ; border: solid 0.05rem #EEE; border-radius: 0.2rem; color: #FF7E18 !important; background-color: #FFF;}
+.nctouch-order-item-con .goods-refund { position: absolute; z-index: 2; right: 2.2rem; bottom: 0.4rem; display: block; font-size: 0.6rem; line-height: 1.2rem; height: 1.2rem; padding: 0 0.4rem ; border: solid 0.05rem #EEE; border-radius: 0.2rem; color: #FF7E18 !important; background-color: #FFF;}
 
 .nctouch-order-item-con .goods-gift { display: block; clear: both; padding : 0.2rem; margin: 0.4rem 0 0; border: dashed 1px #EEE; background-color: #FCFCFC;}
 .nctouch-order-item-con .goods-gift span { display: block; font-size: 0.55rem; line-height: 0.9rem; height: 0.9rem; border-bottom: solid 0.05rem #EEE; padding-bottom: 0.2rem; margin-bottom: 0.2rem; color: #888; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
@@ -224,7 +224,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-order-item-con .goods-subtotle dd em {font-weight: 600;}
 .nctouch-order-item-con .goods-subtotle dl.t { font-size: 0.6rem; line-height: 1rem;}
 .nctouch-order-item-con .goods-subtotle dl.t dt { color: #333;}
-.nctouch-order-item-con .goods-subtotle dl.t dd { color: #ED5564}
+.nctouch-order-item-con .goods-subtotle dl.t dd { color: #FF7E18}
 .nctouch-order-item-con .goods-subtotle dl.t dd em { font-size: 0.7rem;}
 
 .nctouch-order-item-bottom { font-size: 0; border-top: solid 0.05rem #EEE; padding: 0.5rem 0;}
@@ -243,11 +243,11 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-order-item-footer .store-totle .freight { font-size: 0.45rem; color: #999;}
 .nctouch-order-item-footer .store-totle time { float: left; font-size: 0.55rem; line-height: 0.9rem; color: #BBB;}
 .nctouch-order-item-footer .store-totle .refund-sum { font-size: 0.6rem; color: #000; line-height: 0.9rem;}
-.nctouch-order-item-footer .store-totle .refund-sum em { color: #ED5564; font-weight: 600;}
+.nctouch-order-item-footer .store-totle .refund-sum em { color: #FF7E18; font-weight: 600;}
 .nctouch-order-item-footer .handle { position: relative; z-index: 1; text-align: right; height: 1.2rem; padding: 0.4rem 0;}
 .nctouch-order-item-footer .handle .del { position: absolute; z-index: 1; top: 0.4rem; left: 0; display: block; height: 1.2rem; font-size: 0.6rem; line-height: 1.2rem; color: #888;}
 .nctouch-order-item-footer .handle .del i { display: inline-block; vertical-align: top; width: 1rem; height: 1.1rem; background-image: url(../images/bbc-bg27.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 50%; opacity: 0.9;}
-.nctouch-order-item-footer .handle p { position: absolute; z-index: 1; top: 0.4rem; left: 0; display: block; font-size: 0.6rem; line-height: 1.2rem; color: #ED5564; display: inline-block; }
+.nctouch-order-item-footer .handle p { position: absolute; z-index: 1; top: 0.4rem; left: 0; display: block; font-size: 0.6rem; line-height: 1.2rem; color: #FF7E18; display: inline-block; }
 
 .check-payment em { font-size: 0.7rem; font-weight: 600;}
 
@@ -260,7 +260,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-oredr-detail-block h3 i.invoice { background-image: url(../images/mcc_08_b.png);}
 .nctouch-oredr-detail-block h3 i.pay { background-image: url(../images/mcc_06_b.png);}
 .nctouch-oredr-detail-block h3 i.phone { background-image: url(../images/mobile_b.png);}
-.nctouch-oredr-detail-block .order-state { float: right; height: 1rem; margin-right: 0.5rem; font-size: 0.6rem; color: #ED5564; line-height: 1rem; }
+.nctouch-oredr-detail-block .order-state { float: right; height: 1rem; margin-right: 0.5rem; font-size: 0.6rem; color: #FF7E18; line-height: 1rem; }
 .nctouch-oredr-detail-block .msg-phone { display: inline-block; vertical-align: top; font-size: 0.6rem; font-weight: 600; line-height: 1rem; color: #000; height: 1rem; margin-left: 0.2rem;}
 .nctouch-oredr-detail-block .msg-again { position: absolute; z-index: 1; top: 0.2rem; right: 0.5rem; background: #F5F5F5; font-size: 0.6rem; line-height: 1rem; padding: 0.2rem 0.3rem; color: #333; border: solid #EEE 0.05rem; border-radius: 0.2rem;}
 .nctouch-oredr-detail-block .info { margin-left: 1.6rem; font-size: 0.55rem; line-height: 0.9rem;}
@@ -296,7 +296,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-vr-order-location .default p { position: absolute; z-index: 1; right: 0.5rem; top: 0.5rem; border-left: solid 0.05rem #EEE; padding-left: 0.5rem;}
 .nctouch-vr-order-location .default p a { display: block;  width: 2rem; height: 2rem; background-image: url(../images/tel_b.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 50%; opacity: 0.65;}
 .nctouch-vr-order-location .more-location { border-top: solid #EEE 0.05rem; font-size: 0.6rem; line-height: 0.9rem; padding: 0.5rem; position: relative;}
-.nctouch-vr-order-location .more-location a { display: block; color: #ED5564; font-weight: 600;}
+.nctouch-vr-order-location .more-location a { display: block; color: #FF7E18; font-weight: 600;}
 .nctouch-vr-order-location .more-location i { position: absolute; z-index:1; top: 0.5rem; right: 0.5rem; width: 0.8rem; height: 0.9rem; background-image: url(../images/arrow_right_b.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 78%; opacity: 0.65;}
 .transparent-map { background-color: transparent; border-bottom: none; }
 .transparent-map .header-l a { width: 1.35rem; height: 1.35rem; margin: 0.2775rem; padding: 0; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#BFFFFFFF', endColorstr='#BFFFFFFF'); background:rgba(255,255,255,0.75); border: solid 0.05rem #EEE; border-radius: 100%;}
@@ -306,7 +306,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .msg-again-layout { text-align: center; display: block; padding: 0.5rem 0;}
 .msg-again-layout h4 { font-size: 0.65rem; line-height: 0.9rem; color: #000;}
 .msg-again-layout h5 { font-size: 0.55rem; line-height: 0.9rem; color: #888; margin-bottom: 1rem;}
-.msg-again-layout .inp-tel { display: block; width: 80%; height: 1.2rem; padding: 0.2rem; margin: 0.1rem auto 0 auto; border: solid #ED5564 0.05rem; border-radius: 0.2rem; font-size: 0.8rem; text-align: center; line-height: 1.2rem; background-color: #FEF6F7; color: #000;}
+.msg-again-layout .inp-tel { display: block; width: 80%; height: 1.2rem; padding: 0.2rem; margin: 0.1rem auto 0 auto; border: solid #FF7E18 0.05rem; border-radius: 0.2rem; font-size: 0.8rem; text-align: center; line-height: 1.2rem; background-color: #FEF6F7; color: #000;}
 .rpt_error_tip { font-size: 0.6rem; color: #DB4453 !important; display: none; text-align: center;}
 
 
@@ -314,7 +314,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-oredr-detail-block .order-log li { display: block; font-size: 0.6rem; line-height: 0.9rem; color: #999;}
 .nctouch-oredr-detail-bottom { position: fixed; z-index: 1; top: auto; left: 0; right: 0; bottom: 0; display: block; height: 2rem; text-align: right; background-color: rgba(255,255,255,0.85); border-top: solid 0.05rem #EEE;}
 .nctouch-oredr-detail-bottom a.btn { display: inline-block; height: 1.2rem; padding: 0 0.4rem; margin: 0.35rem 0.4rem 0 0 ; line-height: 1.2rem;}
-.nctouch-oredr-detail-bottom p { font-size: 0.7rem; line-height: 2rem; color: #ED5564; margin-right: 0.5rem;}
+.nctouch-oredr-detail-bottom p { font-size: 0.7rem; line-height: 2rem; color: #FF7E18; margin-right: 0.5rem;}
 .nctouch-oredr-detail-delivery { position: relative; z-index: 1; display: block; padding: 0.4rem; background-color: #FAFAFA; border-bottom: solid 0.025rem #DDD;}
 .nctouch-oredr-detail-delivery .time-line { position: absolute; top: 0.6rem; left: 0.8rem; bottom: 0.4rem; z-index: auto; border-left: dotted #36BC9B 1px;}
 .nctouch-oredr-detail-delivery .time-line i { position: absolute; top: -0.16rem; left: -0.38rem; display: block; width: 0.34rem; height: 0.34rem; background-color: #36BC9B; border: solid 0.2rem #A3E7D6; border-radius: 100%;}
@@ -398,7 +398,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 /* 触屏版用户账户资产简介 */
 .nctouch-asset-info { display: block;}
 .nctouch-asset-info .container { position: relative; z-index: 1; height: 3rem;}
-.nctouch-asset-info .container.pre { background :#ED5564;}
+.nctouch-asset-info .container.pre { background :#FF7E18;}
 .nctouch-asset-info .container.voucher { background :#FB6E52;}
 .nctouch-asset-info .container.point { background :#F6BB43;}
 .nctouch-asset-info .container.rcard { background: #EC87BF;}
@@ -422,7 +422,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-log-list li .detail { min-height: 1.8rem; margin: 0 50% 0 0; font-size: 0.55rem; word-wrap:break-word; line-height: 0.9rem; color: #555;}
 .nctouch-log-list li .money { position: absolute; z-index: 1; top: 0.5rem; right: 0.5rem; height: 0.9rem; font-weight: 0.7rem; line-height: 0.9rem;}
 .nctouch-log-list.tx .money { right: 1.5rem;}
-.nctouch-log-list li .money.add { color: #ED5564;}
+.nctouch-log-list li .money.add { color: #FF7E18;}
 .nctouch-log-list li .money.reduce { color: #36BC9B;}
 .nctouch-log-list li .date { position: absolute; z-index: 1; bottom: 0.4rem; right: 0.5rem; height: 0.9rem; font-size: 0.5rem; line-height: 0.9rem; color: #999;}
 .nctouch-log-list.tx .date { right: 1.5rem;}
@@ -447,7 +447,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-tickets .ticket-item .store-info dt { font-size: 0.6rem; line-height: 1rem; color: #333;}
 .nctouch-tickets .ticket-item .store-info dd { font-size: 0.5rem; line-height: 0.8rem; color: #888;}
 .nctouch-tickets .ticket-item .ticket-info { position: relative; z-index: 1; display: inline-block; vertical-align: top; width: 35%; height: 3rem;}
-.nctouch-tickets .normal .ticket-info { background-color: #ED5564;}
+.nctouch-tickets .normal .ticket-info { background-color: #FF7E18;}
 .nctouch-tickets .invalid .ticket-info { background-color: #AAB2BD;}
 .nctouch-tickets .ticket-item .bg-ico { position: absolute; z-index: 1; top: 0; right: 0; bottom: 0; left: 0; background-image: url(../images/store_w.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 50%; opacity: 0.15;}
 .nctouch-tickets .ticket-item .bg-ico.rp { background-image: url(../images/mcc_09_w.png);}
