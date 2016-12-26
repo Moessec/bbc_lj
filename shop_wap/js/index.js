@@ -137,7 +137,7 @@ var spid = min(dis);
                          //  sli+='<a href="'+shop_slideurl[i]+'"><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div>';
                          //  sli+='</a>';
                          // }
-                         $("#shopslid").find('.swiper-wrapper').append(sli);   
+                         // $("#shopslid").find('.swiper-wrapper').append(sli);   
 
                     }
                     if(parseFloat(getCookie('shot_distance'))<1000) 
