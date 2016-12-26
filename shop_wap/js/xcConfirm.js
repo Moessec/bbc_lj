@@ -147,6 +147,7 @@
 		    else
 		        config.onOk();
 			$("#" + popId).remove(); 
+			location.replace('../index.html');
 			config.onClose(eventType.ok);
 		}
 		
@@ -155,6 +156,7 @@
 			var $o = $(this);
 			config.onCancel();
 			$("#" + popId).remove(); 
+			location.replace('../index.html');
 			config.onClose(eventType.cancel);
 		}
 		
@@ -162,6 +164,7 @@
 		function doClose(){
 			$("#" + popId).remove();
 			config.onClose(eventType.close);
+			location.replace('../location.html');
 			$(window).unbind("keydown");
 		}
 		
