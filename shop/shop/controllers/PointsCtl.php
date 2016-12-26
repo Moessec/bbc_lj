@@ -137,7 +137,7 @@ class PointsCtl extends Controller
 		     $cond_row['voucher_shop_id'] = $_COOKIE['community_shopid'];
             
            } 
-		$cond_row['voucher_shop_id'] = 2;
+		// $cond_row['voucher_shop_id'] = 2;
 		$cond_row['voucher_t_end_date:>='] = get_date_time();
 
         
