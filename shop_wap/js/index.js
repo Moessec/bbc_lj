@@ -140,7 +140,7 @@ var spid = min(dis);
                           //sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"><img src="'+shop_slide[i]+'"></a></div>';
                           // sli+='</a>';
                          }
-                         $(".banner023").find('.swiper-wrapper').append(sli);   
+                         $(".banner023").find('.swiper-wrapper').append(123);   
 
                     }
                     if(parseFloat(getCookie('shot_distance'))<1000) 
