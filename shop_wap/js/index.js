@@ -134,7 +134,7 @@ var spid = min(dis);
                     {
                          for(var i=0;i<5;i++)
                          {
-                          sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div></a>';
+                          sli+='<a href="'+shop_slideurl[i]+'"><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div></a>';
                          }
                          $("#shopslid").find('.swiper-wrapper').append(sli);   
 
