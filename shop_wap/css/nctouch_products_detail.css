@@ -241,3 +241,9 @@
 .product-eval-list .again-eval { height: 0.9rem; margin-top: 0.2rem; font-size: 0.55rem; line-height: 0.9rem; color: #555;}
 
 .product-eval-list .eval-explain { font-size: 0.6rem; color: #ed5564; line-height: 0.8rem; padding: 0.5rem 0;}
+.share_example{position:fixed;z-index:999999999;top:0px;}
+.share_example img{
+	width: 100%;
+	max-width: 750px;
+	height: 100%;
+}

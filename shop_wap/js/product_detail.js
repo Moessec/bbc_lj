@@ -39,6 +39,16 @@ $(function (){
         return true;
     });
 
+
+ $('.share_main').on('click',function(){
+     var st = '<div class="share_example"><image src="../images/share_example.png"></div>';
+     $('body').prepend(st);
+     setTimeout(function(){
+      $('.share_example img').css('display','none');
+     },3000);
+
+ });
+
      // 图片轮播
     function picSwipe(){
       var elem = $("#mySwipe")[0];
