@@ -134,13 +134,13 @@ var spid = min(dis);
                     {
                       setTimeout(function(){
 
+                      })
                          for(var i=0;i<5;i++)
                          {
-                          sli+='<a href="'+shop_slideurl[i]+'"><div class="swiper-slide"><img src="'+shop_slide[i]+'"></div>';
-                          sli+='</a>';
+                          sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"><img src="'+shop_slide[i]+'"></a></div>';
+                          // sli+='</a>';
                          }
                          $(".banner023").find('.swiper-wrapper').append(sli);   
-                      },500)
 
                     }
                     if(parseFloat(getCookie('shot_distance'))<1000) 
