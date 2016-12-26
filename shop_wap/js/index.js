@@ -137,7 +137,7 @@ var spid = min(dis);
 
                          for(var i=0;i<5;i++)
                          {
-                          sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"><img src="'+shop_slide[i]+'"></a></div>';
+                          //sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"><img src="'+shop_slide[i]+'"></a></div>';
                           // sli+='</a>';
                          }
                          $(".banner023").find('.swiper-wrapper').append(sli);   
