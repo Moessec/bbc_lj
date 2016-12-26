@@ -131,9 +131,10 @@ class PointsCtl extends Controller
 		$cond_row = array();
 		$order_row = array();
 		$cond_row['voucher_t_state'] = Voucher_TempModel::VALID;
+		var_dump($_COOKIE['community_shopid']);die;
        if(isset($_COOKIE['community_shopid']))
            {
-           	
+           	  
 		     $cond_row['shop_id'] = $_COOKIE['community_shopid'];
             
            }else{
