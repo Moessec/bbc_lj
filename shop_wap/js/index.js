@@ -133,11 +133,11 @@ var spid = min(dis);
                     if(shop_slide[0]!='')
                     {
   
-                         // for(var i=0;i<5;i++)
-                         // {
-                         //  sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"><img src="'+shop_slide[i]+'"></a></div>';
-                         //  // sli+='</a>';
-                         // }
+                         for(var i=0;i<5;i++)
+                         {
+                          sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"><img src="'+shop_slide[i]+'"></a></div>';
+                          // sli+='</a>';
+                         }
                          $(".banner023").find('.swiper-wrapper').append(sli);   
 
                     }
