@@ -368,6 +368,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		$common_data['common_state']        = request_int('state');                            //
 		$common_data['common_is_recommend'] = request_string('is_recommend');                //商品推荐
 		$common_data['common_add_time']     = date('Y-m-d H:i:s', time());                    //商品添加时间
+        $common_data['common_edit_time'] = time();
 
 		$is_limit = request_int('is_limit');
 		if ( $is_limit )
@@ -814,7 +815,6 @@ class Seller_GoodsCtl extends Seller_Controller
 
 		$common_detail_data = $this->goodsCommonDetailModel->getCommonDetail($common_data['common_id']);
 		$common_detail_data = pos($common_detail_data);
-        $common_data['common_edit_time'] = time();
 
 		$common_sell_time_d = strtotime($common_data['common_sell_time']);
 
