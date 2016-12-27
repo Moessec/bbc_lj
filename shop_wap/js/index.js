@@ -135,10 +135,30 @@ var spid = min(dis);
   
                          for(var i=0;i<5;i++)
                          {
-                          sli+='<a href="'+shop_slideurl[i]+'"><div class="swiper-slide"><a href="'+shop_slideurl[i]+'"><img src="'+shop_slide[i]+'"></a></div></a>';
+                          sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"><img src="'+shop_slide[i]+'"></a></div>';
                           // sli+='</a>';
                          }
-                         $("#banner023").html(sli);   
+                         $("#banner023").html(sli);
+                            $("#banner023").find('.swiper-slide').eq(0).click(function(){
+                              // alert(1);
+                              location.replace(shop_slideurl[0]);
+                             })
+                             $("#banner023").find('.swiper-slide').eq(1).click(function(){
+                              // alert(2);
+                              location.replace(shop_slideurl[1]);
+                             })
+                             $("#banner023").find('.swiper-slide').eq(2).click(function(){
+                              // alert(3);
+                              location.replace(shop_slideurl[2]);
+                             })
+                             $("#banner023").find('.swiper-slide').eq(3).click(function(){
+                              // alert(4);
+                              location.replace(shop_slideurl[3]);
+                             })
+                             $("#banner023").find('.swiper-slide').eq(4).click(function(){
+                              // alert(5);
+                              location.replace(shop_slideurl[4]);
+                             })                                     
 
                     }
                     if(parseFloat(getCookie('shot_distance'))<1000) 
