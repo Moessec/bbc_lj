@@ -133,11 +133,11 @@ var spid = min(dis);
                     if(shop_slide[0]!='')
                     {
   
-                         for(var i=0;i<5;i++)
-                         {
+                         // for(var i=0;i<5;i++)
+                         // {
                           sli+='<a href="'+shop_slideurl[i]+'"><div class="swiper-slide"><a href="'+shop_slideurl[i]+'"><img src="'+shop_slide[i]+'"></a></div></a>';
                           // sli+='</a>';
-                         }
+                         // }
                          $("#banner023").html(sli);   
 
                     }
