@@ -239,6 +239,7 @@
         <div class="goods-detail-recom">
             <h4>店铺推荐</h4>
             <ul>
+            <%if(goods_commend_list.length<=4){%>
                 <%for (var i = 0;i<goods_commend_list.length;i++){%>
                 <li>
                     <a href="product_detail.html?goods_id=<%=goods_commend_list[i].goods_id%>">
@@ -249,6 +250,7 @@
                         </dl>
                     </a>
                 </li>
+                <%}%>
                 <%}%>
             </ul>
         </div>
