@@ -234,11 +234,13 @@ if($.cookie('community_shopid'))
                         {
                              for(var i=0;i<5;i++)
                              {
-                              sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><a href="'+shop_slideurl[i]+'"/><img src="'+shop_slide[i]+'"></a></div></a>';
+                              sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"/><img src="'+shop_slide[i]+'"></a></div>';
                              }
                              $("#shopslid").find('.swiper-wrapper').append(sli);   
 
-
+                             var a = $('#banner023 swiper-slide').find('a');
+                             var b = $('#banner023 swiper-slide').find('img');
+                             a.html(b);
                         }
 
                     distan= getFlatternDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
