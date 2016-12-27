@@ -163,6 +163,7 @@ class Goods_GoodsCtl extends Controller
 		$cond_row['shop_status'] = Shop_BaseModel::SHOP_STATUS_OPEN;
 
 		//上架时间，销量，价格，评论数
+		
 		$order_row = array();
 		$act       = request_string('act');
 		$actorder    = request_string('actorder','DESC');
@@ -197,7 +198,7 @@ class Goods_GoodsCtl extends Controller
 		}
 		else
 		{
-			$order_row['common_id'] = 'DESC';
+			$order_row['common_edit_time'] = 'DESC';
 		}
 
 		$op1 = request_string('op1');
@@ -257,7 +258,7 @@ class Goods_GoodsCtl extends Controller
 		$property_value_row       = array();
 		$cond_row['common_state'] = Goods_CommonModel::GOODS_STATE_NORMAL;
 		$cond_row['common_verify'] = Goods_CommonModel::GOODS_VERIFY_ALLOW;
-
+		// $order_row['common_edit_time'] = "DESC";
 		if($shop_id)
 		{
 		$cond_row['shop_id'] = $shop_id;
