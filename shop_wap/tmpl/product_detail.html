@@ -251,7 +251,19 @@
                     </a>
                 </li>
                 <%}%>
+                <%}else{%>
+                <%for (var i = 0;i<4;i++){%>
+                <li>
+                    <a href="product_detail.html?goods_id=<%=goods_commend_list[i].goods_id%>">
+                        <div class="pic"><img src="<%=goods_commend_list[i].common_image%>"></div>
+                        <dl class='demo1 text-overflow'>
+                            <dt ><%=goods_commend_list[i].common_name%></dt>
+                            <dd>￥<em><%=goods_commend_list[i].common_price%></em></dd>
+                        </dl>
+                    </a>
+                </li>
                 <%}%>
+                <%}%>                      
             </ul>
         </div>
 
