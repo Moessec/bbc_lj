@@ -1,3 +1,5 @@
+
+
 var map_list = [];
 var map_index_id = '';
 var shop_slide = new Array();
@@ -670,6 +672,7 @@ setTimeout(function(){
 
 });
 $(function(){
+
   var src;
   var sr2;
 
