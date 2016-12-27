@@ -186,12 +186,77 @@ var spid = min(dis);
                      });      
                                     
 
-              }
+                 }
             });
       }
 
 }
 
+function abc(){
+           $.ajax({
+                url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+5,
+                type: 'get',
+                dataType: 'json',
+                success: function(result) {
+                    var da = result.data;
+
+                    shop_slideurl = da.shop_slideurl.split(',');
+                    shop_slide = da.shop_slide.split(',');
+                    if(shop_slide[0]!='')
+                    {
+  
+                         for(var i=0;i<5;i++)
+                         {
+                          sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"><img src="'+shop_slide[i]+'"></a></div>';
+                          // sli+='</a>';
+                         }
+                         $("#banner023").html(sli);
+                            $("#banner023").find('.swiper-slide').eq(0).click(function(){
+                              // alert(1);
+                              location.replace(shop_slideurl[0]);
+                             })
+                             $("#banner023").find('.swiper-slide').eq(1).click(function(){
+                              // alert(2);
+                              location.replace(shop_slideurl[1]);
+                             })
+                             $("#banner023").find('.swiper-slide').eq(2).click(function(){
+                              // alert(3);
+                              location.replace(shop_slideurl[2]);
+                             })
+                             $("#banner023").find('.swiper-slide').eq(3).click(function(){
+                              // alert(4);
+                              location.replace(shop_slideurl[3]);
+                             })
+                             $("#banner023").find('.swiper-slide').eq(4).click(function(){
+                              // alert(5);
+                              location.replace(shop_slideurl[4]);
+                             })                                     
+
+                    }
+                    if(parseFloat(getCookie('shot_distance'))<1000) 
+                    {
+                      // alert(1);
+                     var stamp=parseFloat(getCookie('shot_distance'));
+                     da.shop_stamp=stamp.toFixed(2) +'m';
+                    }else if(parseFloat(getCookie('shot_distance'))>=1000){
+
+                     var stamp=parseFloat(parseFloat(getCookie('shot_distance'))/1000);
+                     da.shop_stamp=stamp.toFixed(2) +'km';
+
+                    }      
+                 $("#shopinfo").html(template.render('shop_info', da));
+                    
+                 $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json&shop_id="+getCookie('shot_shop'), function (t)
+                     {
+             
+                       $("#product-contain3").html(template.render('goods3', t));
+                
+                     });      
+                                    
+
+                 }
+            });
+}
 function distance1(ship_id){
   if(($.cookie('lat')!='')&&($.cookie('lng')!=''))
   {
