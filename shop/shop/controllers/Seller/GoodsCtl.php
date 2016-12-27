@@ -847,7 +847,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		}
 
 		$data            = $this->goodsTypeModel->getTypeInfoByPublishGoods($cat_id); //商品属性、规格等
-        var_dump($data);die;
+        // var_dump($data);die;
 
 		$goods_base_data = $this->goodsBaseModel->getByWhere(array('common_id' => $common_data['common_id'])); //取出商品规格值
 
