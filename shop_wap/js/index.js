@@ -238,9 +238,7 @@ if($.cookie('community_shopid'))
                              }
                              $("#shopslid").find('.swiper-wrapper').append(sli);   
 
-                             var a = $('#banner023 swiper-slide').find('a');
-                             var b = $('#banner023 swiper-slide').find('img');
-                             a.html(b);
+
                         }
 
                     distan= getFlatternDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
@@ -577,5 +575,7 @@ $(function(){
   var src1 = sr[0]+2+'.png';
   // alert(src1);
   src2 = $('#active1').find('img')[0].src=src1;
-
+                             var a = $('#banner023 swiper-slide').find('a');
+                             var b = $('#banner023 swiper-slide').find('img');
+                             a.html(b);
 })
