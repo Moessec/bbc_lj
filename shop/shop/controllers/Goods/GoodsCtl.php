@@ -1837,7 +1837,7 @@ class Goods_GoodsCtl extends Controller
 function cur_goodslist()
 {
        $shop_id = request_int('shop_id');
-		$curgoodsModel = new Goods_BaseModel();
+		$curgoodsModel = new Goods_CommonModel();
 
 		$data = $curgoodsModel->getByWhere(array('shop_id'=>$shop_id));
 		// var_dump($data);die;
