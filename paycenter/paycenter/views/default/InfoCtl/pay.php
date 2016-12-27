@@ -34,7 +34,6 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			<input type="hidden" name="online_pay" id="online_pay" value="<?=($uorder_base['trade_payment_amount'])?>">
 
 			<div class="online_pay">
-				<p class="online_title"><?=_('选择在线支付')?> </p>
 				<?php foreach($payment_channel as $key => $val){?>
 					<div class="box-public box<?=($key)?>" style="width:25%;height: 43px;" >
 						<div class="mallbox-public" >
