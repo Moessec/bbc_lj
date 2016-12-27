@@ -151,7 +151,7 @@ body {
         padding:0 20px !important;
     }
     .nav li {
-        float: none !important;
+        /*float: none !important;*/
         border-bottom:1px solid #DA6E6E;
     }
     .nav_more {
