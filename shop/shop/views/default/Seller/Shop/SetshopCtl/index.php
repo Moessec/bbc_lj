@@ -33,14 +33,22 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
                 <p class="hint"><?=_('此处为店铺页logo；')?><br /><?=_('建议使用宽180像素*高80像素内的GIF或PNG透明图片；点击下方"确认提交"按钮后生效。')?></p>
             </dd>
         </dl>
-         <dl>
+        <dl>
+            <dt><?=_('wap_首页店铺logo：')?></dt>
+            <dd>
+                <p class="pic" style="width:100px;height:100px;"><img id="logo_img1" src="<?php if(!empty($re['shop_logo1'])){ echo $re['shop_logo1'];}?>" height="100" width="100" /></p>
+                <p class="upload-button"><input type="hidden" id="logo1" name="shop[shop_logo1]" value="<?=$re['shop_logo1']?>" /><div  id='logo_upload1' class="lblock bbc_img_btns"><i class="iconfont icon-tupianshangchuan" ></i><?=_('图片上传')?></div></p>                
+                <p class="hint"><?=_('此处为手机店铺页logo；')?><br /><?=_('建议使用宽100像素*高100像素内的GIF或PNG透明图片；点击下方"确认提交"按钮后生效。')?></p>
+            </dd>
+        </dl>
+<!--         <dl>
             <dt>店铺头像：</dt>
             <dd>
            		<p class="pic" style="width:200px;height:60px;"><img id="logo_img" src="<{if $de.logo}><{$de.logo}><{else}>image/default/seller/default_logo.png<{/if}>" height="60" width="200" /></p>
                 <p class="upload-button"><input type="hidden" id="logo" name="shop[banner]" value="<{$de.logo}>" /><a class="button button_black" href="javascript:uploadfile('图片上传','logo',200,60,'shop');"><i class="iconfont icon-upload-alt"></i>图片上传</a></p>                
                 <p class="hint">此处为店铺方形头像；<br/> 建议使用宽100像素*高100像素内的方型图片；点击下方"确认提交"按钮后生效。</p>
             </dd>
-        </dl>
+        </dl>-->
         <dl>
             <dt><?=_('店铺条幅：')?></dt>
             <dd>
@@ -157,7 +165,7 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
         
         var $imagePreview, $imageInput, imageWidth, imageHeight,shopWidth;
 
-        $('#banner_upload, #logo_upload').on('click', function () {
+        $('#banner_upload, #logo_upload,#logo_upload1').on('click', function () {
 
             if ( this.id == 'banner_upload' ) {
                 $imagePreview = $('#banner_img');
@@ -167,7 +175,11 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
                 $imagePreview = $('#logo_img');
                 $imageInput = $('#logo');
                 imageWidth = 200, imageHeight = 60,shopWidth = 800;
-            } 
+            }else if(this.id == 'logo_upload1') {
+                $imagePreview = $('#logo_img1');
+                $imageInput = $('#logo1');
+                imageWidth = 100, imageHeight = 100,shopWidth = 800;                
+            }
             $.dialog({
                 title: '图片裁剪',
                 content: "url: <?= Yf_Registry::get('url') ?>?ctl=Upload&met=cropperImage&typ=e",
