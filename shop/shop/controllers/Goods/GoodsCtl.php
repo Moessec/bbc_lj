@@ -1839,7 +1839,7 @@ function cur_goodslist()
        $shop_id = request_int('shop_id');
 		$curgoodsModel = new Goods_CommonModel();
 
-		$data = $curgoodsModel->getByWhere(array('shop_id'=>$shop_id));
+		$data = $curgoodsModel->getCommonList(array('shop_id'=>$shop_id));
 		// var_dump($data);die;
 	if ('json' == $this->typ)
 		{
