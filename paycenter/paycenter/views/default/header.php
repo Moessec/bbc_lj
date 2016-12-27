@@ -86,15 +86,15 @@
 				<a href="<?= $shop_url ?>"><?=_('返回商城')?><?=(Yf_Utils_Device::isMobile())?></a>
 			</div>
 			<div class="nav_more"><?=_('更多')?><span class="nav_menu_icon"><i class="nav_more_menu"></i></span></div>
-			<ul class="nav fr">
+			<ul class="nav fr fleft">
 				<li><a href="<?=Yf_Registry::get('ucenter_api_url')?>?ctl=User&met=getUserInfo"><?=_('资料设置')?></a></li>
 				<li><a href="<?=Yf_Registry::get('ucenter_api_url')?>?ctl=User&met=passwd"><?=_('修改密码')?></a></li>
-					<li><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=index"><?=_('支付首页')?></a></li>
-					<li><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist"><?=_('交易查询')?></a></li>
-					<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Info&met=account"><?=_('账户安全')?></a></li>
-					<li><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=deposit"><?=_('账户充值')?></a></li>
-					<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Info&met=transfer"><?=_('好友转账')?></a></li>
-					<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Info&met=withdraw"><?=_('余额提现')?></a></li>									
+				<li><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=index"><?=_('支付首页')?></a></li>
+				<li><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist"><?=_('交易查询')?></a></li>
+				<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Info&met=account"><?=_('账户安全')?></a></li>
+				<li><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=deposit"><?=_('账户充值')?></a></li>
+				<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Info&met=transfer"><?=_('好友转账')?></a></li>
+				<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Info&met=withdraw"><?=_('余额提现')?></a></li>									
 			</ul>
 		</div>
 	</div>
