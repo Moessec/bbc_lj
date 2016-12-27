@@ -611,9 +611,9 @@ body{
             color: #999;
             margin-bottom: 3rem;
         }
- /*       .activity-end1:first-of-type{
-            margin-bottom: 8rem;
-        }*/
+        .activity-end1:first-of-type{
+            padding-bottom: 8rem;
+        }
        .activity-end2{
             font-size: 0.7rem;
             text-align: center;
