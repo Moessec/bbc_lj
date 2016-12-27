@@ -815,7 +815,6 @@ class Seller_GoodsCtl extends Seller_Controller
 		$common_detail_data = $this->goodsCommonDetailModel->getCommonDetail($common_data['common_id']);
 		$common_detail_data = pos($common_detail_data);
         $common_data['common_edit_time'] = time();
-        var_dump($common_data);die;
 
 		$common_sell_time_d = strtotime($common_data['common_sell_time']);
 
@@ -848,6 +847,8 @@ class Seller_GoodsCtl extends Seller_Controller
 		}
 
 		$data            = $this->goodsTypeModel->getTypeInfoByPublishGoods($cat_id); //商品属性、规格等
+        var_dump($data);die;
+
 		$goods_base_data = $this->goodsBaseModel->getByWhere(array('common_id' => $common_data['common_id'])); //取出商品规格值
 
 		$this->view->setMet('goodsInfoManage');
