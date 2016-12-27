@@ -251,7 +251,7 @@
                     </a>
                 </li>
                 <%}%>
-                <%}else{%>
+                <%}else if(goods_commend_list.length>6){%>
                 <%for (var i = 0;i<6;i++){%>
                 <li>
                     <a href="product_detail.html?goods_id=<%=goods_commend_list[i].goods_id%>">
