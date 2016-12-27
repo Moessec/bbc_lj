@@ -152,7 +152,7 @@ var spid = min(dis);
                      da.shop_stamp=stamp.toFixed(2) +'km';
 
                     }else{
-                      // location.replace('index.html');
+                      location.replace('index.html');
                      da.shop_stamp=' km';
 
                     }         
