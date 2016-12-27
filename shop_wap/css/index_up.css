@@ -634,7 +634,7 @@ body{
             background: white;
             height: 1rem;
             /*line-height: 1rem;*/
-            font-size: 0.65rem;
+            font-size: 0.52rem;
             margin:0.5rem auto;
             
         }
@@ -644,7 +644,7 @@ body{
         }
         .announ-contain .announ-contain-title{
             font-family: '雅宋';
-            font-size: 0.55rem;
+            font-size: 0.45rem !important;
 
         }
 .font_inner li{
