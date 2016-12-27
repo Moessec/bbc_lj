@@ -238,19 +238,24 @@ if($.cookie('community_shopid'))
                              }
                              // $("#shopslid").find('.swiper-wrapper').append(sli);   
                              $("#banner023").html(sli);
-                             $("#banner023").find('.swiper-slide')[0].click(function(){
+                             $("#banner023").find('.swiper-slide').eq(0).click(function(){
+                              // alert(1);
                               location.replace(shop_slideurl[0]);
                              })
-                             $("#banner023").find('.swiper-slide')[1].click(function(){
+                             $("#banner023").find('.swiper-slide').eq(1).click(function(){
+                              // alert(2);
                               location.replace(shop_slideurl[1]);
                              })
-                             $("#banner023").find('.swiper-slide')[2].click(function(){
+                             $("#banner023").find('.swiper-slide').eq(2).click(function(){
+                              // alert(3);
                               location.replace(shop_slideurl[2]);
                              })
-                             $("#banner023").find('.swiper-slide')[3].click(function(){
+                             $("#banner023").find('.swiper-slide').eq(3).click(function(){
+                              // alert(4);
                               location.replace(shop_slideurl[3]);
                              })
-                             $("#banner023").find('.swiper-slide')[4].click(function(){
+                             $("#banner023").find('.swiper-slide').eq(4).click(function(){
+                              // alert(5);
                               location.replace(shop_slideurl[4]);
                              })                                                                                                                    
                         }
