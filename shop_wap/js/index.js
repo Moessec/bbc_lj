@@ -234,9 +234,10 @@ if($.cookie('community_shopid'))
                         {
                              for(var i=0;i<5;i++)
                              {
-                              sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"/><img src="'+shop_slide[i]+'"></div></a>';
+                              sli+='<a href="'+shop_slideurl[i]+'"/><div class="swiper-slide"><a href="'+shop_slideurl[i]+'"/><img src="'+shop_slide[i]+'"></a></div></a>';
                              }
                              $("#shopslid").find('.swiper-wrapper').append(sli);   
+
 
                         }
 
