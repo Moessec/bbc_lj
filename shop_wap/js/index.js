@@ -236,9 +236,9 @@ if($.cookie('community_shopid'))
                              {
                               sli+='<div class="swiper-slide"><a href="'+shop_slideurl[i]+'"/><img src="'+shop_slide[i]+'"></a></div>';
                              }
-                             $("#shopslid").find('.swiper-wrapper').append(sli);   
-
-
+                             // $("#shopslid").find('.swiper-wrapper').append(sli);   
+                             $("#banner023").html(sli);
+                          
                         }
 
                     distan= getFlatternDistance(shop_latitude,shop_longitude,$.cookie('lat'),$.cookie('lng'));
@@ -575,7 +575,5 @@ $(function(){
   var src1 = sr[0]+2+'.png';
   // alert(src1);
   src2 = $('#active1').find('img')[0].src=src1;
-                             var a = $('#banner023 swiper-slide').find('a')[0];
-                             var b = $('#banner023 swiper-slide').find('img')[0];
-                             a.html(b);
+
 })
