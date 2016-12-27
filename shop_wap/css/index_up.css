@@ -609,11 +609,11 @@ body{
             height: 0.4rem;
             line-height: 2rem;
             color: #999;
-            margin-bottom: 3rem;
-        }
-        .activity-end1:first-of-type{
             margin-bottom: 8rem;
         }
+ /*       .activity-end1:first-of-type{
+            margin-bottom: 8rem;
+        }*/
        .activity-end2{
             font-size: 0.7rem;
             text-align: center;
