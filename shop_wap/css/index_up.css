@@ -254,11 +254,11 @@ body{
 		    background-image: url(../images/iconfont/search.png);
 		    background-repeat: no-repeat;
 		    background-position: 50% 0;
-		    background-size: 100%;
+		    background-size: 80%;
 		    opacity: 1;
         }
         .transparent-search a span{
-        	font-size:0.8rem;
+        	font-size:0.6rem;
         	color: white;
         }
 
