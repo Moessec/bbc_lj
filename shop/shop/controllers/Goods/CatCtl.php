@@ -139,7 +139,7 @@ class Goods_CatCtl extends Controller
 		$rows = request_int('rows');
 		$sort = request_int('sord');
 		$cond_row  = array('shop_id'=>$shop_id,'parent_id'=>$parent_id);
-		$order_row = array();
+		$order_row = array('shop_goods_cat_displayorder'=> 'DESC');
 
 		$data = array();
 
