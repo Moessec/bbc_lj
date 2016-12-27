@@ -33,14 +33,14 @@ include $this->view->getTplPath() . '/' . 'seller_header.php';
                 <p class="hint"><?=_('此处为店铺页logo；')?><br /><?=_('建议使用宽180像素*高80像素内的GIF或PNG透明图片；点击下方"确认提交"按钮后生效。')?></p>
             </dd>
         </dl>
-<!--         <dl>
+         <dl>
             <dt>店铺头像：</dt>
             <dd>
            		<p class="pic" style="width:200px;height:60px;"><img id="logo_img" src="<{if $de.logo}><{$de.logo}><{else}>image/default/seller/default_logo.png<{/if}>" height="60" width="200" /></p>
                 <p class="upload-button"><input type="hidden" id="logo" name="shop[banner]" value="<{$de.logo}>" /><a class="button button_black" href="javascript:uploadfile('图片上传','logo',200,60,'shop');"><i class="iconfont icon-upload-alt"></i>图片上传</a></p>                
                 <p class="hint">此处为店铺方形头像；<br/> 建议使用宽100像素*高100像素内的方型图片；点击下方"确认提交"按钮后生效。</p>
             </dd>
-        </dl>-->
+        </dl>
         <dl>
             <dt><?=_('店铺条幅：')?></dt>
             <dd>
