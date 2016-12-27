@@ -446,10 +446,15 @@ window.onunload = onunload_handler;
 function onbeforeunload_handler(){ 
    delCookie('lat');
    delCookie('lnt');    
-   delCookie('community_shopid');    
+   // delCookie('community_shopid');    
 return 1; 
     } 
-    
+function delCookie(name) {
+  var exp = new Date();
+  exp.setTime(exp.getTime() + (-1 * 24 * 60 * 60 * 1000));
+  var cval = GetCookieValue(name);
+  document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+}    
 function onunload_handler(){ 
     var warning="谢谢光临"; 
     alert(warning); 
