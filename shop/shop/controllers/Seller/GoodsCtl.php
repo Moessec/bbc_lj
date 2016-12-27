@@ -814,7 +814,7 @@ class Seller_GoodsCtl extends Seller_Controller
 
 		$common_detail_data = $this->goodsCommonDetailModel->getCommonDetail($common_data['common_id']);
 		$common_detail_data = pos($common_detail_data);
-
+        $common_data['common_edit_time'] = time();
 
 		$common_sell_time_d = strtotime($common_data['common_sell_time']);
 
