@@ -415,7 +415,7 @@
                 <input type="hidden" class="inp" name="voucher_id" id="voucher_id" value="<%=store_cart_list[k].shop_id%>"/>
                 <input type="hidden" class="inp" name="voucher_id" id="position" value="<%=k%>"/>
                 
-                <dt style="width:95%;text-align:right;color:#FE943F">选择其他代金券</dt>
+                <dt style="width:95%;text-align:right;color:#FE943F">选择其他红包</dt>
                 <dd><span id="address"></span></dd>
             </dl>
             <i class="icon-arrow"></i>
@@ -478,7 +478,7 @@
                 <div class="nctouch-bottom-mask-tip"><i></i>点击此处返回</div>
                 <div class="nctouch-bottom-mask-top store-voucher">
                     <i class="icon-store"></i>
-                    <%=store_cart_list[k].shop_name%>&nbsp;&nbsp;领取店铺代金券
+                    <%=store_cart_list[k].shop_name%>&nbsp;&nbsp;领取店铺红包
                     <a href="javascript:void(0);" class="nctouch-bottom-mask-close"><i></i></a>
                 </div>
                 <div class="nctouch-bottom-mask-rolling nctouch-bottom-mask-rolling<%=k%>">
@@ -592,7 +592,7 @@
         eval('voucher_info = ' + $(this).attr('data-param'));
          var voucher_position='vourchPrice'+voucher_info.position;
         var sel="#"+voucher_position;
-        var oldPrice= $(sel).html();//旧代金券
+        var oldPrice= $(sel).html();//旧红包
         $(sel).html(voucher_info.voucher_price);
         var oldTotalPrice=$('#totalPrice').html();
         //原价
