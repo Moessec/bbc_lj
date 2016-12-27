@@ -233,17 +233,18 @@ body{
             width:60%;
         }
         .transparent-search .header-inps{
-		    background-color: rgba(251,237,238,0.9);
+		    /*background-color: rgba(251,237,238,0.9);*/
 		    border: none;
-		    border-radius: 8px;
+		    /*border-radius: 8px;*/
 		    display: block;
     		height: 1.4rem;
-        line-height: 1.4rem;
+           line-height: 1.4rem;
     		margin:0.275rem 1.3rem;
+            border-bottom: 1px solid white;
             /*margin-left: 1.3rem;*/
         } 
         .width{
-        	width:100%;
+        	width:80%;
         }
 		
         .icon{
