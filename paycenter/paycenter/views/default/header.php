@@ -102,7 +102,12 @@
 		<div class="header wrap clearfix">
 			<div class="logo"><img src="<?=$this->user_info['user_avatar']?>"></div>
 			<div class="header_nav clearfix">
-			<!-- 	<ul class="pc_lf fl">
+				<ul class="pc_lf fl">
+					<li><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=index"></a></li>
+					<li><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist"></a></li>
+					<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Info&met=account"></a></li>
+				</ul>
+<!-- 				<ul class="pc_lf fl">
 					<li><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=index"><?=_('支付首页')?></a></li>
 					<li><a href="<?=Yf_Registry::get('url')?>?ctl=Info&met=recordlist"><?=_('交易查询')?></a></li>
 					<li><a href="<?= Yf_Registry::get('url') ?>?ctl=Info&met=account"><?=_('账户安全')?></a></li>
