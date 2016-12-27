@@ -330,9 +330,9 @@ input[type='submit'] {
 
 select{height:40px;line-height:40px;border:1px solid #e1e1e1;}
 .fleft{
-    width: 160px;
+    width: 180px;
 }
 .fleft li{
-    width: 80px;
+    width: 90px;
     float: left  !important;
 }
