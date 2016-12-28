@@ -248,7 +248,7 @@ function abc(){
                     }      
                  $("#shopinfo").html(template.render('shop_info', da));
                     
-                 $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json&shop_id="+getCookie('shot_shop'), function (t)
+                 $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json&shop_id="+5, function (t)
                      {
              
                        $("#product-contain3").html(template.render('goods3', t));
