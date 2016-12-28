@@ -515,7 +515,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$condi['order_id'] = $order_id;
 			$data              = $Order_BaseModel->getOrderList($condi);
 			$data              = pos($data['items']);
-
+            var_dump($data);die;
 			//默认物流公司 url
 			$default_express_url = Yf_Registry::get('url') . '?ctl=Seller_Trade_Deliver&met=express&typ=e';
 			//打印运单URL
@@ -544,8 +544,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$update_data['order_receiver_date'] = date('Y-m-d H:i:s', $current_time + $confirm_order_time);
 			
 			$flag = $Order_BaseModel->editBase($order_id, $update_data);
-			var_dump(3443);
-            var_dump($flag);die;
+
 			if ($flag)
 			{
 				$order_base = $Order_BaseModel->getBase($order_id);
