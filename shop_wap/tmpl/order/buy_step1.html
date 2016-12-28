@@ -401,7 +401,7 @@
 
         <div class="nctouch-cart-subtotal">
             <dl id="voucher<%=k%>">
-               <a href="javascript:void(0);" id="list-voucher-valve" style="color:#FE943F"> <dt>选择红包</dt>
+               <a href="javascript:void(0);" class="list-voucher-valve" style="color:#FE943F"> <dt>选择红包</dt>
                  <input type="hidden" class="inp" name="voucher_id" id="voucher_id" value="<%=store_cart_list[k].shop_id%>"/>
                 <input type="hidden" class="inp" name="voucher_id" id="position" value="<%=k%>"/>
                 <dd style="color:#ED811F;font-weight: 600;"><em id="vourchPrice<%=k%>"></em></dd>
@@ -410,7 +410,7 @@
             </a>
             <div class="nctouch-cart-block">
         <!--正在使用的默认地址Begin-->
-        <!-- <div class="nctouch-cart-add-default"><a href="javascript:void(0);" id="list-voucher-valve">
+        <!-- <div class="nctouch-cart-add-default"><a href="javascript:void(0);" class="list-voucher-valve">
             <dl>
                 <input type="hidden" class="inp" name="voucher_id" id="voucher_id" value="<%=store_cart_list[k].shop_id%>"/>
                 <input type="hidden" class="inp" name="voucher_id" id="position" value="<%=k%>"/>
@@ -551,7 +551,7 @@
 
 
 
-        $('#list-voucher-valve').click(function(){
+        $('.list-voucher-valve').click(function(){
        
         var shop_id = $(this).find("#voucher_id").val();
         var position = $(this).find("#position").val();
@@ -578,7 +578,7 @@
 
 
          $.animationLeft({
-        valve : '#list-voucher-valve',
+        valve : '.list-voucher-valve',
         wrapper : '#list-voucher-wrapper',
         scroll : '#list-voucher-scroll'
          });
