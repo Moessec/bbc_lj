@@ -33,7 +33,7 @@ class Buyer_VoucherCtl extends Buyer_Controller
 	public function voucher()
 	{
 		$Yf_Page           = new Yf_Page();
-		$Yf_Page->listRows = request_int('listRows')?request_int('listRows'):10;
+		$Yf_Page->listRows = request_int('listRows')?request_int('listRows'):20;
 		$rows              = $Yf_Page->listRows;
 		$offset            = request_int('firstRow', 0);
 		$page              = ceil_r($offset / $rows);
@@ -66,14 +66,14 @@ class Buyer_VoucherCtl extends Buyer_Controller
 		{
 
 			//所属店铺
-			$shop_id_row = array_column($data['items'], 'voucher_shop_id');
-			$Shop_BaseModel = new Shop_BaseModel();
+			// $shop_id_row = array_column($data['items'], 'voucher_shop_id');
+			// $Shop_BaseModel = new Shop_BaseModel();
 
-			if ($shop_id_row)
-			{
-				$shop_rows = $Shop_BaseModel->getBase($shop_id_row);
-				$data['shop'] = $shop_rows;
-			}
+			// if ($shop_id_row)
+			// {
+			// 	$shop_rows = $Shop_BaseModel->getBase($shop_id_row);
+			// 	$data['shop'] = $shop_rows;
+			// }
 
 			if ($data['page'] < $data['total'])
 			{
