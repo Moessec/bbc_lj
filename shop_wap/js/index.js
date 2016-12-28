@@ -174,9 +174,11 @@ var spid = min(dis);
                      da.shop_stamp=stamp.toFixed(2) +'km';
 
                     }else{
-                     //  location.replace('index.html');
-                     // da.shop_stamp=' km';
-                     abc();
+                       if(getCookie('lng')&&getCookie('lat'))
+                       {
+                        document.URL="./index.html";
+                       }
+                        abc();
                     }         
                  $("#shopinfo").html(template.render('shop_info', da));
                     
