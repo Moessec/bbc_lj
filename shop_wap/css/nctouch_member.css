@@ -127,7 +127,7 @@
 .member-collect span i.goods-browse { background-image: url(../images/bbc-bg41.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 71%;}
 .member-collect span p { font-size: 0.6rem; line-height: 1rem; color: #FFF; height: 1rem;}
 
-.member-center {}
+.member-center {height: 27rem;}
 .member-center dl { background-color: #FFF; box-shadow: 0 1px 0 rgba(0,0,0,0.05);}
 .member-center dt { line-height: 0.9rem; display: block; height: 1rem; padding: 0.5rem 0.7rem 0.5rem 0; margin-left: 0.5rem; border-bottom: solid 0.05rem #EEE;}
 .member-center dt:last-child { border-bottom: none;}
