@@ -33,7 +33,7 @@ class Buyer_VoucherCtl extends Buyer_Controller
 	public function voucher()
 	{
 		$Yf_Page           = new Yf_Page();
-		$Yf_Page->listRows = request_int('listRows')?request_int('listRows'):20;
+		$Yf_Page->listRows = request_int('listRows')?request_int('listRows'):100;
 		$rows              = $Yf_Page->listRows;
 		$offset            = request_int('firstRow', 0);
 		$page              = ceil_r($offset / $rows);
