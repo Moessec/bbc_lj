@@ -176,7 +176,7 @@ var spid = min(dis);
                     }else{
                        if(getCookie('lng')&&getCookie('lat'))
                        {
-                        document.URL="./index.html";
+                        window.location.replace("./index.html");
                        }
                         abc();
                     }         
