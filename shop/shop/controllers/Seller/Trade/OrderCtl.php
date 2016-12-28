@@ -524,7 +524,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$express_list = $Shop_ExpressModel->getDefaultShopExpress();
 			$express_list = array_values($express_list);
           
-			include $this->view->getView();  var_dump($express_list);die;
+			include $this->view->getView();  
 
 		}
 		else
@@ -569,6 +569,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			}
 			else
 			{
+				var_dump(43534);die;
 				$msg    = _('failure');
 				$status = 250;
 			}
