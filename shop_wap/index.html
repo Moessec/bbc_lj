@@ -442,18 +442,14 @@ window.onload = function() {
 
 <script type="text/javascript">  
    
-    window.onbeforeunload = onbeforeunload_handler;  
-    window.onunload = onunload_handler;  
-    function onbeforeunload_handler(){  
-        var warning="确认退出?";          
-        return warning;  
-    }  
-      
-    function onunload_handler(){  
-        var warning="谢谢光临";  
-        alert(warning);  
-    }  
- 
+window.onbeforeunload=onclose;
+function onclose()
+{
+if(event.clientX>document.body.clientWidth&&event.clientY<0||event.altKey)
+{
+return "您要离开吗？";
+}
+}
 
 </script>       
 </body>
