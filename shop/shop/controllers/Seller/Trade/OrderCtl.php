@@ -512,7 +512,6 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 
 		if ($typ == 'e')
 		{
-			var_dump(111);die;
 			$condi['order_id'] = $order_id;
 			$data              = $Order_BaseModel->getOrderList($condi);
 			$data              = pos($data['items']);
@@ -530,6 +529,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 		}
 		else
 		{
+			var_dump(111333);die;
 			//设置发货
 			$update_data['order_status']              = Order_StateModel::ORDER_WAIT_CONFIRM_GOODS;
 			$update_data['order_shipping_express_id'] = request_int('order_shipping_express_id');
