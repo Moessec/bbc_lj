@@ -503,7 +503,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 	 * @access public
 	 */
 	public function send()
-	{
+	{var_dump(1);die;
 		$typ      = request_string('typ');
 		$order_id = request_string('order_id');
 
