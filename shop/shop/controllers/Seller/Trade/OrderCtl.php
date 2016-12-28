@@ -545,7 +545,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			
 			$flag = $Order_BaseModel->editBase($order_id, $update_data);
             // var_dump($flag);die;
-            $flag=1;
+            
 			if ($flag)
 			{
 				$order_base = $Order_BaseModel->getBase($order_id);
