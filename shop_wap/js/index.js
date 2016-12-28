@@ -684,6 +684,9 @@ $(function(){
   src2 = $('#active1').find('img')[0].src=src1;
 
 window.onbeforeunload = function(){  
+   delCookie('lat');
+   delCookie('lng');
+   delCookie('community_shopid');
     return "quit?";     
 }  
 })
