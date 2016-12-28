@@ -692,6 +692,12 @@ body{
 .inter:nth-last-of-type(1){
  margin-bottom: 0;
 }
+.outer:nth-last-of-type(1){
+ /*margin-bottom:100px;*/
+}
+/*.inter:last-child{
+    margin-bottom: 1000px;
+}*/
 .inter:nth-last-of-type(2){
   margin-bottom: 0;
 }

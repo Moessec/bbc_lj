@@ -582,6 +582,8 @@ $(function ()
             // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
             shop_goodslist2(shop_id);
             addcart();
+                    //             alert(1);
+                    // $('.inter:last').css('margin-bottom','100px');
         });
       }else{
             if(getCookie('community_shopid'))
@@ -599,6 +601,8 @@ $(function ()
                     // new IScroll("#categroy-rgt", {mouseWheel: true, click: true})
                     shop_goodslist2(shop_id);
                     addcart();
+                    // alert(1);
+                    // $('.inter:last').css('padding-bottom','100px');
                 });                
             }else if(getCookie('shot_shop'))
             {
