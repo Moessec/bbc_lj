@@ -523,9 +523,9 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			//默认物流公司
 			$express_list = $Shop_ExpressModel->getDefaultShopExpress();
 			$express_list = array_values($express_list);
-            var_dump($express_list);die;
+          
+			include $this->view->getView();  var_dump($express_list);die;
 
-			include $this->view->getView();
 		}
 		else
 		{
