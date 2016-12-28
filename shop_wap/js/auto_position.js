@@ -15,8 +15,8 @@ jQuery.MapConvert = {
         lng1 = z * Math.cos(theta) + 0.0065;
         lat1 = z * Math.sin(theta) + 0.006;
 
-                $.cookie("lng",lng1,{expires:7});
-                $.cookie("lat",lat1,{expires:7});
+                $.cookie("lng",lng1);
+                $.cookie("lat",lat1);
     }
     /// <summary>
     /// 百度地图对应的 BD09 协议坐标，转到 中国正常坐标系GCJ02协议的坐标
