@@ -82,7 +82,7 @@ to { display: none; bottom:-100%; opacity: 0;}
 .nctouch-bigimg-turn { position: absolute; z-index: 2; bottom: 0; left: 0; right: 0; text-align: center;}
 .nctouch-bigimg-turn ul { font-size: 0; margin: 0 auto; white-space: nowrap; display: block; width: 100%;}
 .nctouch-bigimg-turn ul li { display: inline-block; min-width: 19%; max-width: 99%; margin: 0 1% 0 0!important; height: 0.25rem; padding: 0!important; background:rgba(255,255,255,0.75);}
-.nctouch-bigimg-turn ul li.cur { background-color: #ED5564;}
+.nctouch-bigimg-turn ul li.cur { background-color:#FF7F00;}
 
 
 
@@ -91,16 +91,16 @@ to { display: none; bottom:-100%; opacity: 0;}
 .nctouch-sel-box .tit { display: block; padding: 0.5rem 0; font-size: 0.7rem; line-height: 0.9rem;}
 .nctouch-sel-box .sel-con { padding: 0 0 0.5rem 0;}
 .nctouch-sel-box .sel-con a { display: inline-block; height: 0.9rem; padding: 0.25rem 0.5rem; margin: 0.3rem 0.3rem 0 0; font-size: 0.55rem; color: #888; line-height: 0.9rem; background: #FFF; border: solid 0.05rem #BBB; border-radius: 0.15rem;}
-.nctouch-sel-box .sel-con a.sel { padding: 0.28rem 0.53rem; color: #FFF; background: #ED5564; border: none;}
+.nctouch-sel-box .sel-con a.sel { padding: 0.28rem 0.53rem; color: #FFF; background:#FF7F00; border: none;}
 .nctouch-sel-list { background-color: #FFF; margin-top: 0.5rem;}
 .nctouch-sel-list label { position: relative; z-index: 1; display: block; height: 0.9rem; padding: 0.5rem 0; margin: 0 0.5rem; font-size: 0.6rem; line-height: 0.9rem; border-bottom: solid 0.05rem #EEE;}
 .nctouch-sel-list label input[type="radio"] { display: none;}
 .nctouch-sel-list label i { position: relative; display: inline-block; width: 0.75rem; height: 0.75rem; margin-right: 0.2rem; background-color: #F5F5F5; border: 0.05rem solid #CCC; -webkit-border-radius: 50%; border-radius: 50%; vertical-align: middle;}
-.nctouch-sel-list label.checked i { border-color: #ED5564; background-color: #ED5564; }
+.nctouch-sel-list label.checked i { border-color:#FF7F00; background-color:#FF7F00; }
 .nctouch-sel-list label.checked i:after { content: ''; position: absolute; left: 0.1rem; top: 0.175rem; width: 0.4rem; height: 0.2rem; border-left: 0.065rem solid #fff; border-bottom: 0.065rem solid #fff; -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
 .nctouch-sel-list a.del-invoice { position: absolute; z-index: 1; top: 0.5rem; right: 0.5rem; display: block; width: 0.8rem; height: 0.9rem; background-image: url(../images/bbc-bg27.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 80%;}
 .nctouch-inp-con .input-box.btn-style label { display: inline-block !important; height: 0.9rem !important; padding: 0.25rem 0.5rem !important; margin: 0.3rem 0.3rem 0 0 !important; font-size: 0.55rem !important; color: #888 !important; line-height: 0.9rem !important; background: #FFF !important; border: solid 0.05rem #BBB !important; border-radius: 0.15rem !important;}
-.nctouch-inp-con .input-box.btn-style label.checked { padding: 0.28rem 0.53rem !important; color: #FFF !important; background: #ED5564 !important; border: none !important;}
+.nctouch-inp-con .input-box.btn-style label.checked { padding: 0.28rem 0.53rem !important; color: #FFF !important; background:#FF7F00 !important; border: none !important;}
 .nctouch-inp-con .input-box label input[type="radio"] { display: none;}
 
 
@@ -111,7 +111,7 @@ to { display: none; bottom:-100%; opacity: 0;}
 .nctouch-voucher-list { margin-left: 0.5rem;}
 .nctouch-voucher-list li { position: relative; z-index: 1; background-color: #FFF; border-top: solid #EEE 0.05rem; padding: 0.5rem 0.5rem 0.5rem 0;}
 .nctouch-voucher-list dl { margin: 0 3rem 0 0;}
-.nctouch-voucher-list dt { font-size: 0.55rem; color: #ED5564; line-height: 1.2rem; }
+.nctouch-voucher-list dt { font-size: 0.55rem; color:#FF7F00; line-height: 1.2rem; }
 .nctouch-voucher-list dt em { font-size: 1.2rem; margin: 0 0.1rem;}
 .nctouch-voucher-list dd.need { font-size: 0.55rem; line-height: 0.6rem; color: #333;}
 .nctouch-voucher-list dd.time { font-size: 0.45rem; line-height: 0.6rem; color: #888;}
