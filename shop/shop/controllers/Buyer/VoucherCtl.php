@@ -66,14 +66,14 @@ class Buyer_VoucherCtl extends Buyer_Controller
 		{
 
 			//所属店铺
-			// $shop_id_row = array_column($data['items'], 'voucher_shop_id');
-			// $Shop_BaseModel = new Shop_BaseModel();
+			$shop_id_row = array_column($data['items'], 'voucher_shop_id');
+			$Shop_BaseModel = new Shop_BaseModel();
 
-			// if ($shop_id_row)
-			// {
-			// 	$shop_rows = $Shop_BaseModel->getBase($shop_id_row);
-			// 	$data['shop'] = $shop_rows;
-			// }
+			if ($shop_id_row)
+			{
+				$shop_rows = $Shop_BaseModel->getBase($shop_id_row);
+				$data['shop'] = $shop_rows;
+			}
 
 			if ($data['page'] < $data['total'])
 			{
