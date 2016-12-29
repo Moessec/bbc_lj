@@ -101,7 +101,6 @@ class Api_Paycen_PayInfoCtl extends Api_Controller
         $Buyer_TestModel           = new Card_InfoModel();
         $data                      = array();
         $data['card_id']           = request_int('card_id');                  //卡id
-        var_dump($data['card_id']);die;
         $length                  = request_string('card_sum');                //生成卡的数量
         for ($i=1; $i<=$length;$i++){
             $data['card_code']=$data['card_id'].Text_Password::create(4,unpronounceable,1234567890);
