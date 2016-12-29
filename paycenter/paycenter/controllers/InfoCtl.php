@@ -359,7 +359,7 @@ class InfoCtl extends Controller
 
 		$uorder = request_string('uorder');
 		$act = request_string('act');
-	
+
 		//获取需要支付的订单信息
 		$Union_OrderModel = new Union_OrderModel();
 		$uorder_base = $Union_OrderModel->getOne($uorder);
@@ -747,7 +747,7 @@ class InfoCtl extends Controller
 
 		$User_InfoModel = new User_InfoModel();
 		$flag     = $User_InfoModel->editInfo($user_id,$edit);
-		if ($flag)
+		if ($flag !== false)
 		{
 			$msg    = 'success';
 			$status = 200;
@@ -1505,6 +1505,7 @@ class InfoCtl extends Controller
 		$order_id = request_string('order_id');
 		$goods_id = request_int('goods_id');
 		$uorder_id = request_string('uorder_id');
+		$payment_id = request_string('payment_id');
 
 		//交易明细表
 		$Consume_RecordModel = new Consume_RecordModel();
@@ -1565,32 +1566,37 @@ class InfoCtl extends Controller
 
 			$Consume_RecordModel->addRecord($record_add_seller_row);
 
-			//查找合并单中的付款情况，购物卡优先退款
-			$uorder_base = $Union_OrderModel->getOne($uorder_id);
+            if($payment_id == 1){
+                //查找合并单中的付款情况，购物卡优先退款
+                $uorder_base = $Union_OrderModel->getOne($uorder_id);
 
-			$card_return_amount = 0;
+                $card_return_amount = 0;
 
-			//使用购物卡支付并且购物卡的退款金额小于支付金额时
-			if(($uorder_base['union_cards_pay_amount'] > 0) && ($uorder_base['union_cards_return_amount'] < $uorder_base['union_cards_pay_amount']))
-			{
-				$card_can_return_amount = $uorder_base['union_cards_pay_amount'] - $uorder_base['union_cards_return_amount'];
-				//购物卡中可退款金额小于退款金额
-				if($card_can_return_amount <= $amount)
-				{
-					$card_return_amount = $card_can_return_amount;
-				}else
-				{
-					$card_return_amount = $amount;
-				}
+                //使用购物卡支付并且购物卡的退款金额小于支付金额时
+                if(($uorder_base['union_cards_pay_amount'] > 0) && ($uorder_base['union_cards_return_amount'] < $uorder_base['union_cards_pay_amount']))
+                {
+                    $card_can_return_amount = $uorder_base['union_cards_pay_amount'] - $uorder_base['union_cards_return_amount'];
+                    //购物卡中可退款金额小于退款金额
+                    if($card_can_return_amount <= $amount)
+                    {
+                        $card_return_amount = $card_can_return_amount;
+                    }else
+                    {
+                        $card_return_amount = $amount;
+                    }
 
-				$amount = $amount - $card_return_amount;
-			}
+                    $amount = $amount - $card_return_amount;
+                }
 
-			//扣除购物卡的退款之后全部退还到账户余额中
-			$edit_union_row = array();
-			$edit_union_row['union_cards_return_amount'] = $card_return_amount;
-			$edit_union_row['union_money_return_amount'] = $amount;
-			$flag1 = $Union_OrderModel->editUnionOrder($uorder_id,$edit_union_row,true);
+                //扣除购物卡的退款之后全部退还到账户余额中
+                $edit_union_row = array();
+                $edit_union_row['union_cards_return_amount'] = $card_return_amount;
+                $edit_union_row['union_money_return_amount'] = $amount;
+                $flag1 = $Union_OrderModel->editUnionOrder($uorder_id,$edit_union_row,true);
+            }else{
+                $flag1 = true;
+            }
+
 
 			$user_resource = current($User_ResourceModel->getResource($user_id));
 
@@ -2077,7 +2083,10 @@ class InfoCtl extends Controller
 		$type = request_string('type');
 		$val  = request_string('val');
 
-		$cond_row['code'] = 'Lift verification';
+		$code = request_string('code','getcode');
+
+		//$cond_row['code'] = 'Lift verification';
+		$cond_row['code'] = $code;
 
 		$de = $this->messageTemplateModel->getTemplateDetail($cond_row);
 		if ($type == 'mobile')
