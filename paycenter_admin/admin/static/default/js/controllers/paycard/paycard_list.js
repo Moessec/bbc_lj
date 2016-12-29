@@ -17,13 +17,9 @@ var THISPAGE = {
         this.$_cardName = $('#cardName');
         this.$_beginDate = $('#beginDate').val(system.beginDate);
         this.$_endDate = $('#endDate').val(system.endDate);
-        this.$_card_start_time = $('#card_start_time').val(system.card_start_time);
-        this.$_card_end_time = $('#card_end_time').val(system.card_end_time);        
         this.$_cardName.placeholder();
         this.$_beginDate.datepicker();
         this.$_endDate.datepicker();
-        this.$_card_end_time.datepicker();
-        this.$_endDate.datepicker();        
     },
     loadGrid: function(){
         var gridWH = Public.setGrid(), _self = this;
