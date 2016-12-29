@@ -1,7 +1,12 @@
 
 function init()
 {
-    typeof rowData != "undefined" ? ( initField(), initEvent())  : (initField(), initEvent())
+    SYSTEM = system = parent.SYSTEM;
+    this.$_card_start_time = $('#card_start_time').val(system.beginDate);
+    this.$_card_end_time = $('#card_end_time').val(system.endDate);
+    this.$_card_start_time.datepicker();
+    this.$_card_end_time.datepicker();
+    typeof rowData != "undefined" ? ( initField(), initEvent())  : (initField(), initEvent());
 }
 
 function initPopBtns()
@@ -21,10 +26,10 @@ function initValidator()
 {
     $_form.validator({
         messages: {
-			required: "请填写{0}"
-		},
+            required: "请填写{0}"
+        },
         fields: {
-			card_id: "required;"
+            card_id: "required;"
         },
         display: function (a)
         {
@@ -33,7 +38,7 @@ function initValidator()
         valid: function (form)
         {
             var a = "add" == oper ? "新增购物卡" : "修改购物卡", b = getData();
-			Public.ajaxPost(SITE_URL +"?ctl=Paycen_PayCard&typ=json&met=" + ("add" == oper ? "add" : "editBases"), b, function (e)
+            Public.ajaxPost(SITE_URL +"?ctl=Paycen_PayCard&typ=json&met=" + ("add" == oper ? "add" : "editBases"), b, function (e)
             {
                 if (200 == e.status)
                 {
@@ -45,7 +50,7 @@ function initValidator()
                 {
                     parent.parent.Public.tips({type: 1, content: a + "失败！" + e.msg})
                 }
-			})
+            })
         },
         ignore: ":hidden",
         theme: "yellow_bottom",
@@ -60,7 +65,7 @@ function getData()
     //     id: cRowId.card_id,
     //     card_name: $.trim($("#card_name").val()),
     //     card_num: $.trim($("#card_num").val()),
-		// source: source.getValue(),
+    // source: source.getValue(),
     //     start_date: $.trim($("#start_date").val()),
     //     end_date: $.trim($("#end_date").val()),
     //     money: $.trim($("#money").val()),
@@ -68,18 +73,18 @@ function getData()
     //     member_create_time: $.trim($("#date").val()),
     //     member_salesman: salesman.getValue(),
     //     member_salesman_name: salesman.getText(),
-		// link_mans: JSON.stringify(links),
-		// member_desc: $.trim($("#member_desc").val()),
+    // link_mans: JSON.stringify(links),
+    // member_desc: $.trim($("#member_desc").val()),
     //     member_amount_money: $.trim($("#member_amount_money").val()),
     //     member_period_money: $.trim($("#member_period_money").val())
     // } : {
     //     member_number: $.trim($("#member_number").val()),
     //     member_name: $.trim($("#member_name").val()),
     //     member_realname: $.trim($("#member_realname").val()),
-		// member_sex: sex.getValue(),
-		// member_level_id: level.getValue(),
-		// member_type_id: type.getValue(),
-		// member_source: source.getValue(),
+    // member_sex: sex.getValue(),
+    // member_level_id: level.getValue(),
+    // member_type_id: type.getValue(),
+    // member_source: source.getValue(),
     //     member_email: $.trim($("#member_email").val()),
     //     member_mobile: $.trim($("#member_mobile").val()),
     //     member_qq: $.trim($("#member_qq").val()),
@@ -87,8 +92,8 @@ function getData()
     //     member_create_time: $.trim($("#date").val()),
     //     member_salesman: salesman.getValue(),
     //     member_salesman_name: salesman.getText(),
-		// link_mans: JSON.stringify(links),
-		// member_desc: $.trim($("#member_desc").val()),
+    // link_mans: JSON.stringify(links),
+    // member_desc: $.trim($("#member_desc").val()),
     //     member_amount_money: $.trim($("#member_amount_money").val()),
     //     member_period_money: $.trim($("#member_period_money").val())
     // };
@@ -120,41 +125,41 @@ function getData()
 }
 
 /*function getData()
-{
-    var cat_id = categoryTree.getValue()
-    var data = {
-        brand_name: $.trim($("#brand_name").val()),
-        cat_id: cat_id,
-        brand_pic: $.trim($("#brand_pic").attr('src')),
-        brand_show_type: $.trim($('[name = brand_show_type]:checked').val()),
-        brand_recommend: $.trim($('[name = brand_recommend]:checked').val()),
-        brand_enable: $.trim($('[name = brand_enable]:checked').val()),
-        brand_displayorder: $.trim($("#brand_displayorder").val()),
-        brand_pic: $.trim($("#brand_logo").val())
-    };
-    cRowId ?data['id'] = cRowId['id']: '';
-    return data
-}*/
+ {
+ var cat_id = categoryTree.getValue()
+ var data = {
+ brand_name: $.trim($("#brand_name").val()),
+ cat_id: cat_id,
+ brand_pic: $.trim($("#brand_pic").attr('src')),
+ brand_show_type: $.trim($('[name = brand_show_type]:checked').val()),
+ brand_recommend: $.trim($('[name = brand_recommend]:checked').val()),
+ brand_enable: $.trim($('[name = brand_enable]:checked').val()),
+ brand_displayorder: $.trim($("#brand_displayorder").val()),
+ brand_pic: $.trim($("#brand_logo").val())
+ };
+ cRowId ?data['id'] = cRowId['id']: '';
+ return data
+ }*/
 
 function getEntriesData()
 {
-	for (var a = {}, b = [], c = $grid.jqGrid("getDataIDs"), d = !1, e = 0, f = c.length; f > e; e++)
-	{
-		var g, h = c[e], i = $grid.jqGrid("getRowData", h);
+    for (var a = {}, b = [], c = $grid.jqGrid("getDataIDs"), d = !1, e = 0, f = c.length; f > e; e++)
+    {
+        var g, h = c[e], i = $grid.jqGrid("getRowData", h);
         console.info(i);
-		g = {
-			money: i.m,
+        g = {
+            money: i.m,
             point: i.p,
-		};
-		b.push(g)
-	}
-	return  a.entriesData = b, a
+        };
+        b.push(g)
+    }
+    return  a.entriesData = b, a
 }
 function initField()
 {
     if (rowData.card_id)
     {
- 		$("#card_id").val(rowData.card_id);
+        $("#card_id").val(rowData.card_id);
         $("#card_name").val(rowData.card_name);
         $("#card_num").val(rowData.card_num);
         $("#card_start_time").val(rowData.card_start_time);
@@ -166,15 +171,15 @@ function initField()
     }
     else
     {
-		$("#date").val(parent.parent.SYSTEM.startDate);
+        $("#date").val(parent.parent.SYSTEM.startDate);
     }
 }
 
 function initEvent()
-{	
-	var app_id = rowData.app_id;
-    
-	$source = $("#source").combo({
+{
+    var app_id = rowData.app_id;
+
+    $source = $("#source").combo({
         data: [{
             id: "0",
             name: "请选择平台"
@@ -196,9 +201,9 @@ function initEvent()
         width: 195,
         defaultSelected: ['id', app_id] || void 0
     }).getCombo();
-	
-	
-	var b = $("#date");
+
+
+    var b = $("#date");
     b.blur(function ()
     {
         "" == b.val() && b.val(parent.parent.SYSTEM.startDate)
@@ -210,7 +215,7 @@ function initEvent()
         }
     });
 
-	$(document).on("click.cancle", function (a)
+    $(document).on("click.cancle", function (a)
     {
         var b = a.target || a.srcElement;
         !$(b).closest("#grid").length > 0 && cancleGridEdit()
@@ -226,18 +231,18 @@ function bindEventForEnterKey()
 }
 function addressFmt(a, b, c)
 {
-	if (!c.member_contacter_address)
+    if (!c.member_contacter_address)
     {
-		if(a)
-		  return a;
+        if(a)
+            return a;
     }
     var d = {};
-    return d.province = c.member_contacter_province || "", 
-	d.city = c.member_contacter_city || "", 
-	d.county = c.member_contacter_county || "",
-	d.address = c.member_contacter_address || "",
-	$("#" + c.id).data("addressInfo", d), 
-	d.province + d.city + d.county + d.address || "&#160;"
+    return d.province = c.member_contacter_province || "",
+        d.city = c.member_contacter_city || "",
+        d.county = c.member_contacter_county || "",
+        d.address = c.member_contacter_address || "",
+        $("#" + c.id).data("addressInfo", d),
+    d.province + d.city + d.county + d.address || "&#160;"
 }
 function addressElem()
 {
@@ -263,14 +268,14 @@ function cancleGridEdit()
 }
 
 $(function (){
-    $("#card_num").bind("change", function(){ 
+    $("#card_num").bind("change", function(){
         var card_n = $("#card_num").val();
         var diff_num = rowData.card_num-card_n;
         if(diff_num > rowData.card_new_num)
         {
             alert('超出可删除卡数量!');
         }
-        
+
     });
 })
 var curRow, curCol, curArrears, api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, linksIds = [],callback = api.data.callback, defaultPage = Public.getDefaultPage(), $grid = $("#grid"), $_form = $("#manage-form");
