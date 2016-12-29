@@ -108,7 +108,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 		$condition['shop_id']           = Perm::$shopId;
 		$condition['order_is_virtual']  = Order_BaseModel::ORDER_IS_VIRTUAL;
 		$condition['order_shop_hidden'] = Order_BaseModel::ORDER_IS_REAL;
-		$condition['order_status']      = Order_StateModel::ORDER_PAYED;
+		$condition['order_status']      = Order_StateModel::ORDER_WAIT_CONFIRM_GOODS;
 
 		$order_virtual_list = $Order_BaseModel->getOrderList($condition);  //获取店铺订单列表
 
@@ -223,8 +223,20 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$Order_GoodsModel->editGoods($order_goods_id, $edit_row);
 
 			//退还订单商品的库存
-			$Goods_BaseModel = new Goods_BaseModel();
-			$Goods_BaseModel->returnGoodsStock($order_goods_id);
+            $order_base=current($Order_BaseModel->getByWhere(array('order_id'=>$order_id)));
+            if($order_base['chain_id']!=0){
+                $Chain_GoodsModel = new Chain_GoodsModel();
+                $chain_row['chain_id:='] = $order_base['chain_id'];
+                $chain_row['goods_id:='] = is_array($order_goods_id)?$order_goods_id[0]:$order_goods_id;
+                $chain_row['shop_id:='] = $order_base['shop_id'];
+                $chain_goods = current($Chain_GoodsModel->getByWhere($chain_row));
+                $chain_goods_id = $chain_goods['chain_goods_id'];
+                $goods_stock['goods_stock'] = $chain_goods['goods_stock'] + 1;
+                $Chain_GoodsModel->editGoods($chain_goods_id, $goods_stock);
+            }else{
+                $Goods_BaseModel = new Goods_BaseModel();
+                $Goods_BaseModel->returnGoodsStock($order_goods_id);
+            }
 
 			//将需要取消的订单号远程发送给Paycenter修改订单状态
 			//远程修改paycenter中的订单状态
@@ -238,7 +250,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 
 			fb($formvars);
 
-			$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=cancelOrder&typ=json', $url), $formvars);
+			$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=cancelOrder&typ=json', $url), $formvars);
 
 
 
@@ -269,6 +281,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 	{
 		$Goods_BaseModel       = new Goods_BaseModel();
 		$Order_BaseModel       = new Order_BaseModel();
+		$Order_GoodsVirtualCodeModel       = new Order_GoodsVirtualCodeModel();
 		$condition['order_id'] = request_string('order_id');
 
 		$order_data = $Order_BaseModel->getOrderList($condition);
@@ -279,6 +292,9 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 		$goods_id                          = $goods_list['goods_id'];
 		$common_data                       = $Goods_BaseModel->getCommonInfo($goods_id);
 		$order_data['common_virtual_date'] = $common_data['common_virtual_date'];
+
+        //取出虚拟兑换码
+        $code_data                         = $Order_GoodsVirtualCodeModel->getVirtualCode($condition);
 
 		include $this->view->getView();
 	}
@@ -329,8 +345,10 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 					$order_data = $orderBaseModel->getOrderList($conid);
 					$order_data = pos($order_data['items']);
 					$goods_list = pos($order_data['goods_list']);
+                    $order_base['order_status'] = Order_StateModel::ORDER_FINISH;
+                    $order_base['order_finished_time'] = $update['virtual_code_usetime'];
 
-					$orderBaseModel->editBase($order_data['order_id'], array('order_status' => Order_StateModel::ORDER_FINISH));
+					$orderBaseModel->editBase($order_data['order_id'], $order_base);
 
 					$data['goods_url']  = $goods_list['goods_link'];
 					$data['img_240']    = $goods_list['goods_image'];
@@ -507,7 +525,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 		$typ      = request_string('typ');
 		$order_id = request_string('order_id');
 
-		$Order_BaseModel   = new Order_BaseModel(); 
+		$Order_BaseModel   = new Order_BaseModel();
 		$Shop_ExpressModel = new Shop_ExpressModel();
 
 		if ($typ == 'e')
@@ -515,6 +533,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$condi['order_id'] = $order_id;
 			$data              = $Order_BaseModel->getOrderList($condi);
 			$data              = pos($data['items']);
+
 			//默认物流公司 url
 			$default_express_url = Yf_Registry::get('url') . '?ctl=Seller_Trade_Deliver&met=express&typ=e';
 			//打印运单URL
@@ -523,13 +542,11 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			//默认物流公司
 			$express_list = $Shop_ExpressModel->getDefaultShopExpress();
 			$express_list = array_values($express_list);
-          
-			include $this->view->getView();  
 
+			include $this->view->getView();
 		}
 		else
 		{
-			// var_dump(111333);die;
 			//设置发货
 			$update_data['order_status']              = Order_StateModel::ORDER_WAIT_CONFIRM_GOODS;
 			$update_data['order_shipping_express_id'] = request_int('order_shipping_express_id');
@@ -542,10 +559,9 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$confirm_order_time                 = Yf_Registry::get('confirm_order_time');
 			$update_data['order_shipping_time'] = date('Y-m-d H:i:s', $current_time);
 			$update_data['order_receiver_date'] = date('Y-m-d H:i:s', $current_time + $confirm_order_time);
-			
+
 			$flag = $Order_BaseModel->editBase($order_id, $update_data);
-            // var_dump($flag);die;
-            
+
 			if ($flag)
 			{
 				$order_base = $Order_BaseModel->getBase($order_id);
@@ -563,14 +579,13 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 				$formvars['order_id']    = $order_id;
 				$formvars['app_id']        = $shop_app_id;
 
-				$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=sendOrderGoods&typ=json', $url), $formvars);
+				$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_Pay_Pay&met=sendOrderGoods&typ=json', $url), $formvars);
 
 				$msg    = _('success');
 				$status = 200;
 			}
 			else
 			{
-				// var_dump(43534);die;
 				$msg    = _('failure');
 				$status = 250;
 			}
