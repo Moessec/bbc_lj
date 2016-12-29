@@ -107,7 +107,7 @@ class Api_Paycen_PayInfoCtl extends Api_Controller
             $flag = $Buyer_TestModel->addInfo($data, true);
 
         }
-
+        var_dump($data['card_code']);die;
         if ($flag)
         {
             $msg    = 'failure';
