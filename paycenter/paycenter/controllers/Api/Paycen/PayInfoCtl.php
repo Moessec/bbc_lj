@@ -59,29 +59,16 @@ class Api_Paycen_PayInfoCtl extends Api_Controller
         fb($data);
         $this->data->addBody(-140, $data, $msg, $status);
     }
-//    展示info表中的数据
-    function getInfoList() {
-        $page = request_string('page', 1);
-        $rows = request_string('rows', 20);
-        $card_id  = request_string('cardName');   //卡片名称
-        $beginDate = request_string('beginDate'); //卡片生成时间
-        $User_InfoModel = new  Card_InfoModel();
-        $data      = $User_InfoModel->getInfoList($card_id,$beginDate,$page,$rows);
-//从paycard分配数据到info表中************
-        $Card_BaseModel = new Card_BaseModel();
-        $datas          = $Card_BaseModel->getBaseList();
-
-        foreach($datas['items'] as $key=>$val){
-            $paydata[]=$val['card_id'];
-        }
-        $pdata=json_encode($paydata);
-        $data['card_id']=$pdata;
-
-//        echo "<pre>";
-//        print_r($data['card_id']);
-//        echo "</pre>";
-//        exit();
-//*************************************
+    //实名验证中的数据
+    function getInfoListIdentity() {
+        $username  = request_string('userName');   //用户名称
+          $cond_row = array();
+          if($username){
+                $cond_row['user_nickname:LIKE'] = '%' . $username . '%';
+          }
+		   $cond_row['user_identity_statu:not in'] = '0';
+          $User_InfoModel = new User_InfoModel();
+          $data           = $User_InfoModel->getInfoList($cond_row);
             if ($data)
             {
                 $msg    = 'success';
@@ -95,47 +82,91 @@ class Api_Paycen_PayInfoCtl extends Api_Controller
         $this->data->addBody(-140, $data, $msg, $status);
     }
 
-    //添加info表中的数据生成卡片
-    public function add()
-    {
-        $Buyer_TestModel           = new Card_InfoModel();
-        $data                      = array();
-        $data['card_id']           = request_int('card_id');                  //卡id
-        $length                  = request_string('card_sum');                //生成卡的数量
-        for ($i=1; $i<=$length;$i++){
-            $data['card_code']=$data['card_id'].Text_Password::create(4,unpronounceable,1234567890);
-            $flag = $Buyer_TestModel->addInfo($data, true);
-            // $data['card_password'] = rand(100000,999999);
+    //    展示info表中的数据
+    function getInfoList() {
+        $page = request_string('page', 1);
+        $rows = request_string('rows', 20);
+        $card_id  = request_string('cardName');   //卡片名称
+        $beginDate = request_string('beginDate'); //卡片生成时间
+        $User_InfoModel = new  Card_InfoModel();
+        $data      = $User_InfoModel->getInfoList($card_id,$beginDate,$page,$rows);
+        //从paycard分配数据到info表中************
+        $Card_BaseModel = new Card_BaseModel();
+        $datas          = $Card_BaseModel->getBaseList();
 
+        foreach($datas['items'] as $key=>$val){
+            $paydata[]=$val['card_id'];
         }
-        if ($flag)
-        {
-            $msg    = 'failure';
-            $status = 250;
-        }
-        else
+        $pdata=json_encode($paydata);
+        $data['card_id']=$pdata;
+
+        //        echo "<pre>";
+        //        print_r($data['card_id']);
+        //        echo "</pre>";
+        //        exit();
+        //*************************************
+        if ($data)
         {
             $msg    = 'success';
             $status = 200;
         }
-        $data['card_id'] = $flag;
-//        ************************************************
-//        $Card_BaseModel = new Card_BaseModel();
-//        $data['cart_id']        = $Card_BaseModel->getByWhere();
-//        foreach($data['cart_id'] as $key=>$val){
-//            $item = array();
-//            $item['id'] = $val['card_id'];
-//            $item['name'] = $val['card_id'];
-//            $paydata[]= $item;
-//        }
-//        $b=json_encode($paydata);
-//        $data['cart_id']=$b;
-//        echo "<pre>";
-//        print_r($data['cart_id']);
-//        echo "</pre>";
-//        exit();
-//        ************************************************
+        else
+        {
+            $msg    = 'failure';
+            $status = 250;
+        }
         $this->data->addBody(-140, $data, $msg, $status);
+    }
+
+    //添加info表中的数据生成卡片
+    public function add()
+    {
+        $card_id = request_int('card_id');
+
+        $Buyer_TestModel           = new Card_InfoModel();
+        $Card_BaseModel            = new Card_BaseModel();
+
+        $card_base = $Card_BaseModel->getOne($card_id);
+        $card_prize_row = json_decode($card_base['card_prize'],true);
+         $money = $card_prize_row['m'];      //卡片价格
+         $num = $card_base['card_num'];  //卡片最高数量
+
+         $all_card = $Buyer_TestModel->getCardnumBy($card_id);
+
+         $data                      = array();
+         $data['card_id']           = $card_id;                  //卡id
+         $length                  = request_string('card_sum');                //生成卡的数量
+
+         if(($length+$all_card)>$num)
+         {
+             $msg    = '只能生成'.$num .'张卡片';
+             $status = 250;
+         }
+         else
+         {
+             for ($i=1; $i<=$length;$i++){
+                 $data['card_code']=$data['card_id'].Text_Password::create(4,unpronounceable,1234567890);
+                 $data['card_password'] = Text_Password::create(6,unpronounceable,1234567890);
+                 $data['card_money'] = $money;
+                 $flag = $Buyer_TestModel->addInfo($data, true);
+             }
+
+             if ($flag)
+             {
+                 $msg    = 'failure';
+                 $status = 250;
+             }
+             else
+             {
+                 $msg    = 'success';
+                 $status = 200;
+             }
+         }
+
+         $data = array();
+
+         $this->data->addBody(-140, $data, $msg, $status);
+
 
     }
     /*
