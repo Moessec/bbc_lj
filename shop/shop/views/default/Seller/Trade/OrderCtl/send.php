@@ -261,7 +261,7 @@ include $this->view->getTplPath() . '/' . 'seller_footer.php';
                     order_shipping_message: $('textarea[name="deliver_explain"]').val(),
 					order_seller_message: $('textarea[name="order_seller_message"]').val()
                 };
-
+            console.log(send_data);
             $.post(SITE_URL + '?ctl=Seller_Trade_Order&met=send&typ=json', send_data, function (data){
 
                 if ( data.status == 200 ) {
