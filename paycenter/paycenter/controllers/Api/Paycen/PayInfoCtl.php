@@ -105,7 +105,7 @@ class Api_Paycen_PayInfoCtl extends Api_Controller
         for ($i=1; $i<=$length;$i++){
             $data['card_code']=$data['card_id'].Text_Password::create(4,unpronounceable,1234567890);
             $flag = $Buyer_TestModel->addInfo($data, true);
-            $data['card_password'] = rand(100000,999999);
+            // $data['card_password'] = rand(100000,999999);
 
         }
         if ($flag)
