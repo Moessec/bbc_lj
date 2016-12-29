@@ -6,6 +6,10 @@ else
 {
     var key = getCookie("key")
 }
+if(key=='')
+{
+    alert('未登录状态禁止使用');
+}
 var nodeSiteUrl = "";
 var memberInfo = {};
 var resourceSiteUrl = "";
