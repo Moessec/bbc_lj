@@ -101,6 +101,14 @@ class 	Card_InfoModel extends Card_Info
 		return $card_new_num;
 	}
 
+	public  function getCardnumBy($card_id = null)
+	{
+		$this->sql->setWhere('card_id',$card_id);
+		$card_new_num = count($this->selectKeyLimit());
+
+		return $card_new_num;
+	}
+
 	//通过card_id删除充值卡
 	public function delCardByCid($card_id= null)
 	{
