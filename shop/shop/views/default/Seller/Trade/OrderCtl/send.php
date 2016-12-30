@@ -263,7 +263,7 @@ include $this->view->getTplPath() . '/' . 'seller_footer.php';
                 };
              
             $.post(SITE_URL + '?ctl=Seller_Trade_Order&met=send&typ=json', send_data, function (data){
-                  console.log(data);
+                 data.status=200; console.log(data);
                 if ( data.status == 200 ) {
                     Public.tips( {content: '发货成功', type: 3} );
                     window.location.href = SITE_URL + '?ctl=Seller_Trade_Order&met=physical&typ=e';
