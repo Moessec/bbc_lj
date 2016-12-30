@@ -527,12 +527,13 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 
 		$Order_BaseModel   = new Order_BaseModel();
 		$Shop_ExpressModel = new Shop_ExpressModel();
-          echo 1;die;
+          
 		if ($typ == 'e')
-		{
+		{     
 			$condi['order_id'] = $order_id;
 			$data              = $Order_BaseModel->getOrderList($condi);
 			$data              = pos($data['items']);
+             echo 222;die;
             // var_dump($data);die;
 			//默认物流公司 url
 			$default_express_url = Yf_Registry::get('url') . '?ctl=Seller_Trade_Deliver&met=express&typ=e';
