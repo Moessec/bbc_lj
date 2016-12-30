@@ -408,6 +408,7 @@ input:-webkit-autofill {
 	right: 0;
 	top: 0;
 	margin: 0
+	width:50%;
 }
 
 .login-form .login-box .reg-free {
@@ -806,10 +807,11 @@ input:-webkit-autofill {
 	}
 	.form .item-fore3 {
 		font-size: 14px;
+		width: 50%;
 	}
 	.login-form .login-box .safe .forget-pw-safe {
 		position: inherit;
-		/*display: block;*/
+		display: block;
 		padding: 10px 0;
 	}
 	.disp {
