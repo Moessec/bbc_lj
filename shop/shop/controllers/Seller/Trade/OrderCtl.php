@@ -564,7 +564,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$update_data['order_receiver_date'] = date('Y-m-d H:i:s', $current_time + $confirm_order_time);
 
 			$flag = $Order_BaseModel->editBase($order_id, $update_data);
-			var_dump($flag);exit;
+			var_dump($order_id,$update_data);exit;
 			if ($flag)
 			{
 				$order_base = $Order_BaseModel->getBase($order_id);
