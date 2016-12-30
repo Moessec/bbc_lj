@@ -549,7 +549,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			include $this->view->getView();
 		}
 		else
-		{   echo 123;exit;
+		{   
 			//设置发货
 			$update_data['order_status']              = Order_StateModel::ORDER_WAIT_CONFIRM_GOODS;
 			$update_data['order_shipping_express_id'] = request_int('order_shipping_express_id');
@@ -564,7 +564,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$update_data['order_receiver_date'] = date('Y-m-d H:i:s', $current_time + $confirm_order_time);
 
 			$flag = $Order_BaseModel->editBase($order_id, $update_data);
-
+			var_dump($flag);exit;
 			if ($flag)
 			{
 				$order_base = $Order_BaseModel->getBase($order_id);
