@@ -809,7 +809,7 @@ input:-webkit-autofill {
 	}
 	.login-form .login-box .safe .forget-pw-safe {
 		position: inherit;
-		display: block;
+		/*display: block;*/
 		padding: 10px 0;
 	}
 	.disp {
