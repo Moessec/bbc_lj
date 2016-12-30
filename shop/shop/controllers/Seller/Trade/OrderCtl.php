@@ -535,8 +535,8 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			$data              = pos($data['items']);
              
 
-            var_dump($data);die;
-             echo 222;die;
+            // var_dump($data);die;
+             // echo 222;die;
 			//默认物流公司 url
 			$default_express_url = Yf_Registry::get('url') . '?ctl=Seller_Trade_Deliver&met=express&typ=e';
 			//打印运单URL
@@ -549,7 +549,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			include $this->view->getView();
 		}
 		else
-		{
+		{   echo 22222222;die;
 			//设置发货
 			$update_data['order_status']              = Order_StateModel::ORDER_WAIT_CONFIRM_GOODS;
 			$update_data['order_shipping_express_id'] = request_int('order_shipping_express_id');
