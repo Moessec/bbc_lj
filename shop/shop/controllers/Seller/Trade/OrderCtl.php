@@ -549,7 +549,7 @@ class Seller_Trade_OrderCtl extends Seller_Controller
 			include $this->view->getView();
 		}
 		else
-		{   var_dump();exit;
+		{   echo 123;exit;
 			//设置发货
 			$update_data['order_status']              = Order_StateModel::ORDER_WAIT_CONFIRM_GOODS;
 			$update_data['order_shipping_express_id'] = request_int('order_shipping_express_id');
