@@ -341,12 +341,13 @@ function init_get_list(e, r)
 {
     order = e;
     key = r;
+    alert(e);alert(r);
     curpage = 1;
     firstRow = 0;
     hasmore = true;
     $("#product_list .goods-secrch-list").html("");
     $("#footer").removeClass("posa");
-    get_list()
+    get_list();
 }
 $('#list-items-scroll').on('click', '#area_info', function(){
     alert('sss');
