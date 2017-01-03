@@ -276,9 +276,12 @@ a.pc_btn {
     text-align:center;
      margin: -46px 20%;
 }
+.pc_trans_btn .submit_able{
+clear: both;
+}
 .pc_trans_btn_lf{
     width:100%;
-    /*float:left;*/
+    float:left;
 }
 .splitLine-mg a{
     color:#ffc24d;
