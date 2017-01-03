@@ -341,7 +341,9 @@ function init_get_list(e, r)
 {
     order = e;
     key = r;
-    alert(e);alert(r);
+    if(shop_goods_cat_id){
+        order = 'common_price';
+    } 
     curpage = 1;
     firstRow = 0;
     hasmore = true;
