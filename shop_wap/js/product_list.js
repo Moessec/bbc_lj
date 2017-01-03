@@ -175,7 +175,7 @@ function get_list()
     {
         param.isvirtual = virtual
     }
-    // alert(1);
+    alert(param);
 if(shop_goods_cat_id)
 {
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=shop_cat_goods&typ=json&shop_id="+getCookie('community_shopid')+"&shop_goods_cat_id="+shop_goods_cat_id, function (e)
