@@ -153,7 +153,7 @@ function get_list()
     if (order != "")
     {
         param.act = order;
-        alert(param.act);
+        // alert(param.act);
     }
     if(price_from != "")
     {
@@ -343,7 +343,7 @@ function init_get_list(e, r)
     order = e;
     key = r;
     if(shop_goods_cat_id){
-        order = 'price';
+        // order = 'price';
         // alert(1221);
     } 
     curpage = 1;
