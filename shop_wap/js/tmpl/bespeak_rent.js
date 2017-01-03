@@ -14,11 +14,11 @@ $(function ()
                 checkLogin(e.login);
                 console.log(e.data.temp);
                 $.each(e.data.rent, function(key, value){
-                       tem='<a href="'+value.bespeakinfo+'"><ul><li><dl><div style="width:100%;height:108px;"><img src="'+value.bespeak_img+'" style="margin-left:14px;width:80px;height:80px;float:left">';
-                       tem+='<dd style="float: left;margin-left: 27px; width:178px;line-height: 1.6rem;color:#000;font-size:0.8rem">'+value.bespeak_title+'</dd>';
-                       tem+='<dd style="float: left;margin-left: 27px; width:55%;line-height: 1rem;">发布时间：'+value.opentime+'</dd>'
-                       tem+='<dd style="float: left;margin-left: 27px; width:178px;line-height: 1rem;">地点：'+value.bes_address+'</dd>';
-                       tem+='<dd style="float: left;margin-left: 27px; width:178px;line-height: 1rem;color:#FF8000">价格：'+value.rent_price+'</dd></div></dl></li></ul></a>';
+                       tem='<a href="'+value.bespeakinfo+'"><ul><li><dl><div style="width:100%;height:108px;"><img src="'+value.bespeak_img+'" style="margin-left:10px;width:80px;height:80px;float:left">';
+                       tem+='<dd style="float: left;margin-left: 20px; width:178px;line-height: 1.6rem;color:#000;font-size:0.8rem">'+value.bespeak_title+'</dd>';
+                       tem+='<dd style="float: left;margin-left: 20px; width:55%;line-height: 1rem;">发布时间：'+value.opentime+'</dd>'
+                       tem+='<dd style="float: left;margin-left: 20px; width:178px;line-height: 1rem;">地点：'+value.bes_address+'</dd>';
+                       tem+='<dd style="float: left;margin-left: 20px; width:178px;line-height: 1rem;color:#FF8000">价格：'+value.rent_price+'</dd></div></dl></li></ul></a>';
                     $("#bespeak_list").append(tem);
                 })
 
