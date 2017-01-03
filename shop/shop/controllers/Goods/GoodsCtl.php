@@ -1639,12 +1639,30 @@ class Goods_GoodsCtl extends Controller
 			$shop_goods_cat_id = request_int('shop_goods_cat_id');
 			$act = request_string('act');
 			$actorder = request_string('actorder');
-		
-	       $Shop_catgoodslistModel = new Goods_CommonModel();
+
+	        $Shop_catgoodslistModel = new Goods_CommonModel();
+	       	$price_from = request_float('price_from');
+		if($price_from)
+		{
+			$cond_row['common_price:>='] = $price_from;
+		}
+
+		$price_to = request_float('price_to');
+		if($price_to)
+		{
+			$cond_row['common_price:<='] = $price_to;
+		}
+
+		$virtual = request_float('isvirtual');
+		if($virtual)
+		{
+			$cond_row['common_is_virtual'] = Goods_CommonModel::GOODS_VIRTUAL;
+		}
 			if($act&&$actorder)
 			{
 				if($act=='common_sale')
 				{
+					// $cond_row['shop_id:>='] = $shop_id;
 				$data = $Shop_catgoodslistModel->getCommonList($cond_row = array('shop_id'=>$shop_id,'shop_goods_cat_id'=>'["'.$shop_goods_cat_id.'"]'), $order_row = array(), $page = 1, $rows = 100);
 
 				}else{
