@@ -30,13 +30,14 @@ $(function ()
             {
                 var r = nmb.data.items;
                  var temp = '';
-                for(var i in r)
-                {
-                    temp = r[i];
-                    dq=temp.business_license_location;
-                    place=temp.company_address_detail;
-                    var km=jl(dq,res,place);
-                }
+                // for(var i in r)
+                // {
+                //     temp = r[i];
+                //     dq=temp.business_license_location;
+                //     place=temp.company_address_detail;
+                    var km=jl(1,2,3);
+                // }
+ 
             }
         });
     }
@@ -45,7 +46,16 @@ $(function ()
         $.ajax({
             type: "post", url: ApiUrl + "/index.php?ctl=Buyer_Bespeak&met=getplace&typ=json", data: {k:wc,u:getCookie('id'),one:one,two:two}, dataType: "json", success: function (e)
                 {
-                    disce='<li data="'+place+'" class="areainfo" data-flag="'+e.data.dis+'">'+place+'</li>';
+                    // disce='<li data="'+place+'" class="areainfo" data-flag="'+e.data.dis+'">'+place+'</li>';
+                       disce= '<li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">花园城</li>
+                        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">爱琴海</li>
+                        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">建明花苑</li>
+                        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">馥邸</li>
+                        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">美兰湖岭域</li>
+                        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">嘉城新航域</li>
+                        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">香馥湾</li>
+                        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">雅颂湾</li>';                   
+
                     $("#area").append(disce);
                     console.log(e.data.dis,place);
                 }
