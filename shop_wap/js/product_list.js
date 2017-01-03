@@ -281,6 +281,11 @@ function search_adv()
         {
             var e = "?keyword=" + keyword, r = "";
             e += "&transport_id=" + $("#area_id").val();
+            if(shop_goods_cat_id)
+            {
+                e += "&shop_goods_cat_id="+shop_goods_cat_id
+
+            }
             if ($("#price_from").val() != "")
             {
                 e += "&price_from=" + $("#price_from").val()
