@@ -30,15 +30,13 @@ $(function ()
             {
                 var r = nmb.data.items;
                  var temp = '';
-                // for(var i in r)
-                // {
-                //     temp = r[i];
-                //     dq=temp.business_license_location;
-                //     place=temp.company_address_detail;
-                //     var km=jl(dq,res,place);
-                // }
-               var str =  '<li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">花园城</li>';
-           $("#area").append(str);              
+                for(var i in r)
+                {
+                    temp = r[i];
+                    dq=temp.business_license_location;
+                    place=temp.company_address_detail;
+                    var km=jl(dq,res,place);
+                }
             }
         });
     }
