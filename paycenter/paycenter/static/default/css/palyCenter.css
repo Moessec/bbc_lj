@@ -2102,9 +2102,9 @@ a.pc_btn {
 .recharge2-content-top .box-public{
     display:inline-block;
     border:1px solid #e1e1e1;
-    width:180px;
+    width:140px;
     height:70px;
-    margin-right:22px;
+/*    margin-right:22px;*/
     vertical-align:top;
     text-align:center;
     position:relative;
