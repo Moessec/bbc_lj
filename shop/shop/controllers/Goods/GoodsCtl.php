@@ -1643,7 +1643,14 @@ class Goods_GoodsCtl extends Controller
 	       $Shop_catgoodslistModel = new Goods_CommonModel();
 			if($act&&$actorder)
 			{
+				if($act=='common_sale')
+				{
+				$data = $Shop_catgoodslistModel->getCommonList($cond_row = array('shop_id'=>$shop_id,'shop_goods_cat_id'=>'["'.$shop_goods_cat_id.'"]'), $order_row = array(), $page = 1, $rows = 100);
+
+				}else{
+
 				$data = $Shop_catgoodslistModel->getCommonList($cond_row = array('shop_id'=>$shop_id,'shop_goods_cat_id'=>'["'.$shop_goods_cat_id.'"]'), $order_row = array("$act"=>"$actorder"), $page = 1, $rows = 100);
+				}
 
 			}else{
 
@@ -1652,6 +1659,7 @@ class Goods_GoodsCtl extends Controller
 
 			$this->data->addBody(-140, $data);
 		}
+
 	public function index222()
 	{
 
