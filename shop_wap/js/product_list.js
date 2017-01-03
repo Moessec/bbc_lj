@@ -344,7 +344,7 @@ function init_get_list(e, r)
     key = r;
     if(shop_goods_cat_id){
      order = 'common_'+order;
-     alert(order);
+     // alert(order);
     } 
     curpage = 1;
     firstRow = 0;
