@@ -1635,6 +1635,7 @@ class Goods_GoodsCtl extends Controller
 		}
 	public function shop_cat_goods()
 		{
+			$cond_row =array();
 			$shop_id = request_int('shop_id');
 			$shop_goods_cat_id = request_int('shop_goods_cat_id');
 			$act = request_string('act');
@@ -1662,7 +1663,7 @@ class Goods_GoodsCtl extends Controller
 			$cond_row['shop_id'] = $shop_id;
 			$cond_row['shop_goods_cat_id'] = '["'.$shop_goods_cat_id.'"]';
 
-
+var_dump($cond_row);die;
 			if($act&&$actorder)
 			{
 				if($act=='common_sale')
