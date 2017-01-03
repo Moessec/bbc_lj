@@ -274,10 +274,11 @@ a.pc_btn {
 .pc_trans_btn {
     padding: 30px 0;
     text-align:center;
+     margin: -46px 20%;
 }
 .pc_trans_btn_lf{
     width:100%;
-    float:left;
+    /*float:left;*/
 }
 .splitLine-mg a{
     color:#ffc24d;
