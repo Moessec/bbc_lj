@@ -37,14 +37,7 @@ $(function ()
                 //     place=temp.company_address_detail;
                 //     var km=jl(dq,res,place);
                 // }
-               var str =  '<li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">花园城</li>
-        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">爱琴海</li>
-        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">建明花苑</li>
-        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">馥邸</li>
-        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">美兰湖岭域</li>
-        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">嘉城新航域</li>
-        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">香馥湾</li>
-        <li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">雅颂湾</li>';
+               var str =  '<li data-flag="0" style="font-size: 0.5rem;line-height: 1.2rem;text-align: center;background: #EEE;">花园城</li>';
            $("#area").append(str);              
             }
         });
