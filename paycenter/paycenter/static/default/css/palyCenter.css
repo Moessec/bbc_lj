@@ -1112,6 +1112,7 @@ clear: both;
     margin-top: 20px;
     margin-bottom: 134px;
     padding:0 4px;
+    display: none;
 }
 
 .recharge2-content-bottom .theme {
