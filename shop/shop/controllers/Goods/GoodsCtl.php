@@ -1678,7 +1678,7 @@ class Goods_GoodsCtl extends Controller
 
 			}else{
 
-			$data = $Shop_catgoodslistModel->getCommonList($cond_row = array('shop_id'=>$shop_id,'shop_goods_cat_id'=>'["'.$shop_goods_cat_id.'"]'), $order_row = array(), $page = 1, $rows = 100);
+			$data = $Shop_catgoodslistModel->getCommonList($cond_row, $order_row = array(), $page = 1, $rows = 100);
 			}
 
 			$this->data->addBody(-140, $data);
