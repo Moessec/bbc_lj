@@ -1658,6 +1658,11 @@ class Goods_GoodsCtl extends Controller
 		{
 			$cond_row['common_is_virtual'] = Goods_CommonModel::GOODS_VIRTUAL;
 		}
+
+			$cond_row['shop_id'] = $shop_id;
+			$cond_row['shop_goods_cat_id'] = '["'.$shop_goods_cat_id.'"]';
+
+
 			if($act&&$actorder)
 			{
 				if($act=='common_sale')
@@ -1667,7 +1672,7 @@ class Goods_GoodsCtl extends Controller
 
 				}else{
 
-				$data = $Shop_catgoodslistModel->getCommonList($cond_row = array('shop_id'=>$shop_id,'shop_goods_cat_id'=>'["'.$shop_goods_cat_id.'"]'), $order_row = array("$act"=>"$actorder"), $page = 1, $rows = 100);
+				$data = $Shop_catgoodslistModel->getCommonList($cond_row, $order_row = array("$act"=>"$actorder"), $page = 1, $rows = 100);
 				}
 
 			}else{
