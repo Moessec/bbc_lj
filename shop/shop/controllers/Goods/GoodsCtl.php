@@ -1663,7 +1663,7 @@ class Goods_GoodsCtl extends Controller
 			$cond_row['shop_id'] = $shop_id;
 			$cond_row['shop_goods_cat_id'] = '["'.$shop_goods_cat_id.'"]';
 
-var_dump($cond_row);die;
+// var_dump($cond_row);die;
 			if($act&&$actorder)
 			{
 				if($act=='common_sale')
