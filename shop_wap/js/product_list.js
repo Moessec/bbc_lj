@@ -343,6 +343,7 @@ function init_get_list(e, r)
     key = r;
     if(shop_goods_cat_id){
         order = 'price';
+        alert(1221);
     } 
     curpage = 1;
     firstRow = 0;
