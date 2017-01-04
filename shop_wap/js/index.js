@@ -459,6 +459,7 @@ if(getCookie('community_shopid'))
                 
                 if(data)
                 {	
+               $("#banner_4").html(template.render('banner_4a', data));
                $("#product-contain2").html(template.render('goods2', data));
                $("#product-contain1").html(template.render('goods1', data));
                $("#product-contain0").html(template.render('goods0', data));
