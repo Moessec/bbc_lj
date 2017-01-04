@@ -78,7 +78,9 @@
 			<div class="fl go_back_shop">
 				<?php if(Yf_Utils_Device::isMobile()){
 					// $shop_url = Yf_Registry::get('shop_wap_api_url');
-					$shop_url = Yf_Registry::get('shop_api_url').'/index.html';
+					// $shop_url = Yf_Registry::get('shop_api_url').'/index.html';
+					$shop_url = Yf_Registry::get('shop_api_url') . '?ctl=Buyer_Index&met=index';
+					
 				}
 				else
 				{
