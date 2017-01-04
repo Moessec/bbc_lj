@@ -55,6 +55,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		$cat_id    = request_int('cat_id');
 		$action    = request_string('action');
 		$common_id = request_int('common_id');
+
 		if ($cat_id)
 		{
 			if (empty($common_id))
@@ -69,7 +70,6 @@ class Seller_GoodsCtl extends Seller_Controller
 		}
 		else if (!empty($action) && $action == 'goodsImageManage')
 		{
-// var_dump(2346757562);die;
 			$common_id = request_int('common_id');
 
 			$data = $this->goodsImageManage($common_id);
@@ -96,13 +96,13 @@ class Seller_GoodsCtl extends Seller_Controller
 	{
 		$met               = request_string('met');
 		$action            = request_string('action');
-		$key               = request_string('goods_key');
+		$goods_key               = request_string('goods_key');
 		$Goods_CommonModel = new Goods_CommonModel();
 
 		$cront_row = array('shop_id' => Perm::$shopId, 'common_state' => Goods_CommonModel::GOODS_STATE_NORMAL, 'common_verify' => Goods_CommonModel::GOODS_VERIFY_ALLOW);
-		if (!empty($key) && isset($key))
+		if (!empty($goods_key) && isset($goods_key))
 		{
-			$cront_row['common_name:like'] = '%' . $key . '%';
+			$cront_row['common_name:like'] = '%' . $goods_key . '%';
 		}
 
 		$Yf_Page = new Yf_Page();
@@ -112,13 +112,11 @@ class Seller_GoodsCtl extends Seller_Controller
 
 		$goods_rows = $Goods_CommonModel->getCommonNormal($cront_row, array('common_id' => 'DESC'), $page, $row);
         $common_id_rows = array_column($goods_rows['items'], 'common_id');
-
         if(!empty($common_id_rows))
         {
             $goods_detail_rows = $Goods_CommonModel->getGoodsDetailRows($common_id_rows);
         }
 		$goods      = $Goods_CommonModel->getRecommonRow($goods_rows);
-
 		if ('e' == $this->typ)
 		{
 			if ($action == 'edit_goods')
@@ -145,7 +143,6 @@ class Seller_GoodsCtl extends Seller_Controller
 			{
 				$Yf_Page->totalRows = $goods_rows['totalsize'];
 				$page_nav           = $Yf_Page->prompt();
-
 				include $this->view->getView();
 			}
 		}
@@ -181,6 +178,15 @@ class Seller_GoodsCtl extends Seller_Controller
 			$goods_detail_rows = $Goods_CommonModel->getGoodsDetailRows($common_id_rows);
 		}
 		$goods      = $Goods_CommonModel->getRecommonRow($goods_rows);
+
+		foreach ($goods as $key => $goods_data)
+		{
+			if (is_array($goods_data['goods_id']) )
+			{
+				$goods_row = current($goods_data['goods_id']);
+				$goods[$key]['goods_id'] = $goods_row['goods_id'];
+			}
+		}
 
 		if ('e' == $this->typ)
 		{
@@ -332,6 +338,17 @@ class Seller_GoodsCtl extends Seller_Controller
 				$shop_cat_id .= $val . ',';
 			}
 		}
+		
+		$matche_row = array();
+		//有违禁词
+		if (Text_Filter::checkBanned(request_string('name'), $matche_row)||Text_Filter::checkBanned(request_string('promotion_tips'),$matche_row)||Text_Filter::checkBanned(request_string('body'), $matche_row))
+		{
+			$data   = array();
+			$msg    = _('含有违禁词');
+			$status = 250;
+			$this->data->addBody(-140, array(), $msg, $status);
+			return false;
+		}
 
 		$common_data['shop_id']    	= $shop_base['shop_id'];                        //店铺id
 		$common_data['shop_name']   = $shop_base['shop_name'];                        //店铺名称
@@ -342,10 +359,10 @@ class Seller_GoodsCtl extends Seller_Controller
 
 		$common_data['cat_id']                = request_string('cat_id');                    //商品分类id
 		$common_data['cat_name']              = request_string('cat_name');                    //商品分类
-		$common_data['common_name']           = request_string('name');                        //商品名称
+		$common_data['common_name']           = Text_Filter::filterWords(request_string('name'));                        //商品名称
 		$common_data['brand_id']              = request_int('brand_id');                        //品牌id
 		$common_data['brand_name']            = request_string('brand_name');                    //品牌名称
-		$common_data['common_promotion_tips'] = request_string('promotion_tips');                //商品广告词
+		$common_data['common_promotion_tips'] = Text_Filter::filterWords(request_string('promotion_tips'));                //商品广告词
 
 		$common_data['common_image']        = request_string('imagePath');                    //商品主图
 		$common_data['common_price']        = request_float('price');                        //商品价格
@@ -368,7 +385,6 @@ class Seller_GoodsCtl extends Seller_Controller
 		$common_data['common_state']        = request_int('state');                            //
 		$common_data['common_is_recommend'] = request_string('is_recommend');                //商品推荐
 		$common_data['common_add_time']     = date('Y-m-d H:i:s', time());                    //商品添加时间
-        $common_data['common_edit_time'] = time();
 
 		$is_limit = request_int('is_limit');
 		if ( $is_limit )
@@ -473,7 +489,17 @@ class Seller_GoodsCtl extends Seller_Controller
 				$common_data['common_verify'] = Goods_CommonModel::GOODS_VERIFY_WAITING;
 			}
 		}
-
+		
+		if(Web_ConfigModel::value('directseller_is_open'))
+		{
+			//三级分佣
+			$common_data['common_cps_rate'] = request_int('common_cps_rate');
+			$common_data['common_second_cps_rate'] = request_int('common_second_cps_rate');
+			$common_data['common_third_cps_rate'] = request_int('common_third_cps_rate');
+			$common_data['common_is_directseller'] = request_int('common_is_directseller');
+			$common_data['common_cps_commission'] = number_format((request_int('common_cps_rate')*request_float('price')/100), 2, '.', '');
+		}
+ 
 		//关联版式
 		$formatid_top  = request_int('formatid_top');
 		$format_bottom = request_int('formatid_bottom');
@@ -505,8 +531,28 @@ class Seller_GoodsCtl extends Seller_Controller
 
 		if ($common_id && $this->goodsCommonModel->sql->commitDb())
 		{
+			//将用户发布或者修改的商品同步到im中
+			$key      = Yf_Registry::get('im_api_key');
+			$url         = Yf_Registry::get('im_api_url');
+			$im_app_id = Yf_Registry::get('im_app_id');
+			$formvars = array();
 
-			$body      = request_string('body');
+			$formvars['goods_common_id']    = $common_id;
+			$formvars['app_id']        = $im_app_id;
+
+			$formvars['user_id'] = $shop_base['user_id'];
+			$formvars['goods_name'] = $common_data['common_name'];
+			$formvars['goods_price'] = $common_data['common_price'];
+			$formvars['goods_pic'] = $common_data['common_image'];
+			$formvars['goods_url'] = Yf_Registry::get('shop_wap_url') . '/tmpl/product_detail.html?cid=' . $common_id;
+			$formvars['goods_status'] = $common_data['common_state'];
+			$formvars['goods_verify'] = $common_data['common_verify'];
+			$formvars['time'] = get_date_time();
+			fb($formvars);
+
+			$rs = get_url_with_encrypt($key, sprintf('%s?ctl=Api_User_Goods&met=addOrEditUserGoods&typ=json', $url), $formvars);
+
+			$body      = Text_Filter::filterWords(request_string('body'));
 			$spec_data = request_row('spec');
 
 			//内容详情
@@ -806,7 +852,6 @@ class Seller_GoodsCtl extends Seller_Controller
 		$common_id = request_int('common_id');
 
 		$common_data = $this->goodsCommonModel->listByWhere( array('shop_id' => Perm::$shopId, 'common_id' => $common_id) );
-		
 		if (empty($common_data))
 		{
 			return;
@@ -815,6 +860,7 @@ class Seller_GoodsCtl extends Seller_Controller
 
 		$common_detail_data = $this->goodsCommonDetailModel->getCommonDetail($common_data['common_id']);
 		$common_detail_data = pos($common_detail_data);
+
 
 		$common_sell_time_d = strtotime($common_data['common_sell_time']);
 
@@ -847,8 +893,6 @@ class Seller_GoodsCtl extends Seller_Controller
 		}
 
 		$data            = $this->goodsTypeModel->getTypeInfoByPublishGoods($cat_id); //商品属性、规格等
-        // var_dump($data);die;
-
 		$goods_base_data = $this->goodsBaseModel->getByWhere(array('common_id' => $common_data['common_id'])); //取出商品规格值
 
 		$this->view->setMet('goodsInfoManage');
@@ -876,7 +920,17 @@ class Seller_GoodsCtl extends Seller_Controller
 				}
 				elseif (request_string('act') == 'up')
 				{
-					$flag = $Goods_CommonModel->editCommon($goods_common_id, array('common_state' => Goods_CommonModel::GOODS_STATE_NORMAL));
+					if(request_string('me') == 'lockup'){
+						$flag = $Goods_CommonModel->editCommon($goods_common_id, array('common_state' => Goods_CommonModel::GOODS_STATE_NORMAL,'common_verify' => Goods_CommonModel::GOODS_STATE_ILLEGAL));
+					}else{
+						$flag = $Goods_CommonModel->editCommon($goods_common_id, array('common_state' => Goods_CommonModel::GOODS_STATE_NORMAL,'common_verify' => Goods_CommonModel::GOODS_STATE_NORMAL));
+
+						//对goods_base对应的数据上架
+						$goodsBaseModel = new Goods_BaseModel();
+						$goods_item = $goodsBaseModel->getByWhere(array("common_id:IN"=> $goods_common_id));
+						$goods_ids = array_column($goods_item, 'goods_id');
+						$flag = $goodsBaseModel->editBase($goods_ids, array("goods_is_shelves"=> Goods_BaseModel::GOODS_UP), false);
+					}
 				}
 				elseif (request_string('act') == 'del')
 				{
