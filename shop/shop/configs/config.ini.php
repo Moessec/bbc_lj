@@ -470,6 +470,21 @@ if(!isset($_COOKIE['areaId']))
 
 }
 
+//IM配置
+if (is_file(INI_PATH . '/im_api_' . $server_id . '.ini.php'))
+{
+	include_once INI_PATH . '/im_api_' . $server_id . '.ini.php';
+}
+else
+{
+	include_once INI_PATH . '/im_api.ini.php';
+}
+
+
+Yf_Registry::set('im_api_key', $im_api_key);
+Yf_Registry::set('im_api_url', $im_api_url);
+Yf_Registry::set('im_url', $im_url);
+Yf_Registry::set('im_app_id', $im_app_id);
 
 
 //是否开启rewrite及规则
