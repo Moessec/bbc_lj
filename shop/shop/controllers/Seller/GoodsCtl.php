@@ -69,7 +69,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		}
 		else if (!empty($action) && $action == 'goodsImageManage')
 		{
-var_dump(2346757562);die;
+// var_dump(2346757562);die;
 			$common_id = request_int('common_id');
 
 			$data = $this->goodsImageManage($common_id);
