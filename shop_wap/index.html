@@ -124,7 +124,7 @@
 		    <% var st = data.items[i].goods_id[0];for(var j=0;j<1;j++){%>
 		    	<%=st.goods_id%>
 		    <%}%>	
-			<li><a href="tmpl/product_detail.html?goods_id=<%=st.goods_id %>">
+			<li><a href="tmpl/product_detail.html?goods_id=<%=st%>">
 				<img class="a" src="<%= data.items[i].common_image %>" alt="" >
 			 	<div class="product-recommend-info">
 			 		<dl class='demo text-overflow'>
