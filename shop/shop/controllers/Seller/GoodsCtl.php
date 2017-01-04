@@ -363,7 +363,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		$common_data['common_name']           = request_string('name');                        //商品名称
 		$common_data['brand_id']              = request_int('brand_id');                        //品牌id
 		$common_data['brand_name']            = request_string('brand_name');                    //品牌名称
-		$common_data['common_promotion_tips'] = Text_Filter::filterWords(request_string('promotion_tips'));                //商品广告词
+		$common_data['common_promotion_tips'] = request_string('promotion_tips');                //商品广告词
 
 		$common_data['common_image']        = request_string('imagePath');                    //商品主图
 		$common_data['common_price']        = request_float('price');                        //商品价格
@@ -526,7 +526,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		{
 			$common_id = $this->goodsCommonModel->addCommon($common_data, true);
 		}
-        var_dump($common_data);die;
+        // var_dump($common_data);die;
 		/*********************向映射表添加数据*********************/
 //		$this->goodsCommonModel->createMapRelation($common_id, $common_data);
 
