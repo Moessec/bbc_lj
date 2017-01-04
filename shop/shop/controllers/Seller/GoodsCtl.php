@@ -525,7 +525,7 @@ class Seller_GoodsCtl extends Seller_Controller
 		{
 			$common_id = $this->goodsCommonModel->addCommon($common_data, true);
 		}
-        var_dump($common_id);die;
+        var_dump($common_data);die;
 		/*********************向映射表添加数据*********************/
 //		$this->goodsCommonModel->createMapRelation($common_id, $common_data);
 
