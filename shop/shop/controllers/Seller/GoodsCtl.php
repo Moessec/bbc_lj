@@ -55,7 +55,6 @@ class Seller_GoodsCtl extends Seller_Controller
 		$cat_id    = request_int('cat_id');
 		$action    = request_string('action');
 		$common_id = request_int('common_id');
-var_dump(2342);die;
 		if ($cat_id)
 		{
 			if (empty($common_id))
@@ -70,6 +69,7 @@ var_dump(2342);die;
 		}
 		else if (!empty($action) && $action == 'goodsImageManage')
 		{
+var_dump(2346757562);die;
 			$common_id = request_int('common_id');
 
 			$data = $this->goodsImageManage($common_id);
