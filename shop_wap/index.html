@@ -121,8 +121,8 @@
 		<ul class="clearfix">
 		<% for (var i in data.items) { %>
 		<% if ( i <8) { %>
-		    <% var st = data.items[i].goods_id[0]%>	
-			<li><a href="tmpl/product_detail.html?goods_id=<%= st[goods_id] %>">
+		    <% var st = data.items[i].goods_id[0];%>	
+			<li><a href="tmpl/product_detail.html?goods_id=<%=st[0].goods_id %>">
 				<img class="a" src="<%= data.items[i].common_image %>" alt="" >
 			 	<div class="product-recommend-info">
 			 		<dl class='demo text-overflow'>
