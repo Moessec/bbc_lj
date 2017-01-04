@@ -359,7 +359,8 @@ class Seller_GoodsCtl extends Seller_Controller
 
 		$common_data['cat_id']                = request_string('cat_id');                    //商品分类id
 		$common_data['cat_name']              = request_string('cat_name');                    //商品分类
-		$common_data['common_name']           = Text_Filter::filterWords(request_string('name'));                        //商品名称
+		// $common_data['common_name']           = Text_Filter::filterWords(request_string('name'));                        //商品名称
+		$common_data['common_name']           = request_string('name');                        //商品名称
 		$common_data['brand_id']              = request_int('brand_id');                        //品牌id
 		$common_data['brand_name']            = request_string('brand_name');                    //品牌名称
 		$common_data['common_promotion_tips'] = Text_Filter::filterWords(request_string('promotion_tips'));                //商品广告词
