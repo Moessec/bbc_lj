@@ -2129,7 +2129,8 @@ clear: both;
 }
 .box-public img{
     margin-top:14px;
-    width: 80%;
+    width: 75%;
+    max-width: 80%;
 }
    
 /*支付方式*/
