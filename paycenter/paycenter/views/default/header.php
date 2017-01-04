@@ -77,7 +77,8 @@
 			</div>
 			<div class="fl go_back_shop">
 				<?php if(Yf_Utils_Device::isMobile()){
-					$shop_url = Yf_Registry::get('shop_wap_api_url');
+					// $shop_url = Yf_Registry::get('shop_wap_api_url');
+					$shop_url = Yf_Registry::get('base_url').'/shop_wap';
 				}
 				else
 				{
