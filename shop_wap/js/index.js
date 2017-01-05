@@ -451,7 +451,15 @@ if(getCookie('community_shopid'))
              });  
 
 }
-
+        $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getwap_banner&typ=json", function (t)
+             {  
+                var data = t;
+                
+                if(data)
+                { 
+               $("#banner_4").html(template.render('banner_4a', data));
+                }
+             });
 
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getwap_adv&typ=json", function (t)
              {	
