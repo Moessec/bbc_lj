@@ -32,7 +32,6 @@ class WebPosApi_ShopCtl extends WebPosApi_Controller
     public function __construct(&$ctl, $met, $typ)
     {   
         parent::__construct($ctl, $met, $typ);
-
         $this->shopBaseModel     = new Shop_BaseModel();
         $this->userInfoModel     = new User_InfoModel();
         $this->userBaseModel     = new User_BaseModel();
