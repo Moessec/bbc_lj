@@ -15,46 +15,39 @@ class LoginCtl extends WebPosController
 	public function login()
 	{
 		session_start();
-        if (strtolower($_SESSION['auth']) != strtolower($_REQUEST['yzm']))
-        {
-            location_go_back('验证码错误');
-        }
-        
-        $user_account = $_REQUEST['user_account'];
-        //本地读取远程信息
-        $key = Yf_Registry::get('ucenter_api_key');;
-        $url                       = Yf_Registry::get('ucenter_api_url');
-        $ucenter_app_id            = Yf_Registry::get('ucenter_app_id');
-        $formvars                  = array();
-        $formvars['user_account']  = $_REQUEST['user_account'];
-        $formvars['user_password'] = $_REQUEST['user_password'];
-        $formvars['app_id']        = $ucenter_app_id;
-        
-        $formvars['ctl'] = 'Api';
-        $formvars['met'] = 'login';
-        $formvars['typ'] = 'json';
-        $init_rs         = get_url_with_encrypt($key, $url, $formvars);
+		if (strtolower($_SESSION['auth']) != strtolower($_REQUEST['yzm']))
+		{
+			location_go_back('验证码错误');
+		}
+		
+		$user_account = $_REQUEST['user_account'];
+		//本地读取远程信息
+		$key = Yf_Registry::get('ucenter_api_key');;
+		$url                       = Yf_Registry::get('ucenter_api_url');
+		$ucenter_app_id            = Yf_Registry::get('ucenter_app_id');
+		$formvars                  = array();
+		$formvars['user_account']  = $_REQUEST['user_account'];
+		$formvars['user_password'] = $_REQUEST['user_password'];
+		$formvars['app_id']        = $ucenter_app_id;
+		
+		$formvars['ctl'] = 'Api';
+		$formvars['met'] = 'login';
+		$formvars['typ'] = 'json';
+		$init_rs         = get_url_with_encrypt($key, $url, $formvars);
 
-        if (200 == $init_rs['status'])
-        {
+		if (200 == $init_rs['status'])
+		{
             //远程获取店铺信息
-            $shop_api_key                   = Yf_Registry::get('shop_api_key');;
-            $shop_api_url                   = Yf_Registry::get('shop_api_url');
-            $shop_app_id                    = Yf_Registry::get('shop_app_id');
+            $shop_api_key 			   		= Yf_Registry::get('shop_api_key');;
+            $shop_api_url              		= Yf_Registry::get('shop_api_url');
+            $shop_app_id               		= Yf_Registry::get('shop_app_id');
             $formvars_shop                  = array();
-            $formvars_shop['user_id']   = $init_rs['data']['user_id'];
+            $formvars_shop['user_id']  	= $init_rs['data']['user_id'];
             $formvars_shop['app_id']       = $shop_app_id;
             $init_rs_shop         = get_url_with_encrypt($shop_api_key, sprintf('%s?ctl=WebPosApi_%s&met=%s&typ=json', $shop_api_url, 'Shop', 'getShopInfo'), $formvars_shop);
-             
-
-             // var_dump($shop_api_key,$shop_api_url,$shop_app_id);die;
-             // var_dump(sprintf('%s?ctl=WebPosApi_%s&met=%s&typ=json', $shop_api_url, 'Shop', 'getShopInfo'));die;
-             // var_dump($init_rs_shop);die;
-
 
             if (200 == $init_rs_shop['status'])
             {
-
                 //读取服务列表
                 $shop_info_row = $init_rs_shop['data'];  //店铺信息
                 $user_id   = $init_rs['data']['user_id'];
