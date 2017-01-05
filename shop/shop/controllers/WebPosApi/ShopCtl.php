@@ -41,7 +41,7 @@ class WebPosApi_ShopCtl extends WebPosApi_Controller
     //获取店铺及卖家信息
     public function getShopInfo()
     {
-        $data = array();
+        $data = array();var_dump(2323234243);die;
         $user_id = request_int('user_id');
         $cond_row['user_id'] = $user_id;
         $shop_info = $this->shopBaseModel->getOneByWhere($cond_row);
