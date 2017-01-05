@@ -23,7 +23,7 @@ var placeholder = {
     user_account: '　请输入用户名/手机号码',
     user_password: '　请输入密码',
     yzm: '　请输入验证码'
-}, user_account = document.getElementById('user_account'), user_password = document.getElementById('user_password'), yzm = document.getElementById('yzm'), form = document.getElementById('form'), left_img = document.getElementById('left_img'), wh = ((document.documentElement.clientHeight || document.body.clientHeight) - 488 - 50) / 2;
+}, user_account = document.getElementById('user_account'), user_password = document.getElementById('user_password'), yzm = document.getElementById('yzm'), form = document.getElementById('form1'), left_img = document.getElementById('left_img'), wh = ((document.documentElement.clientHeight || document.body.clientHeight) - 488 - 50) / 2;
 window.onload = function ()
 {    
     form.style.marginTop = wh + 'px';

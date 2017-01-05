@@ -46,7 +46,7 @@
 				<h2 class="shadow">用户登录</h2>
 			</div>
 			<div class="box">
-				<form method="post" action="<?= Yf_Registry::get('index_page') ?>?ctl=Login&met=login">
+				<form id="form1"method="post" action="<?= Yf_Registry::get('index_page') ?>?ctl=Login&met=login">
                     <span>
                         <label for="user_name">帐号</label>
                         <input type="text" name="user_account" autocomplete="off" class="input-text text" tabindex="1" value="">
