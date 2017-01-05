@@ -87,6 +87,7 @@ class LoginCtl extends WebPosController
                     $data['user_delete'] = 0; // 用户状态
 
                     $flag             = $User_BaseModel->addBase($data, true);
+                    var_dump($flag);die;
                     //判断状态是否开启
                     if (!$flag)
                     {
