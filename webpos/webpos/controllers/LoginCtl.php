@@ -37,18 +37,18 @@ class LoginCtl extends WebPosController
 
         if (200 == $init_rs['status'])
         {
-            var_dump(1454644);die;
             //远程获取店铺信息
-            $shop_api_key 			   		= Yf_Registry::get('shop_api_key');;
-            $shop_api_url              		= Yf_Registry::get('shop_api_url');
-            $shop_app_id               		= Yf_Registry::get('shop_app_id');
+            $shop_api_key                   = Yf_Registry::get('shop_api_key');;
+            $shop_api_url                   = Yf_Registry::get('shop_api_url');
+            $shop_app_id                    = Yf_Registry::get('shop_app_id');
             $formvars_shop                  = array();
-            $formvars_shop['user_id']  	= $init_rs['data']['user_id'];
+            $formvars_shop['user_id']   = $init_rs['data']['user_id'];
             $formvars_shop['app_id']       = $shop_app_id;
             $init_rs_shop         = get_url_with_encrypt($shop_api_key, sprintf('%s?ctl=WebPosApi_%s&met=%s&typ=json', $shop_api_url, 'Shop', 'getShopInfo'), $formvars_shop);
 
             if (200 == $init_rs_shop['status'])
             {
+                var_dump(111111);die;
                 //读取服务列表
                 $shop_info_row = $init_rs_shop['data'];  //店铺信息
                 $user_id   = $init_rs['data']['user_id'];
