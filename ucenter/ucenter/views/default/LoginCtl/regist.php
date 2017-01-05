@@ -95,14 +95,7 @@ extract($_GET);
 							<span></span>
 						</div>
 					</div>
-					<div id="form-item-password" class="form-item" style="z-index: 12;">
-						<label>设 置 密 码</label>
-						<input type="password" id="re_user_password" class="field re_user_password" maxlength="20" placeholder="请设置密码" default="<i class=i-def></i><?=$pwd_str?>" onfocus="checkPwd()" onblur="pwdCallback()">
-						<i class="i-status"></i>
-					</div>
-					<div class="input-tip">
-						<span></span>
-					</div>
+					
 					<div class="form-item form-item-authcode" id="form-item-authcode">
 						<label>验　证　码</label>
 						<input type="text" autocomplete="off" name="authcode" id="form-authcode" maxlength="6" class="field form-authcode" placeholder="请输入验证码" default="<i class=&quot;i-def&quot;></i>看不清？点击图片更换验证码" onfocus="showTip(this)" onblur="checkCode()">
