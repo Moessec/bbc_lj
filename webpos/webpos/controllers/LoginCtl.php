@@ -15,6 +15,7 @@ class LoginCtl extends WebPosController
 	public function login()
 	{
 		session_start();
+        var_dump(1213);die;
 		if (strtolower($_SESSION['auth']) != strtolower($_REQUEST['yzm']))
 		{
 			location_go_back('验证码错误');
