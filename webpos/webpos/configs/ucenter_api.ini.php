@@ -1,5 +1,5 @@
 <?php
-$ucenter_api_key = "HANZaFR0Aw08PV1U"; 
-$ucenter_api_url = "http://ucenter.yuanfeng021.com/index.php"; 
+$ucenter_api_key = "aaaaaabbb11"; 
+$ucenter_api_url = "http://139.196.51.206/bbc_lj/ucenter/"; 
 $ucenter_app_id = 104; 
 ?>

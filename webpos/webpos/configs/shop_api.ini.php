@@ -1,6 +1,6 @@
 <?php
-$shop_api_key = "HANZaFR0Aw08PV1U"; 
-$shop_api_url = "http://shop.bbc-builder.com/index.php";
+$shop_api_key = "aaaaaabbb11"; 
+$shop_api_url = "http://139.196.51.206/bbc_lj/shop/";
 $shop_app_id = 102;
 
 ?>
