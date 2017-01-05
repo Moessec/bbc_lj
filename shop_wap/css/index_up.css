@@ -236,9 +236,9 @@ body{
             padding-bottom: 2px;
         }
         .transparent-search .header-inps{
-		    /*background-color: rgba(251,237,238,0.9);*/
+		    background-color: rgba(251,237,238,0.9);
 		    border: none;
-		    /*border-radius: 8px;*/
+		    border-radius: 8px;
 		    display: block;
     		height: 1.2rem;
            line-height: 1.2rem;
