@@ -30,7 +30,7 @@ class WebPosApi_ShopCtl extends WebPosApi_Controller
      * @access public
      */
     public function __construct(&$ctl, $met, $typ)
-    {    var_dump(99999999);die;
+    {   
         parent::__construct($ctl, $met, $typ);
 
         $this->shopBaseModel     = new Shop_BaseModel();
