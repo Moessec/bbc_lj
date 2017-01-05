@@ -33,6 +33,7 @@ class LoginCtl extends WebPosController
 		$formvars['ctl'] = 'Api';
 		$formvars['met'] = 'login';
 		$formvars['typ'] = 'json';
+		fb($formvars);
 		$init_rs         = get_url_with_encrypt($key, $url, $formvars);
 
 		if (200 == $init_rs['status'])
