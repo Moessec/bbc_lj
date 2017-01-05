@@ -236,14 +236,14 @@ body{
             padding-bottom: 2px;
         }
         .transparent-search .header-inps{
-		    background-color: rgba(251,237,238,0.9);
+		    background-color: rgba(251,237,238,0.42);
 		    border: none;
 		    border-radius: 8px;
 		    display: block;
     		height: 1.2rem;
-           line-height: 1.2rem;
+           line-height: 0.15rem;
     		margin:0.075rem 2.03rem;
-            border-bottom: 1px solid white;
+            /*border-bottom: 1px solid white;*/
             /*margin-left: 1.3rem;*/
         } 
         .width{
