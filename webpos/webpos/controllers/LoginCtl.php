@@ -47,7 +47,7 @@ class LoginCtl extends WebPosController
             $init_rs_shop         = get_url_with_encrypt($shop_api_key, sprintf('%s?ctl=WebPosApi_%s&met=%s&typ=json', $shop_api_url, 'Shop', 'getShopInfo'), $formvars_shop);
             // var_dump(sprintf('%s?ctl=WebPosApi_%s&met=%s&typ=json', $shop_api_url, 'Shop', 'getShopInfo'));die;
             // var_dump($shop_api_key,$shop_api_url,$shop_app_id);die;
-            var_dump($init_rs_shop);die;
+            // var_dump($init_rs_shop);die;
             
             if (200 == $init_rs_shop['status'])
             {
