@@ -1592,6 +1592,25 @@ class Goods_GoodsCtl extends Controller
 		$this->data->addBody(-140, $data);
 
  }
+  public function getwap_banner()
+	 {
+	 	$config_type = 'index_slider';
+
+	 	//$rows = $this->advWapAdvModel->getConfigValue($config_type);
+	 	$Web_ConfigModel = new Web_ConfigModel();
+	 	$rows = $Web_ConfigModel->getConfigList(array('config_type'=>$config_type));
+	 	// var_dump( $rows );die;
+			$data = array();
+			if ($rows)
+			{
+				foreach ($rows as $key => $value) {
+					$data[$key]=$value['config_value'];
+				}
+			}
+	       // var_dump($data);die;
+			$this->data->addBody(-140, $data);
+
+	 }
  	public function getShopInfo(){
 
 		if($_COOKIE['community_shopid'])
