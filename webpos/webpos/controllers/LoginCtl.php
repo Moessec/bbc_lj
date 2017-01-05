@@ -36,7 +36,7 @@ class LoginCtl extends WebPosController
 		$init_rs         = get_url_with_encrypt($key, $url, $formvars);
 
 		if (200 == $init_rs['status'])
-		{
+		{ var_dump(2323);die;
             //远程获取店铺信息
             $shop_api_key 			   		= Yf_Registry::get('shop_api_key');;
             $shop_api_url              		= Yf_Registry::get('shop_api_url');
