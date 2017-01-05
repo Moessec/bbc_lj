@@ -1,0 +1,29 @@
+/*=====全局定义=====*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,
+input,textarea,button,p,blockquote,th,td{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%; font-weight:normal;}
+table{}
+caption,cite,em{font-style:normal; font-weight:normal;} 
+caption, th{text-align:left;}
+fieldset, img{border:0;}
+img{vertical-align:top;}
+ul,ol,li{list-style:none;}
+input,button,select{color:#000; font:100% arial; vertical-align:middle; overflow:visible;}
+
+select{height:20px; line-height:20px;}
+/*===链接====*/
+a:link{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover{text-decoration:underline;}
+a:focus {outline:none; -moz-outline:none;} 
+/*====浮动和清除浮动=====*/
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both;}
+.clearfix:after{content:"."; display:block; height:0px; clear:both; visibility:hidden; }
+.clearfix{zoom:1;}
+.vote{color:#E040ED;font-size:14px;font-weight:600;line-height:28px;}
+.hid{width:0px;height:0px;overflow:hidden;display:block;}
+
+body{font:100 10pt/18px "微软雅黑";padding-top:40px;}
+a{font-size:10pt;}
