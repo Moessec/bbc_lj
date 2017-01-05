@@ -463,3 +463,9 @@
 [16-Nov-2016 19:32:11 Asia/Shanghai] PHP   5. Yf_AppController->run() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\Router.php:174
 [16-Nov-2016 19:32:11 Asia/Shanghai] PHP   6. call_user_func:{D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117}() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
 [16-Nov-2016 19:32:11 Asia/Shanghai] PHP   7. LoginCtl->login() D:\phpStudy\WWW\bbc_lj\ucenter\libraries\Yf\AppController.php:117
+[13-Dec-2016 12:29:32 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in F:\phpstudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[13-Dec-2016 12:29:38 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in F:\phpstudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[13-Dec-2016 12:29:45 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in F:\phpstudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[13-Dec-2016 12:30:40 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in F:\phpstudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[13-Dec-2016 12:30:50 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in F:\phpstudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296
+[13-Dec-2016 12:30:54 Asia/Shanghai] PHP Notice:  Undefined index: company_phone in F:\phpstudy\WWW\bbc_lj\ucenter\ucenter\controllers\ApiCtl.php on line 296

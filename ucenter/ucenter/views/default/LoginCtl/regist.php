@@ -69,7 +69,7 @@ extract($_GET);
 					</div>
 					<div id="form-item-password" class="form-item" style="z-index: 12;">
 						<label>设 置 密 码</label>
-						<input type="password" id="re_user_password" class="field re_user_password" maxlength="20" placeholder="建议至少使用两种字符组合" default="<i class=i-def></i><?=$pwd_str?>" onfocus="checkPwd()" onblur="pwdCallback()">
+						<input type="password" id="re_user_password" class="field re_user_password" maxlength="20" placeholder="请设置密码" default="<i class=i-def></i><?=$pwd_str?>" onfocus="checkPwd()" onblur="pwdCallback()">
 						<i class="i-status"></i>
 					</div>
 					<div class="input-tip">
@@ -88,7 +88,7 @@ extract($_GET);
 							<label class="select-country" id="select-country">手 机 号 码
 							</label>
 
-							<input type="text" id="re_user_mobile"  class="field re_user_mobile" placeholder="建议使用常用手机" maxlength="11" default="<i class=&quot;i-def&quot;></i>完成验证后，可以使用该手机登录和找回密码" onblur="checkMobile()" onfocus="showTip(this)">
+							<input type="text" id="re_user_mobile"  class="field re_user_mobile" placeholder="请输入手机号" maxlength="11" default="<i class=&quot;i-def&quot;></i>完成验证后，可以使用该手机登录和找回密码" onblur="checkMobile()" onfocus="showTip(this)">
 							<i class="i-status"></i>
 						</div>
 						<div class="input-tip">
