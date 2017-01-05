@@ -67,6 +67,18 @@ extract($_GET);
 					<div class="input-tip">
 						<span></span>
 					</div>
+					<div class="item-phone-wrap">
+						<div class="form-item form-item-mobile" id="form-item-mobile">
+							<label class="select-country" id="select-country">手 机 号 码
+							</label>
+
+							<input type="text" id="re_user_mobile"  class="field re_user_mobile" placeholder="请输入手机号" maxlength="11" default="<i class=&quot;i-def&quot;></i>完成验证后，可以使用该手机登录和找回密码" onblur="checkMobile()" onfocus="showTip(this)">
+							<i class="i-status"></i>
+						</div>
+						<div class="input-tip">
+							<span></span>
+						</div>
+					</div>
 					<div id="form-item-password" class="form-item" style="z-index: 12;">
 						<label>设 置 密 码</label>
 						<input type="password" id="re_user_password" class="field re_user_password" maxlength="20" placeholder="请设置密码" default="<i class=i-def></i><?=$pwd_str?>" onfocus="checkPwd()" onblur="pwdCallback()">
@@ -82,18 +94,6 @@ extract($_GET);
 					</div>
 					<div class="input-tip disb">
 						<span></span>
-					</div>
-					<div class="item-phone-wrap">
-						<div class="form-item form-item-mobile" id="form-item-mobile">
-							<label class="select-country" id="select-country">手 机 号 码
-							</label>
-
-							<input type="text" id="re_user_mobile"  class="field re_user_mobile" placeholder="请输入手机号" maxlength="11" default="<i class=&quot;i-def&quot;></i>完成验证后，可以使用该手机登录和找回密码" onblur="checkMobile()" onfocus="showTip(this)">
-							<i class="i-status"></i>
-						</div>
-						<div class="input-tip">
-							<span></span>
-						</div>
 					</div>
 					
 					<div class="form-item form-item-authcode" id="form-item-authcode">
