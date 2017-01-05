@@ -22,7 +22,7 @@ class LoginCtl extends WebPosController
 		
 		$user_account = $_REQUEST['user_account'];
 		//本地读取远程信息
-		$key = Yf_Registry::get('ucenter_api_key');;
+		$key 					   = Yf_Registry::get('ucenter_api_key');;
 		$url                       = Yf_Registry::get('ucenter_api_url');
 		$ucenter_app_id            = Yf_Registry::get('ucenter_app_id');
 		$formvars                  = array();
@@ -42,12 +42,9 @@ class LoginCtl extends WebPosController
             $shop_api_url              		= Yf_Registry::get('shop_api_url');
             $shop_app_id               		= Yf_Registry::get('shop_app_id');
             $formvars_shop                  = array();
-            $formvars_shop['user_id']  	= $init_rs['data']['user_id'];
-            $formvars_shop['app_id']       = $shop_app_id;
-            $init_rs_shop         = get_url_with_encrypt($shop_api_key, sprintf('%s?ctl=WebPosApi_%s&met=%s&typ=json', $shop_api_url, 'Shop', 'getShopInfo'), $formvars_shop);
-            // var_dump(sprintf('%s?ctl=WebPosApi_%s&met=%s&typ=json', $shop_api_url, 'Shop', 'getShopInfo'));die;
-            // var_dump($shop_api_key,$shop_api_url,$shop_app_id);die;
-            // var_dump($init_rs_shop);die;
+            $formvars_shop['user_id']  		= $init_rs['data']['user_id'];
+            $formvars_shop['app_id']       	= $shop_app_id;
+            $init_rs_shop         			= get_url_with_encrypt($shop_api_key, sprintf('%s?ctl=WebPosApi_%s&met=%s&typ=json', $shop_api_url, 'Shop', 'getShopInfo'), $formvars_shop);
             
             if (200 == $init_rs_shop['status'])
             {
