@@ -51,7 +51,7 @@ function plusXing (str,frontLen,endLen)
    $('.abc').each(function(i){
     var str = $('.abc').eq(i).html();
      var su = plusXing(str,1,1);
- // alert(su);
+     alert(su);
     $(this).html(su);
 });
  },2000)
