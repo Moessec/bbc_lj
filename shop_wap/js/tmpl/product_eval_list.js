@@ -53,9 +53,9 @@ function plusXing (str,frontLen,endLen)
      var su = plusXing(str,1,1);
  // alert(su);
     $(this).html(su);
- },1000)
-
 });
+ },2000)
+
 
 function callback() {
     $(".goods_geval").on("click", "a", function () {
