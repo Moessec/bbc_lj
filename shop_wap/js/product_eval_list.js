@@ -12,7 +12,7 @@ $(function ()
         {
             callback()
         }
-    });
+    });alert(2342);
 $('.user-name').each(function(i){
  var str = $(this).eq(i).html();
  var su = plusXing(str,1,1);
