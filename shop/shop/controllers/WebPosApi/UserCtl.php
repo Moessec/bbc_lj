@@ -48,7 +48,7 @@ class WebPosApi_UserCtl extends WebPosApi_Controller
     {
         $page = request_int('page', 1);
         $rows = request_int('rows', 10);
-        var_dump(123123);die;
+
         $cond_row = array();
         $sort     = array();
         $name = request_string('skey');
