@@ -54,7 +54,7 @@ function plusXing (str,frontLen,endLen)
      // alert(su);
     $(this).html(su);
 });
- },500)
+ },200)
 
 
 function callback() {
