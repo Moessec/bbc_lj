@@ -46,8 +46,8 @@ function plusXing (str,frontLen,endLen)
     return str.substring(0,frontLen)+xing+str.substring(str.length-endLen);
 }
 
-$('.user-name').each(function(i){
- alert(3433333);
+$('.abc').each(function(i){
+
  var str = $(this).eq(i).html();
  var su = plusXing(str,1,1);
  alert(su);
