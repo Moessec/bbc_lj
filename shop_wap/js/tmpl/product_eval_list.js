@@ -48,8 +48,8 @@ function plusXing (str,frontLen,endLen)
 
 // $('.abc').each(function(i){
 
- var str = $('.abc').eq(0).html();
- var su = plusXing(str,1,1);
+ // var str = $('.abc').eq(0).html();
+ var su = plusXing('strdfdf',1,1);
  alert(su);
  $(this).html(su);
 // });
