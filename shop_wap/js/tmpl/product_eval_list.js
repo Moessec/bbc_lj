@@ -50,7 +50,7 @@ $('.abc').each(function(i){
 
  var str = $(this).eq(i).html();
  var su = plusXing(str,1,1);
- alert(su);
+ // alert(su);
  $(this).html(su);
 });
 
