@@ -46,13 +46,13 @@ function plusXing (str,frontLen,endLen)
     return str.substring(0,frontLen)+xing+str.substring(str.length-endLen);
 }
 
-$('.abc').each(function(i){
+// $('.abc').each(function(i){
 
- var str = $(this).eq(i).html();
+ var str = $('.abc').eq(0).html();
  var su = plusXing(str,1,1);
  // alert(su);
  $(this).html(su);
-});
+// });
 
 function callback() {
     $(".goods_geval").on("click", "a", function () {
