@@ -45,9 +45,10 @@ function plusXing (str,frontLen,endLen)
     }
     return str.substring(0,frontLen)+xing+str.substring(str.length-endLen);
 }
-alert(23423);
+
 $('.user-name').each(function(i){
- var str = $(this).html();
+ var str = $(this).eq(i).html();
+ alert(3433333);
  var su = plusXing(str,1,1);
  alert(su);
  $(this).html(su);
