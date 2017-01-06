@@ -116,12 +116,12 @@ var spid = min(dis);
 
         $.cookie('shot_shop',spid);
         $.cookie('shot_distance',dis[spid]);
-        if(dis[spid]>10000){
-          // alert(dis[spid]);
-          delCookie('shot_shop');
-          delCookie('shot_distance');
-          location.replace('index.html');
-        }
+        // if(dis[spid]>10000){
+        //   // alert(dis[spid]);
+        //   delCookie('shot_shop');
+        //   delCookie('shot_distance');
+        //   location.replace('index.html');
+        // }
 
          $.ajax({
                 url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+getCookie('shot_shop'),
