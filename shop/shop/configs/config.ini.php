@@ -133,6 +133,8 @@ $PluginManager->trigger('init', '');
 
 Yf_Registry::set('hook', $PluginManager);
 
+define('LANG', 'zh_CN');
+
 //初始化语言包
 if (function_exists('_'))
 {
@@ -458,17 +460,6 @@ Yf_Registry::set('shop_app_id', $shop_app_id);
 
 Yf_Registry::set('shop_wap_url', @$shop_wap_url);
 
-//设置未付款订单的取消时间(秒)24小时
-Yf_Registry::set('wait_pay_time',86400);
-
-//设置系统自动确认收货的时间(秒)7天
-Yf_Registry::set('confirm_order_time',604800);
-
-if(!isset($_COOKIE['areaId']))
-{
-	setcookie("areaId", 1);
-
-}
 
 //IM配置
 if (is_file(INI_PATH . '/im_api_' . $server_id . '.ini.php'))
@@ -483,8 +474,38 @@ else
 
 Yf_Registry::set('im_api_key', $im_api_key);
 Yf_Registry::set('im_api_url', $im_api_url);
-Yf_Registry::set('im_url', $im_url);
 Yf_Registry::set('im_app_id', $im_app_id);
+
+
+
+if (is_file(INI_PATH . '/im_api_' . $server_id . '.ini.php'))
+{
+	include_once INI_PATH . '/im_api_' . $server_id . '.ini.php';
+}
+else
+{
+	include_once INI_PATH . '/im_api.ini.php';
+}
+
+
+Yf_Registry::set('im_api_key', $im_api_key);
+Yf_Registry::set('im_api_url', $im_api_url);
+Yf_Registry::set('im_app_id', $im_app_id);
+
+
+
+//设置未付款订单的取消时间(秒)24小时
+Yf_Registry::set('wait_pay_time',86400);
+
+//设置系统自动确认收货的时间(秒)7天
+Yf_Registry::set('confirm_order_time',604800);
+
+if(!isset($_COOKIE['areaId']))
+{
+	setcookie("areaId", 1);
+
+}
+
 
 
 //是否开启rewrite及规则
@@ -517,7 +538,7 @@ Yf_Registry::set('error_url', Yf_Registry::get('base_url') . '/error.php');
 
 
 
-if (request_string('typ') != 'json' && Yf_Utils_Device::isMobile())
+if (request_string('typ') != 'json' && !request_string('redirect') && Yf_Utils_Device::isMobile())
 {
 	location_to($shop_wap_url);
 }
