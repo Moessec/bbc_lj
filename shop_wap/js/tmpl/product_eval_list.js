@@ -46,17 +46,16 @@ function plusXing (str,frontLen,endLen)
     return str.substring(0,frontLen)+xing+str.substring(str.length-endLen);
 }
 
-// $('.abc').each(function(i){
 
- // var str = $('.abc').eq(0).html();
  setTimeout(function(){
-    var str = $('.abc').eq(0).html();
+   $('.abc').each(function(i){
+    var str = $('.abc').eq(i).html();
      var su = plusXing(str,1,1);
- alert(su);
+ // alert(su);
+    $(this).html(su);
  },1000)
 
- // $(this).html(su);
-// });
+});
 
 function callback() {
     $(".goods_geval").on("click", "a", function () {
