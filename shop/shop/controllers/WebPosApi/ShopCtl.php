@@ -44,7 +44,7 @@ class WebPosApi_ShopCtl extends WebPosApi_Controller
         $user_id = request_int('user_id');
         $cond_row['user_id'] = $user_id;
         $shop_info = $this->shopBaseModel->getOneByWhere($cond_row);
-       var_dump($shop_info);
+       // var_dump($shop_info);
         if($shop_info)
         {
             $status = 200;
