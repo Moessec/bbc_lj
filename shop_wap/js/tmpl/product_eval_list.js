@@ -35,6 +35,24 @@ $(function () {
         $(this).parent().addClass("selected").siblings().removeClass("selected")
     })
 });
+
+function plusXing (str,frontLen,endLen) 
+{ 
+    var len = str.length-frontLen-endLen;
+    var xing = '';
+    for (var i=0;i<len;i++) {
+    xing+='*';
+    }
+    return str.substring(0,frontLen)+xing+str.substring(str.length-endLen);
+}
+
+$('.user-name').each(function(i){
+ var str = $(this).html();
+ var su = plusXing(str,1,1);
+ // alert(su);
+ $(this).html(su);
+});
+
 function callback() {
     $(".goods_geval").on("click", "a", function () {
         var o = $(this).parents(".goods_geval");
