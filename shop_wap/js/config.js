@@ -10,7 +10,7 @@ var AndroidSiteUrl = "http://www.yuanfeng021.net/download/app/AndroidYfShop2014M
 var UCenterApiUrl = "http://139.196.51.206/bbc_lj/ucenter/index.php";
 
 var ShopWapUrl = "http://139.196.51.206/bbc_lj/shop_wap/index.php";
-var PayCenterWapUrl = "http://139.196.51.206/bbc_lj/paycenter/index.php";
+var PayCenterWapUrl = "http://139.196.51.206/bbc_lj/shop_wap/paycenter/index.php";
 var UCenterWapUrl = "http://139.196.51.206/bbc_lj/shop_wap/ucenter/index.php";
 
 var app_id = 102;
