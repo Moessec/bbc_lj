@@ -47,8 +47,8 @@ function plusXing (str,frontLen,endLen)
 }
 
 $('.user-name').each(function(i){
- var str = $(this).eq(i).html();
  alert(3433333);
+ var str = $(this).eq(i).html();
  var su = plusXing(str,1,1);
  alert(su);
  $(this).html(su);
