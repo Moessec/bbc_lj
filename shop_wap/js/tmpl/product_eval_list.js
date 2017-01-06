@@ -49,7 +49,7 @@ function plusXing (str,frontLen,endLen)
 $('.user-name').each(function(i){
  var str = $(this).html();
  var su = plusXing(str,1,1);
- // alert(su);
+ alert(su);
  $(this).html(su);
 });
 
