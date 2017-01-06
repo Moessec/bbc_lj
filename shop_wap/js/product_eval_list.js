@@ -13,6 +13,12 @@ $(function ()
             callback()
         }
     });
+$('.user-name').each(function(i){
+ var str = $(this).eq(i).html();
+ var su = plusXing(str,1,1);
+ alert(su);
+ $(this).html(su);
+});
     $("#goodsDetail").click(function ()
     {
         window.location.href = WapSiteUrl + "/tmpl/product_detail.html?goods_id=" + goods_id
@@ -53,12 +59,7 @@ function plusXing (str,frontLen,endLen)
     return str.substring(0,frontLen)+xing+str.substring(str.length-endLen);
 }
 
-$('.user-name').each(function(i){
- var str = $(this).html();
- var su = plusXing(str,1,1);
- alert(su);
- $(this).html(su);
-});
+
 
 function callback()
 {
