@@ -49,9 +49,12 @@ function plusXing (str,frontLen,endLen)
 // $('.abc').each(function(i){
 
  // var str = $('.abc').eq(0).html();
- var su = plusXing('strdfdf',1,1);
+ setTimeout(function(){
+     var su = plusXing('strdfdf',1,1);
  alert(su);
- $(this).html(su);
+ })
+
+ // $(this).html(su);
 // });
 
 function callback() {
