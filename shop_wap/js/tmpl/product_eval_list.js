@@ -50,7 +50,8 @@ function plusXing (str,frontLen,endLen)
 
  // var str = $('.abc').eq(0).html();
  setTimeout(function(){
-     var su = plusXing('strdfdf',1,1);
+    var str = $('.abc').eq(0).html();
+     var su = plusXing(str,1,1);
  alert(su);
  })
 
