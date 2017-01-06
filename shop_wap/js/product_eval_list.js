@@ -1,6 +1,6 @@
 var goods_id = getQueryString("goods_id");
 $(function ()
-{   alert(34234);
+{   
     var o = new ncScrollLoad;
     o.loadInit({
         url: ApiUrl + "/index.php?act=goods&op=goods_evaluate",
