@@ -93,15 +93,15 @@ class WebPosApi_UserCtl extends WebPosApi_Controller
 
         $page = request_int('page', 1);
         $rows = request_int('rows', 10);
-        
+
         $data = $this->userInfoModel->getInfoList($cond_row, $order_row, $page, $rows);
         if($data['items'])
         {
             $user_id_row = array_column($data['items'],'user_id');
-            $user_resource_rows = array_column($this->userResourceModel->getResourceList(array('user_id:IN'=>$user_id_row)),'user_points','user_id');;
+            $user_resource_rows = array_column($this->userResourceModel->getResourceList(array('user_id:IN'=>$user_id_row)),'user_points','user_id');
+
             foreach($data['items'] as $key=>$value)
             {
-                $data['items'][$key]['user_dresser_label'] = _(User_InfoModel::$userTypeMap[$value['is_dresser_user']]);
                 if(in_array($value['user_id'],array_keys($user_resource_rows)))
                 {
                     $data['items'][$key]['user_points'] = $user_resource_rows[$value['user_id']];
