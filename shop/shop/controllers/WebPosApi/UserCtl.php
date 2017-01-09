@@ -90,23 +90,10 @@ class WebPosApi_UserCtl extends WebPosApi_Controller
         {
             $cond_row['user_name'] = $user_name;
         }
-        $user_card_num  = request_string('user_card_num');
-        /*$user_name      = request_string('search_name');
-        $type           = request_string('user_type');
-        if($user_card_num)
-        {
-            $cond_row['user_card_num'] = $user_card_num;
-        }
-        if ($user_name)
-        {
-            $type            = 'user_name:LIKE';
-            $cond_row[$type] = '%' . $user_name . '%';
-        }*/
+
         $page = request_int('page', 1);
         $rows = request_int('rows', 10);
-
-        //$data_base = $this->userBaseModel->getBaseList();
-
+        
         $data = $this->userInfoModel->getInfoList($cond_row, $order_row, $page, $rows);
         if($data['items'])
         {
