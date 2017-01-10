@@ -68,7 +68,7 @@ class WebPosApi_GoodsCtl extends WebPosApi_Controller
 		//分类id
 		$cat_id   = request_int('assistId');
 		$Goods_CatModel = new Goods_CatModel();
-		if ($cat_id)
+		if ($cat_id > 0)
 		{
 			//查找该分类下所有的子分类
 			$cat_list   = $Goods_CatModel->getCatChildId($cat_id);
