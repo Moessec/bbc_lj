@@ -191,7 +191,55 @@ class Api_User_InfoCtl extends Yf_AppController
 		$this->data->addBody(-140, $data, $msg, $status);
 
 	}
-	
+
+	/* 获取用户支付账户信息
+	 * webpos 请求该接口
+	*/
+	public function getPayUserInfo()
+	{
+		$cond_row   = array();
+		$data       = array();
+		$user_id    = request_int('user_id');
+		$pay_money  = request_float('money');
+
+		$cond_row['user_id'] = $user_id;
+		$cond_row['user_pay_passwd'] = request_string('user_pay_passwd');
+
+		$User_BaseModel     = new User_BaseModel();
+		$user_base_row = $User_BaseModel->getOneByWhere($cond_row);
+		$flag  = true;
+
+		if(!$user_base_row)
+		{
+			$flag = false;
+			$msg  = _('支付账号不存在或密码有误！');
+		}
+		else
+		{
+			$User_ResourceModel = new User_ResourceModel();
+			$user_resource_row = $User_ResourceModel->getOne($user_id);
+			if($pay_money > $user_resource_row['user_money'])
+			{
+				$flag = false;
+				$msg  = _('账户余额不足！');
+			}
+		}
+
+		if($flag)
+		{
+			$status = 200;
+			$msg = $msg?$msg:_('success');
+		}
+		else
+		{
+			$status = 250;
+			$msg = $msg?$msg:_('fail');
+		}
+
+		$this->data->addBody(-140, $data, $msg, $status);
+	}
+
+
 }
 
 ?>
