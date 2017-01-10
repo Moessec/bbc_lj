@@ -63,7 +63,7 @@ class WebPosApi_GoodsCtl extends WebPosApi_Controller
 		{
 			$cond_row['goods_name:LIKE'] = '%'.$skey.'%'; //商品名称搜索
 		}
-		
+
 		//分类id
 		$cat_id   		= request_int('assistId');
 
@@ -132,7 +132,7 @@ class WebPosApi_GoodsCtl extends WebPosApi_Controller
 		$order_row['goods_price']  = 'ASC';
 		$order_row['common_id'] 	= 'DESC';
 
-		$cond_row['goods_stock:>'] 		= 0;						//库存大于0
+		$cond_row['goods_stock:>'] 		= 0;							//库存大于0
 		$cond_row['goods_is_shelves']   = Goods_BaseModel::GOODS_UP;	//只显示上架的商品
 
 		$data = $Goods_BaseModel->getBaseList($cond_row,$order_row,$page,$rows);

@@ -247,7 +247,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 
 			fb($formvars);
 
-			$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=getPayUserInfo&typ=json', $url), $formvars);
+			$rs = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_User_Info&met=getPayUserInfo&typ=json', $url), $formvars);
 			fb($rs);
 
 			if($rs['status'] == 250)
@@ -416,9 +416,10 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
         $order_row['order_shipping_fee']     	= 0;						   //运费价格
         $order_row['order_message']          	= ''; 						   //订单备注信息
 
+		//如果是微信扫码支付或支付宝支付，订单状态为等待付款
         if($paymentMethod == 3 || $paymentMethod == 4)
 		{
-            $order_row['order_status']           =  Order_StateModel::ORDER_WAIT_PAY; //如果是微信扫码支付或支付宝支付，订单状态为等待付款
+            $order_row['order_status']           =  Order_StateModel::ORDER_WAIT_PAY;
         }
 		else
 		{
