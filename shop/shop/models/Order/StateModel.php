@@ -83,6 +83,8 @@ class Order_StateModel extends Order_State
 			//PC端
 			'2' => _("移动端"),
 			//移动端
+			'3' => _("WebPos端")
+			//WebPos端
 		);
 		
 		$this->evaluationStatus = array(
