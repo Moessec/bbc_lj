@@ -64,12 +64,12 @@ class WebPosApi_GoodsCtl extends WebPosApi_Controller
 			$cond_row['goods_name:LIKE'] = '%'.$skey.'%'; //商品名称搜索
 		}
 		
-		
 		//分类id
-		$cat_id   = request_int('assistId');
-		$Goods_CatModel = new Goods_CatModel();
+		$cat_id   		= request_int('assistId');
+
 		if ($cat_id > 0)
 		{
+			$Goods_CatModel = new Goods_CatModel();
 			//查找该分类下所有的子分类
 			$cat_list   = $Goods_CatModel->getCatChildId($cat_id);
 			$cat_list[] = $cat_id;
