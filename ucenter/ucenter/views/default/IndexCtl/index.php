@@ -1,4 +1,37 @@
 <?php if (!defined('ROOT_PATH')) exit('No Permission');?>
+<?php 
+    $re_url = '';
+    $re_url = Yf_Registry::get('re_url');
+
+    $from = 'mall';
+    $callback = $re_url;
+    $t = '';
+    $type = '';
+    $act= '';
+    $code = '';
+
+    extract($_GET);
+    //$qq_url = sprintf('%s?ctl=Connect_Qq&met=login&callback=%s&from=%s', Yf_Registry::get('url'), urlencode($callback) ,$from);
+	$wx_url = sprintf('%s?ctl=Connect_Weixin&met=login&callback=%s&from=%s', Yf_Registry::get('url'), urlencode($callback),$from);
+    $wb_url = sprintf('%s?ctl=Connect_Weibo&met=login&callback=%s&from=%s', Yf_Registry::get('url'), $callback ,$from);
+
+	$qq_url = sprintf('%s?ctl=Connect_Qq&met=login&from=%s', Yf_Registry::get('url'), $from);
+	//$wx_url = sprintf('%s?ctl=Connect_Weixin&met=login&from=%s', Yf_Registry::get('url'),$from);
+	
+    $connect_config = include_once APP_PATH  . '/configs/connect.ini.php';
+    if($connect_config)
+    {
+      $qq = $connect_config['qq']['status'];
+      $wx = $connect_config['weixin']['status'];
+      $wb = $connect_config['weibo']['status'];  
+    }else
+    {
+      $qq = 2;
+      $wx = 2;
+      $wb = 2;  
+    }
+    
+?>
 <!DOCTYPE html>
 <html>
 <head>
