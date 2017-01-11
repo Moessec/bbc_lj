@@ -44,7 +44,7 @@ $(function ()
             $.ajax({
                 type: "post",
                 url: ApiUrl + "/index.php?ctl=Buyer_User&met=addAddressInfo&typ=json",
-                data: {k:e,u:getCookie('id'), user_address_contact: e, user_address_phone: r, province_id: province_id, city_id: city_id, area_id: area_id, user_address_address: i, address_area: n, user_address_default: o},
+                data: {k:getCookie('key'),u:getCookie('id'), user_address_contact: e, user_address_phone: r, province_id: province_id, city_id: city_id, area_id: area_id, user_address_address: i, address_area: n, user_address_default: o},
 
                 dataType: "json",
                 success: function (a)
