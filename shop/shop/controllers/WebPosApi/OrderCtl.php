@@ -101,7 +101,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 		}
 		else
 		{
-                     $status=300;
+			$status=300;
 		}
 		 $msg='success';
 		$this->data->addBody(-140, $data, $msg, $status);
@@ -506,18 +506,14 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
         }
 
         $User_ResourceModel = new User_ResourceModel();
-        //获取积分经验值
-        $ce = $User_ResourceModel->getResource($buyer_id);
-
-        $resource_row['user_points'] = $ce[$buyer_id]['user_points'] * 1 + $user_points * 1;
-        $resource_row['user_growth'] = $ce[$buyer_id]['user_growth'] * 1 + $user_grade * 1;
-		$resource_row['user_pointssum'] = $ce[$buyer_id]['user_pointssum'] * 1 + $user_points * 1;
-        $res_flag = $User_ResourceModel->editResource($buyer_id, $resource_row);
+        $resource_row['user_points'] =  $user_points * 1;
+        $resource_row['user_growth'] =  $user_grade * 1;
+        $res_flag = $User_ResourceModel->editResource($buyer_id, $resource_row, true);
 
         $User_GradeModel = new User_GradeModel;
         //升级判断
-        //$res_flag = $User_GradeModel->upGrade($buyer_id, $resource_row['user_growth']);
-        $res_flag = $User_GradeModel->upGrade($buyer_id, $resource_row['user_pointssum']);
+        $res_flag = $User_GradeModel->upGrade($buyer_id, $resource_row['user_growth']);
+
         //积分
         $points_row['user_id']           = $buyer_id;
         $points_row['user_name']         = $buyer_name;
