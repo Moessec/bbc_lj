@@ -52,29 +52,29 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 		$sord      = request_string('sord', 'asc');
 		$action    = request_string('action');
 
-		$cond_row['shop_id'] = 2;
+		$cond_row['shop_id'] = request_int('shop_id');
 		$cond_row['order_from'] = Order_BaseModel::FROM_WEBPOS;
 
-		if ($sidx)
-		{
-			$order_row[$sidx] = $sord;
-		}
+		// if ($sidx)
+		// {
+		// 	$order_row[$sidx] = $sord;
+		// }
 		
-		if (request_string('matchCon'))
-		{
-			$cond_row['order_id:LIKE'] = request_string('matchCon') . '%';
-		}
+		// if (request_string('matchCon'))
+		// {
+		// 	$cond_row['order_id:LIKE'] = request_string('matchCon') . '%';
+		// }
 	
-		if (request_string('beginDate'))
-		{
-			$cond_row['order_date:>='] = date("Y-m-d H:i:s" ,strtotime(request_string('beginDate')));
-		}
-		if (request_string('endDate'))
-		{
-			$cond_row['order_date:<='] = date("Y-m-d H:i:s" ,strtotime(request_string('endDate')));
-		}
+		// if (request_string('beginDate'))
+		// {
+		// 	$cond_row['order_date:>='] = date("Y-m-d H:i:s" ,strtotime(request_string('beginDate')));
+		// }
+		// if (request_string('endDate'))
+		// {
+		// 	$cond_row['order_date:<='] = date("Y-m-d H:i:s" ,strtotime(request_string('endDate')));
+		// }
 
-		$data = $this->Order_BaseModel->getPlatOrderList($cond_row, array(), $page, $rows);
+		$data = $this->Order_BaseModel->getPlatOrderList($cond_row, array('order_create_time'=>'DESC'), $page, $rows);
 		$this->data->addBody(-140, $data);
 	}
         
