@@ -979,14 +979,20 @@ var THISPAGE = { //页面初始化
     //获得客户的账户金额信息
     setSaleByContact:function(contactInfo){
         var _self = this;
-        if(_self.salesCombo){
+       /* if(_self.salesCombo){
 			//点击确定
             Public.ajaxGet(SITE_URL + '?ctl=Order&met=getcontactInfo&typ=json',{buid:contactInfo.id},function(data){
                 if(data.data.user_id){
                     $("#cash").val(data.data.user_money);
                 }
             });
-        }
+        }*/
+        //显示用户账户余额
+        Public.ajaxGet(SITE_URL + '?ctl=Order&met=getcontactInfo&typ=json',{buid:contactInfo.id},function(data){
+            if(data.data.user_id){
+                $("#cash").val(data.data.user_money);
+            }
+        });
     },
 
     goodsEdittypeInit:function(){
