@@ -278,9 +278,9 @@ class Connect_WeixinCtl extends Yf_AppController implements Connect_Interface
 
 				if(request_string('callback'))
 				{
-					$us = $result['user_id'];
-					$ks = $result['k'];
-				    $url = sprintf('%s?us=%s&ks=%s', request_string('callback'), $us, $ks);
+					$us = $arr_body['user_id'];
+					$ks = $arr_body['k'];
+				    $url = sprintf('%s&us=%s&ks=%s', request_string('callback'), $us, $ks);
 				    location_to($url);
 
 				}
