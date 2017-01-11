@@ -10,6 +10,7 @@ class Payment_ChannelModel extends Payment_Channel
 	const WECHAT_PAY = 4;
 	const MONEY = 5;
 	const CARDS = 6;
+	const UNIONPAY = 10;
 
 	const ENABLE_NO = 0;
 	const ENABLE_YES = 1;
