@@ -45,9 +45,9 @@ class Order_BaseModel extends Order_Base
     const SELLER_EVALUATE_YES = 1;
 
     //订单来源
-    const FROM_PC 		= '1';  	//来源于pc端
-    const FROM_WAP 		= '2'; 	//来源于WAP手机端
-    const FROM_WEBPOS 	= '3';	//来源于WEBPOS线下下单
+    const FROM_PC 		= 1;  	//来源于pc端
+    const FROM_WAP 		= 2; 	//来源于WAP手机端
+    const FROM_WEBPOS 	= 3;	//来源于WEBPOS线下下单
 
     //状态
     public static $state = array(
