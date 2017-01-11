@@ -53,7 +53,8 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 		$action    = request_string('action');
 
 		$cond_row['shop_id'] 	= request_int('shop_id');
-		$cond_row['order_from'] = 'Order_BaseModel::FROM_WEBPOS';
+		// $cond_row['order_from'] = 'Order_BaseModel::FROM_WEBPOS';
+		$cond_row['order_from'] = '3';
 			
 
 		if ($sidx)
@@ -150,6 +151,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 		$endDate 	= request_string("endDate");
 		$cond_row['shop_id']	   = request_int('shop_id');
 		// $cond_row['order_from']	   = Order_BaseModel::FROM_WEBPOS;
+		$cond_row['order_from']	   = '3';
 		$cond_row['order_date:>='] = $beginDate;
 		$cond_row['order_date:<='] = $endDate;
 		$order_row['order_create_time'] = 'DESC';
