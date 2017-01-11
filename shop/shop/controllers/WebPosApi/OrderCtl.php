@@ -74,7 +74,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 		// 	$cond_row['order_date:<='] = date("Y-m-d H:i:s" ,strtotime(request_string('endDate')));
 		// }
 
-		$data = $this->Order_BaseModel->getPlatOrderList($cond_row, array('order_create_time'=>'DESC'), $page, $rows);
+		$data = $this->Order_BaseModel->getPlatOrderList($cond_row, array(), $page, $rows);
 		$this->data->addBody(-140, $data);
 	}
         
