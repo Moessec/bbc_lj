@@ -48,11 +48,11 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 
 		$cond_row  = array();
 		$order_row = array();
-		$sidx      = request_string('sidx');
-		$sord      = request_string('sord', 'asc');
-		$action    = request_string('action');
+		// $sidx      = request_string('sidx');
+		// $sord      = request_string('sord', 'asc');
+		// $action    = request_string('action');
 
-		$cond_row['shop_id'] = request_int('shop_id');
+		// $cond_row['shop_id'] = request_int('shop_id');
 		$cond_row['order_from'] = Order_BaseModel::FROM_WEBPOS;
 
 		// if ($sidx)
