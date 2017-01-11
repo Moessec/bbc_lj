@@ -56,12 +56,12 @@ include $this->view->getTplPath() . '/' . 'header.php';
 					<span class="msg-box" style="margin-left:73px;"></span>
 					<!--<span class="onright"><a target="_blank" href="./index.php?ctl=Info&met=depositlist&typ=e">充值记录</a></span>-->
 				</p>
-				<!--<div><?/*=_('（同时勾选时，系统将优先使用购物卡，不足时扣除预存款，目前还需在线支付')*/?><?/*=_('￥')*/?><em class="online_money"><?/*=($uorder_base['trade_payment_amount'])*/?></em><?/*=_('。）余额不足？')*/?><a class="btn_active btn" href="./index.php?ctl=Info&met=deposit"><?/*=_('马上充值')*/?></a></div>-->
+
 			</div>
 
 			<?php }?>
 			<!--  最后在线支付需要支付的金额  -->
-			<input type="hidden" name="online_pay" id="online_pay" value="<?=($uorder_base['trade_payment_amount'])?>">
+			<input type="hidden" name="online_pay" id="online_pay" autocomplete="off" value="<?=($uorder_base['trade_payment_amount'])?>">
 
 			<div class="online_pay">
 				<p class="online_title"><?=_('选择在线支付')?> </p>
@@ -84,7 +84,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			<div class="pc_trans_btn"><a id="submit" class="btn_big btn_active submit_disable" style="float:left;"><?=_('确认付款')?></a></div>
 			<!--<div id="test">TEst</div>-->
 		</div>
-		<div class="recharge2-content-bottom content-public">
+		<div class="recharge2-content-bottom content-public" style="display:none">
 			<div class="theme" style="margin-top:60px;">
 				<span class="title"><?=_('支付遇到问题')?></span>
 			</div>
