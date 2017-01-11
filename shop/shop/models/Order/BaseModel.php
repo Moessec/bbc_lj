@@ -577,11 +577,11 @@ class Order_BaseModel extends Order_Base
         $data = $this->getBaseList($cond_row, $order_row, $page, $rows);
         $Order_StateModel = new Order_StateModel();
 
-        // foreach ($data['items'] as $key => $val) {
-        //     $data['items'][$key]['order_stauts_text'] = $Order_StateModel->orderState[$val['order_status']];
-        //     $data['items'][$key]['order_from_text'] = $Order_StateModel->orderFrom[$val['order_from']];
-        //     $data['items'][$key]['evaluation_status_text'] = $Order_StateModel->evaluationStatus[$val['order_buyer_evaluation_status']];
-        // }
+        foreach ($data['items'] as $key => $val) {
+            $data['items'][$key]['order_stauts_text'] = $Order_StateModel->orderState[$val['order_status']];
+            $data['items'][$key]['order_from_text'] = $Order_StateModel->orderFrom[$val['order_from']];
+            $data['items'][$key]['evaluation_status_text'] = $Order_StateModel->evaluationStatus[$val['order_buyer_evaluation_status']];
+        }
 
         return $data;
     }
