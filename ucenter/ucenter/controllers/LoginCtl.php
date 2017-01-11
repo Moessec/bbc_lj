@@ -53,7 +53,17 @@ class LoginCtl extends Yf_AppController
 			//查找注册的设置
 			$Web_ConfigModel = new Web_ConfigModel();
 			$reg_row = $Web_ConfigModel->getByWhere(array('config_type'=>'register'));
-
+            if(!isset($reg_row['reg_checkcode']) || !$reg_row['reg_checkcode']){
+                //config_value = 1手机，2邮箱，默认手机验证
+                $reg_row['reg_checkcode'] = array(
+                    'config_key' => 'reg_checkcode',
+                    'config_value' => 1,
+                    'config_type' => 'register',
+                    'config_enable' => 1,
+                    'config_comment' => '',
+                    'config_datatype' => 'number'
+                );
+            }
 			$pwd_str = '';
 
 			//判断是否开启了用户密码必须包含数字
@@ -153,68 +163,70 @@ class LoginCtl extends Yf_AppController
 	 *
 	 * @access public
 	 */
-	public function regCode()
-	{
+	public function regCode(){
 		$mobile = request_string('mobile');
-
-		//判断手机号是否已经注册过
-		$User_InfoDetail = new User_InfoDetailModel();
-
-
-		$checkmobile = $User_InfoDetail->checkMobile($mobile);
-
-		//fb($checkmobile);
-
-		if($checkmobile)
-		{
-			//$data   = array();
-			//$msg    = 'success';
-			//$status = 200;
-			//$this->data->addBody(-140, $data, $msg, $status);
-			$this->data->addBody('该手机号已注册');
-			die();
-		}
-
-		$data = array();
-
-		$data['user_code'] = rand(1000, 9999);
-
-		$config_cache = Yf_Registry::get('config_cache');
-
-		if (!file_exists($config_cache['default']['cacheDir']))
-		{
-			fb($config_cache['default']['cacheDir']);
-			mkdir($config_cache['default']['cacheDir']);
-		}
-		$Cache_Lite = new Cache_Lite_Output($config_cache['default']);
-
-		$Cache_Lite->save($data['user_code'], $mobile);
-
-		//发送短消息
-		$contents = '您的验证码是：' . $data['user_code'] . '。请不要把验证码泄露给其他人。如非本人操作，可不用理会！';
-
-		$result = Sms::send($mobile, $contents);
-		/*
-				$contents = array($data['user_code'], 2);
-				$tpl_id = 63463;
-				$result = Sms::send($mobile, $contents, $tpl_id);
-		*/
-		{
-			if (true)
-			{
-				$msg    = 'success';
-				$status = 200;
-			}
-			else
-			{
-				$msg    = '失败';
-				$status = 250;
-			}
-
-		}
-
-
-		$this->data->addBody(-140, $data, $msg, $status);
+        $email = request_string('email');
+        $pattern_phone = '/^1\d{10}$/';
+        $pattern_email = '/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/';
+        $check_code = mt_rand(100000, 999999);
+        if(preg_match($pattern_phone, $mobile)){
+            //判断手机号是否已经注册过
+            $User_InfoDetail = new User_InfoDetailModel();
+            $checkmobile = $User_InfoDetail->checkMobile($mobile);
+            if($checkmobile){
+                $msg    = '该手机号已注册';
+                $status = 250;
+            }else{
+                $save_result = $this->_saveCodeCache($mobile,$check_code,'default');
+                if(!$save_result){
+                    $msg    = '发送失败';
+                    $status = 250;
+                }else{
+                    //发送短消息
+                    $contents = '您的验证码是：' . $check_code . '。请不要把验证码泄露给其他人。如非本人操作，可不用理会！';
+                    $result = Sms::send($mobile, $contents);
+                    if ($result){
+                        $msg    = '发送成功';
+                        $status = 200;
+                    }else{
+                        $msg    = '发送失败';
+                        $status = 250;
+                    }
+                }
+            }
+        }else if(preg_match($pattern_email, $email)){
+            //判断邮箱是否已经注册过
+            $User_InfoDetail = new User_InfoDetailModel();
+            $checkemail = $User_InfoDetail->checkEmail($email);
+            if($checkemail){
+                $msg    = '该邮箱已注册';
+                $status = 250;
+            }else{
+                $save_result = $this->_saveCodeCache($email,$check_code,'default');
+                if(!$save_result){
+                    $msg    = '验证码获取失败';
+                    $status = 250;
+                }else{
+                    //发送邮件
+                    $title = '注册验证';
+                    $contents = '您的验证码是：' . $check_code . '。请不要把验证码泄露给其他人。如非本人操作，可不用理会！';
+                    $result = Email::send($email,'', $title, $contents);
+                    if ($result)
+                    {
+                        $msg    = '发送成功';
+                        $status = 200;
+                    }else{
+                        $msg    = '发送失败';
+                        $status = 250;
+                    }
+                }
+            }
+        }else{
+            $msg    = '发送失败';
+            $status = 250;
+        }
+        
+        $this->data->addBody(-140, array(), $msg, $status);
 	}
 
 
@@ -226,7 +238,7 @@ class LoginCtl extends Yf_AppController
 	public function findPasswdCode()
 	{
 		$mobile = request_string('mobile');
-
+        $email = request_string('email');
 		/*$user_name = request_string('user_name');
 		//验证手机号是否是用户手机号
 		$User_InfoDetail = new User_InfoDetailModel();
@@ -239,192 +251,158 @@ class LoginCtl extends Yf_AppController
 			$this->data->setError('请填写注册手机号');
 			return false;
 		}*/
-
-
 		//判断用户是否存在  $mobile
-		if (true)
-		{
-			$data = array();
-
-			$data['user_code'] = rand(1000, 9999);
-
-			$config_cache = Yf_Registry::get('config_cache');
-
-			if (!file_exists($config_cache['default']['cacheDir']))
-			{
-				mkdir($config_cache['default']['cacheDir']);
-			}
-
-			$Cache_Lite = new Cache_Lite_Output($config_cache['default']);
-
-			$Cache_Lite->save($data['user_code'], $mobile);
-
-			//发送短消息
-			$contents = '您的验证码是：' . $data['user_code'] . '。请不要把验证码泄露给其他人。如非本人操作，可不用理会！';
-
-			$result = Sms::send($mobile, $contents);
-
-			{
-				if (true)
-				{
-					$msg    = 'success';
-					$status = 200;
-				}
-				else
-				{
-					$msg    = '失败';
-					$status = 250;
-				}
-
-			}
-		}
-		else
-		{
+		$pattern_phone = '/^1\d{10}$/';
+        $pattern_email = '/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/';
+        $check_code = mt_rand(100000, 999999);
+        if(preg_match($pattern_phone, $mobile)){
+            //缓存数据
+			$save_result = $this->_saveCodeCache($mobile,$check_code,'default');
+            if(!$save_result){
+                $msg    = '发送失败';
+                $status = 250;
+            }else{
+                //发送短消息
+                $contents = '您的验证码是：' . $check_code . '。请不要把验证码泄露给其他人。如非本人操作，可不用理会！';
+                $result = Sms::send($mobile, $contents);
+                if ($result){
+                    $msg    = '发送成功';
+                    $status = 200;
+                } else {
+                    $msg    = '发送失败';
+                    $status = 250;
+                }
+            }
+		}else if(preg_match($pattern_email, $email)){
+			//缓存数据
+			$save_result = $this->_saveCodeCache($email,$check_code,'default');
+            if(!$save_result){
+                $msg    = '发送失败';
+                $status = 250;
+            }else{
+                //发送短消息
+                $contents = '您的验证码是：' . $check_code . '。请不要把验证码泄露给其他人。如非本人操作，可不用理会！';
+                $result = Email::send($email,'','找回密码验证码', $contents);
+                if ($result){
+                    $msg    = '发送成功';
+                    $status = 200;
+                } else {
+                    $msg    = '发送失败';
+                    $status = 250;
+                }
+            }
+        }else{
 			$msg    = '用户账号不存在';
 			$status = 250;
 		}
 
-		$this->data->addBody(-140, $data, $msg, $status);
+		$this->data->addBody(-140, array(), $msg, $status);
 	}
 
 
 	public function resetPasswd()
 	{
-		//
 		$user_code = request_string('user_code');
-
 		$from = request_string('from');
-
 		$data           = array();
-		
 		$data['mobile'] = request_string('mobile');
+        $data['email'] = request_string('email');
 		$data['password'] = md5(request_string('user_password'));
 		$data['passworderp'] = request_string('user_password');
+        $reg_checkcode = request_string('reg_checkcode');
 		//为erp做的修改密码
-		if($from == 'erp')
+		if($from == 'erp' || $from == 'chain')
 		{
 			$data['user']   = request_string('user_account');
 			$User_InfoModel = new User_InfoModel();
-
 			//检测登录状态
 			$user_id_row = $User_InfoModel->getInfoByName($data['user']);
-
 			if ($user_id_row)
 			{
 				//重置密码
 				$user_id          = $user_id_row['user_id'];
 				$reset_passwd_row = array();
-
-				$reset_passwd_row['password'] = $data['passworderp'];
-
+				$reset_passwd_row['password'] = $from == 'erp' ? $data['passworderp'] : $data['password'];
 				$flag = $User_InfoModel->editInfo($user_id, $reset_passwd_row);
-
 				if ($flag)
 				{
 					$msg    = '重置密码成功';
 					$status = 200;
-
-				}
-				else
-				{
+				}else{
 					$msg    = '重置密码失败';
 					$status = 250;
 				}
-			}
-			else
-			{
+			}else{
 				$msg    = '用户不存在';
 				$status = 250;
 			}
-
 			unset($data['password']);
-		}else
-{
+		}else{
+            if ($user_code){
+                if($reg_checkcode == 1){
+                    if (!$data['mobile'])
+                    {
+                        $this->data->setError('手机号不能为空');
+                        return false;
+                    }
+                }else{
+                    if (!$data['email'])
+                    {
+                        $this->data->setError('邮箱不能为空');
+                        return false;
+                    }
+                }
+                if (request_string('user_password'))
+                {
+                    $config_cache = Yf_Registry::get('config_cache');
+                    $Cache_Lite   = new Cache_Lite_Output($config_cache['default']);
+                    $user_code_pre = $reg_checkcode == 1 ? $Cache_Lite->get($data['mobile']) : $Cache_Lite->get($data['email']);
+                    if ($user_code == $user_code_pre)
+                    {
+                        $User_InfoModel = new User_InfoModel();
+                        $User_InfoDetailModel = new User_InfoDetailModel();
+                        //检测登录状态
+                        $data['user'] = $reg_checkcode == 1 ? $User_InfoDetailModel->getUserByMobile($data['mobile']) : $User_InfoDetailModel->getUserByEmail($data['email']);
 
-		
-		
+                        $user_id_row = $User_InfoModel->getInfoByName($data['user']);
+                        if ($user_id_row)
+                        {
+                            //重置密码
+                            $user_id          = $user_id_row['user_id'];
+                            $reset_passwd_row = array();
+                            $reset_passwd_row['password'] = $data['password'];
+                            
+                            $flag = $User_InfoModel->editInfo($user_id, $reset_passwd_row);
+                            if ($flag === 'false')
+                            {
+                                $msg    = '网路故障，请稍后重试';
+                                $status = 250;
+                            }else{
+                                $msg    = '重置密码成功';
+                                $status = 200;
+                                 //使验证码失效
+                                $reg_checkcode == 1 ? $Cache_Lite->remove($data['mobile']) : $Cache_Lite->remove($data['email']);
+                            }
+                        }else{
+                            $msg    = '用户不存在';
+                            $status = 250;
+                        }
+                    }else{
+                        $msg    = '验证码错误'.$Cache_Lite->get($data['email']);
+                        $status = 250;
+                    }
 
-		if ($user_code)
-		{
-			if (!$data['mobile'])
-			{
-				$this->data->setError('手机号不能为空');
-				return false;
-			}
-
-			if (request_string('user_password'))
-			{
-
-				$config_cache = Yf_Registry::get('config_cache');
-				$Cache_Lite   = new Cache_Lite_Output($config_cache['default']);
-
-				$user_code_pre = $Cache_Lite->get($data['mobile']);
-				fb($user_code_pre);
-
-				if ($user_code == $user_code_pre)
-				{
-					$User_InfoModel = new User_InfoModel();
-					$User_InfoDetailModel = new User_InfoDetailModel();
-
-					//检测登录状态
-					fb($data['mobile']);
-					$data['user'] = $User_InfoDetailModel->getUserByMobile($data['mobile']);
-					
-					$user_id_row = $User_InfoModel->getInfoByName($data['user']);
-
-					if ($user_id_row)
-					{
-						//重置密码
-						$user_id          = $user_id_row['user_id'];
-						$reset_passwd_row = array();
-
-						$reset_passwd_row['password'] = $data['password'];
-
-						$flag = $User_InfoModel->editInfo($user_id, $reset_passwd_row);
-
-						if ($flag === 'false')
-						{
-							$msg    = '网路故障，请稍后重试';
-							$status = 250;
-						}
-						else
-						{
-							$msg    = '重置密码成功';
-							$status = 200;
-
-							$Cache_Lite->remove($data['mobile']);
-						}
-					}
-					else
-					{
-						$msg    = '用户不存在';
-						$status = 250;
-					}
-				}
-				else
-				{
-					$msg    = '验证码错误';
-					$status = 250;
-				}
-
-			}
-			else
-			{
-				$msg    = '密码不能为空';
-				$status = 250;
-			}
-		}
-		else
-		{
-			$msg    = '验证码不能为空';
-			$status = 250;
-		}
-
-		unset($data['password']);
-
-}
-
-		$this->data->addBody(-140, $data, $msg, $status);
+                }else{
+                    $msg    = '密码不能为空';
+                    $status = 250;
+                }
+            }else{
+                $msg    = '验证码不能为空';
+                $status = 250;
+            }
+            unset($data['password']);
+        }
+		$this->data->addBody(-140, array(), $msg, $status);
 	}
 
 
@@ -440,7 +418,8 @@ class LoginCtl extends Yf_AppController
 
 		$user_code = request_string('user_code');
 		$mobile    = request_string('mobile');
-
+        $email = request_string('email'); 
+        $reg_checkcode = request_int('reg_checkcode'); 
 		$server_id = 0;
 
 		if (!$user_name)
@@ -459,16 +438,26 @@ class LoginCtl extends Yf_AppController
 			$this->data->setError('请输入验证码');
 			return false;
 		}
-		if (!$mobile)
-		{
-			$this->data->setError('请输入手机号');
-			return false;
-		}
+        
+        if($reg_checkcode == 1){
+            if (!$mobile)
+            {
+                $this->data->setError('请输入手机号');
+                return false;
+            }
+        }else{
+            if (!$email)
+            {
+                $this->data->setError('请输入邮箱');
+                return false;
+            }
+        }
+		
 
 		$config_cache = Yf_Registry::get('config_cache');
 		$Cache_Lite   = new Cache_Lite_Output($config_cache['default']);
 
-		$user_code_pre = $Cache_Lite->get($mobile);
+		$user_code_pre = $reg_checkcode == 1 ? $Cache_Lite->get($mobile) : $Cache_Lite->get($email);
 
 		if ($user_code == $user_code_pre)
 		{
@@ -510,14 +499,12 @@ class LoginCtl extends Yf_AppController
 
 				$flag = $User_InfoModel->addInfo($arr_field_user_info);
 				array_push($rs_row, $flag);
-
 				$arr_field_user_info_detail                        = array();
 
 				{
 					//添加mobile绑定.
 					//绑定标记：mobile/email/openid  绑定类型+openid
-					$bind_id = sprintf('mobile_%s', $mobile);
-
+                    $bind_id = $reg_checkcode == 1 ? sprintf('mobile_%s', $mobile) : sprintf('email_%s', $email);
 
 					//查找bind绑定表
 					$User_BindConnectModel = new User_BindConnectModel();
@@ -539,15 +526,22 @@ class LoginCtl extends Yf_AppController
 						array_push($rs_row, $flag);
 
 
-						//手机绑定关系
-						$arr_field_user_info_detail['user_mobile']         = $mobile;
-						$arr_field_user_info_detail['user_mobile_verify']         = 1;
+						//绑定关系
+                        if($reg_checkcode == 1){
+                            $arr_field_user_info_detail['user_mobile_verify']         = 1;
+                        }else{
+                            $arr_field_user_info_detail['user_email_verify']         = 1;
+                        }
 					}
 				}
 
 
 				$arr_field_user_info_detail['user_name']           = $user_name;
-				//$arr_field_user_info_detail['user_mobile']         = $mobile;
+                if($reg_checkcode == 1){
+                    $arr_field_user_info_detail['user_mobile']         = $mobile;
+                }else{
+                    $arr_field_user_info_detail['user_email']         = $email;
+                }
 				//$arr_field_user_info_detail['user_mobile_verify']         = 1;
 				$arr_field_user_info_detail['user_reg_time']       = $now_time;
 				$arr_field_user_info_detail['user_count_login']    = 1;
@@ -557,11 +551,13 @@ class LoginCtl extends Yf_AppController
 
 				$flag = $User_InfoDetail->addInfoDetail($arr_field_user_info_detail);
 				array_push($rs_row, $flag);
-
+                //验证成功使验证码失效
+//                $reg_checkcode == 1 ? $Cache_Lite->remove($mobile) : $Cache_Lite->remove($email);
 			}
 
 			$app_id   = isset($_REQUEST['app_id']) ? $_REQUEST['app_id'] : 0;
 			$Base_App = new Base_AppModel();
+
 
 			if ($app_id && !($base_app_rows = $Base_App->getApp($app_id)))
 			{
@@ -605,10 +601,9 @@ class LoginCtl extends Yf_AppController
 				$flag = $User_AppServerModel->addAppServer($user_app_server_row);
 				*/
 			}
-			else
-			{
-			}
 
+            
+            
 			if (is_ok($rs_row) && $User_InfoDetail->sql->commit())
 			{
 				$d            = array();
@@ -665,9 +660,7 @@ class LoginCtl extends Yf_AppController
 				$this->data->addBody(100, $arr_body);
 
 
-			}
-			else
-			{
+			}else{
 				$Base_App->sql->rollBack();
 				$this->data->setError('创建用户信息失败');
 			}
@@ -799,14 +792,14 @@ class LoginCtl extends Yf_AppController
 		$token = request_string('t');
 		$type = request_int('type');
 
-		$user_name = strtolower($_REQUEST['user_account']);
+		$user_name = strtolower(request_string('user_account'));
 
 		//查找bind绑定表
 		$User_BindConnectModel = new User_BindConnectModel();
 		
 		if (!$user_name)
 		{
-			$user_name = strtolower($_REQUEST['user_name']);
+			$user_name = strtolower(request_string('user_name'));
 		}
 
 		$password = $_REQUEST['user_password'];
@@ -815,7 +808,7 @@ class LoginCtl extends Yf_AppController
 
 		if (!$password)
 		{
-			$password = $_REQUEST['password'];
+			$password = request_int('password');
 		}
 
 		if (!strlen($user_name))
@@ -835,6 +828,7 @@ class LoginCtl extends Yf_AppController
 			$User_InfoDetail = new User_InfoDetailModel();
 
 			$bind_id = '';
+			$user_info_row = array();
 			//添加mobile绑定.
 			//绑定标记：mobile/email/openid  绑定类型+openid
 			{
@@ -1089,9 +1083,6 @@ class LoginCtl extends Yf_AppController
 	public function checkMobile()
 	{
 		$mobile = request_string('mobile');
-
-		$mobile = request_string('mobile');
-
 		//判断手机号是否已经注册过
 		$User_InfoDetail = new User_InfoDetailModel();
 
@@ -1240,7 +1231,7 @@ class LoginCtl extends Yf_AppController
 
             $arr_field_user_info_detail                        = array();
             $arr_field_user_info_detail['user_name']           = $user_name;
-            //$arr_field_user_info_detail['user_mobile']         = $mobile;
+            $arr_field_user_info_detail['user_mobile']         = $mobile;
             //$arr_field_user_info_detail['user_mobile_verify']         = 1;
             $arr_field_user_info_detail['user_reg_time']       = $now_time;
             $arr_field_user_info_detail['user_count_login']    = 1;
@@ -1397,6 +1388,41 @@ class LoginCtl extends Yf_AppController
 		}
 		$this->data->addBody(-1, $edit_row, $msg, $status);
 	}
+    
+    public function checkEmail(){
+		$email = request_string('email');
+
+		//判断邮箱号是否已经注册过
+		$User_InfoDetail = new User_InfoDetailModel();
+		$checkmobile = $User_InfoDetail->checkEmail($email);
+		$data   = array();
+		if($checkmobile)
+		{
+			$msg    = 'failure';
+			$status = 250;
+		}else{
+			$msg    = 'success';
+			$status = 200;
+		}
+		$this->data->addBody(-140, $data, $msg, $status);
+    }
+    
+    /**
+     *  缓存验证码
+     * @param type $key
+     * @param type $value
+     * @param type $group
+     * @return type
+     */
+    public function _saveCodeCache($key,$value,$group='default'){
+        $config_cache = Yf_Registry::get('config_cache');
+        if (!file_exists($config_cache[$group]['cacheDir'])){
+            mkdir($config_cache[$group]['cacheDir']);
+        }
+        $Cache_Lite = new Cache_Lite_Output($config_cache[$group]);
+        $result = $Cache_Lite->save($value, $key);
+        return $result;
+    }
 }
 
 ?>
