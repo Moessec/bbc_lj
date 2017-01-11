@@ -157,7 +157,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
                 
         $Order_GoodsModel = new Order_GoodsModel();
 		$order_id_row     = array_column($data['items'], 'order_id');
-		$order_buyer_row     = array_column($data['items'], 'buyer_user_name', 'order_id');
+		$order_buyer_row  = array_column($data['items'], 'buyer_user_name', 'order_id');
 		$order_goods_list = $Order_GoodsModel->listByWhere(array('order_id:IN' => $order_id_row),array('order_goods_id'=>'DESC'));
 
 		if ($order_goods_list)
