@@ -54,7 +54,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 
 		$cond_row['shop_id'] 	= request_int('shop_id');
 		$cond_row['order_from'] = Order_BaseModel::FROM_WEBPOS;
-		var_dump($cond_row['order_from']);
+		var_dump($cond_row['order_from']);die;
 		
 
 		if ($sidx)
