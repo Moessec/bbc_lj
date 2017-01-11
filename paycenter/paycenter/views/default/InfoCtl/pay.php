@@ -84,7 +84,7 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			<div class="pc_trans_btn"><a id="submit" class="btn_big btn_active submit_disable" style="float:left;"><?=_('确认付款')?></a></div>
 			<!--<div id="test">TEst</div>-->
 		</div>
-		<div class="recharge2-content-bottom content-public" style="display:none">
+		<div class="recharge2-content-bottom content-public">
 			<div class="theme" style="margin-top:60px;">
 				<span class="title"><?=_('支付遇到问题')?></span>
 			</div>
