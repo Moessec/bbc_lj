@@ -574,6 +574,7 @@ class Order_BaseModel extends Order_Base
      * */
     public function getPlatOrderList($cond_row = array(), $order_row = array(), $page = 1, $rows = 100)
     {
+        $cond_row['order_from'=>3];
         $data = $this->getBaseList($cond_row, $order_row, $page, $rows);
         $Order_StateModel = new Order_StateModel();
 
