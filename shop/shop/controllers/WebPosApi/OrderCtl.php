@@ -42,7 +42,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 	 * 获取商品订单列表
 	 * */
 	public function getOrderList()
-	{var_dump(34234);die;
+	{
 		$page = request_int('page', 1);
 		$rows = request_int('rows', 100);
 
