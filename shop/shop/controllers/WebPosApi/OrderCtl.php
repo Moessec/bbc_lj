@@ -52,7 +52,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 		$sord      = request_string('sord', 'asc');
 
 		$cond_row['shop_id'] 	= request_int('shop_id');
-		$cond_row['order_from'] = Order_BaseModel::FROM_WEBPOS;
+		//$cond_row['order_from'] = Order_BaseModel::FROM_WEBPOS;
 
 		if ($sidx)
 		{
@@ -64,7 +64,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 			$cond_row['order_id:LIKE'] = request_string('matchCon') . '%';
 		}
 	
-		/*if (request_string('beginDate'))
+		if (request_string('beginDate'))
 		{
 			$cond_row['order_date:>='] = date("Y-m-d H:i:s" ,strtotime(request_string('beginDate')));
 		}
@@ -72,7 +72,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 		if (request_string('endDate'))
 		{
 			$cond_row['order_date:<='] = date("Y-m-d H:i:s" ,strtotime(request_string('endDate')));
-		}*/
+		}
 
 		$data = $this->Order_BaseModel->getPlatOrderList($cond_row, array('order_create_time'=>'DESC'), $page, $rows);
 		$data['condition'] = $cond_row;
