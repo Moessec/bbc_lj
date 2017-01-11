@@ -64,6 +64,10 @@ class PaymentModel
         {
             $PaymentModel = new Payment_TenpayWapModel($config_row);
         }
+		elseif ('unionpay' == $channel)
+		{
+			$PaymentModel = new Payment_UnionPayModel($config_row);
+		}
         elseif ('wx_native' == $channel)
         {
             //微信变量, 不变动程序,修正数据
