@@ -57,16 +57,15 @@ class WebPosApi_UserCtl extends WebPosApi_Controller
         {
             $cond_row['user_name:LIKE'] = '%' . $name . '%';
         }
-		$cond_row['user_parent_shop_id'] = request_int('shop_id'); // 会员的上级经销商ID，本项目中的会员为经销商发展的会员，对接到新商城时需做修改
 
         $data = $this->userInfoModel->getInfoList($cond_row, $sort, $page, $rows);
+
         if($data['items'])
         {
             $user_id_row = array_column($data['items'],'user_id');
             $user_resource_rows = array_column($this->userResourceModel->getResourceList(array('user_id:IN'=>$user_id_row)),'user_points','user_id');;
             foreach($data['items'] as $key=>$value)
             {
-                $data['items'][$key]['user_dresser_label'] = _(User_InfoModel::$userTypeMap[$value['is_dresser_user']]);
                 if(in_array($value['user_id'],array_keys($user_resource_rows)))
                 {
                     $data['items'][$key]['user_points'] = $user_resource_rows[$value['user_id']];
