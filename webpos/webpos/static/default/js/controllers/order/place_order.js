@@ -980,7 +980,7 @@ var THISPAGE = { //页面初始化
     setSaleByContact:function(contactInfo){
         var _self = this;
        /* if(_self.salesCombo){
-			//点击确定
+			//显示买家账户金额
             Public.ajaxGet(SITE_URL + '?ctl=Order&met=getcontactInfo&typ=json',{buid:contactInfo.id},function(data){
                 if(data.data.user_id){
                     $("#cash").val(data.data.user_money);
