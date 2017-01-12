@@ -555,14 +555,14 @@ function ucenterLogin(UCENTER_URL, SITE_URL, refresh_flag)
                 $.cookie('key', null);
 
                 //ajax 调用
-                //if (refresh_flag)
-                //{
-                //    window.location.reload();
-                //}
-                //else
-                //{
-                //    getUserInfoNav()
-                //}
+                if (refresh_flag)
+                {
+                    window.location.reload();
+                }
+                else
+                {
+                    getUserInfoNav()
+                }
             }
         },
         error: function(){
