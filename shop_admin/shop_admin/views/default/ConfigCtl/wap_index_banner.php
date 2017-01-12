@@ -18,7 +18,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         <div class="item-title">
             <div class="subject">
                 <h3>模板风格</h3>
-                <h5>wap首页长图</h5>
+                <h5>wap首页轮播图</h5>
             </div>
             <ul class="tab-base nc-row">
 
