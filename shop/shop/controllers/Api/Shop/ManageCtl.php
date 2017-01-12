@@ -102,6 +102,7 @@ class Api_Shop_ManageCtl extends Api_Controller
                 $edit_shop_row['shop_class_id'] = request_int("shop_class_id");
                 $edit_shop_row['shop_grade_id'] = request_int("shop_grade_id");
                 $edit_shop_row['shop_status'] = request_int("shop_status");
+                $edit_shop_row['shop_open_end_time'] = request_int("shop_opening");
                 $edit_shop_row['shop_latitude'] = request_float("shop_latitude");
                 $edit_shop_row['shop_longitude'] = request_float("shop_longitude");
                 
