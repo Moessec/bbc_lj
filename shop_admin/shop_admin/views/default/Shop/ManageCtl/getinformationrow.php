@@ -66,7 +66,14 @@ include $this->view->getTplPath() . '/'  . 'header.php';
                <input type="text" id="endtime"  class="ui-input w200" value="<?= $data['shop_end_time'] ?>" name="shop[shop_end_time]"  readonly="readonly">
             </dd>
         </dl>
-
+        <dl class="row">
+          <dt class="tit">
+            <label>营业时间</label>
+          </dt>
+           <dd class="opt">
+               <input type="text" id="shop_opening"   value="<?= $data['shop_opening'] ?>" name="shop[shop_opening]"  >
+            </dd>
+        </dl>
         <dl class="row">
           <dt class="tit">
             <label>经度</label>
