@@ -24,7 +24,7 @@ class Plugin_Perm implements Yf_Plugin_Interface
         $data = new Yf_Data();
 
 		//无需权限判断的文件
-        $not_perm = array('Pay', 'Login', 'Api', 'ImApi', 'Index', 'Connect_Qq', 'Connect_Weixin', 'Connect_Weibo');
+        $not_perm = array('Pay', 'Login', 'Api', 'ImApi', 'Index', 'Connect_Qq', 'Connect_Weixin', 'Connect_Weibo', 'Upload');
 
         //不需要登录
         if (!isset($_REQUEST['ctl']) || (isset($_REQUEST['ctl']) && in_array($_REQUEST['ctl'], $not_perm)) || (isset($_REQUEST['ctl']) && 'Api_' == substr($_REQUEST['ctl'], 0, 4)))

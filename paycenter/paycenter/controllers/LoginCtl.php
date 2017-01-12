@@ -103,7 +103,15 @@ class LoginCtl extends Yf_AppController
 				//判断状态是否开启
 				if ($user_row['user_delete'] == 1)
 				{
-					return location_go_back(_('该账户未启用，请启用后登录！'));
+					$msg = _('该账户未启用，请启用后登录！');
+					if ('e' == $this->typ)
+					{
+						location_go_back($msg);
+					}
+					else
+					{
+						return $this->data->setError($msg, array());
+					}
 				}
 			}
 			else
@@ -121,7 +129,15 @@ class LoginCtl extends Yf_AppController
 				//判断状态是否开启
 				if (!$user_id)
 				{
-					return location_go_back(_('初始化用户出错!'));
+					$msg = _('初始化用户出错!');
+					if ('e' == $this->typ)
+					{
+						location_go_back(_('初始化用户出错!'));
+					}
+					else
+					{
+						return $this->data->setError($msg, array());
+					}
 				}
 				else
 				{
@@ -176,36 +192,69 @@ class LoginCtl extends Yf_AppController
 
 				//$flag     = $User_BaseModel->editBaseSingleField($user_row['user_id'], 'user_key', $user_key, $user_row['user_key']);
 				Yf_Hash::setKey($user_key);
-
+				
 				$encrypt_str = Perm::encryptUserInfo($data);
-
+				
+				
+				//判断有没有回调地址
+				if(request_string('redirect'))
+				{
+					$redirect = Yf_Registry::get('base_url') . '/index.php?' . request_string('redirect');
+				}
+				else
+				{
+					$redirect = Yf_Registry::get('base_url');
+				}
+				
 				if ('e' == $this->typ)
 				{
-					//判断有没有回调地址
-					if(request_string('redirect'))
+					if($redirect)
 					{
-						location_to(Yf_Registry::get('base_url') . '/index.php?' . request_string('redirect'));
+						location_to(urldecode($redirect));
 					}
-					else
-					{
-						location_to(Yf_Registry::get('base_url'));
-					}
-
 				}
-
+				else
+				{
+					$data            = array();
+					$data['user_id'] = $user_row['user_id'];
+					$data['user_account'] = $user_row['user_account'];
+					$data['key'] = $encrypt_str;
+					$this->data->addBody(100, $data);
+				}
 			}
 			else
 			{
-
-				location_go_back(_('登录出错!!!'));
+				$msg = _('登录出错！');
+				if ('e' == $this->typ)
+				{
+					location_go_back($msg);
+				}
+				else
+				{
+					return $this->data->setError($msg, array());
+				}
 			}
 		}
 		else
 		{
-			location_go_back(_('登录信息有误'));
+			$msg = _('登录信息有误！');
+			
+			if ('e' == $this->typ)
+			{
+				location_go_back($msg);
+			}
+			else
+			{
+				return $this->data->setError($msg, array());
+			}
 		}
 
 		$this->data->addBody(100, $init_rs);
+		
+		if ($jsonp_callback = request_string('jsonp_callback'))
+		{
+			exit($jsonp_callback . '(' . json_encode($this->data->getDataRows()) . ')');
+		}
 	}
 
 
@@ -361,6 +410,9 @@ class LoginCtl extends Yf_AppController
 				echo "<script>parent.location.href='index.php';</script>";
 				setcookie("key", null, time() - 3600 * 24 * 365);
 				setcookie("id", null, time() - 3600 * 24 * 365);
+
+				setcookie("key", null, time() - 3600 * 24 * 365,'/');
+				setcookie("id", null, time() - 3600 * 24 * 365,'/');
 
 			}
 
