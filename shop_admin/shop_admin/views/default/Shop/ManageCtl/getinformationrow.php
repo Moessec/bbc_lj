@@ -71,7 +71,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             <label>营业时间</label>
           </dt>
            <dd class="opt">
-               <input type="text" id="shop_opening"   value="<?= $data['shop_opening'] ?>" name="shop[shop_opening]"  >
+               <input type="text" id="shop_opening"  class="ui-input w200"  value="<?= $data['shop_opening'] ?>" name="shop[shop_opening]"  >
             </dd>
         </dl>
         <dl class="row">
@@ -182,6 +182,7 @@ function postData(t, e)
                 'shop[shop_name]':'required;' ,
                 'shop[shop_latitude]':'required;' ,
                 'shop[shop_longitude]':'required;',
+                'shop[shop_opening]':'required;',
             },
 
         valid: function (form)
@@ -191,6 +192,7 @@ function postData(t, e)
                 shop_name = $.trim($("#shop_name").val()), 
                 shop_class_id= $.trim($("#class_id").val()), 
                 shop_grade_id = $.trim($("#grade_id").val()), 
+                shop_opening = $.trim($("#shop_opening").val()), 
                 shop_latitude = $.trim($("#shop_latitude").val()),
                 shop_longitude = $.trim($("#shop_longitude").val()),
                 shop_status = $.trim($("input[name='shop[shop_status]']:checked").val()),
@@ -202,6 +204,7 @@ function postData(t, e)
 				shop_class_id: shop_class_id,
                                 shop_grade_id:shop_grade_id,
                                 shop_status:shop_status,
+                                shop_opening:shop_opening,
                                 shop_longitude:shop_longitude,
                                 shop_latitude:shop_latitude
 			};
