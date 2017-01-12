@@ -53,15 +53,15 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片1</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_banner1_review" src="<?=@($data['wap_index_banner1_image']['config_value'])?>" width="750" height="320"/>
-                <input type="hidden" id="wap_index_banner1_image" name="wap_index_adv[wap_index_banner1_image]" value="<?=@($data['wap_index_banner1_image']['config_value'])?>" />
+                <img id="wap_index_banner1_review" src="<?=@($data['wap_index_banner1_image']['config_value'])?>" width="750" height="400"/>
+                <input type="hidden" id="wap_index_banner1_image" name="wap_index_banner[wap_index_banner1_image]" value="<?=@($data['wap_index_banner1_image']['config_value'])?>" />
                 <div  id='wap_index_banner1_upload' class="image-line upload-image" >图片上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_banner_link1]" value="<?=@($data['wap_index_banner_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_banner[wap_index_banner_link1]" value="<?=@($data['wap_index_banner_link1']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_banner_link1" class="error valid"></label></span>
-           <p class="notic">请使用宽度750像素，高度320像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+           <p class="notic">请使用宽度750像素，高度400像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>
@@ -70,15 +70,15 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片2</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_banner2_review" src="<?=@($data['wap_index_banner2_image']['config_value'])?>" width="750" height="60"/>
-                <input type="hidden" id="wap_index_banner2_image" name="wap_index_adv[wap_index_banner2_image]" value="<?=@($data['wap_index_banner2_image']['config_value'])?>" />
+                <img id="wap_index_banner2_review" src="<?=@($data['wap_index_banner2_image']['config_value'])?>" width="750" height="400"/>
+                <input type="hidden" id="wap_index_banner2_image" name="wap_index_banner[wap_index_banner2_image]" value="<?=@($data['wap_index_banner2_image']['config_value'])?>" />
                 <div  id='wap_index_banner2_upload' class="image-line upload-image" >图片上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_banner_link2]" value="<?=@($data['wap_index_banner_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_banner[wap_index_banner_link2]" value="<?=@($data['wap_index_banner_link2']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_banner_link2" class="error valid"></label></span>
-           <p class="notic">请使用宽度750像素，高度60像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+           <p class="notic">请使用宽度750像素，高度400像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>
@@ -87,15 +87,15 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片3</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_banner3_review" src="<?=@($data['wap_index_banner3_image']['config_value'])?>" width="750" height="320"/>
-                <input type="hidden" id="wap_index_banner3_image" name="wap_index_adv[wap_index_banner3_image]" value="<?=@($data['wap_index_banner3_image']['config_value'])?>" />
+                <img id="wap_index_banner3_review" src="<?=@($data['wap_index_banner3_image']['config_value'])?>" width="750" height="400"/>
+                <input type="hidden" id="wap_index_banner3_image" name="wap_index_banner[wap_index_banner3_image]" value="<?=@($data['wap_index_banner3_image']['config_value'])?>" />
                 <div  id='wap_index_banner3_upload' class="image-line upload-image" >图片上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_banner_link3]" value="<?=@($data['wap_index_banner_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_banner[wap_index_banner_link3]" value="<?=@($data['wap_index_banner_link3']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_banner_link3" class="error valid"></label></span>
-           <p class="notic">请使用宽度750像素，高度320像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+           <p class="notic">请使用宽度750像素，高度400像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>
@@ -104,15 +104,15 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片4</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_banner4_review" src="<?=@($data['wap_index_banner4_image']['config_value'])?>" width="750" height="60"/>
-                <input type="hidden" id="wap_index_banner4_image" name="wap_index_adv[wap_index_banner4_image]" value="<?=@($data['wap_index_banner4_image']['config_value'])?>" />
+                <img id="wap_index_banner4_review" src="<?=@($data['wap_index_banner4_image']['config_value'])?>" width="750" height="400"/>
+                <input type="hidden" id="wap_index_banner4_image" name="wap_index_banner[wap_index_banner4_image]" value="<?=@($data['wap_index_banner4_image']['config_value'])?>" />
                 <div  id='wap_index_banner4_upload' class="image-line upload-image" >图片上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_banner_link4]" value="<?=@($data['wap_index_banner_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_banner[wap_index_banner_link4]" value="<?=@($data['wap_index_banner_link4']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_banner_link4" class="error valid"></label></span>
-           <p class="notic">请使用宽度750像素，高度60像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+           <p class="notic">请使用宽度750像素，高度400像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>
@@ -121,35 +121,19 @@ include $this->view->getTplPath() . '/'  . 'header.php';
           <label>图片5</label>
         </dt>
         <dd class="opt">
-                <img id="wap_index_banner5_review" src="<?=@($data['wap_index_banner5_image']['config_value'])?>" width="750" height="320"/>
-                <input type="hidden" id="wap_index_banner5_image" name="wap_index_adv[wap_index_banner5_image]" value="<?=@($data['wap_index_banner5_image']['config_value'])?>" />
+                <img id="wap_index_banner5_review" src="<?=@($data['wap_index_banner5_image']['config_value'])?>" width="750" height="400"/>
+                <input type="hidden" id="wap_index_banner5_image" name="wap_index_banner[wap_index_banner5_image]" value="<?=@($data['wap_index_banner5_image']['config_value'])?>" />
                 <div  id='wap_index_banner5_upload' class="image-line upload-image" >图片上传</div>
 
            <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_banner_link5]" value="<?=@($data['wap_index_banner_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
+                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_banner[wap_index_banner_link5]" value="<?=@($data['wap_index_banner_link5']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
            </label>
            <span class="err"><label for="wap_index_banner_link5" class="error valid"></label></span>
-           <p class="notic">请使用宽度750像素，高度320像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
+           <p class="notic">请使用宽度750像素，高度400像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
             如需跳转请在后方添加以http://开头的链接地址。</p>
         </dd>
       </dl>
-      <dl class="row">
-        <dt class="tit">
-          <label>图片6</label>
-        </dt>
-        <dd class="opt">
-                <img id="wap_index_banner6_review" src="<?=@($data['wap_index_banner6_image']['config_value'])?>" width="750" height="60"/>
-                <input type="hidden" id="wap_index_banner6_image" name="wap_index_adv[wap_index_banner6_image]" value="<?=@($data['wap_index_banner6_image']['config_value'])?>" />
-                <div  id='wap_index_banner6_upload' class="image-line upload-image" >图片上传</div>
-
-           <label title="请输入图片要跳转的链接地址"><i class="fa fa-link"></i>
-                <input class="ui-input w400" style="margin:5px 0" type="text" name="wap_index_adv[wap_index_banner_link6]" value="<?=@($data['wap_index_banner_link6']['config_value'])?>" placeholder="请输入图片要跳转的链接地址">
-           </label>
-           <span class="err"><label for="wap_index_banner_link6" class="error valid"></label></span>
-           <p class="notic">请使用宽度750像素，高度60像素的jpg/gif/png格式图片作为幻灯片banner上传，<br>
-            如需跳转请在后方添加以http://开头的链接地址。</p>
-        </dd>
-      </dl>                       
+                    
      <div class="bot"><a href="javascript:void(0);" class="ui-btn ui-btn-sp submit-btn">确认提交</a></div>
   </form>
 
@@ -163,32 +147,30 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 
         var $imagePreview, $imageInput, imageWidth, imageHeight;
 
-        $('#wap_index_banner1_upload, #wap_index_banner2_upload, #wap_index_banner3_upload,#wap_index_banner4_upload,#wap_index_banner5_upload,#wap_index_banner6_upload').on('click', function () {
+        $('#wap_index_banner1_upload, #wap_index_banner2_upload, #wap_index_banner3_upload,#wap_index_banner4_upload,#wap_index_banner5_upload').on('click', function () {
 
             if ( this.id == 'wap_index_banner1_upload' ) {
                 $imagePreview = $('#wap_index_banner1_review');
                 $imageInput = $('#wap_index_banner1_image');
-                imageWidth = 750, imageHeight = 320;
+                imageWidth = 750, imageHeight = 400;
             } else if ( this.id == 'wap_index_banner2_upload' ) {
                 $imagePreview = $('#wap_index_banner2_review');
                 $imageInput = $('#wap_index_banner2_image');
-                imageWidth = 750, imageHeight = 60;
+                imageWidth = 750, imageHeight = 400;
             }  else if ( this.id == 'wap_index_banner3_upload' ) {
                 $imagePreview = $('#wap_index_banner3_review');
                 $imageInput = $('#wap_index_banner3_image');
-                imageWidth = 750, imageHeight = 320;
+                imageWidth = 750, imageHeight = 400;
             }else if ( this.id == 'wap_index_banner4_upload' ) {
                 $imagePreview = $('#wap_index_banner4_review');
                 $imageInput = $('#wap_index_banner4_image');
-                imageWidth = 750, imageHeight = 60;
+                imageWidth = 750, imageHeight = 400;
             }else if ( this.id == 'wap_index_banner5_upload' ){
                 $imagePreview = $('#wap_index_banner5_review');
                 $imageInput = $('#wap_index_banner5_image');
-                imageWidth = 750, imageHeight = 320;
+                imageWidth = 750, imageHeight = 400;
             }else {
-                $imagePreview = $('#wap_index_banner6_review');
-                $imageInput = $('#wap_index_banner6_image');
-                imageWidth = 750, imageHeight = 60;
+
             }
 
             console.info($imagePreview);
