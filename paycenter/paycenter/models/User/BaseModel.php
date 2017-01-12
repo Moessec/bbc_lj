@@ -62,11 +62,12 @@ class User_BaseModel extends User_Base
 		return $this->getOneByWhere($order_row);
 	}
         
-        public function  getPayBaseList($cond_row = array(), $page=1, $rows=100, $sort='asc')
+        public function  getPayBaseList($cond_row = array(),$order_row = array(), $page=1, $rows=100, $sort='asc')
         {
-            $getBaseList = $this->listByWhere($cond_row , $page, $rows, $sort);
+            $getBaseList = $this->listByWhere($cond_row ,$order_row, $page, $rows, $sort);
             $user_resource = new User_ResourceModel();
-            foreach ($getBaseList['items'] as $key => $value) {
+            foreach ($getBaseList['items'] as $key => $value)
+			{
                     $user_resource_list =$user_resource->getone($value['user_id']);
                     $getBaseList['items'][$key] = array_merge($getBaseList['items'][$key], $user_resource_list);
             }

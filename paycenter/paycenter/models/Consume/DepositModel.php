@@ -7,7 +7,7 @@ class Consume_DepositModel extends Consume_Deposit
 	public static $status = array(
 /* 		"TRADE_FINISHED" => '未付款', */
 		"TRADE_FINISHED" => '成功',
-	);
+	); 
 	/**
 	 * 读取分页列表
 	 *
@@ -282,17 +282,25 @@ class Consume_DepositModel extends Consume_Deposit
 		$User_ResourceModel = new User_ResourceModel();
 		//1.用户资源中订单金额冻结(现金)
 		fb($union_order['union_money_pay_amount']);
-		//$User_ResourceModel->frozenUserMoney($user_id,$union_order['union_money_pay_amount']);
+		$User_ResourceModel->frozenUserMoney($user_id,$union_order['union_money_pay_amount']);
 		//2.用户资源中订单金额冻结（卡）
-		//$User_ResourceModel->frozenUserCards($user_id,$union_order['union_cards_pay_amount']);
+		$User_ResourceModel->frozenUserCards($user_id,$union_order['union_cards_pay_amount']);
 
 
 		if ($flag && $Union_OrderModel->sql->commitDb())
 		{
 			//远程改变订单状态
-			$key = Yf_Registry::get('shop_api_key');
-			$url = Yf_Registry::get('shop_api_url');
-			$shop_app_id = Yf_Registry::get('shop_app_id');
+			//根据订单来源，修改订单状态
+			$consume_record = $Consume_TradeModel->getOne($order_id);
+			$app_id = $consume_record['app_id'];
+
+			$User_AppModel = new User_AppModel();
+			$app_row = $User_AppModel->getOne($app_id);
+
+
+			$key = $app_row['app_key'];
+			$url = $app_row['app_url'];
+			$shop_app_id = $app_id;
 
 			$formvars = array();
 			$formvars = $_POST;
@@ -322,8 +330,15 @@ class Consume_DepositModel extends Consume_Deposit
 	 */
 	public function notifyDeposit($order_id = null,$user_id = null,$pay_channel = null)
 	{
+
 		//修改合并订单的状态
 		$Union_OrderModel = new Union_OrderModel();
+		$union_order = $Union_OrderModel->getOne($order_id);
+
+		if($union_order['order_state_id'] == Order_StateModel::ORDER_PAYED)
+		{
+			return true;
+		}
 
 		$Union_OrderModel->sql->startTransactionDb();
 
@@ -333,7 +348,7 @@ class Consume_DepositModel extends Consume_Deposit
 
 		$Union_OrderModel->editUnionOrder($order_id,$edit_row);
 
-		$union_order = $Union_OrderModel->getOne($order_id);
+
 
 		//修改充值表中的交易状态
 		$deposit_edit_row = array();

@@ -47,7 +47,7 @@ class User_ResourceModel extends User_Resource
         else
         {
             $eidt_row['user_money'] = $amount*(-1);
-            $eidt_row['user_money_frozen'] = $amount;
+            //$eidt_row['user_money_frozen'] = $amount;
 
             $flag = $this->editResource($user_id,$eidt_row,true);
         }
@@ -67,7 +67,7 @@ class User_ResourceModel extends User_Resource
         else
         {
             $eidt_row['user_recharge_card'] = $amount*(-1);
-            $eidt_row['user_recharge_card_frozen'] = $amount;
+            //$eidt_row['user_recharge_card_frozen'] = $amount;
 
             $flag = $this->editResource($user_id,$eidt_row,true);
         }

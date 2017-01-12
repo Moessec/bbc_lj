@@ -13,6 +13,7 @@ class Sms
 
 		$name     = $sms_config['sms_account'];
 		$password = md5($sms_config['sms_pass']);
+		fb($sms_config['sms_pass']);
 
 		$mob      = $mob;
 		$content  = urlencode($content);

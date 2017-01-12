@@ -54,15 +54,16 @@ class Card_BaseModel extends Card_Base
 			$data_rows[$key]['money'] = isset($card_prize['m'])?$card_prize['m']:0;
 			$data_rows[$key]['point'] = isset($card_prize['p'])?$card_prize['p']:0;
 			$data_rows[$key]['image'] = $val['card_image'];
+			$str = '';
 			foreach($card_prize as $k => $v)
 			{
 				if($k == 'm')
 				{
-					$str .='金额:'.$v;
+					$str .='金额:'.$v.', ';
 				}
 				if($k == 'p')
 				{
-					$str .='积分:'.$v;
+					$str .='积分:'.$v . '; ';
 				}
 			}
 			$data_rows[$key]['card_cprize'] = $str;

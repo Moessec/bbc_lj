@@ -21,6 +21,7 @@ class User_InfoModel extends User_Info
                 $getInfolist =  $this->listByWhere($cond_row,$order_row,$page,$rows,$sort);
                 foreach ($getInfolist['items'] as $key => $value) {
                     $getInfolist['items'][$key]['user_identity_statu_con'] = _(self::$user_identity_statu[$value["user_identity_statu"]]);
+                    $getInfolist['items'][$key]['user_identity_card'] = $value['user_identity_card'].'&nbsp;'; //加一个空格转为string,防止数字过大被转义出错
                 }
                 return $getInfolist;
 	}

@@ -73,5 +73,19 @@ class Consume_WithdrawModel extends Consume_Withdraw
 
 		return $data;
 	}
+        
+        
+       public function  getWithdrawListall($cond_row = array(), $array=array(), $page, $rows=100, $sort='asc')
+        {
+            $getWithdrawListall = $this->listByWhere($cond_row , $array, $page, $rows);
+            $User_baseModel = new User_baseModel();
+            foreach ($getWithdrawListall['items'] as $key => $value) {
+                    $user_base_list = $User_baseModel->getone($value['pay_uid']);
+                    $getWithdrawListall['items'][$key] = array_merge($getWithdrawListall['items'][$key], $user_base_list);
+                    $getWithdrawListall['items'][$key]['status'] = _(self::$status[$value["is_succeed"]]);
+            }
+           
+            return $getWithdrawListall;
+        }
 }
 ?>

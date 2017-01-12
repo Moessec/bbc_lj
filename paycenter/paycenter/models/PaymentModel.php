@@ -78,8 +78,16 @@ class PaymentModel
 
             !defined('SSLCERT_PATH_DEF') && define('SSLCERT_PATH', LIB_PATH . '/Api/wx/cert/apiclient_cert.pem');
             !defined('SSLKEY_PATH_DEF') && define('SSLKEY_PATH', LIB_PATH . '/Api/wx/cert/apiclient_key.pem');
-
-            $PaymentModel = new Payment_WxNativeModel($config_row);
+    
+    
+            if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false )
+            {
+                $PaymentModel = new Payment_WxJsModel($config_row);
+            }
+            else
+            {
+                $PaymentModel = new Payment_WxNativeModel($config_row);
+            }
         }
         else
         {

@@ -82,7 +82,7 @@ class Consume_RecordModel extends Consume_Record
 				fb($uorder_row);
 				$uorder = current($uorder_row);
 				$data_rows[$key]['uorder'] = $uorder['union_order_id'];
-				if($order_row['order_state_id'] == Order_StateModel::ORDER_WAIT_PAY )
+				if($order_row['order_state_id'] == Order_StateModel::ORDER_WAIT_PAY  && $val['user_type'] == 2 )
 				{
 					$data_rows[$key]['act'] = 'pay';
 				}
@@ -131,14 +131,17 @@ class Consume_RecordModel extends Consume_Record
 				//查找支付单号
 				$uorder_row = $Union_Order->getByWhere(array('inorder' => $value['order_id']));
 				fb($uorder_row);
+				fb($value['user_type']);
 				$uorder = current($uorder_row);
 				$data["items"][$key]['uorder'] = $uorder['union_order_id'];
-				if($order_row['order_state_id'] == Order_StateModel::ORDER_WAIT_PAY )
+				if($order_row['order_state_id'] == Order_StateModel::ORDER_WAIT_PAY  && $value['user_type'] == 2)
 				{
+					fb('pay');
 					$data["items"][$key]['act'] = 'pay';
 				}
 				else
 				{
+					fb('info');
 					$data["items"][$key]['act'] = 'info';
 				}
 			}
