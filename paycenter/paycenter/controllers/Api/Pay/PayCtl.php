@@ -751,10 +751,10 @@ class Api_Pay_PayCtl extends Api_Controller
     }
 
     /**
-     * 使用预存款、余额支付
+     * 使用预存款、余额支付 webpos调用
      *
      */
-    public function preDepositPay()
+    public function depositPay()
     {
         $trade_id = request_string('trade_id');
         $union_money_pay_amount = request_float('union_money_pay_amount');
