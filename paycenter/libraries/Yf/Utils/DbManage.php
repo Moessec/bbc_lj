@@ -81,7 +81,14 @@ class Yf_Utils_DBManage
 	{
 		if (false === $this->db->exec(trim($sql)))
 		{
-			$this->msg .= $this->db->getErrorCode();
+			$msg = array();
+			$error_info = array();
+			
+			$msg['code'] = $this->db->getErrorCode($error_info);
+			$msg['msg']  = $error_info[2];
+			$msg['sql']  = $sql;
+			$this->msg  = $msg;
+			
 			return false;
 		}
 

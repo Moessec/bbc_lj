@@ -75,8 +75,7 @@ class Yf_Utils_File
 		return file_put_contents($file, $php_code);;
 	}
 
-
-	function getPhpFile($dir)
+	public static function getPhpFile($dir)
 	{
 		$files = array();
 
@@ -90,7 +89,7 @@ class Yf_Utils_File
 					{
 						if (is_dir($dir . "/" . $file))
 						{
-							$files = array_merge($files, find_php_file($dir . "/" . $file));
+							$files = array_merge($files, Yf_Utils_File::getPhpFile($dir . "/" . $file));
 						}
 						else
 						{
@@ -110,6 +109,201 @@ class Yf_Utils_File
 
 				return $files;
 			}
+		}
+	}
+	
+	
+	
+	/**
+	 * Determine a writable directory for temporary files.
+	 *
+	 * Function's preference is the return value of sys_get_temp_dir(),
+	 * followed by your PHP temporary upload directory, followed by WP_CONTENT_DIR,
+	 * before finally defaulting to /tmp/
+	 *
+	 * In the event that this function does not find a writable location,
+	 * It may be overridden by the WP_TEMP_DIR constant in your wp-config.php file.
+	 *
+	 * @since 2.5.0
+	 *
+	 * @staticvar string $temp
+	 *
+	 * @return string Writable temporary directory.
+	 */
+	public static function getTempDir()
+	{
+		static $temp = '';
+		if (defined('SELF_TEMP_DIR'))
+		{
+			return SELF_TEMP_DIR;
+		}
+		
+		if ($temp)
+		{
+			return $temp;
+		}
+		
+		if (function_exists('sys_get_temp_dir'))
+		{
+			$temp = sys_get_temp_dir();
+			if (@is_dir($temp) && is_writable($temp))
+			{
+				return $temp;
+			}
+		}
+		
+		$temp = ini_get('upload_tmp_dir');
+		if (@is_dir($temp) && is_writable($temp))
+		{
+			return $temp;
+		}
+		
+		$temp = LOG_PATH;
+		if (is_dir($temp) && is_writable($temp))
+		{
+			return $temp;
+		}
+		
+		return '/tmp';
+	}
+	
+	
+	/**
+	 * Returns a filename of a Temporary unique file.
+	 * Please note that the calling function must unlink() this itself.
+	 *
+	 * The filename is based off the passed parameter or defaults to the current unix timestamp,
+	 * while the directory can either be passed as well, or by leaving it blank, default to a writable temporary directory.
+	 *
+	 * @since 2.6.0
+	 *
+	 * @param string $filename Optional. Filename to base the Unique file off. Default empty.
+	 * @param string $dir Optional. Directory to store the file in. Default empty.
+	 * @return string a writable filename
+	 */
+	public static function tempnam($filename = '', $dir = '')
+	{
+		if (empty($dir))
+		{
+			$dir = self::getTempDir();
+		}
+		
+		if (empty($filename) || '.' == $filename || '/' == $filename || '\\' == $filename)
+		{
+			$filename = time();
+		}
+		
+		// Use the basename of the given file without the extension as the name for the temporary directory
+		$temp_filename = basename($filename);
+		$temp_filename = preg_replace('|\.[^.]*$|', '', $temp_filename);
+		
+		// If the folder is falsey, use its parent directory name instead.
+		if (!$temp_filename)
+		{
+			return self::tempnam(dirname($filename), $dir);
+		}
+		
+		// Suffix some random data to avoid filename conflicts
+		$temp_filename .= '-' . @Text_Password::create(6, 'numeric');
+		$temp_filename .= '.tmp';
+		$temp_filename = $dir . DIRECTORY_SEPARATOR . @Text_Password::create(10) . '-' . $temp_filename;
+		
+		$fp = @fopen($temp_filename, 'x');
+		if (!$fp && is_writable($dir) && file_exists($temp_filename))
+		{
+			return self::tempnam($filename, $dir);
+		}
+		if ($fp)
+		{
+			fclose($fp);
+		}
+		
+		return $temp_filename;
+	}
+	
+	public static function cleanDir($dir = null, $del_dir = null)
+	{
+		if (is_dir($dir))
+		{
+			$dh = opendir($dir);
+			
+			while (false !== ($f = readdir($dh)))
+			{
+				if ($f == '.' || $f == '..')
+				{
+					continue;
+				}
+				elseif (is_dir($dir . '/' . $f))
+				{
+					clean_cache($dir . '/' . $f, true);
+				}
+				else
+				{
+					unlink($dir . '/' . $f);
+				}
+			}
+			
+			closedir($dh);
+			
+			if ($del_dir && 'cache' != $dir)
+			{
+				rmdir($dir);
+			}
+			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public static function copyDir($source, $destination, $skip=array())
+	{
+		if (is_dir($source) && !is_dir($destination))
+		{
+			mkdir($destination, 0777, true);
+		}
+		
+		$handle = opendir($source);
+		
+		while (false !== ($file = readdir($handle)))
+		{
+			if ($file != "." && $file != ".." && $file != ".svn" && !in_array($destination. DIRECTORY_SEPARATOR . $file, $skip))
+			{
+				is_dir("$source/$file") ? self::copyDir("$source/$file", "$destination/$file", $skip) : copy("$source/$file", "$destination/$file");
+			}
+		}
+		
+		closedir($handle);
+		
+		return true;
+	}
+	
+	public static function copy($source, $destination)
+	{
+		return copy($source, $destination);
+	}
+	
+	public static function exists($file)
+	{
+		return @file_exists($file);
+	}
+	
+	public static function mkdir($pathname, $mode = 0777, $recursive = true, $context = null)
+	{
+		return mkdir($pathname, $mode, $recursive , $context);
+	}
+	
+	public static function delete($dir = null, $del_dir = null)
+	{
+		if (is_dir($dir))
+		{
+			return self::cleanDir($dir, $del_dir);
+		}
+		else
+		{
+			return @unlink($dir);
 		}
 	}
 }
