@@ -650,7 +650,7 @@ $(function ()
 
 $(function ()
 {
-alert(34343);
+// alert(34343);
 
     if ($('#wap_index_banner123-setting-form').length > 0)
     {    
