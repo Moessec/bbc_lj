@@ -650,8 +650,6 @@ $(function ()
 
 $(function ()
 {
-// alert(34343);
-
     if ($('#wap_index_banner123-setting-form').length > 0)
     {    
         $('#wap_index_banner123-setting-form').validator({
