@@ -750,7 +750,52 @@ class Api_Pay_PayCtl extends Api_Controller
         $this->data->addBody(-140, $data, $msg, $status);
     }
 
+    /**
+     * 使用预存款、余额支付
+     *
+     */
+    public function preDepositPay()
+    {
+        $trade_id = request_string('trade_id');
+        $union_money_pay_amount = request_float('union_money_pay_amount');
 
+        //如果订单号为合并订单号，则获取合并订单号的信息
+        $Union_OrderModel = new Union_OrderModel();
+
+        //开启事物
+        $Consume_DepositModel = new Consume_DepositModel();
+
+        $uorder = $Union_OrderModel->getOne($trade_id);
+
+        $field_row = array();
+        $field_row['union_money_pay_amount'] = $union_money_pay_amount;
+        $flag = $Union_OrderModel->editUnionOrder($trade_id,$field_row);
+
+        //修改订单表中的各种状态
+
+        $flag = $Consume_DepositModel->notifyShop($trade_id,$uorder['buyer_id']);
+        $data = array();
+        if ($flag['status'] == 200)
+        {
+            //查找回调地址
+            $User_AppModel = new User_AppModel();
+            $user_app = $User_AppModel->getOne($uorder['app_id']);
+            $return_app_url = $user_app['app_url'];
+
+            $data['return_app_url'] = $return_app_url;
+
+            $msg    = 'success';
+            $status = 200;
+        }
+        else
+        {
+            $msg    = _('failure');
+            $status = 250;
+
+        }
+
+        $this->data->addBody(-140, $data, $msg, $status);
+    }
 
 
 }
