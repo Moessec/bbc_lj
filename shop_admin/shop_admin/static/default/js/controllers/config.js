@@ -648,51 +648,51 @@ $(function ()
 
 
 
+$(function ()
+{
 alert(34343);
-// $(function ()
-// {
 
-//     if ($('#wap_index_banner-setting-form').length > 0)
-//     {    
-//         $('#wap_index_banner-setting-form').validator({
-//             ignore: ':hidden',
-//             theme: 'yellow_bottom',
-//             timely: 1,
-//             stopOnError: true,
-//             fields: {
+    if ($('#wap_index_banner-setting-form').length > 0)
+    {    
+        $('#wap_index_banner-setting-form').validator({
+            ignore: ':hidden',
+            theme: 'yellow_bottom',
+            timely: 1,
+            stopOnError: true,
+            fields: {
 
-//             },
-//             valid: function (form)
-//             {
-//                 parent.$.dialog.confirm('修改立马生效,是否继续？', function ()
-//                     {
-//                         // ctl=Adv_WapAdv&met=edit&typ=json
-//                         Public.ajaxPost(SITE_URL + '?ctl=Config&met=edit&typ=json', $('#wap_index_banner-setting-form').serialize(), function (data)
-//                         {
-//                             // console.log(data);
-//                             if (data.status == 200)
-//                             {
-//                                 parent.Public.tips({content: '修改操作成功！'});
-//                             }
-//                             else
-//                             {
-//                                 parent.Public.tips({type: 1, content: data.msg || '操作无法成功，请稍后重试！'});
-//                             }
-//                         });
-//                     },
-//                     function ()
-//                     {
+            },
+            valid: function (form)
+            {
+                parent.$.dialog.confirm('修改立马生效,是否继续？', function ()
+                    {
+                        // ctl=Adv_WapAdv&met=edit&typ=json
+                        Public.ajaxPost(SITE_URL + '?ctl=Config&met=edit&typ=json', $('#wap_index_banner-setting-form').serialize(), function (data)
+                        {
+                            // console.log(data);
+                            if (data.status == 200)
+                            {
+                                parent.Public.tips({content: '修改操作成功！'});
+                            }
+                            else
+                            {
+                                parent.Public.tips({type: 1, content: data.msg || '操作无法成功，请稍后重试！'});
+                            }
+                        });
+                    },
+                    function ()
+                    {
 
-//                     });
-//             }
-//         }).on("click", "a.submit-btn", function (e)
-//         {
-//             // alert(1);
-//             $(e.delegateTarget).trigger("validate");
-//         });
-//     }
+                    });
+            }
+        }).on("click", "a.submit-btn", function (e)
+        {
+            // alert(1);
+            $(e.delegateTarget).trigger("validate");
+        });
+    }
 
-// });
+});
 
 
 
