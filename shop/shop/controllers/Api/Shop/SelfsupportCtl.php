@@ -228,6 +228,7 @@ class Api_Shop_SelfsupportCtl extends Api_Controller
 		$shop_base['shop_address']      = request_string("shop_address");
 		$shop_base['shop_tel']      = request_string("shop_tel");
 		$shop_base['shop_all_class'] = request_int("shop_all_class");
+		$shop_base['shop_opening'] = request_string("shop_opening");
 		$shop_base['shop_status']    = request_int("shop_status");
 		$shop_base['shop_longitude']    = request_float("shop_longitude");
 		$shop_base['shop_logo']    = 'http://139.196.51.206/bbc_lj/shop/image.php/shop/data/upload/media/86eed725c53de6350c89c5b0234cddf0/10003/1/image/20161122/1479781342145006.jpg!200x60.jpg';
