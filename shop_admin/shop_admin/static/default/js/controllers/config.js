@@ -652,9 +652,9 @@ $(function ()
 {
 alert(34343);
 
-    if ($('#wap_index_banner-setting-form').length > 0)
+    if ($('#wap_index_banner123-setting-form').length > 0)
     {    
-        $('#wap_index_banner-setting-form').validator({
+        $('#wap_index_banner123-setting-form').validator({
             ignore: ':hidden',
             theme: 'yellow_bottom',
             timely: 1,
@@ -667,7 +667,7 @@ alert(34343);
                 parent.$.dialog.confirm('修改立马生效,是否继续？', function ()
                     {
                         // ctl=Adv_WapAdv&met=edit&typ=json
-                        Public.ajaxPost(SITE_URL + '?ctl=Config&met=edit&typ=json', $('#wap_index_banner-setting-form').serialize(), function (data)
+                        Public.ajaxPost(SITE_URL + '?ctl=Config&met=edit&typ=json', $('#wap_index_banner123-setting-form').serialize(), function (data)
                         {
                             // console.log(data);
                             if (data.status == 200)
