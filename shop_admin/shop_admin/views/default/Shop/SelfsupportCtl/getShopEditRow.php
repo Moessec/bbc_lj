@@ -31,13 +31,20 @@ include $this->view->getTplPath() . '/'  . 'header.php';
               </dl>
               <dl class="row">
                 <dt class="tit">
+                    <label for="shop_opening"> *营业时间</label>
+                </dt>
+                <dd class="opt">
+                    <input id="shop_opening" name="shop_opening" value="<?=$data['shop_opening']?>" class="ui-input w200" type="text"/>
+                </dd>
+              </dl>
+              <dl class="row">
+                <dt class="tit">
                     <label for="shop_tel"> *店铺电话</label>
                 </dt>
                 <dd class="opt">
                     <input id="shop_tel" name="shop_tel" value="<?=$data['shop_tel']?>" class="ui-input w200" type="text"/>
                 </dd>
               </dl>
-
               <dl class="row">
                 <dt class="tit">
                     <label for="shop_longitude"> *经度</label>
@@ -125,6 +132,7 @@ function postData(t, e)
                 'shop_longitude':'required;',
                 'shop_address':'required;',
                 'shop_tel':'required;',
+                'shop_opening':'required;',
 
 
             },
@@ -136,6 +144,7 @@ function postData(t, e)
               shop_name = $.trim($("#shop_name").val()), 
               shop_address = $.trim($("#shop_address").val()), 
               shop_tel = $.trim($("#shop_tel").val()), 
+              shop_opening = $.trim($("#shop_opening").val()), 
               shop_longitude = $.trim($("#shop_longitude").val()), 
               shop_latitude = $.trim($("#shop_latitude").val()), 
               shop_all_class = $.trim($("input[name='shop_all_class']:checked").val()),
@@ -149,6 +158,7 @@ function postData(t, e)
 				shop_tel: shop_tel, 
 				shop_all_class: shop_all_class,
         shop_status:shop_status,
+        shop_opening:shop_opening,
         shop_longitude:shop_longitude,
         shop_latitude:shop_latitude,
                                
