@@ -45,7 +45,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
         </ul>
     </div>
 
-   <form method="post" enctype="multipart/form-data" id="wap_index_banner-setting-form" name="form1">
+   <form method="post" enctype="multipart/form-data" id="wap_index_adv-setting-form" name="form1">
     <input type="hidden" name="config_type[]" value="wap_index_banner"/>
     <div class="ncap-form-default">
       <dl class="row">
