@@ -207,7 +207,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
         //订单信息部分
 		$buyer_id 				= request_int('buId');				//买家ID
 		$salesId 				= request_int('salesId');			//销售ID
-		$totalQty 				= request_int('totalQty');			//总的数量
+		$totalQty 				= request_int('totalQty');			//总的商品数量
 		$totalDiscount 			= request_float('totalDiscount');	//总的折扣额
 		$totalAmount 			= request_float('totalAmount');		//总的金额
 		$des 					= request_string('description');	//总订单描述
@@ -269,6 +269,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 			}
 		}
 
+		//处理商品信息，商品价格以实际提交价格为准
 		$order_goods_base_row   = array();
 		foreach($order_goods as $key=>$value)
 		{
@@ -594,18 +595,16 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 
 				if($paymentMethod == 2) //账户余额支付
 				{
-					$key       =   Yf_Registry::get('shop_api_key');
-					$formvars  = array();
-					$formvars['app_id'] =   Yf_Registry::get('shop_app_id');
-					$formvars['trade_id'] = $uorder;
+					$key       				= Yf_Registry::get('shop_api_key');
+					$formvars  				= array();
+					$formvars['app_id'] 	= Yf_Registry::get('shop_app_id');
+					$formvars['trade_id'] 	= $uorder;
 					$formvars['union_money_pay_amount']  =  $order_row['order_payment_amount'];
 
-					$pay_res = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=money&typ=json', Yf_Registry::get('paycenter_api_url')), $formvars);
-					fb($pay_res);
+					$pay_res = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=preDepositPay&typ=json', Yf_Registry::get('paycenter_api_url')), $formvars);
 				}
 				elseif($paymentMethod==3)	//微信支付
 				{
-
 					$key      					= Yf_Registry::get('shop_api_key');
 					$url         				= Yf_Registry::get('paycenter_api_url');
 					$shop_app_id 				= Yf_Registry::get('shop_app_id');
@@ -618,10 +617,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 					$formvars['app_id']        	= $shop_app_id;  //webpos可能更改
 					$formvars['from_app_id'] 	= $shop_app_id;
 
-					fb($formvars);
-
 					$pay_res = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=checkPayWay&typ=json', $url), $formvars);
-					fb($pay_res);
 				}
 			}
 			else
@@ -651,7 +647,6 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 		$data['id'] 		= $order_id;
 		$data['order_id'] 	= $order_id;
 		$data['uorder'] 	= $uorder;
-        var_dump('end');
 		$this->data->addBody(-140, $data, $msg, $status);
 	}
 
