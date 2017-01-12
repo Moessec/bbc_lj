@@ -229,9 +229,8 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 			case "4":$payment_name = '支付宝支付';break;
 		}
 
-		//判断支付方式和余额
-		//账户余额支付
-		if($paymentMethod==2) //账户余额支付，和线上支付一样，卖家金额每月结算一次
+		//账户余额支付，和线上支付一样，卖家金额每月结算一次
+		if($paymentMethod==2)
 		{
 			$errorMsg = '';
 			//获取买家支付账户资产信息
@@ -601,7 +600,7 @@ class WebPosApi_OrderCtl extends WebPosApi_Controller
 					$formvars['trade_id'] 	= $uorder;
 					$formvars['union_money_pay_amount']  =  $order_row['order_payment_amount'];
 
-					$pay_res = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=preDepositPay&typ=json', Yf_Registry::get('paycenter_api_url')), $formvars);
+					$pay_res = get_url_with_encrypt($key, sprintf('%sindex.php?ctl=Api_Pay_Pay&met=depositPay&typ=json', Yf_Registry::get('paycenter_api_url')), $formvars);
 				}
 				elseif($paymentMethod==3)	//微信支付
 				{
