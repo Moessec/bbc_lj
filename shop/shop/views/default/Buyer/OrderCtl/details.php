@@ -16,18 +16,25 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
             <div class="ncm-order-details">
               <div class="title"><?=_('订单信息')?></div>
               <div class="content">
-                <dl>
-                  <dt><?=_('收货地址：')?></dt>
-                  <dd><?=($data['order_receiver_name'])?> <?=($data['order_receiver_address'])?> <?=($data['order_receiver_contact'])?></dd>
-                </dl>
-                <dl class="line">
-                  <dt><?=_('发票：')?></dt>
-                  <dd><?=($data['order_invoice'])?></dd>
-                </dl>
-                <dl class="line">
-                  <dt><?=_('买家留言：')?></dt>
-                  <dd><?=($data['order_message'])?></dd>
-                </dl>
+                  <?php if($data['order_from'] != Order_BaseModel::FROM_WEBPOS){ ?>
+                    <dl>
+                      <dt><?=_('收货地址：')?></dt>
+                      <dd><?=($data['order_receiver_name'])?> <?=($data['order_receiver_address'])?> <?=($data['order_receiver_contact'])?></dd>
+                    </dl>
+                  <?php }?>
+
+                    <dl class="line">
+                      <dt><?=_('发票：')?></dt>
+                      <dd><?=($data['order_invoice'])?></dd>
+                    </dl>
+
+                  <?php if($data['order_from'] != Order_BaseModel::FROM_WEBPOS){ ?>
+                    <dl class="line">
+                      <dt><?=_('买家留言：')?></dt>
+                      <dd><?=($data['order_message'])?></dd>
+                    </dl>
+                  <?php }?>
+
                 <dl class="line line2">
                   <dt><?=_('订单编号：')?></dt>
                   <dd><?=($data['order_id'])?><a class="ncbtn">更多<i class="iconfont icon-iconjiantouxia"></i>
@@ -47,9 +54,12 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                       </ul>
                     </div>
                   </a></dd>
-	
+
+                    <?php if($data['order_from'] != Order_BaseModel::FROM_WEBPOS){ ?>
 					<dt><?=_('商家留言：')?></dt>
 					<dd><?=($data['order_seller_message'])?></dd>
+                    <?php }?>
+
                 </dl>
               </div>
             </div>
