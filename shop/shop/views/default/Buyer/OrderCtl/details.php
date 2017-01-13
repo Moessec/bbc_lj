@@ -73,7 +73,7 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
               </ul>
             </div>
 			<?php endif;?>
-			<?php endif;?>
+			<?php }?>
 
 			<?php if($data['order_status'] == Order_StateModel::ORDER_PAYED):?>
             <div class="ncm-order-condition">
