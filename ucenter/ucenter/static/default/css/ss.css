@@ -29,12 +29,13 @@ img{max-width:100%;}
 /*end reset*/
 /****-----start-body----****/
 body{
-	background:url("../images/bg.jpg") repeat-y 0px 0px;
+	background:url("../images/bg.jpg") repeat no-repeat 0px 0px;
   background-size:cover;
   -o-background-size:cover;
   -moz-background-size:cover;
   -webkit-background-size:cover;
   font-family: 'Source Sans Pro', sans-serif;
+   background-size: contain;
 
 }
 .main{ width:100%; margin:0 auto; text-align:center;}
