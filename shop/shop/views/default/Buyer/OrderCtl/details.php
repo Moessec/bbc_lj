@@ -54,6 +54,7 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
               </div>
             </div>
 
+            <?php if($data['order_from'] != Order_BaseModel::FROM_WEBPOS){ ?>
 			<?php if($data['order_status'] == Order_StateModel::ORDER_WAIT_PAY ):?>
             <div class="ncm-order-condition">
               <dl>
@@ -71,6 +72,7 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                 <?php endif; ?>
               </ul>
             </div>
+			<?php endif;?>
 			<?php endif;?>
 
 			<?php if($data['order_status'] == Order_StateModel::ORDER_PAYED):?>
