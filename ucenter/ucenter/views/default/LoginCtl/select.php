@@ -24,8 +24,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<p class="sname">用户名</p>
 					<p class="stitle">您的账号尚未关联帐号</p>
 					<ul>
-                           <li class="lnew"><a href="<?=sprintf('%s?ctl=Login&act=reg&t=%s&from=%s&callback=%s', Yf_Registry::get('url'), request_string('t'), request_string('from'), request_string('callback'))?>">关联新账户</a></li>
-                           <li class="lold"><a href="<?=sprintf('%s?ctl=Login&t=%s&type=%s&from=%s&callback=%s', Yf_Registry::get('url'), request_string('t'), request_string('type'), request_string('from'), request_string('callback'))?>">关联到已有账户</a></li>
+                           <li class="lnew"><a href="<?=sprintf('%s?ctl=Login&act=reg&t=%s&from=%s&callback=%s', Yf_Registry::get('url'), request_string('t'), request_string('from'), urlencode(request_string('callback')))?>">关联新账户</a></li>
+                           <li class="lold"><a href="<?=sprintf('%s?ctl=Login&t=%s&type=%s&from=%s&callback=%s', Yf_Registry::get('url'), request_string('t'), request_string('type'), request_string('from'), urlencode(request_string('callback')))?>">关联到已有账户</a></li>
 					</ul>
 				</div>
                 <div class="clear"></div>
