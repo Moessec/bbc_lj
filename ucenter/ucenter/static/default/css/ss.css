@@ -55,11 +55,13 @@ body{
 	font-size:14px;
 	font-weight:600;
 	line-height:2em;
+	color:black;
 }
 
 .stitle{
 	font-size:14px;
 	line-height:2em;
+	color:black;
 }
 
 
@@ -68,14 +70,16 @@ body{
   margin: 30px auto;
   width:45%;
   text-align: center;
-  background:url("../images/sbg.png");
-  color:#fff;
+  /*background:url("../images/sbg.png");*/
+  /*color:#fff;*/
+  color:black;
   padding-bottom:2em;
 }
 
 li.lnew{
 	font-size:14px;
-	background:#1162b9;
+	/*background:#1162b9;*/
+	background:#FE7E17;
 	width:90%;
 	margin:2em auto 1em;
 	text-align:center;
@@ -90,11 +94,11 @@ li.lnew a{
 
 li.lold{
 	font-size:14px;
-	background:#fff;
+	background:#FFB376;
 	width:90%;
 	margin:1em auto 2em;
 	text-align:center;
-	color:#666;!important
+	color:#fff;!important
 }
 li.lold a{
 	display:block;
