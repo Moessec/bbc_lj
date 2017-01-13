@@ -1497,7 +1497,7 @@ a.pika-button:hover {
 }
 
 .ui-search button,.ui-btn-prev b,.ui-btn-prev-dis b,.ui-btn-next b,.ui-btn-next-dis b,.ui-tips .close,.ui-tips i,.ui-tips-error i,.ui-tips-warning i,.ui-combo-wrap .trigger,.ui-tree-wrap .trigger,.ui-spinbox-wrap a,.ui-subject-wrap .subject-trigger {
-	background: url(img/spr_icons.png) no-repeat
+	background: url(../images/img/spr_icons.png) no-repeat
 }
 
 .ui-btn {
@@ -2366,7 +2366,7 @@ textarea.ui-input {
 	overflow: hidden;
 	line-height: 100px;
 	vertical-align: middle;
-	background: url(img/spr_icons.png) no-repeat
+	background: url(../images/img/spr_icons.png) no-repeat
 }
 
 .ui-icon-add {
