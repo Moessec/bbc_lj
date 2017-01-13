@@ -21,7 +21,7 @@ select {
   -moz-appearance:none;
   -webkit-appearance:none;
   /*在选择框的最右侧中间显示小箭头图片*/
-  background: url("../../../static/images/img/spr_icons.png") no-repeat scroll right center transparent;
+  background: url("../../../static/default/images/img/spr_icons.png") no-repeat scroll right center transparent;
   background-position:80px -16px;
   /*为下拉小箭头留出一点位置，避免被文字覆盖*/
   padding-right: 14px;
