@@ -92,7 +92,6 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                 <dd><?=_('待发货')?></dd>
               </dl>
               <ul>
-                <!--<li><?/*=_('1. 您已使用“')*/?><?/*=($data['payment_name'])*/?><?/*=_('”方式成功对订单进行支付。')*/?></li>-->
                 <li><?=_('1. 您已成功对订单进行支付。')?></li>
                 <li><?=_('2. 订单已提交商家进行备货发货准备。 ')?></li>
                 <li><?=_('3. 如果您想取消购买，请与商家沟通后对订单进行')?><a href="<?= Yf_Registry::get('url') ?>?ctl=Buyer_Service_Return&met=index&act=add&oid=<?=($data['order_id'])?>" class="ncbtn-mini bbc_btns"><?=_('申请退款')?></a><?=_('操作。')?></li>
