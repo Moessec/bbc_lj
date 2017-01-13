@@ -182,7 +182,8 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                       </p>
                   <?php endif; ?>
 
-				<!--S  未付款订单 -->
+                    <?php if($val['order_from'] != Order_BaseModel::FROM_WEBPOS){ ?>
+				    <!--S  未付款订单 -->
 				    <?php if($val['order_status'] == Order_StateModel::ORDER_WAIT_PAY):?>
 				        <p class="rest">
 							<span class="iconfont icon-shijian2"></span>
@@ -201,12 +202,13 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                         <?php endif; ?>
                           <a onclick="cancelOrder('<?=$val['order_id']?>')" class="to_views"><i class="iconfont icon-quxiaodingdan"></i><?=_('取消订单')?></a>
                     <?php endif;?>
-                <!--E  未付款订单 -->
-                <?php if($val['order_status'] != Order_StateModel::ORDER_WAIT_PAY && $val['order_status'] != Order_StateModel::ORDER_CANCEL){?>
-                    <?php if($val['order_refund_status'] == Order_StateModel::ORDER_REFUND_NO ){?>
-                         <a target="_blank" href="<?= Yf_Registry::get('url') ?>?ctl=Buyer_Service_Return&met=index&act=add&oid=<?=($val['order_id'])?>" class="to_views"><i class="iconfont icon-dingdanwancheng icon_size22"></i><?=_('申请退款')?></a>
+                    <!--E  未付款订单 -->
+                    <?php if($val['order_status'] != Order_StateModel::ORDER_WAIT_PAY && $val['order_status'] != Order_StateModel::ORDER_CANCEL){?>
+                        <?php if($val['order_refund_status'] == Order_StateModel::ORDER_REFUND_NO ){?>
+                             <a target="_blank" href="<?= Yf_Registry::get('url') ?>?ctl=Buyer_Service_Return&met=index&act=add&oid=<?=($val['order_id'])?>" class="to_views"><i class="iconfont icon-dingdanwancheng icon_size22"></i><?=_('申请退款')?></a>
+                        <?php }?>
                     <?php }?>
-                <?php }?>
+                    <?php } ?>
 
                     <?php if($val['order_refund_status'] !== Order_StateModel::ORDER_REFUND_IN && $val['order_return_status'] !== Order_StateModel::ORDER_GOODS_RETURN_IN  &&  $val['order_status'] == Order_StateModel::ORDER_WAIT_CONFIRM_GOODS ): ?>
                         <p class="rest">
@@ -220,7 +222,7 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                             </span>
 						</p>
                         <a onclick="confirmOrder('<?=$val['order_id']?>')" class="to_views "><i class="iconfont icon-duigou1 icon_size22"></i><?=_('确认收货')?></a>
-                   <?php endif;?>
+                    <?php endif;?>
 
                     <?php if($val['order_status'] == Order_StateModel::ORDER_FINISH ): ?>
                             <?php if(!$val['order_buyer_evaluation_status']): ?>
