@@ -35,7 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!--start-copyright-->
    		<div class="copy-right">
    			<div class="wrap">
-				<p>远丰集团 版权所有 沪ICP备11025711号</p>
+				<!-- <p>远丰集团 版权所有 沪ICP备11025711号</p> -->
 		</div>
 	</div>
 	<!--//end-copyright-->
