@@ -99,6 +99,7 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                                 <td class="td_color widt1"><?=format_money($ogval['goods_price'])?></td>
                                 <td class="td_color widt2"><i class="iconfont icon-cuowu" style="position:relative;font-size: 12px;"></i> <?=($ogval['order_goods_num'])?></td>
                                 <td class="td_color widt4">
+                                    <?php if($val['order_from'] != Order_BaseModel::FROM_WEBPOS){ ?>
                                     <?php if($val['order_status'] != Order_StateModel::ORDER_WAIT_PAY && $val['order_status'] != Order_StateModel::ORDER_PAYED  && $val['order_status'] != Order_StateModel::ORDER_CANCEL){?>
                                         <?php if($ogval['goods_refund_status'] == Order_StateModel::ORDER_GOODS_RETURN_NO ){?>
                                             <a target="_blank" href="<?= Yf_Registry::get('url') ?>?ctl=Buyer_Service_Return&met=index&act=add&gid=<?=($ogval['order_goods_id'])?>"><?=_('退货')?></a>
@@ -107,14 +108,6 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                                             <?php if($ogval['goods_refund_status'] != Order_StateModel::ORDER_GOODS_RETURN_NO ){?>
                                                  <a href="<?= Yf_Registry::get('url') ?>?ctl=Buyer_Service_Return&met=index&act=detail&id=<?=($ogval['order_return_id'])?>"><?=_('退货进度')?></a>
                                             <?php }?>
-
-<!--                                        --><?php //if($ogval['goods_refund_status'] == Order_StateModel::ORDER_GOODS_RETURN_IN ){?>
-<!--                                            --><?//=_('退货中')?>
-<!--                                        --><?php //}?>
-<!--                                        --><?php //if($ogval['goods_refund_status'] == Order_StateModel::ORDER_GOODS_RETURN_END   ){?>
-<!--                                            --><?//=_('退货完成')?>
-<!--                                        --><?php //}?>
-
                                      <?php }?>
                                     <p>
                                         <?php if(($val['order_status'] == Order_StateModel::ORDER_FINISH && $val['complain_status']) || ($val['order_status'] != Order_StateModel::ORDER_CANCEL && $val['order_status'] != Order_StateModel::ORDER_WAIT_PAY)){?>
@@ -123,6 +116,7 @@ include $this->view->getTplPath() . '/' . 'buyer_header.php';
                                             </a>
                                         <?php }?>
                                     </p>
+                                    <?php } ?>
                                 </td>
 
                             </tr>
