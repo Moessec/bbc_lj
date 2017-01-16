@@ -480,7 +480,7 @@ setTimeout(function(){
     $('.add2').each(function(){
 
     $(this).click(function(){
-     // alert(1);
+     alert(1);
         var goods_id = $(this).find('input').val();
         alert(good_id);
             get_detail(goods_id);
