@@ -480,8 +480,11 @@ setTimeout(function(){
     $('.add2').each(function(){
 
     $(this).click(function(){
-     // alert(1);
+     alert(14444);
+     setTimeout(function(){
+
         var goods_id = $(this).find('input').val();
+     },100);
         alert(good_id);
             get_detail(goods_id);
   function get_detail(goods_id) {
