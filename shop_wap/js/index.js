@@ -480,12 +480,10 @@ setTimeout(function(){
     $('.add2').each(function(){
 
     $(this).click(function(){
-     alert(14444);
-     setTimeout(function(){
-
+     // alert(1);
+     
         var goods_id = $(this).find('input').val();
-     },100);
-        alert(good_id);
+        alert(goods_id);
             get_detail(goods_id);
   function get_detail(goods_id) {
       //渲染页面
