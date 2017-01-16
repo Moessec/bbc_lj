@@ -482,6 +482,7 @@ setTimeout(function(){
     $(this).click(function(){
      // alert(1);
         var goods_id = $(this).find('input').val();
+        alert(good_id);
             get_detail(goods_id);
   function get_detail(goods_id) {
       //渲染页面
