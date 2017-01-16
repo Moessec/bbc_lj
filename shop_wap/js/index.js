@@ -485,7 +485,7 @@ setTimeout(function(){
         var goods_id = $(this).find('input').val();
         alert(goods_id);
             get_detail(goods_id);
-  function get_detail(goods_id) {alert(2222);
+  function get_detail(goods_id) {
       //渲染页面
       $.ajax({
          url:ApiUrl+"/index.php?ctl=Goods_Goods&met=goods&typ=json",
