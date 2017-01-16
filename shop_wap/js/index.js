@@ -116,12 +116,12 @@ var spid = min(dis);
 
         $.cookie('shot_shop',spid);
         $.cookie('shot_distance',dis[spid]);
-        // if(dis[spid]>10000){
+         if(dis[spid]>100000&&dis[spid]<1000000000){
         //   // alert(dis[spid]);
-        //   delCookie('shot_shop');
-        //   delCookie('shot_distance');
-        //   location.replace('index.html');
-        // }
+          delCookie('shot_shop');
+          delCookie('shot_distance');
+           location.replace('index.html');
+         }
 
          $.ajax({
                 url: ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopInfo&typ=json&shop_id="+getCookie('shot_shop'),
@@ -501,7 +501,7 @@ setTimeout(function(){
               }else{
                  data.goods_image = [];
               }
-            if(data.goods_info)
+            if(1)
             {
                 //商品规格格式化数据
                 if(data.goods_info.common_spec_name){
