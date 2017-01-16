@@ -135,7 +135,7 @@
 			 		<dl class='demo text-overflow'>
 			 			<dt><%= data.items[i].common_name %></dt>
 			 			<dd>库存<%= data.items[i].common_stock %>件</dd>
-			 			<dd class="price">￥<%= data.items[i].common_price %></a><i class="add2"><% var st1 = data.items[i].goods_id; if(st1.goods_id){%><input type="hidden"value="<%=st1.goods_id %>"><%}else if(st1[0].goods_id){%><input type="hidden"value="<%=st1[0].goods_id %>"><%}%></i></dd>
+			 			<dd class="price">￥<%= data.items[i].common_price %></a><i class="add2"><% var st1 = data.items[i].goods_id; if(st1.goods_id){%><input type="text"value="<%=st1.goods_id %>"><%}else if(st1[0].goods_id){%><input type="text"value="<%=st1[0].goods_id %>"><%}%></i></dd>
 			 			
 			 		</dl>
 			 	</div>
