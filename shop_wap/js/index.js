@@ -481,9 +481,7 @@ setTimeout(function(){
 
     $(this).click(function(){
      // alert(1);
-     
         var goods_id = $(this).find('input').val();
-        alert(goods_id);
             get_detail(goods_id);
   function get_detail(goods_id) {
       //渲染页面
@@ -506,37 +504,37 @@ setTimeout(function(){
             if(data.goods_info)
             {
                 //商品规格格式化数据
-                // if(data.goods_info.common_spec_name){
-                //     var goods_map_spec = $.map(data.goods_info.common_spec_name,function (v,i){
-                //         var goods_specs = {};
-                //         goods_specs["goods_spec_id"] = i;
-                //         goods_specs['goods_spec_name']=v;
-                //         if(data.goods_info.common_spec_value_c){
-                //             $.map(data.goods_info.common_spec_value_c,function(vv,vi){
-                //                 if(i == vi){
-                //                     goods_specs['goods_spec_value'] = $.map(vv,function (vvv,vvi){
-                //                         var specs_value = {};
-                //                         specs_value["specs_value_id"] = vvi;
-                //                         specs_value["specs_value_name"] = vvv;
-                //                         return specs_value;
-                //                     });
-                //                 }
-                //             });
-                //             return goods_specs;
-                //         }else{
-                //             data.goods_info.common_spec_value = [];
-                //         }
-                //     });
-                //     data.goods_map_spec = goods_map_spec;
-                // }else {
-                //     data.goods_map_spec = [];
-                // }
+                if(data.goods_info.common_spec_name){
+                    var goods_map_spec = $.map(data.goods_info.common_spec_name,function (v,i){
+                        var goods_specs = {};
+                        goods_specs["goods_spec_id"] = i;
+                        goods_specs['goods_spec_name']=v;
+                        if(data.goods_info.common_spec_value_c){
+                            $.map(data.goods_info.common_spec_value_c,function(vv,vi){
+                                if(i == vi){
+                                    goods_specs['goods_spec_value'] = $.map(vv,function (vvv,vvi){
+                                        var specs_value = {};
+                                        specs_value["specs_value_id"] = vvi;
+                                        specs_value["specs_value_name"] = vvv;
+                                        return specs_value;
+                                    });
+                                }
+                            });
+                            return goods_specs;
+                        }else{
+                            data.goods_info.common_spec_value = [];
+                        }
+                    });
+                    data.goods_map_spec = goods_map_spec;
+                }else {
+                    data.goods_map_spec = [];
+                }
 
                 // 虚拟商品限购时间和数量
-                // if (data.goods_info.common_is_virtual == '1') {
-                //     data.goods_info.virtual_indate_str = unixTimeToDateString(data.goods_info.virtual_indate, true);
-                //     data.goods_info.buyLimitation = buyLimitation(data.goods_info.virtual_limit, data.goods_info.upper_limit);
-                // }
+                if (data.goods_info.common_is_virtual == '1') {
+                    data.goods_info.virtual_indate_str = unixTimeToDateString(data.goods_info.virtual_indate, true);
+                    data.goods_info.buyLimitation = buyLimitation(data.goods_info.virtual_limit, data.goods_info.upper_limit);
+                }
 
 
                 // 购物车中商品数量
