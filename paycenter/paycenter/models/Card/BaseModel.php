@@ -59,7 +59,7 @@ class Card_BaseModel extends Card_Base
 			{
 				if($k == 'm')
 				{
-					$str .='金额:'.$v.', ';
+					$str .='金额:'.$v.'; ';
 				}
 				if($k == 'p')
 				{
