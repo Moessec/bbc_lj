@@ -92,7 +92,7 @@
 .sotre-favorites-layout .add.added i { background-image: url(../images/star_r.png); border-color: #F68A1E; opacity: 1;}
 
 /*大图模式*/
-.grid .goods-secrch-list { font-size: 0; display: block;}
+.grid .goods-secrch-list { font-size: 0; display: block;padding-bottom:5rem;}
 .grid .goods-secrch-list .goods-item { background-color: #FFF; vertical-align: top; display: inline-block; width: 49.25%; margin-bottom: 0.2rem; box-shadow: 0 1px 0 rgba(0,0,0,0.05); position: relative; z-index: 1; overflow: hidden;}
 .grid .goods-secrch-list .goods-item:nth-of-type(even) { margin-left: 1.5%;}
 /*商品图片*/
