@@ -92,10 +92,108 @@ class Api_Paycen_PayCardCtl extends Api_Controller
             $msg    = 'success';
             $status = 200;
         }
-        $data['card_id'] = $flag;
         $this->data->addBody(-140, $data, $msg, $status);
 
     }
+
+    //添加支付卡信息
+    public function addCardBase()
+    {
+        $card_id    = request_int('card_id');       //卡id
+        $card_name  = request_string('card_name');  //卡名称
+        $card_num   = request_int('card_num');      //卡数量
+        $start_time = request_string('card_start_time');  //卡有效开始时间
+        $end_time   = request_string('card_end_time');    //卡有效结束时间
+        $card_desc  = request_string('card_desc');   //卡的描述
+        $money      = request_float('money');
+        $point      = request_float('point');
+
+        $Card_BaseModel = new Card_BaseModel();
+        $Card_InfoModel = new Card_InfoModel();
+
+        //开启事物
+        $Card_BaseModel->sql->startTransactionDb();
+
+        $card_data = $Card_BaseModel->getBase($card_id);
+        if ($card_data)
+        {
+            $flag = false;
+            $msg  = '此卡号已存在，请重新填写';
+        }
+        else
+        {
+            for ($i = 1; $i <= $card_num; $i++)
+            {
+                $add_row = array();
+                $add_row = array(
+                    'card_code' => $card_id . str_pad($i, 4, "0", STR_PAD_LEFT),
+                    'card_password' => rand(100000, 999999),
+                    'card_id' => $card_id,
+                    'card_time' => date("Y-m-d H:i:s"),
+                    'card_money' => $money,
+                );
+                $Card_InfoModel->addInfo($add_row);
+            }
+
+            $prize = array();
+            if ($money)
+            {
+                $prize['m'] = $money;
+            }
+            if ($point)
+            {
+                $prize['p'] = $point;
+            }
+
+            $card_prize = json_encode($prize);
+
+            $card_add_array = array(
+                'card_id' => $card_id,
+                'card_name' => $card_name,
+                'card_prize' => $card_prize,
+                'card_desc' => $card_desc,
+                'card_start_time' => $start_time,
+                'card_end_time' => $end_time,
+                'card_num' => $card_num,
+            );
+
+            $flag = $Card_BaseModel->addBase($card_add_array);
+        }
+
+        if ($flag && $Card_BaseModel->sql->commitDb())
+        {
+            $msg    = 'success';
+            $status = 200;
+        }
+        else
+        {
+            $Card_BaseModel->sql->rollBackDb();
+            $msg    = 'failure';
+            $status = 250;
+        }
+
+        $str = '';
+        if($money)
+        {
+            $str .='金额:'.$money.'; ';
+        }
+        if($point)
+        {
+            $str .='积分:'.$point . '; ';
+        }
+
+        $card_add_array['card_cprize'] = $str;
+        $card_add_array['card_used_num'] = 0;
+        $card_add_array['card_new_num'] = $card_num;
+        $this->data->addBody(-140, $card_add_array, $msg, $status);
+    }
+
+
+
+
+
+
+
 
     /*
       * 删除购物卡
