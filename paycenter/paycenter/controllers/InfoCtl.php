@@ -56,7 +56,10 @@ class InfoCtl extends Controller
 
 		$user_resource = $User_ResourceModel->getResource($user_id);
 		$user_resource = current($user_resource);
+		fb($user_resource);
+		$user_money_total = $user_resource['user_money']+$user_resource['user_recharge_card'];
 
+		$data_percent = round(($user_resource['user_recharge_card']/$user_money_total)*100);
 
 		//查找交易记录（3条）
 		$Consume_RecordModel = new Consume_RecordModel();
@@ -624,7 +627,7 @@ class InfoCtl extends Controller
         $edit_card_row = array();
         $edit_card_row['card_fetch_time'] = date('Y-m-d H:i:s');
         $edit_card_row['user_id'] = $user_id;
-        $edit_card_row['user_account'] = Perm::$row['user_accout'];
+        $edit_card_row['user_account'] = Perm::$row['user_account'];
         $edit_card_row['server_id'] = get_ip();
 
         $Card_InfoModel->editInfo($card_code,$edit_card_row);
@@ -663,7 +666,7 @@ class InfoCtl extends Controller
 
         //4.修改用户的充值卡金额
         $User_ResourceModel = new User_ResourceModel();
-        $flag = $User_ResourceModel->editResource($user_id,array('user_recharge_card'=>$money));
+        $flag = $User_ResourceModel->editResource($user_id,array('user_recharge_card'=>$money),true);
 
 
        if ($flag && $Card_InfoModel->sql->commitDb())
