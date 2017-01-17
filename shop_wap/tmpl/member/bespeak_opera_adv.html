@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <title>活动预约</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+    <link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
+</head>
+
+<body style="background:#fff">
+    <header id="header">
+        <div class="header-wrap">
+            <div class="header-l">
+                <a href="bespeak_adv.html"> <i class="back"></i> </a>
+            </div>
+            <div class="header-title">
+                <h1>活动预约</h1>
+            </div>
+            <div class="header-r"></div>
+        </div>
+    </header>
+    <div class="nctouch-main-layout">
+        <form>
+            <img src="../../images/wap.jpg" style="width:100%">
+            <div class="nctouch-inp-con">
+                <ul class="form-box">
+                    <li class="form-item" >
+                        <div class="input-box" style="margin:0 0.5rem 0 0rem;padding-top:20px">
+                            <input type="text" class="inp" name="true_name" id="true_name" autocomplete="off" placeholder="请输入姓名" oninput="writeClear($(this));" />
+                            <span class="input-del"></span> </div>
+                    </li>
+                    <li class="form-item">
+                        <div class="input-box" style="margin:0 0.5rem 0 0rem">
+                            <input type="tel" class="inp" name="usercontact" id="usercontact" autocomplete="off" placeholder="请输入手机号" oninput="writeClear($(this));" />
+                            <span class="input-del"></span> </div>
+                    </li>
+                    <li class="form-item" style="hidden">
+                        <div class="input-box" style="margin:0 0.5rem 0 0rem">
+                            <textarea type="tel" class="inp" name="bespeak_com" id="bespeak_com" autocomplete="off" oninput="writeClear($(this));" style="h" placeholder="请输入备注信息" /></textarea>
+                            <span class="input-del"></span>
+                        </div>
+                    </li>
+                    <li class="form-item" style="display:none">
+                        <div class="input-box" style="margin:0 0.5rem 0 0rem">
+                            <input type="tel" class="inp" name="bespeak_title" id="bespeak_title" autocomplete="off" oninput="writeClear($(this));" disabled="true" />
+                            <span class="input-del"></span>
+                        </div>
+                    </li>
+                            <input type="hidden" class="inp" name="bespeak_com" id="bespeak_com" autocomplete="off" oninput="writeClear($(this));" />
+                </ul>
+                <div class="error-tips"></div>
+                <div class="form-btn" style="background:#fff;margin-top:0;color:white"><a  class="btn" href="javascript:;" style="margin-top:52%;background:#FF8000;"><span style="color:white">提交预约</span></a></div>
+            </div>
+        </form>
+    </div>
+    <style type="text/css">
+        textarea{width: 95%;margin: auto;background: #F5F5F5; border-style: none;margin-top: 10px; line-height: 20px; color: #2F4F4F;height: 118px;}
+    </style>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/config.php"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/simple-plugin.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/bespeak_opera_adv.js"></script>
+</body>
+
+</html>
