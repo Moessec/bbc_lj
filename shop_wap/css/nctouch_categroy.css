@@ -97,3 +97,6 @@ background-color: #eee!important;
             position: relative;
             top: -0.25rem;
         }
+    .bottom_div{
+        margin-bottom: 36px;
+    }
