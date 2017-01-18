@@ -46,6 +46,7 @@ input, select, textarea {
   background-color:#F08080;
   text-align: center;
   font-size: 16px; 
+  color: #fff;
 }
 </style>
 </head>
