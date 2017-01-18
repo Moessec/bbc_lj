@@ -15,7 +15,6 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 </style>
 </head>
 <body>
-234454657576897989090899786456455243
 <div id="manage-wrap" class="manage-wrap">
 	<form id="manage-form" action="#">
 		<ul class="mod-form-rows">
