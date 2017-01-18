@@ -44,10 +44,10 @@ function initField()
                             }
                             $('#area_2').show();
                             $('#area_2').html(options);
+              $("#area_2 option[name='"+addres[1]+"']").attr("selected", true);
                         }
                     });                
               $("#area_2").css("display",'block');  
-              $("#area_2 option[name='"+addres[1]+"']").attr("selected", true);
 
                 
              }
