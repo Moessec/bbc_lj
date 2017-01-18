@@ -1,7 +1,7 @@
 function initField()
-{   console.log(rowData);
+{
     if (rowData.bespeak_id)
-    {
+    {   alert(2324234);
         $("#bespeak_title").val(rowData.bespeak_title);
         $("#bespeak_com").val(rowData.bespeak_com);
         $("#opentime").val(rowData.opentime);
@@ -11,7 +11,6 @@ function initField()
         $("#bespeak_img").attr('src',rowData.bespeak_img);
         $("#some_class_1").val(rowData.opentime);
         $("#some_class_2").val(rowData.outtime);
-        // $("#address").val(rowData.bespeak_address);
     }
 }
 function initPopBtns()
