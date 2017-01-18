@@ -10,7 +10,7 @@ function initField()
         $("#address").val(rowData.bespeak_address);
         $("#rent_price").val(rowData.rent_price);
         $("#bespeak_img").attr('src',rowData.bespeak_img);
-        if (rowData.bes_address)
+        if (rowData.bespeak_area_info)
          {
             var addres = rowData.bespeak_area_info.split(" "); 
             console.log(addres);
