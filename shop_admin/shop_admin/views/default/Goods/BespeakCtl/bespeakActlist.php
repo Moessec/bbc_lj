@@ -43,8 +43,9 @@ input, select, textarea {
 </head>
 <body>
 <div id="manage-wrap" class="manage-wrap">
+   <div class="sum_staff"><?php if(count($data)==0){?> <?php }else{?>活动参与人员总数<?php echo count($data);?>人<?php }?></div>
 	<?php
-      var_dump(count($data));
+      // var_dump(count($data));
         foreach ($data as $key => $value) {
       ?>
   <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
