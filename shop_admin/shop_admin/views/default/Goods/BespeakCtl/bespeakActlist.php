@@ -43,7 +43,9 @@ input, select, textarea {
   width: 200px;
   height: 40px;
   line-height: 40px;
-  background-color:#F08080; 
+  background-color:#F08080;
+  text-align: center;
+  font-size: 16px; 
 }
 </style>
 </head>
