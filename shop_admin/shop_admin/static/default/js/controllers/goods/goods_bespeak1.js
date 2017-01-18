@@ -42,6 +42,7 @@ function initField()
                             $('#area_2').show();
                             $('#area_2').html(options);
                             $("#area_2 option[name='"+addres[1]+"']").attr("selected", true);
+                            $("#area_2 option[value='"+addres[1]+"']").attr("selected", true);
                         }
                     });                
               $("#area_2").css({'display':'block','position':'relative','left':'83px','top':'-24px'});  
@@ -72,6 +73,7 @@ function initField()
                             $('#area_3').show();
                             $('#area_3').html(options);
                             $("#area_3 option[name='"+addres[2]+"']").attr("selected", true);
+                            $("#area_3 option[value='"+addres[2]+"']").attr("selected", true);
                         }
                     }); 
               $("#area_3").css({'display':'block','position':'relative','left':'200px','top':'-45px'});  
