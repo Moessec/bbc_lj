@@ -47,6 +47,7 @@ input, select, textarea {
   text-align: center;
   font-size: 16px; 
   color: #fff;
+  font-weight: bold;
 }
 </style>
 </head>
