@@ -78,7 +78,7 @@ function initField()
                         }
                     }); 
                     $("#area_3").css("display",'block');                
-                },1000) ;
+                },200) ;
                }
 
 
