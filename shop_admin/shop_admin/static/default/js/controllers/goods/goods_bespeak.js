@@ -4,7 +4,7 @@ function initField()
     {
         $("#bespeak_title").val(rowData.bespeak_title);
         $("#bespeak_com").val(rowData.bespeak_com);
-        $("#address").val(rowData.bespeak_com);
+        $("#address").val(rowData.bespeak_address);
         $("#opentime").val(rowData.opentime);
         $("#bes_img").val(rowData.bespeak_img);
         $("#true_name").val(rowData.true_name);
@@ -91,6 +91,7 @@ function resetForm(t)
     $("#some_class_1").val("");
     $("#bes_img").val("");
     $("#true_name").val("");
+    $("#address").val("");
     $("#some_class_2").val("");
     $("#usercontact").val("");
 }
