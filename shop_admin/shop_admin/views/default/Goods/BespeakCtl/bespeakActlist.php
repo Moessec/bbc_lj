@@ -56,7 +56,7 @@ input, select, textarea {
 </head>
 <body>
 <div id="manage-wrap" class="manage-wrap">
-   <div class="sum_staff"><?php if(count($data)==0){?> <?php }else{?>总数<span><?php echo count($data);?>(人)</span><?php }?></div>
+   <div class="sum_staff"><?php if(count($data)==0){?> <?php }else{?>总数<span><?php echo count($data);?></span><?php }?></div>
 	<?php
       // var_dump(count($data));
         foreach ($data as $key => $value) {
