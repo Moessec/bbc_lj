@@ -11,6 +11,7 @@ function initField()
         $("#bespeak_img").attr('src',rowData.bespeak_img);
         $("#some_class_1").val(rowData.opentime);
         $("#some_class_2").val(rowData.outtime);
+        $("#address").val(rowData.bespeak_address);
     }
 }
 function initPopBtns()
