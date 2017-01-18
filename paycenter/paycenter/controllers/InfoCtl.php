@@ -640,7 +640,7 @@ class InfoCtl extends Controller
         $add_deposit_row['deposit_buyer_id'] = $user_id;
         $add_deposit_row['deposit_total_fee'] = $money;
         $add_deposit_row['deposit_gmt_create'] = date('Y-m-d H:i:s');
-        $add_deposit_row['deposit_trade_status'] = RecordStatusModel::RECORD_CANCEL;
+        $add_deposit_row['deposit_trade_status'] = RecordStatusModel::RECORD_FINISH;
         $Consume_DepositModel->addDeposit($add_deposit_row);
 
         //3.添加交易明细
@@ -659,7 +659,7 @@ class InfoCtl extends Controller
         $record_add_buy_row['record_time']   = date('Y-m-d H:i:s');
         $record_add_buy_row['trade_type_id'] = Trade_TypeModel::DEPOSIT;
         $record_add_buy_row['user_type']     = 1;	//收款方
-        $record_add_buy_row['record_status'] = RecordStatusModel::RECORD_CANCEL;
+        $record_add_buy_row['record_status'] = RecordStatusModel::RECORD_FINISH;
 
         $Consume_RecordModel->addRecord($record_add_buy_row);
 
