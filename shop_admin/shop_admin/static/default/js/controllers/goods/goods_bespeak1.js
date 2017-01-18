@@ -10,6 +10,77 @@ function initField()
         $("#address").val(rowData.bespeak_address);
         $("#rent_price").val(rowData.rent_price);
         $("#bespeak_img").attr('src',rowData.bespeak_img);
+        if (rowData.bes_address)
+         {
+            var addres = rowData.bes_address.split(" "); 
+            console.log(addres);
+            // var area_1 = $("#area_1").find('option:[name="'+addres[0]+'"]');
+             $("#area_1 option[name='"+addres[0]+"']").attr("selected", true);
+
+             if(addres[1]) 
+             {
+                var $this = $("#area_1 option[name='"+addres[0]+"']"), pid = $("#area_1 option[name='"+addres[0]+"']").val(), BigCity = [1, 2, 9, 22];
+
+                //排除直辖市
+                if( Number(pid) ==1 ) {
+                    pid = '36';
+                }else if(Number(pid)==2){
+                    pid = '40';
+                }else if(Number(pid)==9){
+                    pid ='39';
+                }else if(Number(pid)==22){
+                    pid='62';
+                }
+                $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (data) {
+                        var data = data.data;
+                        if (data.items && data.items.length > 0) {
+                            var options = null, select = null;
+                            for ( var i = 0; i < data.items.length; i++ ) {
+                                if ( i == 0 ) $('#_area_2').val(data.items[i]['district_id']);
+                                options += '<option name=' + data.items[i]['district_name'] + ' value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
+                            }
+                            $('#area_2').show();
+                            $('#area_2').html(options);
+                            $("#area_2 option[name='"+addres[1]+"']").attr("selected", true);
+                        }
+                    });                
+              $("#area_2").css({'display':'block','position':'relative','left':'83px','top':'-24px'});  
+              $(".form-item").css("height","40px");
+
+                
+             }
+
+               if(addres[2])
+               {
+                setTimeout(function(){
+
+                    var $this = $("#area_2 option[name='"+addres[1]+"']"), pid = $("#area_2 option[name='"+addres[1]+"']").val();
+                    var a1 = $('#area_1').val(), BigCity = [1, 2, 9, 22];
+                    if($.inArray(Number(a1),BigCity) != -1){
+                        return false;
+                    }
+                    //排除直辖市
+                    $.post(SITE_URL + '?ctl=Base_District&met=district&pid=0&typ=json', {nodeid: pid}, function (list) {
+                        var data = list.data;
+                        if (data.items && data.items.length > 0) {
+                            var options = null, select = null;
+                            for ( var i = 0; i < data.items.length; i++ ) {
+                                if ( i == 0 ) $('#_area_3').val(data.items[i]['district_id']);
+                                options += '<option name=' + data.items[i]['district_name'] + ' value="' + data.items[i]['district_id'] + '">' + data.items[i]['district_name'] + '</option>';
+                            }
+
+                            $('#area_3').show();
+                            $('#area_3').html(options);
+                            $("#area_3 option[name='"+addres[2]+"']").attr("selected", true);
+                        }
+                    }); 
+              $("#area_3").css({'display':'block','position':'relative','left':'200px','top':'-45px'});  
+                                  
+                },500) ;
+               }
+
+
+         };        
     }
 }
 function initPopBtns()
