@@ -48,7 +48,7 @@ function postData(t, e)
         outtime : outtime,
         bespeak_area_info:bespeak_area_info,
         area_info:area_info,
-        address:address,
+        bes_address:bes_address,
         bes_img : bes_img
     } : {
         bespeak_title: bespeak_title,
