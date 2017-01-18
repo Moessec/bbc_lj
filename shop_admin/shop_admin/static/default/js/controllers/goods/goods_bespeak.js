@@ -77,7 +77,7 @@ function initField()
                             $("#area_3 option[name='"+addres[2]+"']").attr("selected", true);
                         }
                     }); 
-              $("#area_3").css({'display':'block','position':'relative','left':'243px','top':'-45px'});  
+              $("#area_3").css({'display':'block','position':'relative','left':'200px','top':'-45px'});  
                                   
                 },500) ;
                }
