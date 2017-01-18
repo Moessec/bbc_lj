@@ -50,7 +50,7 @@ input, select, textarea {
   font-weight: bold;
 }
 .sum_staff span{
-  margin-left: 15px;
+  margin-left: 35px;
 }
 </style>
 </head>
