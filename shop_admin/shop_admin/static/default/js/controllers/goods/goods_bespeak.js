@@ -55,10 +55,10 @@ function initField()
 
                if(addres[2])
                {
-                    alert(addres[2]);
+                    // alert(addres[2]);
                     var $this = $("#area_2 option[name='"+addres[1]+"']"), pid = $("#area_2 option[name='"+addres[1]+"']").val();
                     var a1 = $('#area_1').val(), BigCity = [1, 2, 9, 22];
-                    console.log($this);alert('pid');
+                    // console.log($this);alert('pid');
                     if($.inArray(Number(a1),BigCity) != -1){
                         return false;
                     }
