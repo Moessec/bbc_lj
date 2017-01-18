@@ -34,6 +34,9 @@ include $this->view->getTplPath() . '/'  . 'header.php';
     position: relative;
     top: -45px;
 }
+.form-item{
+height: 40px;
+}
 </style>
 </head>
 <body>
