@@ -18,6 +18,8 @@ function initField()
             var addres = rowData.bes_address.split(" "); 
             console.log(addres);
             var area_1 = $("#area_1").find('option');
+            alert(area_1);
+            console.log(area_1);
          };
     }
 }
