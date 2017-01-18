@@ -18,9 +18,14 @@ function initField()
             var addres = rowData.bes_address.split(" "); 
             console.log(addres);
             // var area_1 = $("#area_1").find('option:[name="'+addres[0]+'"]');
-             var area_1 = $("#area_1 option[name='"+addres[0]+"']").attr("selected", true); 
+             $("#area_1 option[name='"+addres[0]+"']").attr("selected", true);
+             if(addres[1]) 
+             {
+             $("#area_2 option[name='"+addres[1]+"']").attr("selected", true);
+                
+             }
             // alert(area_1);
-            console.log(area_1);
+            // console.log(area_1);
          };
     }
 }
