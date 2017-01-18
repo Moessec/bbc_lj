@@ -12,7 +12,7 @@ function initField()
         $("#bespeak_img").attr('src',rowData.bespeak_img);
         if (rowData.bes_address)
          {
-            var addres = rowData.bes_address.split(" "); 
+            var addres = rowData.bespeak_area_info.split(" "); 
             console.log(addres);
             // var area_1 = $("#area_1").find('option:[name="'+addres[0]+'"]');
              $("#area_1 option[name='"+addres[0]+"']").attr("selected", true);
