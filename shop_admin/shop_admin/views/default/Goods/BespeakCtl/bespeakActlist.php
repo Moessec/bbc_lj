@@ -40,7 +40,7 @@ input, select, textarea {
     color: #555;
 }
 .sum_staff{
-  width: 200px;
+  /*width: 200px;*/
   height: 40px;
   line-height: 40px;
   background-color:#F08080;
