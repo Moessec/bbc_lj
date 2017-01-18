@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+    <title>租赁预约</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/nctouch_member.css">
+    <link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
+</head>
+
+<body style="background:#fff">
+    <header id="header">
+        <div class="header-wrap">
+            <div class="header-l">
+                <a href="bespeak_rent.html"> <i class="back"></i> </a>
+            </div>
+            <div class="header-title">
+                <h1>租赁预约</h1>
+            </div>
+            <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="save"></i></a> </div>
+        </div>
+    </header>
+    <div class="nctouch-main-layout">
+        <form>
+            <img src="../../images/wap.jpg" style="width:100%">
+            <div class="nctouch-inp-con">
+                <ul class="form-box">
+                    <li class="form-item">
+                        <h4>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</h4>
+                        <div class="input-box">
+                            <input type="text" style="width: 97%;margin-left: 3px;" class="inp" name="true_name" id="true_name" autocomplete="off" oninput="writeClear($(this));"  placeholder="请输入您的姓名" />
+                            <span class="input-del"></span> </div>
+                    </li>
+                    <li class="form-item">
+                        <h4>手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机</h4>
+                        <div class="input-box">
+                            <input type="tel" style="width: 97%;margin-left: 3px;" class="inp" name="usercontact" id="usercontact" autocomplete="off" oninput="writeClear($(this));"  placeholder="请输入联系方式"/>
+                            <span class="input-del"></span> </div>
+                    </li>
+                    <li class="form-item">
+                        <h4>租赁日期</h4>
+                        <div class="input-box" style="padding-left: 8px;line-height: 37px;">
+                            <select name="n" id="n" onchange="show();">
+                            <script>
+                            for(var i=2016;i<=2222;i++){
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">年</span>
+                            <select name="y" id="y" onchange="show();">
+                            <script>
+                            for(var i=1;i<=12;i++){
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">月</span>
+                            <select name="r" id="r" onchange="show();">
+                            <script>
+                            for(var i=1;i<=31;i++){
+                                var n=document.getElementById('n').val;
+                                if(n=2){
+                                    i<=29;
+                                }
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">日</span>
+                            </select>
+                            <input type="hidden" class="inp" name="starttime" id="starttime" autocomplete="off" oninput="writeClear($(this));" />
+                            <span class="input-del"></span>
+
+                        </div>
+                    </li>
+                    <li class="form-item">
+                        <h4>归还日期</h4>
+                        <div class="input-box" style="padding-left: 8px;line-height: 37px;">
+                            <select name="year" id="year" onchange="show();">
+                            <script>
+                            for(var i=2016;i<=2222;i++){
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">年</span>
+                            <select name="mon" id="mon" onchange="show();">
+                            <script>
+                            for(var i=1;i<=12;i++){
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">月</span>
+                            <select name="day" id="day" onchange="show();">
+                            <script>
+                            for(var i=1;i<=31;i++){
+                                var mon=document.getElementById('mon').val;
+                                if(mon=2){
+                                    i<=29;
+                                }
+                             document.write("<option value='"+i+"'>"+i+"</option>");
+                            }
+                            </script>
+                            </select>
+                            <span style="font-size: 0.6rem;">日</span>
+                            </select>
+                            <input type="hidden" class="inp" name="outtime" id="outtime" autocomplete="off" oninput="writeClear($(this));" />
+                            <input type="hidden" class="inp" name="bespeak_title" id="bespeak_title" autocomplete="off" oninput="writeClear($(this));" />
+                            <span class="input-del"></span>
+
+                        </div>
+                    </li>
+                    <li class="form-item" style="hidden">
+                        <div class="input-box" style="margin:0 0.5rem 0 0rem">
+                            <textarea type="tel" class="inp" name="bespeak_com" id="bespeak_com" autocomplete="off" oninput="writeClear($(this));" style="h" placeholder="请输入备注信息" /></textarea>
+                            <span class="input-del"></span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="error-tips"></div>
+                <div class="form-btn" style="background:#fff;margin-top:0;color:white"><a class="btn" style="margin-top:52%;background:#FF8000;" href="javascript:;"><span style="color:white">申请预约</span></a></div>
+            </div>
+        </form>
+    </div>
+    <style type="text/css">
+        textarea{width: 95%;margin: auto;background: #F5F5F5; border-style: none;margin-top: 10px; line-height: 20px; color: #2F4F4F;height: 118px;}
+    </style>
+    <script type="text/javascript">
+        function show(){
+     document.getElementById("starttime").value=document.getElementById("n").value+'/'+document.getElementById("y").value+' '+document.getElementById("r").value;
+     document.getElementById("outtime").value=document.getElementById("year").value+'/'+document.getElementById("mon").value+' '+document.getElementById("day").value;
+    }
+    </script>
+    <script type="text/javascript" src="../../js/zepto.min.js"></script>
+    <script type="text/javascript" src="../../js/config.php"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script type="text/javascript" src="../../js/simple-plugin.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/footer.js"></script>
+    <script type="text/javascript" src="../../js/tmpl/bespeak_opera_rent.js"></script>
+</body>
+
+</html>
