@@ -147,6 +147,6 @@ $('#area_2').on('change', function () {
 });
 
 var curRow, curCol, curArrears, $grid = $("#grid"),  $_form = $("#manage-form"), api = frameElement.api, oper = api.data.oper, rowData = api.data.rowData || {}, callback = api.data.callback;
-
+console.log(rowData);
 initPopBtns();
 initField();
