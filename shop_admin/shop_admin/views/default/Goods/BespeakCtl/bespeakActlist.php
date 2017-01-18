@@ -39,6 +39,12 @@ input, select, textarea {
     font: 12px/1.5 '微软雅黑', 'Microsoft Yahei', \5b8b\4f53;
     color: #555;
 }
+.sum_staff{
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  background-color:#F08080; 
+}
 </style>
 </head>
 <body>
