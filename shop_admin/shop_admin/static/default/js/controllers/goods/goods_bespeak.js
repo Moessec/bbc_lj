@@ -47,8 +47,8 @@ function initField()
                             $("#area_2 option[name='"+addres[1]+"']").attr("selected", true);
                         }
                     });                
-              $("#area_2").css("display",'block');  
-
+              $("#area_2").css({'display':'block','position':'relative','left':'83px','top':'-24px'});  
+              $(".form-item").css("height","40px");
 
                 
              }
@@ -77,7 +77,8 @@ function initField()
                             $("#area_3 option[name='"+addres[2]+"']").attr("selected", true);
                         }
                     }); 
-                    $("#area_3").css("display",'block');                
+              $("#area_3").css({'display':'block','position':'relative','left':'243px','top':'-45px'});  
+                                  
                 },500) ;
                }
 
