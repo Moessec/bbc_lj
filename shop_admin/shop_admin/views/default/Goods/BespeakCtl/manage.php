@@ -25,12 +25,12 @@ include $this->view->getTplPath() . '/'  . 'header.php';
 .mod-form-rows .label-wrap{width: 20%;}
 .mod-form-rows .ctn-wrap .ui-input{width: 50%;}
 #area_2{
-   left: 83px;
+    left: 83px;
     position: relative;
     top: -24px;	
 }
 #area_3{
-	    left: 175px;
+	left: 240px;
     position: relative;
     top: -45px;
 }
