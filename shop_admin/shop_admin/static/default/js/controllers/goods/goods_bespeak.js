@@ -13,6 +13,11 @@ function initField()
         $("#bespeak_img").attr('src',rowData.bespeak_img);
         $("#some_class_1").val(rowData.opentime);
         $("#some_class_2").val(rowData.outtime);
+        if (rowData.bes_address)
+         {
+            var addres = rowData.bes_address.split(" "); 
+            console.log(addres);
+         };
     }
 }
 function initPopBtns()
