@@ -17,7 +17,7 @@ function initField()
          {
             var addres = rowData.bes_address.split(" "); 
             console.log(addres);
-            var area_1 = $("#area_1").find('option').name;
+            var area_1 = $("#area_1").find('option').attr('name');
             // alert(area_1);
             console.log(area_1);
          };
