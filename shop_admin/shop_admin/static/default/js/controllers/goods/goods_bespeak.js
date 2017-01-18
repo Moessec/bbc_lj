@@ -22,7 +22,7 @@ function initField()
              if(addres[1]) 
              {
               $("#area_2").css("display",'block');  
-             // $("#area_2 option[name='"+addres[1]+"']").attr("selected", true);
+             $("#area_2 option[name='"+addres[1]+"']").attr("selected", true);
                 
              }
             // alert(area_1);
