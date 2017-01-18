@@ -1,7 +1,7 @@
 function initField()
 {
     if (rowData.bespeak_id)
-    {   alert(2324234);
+    {
         $("#bespeak_title").val(rowData.bespeak_title);
         $("#bespeak_com").val(rowData.bespeak_com);
         $("#opentime").val(rowData.opentime);
