@@ -2,6 +2,7 @@ function initField()
 {
     if (rowData.bespeak_id)
     {
+        alert(rowData.bes_address);
         $("#bespeak_title").val(rowData.bespeak_title);
         $("#bespeak_com").val(rowData.bespeak_com);
         $("#address").val(rowData.bespeak_address);
