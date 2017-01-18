@@ -96,7 +96,7 @@ include $this->view->getTplPath() . '/'  . 'header.php';
             <li class="row-item">
             	<div class="label-wrap"><label for="bespeak_com">详细地址:</label></div>
                 <div class="ctn-wrap">
-                    <input type="text" class="ui-input" name="address" id="address">
+                    <input type="text" class="ui-input" value='' name="address" id="address">
                 </div>
             </li>
 			<li class="row-item">
