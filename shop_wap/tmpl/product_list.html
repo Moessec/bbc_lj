@@ -118,19 +118,19 @@
     <%for(var j in common_list){%>
     <li class="goods-item" goods_id="<%=common_list[j].common_id;%>">
 				<span class="goods-pic">
-					<a href="product_detail.html?goods_id=<%=common_list[j].common_id;%>">
+					<a href="product_detail.html?goods_id=<%=common_list[j].goods_id;%>">
                         <img src="<%=common_list[j].common_image;%>"/>
                     </a>
 				</span>
         <dl class="goods-info">
             <dt class="goods-name">
-                <a href="product_detail.html?goods_id=<%=common_list[j].common_id;%>">
+                <a href="product_detail.html?goods_id=<%=common_list[j].goods_id;%>">
                     <h4><%=common_list[j].common_name;%><p style="font-size:0.6rem;color:#ccc"><%=common_list[j].common_promotion_tips;%></p></h4>
 
                 </a>
             </dt>
             <dd class="goods-sale">
-                <a href="product_detail.html?goods_id=<%=common_list[j].common_id;%>">
+                <a href="product_detail.html?goods_id=<%=common_list[j].goods_id;%>">
 							<span class="goods-price">￥<em><%=common_list[j].common_price;%></em>
 										</span>
                             <span class="goods-price" style="margin-left:0.8rem;text-decoration:line-through;color:#ccc;font-size:0.7rem">￥<%=common_list[j].common_market_price;%>
