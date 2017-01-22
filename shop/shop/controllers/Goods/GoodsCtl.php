@@ -1678,11 +1678,11 @@ class Goods_GoodsCtl extends Controller
 		{
 			$cond_row['common_is_virtual'] = Goods_CommonModel::GOODS_VIRTUAL;
 		}
-
-			$cond_row['shop_id'] = $shop_id;
+           
+			// $cond_row['shop_id'] = $shop_id;
+			$cond_row['shop_id'] = 5;
 			$cond_row['shop_goods_cat_id'] = '["'.$shop_goods_cat_id.'"]';
 
-// var_dump($cond_row);die;
 			if($act&&$actorder)
 			{
 				if($act=='common_sale')
