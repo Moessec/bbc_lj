@@ -190,7 +190,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-order-item-head .store { display: block; float: left; font-size: 0.6rem; line-height: 0.9rem; color: #000;}
 .nctouch-order-item-head .store i.icon { display: inline-block; width: 0.8rem; height: 0.9rem; margin: 0 0.3rem 0 0.1rem; vertical-align: top; background-image: url(../images/bbc-bg7.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 80%;}
 .nctouch-order-item-head .store i.arrow-r { width: 0.8rem; height: 0.9rem; display: inline-block; vertical-align: top; background-image: url(../images/bbc-bg44.png); background-repeat: no-repeat; background-position: 50% 50%; background-size:35%;}
-.nctouch-order-item-head .state { display: block; float: right; font-size: 0.6rem; color: #ED811F;}
+.nctouch-order-item-head .state { display: block; float: right; font-size: 0.6rem; color: #FF7E18;}
 .nctouch-order-item-con .goods-block { position: relative; z-index: 1; border-bottom: solid #EEE 0.05rem;}
 .nctouch-order-item-con .goods-block:nth-last-child(1) { border: none;}
 .nctouch-order-item-con .goods-block.detail { height: 4.3rem;}
@@ -238,7 +238,7 @@ i.cc-10 { background-image: url(../images/bbc-bg23.png); background-size: cover 
 .nctouch-order-item-footer { border-top: solid 0.05rem #EEE; margin-top: 0.4rem;}
 .nctouch-order-item-footer .store-totle { min-height: 0.9rem; padding: 0.5rem 0; font-size: 0; text-align: right; border-bottom: solid 0.05rem #EEE;}
 .nctouch-order-item-footer .store-totle span { vertical-align: middle; display: inline-block; font-size: 0.5rem; line-height: 0.9rem;}
-.nctouch-order-item-footer .store-totle .sum { font-size: 0.55rem; font-weight: 600; color: #ED811F; margin: 0 0.15rem;}
+.nctouch-order-item-footer .store-totle .sum { font-size: 0.55rem; font-weight: 600; color: #FF7E18; margin: 0 0.15rem;}
 .nctouch-order-item-footer .store-totle .sum em { font-size: 0.7rem;}
 .nctouch-order-item-footer .store-totle .freight { font-size: 0.45rem; color: #999;}
 .nctouch-order-item-footer .store-totle time { float: left; font-size: 0.55rem; line-height: 0.9rem; color: #BBB;}
