@@ -29,7 +29,7 @@ $(function ()
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=index222&op=manage&typ=json&id=1" , function (e)
         {
            var data = e.data;
-            console.log(e);
+            // console.log(e);
             if(data){var d = template.render("home_body1", data);}
             
             $("#product_list .goods-secrch-list").append(d);
@@ -41,7 +41,7 @@ $(function ()
         $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=getShopGoods121&op=manage&typ=json&id=1" , function (e)
         {
            var data = e.data;
-           console.log(e);
+           // console.log(e);
             if(data){var d = template.render("home_body2", data);}
             
             $("#product_list .goods-secrch-list").append(d);
@@ -175,7 +175,7 @@ function get_list()
     {
         param.isvirtual = virtual
     }
-
+// console.log(param);
 if(shop_goods_cat_id)
 {
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=shop_cat_goods&typ=json&shop_id="+getCookie('community_shopid')+"&shop_goods_cat_id="+shop_goods_cat_id, param,function (e)
@@ -206,6 +206,20 @@ if(shop_goods_cat_id)
 
 }else{
 
+if(seller=='Seller_Promotion_Discount')
+{
+    // console.log(param);
+    
+    $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=index222&op=manage&typ=json&id=1&", param, function (e)
+    {
+           var data = e.data;
+            // console.log(e);
+            if(data){var d = template.render("home_body1", data);}
+            
+            $("#product_list .goods-secrch-list").html(d);
+    })
+}else{
+
 
     $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=goodslist&typ=json" + window.location.search.replace("?", "&"), param, function (e)
     {
@@ -231,6 +245,7 @@ if(shop_goods_cat_id)
            hasmore = false;
        }
     })
+   }
  }   
 }
 function search_adv()
