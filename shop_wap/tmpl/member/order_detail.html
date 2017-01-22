@@ -155,7 +155,7 @@
         <% if (order_status == 1) {%>
         <a href="javascript:void(0)" order_id="<%=order_id%>" class="btn cancel-order">取消订单</a>
         <% } %>
-        <% if (order_refund_status == 0) {%>
+        <% if (order_refund_status == 0 && order_status == 3) {%>
         <a href="javascript:void(0)" order_id="<%=order_id%>" class="btn all_refund_order">订单退款</a>
         <% } %>
         <% if (order_status == 4) { %>
