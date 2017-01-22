@@ -96,7 +96,7 @@ sub { vertical-align: text-bottom }
 .s-dialog-content h6 { display: block; font-size: 0.55rem; line-height: 0.9rem; color: #333;}
 .s-dialog-btn-wapper { display: block; padding: 0.6rem 0; border-top: solid 0.05rem rgba(0,0,0,0.15); font-size: 0; }
 .s-dialog-btn-wapper a { display: inline-block; width: 49%; font-size: 0.7rem; font-weight: 600; line-height: 0.9rem; color: #0080FF; text-align: center;margin-left: 2.6rem;}
-.s-dialog-btn-wapper a:last-child { border-left: solid 0.05rem rgba(0,0,0,0.15);}
+/*.s-dialog-btn-wapper a:last-child { border-left: solid 0.05rem rgba(0,0,0,0.15);}*/
 .s-dialog-skin-block .s-dialog-btn-wapper a { color: #0080FF;}
 
 #scroller { position: absolute; z-index: 1; -webkit-tap-highlight-color: rgba(0,0,0,0); width: 100%; -webkit-transform: translateZ(0); -moz-transform: translateZ(0); -ms-transform: translateZ(0); -o-transform: translateZ(0); transform: translateZ(0); -webkit-touch-callout: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-text-size-adjust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none; -o-text-size-adjust: none; text-size-adjust: none; }
