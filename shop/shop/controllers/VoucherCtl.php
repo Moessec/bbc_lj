@@ -141,7 +141,7 @@ class VoucherCtl extends Controller
 			$data['growth']['next_grade_growth']  = $next_grade['user_grade_demand'] - $data['user_resource']['user_growth'];//距离下一级差多少经验值
 			$data['growth']['grade_growth_per']   = sprintf("%.2f", $growth_diff / $diff_grade_growth) * 100;
 		}
-		
+
 		$this->view->setMet('vlist');
 
 		if ('e' == $this->typ)
@@ -150,6 +150,7 @@ class VoucherCtl extends Controller
 		}
 		else
 		{
+			$data['price_range'] = array_values($data['price_range']);
 			$this->data->addBody(-140, $data);
 		}
 
@@ -166,34 +167,6 @@ class VoucherCtl extends Controller
 		$user_info     = $this->userInfoModel->getUserInfo(array("user_id" => Perm::$userId));
 
 		$data = $voucher_t_row;
-
-		if('e' == $this->typ)
-		{
-			$this->view->setMet('detail');
-			include $this->view->getView();
-		}
-		else
-		{
-			$this->data->addBody(-140, $data);
-		}
-
-	}
-
-
-
-
-	public function getVoucherByUserAndSeller()
-	{
-		$voucher_u_id                		= request_int('uid');
-		$voucher_s_id                		= request_int('sid');
-		$cond_row['voucher_owner_id']    		= $voucher_u_id;
-		$cond_row['voucher_shop_id']    		= $voucher_s_id;
-		$cond_row['voucher_t_state'] 		= Voucher_TempModel::VALID;
-
-		fb($cond_row);
-		$voucher_t_row = $this->voucherTempModel->getVoucherTempInfoByWhere($cond_row);
-		$data = $voucher_t_row;
-		
 
 		if('e' == $this->typ)
 		{
@@ -355,7 +328,7 @@ class VoucherCtl extends Controller
 			$status = 250;
 		}
 		$data = $this->voucherTempModel->getOne($voucher_t_id);
-		$this->data->addBody(-140, $data, $msg, $status,$voucher_t_row);
+		$this->data->addBody(-140, $data, $msg, $status);
 	}
 	
 	
