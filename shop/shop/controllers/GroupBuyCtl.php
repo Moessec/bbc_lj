@@ -63,13 +63,13 @@ class GroupBuyCtl extends Controller
         $cond_row_phy_rec['groupbuy_type']        = GroupBuy_BaseModel::ONLINEGBY;
         $cond_row_phy_rec['groupbuy_recommend']  = GroupBuy_BaseModel::HIGHLYRECOMMEND;
         $order_row_phy_rec['groupbuy_id']         = 'DESC';
-        $data['goods']['physical']['highly_recommend'] = $this->groupBuyBaseModel->getOneByWhere($cond_row_phy_rec, $order_row_phy_rec);
+        $data['goods']['physical']['highly_recommend'] = $this->groupBuyBaseModel->getGroupBuyDetailByWhere($cond_row_phy_rec, $order_row_phy_rec);
 		$data['goods']['physical']['recommend'] = $this->groupBuyBaseModel->getGroupBuyGoodsList($cond_row_phy, $order_row, 0, 10);
 
         $cond_row_vir_rec['groupbuy_type']       = GroupBuy_BaseModel::VIRGBY;
         $cond_row_vir_rec['groupbuy_recommend'] = GroupBuy_BaseModel::HIGHLYRECOMMEND;
         $order_row_vir_rec['groupbuy_id']        = 'DESC';
-        $data['goods']['virtual']['highly_recommend'] = $this->groupBuyBaseModel->getOneByWhere($cond_row_vir_rec, $order_row_vir_rec);
+        $data['goods']['virtual']['highly_recommend'] = $this->groupBuyBaseModel->getGroupBuyDetailByWhere($cond_row_vir_rec, $order_row_vir_rec);
 		$data['goods']['virtual']['recommend']  = $this->groupBuyBaseModel->getGroupBuyGoodsList($cond_row_vir, $order_row, 0, 10);
 
 		$data['cat']['physical'] = $this->groupBuyCatModel->getGroupBuyCatByWhere(array(
@@ -126,6 +126,16 @@ class GroupBuyCtl extends Controller
 		}
 		else
 		{
+            $data['cat']['physical'] = array_values($data['cat']['physical']);
+            $data['cat']['virtual'] = array_values($data['cat']['virtual']);
+            $data['banner']['slider1']['slider1_image'] = image_thumb(Web_ConfigModel::value('slider1_image'),1043,396);
+            $data['banner']['slider1']['live_link1'] = Web_ConfigModel::value('live_link1');
+            $data['banner']['slider2']['slider2_image'] = image_thumb(Web_ConfigModel::value('slider2_image'),1043,396);
+            $data['banner']['slider2']['live_link2'] = Web_ConfigModel::value('live_link2');
+            $data['banner']['slider3']['slider3_image'] = image_thumb(Web_ConfigModel::value('slider3_image'),1043,396);
+            $data['banner']['slider3']['live_link3'] = Web_ConfigModel::value('live_link3');
+            $data['banner']['slider4']['slider4_image'] = image_thumb(Web_ConfigModel::value('slider4_image'),1043,396);
+            $data['banner']['slider4']['live_link4'] = Web_ConfigModel::value('live_link4');
 			$this->data->addBody(-140, $data);
 		}
 
@@ -185,10 +195,10 @@ class GroupBuyCtl extends Controller
 				$order_row['groupbuy_price'] = 'DESC';
 				break;
 			case 'ratedesc':
-				$order_row['groupbuy_rebate'] = 'ASC';
+				$order_row['groupbuy_rebate'] = 'DESC';
 				break;
 			case 'rateasc':
-				$order_row['groupbuy_rebate'] = 'DESC';
+				$order_row['groupbuy_rebate'] = 'ASC';
 				break;
 			case 'saledesc':
 				$order_row['groupbuy_virtual_quantity'] = 'DESC';
@@ -257,6 +267,8 @@ class GroupBuyCtl extends Controller
 		}
 		else
 		{
+            $data['cat']['physical'] = array_values($data['cat']['physical']);
+            $data['cat']['virtual'] = array_values($data['cat']['virtual']);
 			$this->data->addBody(-140, $data);
 		}
 	}
@@ -387,10 +399,10 @@ class GroupBuyCtl extends Controller
 				$order_row['groupbuy_price'] = 'DESC';
 				break;
 			case 'ratedesc':
-				$order_row['groupbuy_rebate'] = 'ASC';
+				$order_row['groupbuy_rebate'] = 'DESC';
 				break;
 			case 'rateasc':
-				$order_row['groupbuy_rebate'] = 'DESC';
+				$order_row['groupbuy_rebate'] = 'ASC';
 				break;
 			case 'saledesc':
 				$order_row['groupbuy_virtual_quantity'] = 'DESC';
@@ -427,6 +439,8 @@ class GroupBuyCtl extends Controller
 		}
 		else
 		{
+            $data['cat']['physical'] = array_values($data['cat']['physical']);
+            $data['cat']['virtual'] = array_values($data['cat']['virtual']);
 			$this->data->addBody(-140, $data);
 		}
 	}
@@ -574,6 +588,8 @@ class GroupBuyCtl extends Controller
 		}
 		else
 		{
+            $data['data_foot_recommon_goods'] = $data_foot_recommon_goods;
+            $data['shop_base'] = $shop_detail;
 			$this->data->addBody(-140, $data);
 		}
 
