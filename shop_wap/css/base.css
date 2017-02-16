@@ -95,7 +95,7 @@ sub { vertical-align: text-bottom }
 .s-dialog-skin-block .s-dialog-content { color: #000;}
 .s-dialog-content h6 { display: block; font-size: 0.55rem; line-height: 0.9rem; color: #333;}
 .s-dialog-btn-wapper { display: block; padding: 0.6rem 0; border-top: solid 0.05rem rgba(0,0,0,0.15); font-size: 0; }
-.s-dialog-btn-wapper a { display: inline-block; width: 49%; font-size: 0.7rem; font-weight: 600; line-height: 0.9rem; color: #0080FF; text-align: center;margin-left: 2.6rem;}
+.s-dialog-btn-wapper a { display: inline-block; width: 49%; font-size: 0.7rem; font-weight: 600; line-height: 0.9rem; color: #0080FF; text-align: center;}
 /*.s-dialog-btn-wapper a:last-child { border-left: solid 0.05rem rgba(0,0,0,0.15);}*/
 .s-dialog-skin-block .s-dialog-btn-wapper a { color: #0080FF;}
 
