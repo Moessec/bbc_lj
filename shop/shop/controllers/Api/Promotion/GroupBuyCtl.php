@@ -45,11 +45,18 @@ class Api_Promotion_GroupBuyCtl extends Api_Controller
 		$groupbuy_name 	= trim(request_string('groupbuy_name'));   //团购活动名称
 		$goods_name    	= trim(request_string('goods_name'));        //团购商品名称
 		$shop_name     	= trim(request_string('shop_name'));         //店铺名称
+		$group_class_id = request_int('group_class');
 
 		if ($groupbuy_state)
 		{
 			$cond_row['groupbuy_state'] = $groupbuy_state;
 		}
+
+		if($group_class_id)
+		{
+			$cond_row['groupbuy_cat_id'] = $group_class_id;
+		}
+
 		if ($groupbuy_name)
 		{
 			$cond_row['groupbuy_name:LIKE'] = $groupbuy_name . '%';
@@ -62,6 +69,7 @@ class Api_Promotion_GroupBuyCtl extends Api_Controller
 		{
 			$cond_row['shop_name:LIKE'] = $shop_name . '%';
 		}
+
 
 		$data = $this->GroupBuy_BaseModel->getGroupBuyGoodsList($cond_row, array('groupbuy_id' => 'DESC'), $page, $rows);
 
@@ -462,5 +470,19 @@ class Api_Promotion_GroupBuyCtl extends Api_Controller
 		$this->data->addBody(-140, $data);
 	}
 
+	public function groupbuyClass()
+	{
+		$data  = $this->GroupBuy_CatModel->getByWhere(array(),array());
+		$data = array_values($data);
+		$result = array();
+		$result[0]['id'] = 0;
+		$result[0]['name'] = "团购分类";
+		foreach($data as $key=>$value)
+		{
+			$result[$key+1]['id'] = $value['groupbuy_cat_id'];
+			$result[$key+1]['name'] = $value['groupbuy_cat_name'];
+		}
 
+		$this->data->addBody(-140, $result);
+	}
 }
