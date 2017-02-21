@@ -328,10 +328,33 @@ class VoucherCtl extends Controller
 			$status = 250;
 		}
 		$data = $this->voucherTempModel->getOne($voucher_t_id);
-		$this->data->addBody(-140, $data, $msg, $status);
+		$this->data->addBody(-140, $data, $msg, $status, $voucher_t_row);
 	}
 	
-	
+	public function getVoucherByUserAndSeller()
+	{
+		$voucher_u_id                		= request_int('uid');
+		$voucher_s_id                		= request_int('sid');
+		$cond_row['voucher_owner_id']    		= $voucher_u_id;
+		$cond_row['voucher_shop_id']    		= $voucher_s_id;
+		$cond_row['voucher_t_state'] 		= Voucher_TempModel::VALID;
+
+		fb($cond_row);
+		$voucher_t_row = $this->voucherTempModel->getVoucherTempInfoByWhere($cond_row);
+		$data = $voucher_t_row;
+		
+
+		if('e' == $this->typ)
+		{
+			$this->view->setMet('detail');
+			include $this->view->getView();
+		}
+		else
+		{
+			$this->data->addBody(-140, $data);
+		}
+
+	}
 }
 
 ?>
