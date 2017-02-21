@@ -109,7 +109,51 @@ class PointsCtl extends Controller
 		}
 
 	}
+	public function getVoucher()
+	{
+			$cond_row_voucher_temp['voucher_t_state']      = Voucher_TempModel::VALID;
+		$cond_row_voucher_temp['voucher_t_end_date:>'] = get_date_time();
+		$order_row_voucher_temp['voucher_t_recommend'] = 'DESC';
+		$voucher_temp_rows                             = $this->voucherTempModel->getVoucherTempList($cond_row_voucher_temp, $order_row_voucher_temp, 0, 6);
+		$data['voucher']                               = $voucher_temp_rows['items'];
+		if('json' == $this->typ)
+		{
+			$this->data->addBody(-140, $data);
+		}
+		else
+		{
+			include $this->view->getView();
+		}
+	}
 
+	//手机端获取所有优惠券
+	public function getAllVouchers()
+	{
+		$cond_row = array();
+		$order_row = array();
+		$cond_row['voucher_t_state'] = Voucher_TempModel::VALID;
+        
+		$cond_row['shop_id'] = 5;
+		$cond_row['voucher_t_end_date:>='] = get_date_time();
+
+        
+		$Yf_Page           = new Yf_Page();
+		$Yf_Page->listRows = 5;
+		$rows              = $Yf_Page->listRows;
+		$offset            = request_int('firstRow', 0);
+		$page              = request_int('page', 0);
+
+		$data= $this->voucherTempModel->getVoucherTempList($cond_row, $order_row, $page, $rows);
+		
+		fb($data);
+		fb("列表！！！！");
+
+		$Yf_Page->totalRows = $data['totalsize'];
+		$page_nav           = $Yf_Page->prompt();
+	
+		$this->data->addBody(-140, $data);
+	}
+	
 	public function pList()
 	{
 		$order_row = array();
