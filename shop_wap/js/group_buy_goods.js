@@ -1,5 +1,5 @@
 var id = getQueryString("groupbuy_id")
-
+alert(id);
 //如果没有goods_id，则根据cid获取goods_id
 if(id)
 {
@@ -19,7 +19,7 @@ if(id)
                 var _TimeCountDown = $(".fnTimeCountDown");
                 _TimeCountDown.fnTimeCountDown();
 
-                $('body').on('click', '.ljgm', function(){alert(66);
+                $('body').on('click', '.ljgm', function(){alert(616);
                     window.location.href = WapSiteUrl+'/tmpl/product_detail.html?goods_id=' + data.groupbuy_detail.goods_id;
                 });
             } else {
