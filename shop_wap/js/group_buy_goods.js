@@ -19,7 +19,7 @@ if(id)
                 var _TimeCountDown = $(".fnTimeCountDown");
                 _TimeCountDown.fnTimeCountDown();
 
-                $('body').on('click', '.ljgm', function(){
+                $('body').on('click', '.ljgm', function(){alert(66);
                     window.location.href = WapSiteUrl+'/tmpl/product_detail.html?goods_id=' + data.groupbuy_detail.goods_id;
                 });
             } else {
