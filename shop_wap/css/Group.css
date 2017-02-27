@@ -56,10 +56,10 @@
 }
 
 .swiper-container-nav {
-    width: 74%;
+    width: 84%;
     margin: 0;
     float: left;
-    padding-left:10%;
+    _padding-left:10%;
 }
 
 
