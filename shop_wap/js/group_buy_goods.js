@@ -20,9 +20,6 @@ if(id)
                 _TimeCountDown.fnTimeCountDown();
 				
 				$('.ljgm').click(function(){
-					alert(99);return false;
-				});
-                $('body').on('click', '.ljgm', function(){alert(616);
                     window.location.href = WapSiteUrl+'/tmpl/product_detail.html?goods_id=' + data.groupbuy_detail.goods_id;
                 });
             } else {
