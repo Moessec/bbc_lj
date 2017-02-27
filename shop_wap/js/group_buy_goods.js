@@ -1,5 +1,5 @@
 var id = getQueryString("groupbuy_id")
-alert(id);
+
 //如果没有goods_id，则根据cid获取goods_id
 if(id)
 {
