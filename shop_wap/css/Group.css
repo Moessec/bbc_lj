@@ -563,7 +563,7 @@
 }
 
 .priceTime .time {
-    background: url(../images/G-jx.png) no-repeat;
+    background: url(../images/G-jx.png) no-repeat 0 -5px;
     background-size: 100%;
     height: 2rem;
     width: 35%;
