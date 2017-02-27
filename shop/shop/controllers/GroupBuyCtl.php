@@ -62,6 +62,7 @@ class GroupBuyCtl extends Controller
 
         $cond_row_phy_rec['groupbuy_type']        = GroupBuy_BaseModel::ONLINEGBY;
         $cond_row_phy_rec['groupbuy_recommend']  = GroupBuy_BaseModel::HIGHLYRECOMMEND;
+        $cond_row_phy_rec['groupbuy_state']  = GroupBuy_BaseModel::NORMAL;
         $order_row_phy_rec['groupbuy_id']         = 'DESC';
         $data['goods']['physical']['highly_recommend'] = $this->groupBuyBaseModel->getGroupBuyDetailByWhere($cond_row_phy_rec, $order_row_phy_rec);
 		$data['goods']['physical']['recommend'] = $this->groupBuyBaseModel->getGroupBuyGoodsList($cond_row_phy, $order_row, 0, 10);
