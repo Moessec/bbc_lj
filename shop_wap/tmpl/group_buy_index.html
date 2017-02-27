@@ -69,26 +69,28 @@
     </script>
 
     <script type="text/html" id="maskG">
+		<% if(cat.physical){ %>
         <div class="title">
             <a href="group_buy_list.html?groupbuy_type=1">线上团</a>
         </div>
         <ul class="list clearfix">
-            <% if(cat.physical){ %>
             <% var items = cat.physical %>
             <% for( var i in items ){ %>
             <li><a href="group_buy_list.html?groupbuy_type=1&groupbuy_cat_id=<%= items[i].groupbuy_cat_id %>"><%= items[i].groupbuy_cat_name %></a></li>
-            <% }} %>
+            <% } %>
         </ul>
+		<% } %>
+		<% if(cat.virtual){ %>
         <div class="title">
             <a href="group_buy_list.html?groupbuy_type=2">虚拟团</a>
         </div>
         <ul class="list clearfix">
-            <% if(cat.virtual){ %>
             <% var items = cat.virtual %>
             <% for( var i in items ){ %>
             <li><a href="group_buy_list.html?groupbuy_type=2&groupbuy_cat_id=<%= items[i].groupbuy_cat_id %>"><%= items[i].groupbuy_cat_name %></a></li>
-            <% }} %>
+            <% } %>
         </ul>
+		<% } %>
         <div class="X righttubiao"></div>
     </script>
 
