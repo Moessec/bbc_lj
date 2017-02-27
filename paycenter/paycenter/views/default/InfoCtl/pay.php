@@ -35,22 +35,19 @@ include $this->view->getTplPath() . '/' . 'header.php';
 			<div class="box clearfix">
 				<?php if($user_resource['user_recharge_card'] > 0){ ?>
 				<div>
-					<input type="checkbox" class="pay_yue" name="choice" value="cards" onclick="show_msg('cards');"><?=_('使用购物卡支付（可用余额：')?><?=format_money($user_resource['user_recharge_card'])?>）
+					<input type="checkbox" class="pay_yue" name="choice" value="cards"><?=_('使用购物卡支付（可用余额：')?><?=format_money($user_resource['user_recharge_card'])?>）
 					<input type="hidden" name="cards" id="cards" value="<?=($user_resource['user_recharge_card'])?>">
 					<!--  用购物卡支付的金额  -->
 					<input type="hidden" name="cards_pay" id="cards_pay" value="0"/>
-                    <span id="pay_yue_cards_span" style="margin-left:73px;color:red;"></span>
 				</div>
 				<?php }?>
 
 				<?php if($user_resource['user_money'] > 0){ ?>
 				<div>
-					<input type="checkbox" class="pay_yue" name="choice" value="money" onclick="show_msg('money');"><?=_('使用预存款支付（可用余额：')?><?=format_money($user_resource['user_money'])?>）
-                    
+					<input type="checkbox" class="pay_yue" name="choice" value="money"><?=_('使用预存款支付（可用余额：')?><?=format_money($user_resource['user_money'])?>）
 					<input type="hidden" name="money" id="money" value="<?=($user_resource['user_money'])?>">
 					<!--  用余额支付的金额  -->
 					<input type="hidden" name="money_pay" id="money_pay" value="0"/>
-                    <span id="pay_yue_money_span" style="margin-left:73px;color:red;"></span>
 				</div>
 				<?php }?>
 				<p id="pay_password" style="display: none;">
@@ -325,19 +322,6 @@ include $this->view->getTplPath() . '/' . 'header.php';
 				}
 			);
 		});
-        
-        function show_msg(type){
-            var money = $('#'+type).val();
-            var real_money = $("input[name='pay_amount']").val();
-            var diff_money = money - real_money;
-            diff_money = parseInt(diff_money*100);
-            if(diff_money < 0){
-                $('#pay_yue_'+type+'_span').html('可用余额不足');
-            }else{
-                $('#pay_yue_'+type+'_span').html('');
-            }
-        }
-        
 	</script>
 <?php
 include $this->view->getTplPath() . '/' . 'footer.php';
