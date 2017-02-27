@@ -572,20 +572,20 @@
 
 .priceTime .time .txt {
     text-align: center;
-    font-size: 0.4rem;
+    font-size: 16px;
     color: #6f1705;
     margin-bottom: 0.2rem;
 }
 
 .priceTime .time .hms {
-    font-size: .2rem;
+    font-size: 16px;
     text-align: center
 }
 
 .priceTime .time .hms span {
     background: rgba(0, 0, 0, .6);
     color: #fff;
-    font-size: 0.1rem;
+    font-size: 16px;
 }
 
 .list-txt {
