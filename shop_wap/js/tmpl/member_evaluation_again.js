@@ -83,14 +83,14 @@ $(function () {
 
                 evaluation.push(evaluation_little);
             }
-
+alert(71127);
             $.ajax({
                 type: "post",
                 url: ApiUrl + "/index.php?ctl=Goods_Evaluation&met=addGoodsEvaluation&typ=json",
                 data: { evaluation: evaluation},
                 dataType: "json",
                 async: false,
-                success: function (e) {
+                success: function (e) {alert(44);
                     /* checkLogin(e.login);
                     if (e.datas.error) {
                         $.sDialog({skin: "red", content: e.datas.error, okBtn: false, cancelBtn: false});
