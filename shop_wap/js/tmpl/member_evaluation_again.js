@@ -96,7 +96,7 @@ $(function () {
                         $.sDialog({skin: "red", content: e.datas.error, okBtn: false, cancelBtn: false});
                         return false
                     } */
-					alert(717);return false;
+					alert(717);
                     window.location.href = WapSiteUrl + "/tmpl/member/order_list.html"
                 }
             })
