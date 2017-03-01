@@ -83,7 +83,7 @@ $(function () {
 
                 evaluation.push(evaluation_little);
             }
-
+alert(666);return false;
             $.ajax({
                 type: "post",
                 url: ApiUrl + "/index.php?ctl=Goods_Evaluation&met=addGoodsEvaluation&typ=json",
