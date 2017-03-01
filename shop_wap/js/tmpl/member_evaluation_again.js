@@ -91,8 +91,8 @@ $(function () {
                 dataType: "json",
                 async: false,
                 success: function (e) {
-                    checkLogin(e.login);
-                    if (e.datas.error) {
+                    checkLogin(e.login);alert(66);
+                    if (e.datas.error) {alert(77);return false;
                         $.sDialog({skin: "red", content: e.datas.error, okBtn: false, cancelBtn: false});
                         return false
                     }
