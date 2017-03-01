@@ -52,7 +52,7 @@ $(function () {
             for (var t = 0; t < r.length; t++) {
                 l[r[t].name] = r[t].value
             }
-alert(66);return false;
+
             var evaluation = new Array();
             var order_goods_id_list = new Array();
             var order_goods_ids = $('input[name="order_goods_ids"]');
@@ -96,6 +96,7 @@ alert(66);return false;
                         $.sDialog({skin: "red", content: e.datas.error, okBtn: false, cancelBtn: false});
                         return false
                     }
+					alert(77);return false;
                     window.location.href = WapSiteUrl + "/tmpl/member/order_list.html"
                 }
             })
