@@ -91,12 +91,12 @@ $(function () {
                 dataType: "json",
                 async: false,
                 success: function (e) {
-                    checkLogin(e.login);alert(66);
-                    if (e.datas.error) {alert(77);return false;
+                    /* checkLogin(e.login);
+                    if (e.datas.error) {
                         $.sDialog({skin: "red", content: e.datas.error, okBtn: false, cancelBtn: false});
                         return false
-                    }
-					alert(77);return false;
+                    } */
+					alert(717);return false;
                     window.location.href = WapSiteUrl + "/tmpl/member/order_list.html"
                 }
             })
