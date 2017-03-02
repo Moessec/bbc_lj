@@ -88,7 +88,6 @@ function get_list()
             e = [];
             e.data.items = [];
         }
-        console.log(e.data.items);
         var html = template.render("store-lists-area", e);
         $(".store-lists-area").append(html);
 
