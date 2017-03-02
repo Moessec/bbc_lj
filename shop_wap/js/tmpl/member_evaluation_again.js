@@ -13,15 +13,15 @@ $(function () {
         }
         var l = template.render("member-evaluation-script", r.data);
         $("#member-evaluation-div").html(l);
-        $('input[name="upfile"]').ajaxUploadImage({
+        $('input[name="upfile"]').ajaxUploadImage({alert(1);
             url: ApiUrl + "/index.php?ctl=Upload&action=uploadImage",
             data: {key: e},
-            start: function (e) {
+            start: function (e) {alert(2);
                 e.parent().after('<div class="upload-loading"><i></i></div>');
                 e.parent().siblings(".pic-thumb").remove()
             },
             success: function (e, a) {
-                checkLogin(a.login);
+                checkLogin(a.login);alert(3);
                 if (a.state != 'SUCCESS') {alert(a.state);
                     e.parent().siblings(".upload-loading").remove();
                     $.sDialog({skin: "red", content: "图片尺寸过大！", okBtn: false, cancelBtn: false});
