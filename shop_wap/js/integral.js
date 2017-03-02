@@ -64,6 +64,14 @@ $(function() {
                     var userHtml = template.render("user", data);
                     $(".integral-ban").after(userHtml);
                 }
+
+                if(data.promotiom_img)
+                {
+                    $("#promotiom_img").attr('src',data.promotiom_img);
+                }else
+                {
+                    $("#promotiom_img").attr('src','../images/ban.png');
+                }
             } else {
                 $.sDialog({skin: "red", content: "网络异常", okBtn: false, cancelBtn: false});
             }
@@ -81,6 +89,11 @@ $(function() {
             success: function(data) {
                 if ( data.status == 200 ) {
                     var data = data.data, voucher_t_eachlimit = data.voucher_t_eachlimit;
+                    var params = {
+                        vid: v_id,
+                        k: getCookie("key"),
+                        u: getCookie("id")
+                    };
                     $.sDialog({ skin: "red",
                                 content: "每个ID限领" + voucher_t_eachlimit + "张",
                                 okBtn: true,
@@ -88,7 +101,7 @@ $(function() {
                                 okFn: function () {
                                     $.ajax({
                                         url: ApiUrl + "/index.php?ctl=Voucher&met=receiveVoucher&typ=json",
-                                        data: {vid: v_id},
+                                        data: params,
                                         type: 'post',
                                         dataType: 'json',
                                         success: function (data) {
