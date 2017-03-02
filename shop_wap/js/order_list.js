@@ -3,7 +3,7 @@ var curpage=1;
 var hasMore=true;
 var footer=false;
 var reset=true;
-var orderKey="";
+var orderKey="";alert(44);
 $(function(){
 	var e=getCookie("key");
 	if(!e){
