@@ -96,6 +96,7 @@ $(function () {
                         $.sDialog({skin: "red", content: e.datas.error, okBtn: false, cancelBtn: false});
                         return false
                     }
+					alert("追加成功");
                     window.location.href = WapSiteUrl + "/tmpl/member/order_list.html"
                 }
             })
