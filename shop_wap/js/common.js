@@ -113,8 +113,8 @@ function getSearchName() {
 	        $.getJSON(ApiUrl + '/index.php?ctl=Index&met=getSearchWords&typ=json', function(result) {
 	        	var data = result.data.hot_info;
 	        	if(typeof data.name != 'undefined') {
-	            	$('#keyword').attr('placeholder',data.name);
-	            	$('#keyword').html(data.name);
+//	            	$('#keyword').attr('placeholder',data.name);
+	            	$('#keyword').val(data.name);
 	            	addCookie('deft_key_name',data.name,1);
 	            	addCookie('deft_key_value',data.value,1);
 	        	} else {
@@ -123,8 +123,8 @@ function getSearchName() {
 	        	}
 	        })
 	    } else {
-	    	$('#keyword').attr('placeholder',getCookie('deft_key_name'));
-	    	$('#keyword').html(getCookie('deft_key_name'));
+//	    	$('#keyword').attr('placeholder',getCookie('deft_key_name'));
+//	    	$('#keyword').val(getCookie('deft_key_name'));
 	    }		
 	}
 }
@@ -599,7 +599,7 @@ $.fn.ajaxUploadImage = function(options) {
             try {
                 //执行上传操作
                 var xhr = new XMLHttpRequest();
-                xhr.open("post",options.url, true);
+                xhr.open("post",options.url+'&typ=json', true);
                 xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState == 4) {
@@ -818,6 +818,7 @@ function ucenterLogin()
         success: function(data){
 
             console.info(data);
+
             //已经登录
             if (200 == data.status)
             {
@@ -898,3 +899,19 @@ function ucenterLogin()
         }
     });
 }
+
+
+//修正title
+$(function() {
+
+    if (typeof(window.title) == 'undefined')
+    {
+    }
+    else
+    {
+        $('title').html(title + ' - ' + $('title').html())
+    }
+});
+
+
+
