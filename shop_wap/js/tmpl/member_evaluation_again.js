@@ -83,16 +83,16 @@ $(function () {
 
                 evaluation.push(evaluation_little);
             }
-alert(88);return false;
+            
             $.ajax({
                 type: "post",
-                url: ApiUrl + "/index.php?ctl=Goods_Evaluation&met=addGoodsEvaluation&typ=json",
-                data: { evaluation: evaluation},
+                url: ApiUrl + "/index.php?ctl=Goods_Evaluation&met=againWapGoodsEvaluation&typ=json",
+                data: { evaluation: evaluation, k:getCookie('key'), u: getCookie('id')},
                 dataType: "json",
                 async: false,
                 success: function (e) {
                     checkLogin(e.login);
-                    if (e.datas.error) {
+                    if (e.status == 250) {
                         $.sDialog({skin: "red", content: e.datas.error, okBtn: false, cancelBtn: false});
                         return false
                     }
