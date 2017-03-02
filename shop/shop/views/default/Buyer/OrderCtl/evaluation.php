@@ -12,7 +12,7 @@ $(function(){
 	$(".jqzoom").simagezoom();
 });
 </script>
-</div>
+</div>123123
         <div class="order_content">
           <form id="goodsevalform" method="get" class="tc">
             <input name="act" value="member_evaluate" type="hidden">
