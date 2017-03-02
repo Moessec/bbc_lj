@@ -40,33 +40,33 @@ $(function ()
         }
 
     }
-    $("#keyword").on("input", function ()
-    {
-        var e = $.trim($("#keyword").val());
-        if (e == "")
-        {
-            $("#search_tip_list_container").hide()
-        }
-        else
-        {
-            $.getJSON(ApiUrl + "/index.php?act=goods&op=auto_complete", {term: $("#keyword").val()}, function (e)
-            {
-                if (!e.data.error)
-                {
-                    var t = e.data;
-                    t.WapSiteUrl = WapSiteUrl;
-                    if (t.list.length > 0)
-                    {
-                        $("#search_tip_list_container").html(template.render("search_tip_list_script", t)).show()
-                    }
-                    else
-                    {
-                        $("#search_tip_list_container").hide()
-                    }
-                }
-            })
-        }
-    } );
+//    $("#keyword").on("input", function ()
+//    {
+//        var e = $.trim($("#keyword").val());
+//        if (e == "")
+//        {
+//            $("#search_tip_list_container").hide()
+//        }
+//        else
+//        {
+//            $.getJSON(ApiUrl + "/index.php?act=goods&op=auto_complete", {term: $("#keyword").val()}, function (e)
+//            {
+//                if (!e.data.error)
+//                {
+//                    var t = e.data;
+//                    t.WapSiteUrl = WapSiteUrl;
+//                    if (t.list.length > 0)
+//                    {
+//                        $("#search_tip_list_container").html(template.render("search_tip_list_script", t)).show()
+//                    }
+//                    else
+//                    {
+//                        $("#search_tip_list_container").hide()
+//                    }
+//                }
+//            })
+//        }
+//    } );
     $(".input-del").click(function ()
     {
         $(this).parent().removeClass("write").find("input").val("")
@@ -74,27 +74,72 @@ $(function ()
     template.helper("$buildUrl", buildUrl);
     $.getJSON(ApiUrl + "/index.php?ctl=Index&met=getSearchKeyList&typ=json", function (e)
     {
-        var t = e.data;
-        t.WapSiteUrl = WapSiteUrl;
-
-        if(window.localStorage && ('undefined' != typeof window.localStorage['his_list'])){
-            t['his_list'] = window.localStorage['his_list'].split(',');
-        }else{
+        var hot_list = e.data.list;
+        if(typeof(hot_list) !== 'undefined'  && hot_list!==''){
+          
+            for (var i = 0; i < hot_list.length; i++) {
+//                $('#hot_kw_url').append('<li><a class="hot_kw_url_click">' + hot_list[i] + '</a></li>');
+                $('#hot_kw_url').append('<li><a  href="' + buildUrl("keyword", hot_list[i]) + '">' + hot_list[i] + '</a></li>');
+            }
         }
 
-
-        $("#hot_list_container").html(template.render("hot_list", t));
-        $("#search_his_list_container").html(template.render("search_his_list", t))
+//        $("#hot_list_container").html(template.render("hot_list", t));
+//        $("#search_his_list_container").html(template.render("search_his_list", t))
     });
+    
     $("#header-nav").click(function ()
     {
-        if ($("#keyword").val() == "")
-        {
-            window.location.href = buildUrl("keyword", getCookie("deft_key_value") ? getCookie("deft_key_value") : "")
+	//判断cookie是否存在
+        var kw = $("#keyword").val();
+        add_keyword_cookie(kw);
+        
+	window.location.href = buildUrl("keyword", kw);
+
+    });
+    $('#clear-history').click(function(){
+        delCookie('hisSearch');
+        $('#history_kw_url li').remove();
+    });
+    // 初始化搜索记录
+    initlist();
+    function initlist() {
+        var history_wd = getCookie('hisSearch');
+        $('#history_kw_url li').remove();
+        if (history_wd) {
+            history_wds = history_wd.split(',');
+            for (var i = 0; i < history_wds.length; i++) {
+                $('#history_kw_url').append('<li><a href="' + buildUrl("keyword", history_wds[i]) + '">' + history_wds[i] + '</a></li>');
+            }
         }
-        else
-        {
-            window.location.href = buildUrl("keyword", $("#keyword").val())
+        return ;
+    };
+//    function go_keyword_url(keyword){
+//        //添加搜索记录
+//        add_keyword_cookie(keyword);
+//        window.location.href = buildUrl("keyword", keyword);
+//    } 
+    
+    function add_keyword_cookie(kw){
+        var history_wd = getCookie('hisSearch');
+        if (history_wd) {
+            history_wds = history_wd.split(',');
+            var wk_flag = 0;
+            for (var i = 0; i < history_wds.length; i++) {
+                if(history_wds[i] === kw){
+                    //存在就跳出
+                    wk_flag = 1;
+                    break;
+                }
+            }
+            if(wk_flag === 0){
+                //添加
+                addCookie('hisSearch',kw + ',' + history_wd);
+            }
+        }else{
+            //添加
+            addCookie('hisSearch', kw);
         }
-    })
+        return ;
+    }
+
 });
