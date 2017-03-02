@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 
 <head>
@@ -42,7 +43,7 @@
     </div>
     <footer id="footer" class="bottom"></footer>
     <script type="text/html" id="sfavorites_list">
-        <%if(items.length>0){%>
+        <%if(typeof(items)!='undefined' && items.length>0){%>
             <% for (var k in items) { var v = items[k]; %>
                 <li id="favitem_<%=v.shop_id %>">
                     <a href="<%=WapSiteUrl%>/tmpl/store.html?shop_id=<%=v.shop_id %>">
@@ -50,10 +51,9 @@
                         <dl class="store-info">
                             <dt class="store-name"><%=v.shop_name %></dt>
                             <dd><span>粉丝：<em><%=v.shop.shop_collect %></em>人</span><span>&nbsp;</span></dd>
-                            <!--<dd><span>粉丝：<em><%=v.shop_collect %></em>人</span><span>商品：<em><%=v.goods_count %></em>件</span></dd>-->
                         </dl>
                     </a>
-                    <a href="javascript:void(0);" nc_type="fav_del" data_id="<%=v.shop_id %>" class="del-fav"></a>
+                    <a href="javascript:void(0);" nc_type="fav_del" data_id="<%=v.shop_id %>" class="fav-del"></a>
                 </li>
                 <%}%>
                     <li class="loading">
