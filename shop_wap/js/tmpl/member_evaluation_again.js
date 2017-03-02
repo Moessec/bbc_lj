@@ -22,11 +22,11 @@ $(function () {
             },
             success: function (e, a) {
                 checkLogin(a.login);
-                if (a.state != 'SUCCESS') {
+                if (a.state != 'SUCCESS') {alert(a.state);
                     e.parent().siblings(".upload-loading").remove();
                     $.sDialog({skin: "red", content: "图片尺寸过大！", okBtn: false, cancelBtn: false});
                     return false
-                }
+                }alert(6655);
                 e.parent().after('<div class="pic-thumb"><img src="' + a.url + '"/></div>');
                 e.parent().siblings(".upload-loading").remove();
                 e.parents("a").next().val(a.url)
