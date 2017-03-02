@@ -2,7 +2,23 @@
     window.load = loadCss(WapSiteUrl+"/css/nctouch_products_list.css");
     window.load = loadCss(WapSiteUrl+"/css/nctouch_common.css");
 </script>
-
+<style>
+    #header .header-inp{
+        margin:0.2rem 4rem 0.3rem 2rem !important;
+    }
+    #search-btn{
+        position: absolute;
+        right: 2rem;
+        top: 0;
+        font-size: 0.7rem;
+        color: #666;
+        display: inline-block;
+        line-height: 1.8rem;
+    }
+    .header-r a i.more{
+        background-size: 40%;
+    }
+</style>
 <div class="goods-search-list-nav">
     <ul id="nav_ul">
         <li><a href="javascript:void(0);" class="current" id="sort_default">综合排序<i></i></a></li>
@@ -47,8 +63,8 @@
 </div>
 
 <script type="text/html" id="goods_list_tpl">
-    <% var goods_list = items; %>
-    <% if(goods_list.length >0){%>
+    <% var goods_list = data.items; %>
+    <% if(typeof(goods_list)!=='undefined' && goods_list.length >0){%>
     <% for (var k in goods_list) { var v = goods_list[k];%>
     <li class="goods-item" goods_id="<%=v.goods_id;%>">
 				<span class="goods-pic">
