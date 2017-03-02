@@ -21,6 +21,7 @@ $(function () {
     $("#goods_search").attr("href", "store_search.html?shop_id=" + e);
     $("#store_categroy").attr("href", "store_search.html?shop_id=" + e);
     $("#store_intro").attr("href", "store_intro.html?shop_id=" + e);
+    $("#reserve").attr("href", "service.html?shop_id=" + e);
     function o() {
         $("#store_sliders").each(function () {
             if ($(this).find(".item").length < 2) {
