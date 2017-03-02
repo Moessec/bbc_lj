@@ -22,7 +22,7 @@
     }
     else
     {
-        html += '<a class="logbtn"  href="javascript:void(0);">登录</a>'
+        html += '<a id="logbtn"  href="javascript:void(0);">登录</a>'
             + '<a id="regbtn" href="javascript:void(0);">注册</a>'
             + '<a href="' + WapSiteUrl + '/tmpl/member/login.html">反馈</a>';
     }
@@ -58,7 +58,7 @@
         window.location.href = login_url;
     });
 
-    $(".logbtn").click(function(){
+    $("#logbtn").click(function(){
 
         callback = WapSiteUrl + '/tmpl/member/member.html';
 
