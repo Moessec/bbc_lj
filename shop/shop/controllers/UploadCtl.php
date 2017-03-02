@@ -189,6 +189,7 @@ class UploadCtl extends Yf_AppController
 				'.txt',
 				'.md',
 				'.xml',
+				'.cvs',
 			),
 			'imageManagerActionName' => 'listImage',
 			'imageManagerListPath' => $dir_path . '/image/',
@@ -550,7 +551,7 @@ class UploadCtl extends Yf_AppController
 		$config = array(
 			"pathFormat" => $this->config['filePathFormat'],
 			"maxSize" => $this->config['fileMaxSize'],
-			"allowFiles" => array(".xls", ".xlsx")
+			"allowFiles" => array(".xls", ".xlsx", ".csv")
 		);
 
 		$field_name = $this->config['imageFieldName'];
@@ -591,6 +592,71 @@ class UploadCtl extends Yf_AppController
 		$info = $item->getFileInfo();
 
 		return $info;
+	}
+
+	public function uploadTaoBaoImage ()
+	{
+
+		$config = array(
+			"pathFormat" => $this->config['filePathFormat'],
+			"maxSize" => $this->config['fileMaxSize'],
+			"allowFiles" => array(".tbi", ".jpg")
+		);
+
+		$field_name = $this->config['fileFieldName'];
+
+
+		/* 生成上传实例对象并完成上传 */
+		$up = new Yf_Uploader($field_name, $config, "upload");
+
+		$result_info = $up->getFileInfo();
+
+		if ( $result_info['state'] == "SUCCESS" )
+		{
+			$original = explode(".", $result_info["original"]);
+			array_pop($original);
+			$original = implode("", $original);
+
+			$image_url = $result_info['url'];
+
+			$goodsCommonModel = new Goods_CommonModel();
+
+			$goods_common_data = $goodsCommonModel->getByWhere( array("common_image" => $original) );
+			
+			if ($goods_common_data)
+			{
+				$goods_common_data = current($goods_common_data);
+
+				$common_id = $goods_common_data['common_id'];
+				$goodsCommonModel->editCommon($common_id, array("common_image" => $image_url));
+			}
+
+			$goodsImagesModel = new Goods_ImagesModel();
+
+			$goods_image_data = $goodsImagesModel->getByWhere( array("images_image" => $original) );
+
+			if ($goods_image_data)
+			{
+				$goods_image_data = current($goods_image_data);
+				$images_id = $goods_image_data['images_id'];
+
+				$goodsImagesModel->editImages( $images_id, array("images_image" => $image_url) );
+			}
+
+			$goodsBaseModel = new Goods_BaseModel();
+			$goods_data = $goodsBaseModel->getByWhere( array("goods_image" => $original) );
+
+			if ($goods_data)
+			{
+				$goods_data = current($goods_data);
+				$goods_id = $goods_data['goods_id'];
+
+				$update_goods_data['goods_image'] = $image_url;
+				$goodsBaseModel->editBase($goods_id, $update_goods_data, false);
+			}
+		}
+
+		$this->data->addBody(-140, $result_info, "success", 200);
 	}
 }
 
