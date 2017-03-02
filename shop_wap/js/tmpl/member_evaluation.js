@@ -85,7 +85,7 @@ $(function () {
             $.ajax({
                 type: "post",
                 url: ApiUrl + "/index.php?ctl=Goods_Evaluation&met=addGoodsEvaluation&typ=json",
-                data: {evaluation: evaluation},
+                data: {evaluation: evaluation, k:getCookie('key'), u: getCookie('id')},
                 dataType: "json",
                 async: false,
                 success: function (e) {
