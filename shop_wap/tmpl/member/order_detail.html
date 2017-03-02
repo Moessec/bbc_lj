@@ -130,7 +130,9 @@
         </div>
         <div class="nctouch-order-item-bottom">
             <span><a href="chat_info.html?t_id=<%=shop_id%>"><i class="im"></i>联系客服</a></span>
-            <span><a tel="<%=shop_phone%>"><i class="tel"></i>拨打电话</a></span>
+            <% if(shop_phone){ %>
+            <span><a href="tel:<%=shop_phone%>" tel="<%=shop_phone%>"><i class="tel"></i>拨打电话</a></span>
+            <% } %>
         </div>
     </div>
     <div class="nctouch-oredr-detail-block mt5">
@@ -155,7 +157,7 @@
         <% if (order_status == 1) {%>
         <a href="javascript:void(0)" order_id="<%=order_id%>" class="btn cancel-order">取消订单</a>
         <% } %>
-        <% if (order_refund_status == 0 && order_status == 3) {%>
+        <% if (order_refund_status == 0) {%>
         <a href="javascript:void(0)" order_id="<%=order_id%>" class="btn all_refund_order">订单退款</a>
         <% } %>
         <% if (order_status == 4) { %>
