@@ -13,20 +13,20 @@ $(function () {
         }
         var l = template.render("member-evaluation-script", r.data);
         $("#member-evaluation-div").html(l);
-        $('input[name="upfile"]').ajaxUploadImage({alert(1);
+        $('input[name="upfile"]').ajaxUploadImage({
             url: ApiUrl + "/index.php?ctl=Upload&action=uploadImage",
             data: {key: e},
-            start: function (e) {alert(2);
+            start: function (e) {
                 e.parent().after('<div class="upload-loading"><i></i></div>');
                 e.parent().siblings(".pic-thumb").remove()
             },
             success: function (e, a) {
-                checkLogin(a.login);alert(3);
-                if (a.state != 'SUCCESS') {alert(a.state);
+                checkLogin(a.login);
+                if (a.state != 'SUCCESS') {
                     e.parent().siblings(".upload-loading").remove();
                     $.sDialog({skin: "red", content: "图片尺寸过大！", okBtn: false, cancelBtn: false});
                     return false
-                }alert(6655);
+                }
                 e.parent().after('<div class="pic-thumb"><img src="' + a.url + '"/></div>');
                 e.parent().siblings(".upload-loading").remove();
                 e.parents("a").next().val(a.url)
