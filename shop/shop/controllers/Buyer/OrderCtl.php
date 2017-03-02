@@ -124,7 +124,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 		}
 
 		fb($data);
-		
+		$data = array(1,2);
 		if ('json' == $this->typ)
 		{
 			$this->data->addBody(-140, $data);
@@ -1399,7 +1399,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 
 			$data = array();
 		}
-$data['aa']='12312';
+
 		fb($flag);
 		$this->data->addBody(-140, $data, $msg, $status);
 
