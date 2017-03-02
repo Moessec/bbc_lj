@@ -83,7 +83,7 @@ $(function () {
 
                 evaluation.push(evaluation_little);
             }
-            
+
             $.ajax({
                 type: "post",
                 url: ApiUrl + "/index.php?ctl=Goods_Evaluation&met=againWapGoodsEvaluation&typ=json",
@@ -96,7 +96,6 @@ $(function () {
                         $.sDialog({skin: "red", content: e.datas.error, okBtn: false, cancelBtn: false});
                         return false
                     }
-					alert("追加成功");
                     window.location.href = WapSiteUrl + "/tmpl/member/order_list.html"
                 }
             })
