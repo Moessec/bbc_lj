@@ -22,6 +22,10 @@ else
 
 ?>
 
+    if (typeof(window.title) == 'undefined')
+    {
+        window.title = '商城触屏版';
+    }
 	
 	//扩展函数,需要放入lib
 	function _($str)
