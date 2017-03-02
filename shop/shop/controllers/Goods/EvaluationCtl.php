@@ -298,7 +298,12 @@ class Goods_EvaluationCtl extends Yf_AppController
 
 		$flag = $this->goodsEvaluationModel->addEvalution($add_row);
 
-
+		$Order_BaseModel = new Order_BaseModel();
+		//修改订单中的已评价信息
+		$edit_order = array();
+		$edit_order['order_buyer_evaluation_status_finish']   = 1;
+		$Order_BaseModel->editBase($order_id, $edit_order);
+		
 		if ($flag && $this->goodsEvaluationModel->sql->commitDb())
 		{
 			$status = 200;
@@ -441,6 +446,12 @@ class Goods_EvaluationCtl extends Yf_AppController
             $add_row['status']      = Goods_EvaluationModel::SHOW;
 
             $flag = $this->goodsEvaluationModel->addEvalution($add_row);
+			
+			
+			//修改订单中的已评价信息
+			$edit_order = array();
+			$edit_order['order_buyer_evaluation_status_finish']   = 1;
+			$Order_BaseModel->editBase($order_base['order_id'], $edit_order);
 
         }
 
