@@ -6,7 +6,7 @@ $(function () {
         return
     }
     var a = getQueryString("order_id");
-    $.getJSON(ApiUrl + "/index.php?ctl=Buyer_Order&met=evaluation&act=add&typ=json", {k: e,u:u, order_id: a}, function (r) {
+    $.getJSON(ApiUrl + "/index.php?ctl=Buyer_Order&met=evaluation&typ=json", {k: e,u:u, order_id: a}, function (r) {
         if (r.status == 250) {
             $.sDialog({skin: "red", content: r.msg, okBtn: false, cancelBtn: false});
             return false
