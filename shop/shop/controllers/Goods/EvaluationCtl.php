@@ -358,6 +358,155 @@ class Goods_EvaluationCtl extends Yf_AppController
 		$this->data->addBody(-140, array(), $msg, $status);
 	}
 
+/*
+* wap追加商品评论
+*
+* @access public
+*/
+    public function againWapGoodsEvaluation()
+    {
+        //开启事物
+        $this->goodsEvaluationModel->sql->startTransactionDb();
+
+
+        if (Perm::checkUserPerm())
+        {
+            $user_id      = Perm::$row['user_id'];
+            $user_account = Perm::$row['user_account'];
+        }
+
+        $evaluation = request_row('evaluation');
+
+
+        foreach($evaluation as $key => $val)
+        {
+            //订单商品信息
+            $Order_GoodsModel = new Order_GoodsModel();
+            $order_goods      = $Order_GoodsModel->getOne($val[0]);
+
+            //商品信息
+            $Goods_BaseModel = new Goods_BaseModel();
+            $goods_base      = $Goods_BaseModel->getOne($order_goods['goods_id']);
+
+            //订单信息
+            $Order_BaseModel = new Order_BaseModel();
+            $order_base      = $Order_BaseModel->getOne($order_goods['order_id']);
+
+            $Goods_CommonModel = new Goods_CommonModel();
+
+            $matche_row = array();
+            //有违禁词
+            if (Text_Filter::checkBanned($val[3], $matche_row))
+            {
+                $data   = array();
+                $msg    = _('含有违禁词');
+                $status = 250;
+                $this->data->addBody(-140, array(), $msg, $status);
+                return false;
+            }
+
+            //修改商品的评价
+            $evaluation_num = $this->goodsEvaluationModel->countEvaluation($order_goods['goods_id']);
+            $goods_evaluation_count     = $evaluation_num * 1 + 1;
+
+            $edit_row                               = array();
+            $edit_row['goods_evaluation_count']     = $goods_evaluation_count;
+
+            $Goods_BaseModel = new Goods_BaseModel();
+            $Goods_BaseModel->editBase($order_goods['goods_id'], $edit_row);
+
+            //修改商品common表中的评论数量
+//            $edit_common_row['common_evaluate'] = 1;
+//            $Goods_CommonModel->editCommonTrue($order_goods['common_id'],$edit_common_row);
+
+
+            //插入商品评价表
+            $add_row                = array();
+            $add_row['user_id']     = $user_id;
+            $add_row['member_name'] = $user_account;
+            $add_row['order_id']    = $order_base['order_id'];    //订单id
+            $add_row['shop_id']     = $order_base['shop_id'];        //商家id
+            $add_row['shop_name']   = $order_base['shop_name'];    //店铺名称
+            $add_row['common_id']   = $order_goods['common_id'];
+            $add_row['goods_id']    = $order_goods['goods_id'];    //商品id
+            $add_row['goods_name']  = $order_goods['goods_name'];//商品名称
+            $add_row['goods_price'] = $order_goods['goods_price'];    //商品价格
+            $add_row['goods_image'] = $order_goods['goods_image'];    //商品图片
+            $add_row['scores']      = $val[1];
+            $add_row['result']      = $val[2];
+            $add_row['content']     = $val[3];
+            $add_row['image']       = $val[4];
+            $add_row['isanonymous'] = request_int('isanonymous');    //是否匿名
+            $add_row['create_time'] = get_date_time();        //创建时间
+            $add_row['status']      = Goods_EvaluationModel::SHOW;
+
+            $flag = $this->goodsEvaluationModel->addEvalution($add_row);
+
+        }
+
+
+        if ($flag && $this->goodsEvaluationModel->sql->commitDb())
+        {
+            $status = 200;
+            $msg    = _('success');
+
+            /*
+            *  经验与成长值
+            */
+            $user_points = Web_ConfigModel::value("points_evaluate");
+            $user_grade  = Web_ConfigModel::value("grade_evaluate");
+
+            $User_ResourceModel = new User_ResourceModel();
+            //获取积分经验值
+            $ce = $User_ResourceModel->getResource(Perm::$userId);
+
+            $resource_row['user_points'] = $ce[Perm::$userId]['user_points'] * 1 + $user_points * 1;
+            $resource_row['user_growth'] = $ce[Perm::$userId]['user_growth'] * 1 + $user_grade * 1;
+
+            $res_flag = $User_ResourceModel->editResource(Perm::$userId, $resource_row);
+
+            $User_GradeModel = new User_GradeModel;
+            //升级判断
+            $res_flag = $User_GradeModel->upGrade(Perm::$userId, $resource_row['user_growth']);
+            //积分
+            $points_row['user_id']           = Perm::$userId;
+            $points_row['user_name']         = Perm::$row['user_account'];
+            $points_row['class_id']          = Points_LogModel::ONEVALUATION;
+            $points_row['points_log_points'] = $user_points;
+            $points_row['points_log_time']   = get_date_time();
+            $points_row['points_log_desc']   = '评价订单';
+            $points_row['points_log_flag']   = 'evaluation';
+
+            $Points_LogModel = new Points_LogModel();
+
+            $Points_LogModel->addLog($points_row);
+
+            //成长值
+            $grade_row['user_id']         = Perm::$userId;
+            $grade_row['user_name']       = Perm::$row['user_account'];
+            $grade_row['class_id']        = Grade_LogModel::ONEVALUATION;
+            $grade_row['grade_log_grade'] = $user_grade;
+            $grade_row['grade_log_time']  = get_date_time();
+            $grade_row['grade_log_desc']  = '评价订单';
+            $grade_row['grade_log_flag']  = 'evaluation';
+
+            $Grade_LogModel = new Grade_LogModel;
+            $Grade_LogModel->addLog($grade_row);
+        }
+        else
+        {
+            $this->goodsEvaluationModel->sql->rollBackDb();
+            $m      = $this->goodsEvaluationModel->msg->getMessages();
+            $msg    = $m ? $m[0] : _('failure');
+            $status = 250;
+        }
+
+        $this->data->addBody(-140, array(), $msg, $status);
+
+
+    }
+
 }
+
 
 ?>
