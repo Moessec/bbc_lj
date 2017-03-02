@@ -6,8 +6,13 @@ var price_from = getQueryString("price_from");
 var price_to = getQueryString("price_to");
 var stc_id = getQueryString("stc_id");
 var prom_type = getQueryString("prom_type");
-var load_class_storegoodslist = new ncScrollLoad;
+//var load_class_storegoodslist = new ncScrollLoad;
 var isload_goods = false;
+var pagesize = pagesize;
+var curpage = 1;
+var firstRow = 0;
+var hasmore = true;
+var footer = false;
 $(function () {
     $("#show_style").click(function () {
         var e = $('[nc_type="product_content"]');
@@ -124,62 +129,41 @@ $(function () {
         $('input[nctype="price"]').val("")
     });
     get_list()
+    $(window).scroll(function ()
+    {
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - 1)
+        {
+            get_list()
+        }
+    });
 });
-function get_list(e, r) {
-    if (isload_goods) {
-        $.sDialog({skin: "green", content: "搜索过于频繁，请稍后再进行搜索", okBtn: false, cancelBtn: false});
+function get_list()
+{
+    $(".loading").remove();
+    if (!hasmore)
+    {
         return false
     }
-    isload_goods = true;
-    if (!r) {
-        r = false
-    }
-    if (r == false && e) {
-        if (e.keyword) {
-            keyword = e.keyword
-        }
-        if (e.price_from) {
-            price_from = e.price_from
-        }
-        if (e.price_to) {
-            price_to = e.price_to
-        }
-        if (e.stc_id) {
-            stc_id = e.stc_id
-        }
-        if (e.prom_type) {
-            prom_type = e.prom_type
-        }
-    }
-    if (e) {
-        if (e.order_key) {
-            order_key = e.order_key
-        }
-        if (e.order_val) {
-            order_val = e.order_val
-        }
-    }
+    hasmore = false;
     param = {};
+    param.pagesize = pagesize;
+    param.curpage = curpage;
+    param.firstRow = firstRow;
     param.id = shop_id;
-    if (r == false) {
-        if (keyword) {
-            param.search = keyword
-        }
-        if (price_from) {
-            param.price_from = price_from
-        }
-        if (price_to) {
-            param.price_to = price_to
-        }
-        if (stc_id) {
-            param.catid = stc_id
-        }
-        if (prom_type) {
-            param.prom_type = prom_type
-        }
-    } else {
-        price_from = "";
-        price_to = ""
+    if (keyword) {
+        param.search = keyword
+    }
+    if (price_from) {
+        param.price_from = price_from
+    }
+    if (price_to) {
+        param.price_to = price_to
+    }
+    if (stc_id) {
+        param.catid = stc_id
+    }
+    if (prom_type) {
+        param.prom_type = prom_type
     }
     if (order_key) {
         if ( order_key == 2 ) {
@@ -197,15 +181,120 @@ function get_list(e, r) {
             param.sort = 'asc';
         }
     }
-    load_class_storegoodslist.loadInit({
-        url: ApiUrl + "/index.php?ctl=Shop&met=goodsList&typ=json",
-        getparam: param,
-        tmplid: "goods_list_tpl",
-        containerobj: $("#product_list"),
-        data: {key: order_key, order: order_val},
-        iIntervalId: true,
-        callback: function () {
-            isload_goods = false
+    $.getJSON(ApiUrl + "/index.php?ctl=Shop&met=goodsList&typ=json" + window.location.search.replace("?", "&"), param, function (e)
+    {
+        if (!e)
+        {
+            e = [];
+            e.datas = [];
+            e.data.goods_list = []
         }
+        $(".loading").remove();
+        curpage++;
+        console.info(e);
+//        var r = template.render("home_body", e);
+        var r = template.render("goods_list_tpl", e);
+
+        $("#product_list").append(r);
+        //hasmore = e.hasmore
+       if(e.data.page < e.data.total)
+       {
+           firstRow = e.data.records;
+           hasmore = true;
+       }
+        else
+       {
+           hasmore = false;
+       }
     })
 }
+
+//function get_list(e, r) {
+//    if (isload_goods) {
+//        $.sDialog({skin: "green", content: "搜索过于频繁，请稍后再进行搜索", okBtn: false, cancelBtn: false});
+//        return false
+//    }
+//    isload_goods = true;
+//    if (!r) {
+//        r = false
+//    }
+//    if (r == false && e) {
+//        if (e.keyword) {
+//            keyword = e.keyword
+//        }
+//        if (e.price_from) {
+//            price_from = e.price_from
+//        }
+//        if (e.price_to) {
+//            price_to = e.price_to
+//        }
+//        if (e.stc_id) {
+//            stc_id = e.stc_id
+//        }
+//        if (e.prom_type) {
+//            prom_type = e.prom_type
+//        }
+//    }
+//    if (e) {
+//        if (e.order_key) {
+//            order_key = e.order_key
+//        }
+//        if (e.order_val) {
+//            order_val = e.order_val
+//        }
+//    }
+//    param = {};
+//    param.id = shop_id;
+//    if (r == false) {
+//        if (keyword) {
+//            param.search = keyword
+//        }
+//        if (price_from) {
+//            param.price_from = price_from
+//        }
+//        if (price_to) {
+//            param.price_to = price_to
+//        }
+//        if (stc_id) {
+//            param.catid = stc_id
+//        }
+//        if (prom_type) {
+//            param.prom_type = prom_type
+//        }
+//    } else {
+//        price_from = "";
+//        price_to = ""
+//    }
+//    if (order_key) {
+//        if ( order_key == 2 ) {
+//            param.order = 'common_price';
+//        } else if ( order_key == 3 ) {
+//            param.order = 'common_salenum';
+//        } else if ( order_key == 5 ) {
+//            param.order = 'common_collect';
+//        }
+//    }
+//    if (order_val) {
+//        if ( order_val == 2 ) {
+//            param.sort = 'desc';
+//        } else if ( order_val == 1 ) {
+//            param.sort = 'asc';
+//        }
+//    }
+//    param = {};
+//    param.pagesize = pagesize;
+//    param.curpage = curpage;
+//    param.firstRow = firstRow;
+//    
+//    load_class_storegoodslist.loadInit({
+//        url: ApiUrl + "/index.php?ctl=Shop&met=goodsList&typ=json",
+//        getparam: param,
+//        tmplid: "goods_list_tpl",
+//        containerobj: $("#product_list"),
+//        data: {key: order_key, order: order_val},
+//        iIntervalId: true,
+//        callback: function () {
+//            isload_goods = false
+//        }
+//    })
+//}
