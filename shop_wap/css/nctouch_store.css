@@ -5,7 +5,7 @@
 .nctouch-store-header .header-inp { margin: 0.275rem 3.8rem 0 2rem;}
 .nctouch-store-header .header-r a { padding: 0.5rem 0.6rem 0.5rem 0.2rem;}
 .nctouch-store-header .header-r a.store-categroy { width: 1.275rem; height: 1.575rem; padding: 0.2rem 0.4rem 0.2rem 0.1rem;}
-.nctouch-store-header .header-r a.store-categroy i  { width: 100%; background-image: url(../images/stiore_categroy_b.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 100%; opacity: 0.60;}
+.nctouch-store-header .header-r a.store-categroy i  { width: 100%; background-image: url(../images/categroy.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 100%; opacity: 0.60;}
 
 /*店铺首页上部*/
 .nctouch-store-top { position: relative; z-index: 1; width: 100%; height: 4.5rem;}
@@ -43,7 +43,7 @@
 
 .nctouch-store-block { display: block; clear: both; background-color: #FFF; border-bottom: solid 0.05rem #EEE; border-top: solid 0.05rem #EEE; margin-top: 0.5rem;}
 .nctouch-store-block .title { display: block; font-size: 0.7rem; line-height: 1rem; padding: 0.5rem;}
-.nctouch-store-block ul { display: block; padding-left: 0.5rem; overflow: hidden;}
+.nctouch-store-block ul { display: block;overflow: hidden;}
 .nctouch-store-block li { display: block; min-height: 1rem; padding: 0.5rem 0; font-size: 0; line-height: 1rem; border-bottom: solid 0.05rem #EEE; position: relative; z-index: 1;}
 .nctouch-store-block li:last-child { border-bottom: none 0;}
 .nctouch-store-block li h4 { display: inline-block; vertical-align: top; width: 3.5rem; color: #888; font-size: 0.6rem;}
@@ -65,7 +65,7 @@
 
 .nctouch-store-sliders { display: block; background-color: #FFF; width: 95%; height: 6rem; margin: 2.5%; position: relative; overflow: hidden;}
 .nctouch-store-sliders .swipe-wrap { position: relative; white-space: nowrap; height: auto; overflow: hidden; font-size: 0; }
-.nctouch-store-sliders .swipe-wrap li { display: inline-block; position: relative; height: 6rem;}
+.nctouch-store-sliders .swipe-wrap li { display: inline-block; position: relative;}
 .nctouch-store-sliders .swipe-wrap li a { display: block; width: 100%; height: 100%;}
 .nctouch-store-sliders .swipe-wrap img { width: 100%; height: 100%;}
 
