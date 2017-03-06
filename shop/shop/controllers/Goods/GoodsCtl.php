@@ -1594,7 +1594,7 @@ class Goods_GoodsCtl extends Controller
  }
   public function getwap_banner()
 	 {
-	 	$config_type = 'wap_index_banner';
+	 	$config_type = 'index_slider';
 
 	 	//$rows = $this->advWapAdvModel->getConfigValue($config_type);
 	 	$Web_ConfigModel = new Web_ConfigModel();
@@ -1678,11 +1678,11 @@ class Goods_GoodsCtl extends Controller
 		{
 			$cond_row['common_is_virtual'] = Goods_CommonModel::GOODS_VIRTUAL;
 		}
-           
-			// $cond_row['shop_id'] = $shop_id;
-			$cond_row['shop_id'] = 5;
+
+			$cond_row['shop_id'] = $shop_id;
 			$cond_row['shop_goods_cat_id'] = '["'.$shop_goods_cat_id.'"]';
 
+// var_dump($cond_row);die;
 			if($act&&$actorder)
 			{
 				if($act=='common_sale')
@@ -1907,6 +1907,244 @@ function cur_goodslist()
 
 		}
 }		
+
+	//获取微信开门指令事件函数
+	function add_community()
+	{
+
+		// $data = 1;
+		$app_key = request_string('app_key');
+		$agt_num = request_int('agt_num');
+		$depart_name = request_string('depart_name');
+		$city_code = request_string('city_code');
+
+
+			// post方式
+			$curlPost = "app_key=".$app_key."&agt_num=".$agt_num."&depart_name=".$depart_name."&city_code=".$city_code; 
+			$ch=curl_init(); 
+			curl_setopt($ch,CURLOPT_URL,'http://121.40.204.191:8180/mdserver/service/addCommunity'); 
+			curl_setopt($ch,CURLOPT_HEADER,0); 
+			//如果成功只将结果返回，不自动输出返回的内容。
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER,1); 
+			//设置是通过post还是get方法
+			curl_setopt($ch,CURLOPT_POST,1); 
+			//传递的变量
+			curl_setopt($ch,CURLOPT_POSTFIELDS,$curlPost); 
+			$data = curl_exec($ch);
+			curl_close($ch);
+			$data = json_decode($data,true);
+			if(is_array($data['data']))
+			{
+				$arr['agtcode']   		 = $data['data']['agtcode'];
+				$arr['departid']   		 = $data['data']['departid'];
+				$arr['departname'] 		 = $data['data']['departname'];
+				$arr['createsysdate']    = $data['data']['createsysdate'];
+
+				$community = new Community_AddcommunityModel();
+				$flag = $community->add_community($arr);
+				if($flag)
+				{
+					// post方式
+					$curlPost = "app_key=".$app_key."&agt_num=".$agt_num."&pid=BLZXC161002448&install_lock_name=1单元门啊啊啊&departid=".$arr['departid']; 
+					$ch=curl_init(); 
+					curl_setopt($ch,CURLOPT_URL,'http://121.40.204.191:8180/mdserver/service/installLock'); 
+					curl_setopt($ch,CURLOPT_HEADER,0); 
+					//如果成功只将结果返回，不自动输出返回的内容。
+					curl_setopt($ch,CURLOPT_RETURNTRANSFER,1); 
+					//设置是通过post还是get方法
+					curl_setopt($ch,CURLOPT_POST,1); 
+					//传递的变量
+					curl_setopt($ch,CURLOPT_POSTFIELDS,$curlPost); 
+					$data1 = curl_exec($ch);
+					curl_close($ch);
+					$data1 = json_decode($data1,true);
+					$data1['data']['pid'] = 'BLZXC161002448';
+					// var_dump($arr['departid'],$data1);die;
+					$flagedit = $community->edit_community($arr['departid'],$data1['data']);
+					if($flagedit)
+					{
+						$data['status'] = 'success';
+					}else{
+						echo 1111;die;
+					}
+				}
+			}
+
+		    //保存本地数据库
+			if ('json' == $this->typ)
+			{
+				$this->data->addBody(-140, $data);
+
+			}
+	}
+
+
+	//查询门禁信息
+	function get_community_info()
+	{
+
+		// $data = 1;
+		$app_key = request_string('app_key');
+		$agt_num = request_int('agt_num');
+		$departid = '10040000137';
+		$depart_name = '景瑞';
+
+
+
+			// post方式
+			$curlPost = "app_key=".$app_key."&agt_num=".$agt_num."&departid=".$departid; 
+			$ch=curl_init(); 
+			curl_setopt($ch,CURLOPT_URL,'http://121.40.204.191:8180/mdserver/service/getCommunity'); 
+			curl_setopt($ch,CURLOPT_HEADER,0); 
+			//如果成功只将结果返回，不自动输出返回的内容。
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER,1); 
+			//设置是通过post还是get方法
+			curl_setopt($ch,CURLOPT_POST,1); 
+			//传递的变量
+			curl_setopt($ch,CURLOPT_POSTFIELDS,$curlPost); 
+			$data = curl_exec($ch);
+			curl_close($ch);
+			$data = json_decode($data,true);
+			// var_dump($data);die;
+		    //保存本地数据库
+			if ('json' == $this->typ)
+			{
+				$this->data->addBody(-140, $data);
+
+			}
+	}	
+	//查询门禁设备信息
+	function query_device()
+	{
+
+		$app_key = request_string('app_key');
+		$agt_num = request_int('agt_num');
+		$departid = '10040000137';
+			// post方式
+			$curlPost = "app_key=".$app_key."&agt_num=".$agt_num."&departid=".$departid; 
+			$ch=curl_init(); 
+			curl_setopt($ch,CURLOPT_URL,'http://121.40.204.191:8180/mdserver/service/queryDevice'); 
+			curl_setopt($ch,CURLOPT_HEADER,0); 
+			//如果成功只将结果返回，不自动输出返回的内容。
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER,1); 
+			//设置是通过post还是get方法
+			curl_setopt($ch,CURLOPT_POST,1); 
+			//传递的变量
+			curl_setopt($ch,CURLOPT_POSTFIELDS,$curlPost); 
+			$data = curl_exec($ch);
+			curl_close($ch);
+			$data = json_decode($data,true);
+			// var_dump($data);die;
+		    //保存本地数据库
+			if ('json' == $this->typ)
+			{
+				$this->data->addBody(-140, $data);
+
+			}
+	}
+	//获取钥匙信息
+	function query_keys()
+	{
+
+			$app_key = request_string('app_key');
+			$agt_num = request_int('agt_num');
+			$pid = "BLZXC161002448";
+			$user_id  = 18582226472;
+			$validity = 20170505;
+			// post方式
+			$curlPost = "app_key=".$app_key."&agt_num=".$agt_num."&pid=".$pid."&user_id=".$user_id."&validity=".$validity; 
+			$ch=curl_init(); 
+			curl_setopt($ch,CURLOPT_URL,'http://121.40.204.191:8180/mdserver/service/qryKeys'); 
+			curl_setopt($ch,CURLOPT_HEADER,0); 
+			//如果成功只将结果返回，不自动输出返回的内容。
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER,1); 
+			//设置是通过post还是get方法
+			curl_setopt($ch,CURLOPT_POST,1); 
+			//传递的变量
+			curl_setopt($ch,CURLOPT_POSTFIELDS,$curlPost); 
+			$data = curl_exec($ch);
+			curl_close($ch);
+			$data = json_decode($data,true);
+			var_dump($data);die;
+		    //保存本地数据库
+			if ('json' == $this->typ)
+			{
+				$this->data->addBody(-140, $data);
+
+			}
+	}
+
+    //http://localhost/bbc_lj/shop/index.php?ctl=Goods_Goods&met=getInfo4Key&typ=json&agt_num=10040&app_key=de53602b714d494e8b59baf29ca4d3a9&gid=gh_de2e1b6ac2b9&ktype=0&ksid=164312
+	//获取获取微信开门相关信息device_id
+	function getInfo4Key(){
+
+			$app_key = request_string('app_key');
+			$agt_num = request_int('agt_num');
+			$pid = "BLZXC161002448";
+			$gid = "gh_de2e1b6ac2b9";
+			$ktype = 0;
+			$ksid  = '164104';
+			// echo 1;die;
+		    // post方式
+			$curlPost = "app_key=".$app_key."&agt_num=".$agt_num."&pid=".$pid."&gid=".$gid."&ktype=".$ktype."&ksid=".$ksid; 
+			$ch=curl_init(); 
+			curl_setopt($ch,CURLOPT_URL,'http://121.40.204.191:8180/mdserver/pservice/getInfo4KeyService.aspx'); 
+			curl_setopt($ch,CURLOPT_HEADER,0); 
+			//如果成功只将结果返回，不自动输出返回的内容。
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER,1); 
+			//设置是通过post还是get方法
+			curl_setopt($ch,CURLOPT_POST,1); 
+			//传递的变量
+			curl_setopt($ch,CURLOPT_POSTFIELDS,$curlPost); 
+			$data = curl_exec($ch);
+			curl_close($ch);
+			$data = json_decode($data,true);
+
+			// var_dump($data);die;
+		    //保存本地数据库
+			if ('json' == $this->typ)
+			{
+				$this->data->addBody(-140, $data);
+
+			}		
+	}
+// 微信数据的绑定（第一次使用）
+function bindDevice(){
+	// echo 1;die;
+	 $url = "http://t.linjias.com/wxdevice.php";
+	 $url = urlencode($url);
+	 // var_dump($url);die;
+			$device_id = 'BLZXC161002448_gh_de2e1b6ac2b9';
+			$wx_key = "8el+56mnCefD1jMQLD3uri+KalrBIl/cny534ADc7KdDf9sAMeBeIdpQYUbJ8ctxA4F20p4jSVlA2AgIZiEsrUZ0kmIsUlUQlGBbGt1Mtrdm3W1Ka83T3wSv20mcOHZOnNzaT+asvhIQyth+1RpzKy6CE+RZuQ0Bq/Nl4vE+RYI=";
+			$app_key = request_string('app_key');
+			$agt_num = request_int('agt_num');
+			$openid = 'oFqE-vxafpk5DdHSG2EksK-ATIBg';
+			$ticket = request_string('ticket');
+			$access_token = '-0gqxZ7AT5o5Razx64zIv0dJhHnYKispRHtkcoa02CkFq3rOMN3hIPtttzHMyyfE3eo4C41xiBCyCF7skqgSljJrQFvxk0LtLnf-hzxfX_1U20ryHHOzZF7YYBKRh_ziUYGhAJANRZ';
+			$curlPost = "app_key=".$app_key."&agt_num=".$agt_num."&openid=".$openid."&device_id=".$device_id."&ticket=".$ticket."&access_token=".$access_token; 
+			$ch=curl_init(); 
+			curl_setopt($ch,CURLOPT_URL,'http://121.40.204.191:8180/mdserver/pservice/getInfo4KeyService.aspx'); 
+			curl_setopt($ch,CURLOPT_HEADER,0); 
+			//如果成功只将结果返回，不自动输出返回的内容。
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER,1); 
+			//设置是通过post还是get方法
+			curl_setopt($ch,CURLOPT_POST,1); 
+			//传递的变量
+			curl_setopt($ch,CURLOPT_POSTFIELDS,$curlPost); 
+			$data = curl_exec($ch);
+			curl_close($ch);
+			$data = json_decode($data,true);
+
+			// var_dump($data);die;
+		    //保存本地数据库
+			if ('json' == $this->typ)
+			{
+				$this->data->addBody(-140, $data);
+
+			}	
+}
+
+
 
 
 }
