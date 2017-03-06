@@ -52,9 +52,9 @@ $(function() {
                         $.sDialog({
                             content: "订单提交成功",
                             okBtn: false,
-                            cancelBtn: false,
-                            cancelFn: function() { setTimeout("window.location.href = WapSiteUrl", 3000) }
+                            cancelBtn: false
                         });
+                        setTimeout("window.location.href = WapSiteUrl", 2000);
                     } else {
                         $.sDialog({
                             content: data.msg,
