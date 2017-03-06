@@ -178,8 +178,8 @@ var spid = min(dis);
                        {
                         window.location.replace("./index.html");
                        }
-                        abc();
-                    }         
+                        
+                    }        abc(); 
                  $("#shopinfo").html(template.render('shop_info', da));
                     
                  $.getJSON(ApiUrl + "/index.php?ctl=Goods_Goods&met=cur_goodslist&typ=json&shop_id="+getCookie('shot_shop'), function (t)
