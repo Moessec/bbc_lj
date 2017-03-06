@@ -81,6 +81,7 @@ class Buyer_OrderCtl extends Buyer_Controller
 			if ($status == 'finish')
 			{
 				$order_row['order_status'] = Order_StateModel::ORDER_FINISH;
+				$order_row['order_buyer_evaluation_status_finish'] = 0;
 			}
 			//已取消
 			if ($status == 'cancel')
