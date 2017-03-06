@@ -31,9 +31,9 @@ class User_FootprintModel extends User_Footprint
 	 * @return array $data 返回的查询内容
 	 * @access public
 	 */
-	public function getFootprintAll($order_row)
+	public function getFootprintAll($cond_row, $order_row)
 	{
-		$data = $this->getByWhere($order_row);
+		$data = $this->getByWhere($cond_row, $order_row);
 
 		return $data;
 	}
