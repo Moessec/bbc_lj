@@ -159,6 +159,9 @@ $(function() {
     });
 
     var _init = function (address_id) {
+		
+		if (isIntegral) return;
+		
         var totals = 0;
         var gptotl = 0;
         var cptotal = 0;
