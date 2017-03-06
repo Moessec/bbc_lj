@@ -27,6 +27,7 @@ function isEmptyObject(e) {
 
 
 $(function() {
+	var isIntegral = getQueryString("isIntegral");
     // 地址列表
     $('#list-address-valve').click(function(){
         var address_id = $(this).find("#address_id").val();
@@ -387,15 +388,16 @@ $(function() {
                 {
                     total_rate_price = 0
                 }
-                $('#totalPayPrice').html(total_rate_price.toFixed(2));
 
-                if(result.data.user_rate != 100)
-                {
-                    var rate_price = gptotl * (100 - result.data.user_rate)/100;
-                    $("#ratePrice").html(rate_price.toFixed(2));
-
-                    $(".rate-money").show();
+                if (!isIntegral) {
+                    $('#totalPayPrice').html(total_rate_price.toFixed(2));
                 }
+
+                var rate_price = gptotl * (100 - result.data.user_rate)/100;
+                $("#ratePrice").html(rate_price.toFixed(2));
+
+                $(".rate-money").show();
+
 
             }
         });
