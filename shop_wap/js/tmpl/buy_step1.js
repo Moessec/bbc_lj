@@ -16,7 +16,7 @@ var freight_hash,city_id,area_id,province_id
 // 其他变量
 var area_info;
 var goods_id;
-
+var buy_able;
 
 function isEmptyObject(e) {
     var t;
@@ -27,6 +27,7 @@ function isEmptyObject(e) {
 
 
 $(function() {
+	var isIntegral = getQueryString("isIntegral");
     // 地址列表
     $('#list-address-valve').click(function(){
         var address_id = $(this).find("#address_id").val();
@@ -43,7 +44,7 @@ $(function() {
                 }
                 
                 var data = result.data;
-                console.info(data);
+                //console.info(data);
                 data.address_id = address_id;
                 var html = template.render('list-address-add-list-script', data);
                 $("#list-address-add-list-ul").html(html);
@@ -84,12 +85,7 @@ $(function() {
 
 
 
-    
-  
-    //
-    //
-    //
-    //
+
     // 地址新增
     $.animationLeft({
         valve : '#new-address-valve',
@@ -182,6 +178,12 @@ $(function() {
                     });
                     return false;
                 }
+				
+				if(result.data.user_rate == 0)
+                {
+                    result.data.user_rate = 100;
+                }
+				
                 // 商品数据
                 result.data.address_id = address_id;
                 console.info(result.data);
@@ -191,7 +193,7 @@ $(function() {
                 var html = template.render('goods_list', result.data);
                 $("#deposit").html(html);
                 
-
+				buy_able = result.data.buy_able;
 
                 for (var i=0; i<result.data.glist.length; i++) {
                     $.animationUp({
@@ -387,8 +389,11 @@ $(function() {
                 {
                     total_rate_price = 0
                 }
-                $('#totalPayPrice').html(total_rate_price.toFixed(2));
-
+				
+				if (!isIntegral) {
+					$('#totalPayPrice').html(total_rate_price.toFixed(2));
+				}
+				
                 if(result.data.user_rate != 100)
                 {
                     var rate_price = gptotl * (100 - result.data.user_rate)/100;
@@ -396,6 +401,8 @@ $(function() {
 
                     $(".rate-money").show();
                 }
+				
+				
 
             }
         });
@@ -812,7 +819,17 @@ $(function() {
 
     // 支付
     $('#ToBuyStep2').click(function(){
-
+		
+		if(!buy_able)
+        {
+            $.sDialog({
+                content: '有部分商品配送范围无法覆盖您选择的地址，请更换其它商品！',
+                okBtn:false,
+                cancelBtnText:'返回',
+                cancelFn: function() { history.back(); }
+            });
+        }
+		
         if($("#totalPayPrice").html() >= 99999999.99)
         {
             $.sDialog({
