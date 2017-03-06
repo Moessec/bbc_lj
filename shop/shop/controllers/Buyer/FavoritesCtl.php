@@ -246,7 +246,7 @@ class Buyer_FavoritesCtl extends Buyer_Controller
 			$footprint_row['footprint_time:in'] = $re;
 			$footprint_row['common_id:in'] = $goodsallid;
 			//获取所有有详情的足迹
-			$foot = $this->userFootprintModel->getFootprintAll($footprint_row);
+			$foot = $this->userFootprintModel->getFootprintAll($footprint_row, array('footprint_time' => 'DESC'));
 			//以时间为分类分出足迹
 			$ce = array();
 			foreach ($foot as $k => $v)
