@@ -14,6 +14,30 @@
     <link rel="stylesheet" type="text/css" href="../../css/base.css">
     <link rel="stylesheet" type="text/css" href="../../css/nctouch_common.css">
     <link rel="stylesheet" type="text/css" href="../../css/nctouch_cart.css">
+    <style>
+
+     .btn_die{
+                   margin-left:10px; width:150px; height:40px;
+   border: 5px solid #dedede;
+   -moz-border-radius: 15px;      /* Gecko browsers */
+   -webkit-border-radius: 15px;   /* Webkit browsers */
+   border-radius:50px; font-size:20px;cursor:pointer; 
+            }
+            .btn_live{
+                   margin-left:10px; width:150px; height:40px;
+                   background-color:red;
+                   color:white;
+   border: 5px solid red;
+   -moz-border-radius: 15px;      /* Gecko browsers */
+   -webkit-border-radius: 15px;   /* Webkit browsers */
+   border-radius:50px; font-size:20px;cursor:pointer; 
+            }
+   input[type=radio]
+    {
+    -webkit-appearance:radio;
+    }
+    </style>
+   
 </head>
 <body>
 <header id="header" class="fixed">
@@ -130,11 +154,11 @@
 
 
     <!--付款方式Begin-->
-    <div class="nctouch-cart-block mt5"> <a href="javascript:void(0);" class="posr" id="select-payment-valve">
+    <div class="nctouch-cart-block mt5" style="display:none"> <a href="javascript:void(0);" class="posr" id="select-payment-valve">
         <h3><i class="pay"></i>支付方式：</h3>
         <div class="current-con">在线付款</div>
         <input type="hidden" name="pay-selected" id="pay-selected" value="1">
-        <!--<div class="current-con">货到付款</div>-->
+       
         <i class="icon-arrow"></i> </a> </div>
     <!--付款方式End-->
 
@@ -159,15 +183,19 @@
         </div>
     </div>
     <!--选择付款方式End-->
+    
+
+
+     
 
     <!--发票信息Begin-->
-    <div class="nctouch-cart-block mt5"> <a href="javascript:void(0);" class="posr" id="invoice-valve">
+    <!-- <div class="nctouch-cart-block mt5"> <a href="javascript:void(0);" class="posr" id="invoice-valve">
         <h3><i class="invoice"></i>发票信息：</h3>
         <div class="current-con">
             <p id="invContent">不需要发票</p>
             <input type="hidden" name="invoice_id">
         </div>
-        <i class="icon-arrow"></i> </a> </div>
+        <i class="icon-arrow"></i> </a> </div> -->
     <!--发票信息End-->
 
     <!--管理发票信息Begin-->
@@ -334,11 +362,10 @@
     <% for (var k in store_cart_list) { %>
     <div class="nctouch-cart-container">
         <dl class="nctouch-cart-store">
-            <dt><i class="icon-store"></i><%=store_cart_list[k].shop_name%><span data-store_id="<%=k%>" class="store-cod-supported" style="display:none;">（该店铺不支持选定收货地址的货到付款）</span>
+            
+            <dt><i><img src="../../images/Snap.jpg" alt=""> &nbsp;&nbsp;</i><i ><%=store_cart_list[k].shop_address%></i></dt>  
                 <% if (store_cart_list[k].voucher_base != '') { %>
-						<span class="handle">
-							<a href="javascript:void(0);" class="voucher animation-up animation-up<%=k%>"><i></i>使用代金券</a>
-						</span>
+						
                 <% } %>
             </dt>
             <% if(!isEmpty(store_cart_list[k].mansong_info) && store_cart_list[k].mansong_info != null && store_cart_list[k].mansong_info.goods_name != null){ %>
@@ -358,11 +385,7 @@
                     </a>
                 </div>
                 <dl class="goods-info">
-                    <dt class="goods-name">
-                        <a href="<%=WapSiteUrl%>/tmpl/product_detail.html?goods_id=<%=v1.goods_id%>">
-                            <%=v1.goods_base.goods_name%><% if(!v1.buy_able){ %> <span style="color: #db4453;">无货</span><% } %>
-                        </a>
-                    </dt>
+                    <dt class="goods-name"><a href="<%=WapSiteUrl%>/tmpl/product_detail.html?goods_id=<%=v1.goods_id%>"><%=v1.goods_base.goods_name%></a></dt>
                     <dd class="goods-type"><%=v1.goods_base.spec_str%></dd>
                 </dl>
                 <div class="goods-subtotal">
@@ -377,20 +400,73 @@
         </ul>
 
         <div class="nctouch-cart-subtotal">
-            <dl id="voucher<%=k%>" style="display: none;">
-                <dt>代金券</dt>
-                <dd><em id="vourchPrice<%=k%>"></em>元</dd>
+            <dl id="voucher<%=k%>">
+               <a href="javascript:void(0);" class="list-voucher-valve" style="color:#FE943F"> <dt>选择红包</dt>
+                 <input type="hidden" class="inp" name="voucher_id" id="voucher_id" value="<%=store_cart_list[k].shop_id%>"/>
+                <input type="hidden" class="inp" name="voucher_id" id="position" value="<%=k%>"/>
+                <dd style="color:#ED811F;font-weight: 600;"><em id="vourchPrice<%=k%>"></em></dd>
                 <input type="hidden" class="voucher_list" id="vourch_id<%=k%>" name="vourch_id" value="">
             </dl>
+            </a>
+            <div class="nctouch-cart-block">
+        <!--正在使用的默认地址Begin-->
+        <!-- <div class="nctouch-cart-add-default"><a href="javascript:void(0);" class="list-voucher-valve">
             <dl>
-                <dt>物流配送</dt>
-                <dd>运费<em id="storeFreight<%=k%>">0.00</em>元</dd>
+                <input type="hidden" class="inp" name="voucher_id" id="voucher_id" value="<%=store_cart_list[k].shop_id%>"/>
+                <input type="hidden" class="inp" name="voucher_id" id="position" value="<%=k%>"/>
+                
+                <dt style="width:95%;text-align:right;color:#FE943F">选择其他红包</dt>
+                <dd><span id="address"></span></dd>
+            </dl>
+            <i class="icon-arrow"></i>
+            </a></div> -->
+        <!--正在使用的默认地址End-->
+    </div>
+    <!--选择djqBegin-->
+    <div id="list-voucher-wrapper" class="nctouch-full-mask hide">
+        <div class="nctouch-full-mask-bg"></div>
+        <div class="nctouch-full-mask-block">
+            <div class="header">
+                <div class="header-wrap">
+                    <div class="header-l"> <a href="javascript:void(0);"> <i class="back"></i> </a> </div>
+                    <div class="header-title">
+                        <h1>我的红包</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="nctouch-main-layout" style="display: block; position: absolute; top: 0; right: 0; left: 0; bottom:2rem; overflow: hidden; z-index: 1;" id="list-voucher-scroll">
+                <ul class="nctouch-cart-add-list" id="list-voucher-add-list-ul">
+                </ul>
+            </div>
+           
+        </div>
+    </div>
+    <!--选择djqEnd-->
+
+          
+            
+            <div style="display:block;margin-left:5px">
+            <input type="radio" checked="checked" value="<%=k%>" name='ps_type_<%=k%>' class="ps_type">
+            <i style="font-size:13px;">到店自提</i>
+            </div>
+            <div style="display:block ;margin-left:5px">
+            <input type="radio" value=""  name='ps_type_<%=k%>'  class="ps_type" >
+            <i style="font-size:13px">物流配送</i>
+            </div>
+            
+            <dl id='wlps' displayed="displayed" name="<%=k%>">
+                <dt>
+                   配送费
+                  
+               
+                </dt>
+                <dd>运费<em id="storeFreight<%=k%>" name='trans_cost'>0.00</em>元</dd>
             </dl>
             <div class="message">
                 <input type="text" name="remarks" placeholder="店铺订单留言：" rel="<%=k%>" id="storeMessage<%=k%>">
             </div>
             <div class="store-total">
-                本店合计<span><em id="storeTotal<%=k%>" ></em></span>元
+               <!--  本店合计<span><em id="storeTotal<%=k%>" ></em></span>元 -->
             </div>
         </div>
 
@@ -402,7 +478,7 @@
                 <div class="nctouch-bottom-mask-tip"><i></i>点击此处返回</div>
                 <div class="nctouch-bottom-mask-top store-voucher">
                     <i class="icon-store"></i>
-                    <%=store_cart_list[k].shop_name%>&nbsp;&nbsp;领取店铺代金券
+                    <%=store_cart_list[k].shop_name%>&nbsp;&nbsp;领取店铺红包
                     <a href="javascript:void(0);" class="nctouch-bottom-mask-close"><i></i></a>
                 </div>
                 <div class="nctouch-bottom-mask-rolling nctouch-bottom-mask-rolling<%=k%>">
@@ -429,6 +505,116 @@
         <% } %>
 
 
+ <script type="text/javascript">
+            $(function(){
+              $("input[class='ps_type']").change(function(){
+                a=$(this).val();
+               
+                if(a!='')
+                {   wlps=$(this).parent().next().next();
+                    wlps.hide();
+                     //获取运费
+                   cost=wlps.children().next().children('em').html();
+                    //更新合计价格
+                   old_price=$('#totalPrice').html();
+                    old_price= Number(old_price);
+                    cost=Number(cost);
+                    //更新支付总金额
+                    totalPayPrice=$('#totalPayPrice').html();
+                    totalPayPrice=Number(totalPayPrice);
+                    $('#totalPayPrice').html(totalPayPrice-cost);
+                   $('#totalPrice').html(old_price-cost);
+                }
+                else
+                {   
+                    wlps=$(this).parent().next().show();
+                     //获取运费
+                   cost=wlps.children().next().children('em').html();
+                    //更新合计价格
+                   old_price=$('#totalPrice').html();
+                    old_price= Number(old_price);
+                    cost=Number(cost);
+                   $('#totalPrice').html(old_price+cost);
+                     //更新支付总金额
+                    totalPayPrice=$('#totalPayPrice').html();
+                    totalPayPrice=Number(totalPayPrice);
+                    $('#totalPayPrice').html(totalPayPrice+cost);
+                }
+               
+             
+                
+              });
+              
+
+
+
+
+
+
+        $('.list-voucher-valve').click(function(){
+       
+        var shop_id = $(this).find("#voucher_id").val();
+        var position = $(this).find("#position").val();
+        $.ajax({
+           type:'post',
+            url:ApiUrl+'index.php?ctl=Buyer_Cart&met=confirm&typ=json',
+            data:{k:key, u:getCookie('id'),product_id:cart_id,position:position},
+            dataType:'json',
+           async:true,
+           
+            success:function(result){
+               
+            
+              
+                result.data.glist[shop_id]['position']=position;
+            
+                
+                 var html = template.render('list-voucher-add-list-script', result.data.glist[shop_id]);
+                  $("#list-voucher-add-list-ul").html(html);
+            }
+        });
+
+         });
+
+
+         $.animationLeft({
+        valve : '.list-voucher-valve',
+        wrapper : '#list-voucher-wrapper',
+        scroll : '#list-voucher-scroll'
+         });
+       
+        
+        
+
+    // // 地区选择
+    $('#list-voucher-add-list-ul').on('click', 'li', function(){
+       
+        eval('voucher_info = ' + $(this).attr('data-param'));
+         var voucher_position='vourchPrice'+voucher_info.position;
+        var sel="#"+voucher_position;
+        var oldPrice= $(sel).html();//旧红包
+        $(sel).html(voucher_info.voucher_price);
+        var oldTotalPrice=$('#totalPrice').html();
+        //原价
+        var beforePrice=parseInt(oldTotalPrice)+parseInt(oldPrice);
+        var newPrice=beforePrice-voucher_info.voucher_price;
+         $('#totalPrice').html(newPrice);
+         //折扣
+          var rate=$('#ratePrice').html();
+          var newAll=newPrice-rate;
+          $("#totalPayPrice,#onlineTotal").html(newAll);
+          //更换编号
+          var oldvc='#vourch_id'+voucher_info.position;
+          var newid=voucher_info.voucher_id;
+        
+          $(oldvc).val(newid);
+      
+        $('#list-voucher-wrapper').find('.header-l > a').click();
+    });
+   
+
+            });
+            </script>
 
 </script>
 <script type="text/html" id="list-address-add-list-script">
@@ -441,6 +627,56 @@
     </dl>
     </li>
     <% } %>
+</script>
+<script type="text/html" id="list-voucher-add-list-script">
+   
+    <%for( var i in voucher_base){%>
+   
+
+
+   <!--  <li style="background: url(../../../../shop/shop/static/default/images/line_50.png) no-repeat;background-size:cover;margin-top:10px;margin-left:10px; margin-right:10px"  data-param="{voucher_id:<%=voucher_base[i].voucher_id%>,voucher_price:<%=voucher_base[i].voucher_price%>,position:<%=position%>}">
+                   
+                        <dl style="padding: 0.5rem 0.5rem 0 0px;height:139px">
+                           
+                      <dd style="height:30px;text-align:left;margin:13px 0.5rem 0 3%">
+                      <span style="color:red;font-size:14px"><b>￥<%=voucher_base[i].voucher_price %></b></span>
+                       
+                  
+                               
+                     </dd>   
+                    
+                   
+                   
+                     <dd style="height:30px;text-align:left;margin:15px 0.5rem 0 3%">
+                      (满 <span style="color:red"><%=voucher_base[i].voucher_limit %>元 </span>
+                                   可用)
+                     </dd>
+                     
+                    <dd style="height:30px;text-align:left;margin:13px 0.5rem 0 3%">
+                    <span>有效期至&nbsp;    <%=voucher_base[i].voucher_end_date %></span>
+
+                   
+
+                    </dd>
+              
+                           
+                        </dl>
+                      
+                    </li> -->
+                   <li style="background-color:RGBA(244,244,244,0.6);height:128px;border-bottom:0" data-param="{voucher_id:<%=voucher_base[i].voucher_id%>,voucher_price:<%=voucher_base[i].voucher_price%>,position:<%=position%>}">
+       <div style="margin:0px 30px 0 30px;height:104px;line-height:128px;background-color:RGB(254,254,254);">
+                    <div style="display:inline;height:108px;width:108px;float:left;text-align:center;line-height:102px;font-size:30px;color:rgb(234,138,62);border-right:0.5px solid RGBA(244,244,244,1);"><span style="font-size:21px">￥</span><%=voucher_base[i].voucher_price %></div>
+                    <div style="display:inline;height:102px;float:right;width:180px" >
+                    <div style="text-align:left;line-height:36px;font-size:15px"><%=shop_name%></div>
+                    <div style="text-align:left;line-height:36px;font-size:15px;color:rgb(189,189,189)">购物满<%=voucher_base[i].voucher_limit %>元可用</div>
+                    <div style="text-align:left;line-height:36px;font-size:15px;color:rgb(189,189,189)">有效期至：
+                    <%=voucher_base[i].voucher_end_date.substr(0,10) %></div>
+
+                    </div>
+                    </div>
+   </li>
+ <%}%>
+
 </script>
 <script type="text/html" id="invoice-list-script">
     <div  id="normal">
@@ -524,6 +760,7 @@
                 min-height: 0.95rem;
                 width: 95%;
             }
+           
         </style>
     </div>
 
@@ -613,6 +850,6 @@
 <script type="text/javascript" src="../../js/simple-plugin.js"></script>
 <script type="text/javascript" src="../../js/tmpl/order_payment_common.js"></script>
 <script type="text/javascript" src="../../js/tmpl/buy_step1.js"></script>
-<script type="text/javascript" src="../../js/tmpl/integral_product_buy.js"></script>
+<!-- <script type="text/javascript" src="../../js/tmpl/vconsole.min.js"></script> -->
 </body>
 </html>
