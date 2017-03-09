@@ -1594,7 +1594,7 @@ class Goods_GoodsCtl extends Controller
  }
   public function getwap_banner()
 	 {
-	 	$config_type = 'index_slider';
+	 	$config_type = 'wap_index_banner';
 
 	 	//$rows = $this->advWapAdvModel->getConfigValue($config_type);
 	 	$Web_ConfigModel = new Web_ConfigModel();
