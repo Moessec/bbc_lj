@@ -203,8 +203,11 @@
                 var result = xhr.responseText;
                 var json = eval("(" + result + ")");
                 var img = document.getElementById('img');
+                var img = document.getElementById('imgPre');
                 var val = img.value;
                 img.value=json.file+val;
+                imgPre.value=json.file+val;
+				alert(imgPre.value);
                 alert("上传成功");
             }
         }
@@ -228,10 +231,7 @@
     function preImg(sourceId, targetId) { 
     var url = getFileUrl(sourceId); 
     var imgPre = document.getElementById(targetId); 
-	alert(url);
-	alert(sourceId);
-	alert(targetId);
-    imgPre.src = url; 
+    //imgPre.src = url; 
     } 
 
 </script>
