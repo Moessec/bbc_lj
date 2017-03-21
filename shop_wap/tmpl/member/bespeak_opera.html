@@ -197,7 +197,7 @@
     function handleStateChange()
     {
         if(xhr.readyState == 4)
-        {alert(xhr.status);
+        {
             if (xhr.status == 200 || xhr.status == 0)
             {
                 var result = xhr.responseText;
@@ -228,6 +228,9 @@
     function preImg(sourceId, targetId) { 
     var url = getFileUrl(sourceId); 
     var imgPre = document.getElementById(targetId); 
+	alert(url);
+	alert(sourceId);
+	alert(targetId);
     imgPre.src = url; 
     } 
 
