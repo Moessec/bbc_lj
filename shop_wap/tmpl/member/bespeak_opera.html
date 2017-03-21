@@ -202,9 +202,11 @@
                 var result = xhr.responseText;
                 var json = eval("(" + result + ")");
                 var img = document.getElementById('img');
-                var val = img.value
+                var val = img.value;
+				alert(val);
+				alert(json.file+val);
                 img.value=json.file+val;
-                alert("上传成功");
+                alert("上传1成功");
             }
         }
     }
