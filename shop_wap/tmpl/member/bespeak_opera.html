@@ -197,16 +197,15 @@
     function handleStateChange()
     {
         if(xhr.readyState == 4)
-        {
+        {alert(xhr.status);
             if (xhr.status == 200 || xhr.status == 0)
             {
                 var result = xhr.responseText;
                 var json = eval("(" + result + ")");
                 var img = document.getElementById('img');
                 var val = img.value;
-                img.value=SiteUrl+'shop/data'+json.file+val;
-                alert(img.value);
-                alert("上传12成功");
+                img.value=json.file+val;
+                alert("上传成功");
             }
         }
     }
