@@ -189,9 +189,10 @@
         var form = new FormData();
         form.append("myfile", fileObj);
         createXMLHttpRequest();
-        xhr.onreadystatechange = handleStateChange;
+       
         xhr.open("post", FileController, true);
         xhr.send(form);
+		 xhr.onreadystatechange = handleStateChange;
     }
     function handleStateChange()
     {
@@ -201,16 +202,16 @@
             {
                 var result = xhr.responseText;
                 var json = eval("(" + result + ")");
-                var img = document.getElementById('img');
+               // var img = document.getElementById('img');
                 var imgPre = document.getElementById('imgPre');
                 var val = img.value;
-				alert(val);
+			
 				alert(json.file);
 				alert(json.file+val);
-                img.value=json.file+val;
+              //  img.value=json.file+val;
                 imgPre.value=json.file+val;
                 alert(img.value);
-                alert("上传123成功");
+                alert("上传1213成功");
             }
         }
     }
